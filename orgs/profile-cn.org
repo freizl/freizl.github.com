@@ -1,0 +1,107 @@
+#+TITLE: 简历
+#+LANGUAGE: cn
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+OPTIONS: num:2 toc:nil
+#+DESCRIPTION: resume, cv
+
+* 个人信息
+| 姓名   | 电话          | 出生年月 |
+|--------+-----------------+----------|
+| 吴海生 | +86 18616330571 |  1983-06 |
+
+[[file:images/1.jpg][profile]]
+
+* 自我评价
+  - 能好的学习,实践新技术的能力.
+  - 较好的团队协作能力和团队精神.
+  - 积极主动有效的解决工作中遇到的问题.
+  - 愿意与团队成员分享技术知识,共同进步.
+  - 喜欢解决技术问题,对程序设计,程序应用充满兴趣和热情.
+  - 流利的英语书写和交流技能; 有过海外工作学习经历.
+    
+* 工作经验
+| 时间              | 公司                           | 职位         |
+|-------------------+----------------------------------+----------------|
+| 09/2011 - 02/2012 | 羿锐信息科技(上海)有限公司 | 高级软件工程师 |
+| 11/2010 - 10/2011 | 易安信信息技术研发(上海)有限公司 | 高级软件工程师 |
+| 10/2006 - 10/2010 | 博克软件(杭州)有限公司 | 高级软件工程师 |
+| 07/2005 - 10/2006 | 杭州国泰科技有限公司   | 软件工程师 |
+  
+* 项目经验
+** Energy and Emissions Management Product
+The purpose of the product is to build software solutions that enable
+organizations to optimize their energy and emissions strategy.
+*** Responsibilities
+  - Develop UI utilizing ExtJS.
+  - Application implementation utilizing a domain specific language.
+
+** REVIEWBOARD PROGRAM ENHANCEMENT
+The purpose of this project is to have some enhancement into the
+ReviewBoard which is a on-line code review application.
+*** Responsibilities
+  - ReviewBoard 的 bug 修复和功能加强(Django 框架,Linux 平台)
+  - 通过 Web Service 实现和 TeamForge(...) 集成和交换.
+
+** PROJECT PORTAL PROGRAM
+The purpose of this project is to build a unified data sets from
+various existing applications and generate high level statistics
+report.
+*** Responsibilities
+  - 基于 Flex 4 的用户界面开发。
+  - 基于 Spring 框架的 Web Services 开发.
+  - 使用 Perl 开发 ETL 工具.
+
+** STATE CHILDREN’S HEALTH INSURANCE PROGRAM
+The purpose of the project is to build a Children Health Insurance
+Program (CHIP) Application for a specific State base on the Platform
+built before.
+*** Responsibilities
+  - 基于 MVP 模式的 UI 框架设计.
+  - UI 界面开发(使用 Google Web Toolkit).
+  - EJB 组件开发 (使用 JPA, iBatis)
+  - 技术文档设计.
+
+** ORACLE FUSION INTEGRATION & SUPPORT
+The purpose of this project is to build a SOA based foundational
+integration layer that allows scalable, seamless, and reliable
+communication between the multiple disparate systems.
+*** Responsibilities
+  - 设计开发文档.
+  - 开发 ESB 和 BPEL 组件(JDeveloper IDE, Windows 平台).
+  - 单元测试和系统测试.
+  - 日志的处理和分析 (使用 Perl 脚本, Linux 平台).
+
+** HEALTH INSURANCE PROGRAM PLATFORM
+The purpose of the project is to build a Platform which collect
+functions that are usable across multiple applications for the
+Children Health Insurance Program (CHIP).
+*** Responsibilities
+  - Java EE 模块开发.
+  - 基于 Prototype 框架的用户界面开发.
+  - 设计详细开发文档.
+  - 单元测试和功能测试.
+
+* EDUCATION BACKGROUND
+| Time Period       | School                        | Major            | Degree   |
+|-------------------+-------------------------------+------------------+----------|
+| 09/2001 - 06/2005 | 浙江工商大学  | 计算机科学与技术  | 本科 |
+  
+* 证书
+| 时间    | 名称                       |
+|---------+----------------------------|
+| 07/2010 | Scrum Master Certification |
+
+* 专业技能
+| 名称           | 熟练程度 |
+|----------------+------------------|
+| Bash Shell     | Average          |
+| CSS            | Proficient       |
+| Haskell        | Average          |
+| Java           | Average          |
+| JavaScript     | Proficient       |
+| Perl           | Proficient       |
+| Python         | Average          |
+| SQL            | Proficient       |
+| XML/XPath/XLST | Proficient       |
+

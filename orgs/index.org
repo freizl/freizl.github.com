@@ -6,3 +6,4 @@
 
 * About me
 ** [[/profile.html][profile-en]]
+** [[/profile-cn.html][profile-cn]]

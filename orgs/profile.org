@@ -2,15 +2,18 @@
 #+LANGUAGE: en
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
+#+DATE: 
 #+OPTIONS: num:2 toc:nil
 #+DESCRIPTION: resume, cv
+#+LaTeX_CLASS_OPTIONS: [a4paper]
 
 * PROFILE
-| Name         | Gender | Mobile          |    Born |
-|--------------+--------+-----------------+---------|
-| Wu, Haisheng | Male   | +86 18616330571 | 1983-06 |
+| Name         | Mobile          |    Born |
+|--------------+-----------------+---------|
+| Wu, Haisheng | +86 18616330571 | 1983-06 |
 
-[[file:images/1.jpg][profile]]
+#+ATTR_LaTeX: width=0.2\textwidth
+[[file:images/1.jpg]]
 
 * SELF-ASSESSMENT
   - Able to learn new technology quickly and work independently.
