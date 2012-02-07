@@ -2,7 +2,6 @@
 #+LANGUAGE: cn
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
-#+DATE: 
 #+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
 #+OPTIONS: num:nil toc:nil author:nil
 #+DESCRIPTION: resume, cv
