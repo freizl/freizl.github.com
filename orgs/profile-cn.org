@@ -1,16 +1,30 @@
-#+TITLE: 简历
+#+TITLE: 吴海生
 #+LANGUAGE: cn
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
-#+OPTIONS: num:2 toc:nil
+#+DATE: 
+#+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
+#+OPTIONS: num:1 toc:nil author:nil
 #+DESCRIPTION: resume, cv
 
-* 个人信息
-| 姓名   | 电话          | 出生年月 |
-|--------+-----------------+----------|
-| 吴海生 | +86 18616330571 |  1983-06 |
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt,helvet]
+#+LaTeX_HEADER: \usepackage{resume}
 
-[[file:images/1.jpg][profile]]
+#+BIND: org-export-latex-tables-centered nil
+
+#+LaTeX_HEADER: \usepackage[T1]{fontenc}
+#+LaTeX_HEADER: \usepackage{mathptmx} 
+#+LaTeX_HEADER: \usepackage[scaled=.90]{helvet} 
+#+LaTeX_HEADER: \usepackage{courier}
+
+* 个人信息
+  - 电话: 18616330571
+  - 电子邮箱: freizl@gmail.com
+  - 参加工作: 2005-07
+  - 籍贯： 浙江乐清
+
+#+ATTR_LaTeX: width=0.2\textwidth
+[[file:images/1.jpg]]
 
 * 自我评价
   - 能好的学习,实践新技术的能力.
@@ -21,87 +35,68 @@
   - 流利的英语书写和交流技能; 有过海外工作学习经历.
     
 * 工作经验
-| 时间              | 公司                           | 职位         |
-|-------------------+----------------------------------+----------------|
-| 09/2011 - 02/2012 | 羿锐信息科技(上海)有限公司 | 高级软件工程师 |
-| 11/2010 - 10/2011 | 易安信信息技术研发(上海)有限公司 | 高级软件工程师 |
-| 10/2006 - 10/2010 | 博克软件(杭州)有限公司 | 高级软件工程师 |
-| 07/2005 - 10/2006 | 杭州国泰科技有限公司   | 软件工程师 |
+  - 高级软件工程师, 羿锐信息科技(上海)有限公司, 09/2011 - 02/2012
+  - 高级软件工程师, 易安信信息技术研发(上海)有限公司, 11/2010 - 10/2011
+  - 高级软件工程师, 博克软件(杭州)有限公司, 10/2006 - 10/2010
+  - 软件工程师, 杭州国泰科技有限公司, 07/2005 - 10/2006
   
 * 项目经验
 ** Energy and Emissions Management Product
-The purpose of the product is to build software solutions that enable
-organizations to optimize their energy and emissions strategy.
-*** Responsibilities
-  - Develop UI utilizing ExtJS.
-  - Application implementation utilizing a domain specific language.
+*** 职责
+  - 基于ExtJS的用户界面实现设计.
+  - 基于一种DSL(domain specific language)的.
 
-** REVIEWBOARD PROGRAM ENHANCEMENT
-The purpose of this project is to have some enhancement into the
-ReviewBoard which is a on-line code review application.
-*** Responsibilities
+** Reviewboard Program Enhancement
+*** 职责
   - ReviewBoard 的 bug 修复和功能加强(Django 框架,Linux 平台)
-  - 通过 Web Service 实现和 TeamForge(...) 集成和交换.
+  - 通过 Web Service 实现和 TeamForge(项目管理软件) 集成和交换.
 
-** PROJECT PORTAL PROGRAM
-The purpose of this project is to build a unified data sets from
-various existing applications and generate high level statistics
-report.
-*** Responsibilities
+** Project Portal Program
+*** 职责
   - 基于 Flex 4 的用户界面开发。
   - 基于 Spring 框架的 Web Services 开发.
   - 使用 Perl 开发 ETL 工具.
 
-** STATE CHILDREN’S HEALTH INSURANCE PROGRAM
-The purpose of the project is to build a Children Health Insurance
-Program (CHIP) Application for a specific State base on the Platform
-built before.
-*** Responsibilities
+** State Children’S Health Insurance Program
+设计一个针对健康保险业务的通用平台, 使用Google Web Toolkit(GWT)重新定制用户界面, 简化Ajax应用的开发。
+*** 职责
   - 基于 MVP 模式的 UI 框架设计.
   - UI 界面开发(使用 Google Web Toolkit).
   - EJB 组件开发 (使用 JPA, iBatis)
   - 技术文档设计.
 
-** ORACLE FUSION INTEGRATION & SUPPORT
-The purpose of this project is to build a SOA based foundational
-integration layer that allows scalable, seamless, and reliable
-communication between the multiple disparate systems.
-*** Responsibilities
+** Oracle Fusion Integration & Support
+设计一个基于SOA架构的,稳定的,易扩展的中间件平台, 以用于集成各个业务系统以及旧有系统, 并支持以后业务需求的夸张.
+*** 职责
   - 设计开发文档.
   - 开发 ESB 和 BPEL 组件(JDeveloper IDE, Windows 平台).
   - 单元测试和系统测试.
   - 日志的处理和分析 (使用 Perl 脚本, Linux 平台).
 
-** HEALTH INSURANCE PROGRAM PLATFORM
-The purpose of the project is to build a Platform which collect
-functions that are usable across multiple applications for the
-Children Health Insurance Program (CHIP).
-*** Responsibilities
+** Health Insurance Program Platform
+实现一个关于健康保险业务的通用平台, 以便于针对不同地区可以比较方便的进行扩张.
+*** 职责
   - Java EE 模块开发.
   - 基于 Prototype 框架的用户界面开发.
   - 设计详细开发文档.
   - 单元测试和功能测试.
 
-* EDUCATION BACKGROUND
-| Time Period       | School                        | Major            | Degree   |
-|-------------------+-------------------------------+------------------+----------|
-| 09/2001 - 06/2005 | 浙江工商大学  | 计算机科学与技术  | 本科 |
+* 教育背景
+  - 浙江工商大学, 计算机科学与技术学士, 09/2001
   
 * 证书
-| 时间    | 名称                       |
-|---------+----------------------------|
-| 07/2010 | Scrum Master Certification |
+  - Scrum Master Certification, 07/2010
 
 * 专业技能
 | 名称           | 熟练程度 |
-|----------------+------------------|
-| Bash Shell     | Average          |
-| CSS            | Proficient       |
-| Haskell        | Average          |
-| Java           | Average          |
-| JavaScript     | Proficient       |
-| Perl           | Proficient       |
-| Python         | Average          |
-| SQL            | Proficient       |
-| XML/XPath/XLST | Proficient       |
+|----------------+----------|
+| Bash Shell     | 中等   |
+| CSS            | 熟练   |
+| Haskell        | 中等   |
+| Java           | 中等   |
+| JavaScript     | 熟练   |
+| Perl           | 熟练   |
+| Python         | 中等   |
+| SQL            | 熟练   |
+| XML/XPath/XLST | 熟练   |
 

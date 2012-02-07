@@ -16,8 +16,9 @@
 #+LaTeX_HEADER: \usepackage{courier}
 
 * PROFILE
-- Mobile: +86 18616330571
-- eMail : freizl@gmail.com
+  - Mobile: +86 18616330571
+  - eMail : freizl@gmail.com
+  - Attend work: 07/2005
 
 #+ATTR_LaTeX: width=0.2\textwidth
 [[file:images/1.jpg]]
