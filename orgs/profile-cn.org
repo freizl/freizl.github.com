@@ -4,7 +4,7 @@
 #+EMAIL: freizl@gmail.com
 #+DATE: 
 #+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
-#+OPTIONS: num:1 toc:nil author:nil
+#+OPTIONS: num:nil toc:nil author:nil
 #+DESCRIPTION: resume, cv
 
 #+LaTeX_CLASS_OPTIONS: [a4paper,12pt,UTF8]
