@@ -7,15 +7,11 @@
 #+OPTIONS: num:1 toc:nil author:nil
 #+DESCRIPTION: resume, cv
 
-#+LaTeX_CLASS_OPTIONS: [a4paper,11pt,helvet]
+#+LaTeX_CLASS_OPTIONS: [a4paper,12pt,UTF8]
 #+LaTeX_HEADER: \usepackage{resume}
+#+LaTeX_HEADER: \usepackage{CJKutf8}
 
 #+BIND: org-export-latex-tables-centered nil
-
-#+LaTeX_HEADER: \usepackage[T1]{fontenc}
-#+LaTeX_HEADER: \usepackage{mathptmx} 
-#+LaTeX_HEADER: \usepackage[scaled=.90]{helvet} 
-#+LaTeX_HEADER: \usepackage{courier}
 
 * 个人信息
   - 电话: 18616330571

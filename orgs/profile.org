@@ -3,6 +3,7 @@
 #+AUTHOR: Haisheng, Wu
 #+EMAIL: freizl@gmail.com
 #+DATE: 
+#+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
 #+OPTIONS: num:1 toc:nil author:nil
 #+DESCRIPTION: resume, cv
 
@@ -33,7 +34,7 @@
   - Have oversea working experience.
     
 * WORK EXPERIENCE
-  - Senior Technical Staff at C3, China Ltd.            , 09/2011 - 02/2012
+  - Technical Staff at C3-e Tech (Shanghai) Co., Ltd. , 09/2011 - 02/2012
   - Senior Engineer        at EMC Corporation           , 11/2010 - 10/2011
   - Senior Engineer        at Perficient China Ltd.     , 10/2006 - 10/2010
   - Engineer               at Zhejiang Guotai Tech Inc. , 07/2005 - 10/2006
