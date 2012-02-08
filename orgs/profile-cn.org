@@ -16,9 +16,8 @@
 
 * 个人信息
   - 电话 : 18616330571
-  - 电子邮箱 : freizl@gmail.com
+  - 电子邮箱 : [[mailto:freizl@gmail.com][freizl@gmail.com]]
   - 出生年月 : 06/1983
-  - 参加工作 : 07/2005
   - 籍贯 : 浙江乐清
 
 #+ATTR_LaTeX: width=0.2\textwidth

@@ -17,7 +17,7 @@
 
 * PROFILE
   - Mobile      : +86 18616330571
-  - eMail       : freizl@gmail.com
+  - eMail       : [[mailto:freizl@gmail.com][freizl@gmail.com]]
   - Born        : 06/1983
 #+ATTR_LaTeX: scale=0.5 
 [[file:images/1.jpg]]
