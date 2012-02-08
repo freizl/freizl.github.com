@@ -6,17 +6,20 @@
 #+OPTIONS: num:nil toc:nil author:nil
 #+DESCRIPTION: resume, cv
 
-#+LaTeX_CLASS_OPTIONS: [a4paper,12pt,UTF8]
+#+LaTeX_CLASS_OPTIONS: [a4paper,12pt,UTF8,nofontenc]
 #+LaTeX_HEADER: \usepackage{resume}
-#+LaTeX_HEADER: \usepackage{CJKutf8}
+#+LaTeX_HEADER: \usepackage{CJK}
+
+#+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}
 
 #+BIND: org-export-latex-tables-centered nil
 
 * 个人信息
-  - 电话: 18616330571
-  - 电子邮箱: freizl@gmail.com
-  - 参加工作: 2005-07
-  - 籍贯： 浙江乐清
+  - 电话 : 18616330571
+  - 电子邮箱 : freizl@gmail.com
+  - 出生年月 : 06/1983
+  - 参加工作 : 07/2005
+  - 籍贯 : 浙江乐清
 
 #+ATTR_LaTeX: width=0.2\textwidth
 [[file:images/1.jpg]]
@@ -30,10 +33,10 @@
   - 流利的英语书写和交流技能; 有过海外工作学习经历.
     
 * 工作经验
-  - 高级软件工程师, 羿锐信息科技(上海)有限公司, 09/2011 - 02/2012
-  - 高级软件工程师, 易安信信息技术研发(上海)有限公司, 11/2010 - 10/2011
-  - 高级软件工程师, 博克软件(杭州)有限公司, 10/2006 - 10/2010
-  - 软件工程师, 杭州国泰科技有限公司, 07/2005 - 10/2006
+  - 高级软件工程师, 羿锐信息科技(上海)有限公司, 09/2011 ~ 02/2012
+  - 高级软件工程师, 易安信信息技术研发(上海)有限公司, 11/2010 ~ 10/2011
+  - 高级软件工程师, 博克软件(杭州)有限公司, 10/2006 ~ 10/2010
+  - 软件工程师, 杭州国泰科技有限公司, 07/2005 ~ 10/2006
   
 * 项目经验
 ** Energy and Emissions Management Product
@@ -77,7 +80,7 @@
   - 单元测试和功能测试.
 
 * 教育背景
-  - 浙江工商大学, 计算机科学与技术学士, 09/2001
+  - 浙江工商大学, 计算机科学与技术学士, 09/2001 ~ 07/2005
   
 * 证书
   - Scrum Master Certification, 07/2010
