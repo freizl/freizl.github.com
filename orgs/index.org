@@ -1,9 +1,10 @@
-#+TITLE: Github index
+#+TITLE: Happy Git
 #+LANGUAGE: en
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
 #+OPTIONS: toc:nil num:nil
+#+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
 
 * About me
-** [[/profile.html][profile-en]]
-** [[/profile-cn.html][profile-cn]]
+  - [[/orgs/profile.pdf][profile-EN]]
+  - [[/orgs/profile-cn.pdf][profile-CN]]
