@@ -39,7 +39,7 @@
 ** Energy and Emissions Management Product
 *** 职责
   - 基于ExtJS的用户界面实现设计.
-  - 基于一种DSL(domain specific language)的.
+  - 基于一种DSL(domain specific language)的业务逻辑实现.
 
 ** Reviewboard Program Enhancement
 *** 职责
