@@ -3,15 +3,13 @@
 #+AUTHOR: Haisheng Wu
 #+EMAIL: freizl@gmail.com
 #+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
-#+OPTIONS: num:nil toc:nil author:nil
+#+OPTIONS: num:nil toc:nil
 #+DESCRIPTION: resume, cv
 
-#+LaTeX_CLASS_OPTIONS: [a4paper,12pt,UTF8,nofontenc]
-#+LaTeX_HEADER: \usepackage{resume}
-#+LaTeX_HEADER: \usepackage{CJK}
-
-#+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}
-
+#+LaTeX_CLASS_OPTIONS: [a4paper,12pt]
+#+LATEX_HEADER: \usepackage{xltxtra}
+#+LATEX_HEADER: \usepackage{resume}
+#+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}
 #+BIND: org-export-latex-tables-centered nil
 
 * 个人信息
@@ -41,7 +39,7 @@
 ** Energy and Emissions Management Product
 *** 职责
   - 基于ExtJS的用户界面实现设计.
-  - 基于一种DSL(domain specific language)的.
+  - 基于一种DSL(domain specific language)的业务逻辑实现.
 
 ** Reviewboard Program Enhancement
 *** 职责
