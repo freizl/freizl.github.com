@@ -1,0 +1,52 @@
+#+TITLE: Wu, Haisheng
+#+LANGUAGE: en
+#+AUTHOR: Haisheng, Wu
+#+EMAIL: freizl@gmail.com
+#+DATE: 
+#+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
+#+OPTIONS: num:1 toc:nil author:nil
+#+DESCRIPTION: resume, cv
+
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt,helvet]
+#+LaTeX_HEADER: \usepackage{resume}
+#+LaTeX_HEADER: \usepackage{mathptmx} 
+#+LaTeX_HEADER: \usepackage{helvet} 
+#+LaTeX_HEADER: \usepackage{courier}
+
+* PROFILE
+  - Mobile      : +86 18616330571
+  - eMail       : [[mailto:freizl@gmail.com][freizl@gmail.com]]
+  - Born        : 06/1983
+#+ATTR_LaTeX: scale=0.5 
+[[file:../images/1.jpg]]
+
+* SELF-ASSESSMENT
+  - Be able to learn new technology quickly and work independently.
+  - Have taken initiative to proactively resolve the technical issues.
+  - Willing to share technical knowledge with team members actively.
+  - Have great passion on development, delivery as well as problem solving.
+  - Good team player and leadership experience.
+  - Have oversea working experience.
+  - Fluent English at both speaking and writing.
+    
+* SKILL SETS
+  - Languages: JavaScript, Java, Python, Perl, ActionScript
+  - UI: CSS, prototype.js, ExtJS, GWT, Django
+  - Open source library: Spring, Hibernate, WebWork
+  - Database: MySQL, Oracle
+  - Operating System: Ubuntu, CentOS, WindowsXP
+  - Others: Bash Shell, XPath/XSLT, Haskell, Oracle Fusion
+
+* WORK EXPERIENCE
+  - Technical Staff at C3-e Tech (Shanghai) Co., Ltd. , 09/2011 ~ 02/2012
+  - Senior Engineer        at EMC Corporation           , 11/2010 ~ 10/2011
+  - Senior Engineer        at Perficient China Ltd.     , 10/2006 ~ 10/2010
+  - Engineer               at Zhejiang Guotai Tech Inc. , 07/2005 ~ 10/2006
+
+* EDUCATION BACKGROUND
+  - Zhejiang Gongshang University, Bachelor of Computer Science,
+    09/2001 ~ 07/2005
+  
+* CERTIFICATIONS
+ - Scrum Master Certification, 07/2010
+
