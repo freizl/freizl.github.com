@@ -11,12 +11,12 @@
 #+LaTeX_HEADER: \usepackage{resume}
 #+LaTeX_HEADER: \usepackage[urw-garamond]{mathdesign}
 
-* PROFILE
-  - Mobile      : (+86) 18 616 330 571
+* Profile
+  - Mobile      : (+86) 186 1633 0571
   - Email       : [[mailto:freizl@gmail.com][freizl@gmail.com]]
-  - Born        : 06/1983
+  - Born        : Jun,1983
 
-* SELF-ASSESSMENT
+* Self assessment
   - Be able to learn new technology quickly and work independently.
   - Have taken initiative to proactively resolve the technical issues.
   - Willing to share technical knowledge with team members actively.
@@ -25,22 +25,31 @@
   - Have oversea working experience.
   - Fluent English at both speaking and writing.
     
-* TECHNICAL SKILLS
+* Technical skills
   - *Languages*: JavaScript, Java, Python, Perl, ActionScript
   - *Web Technologies*: ExtJS, PrototypeJS, CSS, XML, XLST, GWT, Django
   - *Open source library*: Spring, Hibernate, WebWork
   - *Database*: MySQL, Oracle
   - *Operating System*: Ubuntu, CentOS, WindowsXP
 
-* WORK EXPERIENCE
-  - 09/2011 - 02/2012, Technical Staff at C3-e Tech (Shanghai) Co., Ltd. 
-  - 11/2010 - 10/2011, Senior Engineer at EMC Corporation
-  - 10/2006 - 10/2010, Senior Engineer at Perficient China Ltd.
-  - 07/2005 - 10/2006, Engineer at Zhejiang Guotai Tech Inc.
+* Work experience
+  - 09/2011 - 02/2012, Technical Staff at C3-e Tech (Shanghai) Co.
+    Ltd.
 
-* EDUCATION
+    UI and applications developer.
+  - 11/2010 - 10/2011, Senior Engineer at EMC Corporation.
+
+    Applications & tools developer and build master.
+  - 10/2006 - 10/2010, Senior Engineer at Perficient China Ltd.
+
+    Enterprise Software consultant developer.
+  - 07/2005 - 10/2006, Engineer at Zhejiang Guotai Tech Inc.
+    
+    Web based Java application developer.
+
+* Education
   - 09/2001 - 07/2005, Zhejiang Gongshang University, Bachelor of Computer Science
   
-* CERTIFICATIONS
+* Certifications
   - 07/2010, Scrum Master Certification
 
