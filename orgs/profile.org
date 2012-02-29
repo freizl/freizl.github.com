@@ -7,20 +7,19 @@
 #+OPTIONS: num:1 toc:nil author:nil
 #+DESCRIPTION: resume, cv
 
-#+LaTeX_CLASS_OPTIONS: [a4paper,11pt,helvet]
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
 #+LaTeX_HEADER: \usepackage{resume}
 #+BIND: org-export-latex-tables-centered nil
 
-#+LaTeX_HEADER: \usepackage{mathptmx} 
-#+LaTeX_HEADER: \usepackage{helvet} 
-#+LaTeX_HEADER: \usepackage{courier}
+#+LaTeX_HEADER: \usepackage{resume}
+#+LaTeX_HEADER: \usepackage[urw-garamond]{mathdesign}
 
 * PROFILE
   - Mobile      : +86 18616330571
   - eMail       : [[mailto:freizl@gmail.com][freizl@gmail.com]]
   - Born        : 06/1983
 #+ATTR_LaTeX: scale=0.5 
-[[file:images/1.jpg]]
+[[file:../images/1.jpg]]
 
 * SELF-ASSESSMENT
   - Able to learn new technology quickly and work independently.

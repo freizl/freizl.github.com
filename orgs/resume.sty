@@ -6,8 +6,11 @@
 %% \usepackage{enumitem} %custom lists
 \usepackage{calc}
 
-\usepackage{color}
+\usepackage[dvips]{color}
 \usepackage{hyperref}
+
+\usepackage{simplemargins}
+
 \definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{colorlinks,breaklinks, urlcolor=linkcolour,linkcolor=linkcolour}
 
@@ -15,6 +18,11 @@
 \definecolor{sectioncolor}{rgb}{0.35,0.45,0.55}
 
 \pagestyle{empty} % plain
+
+\setleftmargin{1.5cm}
+\setrightmargin{2cm}
+\settopmargin{1.5cm}
+\setbottommargin{1cm}
 
 % Header spacing
 \voffset -0.5in
@@ -39,7 +47,7 @@
 %% Section Headings, etc.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \titleformat{\section} %command
-            {\Large\scshape\raggedright} %format
+            {\Large\scshape\raggedright\color[named]{MidnightBlue}} %format
             {} %label
             {0em} %sep
             {} %before

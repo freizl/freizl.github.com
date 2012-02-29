@@ -2,6 +2,8 @@
 
 # install latex
 apt-get install texlive-latex-base texlive-latex-extra
+apt-get install texlive-fonts-extra
+getnonfreefonts-sys garamond
 
 # FAQ
 ** 'wrapfig.sty' not found

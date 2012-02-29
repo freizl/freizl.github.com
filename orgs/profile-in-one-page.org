@@ -4,21 +4,17 @@
 #+EMAIL: freizl@gmail.com
 #+DATE: 
 #+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
-#+OPTIONS: num:1 toc:nil author:nil
+#+OPTIONS: num:1 toc:nil
 #+DESCRIPTION: resume, cv
 
-#+LaTeX_CLASS_OPTIONS: [a4paper,11pt,helvet]
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
 #+LaTeX_HEADER: \usepackage{resume}
-#+LaTeX_HEADER: \usepackage{mathptmx} 
-#+LaTeX_HEADER: \usepackage{helvet} 
-#+LaTeX_HEADER: \usepackage{courier}
+#+LaTeX_HEADER: \usepackage[urw-garamond]{mathdesign}
 
 * PROFILE
-  - Mobile      : +86 18616330571
-  - eMail       : [[mailto:freizl@gmail.com][freizl@gmail.com]]
+  - Mobile      : (+86) 18 616 330 571
+  - Email       : [[mailto:freizl@gmail.com][freizl@gmail.com]]
   - Born        : 06/1983
-#+ATTR_LaTeX: scale=0.5 
-[[file:../images/1.jpg]]
 
 * SELF-ASSESSMENT
   - Be able to learn new technology quickly and work independently.
@@ -29,24 +25,22 @@
   - Have oversea working experience.
   - Fluent English at both speaking and writing.
     
-* SKILL SETS
-  - Languages: JavaScript, Java, Python, Perl, ActionScript
-  - UI: CSS, prototype.js, ExtJS, GWT, Django
-  - Open source library: Spring, Hibernate, WebWork
-  - Database: MySQL, Oracle
-  - Operating System: Ubuntu, CentOS, WindowsXP
-  - Others: Bash Shell, XPath/XSLT, Haskell, Oracle Fusion
+* TECHNICAL SKILLS
+  - *Languages*: JavaScript, Java, Python, Perl, ActionScript
+  - *Web Technologies*: ExtJS, PrototypeJS, CSS, XML, XLST, GWT, Django
+  - *Open source library*: Spring, Hibernate, WebWork
+  - *Database*: MySQL, Oracle
+  - *Operating System*: Ubuntu, CentOS, WindowsXP
 
 * WORK EXPERIENCE
-  - Technical Staff at C3-e Tech (Shanghai) Co., Ltd. , 09/2011 ~ 02/2012
-  - Senior Engineer        at EMC Corporation           , 11/2010 ~ 10/2011
-  - Senior Engineer        at Perficient China Ltd.     , 10/2006 ~ 10/2010
-  - Engineer               at Zhejiang Guotai Tech Inc. , 07/2005 ~ 10/2006
+  - 09/2011 - 02/2012, Technical Staff at C3-e Tech (Shanghai) Co., Ltd. 
+  - 11/2010 - 10/2011, Senior Engineer at EMC Corporation
+  - 10/2006 - 10/2010, Senior Engineer at Perficient China Ltd.
+  - 07/2005 - 10/2006, Engineer at Zhejiang Guotai Tech Inc.
 
-* EDUCATION BACKGROUND
-  - Zhejiang Gongshang University, Bachelor of Computer Science,
-    09/2001 ~ 07/2005
+* EDUCATION
+  - 09/2001 - 07/2005, Zhejiang Gongshang University, Bachelor of Computer Science
   
 * CERTIFICATIONS
- - Scrum Master Certification, 07/2010
+  - 07/2010, Scrum Master Certification
 
