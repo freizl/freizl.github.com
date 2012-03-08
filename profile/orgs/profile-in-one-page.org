@@ -1,4 +1,4 @@
-#+TITLE: Wu, Haisheng
+#+TITLE: Haisheng, Wu
 #+LANGUAGE: en
 #+AUTHOR: Haisheng, Wu
 #+EMAIL: freizl@gmail.com
@@ -15,7 +15,7 @@
   - Mobile      : (+86) 186 1633 0571
   - Email       : [[mailto:freizl@gmail.com][freizl@gmail.com]]
   - Born        : Jun,1983
-
+    
 * Self assessment
   - Be able to learn new technology quickly and work independently.
   - Have taken initiative to proactively resolve the technical issues.
@@ -26,7 +26,7 @@
   - Fluent English at both speaking and writing.
     
 * Technical skills
-  - *Languages*: JavaScript, Java, Python, Perl, ActionScript
+  - *Languages*: JavaScript, Java, Python, Perl, Haskell, ActionScript
   - *Web Technologies*: ExtJS, PrototypeJS, CSS, XML, XLST, GWT, Django
   - *Open source library*: Spring, Hibernate, WebWork
   - *Database*: MySQL, Oracle
