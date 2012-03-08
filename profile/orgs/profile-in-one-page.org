@@ -36,16 +36,16 @@
   - 09/2011 - 02/2012, Technical Staff at C3-e Tech (Shanghai) Co.
     Ltd.
 
-    UI and applications developer.
+    UI and applications engineer.
   - 11/2010 - 10/2011, Senior Engineer at EMC Corporation.
 
-    Applications & tools developer and build master.
+    Applications & tools engineer and build master.
   - 10/2006 - 10/2010, Senior Engineer at Perficient China Ltd.
 
-    Enterprise Software consultant developer.
+    Enterprise Software engineer.
   - 07/2005 - 10/2006, Engineer at Zhejiang Guotai Tech Inc.
     
-    Web based Java application developer.
+    Web based Java application engineer.
 
 * Education
   - 09/2001 - 07/2005, Zhejiang Gongshang University, Bachelor of Computer Science
