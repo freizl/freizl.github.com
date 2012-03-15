@@ -1,0 +1,46 @@
+#+TITLE: 吴海生
+#+LANGUAGE: cn
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
+#+OPTIONS: num:nil toc:nil
+#+DESCRIPTION: resume, cv
+
+#+LaTeX_CLASS_OPTIONS: [a4paper,12pt]
+#+LATEX_HEADER: \usepackage{xltxtra}
+#+LATEX_HEADER: \usepackage{resume}
+#+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}
+#+BIND: org-export-latex-tables-centered nil
+
+* 个人信息
+  - 电话 : 186 1633 0571
+  - 电子邮箱 : [[mailto:freizl@gmail.com][freizl@gmail.com]]
+  - 出生年月 : 1983-06
+
+* 自我评价
+  - 能好的学习,实践新技术的能力.
+  - 较好的团队协作能力和团队精神.
+  - 积极主动有效的解决工作中遇到的问题.
+  - 愿意与团队成员分享技术知识,共同进步.
+  - 喜欢解决技术问题,对程序设计,程序应用充满兴趣和热情.
+  - 流利的英语书写和交流技能; 有过海外工作学习经历.
+    
+* 工作经验
+  - 高级软件工程师, 羿锐信息科技(上海)有限公司, 09/2011 ~ 02/2012
+  - 高级软件工程师, 易安信信息技术研发(上海)有限公司, 11/2010 ~ 10/2011
+  - 高级软件工程师, 博克软件(杭州)有限公司, 10/2006 ~ 10/2010
+  - 软件工程师, 杭州国泰科技有限公司, 07/2005 ~ 10/2006
+  
+* 技术技能
+  - *编程语言*: JavaScript, Java, Python, Perl, Haskell, ActionScript
+  - *前端技术*: ExtJS, PrototypeJS, CSS, GWT, Django, XLST
+  - *开源框架*: Spring, Hibernate, WebWork
+  - *数据库*: MySQL, Oracle
+  - *操作系统*: Ubuntu, CentOS, WindowsXP
+
+* 教育背景
+  - 浙江工商大学, 计算机科学与技术学士, 09/2001 ~ 07/2005
+  
+* 证书
+  - Scrum Master Certification, 07/2010
+
