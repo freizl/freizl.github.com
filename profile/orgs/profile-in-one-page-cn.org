@@ -32,9 +32,9 @@
   - 软件工程师, 杭州国泰科技有限公司, 07/2005 ~ 10/2006
   
 * 技术技能
-  - *编程语言*: JavaScript, Java, Python, Perl, Haskell, ActionScript
+  - *编程语言*: JavaScript, Java, Python, Perl, Shell, ActionScript
   - *前端技术*: ExtJS, PrototypeJS, CSS, GWT, Django, XLST
-  - *开源框架*: Spring, Hibernate, WebWork
+  - *开源框架*: NodeJS, Spring, Hibernate, WebWork
   - *数据库*: MySQL, Oracle
   - *操作系统*: Ubuntu, CentOS, WindowsXP
 
