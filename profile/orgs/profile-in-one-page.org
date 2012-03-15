@@ -26,9 +26,9 @@
   - Fluent English at both speaking and writing.
     
 * Technical skills
-  - *Languages*: JavaScript, Java, Python, Perl, Haskell, ActionScript
+  - *Languages*: JavaScript, Java, Python, Perl, Shell, ActionScript
   - *Web Technologies*: ExtJS, PrototypeJS, CSS, XML, XLST, GWT, Django
-  - *Open source library*: Spring, Hibernate, WebWork
+  - *Open source library*: NodeJS, Spring, Hibernate, WebWork
   - *Database*: MySQL, Oracle
   - *Operating System*: Ubuntu, CentOS, WindowsXP
 
