@@ -1,2 +1,0 @@
-apt-get install libpcre3 libpcre3-dev libssl-dev
-hakyll server depend snap-server ll ../
