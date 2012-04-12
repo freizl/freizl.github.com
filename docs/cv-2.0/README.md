@@ -1,0 +1,2 @@
+- careers.stackoverflow.com
+- http://haisgwu.info/cv.md
