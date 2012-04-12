@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Shell Tips</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/shell.html">shell</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#quicklinks">Quicklinks</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#sample-section-a">Sample Section A</a><ul>
+<li><a href="#grep">grep</a></li>
+<li><a href="#find">find</a></li>
+<li><a href="#awk">awk</a></li>
+<li><a href="#sed">sed</a></li>
+<li><a href="#cp">cp</a></li>
+</ul></li>
+<li><a href="#sample-section-b">Sample Section B</a><ul>
+<li><a href="#while">while</a></li>
+<li><a href="#for">for</a></li>
+<li><a href="#case">case</a></li>
+</ul></li>
+</ul>
+<h2 id="quicklinks"><a href="#TOC">Quicklinks</a></h2>
+<ul>
+<li>[[http://bash.cyberciti.biz/guide/What_is_a_Subshell%3F][What is a Subshell]]</li>
+<li>[[http://en.wikipedia.org/wiki/List_of_Unix_utilities][List of Unix utilities]]</li>
+<li>[[http://www-128.ibm.com/developerworks/aix/library/au-badunixhabits.html?ca=lnxw01GoodUnixHabits][10 Good Unix habits]]</li>
+</ul>
+<h2 id="reference"><a href="#TOC">Reference</a></h2>
+<ul>
+<li>() execute command in subshell</li>
+<li>{} execute command in currecnt shell Usage is same with () expect the final command in the list ends with a semicolon.</li>
+</ul>
+<h2 id="sample-section-a"><a href="#TOC">Sample Section A</a></h2>
+<h3 id="grep"><a href="#TOC">grep</a></h3>
+<pre class="sh"><code>grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
+### count process and exclude grep itself
+ps aux | grep vpnc | grep -v grep -c</code></pre>
+<h3 id="find"><a href="#TOC">find</a></h3>
+<pre class="sh"><code>find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
+find $update_dir \( -name '*.java' \) \( -path '**/source/**' -o -path '**/test/**' -o -path '**/resource/**' \)</code></pre>
+<h3 id="awk"><a href="#TOC">awk</a></h3>
+<pre class="sh"><code>### list all time of each ping
+awk -F&quot;=&quot; '/time=/ {print substr($4,0,length($4)-3) }' &lt; ping.log
+### passing shell parameter to awk scripts
+svn st ${dirs} | awk -F&quot; &quot; -v ac=&quot;${*}&quot; ' /'${predicate}'/ &amp;&amp; (index($2,&quot;\\&quot;)==0 || gsub(/\\/,&quot;/&quot;,$2)) {print ac, $2}'
+### change Output Row Separator
+awk ' BEGIN { ORS = &quot; &quot; } { print }'</code></pre>
+<h3 id="sed"><a href="#TOC">sed</a></h3>
+<pre class="sh"><code>ll | sed '/Stores\|Test\|^-\|^t/d' | wc
+smbclient -L \\\\hangzhou2\\twitters -U foobar | sed '/Hangzhou20/,$d'
+export BEA_IP=`/sbin/ifconfig eth0 | sed '/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g'`</code></pre>
+<h3 id="cp"><a href="#TOC">cp</a></h3>
+<pre class="sh"><code>cp filename{,.bak}</code></pre>
+<h2 id="sample-section-b"><a href="#TOC">Sample Section B</a></h2>
+<h3 id="while"><a href="#TOC">while</a></h3>
+<pre class="sh"><code>while getopts &quot;:ab:c&quot; opt; do
+	case $opt in
+	a ) echo &quot;I am a&quot; ;;
+	b ) echo $OPTARG  ;;
+	c ) echo &quot;i am c&quot; ;;
+	? ) echo &quot;usage : $0 [-a] [-b barg] [-c] args ..&quot;
+	    exit 1 ;;
+	esac
+    shift $(($OPTIND - 1))
+done</code></pre>
+<h3 id="for"><a href="#TOC">for</a></h3>
+<pre class="sh"><code>for s in $(echo $string | sed &quot;s/;/ /g&quot;); do
+	echo $s
+done</code></pre>
+<pre class="sh"><code>for (( i=1; i&lt;=$n; i++ )) do
+   ls -1 &quot;${file_pattern}&quot; | sed 's#\(.*\)\(.xml\).bak#cp &amp; \1'&quot;_$i&quot;'\2#g'
+done</code></pre>
+<h3 id="case"><a href="#TOC">case</a></h3>
+<pre class="sh"><code>case $action in
+    backup ) tar cfj &quot;$backup_dir/$bakfile&quot; * --exclude &quot;jobs/*/workspace&quot; ;;
+    rest | restore ) tar xfj $backup_dir/$bakfile ;;
+    * ) echo &quot;all supported actions: backup | rest[ore]&quot; ; exit 0 ;;
+esac</code></pre>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>

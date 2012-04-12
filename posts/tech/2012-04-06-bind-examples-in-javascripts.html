@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Trivial bind examples in JavaScipts</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/javascripts.html">javascripts</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#defined-a-function">Defined a function</a></li>
+<li><a href="#run-it">Run it</a></li>
+<li><a href="#run-it-with-bind">Run it with bind</a><ul>
+<li><a href="#less">Less</a></li>
+<li><a href="#more">More</a></li>
+</ul></li>
+<li><a href="#run-with-bind-and-context">Run with bind and context</a></li>
+<li><a href="#diff-with-call-and-apply">Diff with call and apply</a></li>
+<li><a href="#further">Further</a></li>
+</ul>
+<h2 id="defined-a-function"><a href="#TOC">Defined a function</a></h2>
+<pre class="javascripts"><code>var fn = function (x, y, z) {
+  console.log(&quot;The value: &quot;, this.shangHai);
+  console.log(&quot;The sum is: &quot;, x+y+z);
+}</code></pre>
+<h2 id="run-it"><a href="#TOC">Run it</a></h2>
+<pre class="javascripts"><code>fn(1);</code></pre>
+<p>-&gt; Output</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  NaN</code></pre>
+<pre class="javascripts"><code>fn(1,2,3);</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<h2 id="run-it-with-bind"><a href="#TOC">Run it with bind</a></h2>
+<h3 id="less"><a href="#TOC">Less</a></h3>
+<pre class="javascripts"><code>fn.bind(null,1,2,3)</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>function () { [native code] }</code></pre>
+<p>Hmm…, seems bind return a function rather apply the function and return value.</p>
+<p>What will happen if invoke the new function?</p>
+<pre class="javascripts"><code>fn.bind(null,1,2,3)()</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<p>That is what we want.</p>
+<h3 id="more"><a href="#TOC">More</a></h3>
+<p>What are results respectively of following expressions?</p>
+<ul>
+<li><code>fn.bind(null, 1)()</code></li>
+<li><code>fn.bind(null, 1)(2)</code></li>
+<li><code>fn.bind(null, 1, 2)()</code></li>
+<li><code>fn.bind(null, 1, 2)(3)</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)()</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)(3)</code></li>
+</ul>
+<p>Take one example</p>
+<pre class="javascripts"><code>fn.bind(null,1,2)(3)</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<p>How it produce result 6? <br />Because <code>bind</code> return is actually a partially applied function of<code>fn</code>.</p>
+<p>In JavaScripts words, the new function got return is a closure which holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the third parameter in order to fully apply function <code>fn</code>.</p>
+<p>The concept is named <em>Currying</em> and find more in <a href="#further">Further</a> section.</p>
+<p><em>PS</em>: turns out that <code>bind</code> is not really doing Currying according to <a href="http://en.wikipedia.org/wiki/Currying">here</a> and <a href="http://www.uncarved.com/blog/not_currying.mrk">here</a>. It is Partially Function Application more than Currying thouht it can do Currying at some sense.</p>
+<h2 id="run-with-bind-and-context"><a href="#TOC">Run with bind and context</a></h2>
+<p>What I really mean context here is actually about <code>this</code> used in the function. Still now, <em>this.shangHai</em> always output <code>undefined</code> but we would like it to mean something.</p>
+<pre class="javascripts"><code>fn.bind({shangHai:&quot;lovely&quot;},1,2,3)();</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  lovely
+The sum is:  6</code></pre>
+<p>This time <code>this.shangHai</code> outputs “lovely” which obviously comes from the object that pass as first parameter of <code>bind</code>.</p>
+<p>Generally speaking,<code>this</code> will be the object that pass in as the first parameter of bind when the object is not null.</p>
+<p>Quiz: what <code>this</code> will be when passing null?</p>
+<h2 id="diff-with-call-and-apply"><a href="#TOC">Diff with call and apply</a></h2>
+<p>My understanding the key point is bind return a function.</p>
+<p>By contract, <code>call</code> and <code>apply</code> is all about providing another way for invoking a function.</p>
+<h2 id="further"><a href="#TOC">Further</a></h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>
+</ul>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,2268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Haisheng's Blogs RSS feed.</title>
+        <link>http://haisgwu.info</link>
+        <description><![CDATA[Haisheng's Home.]]></description>
+        <atom:link href="http://haisgwu.info/rss.xml" rel="self"
+                   type="application/rss+xml" />
+        <lastBuildDate>Sun, 08 Apr 2012 00:00:00 UT</lastBuildDate>
+        <item>
+    <title>Notes form Master of Regular Expression</title>
+    <link>http://haisgwu.info/posts/readings/2012-04-08-notes-master-regexp.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Notes form Master of Regular Expression</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/regex.html">regex</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#notes">Notes</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<h2 id="notes"><a href="#TOC">Notes</a></h2>
+<pre class="sourceCode perl"><code class="sourceCode perl">Matching <span class="kw">and</span> Capture, <span class="kw">or</span> just <span class="kw">not</span> Capture
+(?:...) <span class="kw">and</span> (...)
+
+
+<span class="kw">/</span><span class="ot">i has no effect on the replacement text</span>
+<span class="ot">e.g.  </span><span class="dt">$var =~ s</span><span class="kw">/</span>\bJeff\b/Jeff/i;
+compare difference with:
+<span class="dt">$var</span> =~ <span class="kw">s/</span><span class="bn">\s</span><span class="ot">Jeff</span><span class="bn">\s</span><span class="kw">/</span><span class="st">Jeff</span><span class="kw">/i</span>;
+
+
+Automated Editing
+perl <span class="kw">-p</span> -i <span class="kw">-e</span> <span class="kw">'</span><span class="st">s/sysread/read/g</span><span class="kw">'</span> file
+
+
+? What is <span class="kw">'</span><span class="st">m</span><span class="kw">'</span> modifier
+<span class="dt">$text</span> =~ <span class="kw">s/</span><span class="ch">^$</span><span class="kw">/</span><span class="st">&lt;p&gt;</span><span class="kw">/mg</span>;</code></pre>
+<pre class="sourceCode perl"><code class="sourceCode perl">Lookaround
+  (?= ...) (?! ...) (?&lt;= ...) (?&lt;! ...)
+  - lookaround does <span class="kw">not</span> consume text
+  - (?=Jeffery)Jeff <span class="kw">&lt;P61&gt;</span>
+  - (?&lt;=\bJeff)(?=<span class="kw">s\</span><span class="ot">b</span><span class="ch">)</span>
+
+
+<span class="kw">\</span><span class="st">G &lt;P128&gt;</span>
+<span class="st">  X? ...</span>
+
+<span class="st">Comments and Mode modifiers &lt;P133&gt;</span>
+<span class="st">  (?modifier) such as (?i), (?-i)</span>
+<span class="st">  e.g. &lt;B&gt;(?i)very(?-i)&lt;/B&gt;</span>
+<span class="st">       match: &lt;B&gt;VERY&lt;/B&gt;</span>
+<span class="st">              &lt;B&gt;Very&lt;/B&gt;</span>
+<span class="st">       but not: &lt;b&gt;Very&lt;/b&gt;</span>
+<span class="st">  (?modifier:), (?i: ...)</span>
+
+
+<span class="st">Named Capture &lt;P137&gt;</span>
+<span class="st">Atomic grouping</span>
+<span class="st">  (?&gt; ...)</span>
+
+<span class="st">Class set opertions &lt;P123&gt;</span>
+<span class="st">  [[a-z]&amp;&amp;[^aeiou]]</span>
+<span class="st">  &quot;this and not that&quot;</span>
+
+<span class="st">Greedy quantifiers &lt;P139&gt;</span>
+<span class="st">Lazy (Non-Greedy) quantifiers</span></code></pre>
+<pre class="sourceCode perl"><code class="sourceCode perl">quiz
+where does fat|cat|belly|you match in the string
+ <span class="kw">&quot;</span><span class="st">The dragging belly indicates your cat is too fat</span><span class="kw">&quot;</span>
+
+Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span class="st">Copyright 2003</span><span class="kw">&quot;</span>,
+ what<span class="kw">'</span><span class="st">s captured by parentheses?</span></code></pre>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### &quot;look around&quot;</span>
+<span class="dt">$test</span> = <span class="kw">&quot;</span><span class="st">see Jeffs book</span><span class="kw">&quot;</span>;
+<span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ch">(?&lt;=</span><span class="ot">Jeff</span><span class="ch">)(?=</span><span class="ot">s</span><span class="ch">)</span><span class="kw">/</span><span class="st">'</span><span class="kw">/g</span>;
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test </span><span class="ch">\n</span><span class="kw">&quot;</span>;    <span class="co">### expect see Jeff's book</span>
+
+<span class="co">### Start of match ( or end of previous match): \G</span>
+<span class="dt">$test</span> = <span class="kw">&quot;</span><span class="st">abcde</span><span class="kw">&quot;</span>;
+<span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ch">\G</span><span class="ot">x</span><span class="ch">?</span><span class="kw">/</span><span class="st">!</span><span class="kw">/g</span>;
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !abcde</span>
+<span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ot">\x</span><span class="ch">?</span><span class="kw">/</span><span class="st">!</span><span class="kw">/g</span>;
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></code></pre>
+<h2 id="reference"><a href="#TOC">Reference</a></h2>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/readings/2012-04-08-notes-master-regexp.html</guid>
+</item>
+<item>
+    <title>Notes from ProGit</title>
+    <link>http://haisgwu.info/posts/readings/2012-04-08-notes-progit.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Notes from ProGit</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/git.html">git</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#chapter-9.3">Chapter 9.3</a></li>
+<li><a href="#chapter-6">Chapter 6</a></li>
+<li><a href="#internal">Internal</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<h2 id="chapter-9.3"><a href="#TOC">Chapter 9.3</a></h2>
+<ul>
+<li>refs</li>
+<li>refs/heads</li>
+<li>refs/tags</li>
+</ul>
+<pre class="sh"><code>[remote &quot;origin&quot;]
+    url = ...
+    fetch = +refs/heads/* : refs/remotes/origin/*
+      ===&gt; fetch all the references under &quot;refs/heads&quot; on the server 
+           and writes them to refs/remotes/origin locally</code></pre>
+<p><em>Questions</em></p>
+<ol style="list-style-type: decimal">
+<li>What does ‘git branch B_NAME’ actually do?</li>
+<li>What happened to HEAD when switching branch?</li>
+</ol>
+<h2 id="chapter-6"><a href="#TOC">Chapter 6</a></h2>
+<pre class="sh"><code>git add -i</code></pre>
+<pre class="sh"><code>###
+### revision selection
+### ^ ::= parent of something, only two format ^ and ^2
+git log HEAD^2 
+git log d107aoeu^2
+git log HEAD~3</code></pre>
+<pre class="sh"><code>git log master..branchA
+git log origin/master..HEAD
+git log branchA branchB ^branchC
+git log master...branchA</code></pre>
+<h2 id="internal"><a href="#TOC">Internal</a></h2>
+<p>Questions</p>
+<ol style="list-style-type: decimal">
+<li>(tree 3c4e9c).bak –&gt; (tree d8329f), what this mean??</li>
+</ol>
+<div class="figure">
+<img src="http://freizl.github.com/images/git_internal.png" alt="Git internal in one image"></img><p class="caption">Git internal in one image</p>
+</div>
+<h2 id="reference"><a href="#TOC">Reference</a></h2>
+<ul>
+<li><a href="http://progit.org/book/">ProGit</a></li>
+</ul>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/readings/2012-04-08-notes-progit.html</guid>
+</item>
+<item>
+    <title>Quotes from Rework</title>
+    <link>http://haisgwu.info/posts/readings/2012-04-08-quotes-rework.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Quotes from Rework</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/programming.html">programming</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#quotes">Quotes</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<h2 id="quotes"><a href="#TOC">Quotes</a></h2>
+<ul>
+<li>Draw a line in the sand</li>
+<li>Build half a product, not a half-assed product</li>
+<li>Start at the epicenter</li>
+<li>You want to get into the rhythm of making choices</li>
+<li>Be a curator</li>
+<li>Lavish furniture</li>
+<li>Distraction</li>
+<li>You day is under siege by interruptions</li>
+<li>Don’t try to sweep it under the rug</li>
+<li>Inspiration is perishable</li>
+<li>Ideas are immortal</li>
+<li>(need, can’t, must, easy, just, only, fast) Those words get in the way of healthy communication.</li>
+</ul>
+<h2 id="reference"><a href="#TOC">Reference</a></h2>
+<ul>
+<li><a href="http://37signals.com/rework/">Rework</a></li>
+</ul>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/readings/2012-04-08-quotes-rework.html</guid>
+</item>
+<item>
+    <title>陈长兴太极拳十大要论</title>
+    <link>http://haisgwu.info/posts/taiji/2012-04-01-chen-chang-xing-shiyao.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>陈长兴太极拳十大要论</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#第一章-理">第一章 理</a></li>
+<li><a href="#第二章-气">第二章 气</a></li>
+<li><a href="#第三章-三节">第三章 三节</a></li>
+<li><a href="#第四章-四梢">第四章 四梢</a></li>
+<li><a href="#第五章-五脏">第五章 五脏</a></li>
+<li><a href="#第六章-三合">第六章 三合</a></li>
+<li><a href="#第七章-六进">第七章 六进</a></li>
+<li><a href="#第八章-身法">第八章 身法</a></li>
+<li><a href="#第九章-步法">第九章 步法</a></li>
+<li><a href="#第十章-刚柔">第十章 刚柔</a></li>
+</ul>
+<h2 id="第一章-理"><a href="#TOC">第一章 理</a></h2>
+<p>夫物，散必有统，分必有合，天地间四面八方，纷纷者各有所属，千头万绪， 攘攘者自有其源。盖一本可散为万殊，而万殊咸归於一本，拳术之学，亦不外 此公例。夫太极拳者，千变万化，无往非劲，势虽不侔，而劲归於一，夫所谓 一者，自顶至足，内有脏俯筋骨，外有肌肤皮肉，四肢百骸相联而为一者也。 破之而不开，撞之而不散，上欲动而下自随之，下欲动而上自领之，上下动而 中部应之，中部动而上下和之，内外相连，前後相需，所谓一以贯之者，其斯 之谓欤！而要非勉强以致之，袭焉而为之也。当时而动，如龙如虎，出乎而尔， 急加电闪。当时而静，寂然湛然，居其所而稳如山岳。且静无不静，表里上下 全无参差牵挂之意，动无不动，前後左右均无游疑抽扯之形，洵乎若水之就下， 沛然莫能御之也。若火机之内攻，发之而不及掩耳。不暇思索，不烦拟议，诚 不期然而己然。盖劲以积日而有益，工以久练而後成，观圣门一贯之学，必俟 多闻强识，格物致知，力能有功，是知事无难易，功惟自进，不可躐等，不可 急就，按步就序，循次渐进，夫而後百骸筋节，自相贯通，上下表里，不难联 络，庶乎散者统之，分者合之，四肢百骸总归於一气矣。</p>
+<h2 id="第二章-气"><a href="#TOC">第二章 气</a></h2>
+<p>天地间未有一往而不返者，亦未常有直而无曲者矣；盖物有对待，势有回还， 古今不易之理也。常有世之论捶者，而兼论气者矣。夫主於一，何分为二？所 谓二者，即呼吸也，呼吸即阴阳也。捶不能无动静，气不能无呼吸。呼则为阳， 吸则为阴，上升为阳，下降为阴，阳气上升而为阳，阳气下行而为阴，阴气上 升即为阳，阴气下行仍为阴，此阴阳之所以分也。何谓清浊？升而上者为清， 降而下者为浊，清者为阳，浊者为阴，然分而言之为阴阳，浑而言之统为气。 气不能无阴阳，即所谓人不能无动静，鼻不能无呼吸，口不能无出入，而所以 为对待迥还之理也。然则气分为二，而贯於一，有志於是途者，甚勿以是为拘 拘焉耳。</p>
+<h2 id="第三章-三节"><a href="#TOC">第三章 三节</a></h2>
+<p>夫气本诸身，而身节部甚繁，若逐节论之，则有远乎拳术之宗旨，惟分为三节 而论，可谓得其截法：三节上、中、下，或根、中、梢也。以一身言之；头为 上节，胸为中节，腿为下节。以头面言之，额为上节，鼻为中节，口为下节以 中身言之，胸为上节，腹为中节，丹田为下节。以腿言之，膀为恨节，膝为中 节，足为梢节。以臂言之，膊为恨节，肘为中节，手为梢节。以手言之，腕为 根节，掌为中节，指为梢节。观於此，而足不必论矣。然则自顶至足，莫不各 有三节也，要之，既莫非三节之所，即莫非著意之处，盖上节不明，无依无宗， 中节不明，满腔是空，下节不明，颠覆必生。由此观之，身三节部，岂可忽也？ 至於气之发动，要从梢节起，中节随，根节催之而已。此固分而言之；若合而 言之，则上自头顶，下至足底，四肢百骸，总为一节，夫何为三节之有哉！又 何三节中之各有三节云乎哉！</p>
+<h2 id="第四章-四梢"><a href="#TOC">第四章 四梢</a></h2>
+<p>於论身之外，而进论四梢。夫四梢者，身之余褚也；言身者初不及此，言气者 亦所罕闻，然捶以由内而发外，气本诸身而发梢，气之为用，不本诸身，则虚 而不实；不行於梢，则实而仍虚？；梢亦可弗讲乎！若手指足特论身之梢耳！ 而未及梢之梢也。四梢惟何？发其一也，夫发之所系，不列於五行，无关於四 体，是无足论矣，然发为血之梢，血为气之海，纵不本诸发而论气，要不可虽 乎血以生气；不虽乎血，即不得不兼乎发，发?骞冢易阋印Ｒ?舌为肉 之梢，而肉为气之仁，气不能行诸肉之梢，即气无以充其气之量，故必舌欲催 齿，而肉梢足矣。至於骨梢者，齿也，筋梢者，指甲也，气生於骨而联於筋， 不及乎齿，即不及乎骨之梢，不及乎指甲，即不及乎筋之梢，而欲足尔者，要 非齿欲斯筋，甲欲透骨不能也。果能如此，则四梢足矣。四梢足，而气自足矣， 岂复有虚而不宜，实而仍虚之弊乎！</p>
+<h2 id="第五章-五脏"><a href="#TOC">第五章 五脏</a></h2>
+<p>夫捶以言势，势以言气，人得五脏以成形，即由五脏而生气，五脏实为性命之 源，生气之本，而名为心，肝，脾，肾也。心属火，而有炎上之象。肝属木， 而有曲直之形。脾属土，而有敦厚之势，肺属金，而有从革之能。肾属水，而 有润下之功。此及五脏之义而犹准之於气，皆有所配合焉。凡世之讲拳术者， 要不能离乎斯也。其在於内胸廊为肺经之位，而肺为五脏之华；盖故肺经动， 而诸脏不能不动也。两乳之中为心，而肺抱护之。肺之下膈之上，心经之位也 。心为君，心火动，而相火无不奉命焉；而两乳之下，右为肝，左为脾，背之 十四骨节为肾，至於腰为两背之本位，而为先天之第一，又为诸脏之根源；故 肾足，则金木，水，火，土，无不各显生机焉。此论五脏之部位也。然五脏之 存乎内者，各有定位，而见於身者，亦有专属，但地位甚多，难以尽述，大约 身之所系，中者属心，窝者属肺，骨之露处属肾，筋之联处属肝，肉之厚处属 碑，想其意，心如猛，肝如箭，脾之力大甚无穷，肺经之位最灵变，肾气之动 快如风，是在当局者自为体验，而非笔墨所能尽罄者也。</p>
+<h2 id="第六章-三合"><a href="#TOC">第六章 三合</a></h2>
+<p>五脏既明，再论三合，夫所谓三合者，心与意合，气与力合，筋与骨合，内三 台也。手与足合，肘与膝合，肩与膀合，外三合也。若以左手与右足相合，左 肘与右膝相合，左肩与右膀相合，右肩与左亦然。以头与手合，手与身合，身 与步合，孰非外合。心与目合，肝与筋合，脾与肉合，肺与身合，肾与骨合， 执非内合。然此特从变而言之也。总之。一动而无不动，一合而无不合，五脏 百骸悉在其中矣。</p>
+<h2 id="第七章-六进"><a href="#TOC">第七章 六进</a></h2>
+<p>既知三合，犹有六进。夫六进者何也？头为六阳之首，而为周身之主，五官百 骸莫不体此为向背，头不可不进也。手为先锋，根基在膊，膊不进，则手却不 前矣；是膊亦不可不进也。气聚於腕，机关在腰，腰不进则气馁，而不实矣； 此所以腰贵於进者也。意贯周身，运动在步，步不进而意则索然无能为矣；此 所以必取其进也。以及上左必进右。上右必进左。共为六进，此六进者，孰非 著力之地欺！要之：未及其进，合周身毫无关动之意，一言其进，统全体全无 抽扯之形，六进之道如是而已。</p>
+<h2 id="第八章-身法"><a href="#TOC">第八章 身法</a></h2>
+<p>夫发手击敌，全赖身法之助，身法维何？纵，横，高，低，进，退，反，侧而 已。纵，则放其势，一往而不返。横，则理其力，开拓而莫阻。高，则扬其身， 而身有增长之意。低，则抑其身，而身有攒促之形。当进则进，弹其力而勇往 直前。当退则退，速其气而回转扶势。至於反身顾後，後即前也。侧顾左右， 左右恶敢当我哉。而要非拘拘焉而为之也。察夫人之强弱，运乎己之机关，有 忽纵而忽横，纵横因势而变迁，不可一概而推。有忽高而忽底，高底随时以转 移，岂可执一而论。时而宜进不可退，退以馁其气。时而宜退，即以退，退以 鼓其进。是进固进也，即退亦实以助其进。若反身顾後。而後不觉其为後。侧 顾左右，而左右不觉其为左右。总之：现在眼，变化在心，而握其要者，则本 诸身。身而前，则四体不命而行矣。身而怯，则百骸莫不冥然而处矣。身法顾 可置而不论乎。</p>
+<h2 id="第九章-步法"><a href="#TOC">第九章 步法</a></h2>
+<p>今夫四肢百骸主於动，而实运以步；步者乃一身之根基，运动之枢纽也。以故 应战，对战，本诸身。而所以为身之砥柱者，莫非步。随机应变在於手。而所 以为手之转移者，又在於步。进退反侧，非步何以作鼓动之机，抑扬伸缩，非 步何以示变化之妙。即谓观察在眼，变化在心，而转变抹角，千变万化，不至 穷迫者，何莫非步之司命，而要非勉强可致之也。动作出於无心，鼓舞出於不 觉，身欲动而步以为之周旋，手将动而步亦早为之催迫，不期然而已然，莫之 驱而若驱，所谓上欲动而下自随之，其斯之谓欤！且步分前後，有定位者，步 也。无定位者，亦步也。如前步进，而後步亦随之，前後自有定位也。若前步 作後步，後步作前步，更以前步作後步之前步，後步作前步之後步，前後亦自 有定位矣。总之：捶以论势而握要者步也。活与不活，在於步，灵与不灵亦在 於步。步之为用大矣哉！</p>
+<h2 id="第十章-刚柔"><a href="#TOC">第十章 刚柔</a></h2>
+<p>夫拳术之为用，气与势而已矣。然而气有强弱，势分刚柔，气强者取乎势之刚， 气弱者取乎势之柔，刚者以千钧之力而扼百钧，柔者以百钧之力而破千钧，尚 力尚巧，刚柔之所以分也。然刚柔既分，而发用亦自有别，四肢发动，气行谙 外，而内持静重，刚势也。气屯於内，而外现轻和，柔势也。用刚不可无柔， 无柔则还不速。用柔不可无刚，无刚则催逼不捷，刚柔相济，则粘，游，连， 随，腾，闪，折，空，，，挤，捺。无不得其自然矣。刚柔不可偏用，用 武岂可忽耶。</p>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Sun, 01 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/taiji/2012-04-01-chen-chang-xing-shiyao.html</guid>
+</item>
+<item>
+    <title>拳谱:陈式新架一路七十五式</title>
+    <link>http://haisgwu.info/posts/taiji/2012-04-01-spectrum-chen-new-style-01.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>拳谱:陈式新架一路七十五式</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a>, <a href="../../tags/spectrum.html">spectrum</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+
+<ul>
+<li>第一式 预备式</li>
+<li>第二式 金刚捣碓</li>
+<li>第三式 懒扎衣</li>
+<li>第四式 六封四闭</li>
+<li>第五式 单鞭</li>
+<li>第六式 金刚捣碓</li>
+<li>第七式 白鹤亮翅</li>
+<li>第八式 斜行拗步</li>
+<li>第九式 初收</li>
+<li>第十式 前蹚拗步</li>
+<li>第十一式 斜行</li>
+<li>第十二式 搂膝</li>
+<li>第十三式 上三步</li>
+<li>第十四式 掩手肱拳</li>
+<li>第十五式 金刚捣碓</li>
+<li>第十六式 撇身捶</li>
+<li>第十七式 青龙出水</li>
+<li>第十八式 双推手</li>
+<li>第十九式 肘底看拳</li>
+<li>第二十式 倒卷肱</li>
+<li>第二十一式 白鹤亮翅</li>
+<li>第二十二式 斜行</li>
+<li>第二十三式 闪通背</li>
+<li>第二十四式 掩手肱拳</li>
+<li>第二十五式 六封四闭</li>
+<li>第二十六式 单鞭</li>
+<li>第二十七式 运手</li>
+<li>第二十八式 高探马</li>
+<li>第二十九式 右擦脚</li>
+<li>第三十式 左擦脚</li>
+<li>第三十一式 左蹬一根</li>
+<li>第三十二式 上三步</li>
+<li>第三十三式 神仙一把抓</li>
+<li>第三十四式 踢二起</li>
+<li>第三十五式 护心拳</li>
+<li>第三十六式 旋风脚</li>
+<li>第三十七式 右蹬一根</li>
+<li>第三十八式 掩手肱拳</li>
+<li>第三十九式 小擒打</li>
+<li>第四十式 抱头推山</li>
+<li>第四十一式 六封四闭</li>
+<li>第四十二式 单鞭</li>
+<li>第四十三式 前招</li>
+<li>第四十四式 后招</li>
+<li>第四十五式 野马分鬃</li>
+<li>第四十六式 六封四闭</li>
+<li>第四十七式 单鞭</li>
+<li>第四十八式 玉女穿梭</li>
+<li>第四十九式 懒扎衣</li>
+<li>第五十式 六封四闭</li>
+<li>第五十一式 单鞭</li>
+<li>第五十二式 运手</li>
+<li>第五十三式 双摆莲</li>
+<li>第五十四式 跌岔</li>
+<li>第五十五式 金鸡独立</li>
+<li>第五十六式 倒卷肱</li>
+<li>第五十七式 白鹤亮翅</li>
+<li>第五十八式 斜行</li>
+<li>第五十九式 闪通背</li>
+<li>第六十式 掩手肱拳</li>
+<li>第六十一式 六封四闭</li>
+<li>第六十二式 单鞭</li>
+<li>第六十三式 运手</li>
+<li>第六十四式 高探马</li>
+<li>第六十五式 十字脚</li>
+<li>第六十六式 指裆捶</li>
+<li>第六十七式 猿猴献果</li>
+<li>第六十八式 单鞭</li>
+<li>第六十九式 雀地龙</li>
+<li>第七十式 上步七星</li>
+<li>第七十一式 下步跨肱</li>
+<li>第七十二式 双摆莲</li>
+<li>第七十三式 当头炮</li>
+<li>第七十四式 金刚捣碓</li>
+<li>第七十五式 收式</li>
+</ul>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Sun, 01 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/taiji/2012-04-01-spectrum-chen-new-style-01.html</guid>
+</item>
+<item>
+    <title>拳谱:四十二式太极剑</title>
+    <link>http://haisgwu.info/posts/taiji/2012-04-01-spectrum-sword42.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>拳谱:四十二式太极剑</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a>, <a href="../../tags/spectrum.html">spectrum</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+
+<ol style="list-style-type: decimal">
+<li>起势</li>
+<li>并步点剑</li>
+<li>弓步削剑</li>
+<li>提膝劈剑</li>
+<li>左弓步拦</li>
+<li>左虚步撩</li>
+<li>右弓步拉撩</li>
+<li>提膝捧剑</li>
+<li>蹬脚前刺</li>
+<li>跳步平刺</li>
+<li>转身下刺</li>
+<li>弓步平斩</li>
+<li>弓步崩剑</li>
+<li>歇步压剑</li>
+<li>进步绞剑</li>
+<li>提膝上刺</li>
+<li>虚步下截</li>
+<li>右左平带</li>
+<li>弓步劈剑</li>
+<li>丁步托剑</li>
+<li>分脚后点</li>
+<li>仆步穿剑</li>
+<li>蹬脚架剑</li>
+<li>提膝点剑</li>
+<li>仆步横扫</li>
+<li>弓步下截</li>
+<li>弓步下刺</li>
+<li>右左云抹</li>
+<li>右弓步劈</li>
+<li>后举腿架剑</li>
+<li>丁步点剑</li>
+<li>马步推剑</li>
+<li>独立上托</li>
+<li>进步挂剑</li>
+<li>歇步崩剑</li>
+<li>弓步反刺</li>
+<li>转身下刺</li>
+<li>提膝提剑</li>
+<li>行步穿剑</li>
+<li>摆腿架剑</li>
+<li>弓步直刺</li>
+</ol>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Sun, 01 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/taiji/2012-04-01-spectrum-sword42.html</guid>
+</item>
+<item>
+    <title>杨澄甫传抄太极拳谱</title>
+    <link>http://haisgwu.info/posts/taiji/2012-04-01-yang-cheng-pu-quanpu.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>杨澄甫传抄太极拳谱</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#太极平准腰顶解">太极平准腰顶解</a></li>
+<li><a href="#太极正功解">太极正功解</a></li>
+<li><a href="#太极轻重浮沉解">太极轻重浮沉解</a></li>
+<li><a href="#太极力气解">太极力气解</a></li>
+<li><a href="#太极文武解">太极文武解</a></li>
+<li><a href="#沾粘连随解">沾粘连随解</a></li>
+<li><a href="#对待无病">对待无病</a></li>
+<li><a href="#对待用功法守中土歌">对待用功法守中土歌</a></li>
+<li><a href="#太极圈歌">太极圈歌</a></li>
+<li><a href="#太极四隅解">太极四隅解</a></li>
+<li><a href="#太极武事解">太极武事解</a></li>
+<li><a href="#太极懂劲先后论">太极懂劲先后论</a></li>
+<li><a href="#太极尺寸分毫解">太极尺寸分毫解</a></li>
+</ul>
+<h2 id="太极平准腰顶解"><a href="#TOC">太极平准腰顶解</a></h2>
+<p>顶为准头，故曰顶头悬也；两手即左右之盘也，腰即根株也；立如平准，有平准在身，则所谓轻重浮沉，分厘丝毫，莫不显然可辨矣。有平准之顶头悬(乃是从头顶至腰之根株下，胸门至尾闾间为一条线).</p>
+<p>歌曰：上下一条线，全凭两手转，变化取分毫，尺寸自己辨，车轮两命门，一纛摇又转。心令气旗使，自然随我便，满身轻利者，金刚罗汉炼，对待有往来，是早或是晚，合则发放去，不必凌霄箭。涵养知多少，一气哈而迷，口授须秘传，开门见中天。</p>
+<h2 id="太极正功解"><a href="#TOC">太极正功解</a></h2>
+<p>太极者圆也，无论内外上下左右，不离此圆也。太极者方也，无论内外上下左右，不离此方也。圆之出入，方之进退，随方就圆之往来，方为开展，圆为紧凑。 方圆规矩之至，孰能出此以外哉。如此得心应手，仰高钻坚，神乎其神，是隐显微，明而且明，生生不已，欲罢不能。</p>
+<h2 id="太极轻重浮沉解"><a href="#TOC">太极轻重浮沉解</a></h2>
+<ul>
+<li>双重为病，病于填实，与沉之不同也。</li>
+<li>双沉不为病，自尔腾虚，与重之不一也。</li>
+<li>双浮为病，病为漂渺，与轻之不例也。</li>
+<li>双轻不为病，天然轻灵，与浮之不等也。</li>
+<li>半轻半重不为病，半者，半有着落，所以不为病。</li>
+<li>偏轻偏重为病，偏者，偏无着落，所以为病。因无着落，必失方圆；半有着落，岂出方圆。</li>
+<li>半浮半沉为病，失之不及也。</li>
+<li>偏浮偏沉为病，失之太过也。</li>
+<li>半重偏重为病，滞而不正也。</li>
+<li>半轻偏轻为病，灵而不圆也。</li>
+<li>半沉偏沉为病，虚而不正也。</li>
+<li>半浮偏浮为病，茫而不圆也。</li>
+<li>夫双轻不近于浮，则为轻灵；双沉不近于重，则为离虚。</li>
+</ul>
+<p>故曰上手轻重，半有着落，则为平手。除此三者之外，皆为病手，盖内之虚灵不昧，自然致于外，则清明在躬，流行于肢体间矣。若不穷研轻重浮沉之手，有掘井徒劳不及泉之叹。然方圆四正之手，能表里精粗无不到者，则已及大成，又何虑有四隅以出方圆乎。亦即所谓“方而圆”，“圆而方”，超乎象外，得其寰中之上手也。</p>
+<h2 id="太极力气解"><a href="#TOC">太极力气解</a></h2>
+<p>气走于膜络筋脉，力出于血肉皮骨。故有力者外壮于皮骨，形也；有气者内壮于筋脉，象也。气血功于内壮，血气功于外壮。要之，明于气血二字之功，能自知力气所由来；知力气之所以然，自知用力行气之各异。盖行气于筋脉，用力于皮骨，大不相侔也。</p>
+<h2 id="太极文武解"><a href="#TOC">太极文武解</a></h2>
+<p>文者体也，武者用也。文功武用于精气神，谓之文体；武功得文体于心身，谓之武事。夫文武尤有火候之谓。<br /> 在“卷放”得其时中，文体之本，武事文为，乃属于柔软文体也。在“蓄发”适当其可者，武事之根，文事武用，乃属于坚刚武事也。精气神与筋骨，乃文事武用；若坚刚武事，乃心身内之骨力也。夫文无武之预备，是有体无用；武无文之伴侣，是有用无体。<br /> 独木难支，孤掌不鸣，不唯文体武事如此，天下事，事事皆如此理也。文者内理也，武者外数也。有外数无内理，必为血气之勇，失去本来面目，欺敌必败；有内理无外数，徒思安静之学，未知用以操战，差微则亡耳。自用及于人，文武二字之解，岂可忽哉。</p>
+<h2 id="沾粘连随解"><a href="#TOC">沾粘连随解</a></h2>
+<ul>
+<li>提上拔高谓之沾，留恋缱绻谓之粘，</li>
+<li>舍己无离谓之连，彼走此应谓之随。</li>
+<li><p>要知人之知觉运动，非明沾粘连随不可，斯沾粘连随之功夫，亦甚细矣。</p></li>
+<li>顶匾丢抗解</li>
+<li>顶者出头之谓，匾者不及之谓，</li>
+<li><p>丢者离开之谓，抗者太过之谓。</p></li>
+</ul>
+<p>要知此四字之病，不但沾粘连随之功断，且不明知觉运动矣，初学者不可不知，更不可不去此四病，所难在沾粘连随中不许顶匾丢抗，是所不易也。</p>
+<h2 id="对待无病"><a href="#TOC">对待无病</a></h2>
+<p>顶匾丢抗失之对待也，所以谓之病，既失沾粘连随，何能得到知觉运动?既不能知之于己，焉能知人?所谓对待无病者，乃不以顶匾丢抗对待于人，要以沾粘连随对待于人耳。能如是，不但无病，知觉运动自然得之，可以进于懂劲之功矣。</p>
+<h2 id="对待用功法守中土歌"><a href="#TOC">对待用功法守中土歌</a></h2>
+<p>定之方中足有根，先明四正进退身，掤履挤按自四手，须费功夫得其真。身形腰顶皆可以，沾粘连随意气君，运动知觉来相应，神是君位骨肉臣。分明火候七十二，天然乃武并乃文。</p>
+<h2 id="太极圈歌"><a href="#TOC">太极圈歌</a></h2>
+<p>退圈容易进圈难，不离腰顶后与前，所难中土不离位，退易进难仔细研，此为动功非站定，以身进退并比肩，能如水磨动急缓，云龙风虎像周旋，要用天盘从此觅，久而久之出天然。</p>
+<h2 id="太极四隅解"><a href="#TOC">太极四隅解</a></h2>
+<p>四正，四方也，所谓掤履挤按是也。初不知方能使圆，方圆复始之理，生生不已，焉有出隅之手哉。缘人外之肢体，内之神气，甚难得方圆四正之功，始出轻重浮沉之病，则有隅矣。例如半重偏重之滞而不正，自出采挒肘靠之隅手，或双重填实，亦出隅手也。</p>
+<p>病多之手，不得已以隅手扶之，使复归于方正圆中之内，采用肘靠者，亦由此以补其缺尔。夫日后功夫能至上乘者，亦须获采挒之功，使之仍归大中至正，是则四隅之用，乃扶体而补其缺者也。</p>
+<h2 id="太极武事解"><a href="#TOC">太极武事解</a></h2>
+<p>太极武事，外操柔软，内含坚刚，常求柔软之于外，久之自可得内之坚刚，非有心之坚刚，实有心之柔软也。所难者内要坚刚而不施于外，终柔软以迎敌，即以柔软而迎坚刚，使坚刚化为乌有耳。曰，何以致之哉?其要，非沾粘连随之功已 成，由于知觉运动得之后，进为懂劲，懂劲后自可阶及神明之化境，最后当可完成而致之矣。</p>
+<p>夫四两拨千斤之妙，倘功不及化境，将何以能?是则懂得沾粘连随后，乃能得其视听轻灵之功耳。</p>
+<h2 id="太极懂劲先后论"><a href="#TOC">太极懂劲先后论</a></h2>
+<p>夫未懂劲之先，常出顶匾丢抗之病；既懂劲之后，又恐出俯仰断续之病。既未懂劲，固然出病手；既已懂劲，何以又出病手?盖劲似懂未懂之际，正在两可，断接无准，故出病；神明尚犹不及，俯仰无着落，亦易出病；若不出“断接俯仰”，非真懂劲，不能不出此病也。</p>
+<p>故未真懂者，乃由视听无由，未得其确耳，如知：</p>
+<p>瞻、眇、顾、盼之视觉，起、落、缓、急之听知，闪、还、撩、了之运觉，转、换、进、退之动知，是为真懂劲。</p>
+<p>懂劲后自可阶及神明，自得屈伸进退之妙，如此屈伸动静，开合升降，自有由矣。由屈伸动静，见入则开，遇出则合，观来则降，就去则升。夫而后才能真及神明矣。明乎此，日后岂可不慎行坐卧走站、饮食溺溷之功，以协进其效，是则可谓将及中成大成也哉。</p>
+<h2 id="太极尺寸分毫解"><a href="#TOC">太极尺寸分毫解</a></h2>
+<p>功夫先练开展，后练紧凑，开展成而得之，才讲紧凑，紧凑成功后，才讲尺寸分毫。盖尺位之功成，而后能以寸位分，寸位功成后以分位分；分位功成后，以毫位分。此所谓尺寸分毫之理也明矣。然尺必十寸，寸必十分，分必十毫，其数在焉。古云：对待者数也。知其数则能得尺寸分毫，然而虽知其数，苟非有秘传，又安能量之哉。</p>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Sun, 01 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/taiji/2012-04-01-yang-cheng-pu-quanpu.html</guid>
+</item>
+<item>
+    <title>杨澄甫口述-太极拳说十要</title>
+    <link>http://haisgwu.info/posts/taiji/2012-04-01-yang-cheng-pu-shiyao.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>杨澄甫口述-太极拳说十要</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#虚灵顶劲">虚灵顶劲</a></li>
+<li><a href="#含胸拔背">含胸拔背</a></li>
+<li><a href="#松腰">松腰</a></li>
+<li><a href="#分虚实">分虚实</a></li>
+<li><a href="#沉肩坠肘">沉肩坠肘</a></li>
+<li><a href="#用意不用力">用意不用力</a></li>
+<li><a href="#上下相随">上下相随</a></li>
+<li><a href="#内外相合">内外相合</a></li>
+<li><a href="#相连不断">相连不断</a></li>
+<li><a href="#动中求静">动中求静</a></li>
+</ul>
+<h2 id="虚灵顶劲"><a href="#TOC">虚灵顶劲</a></h2>
+<p>顶劲者，头容正直，神贯于顶也。不可用力，用力则项强，气血不能流通，须有虚灵自然之意。非有虚灵顶劲，则精神不能提起也。</p>
+<h2 id="含胸拔背"><a href="#TOC">含胸拔背</a></h2>
+<p>含胸者，胸略内涵，使气沉于丹田也。胸忌挺出，挺出则气拥胸 际，上重下轻，脚跟易于浮起。拔背者，气贴于背也，能含胸则自能拔背， 能拔背则能力由脊发，所向无敌也。</p>
+<h2 id="松腰"><a href="#TOC">松腰</a></h2>
+<p>腰为一身之主宰，能松腰然后两足有力，下盘稳固；虚实变化皆由腰 转动，故曰：“命意源头在腰际”，由不得力必于腰腿求之也。</p>
+<h2 id="分虚实"><a href="#TOC">分虚实</a></h2>
+<p>太极拳术以分虚实为第一义，如全身皆坐在右腿，则右腿为实，左 腿为虚；全身皆坐在左腿，则左腿为实，右腿为虚。虚实能分，而后转动 轻灵，毫不费力；如不能分，则迈步重滞，自立不稳，而易为人所牵动。</p>
+<h2 id="沉肩坠肘"><a href="#TOC">沉肩坠肘</a></h2>
+<p>沉肩者，肩松开下垂也。若不能松垂，两肩端起，则气亦随之而 上，全身皆不得力矣。坠肘者，肘往下松垂之意，肘若悬起，则肩不能沉， 放人不远，近于外家之断劲矣。</p>
+<h2 id="用意不用力"><a href="#TOC">用意不用力</a></h2>
+<p>太极拳论云：此全是用意不用力。练太极拳全身松开，不便有 分毫之拙劲，以留滞于筋骨血脉之间以自缚束，然后能轻灵变化，圆转自 如。或疑不用力何以能长力？盖人身之有经络，如地之有沟壑，沟壑不塞 而本行，经络不闭则气通。如浑身僵劲满经络，气血停滞，转动不灵，牵 一发而全身动矣。若不用力而用意，意之所至，气即至焉，如是气血流注， 日日贯输，周流全身，无时停滞。久久练习，则得真正内劲，即太极拳论 中所云:“极柔软，然后极坚刚”也。太极拳功夫纯熟之人，臂膊如绵裹 铁，分量极沉；练外家拳者，用力则显有力，不用力时，则甚轻浮，可见 其力乃外劲浮面之劲也。不用意而用力，最易引动，不足尚也。</p>
+<h2 id="上下相随"><a href="#TOC">上下相随</a></h2>
+<p>上下相随者，即太极拳论中所云:其根在脚，发于腿，主宰于腰， 形于手指，由脚而腿而腰，总须完整一气也。手动、腰动、足动，眼神亦 随之动，如是方可谓之上下相随。有一不动，即散乱也。</p>
+<h2 id="内外相合"><a href="#TOC">内外相合</a></h2>
+<p>太极拳所练在神，故云：“神为主帅，身为驱使”。精神能提得 起，自然举动轻灵。架子不外虚实开合;所谓开者，不但手足开，心意亦 与之俱开，所谓合者，不但手足合，心意亦与之俱合，能内外合为一气， 则浑然无间矣。</p>
+<h2 id="相连不断"><a href="#TOC">相连不断</a></h2>
+<p>外家拳术，其劲乃后天之拙劲，故有起有止，有线有断，旧力巳 尽，新力未生，此时最易为人所乘。太极拳用意不用力，自始至终，绵绵 不断，周而复始，循环无穷。原论所谓“如长江大河，滔滔不绝”，又日 “运劲如抽丝”，皆言其贯串一气也。</p>
+<h2 id="动中求静"><a href="#TOC">动中求静</a></h2>
+<p>外家拳术，以跳掷为能，用尽气力，故练习之后，无不喘气者。 太极拳以静御动，虽动犹静，故练架子愈慢愈好。使则呼吸深长，气沉丹 田，自无血脉愤张之弊。学者细心休会，庶可得其意焉。</p>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Sun, 01 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/taiji/2012-04-01-yang-cheng-pu-shiyao.html</guid>
+</item>
+<item>
+    <title>Bayesian Network Exercise 01</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-bayesian-network-exe01.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Bayesian Network Exercise 01</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/AI.html">AI</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#scenarios">Scenarios</a></li>
+<li><a href="#resolution">Resolution</a></li>
+</ul>
+<h2 id="introduction"><a href="#TOC">Introduction</a></h2>
+<p>AI Course Bayesian network excerice 01 resolution using enumeration method.</p>
+<ul>
+<li>C 国家政策</li>
+<li>U 学校政策</li>
+<li>W 工作压力</li>
+<li>B 身体状况</li>
+<li>D 过劳死</li>
+</ul>
+<h2 id="scenarios"><a href="#TOC">Scenarios</a></h2>
+<ul>
+<li>已知 : <a href="http://docs.google.com/fileview?id=0B4ERhObEn4HSOTRlMDQwMGEtZDI4OS00M2ExLWI1YTgtNzU1MzdjYjU2Mzlm&amp;authkey=CMWuqBQ&amp;hl=en">Exercise01</a></li>
+<li>求 : 当 学校政策＝＝True 而且 工作压力 == True 时, 过劳死的概率.</li>
+</ul>
+<h2 id="resolution"><a href="#TOC">Resolution</a></h2>
+<ul>
+<li>Value T:0.95 means True case with probability 0.95</li>
+<li>Probability of C is omitted as it is not related. Even include C, the result should be same.</li>
+<li><p>Enumeration list</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">INDEX</th>
+<th align="center"><em>U</em></th>
+<th align="center"><em>W</em></th>
+<th align="center"><em>B</em></th>
+<th align="center"><em>D</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">T:0.96</td>
+<td align="center">T:0.90</td>
+<td align="center">T:0.3</td>
+<td align="center">T:0.335</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">T:0.96</td>
+<td align="center">T:0.90</td>
+<td align="center">F:0.7</td>
+<td align="center">T:0.3</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">T:0.96</td>
+<td align="center">T:0.90</td>
+<td align="center">T:0.3</td>
+<td align="center">F:0.665</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">T:0.06</td>
+<td align="center">T:0.90</td>
+<td align="center">F:0.7</td>
+<td align="center">F:0.7</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Probability calculation</p></li>
+</ul>
+<pre class="sh"><code>P(D=T|U=T,W=T) 
+  = ( P(1) + P(2) ) / ( P(1) + P(2 )+ ... + P(4) )
+  = (0.96*0.90*0.3*0.335 + 0.96*0.90*0.7*0.3 ) / (...)
+  = 0.3 * 1.035 / (0.3 * 1.035 + 0.3 * 0.665 + 0.7 * 0.7)
+  = 31.05%</code></pre>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-bayesian-network-exe01.html</guid>
+</item>
+<item>
+    <title>Trivial bind examples in JavaScipts</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-bind-examples-in-javascripts.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Trivial bind examples in JavaScipts</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/javascripts.html">javascripts</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#defined-a-function">Defined a function</a></li>
+<li><a href="#run-it">Run it</a></li>
+<li><a href="#run-it-with-bind">Run it with bind</a><ul>
+<li><a href="#less">Less</a></li>
+<li><a href="#more">More</a></li>
+</ul></li>
+<li><a href="#run-with-bind-and-context">Run with bind and context</a></li>
+<li><a href="#diff-with-call-and-apply">Diff with call and apply</a></li>
+<li><a href="#further">Further</a></li>
+</ul>
+<h2 id="defined-a-function"><a href="#TOC">Defined a function</a></h2>
+<pre class="javascripts"><code>var fn = function (x, y, z) {
+  console.log(&quot;The value: &quot;, this.shangHai);
+  console.log(&quot;The sum is: &quot;, x+y+z);
+}</code></pre>
+<h2 id="run-it"><a href="#TOC">Run it</a></h2>
+<pre class="javascripts"><code>fn(1);</code></pre>
+<p>-&gt; Output</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  NaN</code></pre>
+<pre class="javascripts"><code>fn(1,2,3);</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<h2 id="run-it-with-bind"><a href="#TOC">Run it with bind</a></h2>
+<h3 id="less"><a href="#TOC">Less</a></h3>
+<pre class="javascripts"><code>fn.bind(null,1,2,3)</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>function () { [native code] }</code></pre>
+<p>Hmm…, seems bind return a function rather apply the function and return value.</p>
+<p>What will happen if invoke the new function?</p>
+<pre class="javascripts"><code>fn.bind(null,1,2,3)()</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<p>That is what we want.</p>
+<h3 id="more"><a href="#TOC">More</a></h3>
+<p>What are results respectively of following expressions?</p>
+<ul>
+<li><code>fn.bind(null, 1)()</code></li>
+<li><code>fn.bind(null, 1)(2)</code></li>
+<li><code>fn.bind(null, 1, 2)()</code></li>
+<li><code>fn.bind(null, 1, 2)(3)</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)()</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)(3)</code></li>
+</ul>
+<p>Take one example</p>
+<pre class="javascripts"><code>fn.bind(null,1,2)(3)</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<p>How it produce result 6? <br />Because <code>bind</code> return is actually a partially applied function of<code>fn</code>.</p>
+<p>In JavaScripts words, the new function got return is a closure which holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the third parameter in order to fully apply function <code>fn</code>.</p>
+<p>The concept is named <em>Currying</em> and find more in <a href="#further">Further</a> section.</p>
+<p><em>PS</em>: turns out that <code>bind</code> is not really doing Currying according to <a href="http://en.wikipedia.org/wiki/Currying">here</a> and <a href="http://www.uncarved.com/blog/not_currying.mrk">here</a>. It is Partially Function Application more than Currying thouht it can do Currying at some sense.</p>
+<h2 id="run-with-bind-and-context"><a href="#TOC">Run with bind and context</a></h2>
+<p>What I really mean context here is actually about <code>this</code> used in the function. Still now, <em>this.shangHai</em> always output <code>undefined</code> but we would like it to mean something.</p>
+<pre class="javascripts"><code>fn.bind({shangHai:&quot;lovely&quot;},1,2,3)();</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  lovely
+The sum is:  6</code></pre>
+<p>This time <code>this.shangHai</code> outputs “lovely” which obviously comes from the object that pass as first parameter of <code>bind</code>.</p>
+<p>Generally speaking,<code>this</code> will be the object that pass in as the first parameter of bind when the object is not null.</p>
+<p>Quiz: what <code>this</code> will be when passing null?</p>
+<h2 id="diff-with-call-and-apply"><a href="#TOC">Diff with call and apply</a></h2>
+<p>My understanding the key point is bind return a function.</p>
+<p>By contract, <code>call</code> and <code>apply</code> is all about providing another way for invoking a function.</p>
+<h2 id="further"><a href="#TOC">Further</a></h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>
+</ul>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-bind-examples-in-javascripts.html</guid>
+</item>
+<item>
+    <title>Export a OrgMode doc in Chinese to PDF</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-export-orgmode-file-in-Chinese.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Export a OrgMode doc in Chinese to PDF</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/orgmode.html">orgmode</a>, <a href="../../tags/latex.html">latex</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#first-solution">First solution</a></li>
+<li><a href="#second-solution">Second solution</a></li>
+</ul>
+<h2 id="introduction"><a href="#TOC">Introduction</a></h2>
+<p>OrgMode is really cool and export context to latex then processed to PDF is quite straightforwards. However when working with Chinese characters, I need additional packages.</p>
+<p>First of all, install the following packages. (I already install the texlive package)</p>
+<pre><code>apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex</code></pre>
+<h2 id="first-solution"><a href="#TOC">First solution</a></h2>
+<p>Then in the org file, add the following latex options.</p>
+<pre><code>#+LaTeX_HEADER: \usepackage{CJK}
+#+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}</code></pre>
+<p>A littel drawback here is the <code>\begin{CJK}</code> is added as a header option whice due to it will not be closed when I checked with the tex output.</p>
+<p>People suggest to change to <code>#+LaTeX: \begin{CJK}{UTF8}{gbsn}</code> and append <code>#+LaTex: \end{CJK}</code> to the end of document.</p>
+<p>It all works out OK except the title which is Chinese characters as well can not display at all.</p>
+<h2 id="second-solution"><a href="#TOC">Second solution</a></h2>
+<p>Well, it is XeLaTex which has better support for UTF8. Actually I did not figure how to make it work with orgmode until a guy from orgmode mail list point out [[http://thread.gmane.org/gmane.emacs.orgmode/51914][another thread]].</p>
+<p>All I need to do is adding following option to the org document.</p>
+<pre><code>#+LATEX_HEADER: \usepackage{xltxtra}
+#+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}</code></pre>
+<p>Also need to customize emacs latex to pdf process.</p>
+<pre><code>(setq org-latex-to-pdf-process
+      '(&quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
+        &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
+        &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;))</code></pre>
+<p><strong>PS: The main font has been setted may be vary among different systems. How I find a proper font under ubuntu is via command <code>fc-list</code>.</strong></p>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-export-orgmode-file-in-Chinese.html</guid>
+</item>
+<item>
+    <title>Expression and Statement</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-expression-and-statement.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Expression and Statement</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/programming.html">programming</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#expression">Expression</a></li>
+<li><a href="#statement">Statement</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<h2 id="expression"><a href="#TOC">Expression</a></h2>
+<p>Something which evaluates to a value. Example:</p>
+<pre><code>1 + 2/x</code></pre>
+<h2 id="statement"><a href="#TOC">Statement</a></h2>
+<p>A line of code which does something. Example:</p>
+<pre><code>a = 1 + a; 
+return 10; </code></pre>
+<h2 id="reference"><a href="#TOC">Reference</a></h2>
+<ul>
+<li><a href="http://stackoverflow.com/questions/19132/expression-versus-statement">Discussion at Stackoverflow</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Statement_%28programming%29">Statement</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Expression_%28programming%29">Expression</a></li>
+</ul>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-expression-and-statement.html</guid>
+</item>
+<item>
+    <title>Git SVN</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-git-svn.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Git SVN</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#git-svn-initfetch">git svn init/fetch</a></li>
+<li><a href="#git-svn-clone">git svn clone</a></li>
+<li><a href="#git-svn-branch">git svn branch</a></li>
+<li><a href="#alternative-with-svn-merge">alternative with svn merge</a></li>
+</ul>
+<h2 id="git-svn-initfetch"><a href="#TOC">git svn init/fetch</a></h2>
+<pre><code>git svn init [-s] URL
+git svn fetch -r xxx|HEAD
+  a) it gets out 'all' branches/tags/trunk when no specific -r 
+  b) by change some at branch, chdir to branches folder and play with git 
+  c) if specify with -r, means &quot;Just want to checkout that revision&quot; 
+                         then try git svn rebase to update to HEAD 
+git svn rebase
+</code></pre>
+<h2 id="git-svn-clone"><a href="#TOC">git svn clone</a></h2>
+<pre><code># if any problems with init/fetch, just clone and seems this is recommanded...
+# seem should no targe name specified after URL
+# verify with git branch -r should show all svn branches and tags
+git svn clone [URL]</code></pre>
+<h2 id="git-svn-branch"><a href="#TOC">git svn branch</a></h2>
+<pre><code># create svn branch
+git svn branch [svn_branch_1]
+
+# set up local branch to dcommit to svn branch
+git branch [local_branch_name] remotes/svn_branch_name
+
+# do change at git local branch and merge into master with
+git merge --squash
+git commit
+git svn dcommit</code></pre>
+<h2 id="alternative-with-svn-merge"><a href="#TOC">alternative with svn merge</a></h2>
+<pre><code>svn mergeinfo ... :
+  git log master..branchx (diff commits that in branchx but master)
+  git branch [--no-merged|--merged]
+
+svn merge --dry-run
+  git merge --no-commit --no-ff
+</code></pre>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-git-svn.html</guid>
+</item>
+<item>
+    <title>Git Tips</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-git-tips.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Git Tips</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#fetch">fetch</a></li>
+<li><a href="#one-commit">one commit</a></li>
+<li><a href="#log">log</a></li>
+<li><a href="#miscs">miscs</a></li>
+</ul>
+<h2 id="fetch"><a href="#TOC">fetch</a></h2>
+<pre><code>### fetch origin &quot;FROM&quot; : &quot;TO&quot;
+fetch = +refs/heads/master:refs/remotes/origin/master
+
+git fetch origin master:refs/remotes/origin/mymaster
+git fetch origin master:refs/remotes/origin/mymaster
+          topic:refs/remotes/origin/topic</code></pre>
+<h2 id="one-commit"><a href="#TOC">one commit</a></h2>
+<p><a href="../../docs/git_one_commit.pdf">What happened after one commit</a></p>
+<h2 id="log"><a href="#TOC">log</a></h2>
+<h2 id="miscs"><a href="#TOC">miscs</a></h2>
+<pre><code>git instaweb --httpd=lighttpd
+
+### anything need push
+git remote show origin
+
+### init new repos
+git clone --bare my_project my_project.git
+
+git reset --hard 7e83	
+
+git checkout 82f5 [-b branch_name]	This takes you back in time, while preserving newer commits.
+git checkout :/&quot;my first brach&quot;	        Jump to the commit that starts with a given message.
+git checkout master~5	                5th last saved state.(BRANCH_NAME~number)
+
+git whatchanged 	
+git cherry-pick	
+
+git rebase	
+git rebase -I HEAD~10	modify last 10 commits
+git commit --amend	
+
+git filter-branch --tree-filter 'rm top/sececre/file' HEAD	remove file from all commit
+
+git bundle	
+
+git branch -r	
+
+###diff with remote branch,a.k. what are local change
+git diff remotes/HEAD	
+
+git reflog	
+</code></pre>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-git-tips.html</guid>
+</item>
+<item>
+    <title>Perl Tips</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-perl-tips.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Perl Tips</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/perl.html">perl</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#basic">Basic</a></li>
+<li><a href="#loop">Loop</a></li>
+<li><a href="#sub">Sub</a></li>
+<li><a href="#data-structure">Data Structure</a><ul>
+<li><a href="#aoa">AoA</a></li>
+</ul></li>
+<li><a href="#references">References</a></li>
+</ul>
+<h2 id="basic"><a href="#TOC">Basic</a></h2>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@myarray</span> = ();
+<span class="fu">push</span> <span class="dt">@myarray,</span><span class="kw">&quot;</span><span class="st">a</span><span class="kw">&quot;</span>;</code></pre>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@keys</span> = <span class="kw">qw(</span>a b c<span class="kw">)</span>;
+<span class="kw">my</span> <span class="dt">@vals</span> = (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>);
+<span class="kw">my</span> <span class="dt">%hash;</span>
+<span class="dt">@hash</span>{<span class="dt">@keys</span>} = <span class="dt">@vals;</span></code></pre>
+<h2 id="loop"><a href="#TOC">Loop</a></h2>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># loop elements in itemArray1 and itemArray2</span>
+<span class="kw">foreach</span> <span class="kw">my</span> <span class="dt">$item</span> (<span class="dt">@itemArray1,</span> <span class="dt">@itemArray2)</span> {
+  ...
+}
+
+<span class="kw">while</span> ( <span class="kw">my</span> (<span class="dt">$key,</span> <span class="dt">$value)</span> = <span class="kw">each</span>(<span class="dt">%hash)</span> ) {
+  <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$key =&gt; $value</span><span class="ch">\n</span><span class="kw">&quot;</span>;
+}</code></pre>
+<h2 id="sub"><a href="#TOC">Sub</a></h2>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">prepare_sth</span> {
+  <span class="kw">my</span> <span class="dt">$param</span> = <span class="fu">shift</span>;  <span class="co"># means shift @_, @_ is param array</span>
+  <span class="co"># my $param = $_;   # when could use $_ ??</span>
+}</code></pre>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">uniq</span> {
+  <span class="dt">@list</span> = <span class="fu">shift</span>;
+  <span class="dt">%seen</span> = (); 
+  <span class="dt">@uniqu</span> = <span class="fu">grep</span> { ! <span class="dt">$seen</span>{<span class="dt">$_</span>} ++ } <span class="dt">@list;</span>
+}</code></pre>
+<h2 id="data-structure"><a href="#TOC">Data Structure</a></h2>
+<h3 id="aoa"><a href="#TOC">AoA</a></h3>
+<p>from book <programming perl></p>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### Assign a list of array references to an array.</span>
+<span class="dt">@AoA</span> = (
+         [ <span class="kw">&quot;</span><span class="st">fred</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">barney</span><span class="kw">&quot;</span> ],
+         [ <span class="kw">&quot;</span><span class="st">george</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">jane</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">elroy</span><span class="kw">&quot;</span> ],
+         [ <span class="kw">&quot;</span><span class="st">homer</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">marge</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">bart</span><span class="kw">&quot;</span> ],
+);
+<span class="fu">print</span> <span class="dt">$AoA[2][1];</span>   <span class="co"># prints &quot;marge&quot;</span>
+
+<span class="co">### Create an reference to an array of array references.</span>
+<span class="dt">$ref_to_AoA</span> = [
+    [ <span class="kw">&quot;</span><span class="st">fred</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">barney</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">pebbles</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">bamm bamm</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">dino</span><span class="kw">&quot;</span>, ],
+    [ <span class="kw">&quot;</span><span class="st">homer</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">bart</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">marge</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">maggie</span><span class="kw">&quot;</span>, ],
+    [ <span class="kw">&quot;</span><span class="st">george</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">jane</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">elroy</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">judy</span><span class="kw">&quot;</span>, ],
+];
+
+<span class="fu">print</span> <span class="dt">$ref_to_AoA</span>-&gt;<span class="dt">[2][3];</span>   <span class="co"># prints &quot;judy&quot;</span></code></pre>
+<p>Remember that there is an implied -&gt; between every pair of adjacent braces or brackets. <strong>(Simply saying, -&gt; indicates a reference which created via [])</strong>.</p>
+<p>Therefore these two lines:</p>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA[2][3]</span>
+<span class="dt">$ref_to_AoA</span>-&gt;<span class="dt">[2][3]</span></code></pre>
+<p>are equivalent to these two lines:</p>
+<pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA[2]</span>-&gt;<span class="dt">[3]</span>
+<span class="dt">$ref_to_AoA</span>-&gt;<span class="dt">[2]</span>-&gt;<span class="dt">[3]</span></code></pre>
+<h2 id="references"><a href="#TOC">References</a></h2>
+<ul>
+<li><a href="http://www.cs.mcgill.ca/~abatko/computers/programming/perl/howto/hash/">Perl Hash Howto</a></li>
+</ul>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-perl-tips.html</guid>
+</item>
+<item>
+    <title>Python Tips</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-python-tips.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Python Tips</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/python.html">python</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#re">re</a></li>
+<li><a href="#list">list</a></li>
+<li><a href="#dict">dict</a></li>
+<li><a href="#mise">Mise</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+<h2 id="re"><a href="#TOC">re</a></h2>
+<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; re.split(<span class="st">&quot;[^0-9]&quot;</span>, <span class="st">&quot;12 34 + 2 *&quot;</span>)
+[<span class="st">'12'</span>, <span class="st">'34'</span>, <span class="st">''</span>, <span class="st">''</span>, <span class="st">'2'</span>, <span class="st">''</span>, <span class="st">''</span>] </code></pre>
+<p>Cant understand how ’’ being produced.</p>
+<h2 id="list"><a href="#TOC">list</a></h2>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">str</span>(<span class="st">&quot;abcdef&quot;</span>)[::-<span class="dv">1</span>] ==&gt; <span class="st">&quot;fedcba&quot;</span>
+<span class="dt">reduce</span>(<span class="kw">lambda</span> x,y:y+x,<span class="st">&quot;abcdef&quot;</span>) ==&gt; <span class="st">&quot;fedcba&quot;</span>
+<span class="dt">sorted</span>([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]) ==&gt; [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]
+a = [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]; a.sort() ==&gt; a := [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]</code></pre>
+<h2 id="dict"><a href="#TOC">dict</a></h2>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="co">### demostrate loop a dict and list/dict parameter</span>
+<span class="kw">def</span> tst_dict(*args, **kargs):
+    <span class="kw">for</span> k, v in <span class="dt">dict</span>(*args, **kargs).iteritems():
+        <span class="kw">print</span> k, v
+
+<span class="kw">def</span> tst_dict2():
+    <span class="kw">for</span> key in a_dict:
+        <span class="kw">print</span> key, a_dict[key]
+
+tst_dict(name=<span class="st">'aa'</span>, place=<span class="st">'bb'</span>)
+tst_dict(<span class="st">'aaa'</span>, <span class="st">'bbb'</span>) <span class="co"># throw error</span></code></pre>
+<h2 id="mise"><a href="#TOC">Mise</a></h2>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">range</span>(<span class="dv">4</span>) ==&gt; [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="co">#range start from 0 by default</span>
+<span class="st">'</span><span class="ot">%s</span><span class="st">: </span><span class="ot">%r</span><span class="st">'</span> % (something, other)
+<span class="st">'</span><span class="ot">%(name)s</span><span class="st"> is </span><span class="ot">%(value)d</span><span class="st">'</span> % {
+    <span class="st">'name'</span>: <span class="st">'The answer'</span>,
+    <span class="st">'value'</span>: <span class="dv">42</span>,
+}</code></pre>
+<h2 id="reference"><a href="#TOC">Reference</a></h2>
+<ul>
+<li><a href="http://docs.python.org/library/re.html">re reference</a></li>
+</ul>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-python-tips.html</guid>
+</item>
+<item>
+    <title>Shell Tips</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-06-shell-tips.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Shell Tips</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/shell.html">shell</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#quicklinks">Quicklinks</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#sample-section-a">Sample Section A</a><ul>
+<li><a href="#grep">grep</a></li>
+<li><a href="#find">find</a></li>
+<li><a href="#awk">awk</a></li>
+<li><a href="#sed">sed</a></li>
+<li><a href="#cp">cp</a></li>
+</ul></li>
+<li><a href="#sample-section-b">Sample Section B</a><ul>
+<li><a href="#while">while</a></li>
+<li><a href="#for">for</a></li>
+<li><a href="#case">case</a></li>
+</ul></li>
+</ul>
+<h2 id="quicklinks"><a href="#TOC">Quicklinks</a></h2>
+<ul>
+<li>[[http://bash.cyberciti.biz/guide/What_is_a_Subshell%3F][What is a Subshell]]</li>
+<li>[[http://en.wikipedia.org/wiki/List_of_Unix_utilities][List of Unix utilities]]</li>
+<li>[[http://www-128.ibm.com/developerworks/aix/library/au-badunixhabits.html?ca=lnxw01GoodUnixHabits][10 Good Unix habits]]</li>
+</ul>
+<h2 id="reference"><a href="#TOC">Reference</a></h2>
+<ul>
+<li>() execute command in subshell</li>
+<li>{} execute command in currecnt shell Usage is same with () expect the final command in the list ends with a semicolon.</li>
+</ul>
+<h2 id="sample-section-a"><a href="#TOC">Sample Section A</a></h2>
+<h3 id="grep"><a href="#TOC">grep</a></h3>
+<pre class="sh"><code>grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
+### count process and exclude grep itself
+ps aux | grep vpnc | grep -v grep -c</code></pre>
+<h3 id="find"><a href="#TOC">find</a></h3>
+<pre class="sh"><code>find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
+find $update_dir \( -name '*.java' \) \( -path '**/source/**' -o -path '**/test/**' -o -path '**/resource/**' \)</code></pre>
+<h3 id="awk"><a href="#TOC">awk</a></h3>
+<pre class="sh"><code>### list all time of each ping
+awk -F&quot;=&quot; '/time=/ {print substr($4,0,length($4)-3) }' &lt; ping.log
+### passing shell parameter to awk scripts
+svn st ${dirs} | awk -F&quot; &quot; -v ac=&quot;${*}&quot; ' /'${predicate}'/ &amp;&amp; (index($2,&quot;\\&quot;)==0 || gsub(/\\/,&quot;/&quot;,$2)) {print ac, $2}'
+### change Output Row Separator
+awk ' BEGIN { ORS = &quot; &quot; } { print }'</code></pre>
+<h3 id="sed"><a href="#TOC">sed</a></h3>
+<pre class="sh"><code>ll | sed '/Stores\|Test\|^-\|^t/d' | wc
+smbclient -L \\\\hangzhou2\\twitters -U foobar | sed '/Hangzhou20/,$d'
+export BEA_IP=`/sbin/ifconfig eth0 | sed '/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g'`</code></pre>
+<h3 id="cp"><a href="#TOC">cp</a></h3>
+<pre class="sh"><code>cp filename{,.bak}</code></pre>
+<h2 id="sample-section-b"><a href="#TOC">Sample Section B</a></h2>
+<h3 id="while"><a href="#TOC">while</a></h3>
+<pre class="sh"><code>while getopts &quot;:ab:c&quot; opt; do
+	case $opt in
+	a ) echo &quot;I am a&quot; ;;
+	b ) echo $OPTARG  ;;
+	c ) echo &quot;i am c&quot; ;;
+	? ) echo &quot;usage : $0 [-a] [-b barg] [-c] args ..&quot;
+	    exit 1 ;;
+	esac
+    shift $(($OPTIND - 1))
+done</code></pre>
+<h3 id="for"><a href="#TOC">for</a></h3>
+<pre class="sh"><code>for s in $(echo $string | sed &quot;s/;/ /g&quot;); do
+	echo $s
+done</code></pre>
+<pre class="sh"><code>for (( i=1; i&lt;=$n; i++ )) do
+   ls -1 &quot;${file_pattern}&quot; | sed 's#\(.*\)\(.xml\).bak#cp &amp; \1'&quot;_$i&quot;'\2#g'
+done</code></pre>
+<h3 id="case"><a href="#TOC">case</a></h3>
+<pre class="sh"><code>case $action in
+    backup ) tar cfj &quot;$backup_dir/$bakfile&quot; * --exclude &quot;jobs/*/workspace&quot; ;;
+    rest | restore ) tar xfj $backup_dir/$bakfile ;;
+    * ) echo &quot;all supported actions: backup | rest[ore]&quot; ; exit 0 ;;
+esac</code></pre>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-06-shell-tips.html</guid>
+</item>
+<item>
+    <title>Confused Constructor in JavaScipts</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-12-confused-constructor-js.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Confused Constructor in JavaScipts</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April 12, 2012</em>, Tags: <a href="../../tags/javascripts.html">javascripts</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#sample">Sample</a></li>
+<li><a href="#jquery.fn.init">JQuery.fn.init</a></li>
+</ul>
+<h2 id="introduction"><a href="#TOC">Introduction</a></h2>
+<p>I can not quite remember what happened when invoking <code>new</code> over a function. While I’m looking at function <code>init</code> at jQuery source, the concern comes to me again.</p>
+<p>Fourtunaly I think the answer at this<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> thread turns out to be a quite clear explanation.</p>
+<p>Just three things according to that answer.</p>
+<ol style="list-style-type: decimal">
+<li>Creates a new object. Its type is <code>object</code>.</li>
+<li>Sets this new object’s internal, inaccessible, <code>[[prototype]]</code> property to be the constructor function’s external, accessible, <code>prototype</code> object. <em>Refer to line 11 at <a href="#sample">sample</a></em>.</li>
+<li>Executes the constructor function, using the new object whenever <code>this</code> is mentioned.</li>
+</ol>
+<p>Regarding #2, we might have question like</p>
+<ol style="list-style-type: lower-roman">
+<li>What is constuctor function’s <code>prototype</code> object?</li>
+<li>What is the <code>[[prototype]]</code>?</li>
+</ol>
+<p>The answer are</p>
+<ol style="list-style-type: lower-roman">
+<li>Function’s <code>prototype</code> property is automatically created which in turn has a constructor property pointing back to the function. <em>Refer to line 4 at <a href="#sample">sample</a></em></li>
+<li>Basically <code>[[prototype]]</code> is used for prototype chain. Find details at here<sup><a href="#fn2" class="footnoteRef" id="fnref2">2</a></sup> and Ecma-262<sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup>.</li>
+</ol>
+<p>Therefore if we change the <code>prototype</code> property of the function before <code>new</code>, the <code>[[prototype]]</code> of instances afterwards is vary accordingly. <em>Refer to line 19 at <a href="#sample">sample</a></em></p>
+<h2 id="sample"><a href="#TOC">Sample</a></h2>
+<ul>
+<li><strong>tested at google chrome 18 and pay close attention to comments.</strong></li>
+</ul>
+<table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript">
+<span class="kw">var</span> fn1 = <span class="kw">function</span> () { <span class="kw">this</span>.<span class="fu">name</span> = <span class="st">&quot;fn1&quot;</span>; }
+
+<span class="kw">fn1</span>.<span class="fu">prototype</span>          <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
+                       <span class="co">//        , __proto__: Object }</span>
+
+<span class="kw">fn1</span>.__<span class="fu">proto</span>__          <span class="co">// function Empty() {}</span>
+
+
+<span class="kw">var</span> x1 = <span class="kw">new</span> fn1();
+<span class="kw">x1</span>.__<span class="fu">proto</span>__ === <span class="kw">fn1</span>.<span class="fu">prototype</span>  <span class="co">// True</span>
+
+<span class="kw">x1</span>.__<span class="fu">proto</span>__           <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
+                       <span class="co">//        , __proto__: Object }</span>
+<span class="kw">x1</span>.<span class="fu">constructor</span>         <span class="co">// function () { this.name = &quot;fn1&quot;; }</span>
+
+
+<span class="kw">fn1</span>.<span class="fu">prototype</span> = {<span class="ch">'location'</span>: <span class="ch">'sea'</span>}
+
+<span class="kw">var</span> y1 = <span class="kw">new</span> fn1();
+<span class="kw">x1</span>.__<span class="fu">proto</span>__ === <span class="kw">fn1</span>.<span class="fu">prototype</span>  <span class="co">// True</span>
+
+<span class="kw">y1</span>.__<span class="fu">proto</span>__;          <span class="co">// Object { location: &quot;sea&quot;</span>
+                       <span class="co">//        ,__proto__: Object }</span>
+<span class="kw">y1</span>.<span class="fu">constructor</span>;        <span class="co">// function Object() { [native code] }</span>
+</code></pre></td></tr></table>
+<ul>
+<li>Quiz: Why y1.constructor is not same as x1.constructor?</li>
+</ul>
+<h2 id="jquery.fn.init"><a href="#TOC">JQuery.fn.init</a></h2>
+<ul>
+<li><code>jQuery</code> is declarated as</li>
+</ul>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> jQuery = <span class="kw">function</span>( selector, context ) {
+		<span class="co">// The jQuery object is actually just the init constructor 'enhanced'</span>
+		<span class="kw">return</span> <span class="kw">new</span> <span class="kw">jQuery.fn</span>.<span class="fu">init</span>( selector, context, rootjQuery );
+	},</code></pre>
+<ul>
+<li><code>jQuery.fn</code> is just a object as</li>
+</ul>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">jQuery</span>.<span class="fu">fn</span> = {
+	<span class="dt">constructor</span>: jQuery,
+	<span class="dt">init</span>: <span class="kw">function</span>( selector, context, rootjQuery ) {
+		    <span class="kw">var</span> match, elem, ret, doc;
+            ... ...
+          },
+    ... ... <span class="co">// many API declaration.</span>
+}</code></pre>
+<ul>
+<li>Function chain</li>
+</ul>
+<p>Since <code>jQuery</code> is just a function, we are able to do with a selector like <code>jQuery('div.navigator').addClass('nav')</code>.</p>
+<p>Actually in order to use jQuery API like <code>addClass</code>, there must exists following something which of cource can be found at around line 322 of jQuery.1.7.1.css<sup><a href="#fn4" class="footnoteRef" id="fnref4">4</a></sup>.</p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">jQuery.fn.init</span>.<span class="fu">prototype</span> = <span class="kw">jQuery</span>.<span class="fu">fn</span>;</code></pre>
+<div class="footnotes">
+<hr></hr>
+<ol>
+<li id="fn1"><p><a href="http://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript">What is new keyword in JS</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://joost.zeekat.nl/constructors-considered-mildly-confusing.html">Constructors considered confusing</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">Ecma262</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="http://code.jquery.com/jquery-1.7.2.js">jQuery 1.7.1</a><a href="#fnref4">↩</a></p></li>
+</ol>
+</div>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Thu, 12 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-12-confused-constructor-js.html</guid>
+</item>
+<item>
+    <title>Objects created at one commit</title>
+    <link>http://haisgwu.info/posts/tech/2012-04-12-git-one-commit.html</link>
+    <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+<h1>Objects created at one commit</h1>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right"><em>Haisheng, Wu on April 12, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
+<div class="clear"></div>
+
+<div class="body">
+<h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#play-it">Play it</a><ul>
+<li><a href="#new-two-files">new two files</a></li>
+<li><a href="#git-add">git-add</a></li>
+<li><a href="#no-objects-created-yet">no objects created yet</a></li>
+<li><a href="#git-commit">git-commit</a></li>
+<li><a href="#git-obj-list">git-obj-list</a></li>
+<li><a href="#what-are-they">what are they</a></li>
+</ul></li>
+<li><a href="#further">Further</a></li>
+</ul>
+<h2 id="play-it"><a href="#TOC">Play it</a></h2>
+<h3 id="new-two-files"><a href="#TOC">new two files</a></h3>
+<pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &quot;11111&quot; &gt; 1.txt
+haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &quot;22222&quot; &gt; 2.txt</code></pre>
+<h3 id="git-add"><a href="#TOC">git-add</a></h3>
+<pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add .
+haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+#
+#	new file:   1.txt
+#	new file:   2.txt
+#</code></pre>
+<h3 id="no-objects-created-yet"><a href="#TOC">no objects created yet</a></h3>
+<pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all</code></pre>
+<h3 id="git-commit"><a href="#TOC">git-commit</a></h3>
+<pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci &quot;first commit&quot;
+[master (root-commit) 8ef1919] first commit
+ 2 files changed, 2 insertions(+), 0 deletions(-)
+ create mode 100644 1.txt
+ create mode 100644 2.txt
+</code></pre>
+<h3 id="git-obj-list"><a href="#TOC">git-obj-list</a></h3>
+<pre class="sh"><code>
+haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
+8ef1919e4ca33cf602488a27b5671a6b6acf754b
+8ed6deeabbbb89cda775aafc10745ea40dcd8456 
+f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f 1.txt
+0ac1ae0ae201d8db7ac29015a6ba7494db37d59c 2.txt
+</code></pre>
+<h3 id="what-are-they"><a href="#TOC">what are they</a></h3>
+<pre class="sh"><code>
+~/github/haisheng-homepage/test$ git cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
+11111
+~/github/haisheng-homepage/test$ git cat-file -p 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c
+22222
+
+~/github/haisheng-homepage/test$ git cat-file -p 8ef1919e4ca33cf602488a27b5671a6b6acf754b
+tree 8ed6deeabbbb89cda775aafc10745ea40dcd8456
+author Haisheng.W.WU &lt;freizl@gmail.com&gt; 1334230087 +0800
+committer Haisheng.W.WU &lt;freizl@gmail.com&gt; 1334230087 +0800
+
+first commit
+
+~/github/haisheng-homepage/test$ git cat-file -p 8ed6deeabbbb89cda775aafc10745ea40dcd8456
+100644 blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f	1.txt
+100644 blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c	2.txt
+</code></pre>
+<h2 id="further"><a href="#TOC">Further</a></h2>
+<ul>
+<li>Git internal in one image <sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup></li>
+<li>What are tree objects / commits objects? <sup><a href="#fn2" class="footnoteRef" id="fnref2">2</a></sup></li>
+</ul>
+<div class="footnotes">
+<hr></hr>
+<ol>
+<li id="fn1"><p><a href="http://0.0.0.0:9900/posts/readings/2012-04-08-notes-progit.html#internal">Git internal in one image</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://book.git-scm.com/">Git-SCM book</a><a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+</div>
+
+<div style="float:left">
+  <small><a href="../../index.html">Back to Home</a></small>
+</div>
+<div style="float:right">
+  <small><a href="../../posts.html">View archive</a></small>
+</div>
+
+<div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p>Site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a> | freizl at gmail</p>
+      </div>
+
+    </div>
+  </body>
+</html>
+]]></description>
+    <pubDate>Thu, 12 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://haisgwu.info/posts/tech/2012-04-12-git-one-commit.html</guid>
+</item>
+
+    </channel> 
+</rss>
