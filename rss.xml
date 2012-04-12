@@ -18,6 +18,7 @@
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -35,16 +36,15 @@
       <div class="container">
         <div class="boxer">
 
-<h1>Notes form Master of Regular Expression</h1>
+  <h1>Notes form Master of Regular Expression</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/regex.html">regex</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/regex.html">regex</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#notes">Notes</a></li>
 <li><a href="#reference">Reference</a></li>
@@ -113,16 +113,17 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
 <span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ot">\x</span><span class="ch">?</span><span class="kw">/</span><span class="st">!</span><span class="kw">/g</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></code></pre>
 <h2 id="reference"><a href="#TOC">Reference</a></h2>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -150,6 +151,7 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -167,16 +169,15 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
       <div class="container">
         <div class="boxer">
 
-<h1>Notes from ProGit</h1>
+  <h1>Notes from ProGit</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/git.html">git</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/git.html">git</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#chapter-9.3">Chapter 9.3</a></li>
 <li><a href="#chapter-6">Chapter 6</a></li>
@@ -223,16 +224,17 @@ git log master...branchA</code></pre>
 <ul>
 <li><a href="http://progit.org/book/">ProGit</a></li>
 </ul>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -260,6 +262,7 @@ git log master...branchA</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -277,16 +280,15 @@ git log master...branchA</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>Quotes from Rework</h1>
+  <h1>Quotes from Rework</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/programming.html">programming</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  8, 2012</em>, Tags: <a href="../../tags/reading.html">reading</a>, <a href="../../tags/programming.html">programming</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#quotes">Quotes</a></li>
 <li><a href="#reference">Reference</a></li>
@@ -310,16 +312,17 @@ git log master...branchA</code></pre>
 <ul>
 <li><a href="http://37signals.com/rework/">Rework</a></li>
 </ul>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -347,6 +350,7 @@ git log master...branchA</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -364,16 +368,15 @@ git log master...branchA</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>陈长兴太极拳十大要论</h1>
+  <h1>陈长兴太极拳十大要论</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#第一章-理">第一章 理</a></li>
 <li><a href="#第二章-气">第二章 气</a></li>
@@ -406,16 +409,17 @@ git log master...branchA</code></pre>
 <p>今夫四肢百骸主於动，而实运以步；步者乃一身之根基，运动之枢纽也。以故 应战，对战，本诸身。而所以为身之砥柱者，莫非步。随机应变在於手。而所 以为手之转移者，又在於步。进退反侧，非步何以作鼓动之机，抑扬伸缩，非 步何以示变化之妙。即谓观察在眼，变化在心，而转变抹角，千变万化，不至 穷迫者，何莫非步之司命，而要非勉强可致之也。动作出於无心，鼓舞出於不 觉，身欲动而步以为之周旋，手将动而步亦早为之催迫，不期然而已然，莫之 驱而若驱，所谓上欲动而下自随之，其斯之谓欤！且步分前後，有定位者，步 也。无定位者，亦步也。如前步进，而後步亦随之，前後自有定位也。若前步 作後步，後步作前步，更以前步作後步之前步，後步作前步之後步，前後亦自 有定位矣。总之：捶以论势而握要者步也。活与不活，在於步，灵与不灵亦在 於步。步之为用大矣哉！</p>
 <h2 id="第十章-刚柔"><a href="#TOC">第十章 刚柔</a></h2>
 <p>夫拳术之为用，气与势而已矣。然而气有强弱，势分刚柔，气强者取乎势之刚， 气弱者取乎势之柔，刚者以千钧之力而扼百钧，柔者以百钧之力而破千钧，尚 力尚巧，刚柔之所以分也。然刚柔既分，而发用亦自有别，四肢发动，气行谙 外，而内持静重，刚势也。气屯於内，而外现轻和，柔势也。用刚不可无柔， 无柔则还不速。用柔不可无刚，无刚则催逼不捷，刚柔相济，则粘，游，连， 随，腾，闪，折，空，，，挤，捺。无不得其自然矣。刚柔不可偏用，用 武岂可忽耶。</p>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -443,6 +447,7 @@ git log master...branchA</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -460,16 +465,15 @@ git log master...branchA</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>拳谱:陈式新架一路七十五式</h1>
+  <h1>拳谱:陈式新架一路七十五式</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a>, <a href="../../tags/spectrum.html">spectrum</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a>, <a href="../../tags/spectrum.html">spectrum</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 
 <ul>
 <li>第一式 预备式</li>
@@ -548,16 +552,17 @@ git log master...branchA</code></pre>
 <li>第七十四式 金刚捣碓</li>
 <li>第七十五式 收式</li>
 </ul>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -585,6 +590,7 @@ git log master...branchA</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -602,16 +608,15 @@ git log master...branchA</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>拳谱:四十二式太极剑</h1>
+  <h1>拳谱:四十二式太极剑</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a>, <a href="../../tags/spectrum.html">spectrum</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a>, <a href="../../tags/spectrum.html">spectrum</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 
 <ol style="list-style-type: decimal">
 <li>起势</li>
@@ -656,16 +661,17 @@ git log master...branchA</code></pre>
 <li>摆腿架剑</li>
 <li>弓步直刺</li>
 </ol>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -693,6 +699,7 @@ git log master...branchA</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -710,16 +717,15 @@ git log master...branchA</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>杨澄甫传抄太极拳谱</h1>
+  <h1>杨澄甫传抄太极拳谱</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#太极平准腰顶解">太极平准腰顶解</a></li>
 <li><a href="#太极正功解">太极正功解</a></li>
@@ -790,16 +796,17 @@ git log master...branchA</code></pre>
 <p>懂劲后自可阶及神明，自得屈伸进退之妙，如此屈伸动静，开合升降，自有由矣。由屈伸动静，见入则开，遇出则合，观来则降，就去则升。夫而后才能真及神明矣。明乎此，日后岂可不慎行坐卧走站、饮食溺溷之功，以协进其效，是则可谓将及中成大成也哉。</p>
 <h2 id="太极尺寸分毫解"><a href="#TOC">太极尺寸分毫解</a></h2>
 <p>功夫先练开展，后练紧凑，开展成而得之，才讲紧凑，紧凑成功后，才讲尺寸分毫。盖尺位之功成，而后能以寸位分，寸位功成后以分位分；分位功成后，以毫位分。此所谓尺寸分毫之理也明矣。然尺必十寸，寸必十分，分必十毫，其数在焉。古云：对待者数也。知其数则能得尺寸分毫，然而虽知其数，苟非有秘传，又安能量之哉。</p>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -827,6 +834,7 @@ git log master...branchA</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -844,16 +852,15 @@ git log master...branchA</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>杨澄甫口述-太极拳说十要</h1>
+  <h1>杨澄甫口述-太极拳说十要</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  1, 2012</em>, Tags: <a href="../../tags/taiji.html">taiji</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#虚灵顶劲">虚灵顶劲</a></li>
 <li><a href="#含胸拔背">含胸拔背</a></li>
@@ -886,16 +893,17 @@ git log master...branchA</code></pre>
 <p>外家拳术，其劲乃后天之拙劲，故有起有止，有线有断，旧力巳 尽，新力未生，此时最易为人所乘。太极拳用意不用力，自始至终，绵绵 不断，周而复始，循环无穷。原论所谓“如长江大河，滔滔不绝”，又日 “运劲如抽丝”，皆言其贯串一气也。</p>
 <h2 id="动中求静"><a href="#TOC">动中求静</a></h2>
 <p>外家拳术，以跳掷为能，用尽气力，故练习之后，无不喘气者。 太极拳以静御动，虽动犹静，故练架子愈慢愈好。使则呼吸深长，气沉丹 田，自无血脉愤张之弊。学者细心休会，庶可得其意焉。</p>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -923,6 +931,7 @@ git log master...branchA</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -940,16 +949,15 @@ git log master...branchA</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>Bayesian Network Exercise 01</h1>
+  <h1>Bayesian Network Exercise 01</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/AI.html">AI</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/AI.html">AI</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#scenarios">Scenarios</a></li>
@@ -1022,16 +1030,17 @@ git log master...branchA</code></pre>
   = (0.96*0.90*0.3*0.335 + 0.96*0.90*0.7*0.3 ) / (...)
   = 0.3 * 1.035 / (0.3 * 1.035 + 0.3 * 0.665 + 0.7 * 0.7)
   = 31.05%</code></pre>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1059,6 +1068,7 @@ git log master...branchA</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1076,16 +1086,15 @@ git log master...branchA</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>Trivial bind examples in JavaScipts</h1>
+  <h1>Trivial bind examples in JavaScipts</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/javascripts.html">javascripts</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/javascripts.html">javascripts</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#defined-a-function">Defined a function</a></li>
 <li><a href="#run-it">Run it</a></li>
@@ -1158,16 +1167,17 @@ The sum is:  6</code></pre>
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>
 </ul>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1195,6 +1205,7 @@ The sum is:  6</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1212,16 +1223,15 @@ The sum is:  6</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>Export a OrgMode doc in Chinese to PDF</h1>
+  <h1>Export a OrgMode doc in Chinese to PDF</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/orgmode.html">orgmode</a>, <a href="../../tags/latex.html">latex</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/orgmode.html">orgmode</a>, <a href="../../tags/latex.html">latex</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#first-solution">First solution</a></li>
@@ -1249,16 +1259,17 @@ The sum is:  6</code></pre>
         &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
         &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;))</code></pre>
 <p><strong>PS: The main font has been setted may be vary among different systems. How I find a proper font under ubuntu is via command <code>fc-list</code>.</strong></p>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1286,6 +1297,7 @@ The sum is:  6</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1303,16 +1315,15 @@ The sum is:  6</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>Expression and Statement</h1>
+  <h1>Expression and Statement</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/programming.html">programming</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/programming.html">programming</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#expression">Expression</a></li>
 <li><a href="#statement">Statement</a></li>
@@ -1331,16 +1342,17 @@ return 10; </code></pre>
 <li><a href="http://en.wikipedia.org/wiki/Statement_%28programming%29">Statement</a></li>
 <li><a href="http://en.wikipedia.org/wiki/Expression_%28programming%29">Expression</a></li>
 </ul>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1368,6 +1380,7 @@ return 10; </code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1385,16 +1398,15 @@ return 10; </code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>Git SVN</h1>
+  <h1>Git SVN</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#git-svn-initfetch">git svn init/fetch</a></li>
 <li><a href="#git-svn-clone">git svn clone</a></li>
@@ -1434,16 +1446,17 @@ git svn dcommit</code></pre>
 svn merge --dry-run
   git merge --no-commit --no-ff
 </code></pre>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1471,6 +1484,7 @@ svn merge --dry-run
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1488,16 +1502,15 @@ svn merge --dry-run
       <div class="container">
         <div class="boxer">
 
-<h1>Git Tips</h1>
+  <h1>Git Tips</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#fetch">fetch</a></li>
 <li><a href="#one-commit">one commit</a></li>
@@ -1547,16 +1560,17 @@ git diff remotes/HEAD
 
 git reflog	
 </code></pre>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1584,6 +1598,7 @@ git reflog
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1601,16 +1616,15 @@ git reflog
       <div class="container">
         <div class="boxer">
 
-<h1>Perl Tips</h1>
+  <h1>Perl Tips</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/perl.html">perl</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/perl.html">perl</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#basic">Basic</a></li>
 <li><a href="#loop">Loop</a></li>
@@ -1676,16 +1690,17 @@ git reflog
 <ul>
 <li><a href="http://www.cs.mcgill.ca/~abatko/computers/programming/perl/howto/hash/">Perl Hash Howto</a></li>
 </ul>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1713,6 +1728,7 @@ git reflog
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1730,16 +1746,15 @@ git reflog
       <div class="container">
         <div class="boxer">
 
-<h1>Python Tips</h1>
+  <h1>Python Tips</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/python.html">python</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/python.html">python</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#re">re</a></li>
 <li><a href="#list">list</a></li>
@@ -1779,16 +1794,17 @@ tst_dict(<span class="st">'aaa'</span>, <span class="st">'bbb'</span>) <span cla
 <ul>
 <li><a href="http://docs.python.org/library/re.html">re reference</a></li>
 </ul>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1816,6 +1832,7 @@ tst_dict(<span class="st">'aaa'</span>, <span class="st">'bbb'</span>) <span cla
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1833,16 +1850,15 @@ tst_dict(<span class="st">'aaa'</span>, <span class="st">'bbb'</span>) <span cla
       <div class="container">
         <div class="boxer">
 
-<h1>Shell Tips</h1>
+  <h1>Shell Tips</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/shell.html">shell</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April  6, 2012</em>, Tags: <a href="../../tags/shell.html">shell</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#quicklinks">Quicklinks</a></li>
 <li><a href="#reference">Reference</a></li>
@@ -1916,16 +1932,17 @@ done</code></pre>
     rest | restore ) tar xfj $backup_dir/$bakfile ;;
     * ) echo &quot;all supported actions: backup | rest[ore]&quot; ; exit 0 ;;
 esac</code></pre>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -1953,6 +1970,7 @@ esac</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -1970,16 +1988,15 @@ esac</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>Confused Constructor in JavaScipts</h1>
+  <h1>Confused Constructor in JavaScipts</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April 12, 2012</em>, Tags: <a href="../../tags/javascripts.html">javascripts</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April 12, 2012</em>, Tags: <a href="../../tags/javascripts.html">javascripts</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#sample">Sample</a></li>
@@ -2098,16 +2115,17 @@ esac</code></pre>
 <li id="fn4"><p><a href="http://code.jquery.com/jquery-1.7.2.js">jQuery 1.7.1</a><a href="#fnref4">↩</a></p></li>
 </ol>
 </div>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
@@ -2135,6 +2153,7 @@ esac</code></pre>
     <title>Happy Programming</title>
     <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
     <link rel="stylesheet" type="text/css" href="../../css/syntax.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
   </head>
@@ -2152,16 +2171,15 @@ esac</code></pre>
       <div class="container">
         <div class="boxer">
 
-<h1>Objects created at one commit</h1>
+  <h1>Objects created at one commit</h1>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right"><em>Haisheng, Wu on April 12, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
-<div class="clear"></div>
-
-<div class="body">
-<h2 id="TOC">TOC</h2>
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on April 12, 2012</em>, Tags: <a href="../../tags/git.html">git</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
 <ul>
 <li><a href="#play-it">Play it</a><ul>
 <li><a href="#new-two-files">new two files</a></li>
@@ -2237,16 +2255,17 @@ first commit
 <li id="fn2"><p><a href="http://book.git-scm.com/">Git-SCM book</a><a href="#fnref2">↩</a></p></li>
 </ol>
 </div>
-</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
 
-<div style="float:left">
-  <small><a href="../../index.html">Back to Home</a></small>
-</div>
-<div style="float:right">
-  <small><a href="../../posts.html">View archive</a></small>
-</div>
-
-<div class="clear"></div>
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
 
 </div>
 
