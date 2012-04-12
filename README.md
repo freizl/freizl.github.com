@@ -1,2 +1,3 @@
-http://freizl.github.com/
-http://haskell.haisgwu.info/
+
+- <http://freizl.github.com/>
+- <http://haskell.haisgwu.info/>
