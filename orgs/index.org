@@ -1,8 +1,0 @@
-#+TITLE: Happy Git
-#+LANGUAGE: en
-#+AUTHOR: Haisheng Wu
-#+EMAIL: freizl@gmail.com
-#+OPTIONS: toc:nil num:nil
-#+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
-
-[[/profile/orgs/profile-in-one-page.pdf][CV]]
