@@ -1,0 +1,26 @@
+| Designator       | Description                                            |
+|------------------+--------------------------------------------------------|
+| !!               | refers to the most recent command                      |
+| !n               | Refer to command n from the history                    |
+| !-n              | Refer to the current command minus n from the history. |
+| !string          | Refer to the most recent command starting with string. |
+| ^string1^string2 | Quick substitution                                     |
+
+
+cut
+expand
+fmt
+join
+nl
+od
+paste
+pr
+split
+tac
+tr
+
+locate
+which
+whatis
+apropos
+updatedb

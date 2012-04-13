@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+lang="en" xml:lang="en">
+<head>
+<title>notes</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2011-12-01 22:59:00 CST"/>
+<meta name="author" content="asus"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">notes</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 Cygwin </a></li>
+<li><a href="#sec-2">2 FreeBSD </a></li>
+<li><a href="#sec-3">3 Resize VBox Disk Image </a>
+<ul>
+<li><a href="#sec-3-1">3.1 Steps </a></li>
+<li><a href="#sec-3-2">3.2 Others </a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Cygwin </h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li>mount -f -u -b "c:" "/c"
+</li>
+<li>install sshd
+<ul>
+<li>install package openssh
+</li>
+<li>run "ssh-host-config" to install sshd as Windows service
+</li>
+<li>run "net start sshd"
+</li>
+</ul>
+
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> FreeBSD </h2>
+<div class="outline-text-2" id="text-2">
+
+<ul>
+<li>pw usermod tom -G ftpusers,wwwusers
+</li>
+<li>append "ifconfig<sub>de0</sub>="DHCP" to /etc/rc.conf then /etc/rc.d/netif restart
+</li>
+<li>user should be in group 'wheel' for switching to root user by using 'su'
+
+</li>
+<li>(?) how to list all kernel modules name, especially for rebuilding kernel.
+</li>
+<li>(?) auto completion (type tab) for normal user
+</li>
+</ul>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Resize VBox Disk Image </h2>
+<div class="outline-text-2" id="text-3">
+
+
+</div>
+
+<div id="outline-container-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Steps </h3>
+<div class="outline-text-3" id="text-3-1">
+
+<ol>
+<li>Create new virtal disk at desired size
+</li>
+<li>Clone the disk
+
+
+
+<pre class="src src-sh">VBoxManage.exe clonehd --existing old.vdi new.vdi
+</pre>
+
+
+
+</li>
+<li>Use resize tool like GParted to create new partition for unused space as ext3 in the new.vdi
+</li>
+<li>use system-config-lvm to expand LogicVolumn with the new partition . (<a href="http://wiki.centos.org/TipsAndTricks/ExpandLV">Command line is preferred</a>)
+<ul>
+<li>basic command in case the link is bad.
+
+
+
+<pre class="src src-sh">lvm pvcreate /dev/sda5
+lvm vgextend <span class="org-string">"MindbenderGroup"</span> /dev/sda5
+  Volume group <span class="org-string">"MindbenderGroup"</span> successfully extended
+lvm lvresize -l 2261 /dev/MindbenderGroup/MindbenderHome 
+  ;;; 2261 is calculated according to Free PE / Current LE show by lvm vgdiaply &amp; lvm lvdisplay
+  Extending logical volume MindbenderHome to 70.66 GB
+  Logical volume MindbenderHome successfully resized
+resize2fs /dev/MindbenderGroup/MindbenderHome
+</pre>
+
+
+
+</li>
+<li>Expend/resize Swap partition
+
+
+
+<pre class="src src-sh">swapoff -v /dev/VolGroup00/LogVol01 
+lvm lvresize /dev/VolGroup00/LogVol01 -L +256M 
+mkswap /dev/VolGroup00/LogVol01 
+swapon -va 
+cat /proc/swaps <span class="org-comment-delimiter"># </span><span class="org-comment">free </span>
+</pre>
+
+
+
+</li>
+</ul>
+
+</li>
+</ol>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Others </h3>
+<div class="outline-text-3" id="text-3-2">
+
+
+
+
+<pre class="src src-sh">VBoxManage modifyvdi /media/Blockk/VDI/NewHardDisk1.vdi compact 
+</pre>
+
+
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2011-12-01 22:59:00 CST</p>
+<p class="author">Author: asus</p>
+<p class="creator">Org version 7.7 with Emacs version 23</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>

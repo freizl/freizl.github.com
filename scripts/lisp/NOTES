@@ -1,0 +1,26 @@
+'
+is syntactic sugar for QUOTE, which takes a single expression as its "argument" and simply returns it, unevaluated. 
+(quote (+ 1 2)) === '(+ 1 2)
+
+#'
+is syntactic sugar for FUNCTION.
+(function foo) === CL-USER> #'foo
+
+
+backquote `
+a backquoted expression is similar to a quoted expression except you can "unquote" particular subexpressions by preceding them with a comma, possibly followed by an at (@) sign.
+	[Basicly it's similar with quote ', but can do more, like evaluate subexpressions by a comma]
+Without an at sign, the comma causes the value of the subexpression to be included as is.
+With an at sign, the value--which must be a list--is "spliced" into the enclosing list.
+
+<Examples>
+Backquote Syntax	Equivalent List-Building Code			Result
+`(a (+ 1 2) c)		(list 'a '(+ 1 2) 'c)					(a (+ 1 2) c)
+`(a ,(+ 1 2) c)		(list 'a (+ 1 2) 'c)					(a 3 c)
+`(a (list 1 2) c)	(list 'a '(list 1 2) 'c)				(a (list 1 2) c)
+`(a ,(list 1 2) c)	(list 'a (list 1 2) 'c)					(a (1 2) c)
+`(a ,@(list 1 2) c)	(append (list 'a) (list 1 2) (list 'c))	(a 1 2 c)
+
+;;;; ==================================================================
+? difference between funcall and apply
+

@@ -1,0 +1,25 @@
+/* ******************************
+   aboud:config -> conkeror.rcfile
+   
+   ******************************
+*/
+
+/* ********** Others ********** */
+
+add_delicious_webjumps("freizl");
+define_webjump("tsina", "http://t.sina.com.cn")
+define_webjump("g", "http://www.google.com/search?hl=en&q=%s")
+define_webjump("dovrak.training", "http://www.powertyping.com/dvorak/typing.html")
+  /* webjumps.g = webjumps.google; */
+
+
+/* ********** EMC ********** */
+define_webjump("emc.bf", "http://buildforge.clrcase.lab.emc.com")
+define_webjump("emc.tf", "http://sforge.sspg.lab.emc.com/sf/sfmain/do/home")
+define_webjump("emc.rb", "http://reviewforge.clrcase.lab.emc.com/dashboard")
+define_webjump("emc.bamboo", "http://bamboo.sspg.lab.emc.com:8085/start.action")
+define_webjump("emc.rt", "http://isc-rt.clrcase.lab.emc.com/rt/index.html")
+define_webjump("emc.twiki", "http://twiki.emccrdc.com/twiki/bin/view/")
+define_webjump("emc.hudson", "http://portal.clrcase.lab.emc.com:8080/")
+define_webjump("emc.time", "http://report.emccrdc.com/")
+                               

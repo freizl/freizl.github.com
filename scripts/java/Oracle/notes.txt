@@ -1,0 +1,9 @@
+    Oracle objects are tables, views, etc..
+    Oracle Dictionary (p11)
+        contains meta data information
+        some view created by default, such as USER_xxx, ALL_xxx, DBA_xxx
+    OFA
+        DIR and mount point syntax
+        File naming syntax
+    Select statement apply no lock to rows being queried but table structure.
+    The concept of Schema??

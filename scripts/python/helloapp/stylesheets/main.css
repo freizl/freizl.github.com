@@ -1,0 +1,24 @@
+body {
+	font-family:verdana,helvetica,arial,sans-serif;
+	font-size:9pt;
+}
+div {
+	padding: 5px 5px;
+}
+div#header {
+	border-bottom: 1px solid #9E9E9E;
+	height: 6em; /* replace with empty image or content */
+	margin: 10px 0;
+}
+div#left_siderbar {
+	float: left;
+	border-right: 1px solid #9E9E9E;
+	margin-bottom: 10px;	
+}
+div#main {
+	margin-bottom: 10px;	
+}
+div#footer{
+	clear: both;
+	border-top: 1px solid #9E9E9E;
+}

@@ -1,0 +1,24 @@
+#+TITLE: CLISP notes
+#+LANGUAGE: en
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+OPTIONS: toc:2 num:nil 
+
+* Macro
+
+#+begin_src lisp
+;;; when
+(defmacro when (condition &rest body) `(if ,condition (progn ,@body)))
+#+end_src
+
+#+begin_src lisp
+;;; unless
+(defmacro unless (condition &rest body) `(if (not ,condition) (progn ,@body)))
+#+end_src
+
+#+begin_src lisp
+;;; for
+(loop for i from 1 to 10 collecting i) ==> (1 2 3 4 5 6 7 8 9 10)
+(loop for x from 1 to 10 summing (expt x 2)) ==> 385
+(loop for x across "the quick brown fox jumps over the lazy dog" counting (find x "aeiou")) ==> 11
+#+end_src

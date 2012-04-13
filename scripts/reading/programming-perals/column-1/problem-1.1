@@ -1,0 +1,23 @@
+Input:  A file containing at most n positive integers, each less than n, where n = 10^7.
+        It is a fatal error if any integer occurs twice in the input.
+        No other data is associated with the integer.
+
+Output:  A sorted list in increasing order of the input integers.
+
+Constraints: At most (roughly) a megabyte of storage is available in main memory;
+             ample disk sttorage is available.             
+             The run time can be most several minutes;a run time of ten seconds need not be decreased.
+
+ 
+Solution 1: general disk-based Merge Sort. (know nothing about this now.)
+
+Solution 2: Multipass Sort.
+     If we store each number in 7 bytes,then can store about 143000 numbers(Why) in the available megabyte.
+     If we store each number as a 32-bit integer,then can store about 250000 numbers(Why) in the available megabyte.
+     Therefore use a program that makes 40 passes over the input file.
+     On the first pass it reads into memory any integer between 0 and 249999, 
+     sorts the (at most)250000 integers and writes them to the output file.
+     The second pass sorts the integers from 250000 to 499999,and so on to the 40th pass.
+     This solution no need use intermediate disk files;but pay the price fo reading the entire input file 40 times.
+ 
+Solution 3: use bitmap.

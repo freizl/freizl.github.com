@@ -1,0 +1,60 @@
+#!/bin/sh
+#
+# Tomcat
+#
+# chkconfig: - 86 16
+# description: Apache Tomcat 
+# processname: tomcatd
+# pidfile: /var/run/tomcatd.pid
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Get config.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+[ "${NETWORKING}" = "no" ] && exit 0
+
+LOG_FILE="/tmp/tomcatd.log"
+
+. /home/haisgwu/.bashrc
+
+start() 
+{
+    echo "Start Tomcat with psiadmin at `date`" >> $LOG_FILE
+    #sudo -u nobody sh -c "date" >> $LOG_FILE
+    su - haisgwu -c pwd >> $LOG_FILE
+}
+
+stop() 
+{
+    echo "Stop Tomcat with psiadmin at `date`" >>  $LOG_FILE
+    su - haisgwu -c pwd >> $LOG_FILE
+}
+
+test()
+{
+    echo "Java Home at $JAVA_HOME"
+    echo "WL Home: $BEA_HOME"
+    echo "tomcat home : $TOMCAT_HOME"
+}
+
+
+# See how we were called.
+case "$1" in
+  start)
+	start
+        ;;
+  stop)
+	stop
+        ;;
+  test)
+	test
+	;;
+  *)
+        echo $"Usage: $0 {start|stop}"
+        exit 1
+esac
+
+exit 0

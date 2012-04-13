@@ -1,0 +1,92 @@
+#extend desktop
+sudo displayconfig-gtk
+
+#Make NTFS Disk read/write 
+sudo apt-get install ntfs-config
+
+#what's the Ubuntu version name
+cat /etc/lsb_release
+
+# (?) difference between source filename and ./filename
+source .bashrc
+. .bashrc
+
+#a2enmod, /etc/apache2/mods-available/
+sudo /etc/init.d/apache2 restart
+sudo /etc/init.d/apache2 force-reload
+
+#internet from command line:
+#Links2, elinks, lynx
+
+# Allowing other user to run sudo
+sudo adduser $username admin
+
+# Start Root Shell
+sudo -i
+# Start Root shell with keeping current shell enviornment
+sudo -s
+
+# list installed package
+dpkg -l
+
+#exec, xargs (section 9.9, xargs @28.17)
+The difference between -exec and xargs is subtle. The first one will execute the program once per file, while xargs can handle several files with each process. However, xargs may have problems with filenames that contain embedded spaces. (Versions of xargs that support the -0 option can avoid this problem; they expect NUL characters as delimiters instead of spaces, and find's -print0 option generates output that way.) 
+
+# -----------------------------------------------------------------------------
+
+motd Message of the Day
+usage: [root@test~]$ motd
+
+finger User information lookup program
+usage: [root@test~]$ finger   -p
+Login     Name       Tty      Idle  Login Time   Office     Office Phone
+xuser              pts/0          Oct 22 22:04 (ool-4578671d.dyn.optonline.net)
+
+info Displays information and documentation on shells, utilities and programs
+usage: [root@test~]$ info
+usage: [root@test~]$ info less
+
+lpr Sends file to printer
+usage: [root@test~]$ lpr filename.ext
+usage: [root@test~]$ lpr -# 3 filename.ext [3 copies]
+
+gzip Compresses a file
+usage: [root@test~]$ gzip filename.etx &gt; archive.gz
+usage: [root@test~]$ gzip -f -q filename.etx  &gt; archive.gz[force and supress errors]
+usage: [root@test~]$ gzip -f -q -r directory/ &gt; archive.gz
+
+w Lists currently logged on users with processing usage
+usage: [root@test~]$ w
+
+mesg Sets options for letting other users write you messages
+usage: [root@test~]$ mesg
+
+write Sends message to other users
+usage: [root@test~]$ write xuser
+hello! This is test message
+usage: [xuser@test~]$
+Message from [root@test~]$ on pts/1 at 13:25 ...
+hello! This is test message
+
+talk Allows two way chat to other users
+usage: [root@test~]$ talk xuser@test
+usage: [xuser@test~]$
+Message from root@test
+talk: connection requested by root@test.
+talk: respond with: talk xuser@test
+
+top Displays updating list of currently running processes
+usage: [root@test~] top
+# Once in  TOP screen, use shift+F to select 'sort by' field.
+# Once in Top screen, use Shift+R to 'sort' ascending OR descending
+
+tty Displays the name of the terminal in which the command was issued
+usage: [root@test~] tty
+
+jobs Displays a list of current jobs
+usage: [root@test~] jobs
+usage: [root@test~] jobs -l
+
+netstat Displays network connections
+usage: [root@test~] netstat -a -e
+
