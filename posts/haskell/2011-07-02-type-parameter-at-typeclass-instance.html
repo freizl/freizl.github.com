@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    <title>Happy Programming</title>
+    <link rel="stylesheet" type="text/css" href="../../css/default.css"></link>
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
+    <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../../">Home</a>
+          <!--           <a class="brand" href="/">λome</a>  -->
+        </div>
+      </div>
+
+      
+      <div class="container">
+        <div class="boxer">
+
+  <h1>Type parameter at type class instance</h1>
+
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+  <div class="to-right"><em>Haisheng, Wu on July  2, 2011</em>, Tags: <a href="../../tags/typeclass.html">typeclass</a>, <a href="../../tags/haskell.html">haskell</a></div>
+  
+  <div class="body clear">
+  <h2 id="TOC">TOC</h2>
+<ul>
+<li><a href="#a-newbie-concern">A newbie concern</a></li>
+<li><a href="#another-interesting-funtor">Another interesting Funtor</a></li>
+<li><a href="#further-reading">Further reading</a></li>
+</ul>
+<h1 id="a-newbie-concern"><a href="#TOC">A newbie concern</a></h1>
+<p>A concern arise while I compare following two instances of <code>Maybe</code>.</p>
+<pre><code>class Eq a where  
+    (==) :: a -&gt; a -&gt; Bool  
+    (/=) :: a -&gt; a -&gt; Bool 
+
+class Functor f where
+    fmap :: (a -&gt; b) -&gt; f a -&gt; f b
+
+instance (Eq a) =&gt; Eq (Maybe a) where
+    Just x == Just y = x == y  
+    Nothing == Nothing = True  
+    _ == _ = False  
+
+instance Functor Maybe where
+    fmap f (Just x) = Just (f x)  
+    fmap f Nothing = Nothing 
+</code></pre>
+<p>It put <code>Maybe</code> as type parameter while instance <code>Functor</code> class. By contract, it is <code>Maybe a</code> while at <code>Eq</code> case.</p>
+<p>Why?</p>
+<p>A answer from Haskell beginner seems comprehensive but I did not understand completely. And I re-read chapters related to type from LYGH<sup><a href="#fn1" class="footnoteRef" id="fnref1">1</a></sup> and found several useful explanations.</p>
+<p>For instance <code>Maybe</code> of <code>Eq</code>, it reads</p>
+<blockquote>
+<p>the a has to be a concrete type but Maybe isn’t a concrete type. It’s a type constructor that takes one parameter and then produces a concrete type. It would also be tedious to write instance Eq (Maybe Int) where, instance Eq (Maybe Char) where, etc. for every type ever. So we could write it out like so: (Eq a) =&gt; Eq (Maybe a)</p>
+</blockquote>
+<p>For instance <code>Maybe</code> of <code>Functor</code>, it reads</p>
+<blockquote>
+<p>If we want to make a type constructor an instance of Functor, it has to have a kind of * -&gt; *, which means that it has to take exactly one concrete type as a type parameter. For example, Maybe can be made an instance because it takes one type parameter to produce a concrete type, like Maybe Int or Maybe String. If a type constructor takes two parameters, like Either, we have to partially apply the type constructor until it only takes one type parameter. So we can’t write instance Functor Either where, but we can write instance Functor (Either a) where and then if we imagine that fmap is only for Either a, it would have a type declaration of fmap :: (b -&gt; c) -&gt; Either a b -&gt; Either a c. As you can see, the Either a part is fixed, because Either a takes only one type parameter, whereas just Either takes two so fmap :: (b -&gt; c) -&gt; Either b -&gt; Either c wouldn’t really make sense.</p>
+</blockquote>
+<p>My understanding comes:</p>
+<p>parameter <code>f a</code> of <code>fmap</code> should be concrete type, therefore <code>f</code> is a Type Constructor which takes one type parameter in order to construct concrete type. That is the reason the quote says <em>it has to have a kind of</em> <code>* -&gt; *</code>.</p>
+<h1 id="another-interesting-funtor"><a href="#TOC">Another interesting Funtor</a></h1>
+<p>It is <code>(-&gt;) r</code> which was confusing at first glance. However, if we read it having Polish notation<sup><a href="#fn2" class="footnoteRef" id="fnref2">2</a></sup> in mind, it looks like less confusing.</p>
+<pre><code>instance Functor ((-&gt;) r) where  
+    fmap f g = (\x -&gt; f (g x))</code></pre>
+<p>Quiz: what does following expression produce?</p>
+<blockquote>
+<p>fmap (*3) (+100) 1</p>
+</blockquote>
+<h1 id="further-reading"><a href="#TOC">Further reading</a></h1>
+<p>I got to read paper at type class topic<sup><a href="#fn3" class="footnoteRef" id="fnref3">3</a></sup> in order to have more knowledge.</p>
+<div class="footnotes">
+<hr></hr>
+<ol>
+<li id="fn1"><p><a href="http://learnyouahaskell.com">Learn Your Good Haskell</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://en.wikipedia.org/wiki/Polish_notation">Polish notation</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="http://en.wikipedia.org/wiki/Type_class">Wikipedia Type Class</a><a href="#fnref3">↩</a></p></li>
+</ol>
+</div>
+  </div>
+  
+  <div class="to-left">
+    <small><a href="../../index.html">Back to Home</a></small>
+  </div>
+
+  <div class="to-right">
+    <small><a href="../../posts.html">View archive</a></small>
+  </div>
+  
+  <div class="clear"></div>
+
+</div>
+
+      </div>
+
+      <div class="footer clear">
+        <p><a href="../../cv.html">about me</a> | site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a></p>
+      </div>
+
+    </div>
+  </body>
+</html>

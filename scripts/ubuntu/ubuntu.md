@@ -18,3 +18,9 @@ getnonfreefonts-sys garamond
 
   - ** 'wrapfig.sty' not found \
     try `apt-cache search wrapfig` which indicate texlive-latex-extra need to be install
+
+# wx
+~~~~~~{.sh}
+apt-get install libglu1-mesa-dev mesa-common-dev g++ libwxgtk2.8-dev libwxgtk2.8-dbg
+cabal install wx-0.12.1.6
+~~~~~~
