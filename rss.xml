@@ -20,6 +20,18 @@
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -95,6 +107,18 @@
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -186,6 +210,18 @@
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -273,6 +309,18 @@
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -382,6 +430,18 @@ fold f v (x:xs) = f x (fold f v xs)</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -480,6 +540,18 @@ Monday </code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -573,6 +645,18 @@ sequence (c:cs) = do x  &lt;- c
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -669,6 +753,18 @@ getFilesInDir inp = do
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -787,6 +883,18 @@ instance Functor Maybe where
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -888,6 +996,18 @@ sqrtInt = truncate . sqrt . fromIntegral</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1009,6 +1129,18 @@ intTransform n
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1174,6 +1306,18 @@ ghc --make -O2 -prof -auto-all -rtsopts p104.hs
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1332,6 +1476,18 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1407,6 +1563,18 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1485,6 +1653,18 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1617,6 +1797,18 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1724,6 +1916,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1811,6 +2015,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1888,6 +2104,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -1983,6 +2211,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -2064,6 +2304,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -2160,6 +2412,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -2302,6 +2566,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -2410,6 +2686,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -2544,6 +2832,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -2640,6 +2940,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -2776,6 +3088,18 @@ git log master...branchA</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -2912,6 +3236,18 @@ The sum is:  6</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -3003,6 +3339,18 @@ The sum is:  6</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -3085,6 +3433,18 @@ return 10; </code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -3188,6 +3548,18 @@ svn merge --dry-run
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -3301,6 +3673,18 @@ git reflog
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -3430,6 +3814,18 @@ git reflog
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -3533,6 +3929,18 @@ tst_dict(<span class="st">'aaa'</span>, <span class="st">'bbb'</span>) <span cla
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -3670,6 +4078,18 @@ esac</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
@@ -3852,6 +4272,18 @@ esac</code></pre>
     <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
     <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml"></link>
     <link rel="icon" type="image/png" href="../../images/favicon.ico"></link>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-6496210-5']);
+      _gaq.push(['_setDomainName', 'haisgwu.info']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
   </head>
   <body>
     <div id="main">
