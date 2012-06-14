@@ -1,2 +1,2 @@
-- careers.stackoverflow.com
-- http://haisgwu.info/cv.md
+
+- http://freizl.github.com/cv.md
