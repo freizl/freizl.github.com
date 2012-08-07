@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Haisheng's Blogs RSS feed.</title>
-        <link>http://haisgwu.info</link>
-        <description><![CDATA[Haisheng's Home.]]></description>
-        <atom:link href="http://haisgwu.info/rss.xml" rel="self"
+        <title>Haisheng's Tech Blog RSS feed.</title>
+        <link>http://freizl.github.com/</link>
+        <description><![CDATA[Haisheng's Tech Blog.]]></description>
+        <atom:link href="http://freizl.github.com//rss.xml" rel="self"
                    type="application/rss+xml" />
         <lastBuildDate>Wed, 25 May 2011 00:00:00 UT</lastBuildDate>
         <item>
     <title>A new blog and Hakyll</title>
-    <link>http://haisgwu.info/posts/haskell/2011-05-25-hakyll-and-a-new-blog.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-05-25-hakyll-and-a-new-blog.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -81,6 +81,21 @@
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -92,11 +107,11 @@
 </html>
 ]]></description>
     <pubDate>Wed, 25 May 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-05-25-hakyll-and-a-new-blog.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-05-25-hakyll-and-a-new-blog.html</guid>
 </item>
 <item>
     <title>A really trivial monad</title>
-    <link>http://haisgwu.info/posts/haskell/2011-05-29-a-really-trivial-monad.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-05-29-a-really-trivial-monad.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -184,6 +199,21 @@
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -195,11 +225,11 @@
 </html>
 ]]></description>
     <pubDate>Sun, 29 May 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-05-29-a-really-trivial-monad.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-05-29-a-really-trivial-monad.html</guid>
 </item>
 <item>
     <title>Exercise 3.10 of Yet another Haskell tutorial</title>
-    <link>http://haisgwu.info/posts/haskell/2011-06-04-exe-3.10-YAHT.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-06-04-exe-3.10-YAHT.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -283,6 +313,21 @@
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -294,11 +339,11 @@
 </html>
 ]]></description>
     <pubDate>Sat, 04 Jun 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-06-04-exe-3.10-YAHT.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-06-04-exe-3.10-YAHT.html</guid>
 </item>
 <item>
     <title>Understand foldr operator</title>
-    <link>http://haisgwu.info/posts/haskell/2011-06-04-understand-foldr-operator.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-06-04-understand-foldr-operator.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -404,6 +449,21 @@ fold f v (x:xs) = f x (fold f v xs)</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -415,11 +475,11 @@ fold f v (x:xs) = f x (fold f v xs)</code></pre>
 </html>
 ]]></description>
     <pubDate>Sat, 04 Jun 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-06-04-understand-foldr-operator.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-06-04-understand-foldr-operator.html</guid>
 </item>
 <item>
     <title>Deriving in Haskell</title>
-    <link>http://haisgwu.info/posts/haskell/2011-06-14-deriving.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-06-14-deriving.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -514,6 +574,21 @@ Monday </code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -525,11 +600,11 @@ Monday </code></pre>
 </html>
 ]]></description>
     <pubDate>Tue, 14 Jun 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-06-14-deriving.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-06-14-deriving.html</guid>
 </item>
 <item>
     <title>How to read mapM</title>
-    <link>http://haisgwu.info/posts/haskell/2011-06-14-mapM.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-06-14-mapM.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -619,6 +694,21 @@ sequence (c:cs) = do x  &lt;- c
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -630,11 +720,11 @@ sequence (c:cs) = do x  &lt;- c
 </html>
 ]]></description>
     <pubDate>Tue, 14 Jun 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-06-14-mapM.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-06-14-mapM.html</guid>
 </item>
 <item>
     <title>Max size file in desired directory</title>
-    <link>http://haisgwu.info/posts/haskell/2011-06-21-max-file-size.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-06-21-max-file-size.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -727,6 +817,21 @@ getFilesInDir inp = do
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -738,11 +843,11 @@ getFilesInDir inp = do
 </html>
 ]]></description>
     <pubDate>Tue, 21 Jun 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-06-21-max-file-size.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-06-21-max-file-size.html</guid>
 </item>
 <item>
     <title>Type parameter at type class instance</title>
-    <link>http://haisgwu.info/posts/haskell/2011-07-02-type-parameter-at-typeclass-instance.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-07-02-type-parameter-at-typeclass-instance.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -857,6 +962,21 @@ instance Functor Maybe where
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -868,11 +988,11 @@ instance Functor Maybe where
 </html>
 ]]></description>
     <pubDate>Sat, 02 Jul 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-07-02-type-parameter-at-typeclass-instance.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-07-02-type-parameter-at-typeclass-instance.html</guid>
 </item>
 <item>
     <title>One solution to euler problem 12</title>
-    <link>http://haisgwu.info/posts/haskell/2011-11-18-one-solution-to-euler-12.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-11-18-one-solution-to-euler-12.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -970,6 +1090,21 @@ sqrtInt = truncate . sqrt . fromIntegral</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -981,11 +1116,11 @@ sqrtInt = truncate . sqrt . fromIntegral</code></pre>
 </html>
 ]]></description>
     <pubDate>Fri, 18 Nov 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-11-18-one-solution-to-euler-12.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-11-18-one-solution-to-euler-12.html</guid>
 </item>
 <item>
     <title>Solving Euler Problem 14</title>
-    <link>http://haisgwu.info/posts/haskell/2011-11-20-euler-problem-14.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-11-20-euler-problem-14.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1103,6 +1238,21 @@ intTransform n
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -1114,11 +1264,11 @@ intTransform n
 </html>
 ]]></description>
     <pubDate>Sun, 20 Nov 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-11-20-euler-problem-14.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-11-20-euler-problem-14.html</guid>
 </item>
 <item>
     <title>Lesson learned from Euler Problem 104</title>
-    <link>http://haisgwu.info/posts/haskell/2011-12-15-euler-problem-104.html</link>
+    <link>http://freizl.github.com//posts/haskell/2011-12-15-euler-problem-104.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1280,6 +1430,21 @@ ghc --make -O2 -prof -auto-all -rtsopts p104.hs
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -1291,11 +1456,11 @@ ghc --make -O2 -prof -auto-all -rtsopts p104.hs
 </html>
 ]]></description>
     <pubDate>Thu, 15 Dec 2011 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2011-12-15-euler-problem-104.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2011-12-15-euler-problem-104.html</guid>
 </item>
 <item>
     <title>"Magic" Monad Transformer</title>
-    <link>http://haisgwu.info/posts/haskell/2012-04-07-magic-monad-transformer.html</link>
+    <link>http://freizl.github.com//posts/haskell/2012-04-07-magic-monad-transformer.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1450,6 +1615,21 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -1461,11 +1641,11 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 </html>
 ]]></description>
     <pubDate>Sat, 07 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2012-04-07-magic-monad-transformer.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2012-04-07-magic-monad-transformer.html</guid>
 </item>
 <item>
     <title>Quotes: SoE DRAFT</title>
-    <link>http://haisgwu.info/posts/haskell/2012-04-08-reading-SoE.html</link>
+    <link>http://freizl.github.com//posts/haskell/2012-04-08-reading-SoE.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1537,6 +1717,21 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -1548,11 +1743,11 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 </html>
 ]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2012-04-08-reading-SoE.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2012-04-08-reading-SoE.html</guid>
 </item>
 <item>
     <title>Quotes: Haskell Tutorial DRAFT</title>
-    <link>http://haisgwu.info/posts/haskell/2012-04-13-reading-haskell-tutorial.html</link>
+    <link>http://freizl.github.com//posts/haskell/2012-04-13-reading-haskell-tutorial.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1627,6 +1822,21 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -1638,11 +1848,11 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 </html>
 ]]></description>
     <pubDate>Fri, 13 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/haskell/2012-04-13-reading-haskell-tutorial.html</guid>
+    <guid>http://freizl.github.com//posts/haskell/2012-04-13-reading-haskell-tutorial.html</guid>
 </item>
 <item>
     <title>Quotes: A Century of Innovation - 3M</title>
-    <link>http://haisgwu.info/posts/readings/2012-01-13-quotes-3M-a-story.html</link>
+    <link>http://freizl.github.com//posts/readings/2012-01-13-quotes-3M-a-story.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1716,6 +1926,21 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -1727,11 +1952,11 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 </html>
 ]]></description>
     <pubDate>Fri, 13 Jan 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/readings/2012-01-13-quotes-3M-a-story.html</guid>
+    <guid>http://freizl.github.com//posts/readings/2012-01-13-quotes-3M-a-story.html</guid>
 </item>
 <item>
     <title>Notes: Master of Regular Expression</title>
-    <link>http://haisgwu.info/posts/readings/2012-04-08-notes-master-regexp.html</link>
+    <link>http://freizl.github.com//posts/readings/2012-04-08-notes-master-regexp.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1860,6 +2085,21 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -1871,11 +2111,11 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
 </html>
 ]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/readings/2012-04-08-notes-master-regexp.html</guid>
+    <guid>http://freizl.github.com//posts/readings/2012-04-08-notes-master-regexp.html</guid>
 </item>
 <item>
     <title>Notes: ProGit</title>
-    <link>http://haisgwu.info/posts/readings/2012-04-08-notes-progit.html</link>
+    <link>http://freizl.github.com//posts/readings/2012-04-08-notes-progit.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -1979,6 +2219,21 @@ git log master...branchA</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -1990,11 +2245,11 @@ git log master...branchA</code></pre>
 </html>
 ]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/readings/2012-04-08-notes-progit.html</guid>
+    <guid>http://freizl.github.com//posts/readings/2012-04-08-notes-progit.html</guid>
 </item>
 <item>
     <title>Quotes: Rework</title>
-    <link>http://haisgwu.info/posts/readings/2012-04-08-quotes-rework.html</link>
+    <link>http://freizl.github.com//posts/readings/2012-04-08-quotes-rework.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -2078,6 +2333,21 @@ git log master...branchA</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -2089,11 +2359,11 @@ git log master...branchA</code></pre>
 </html>
 ]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/readings/2012-04-08-quotes-rework.html</guid>
+    <guid>http://freizl.github.com//posts/readings/2012-04-08-quotes-rework.html</guid>
 </item>
 <item>
     <title>Bayesian Network Exercise 01</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-bayesian-network-exe01.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-bayesian-network-exe01.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -2226,6 +2496,21 @@ git log master...branchA</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -2237,11 +2522,11 @@ git log master...branchA</code></pre>
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-bayesian-network-exe01.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-bayesian-network-exe01.html</guid>
 </item>
 <item>
     <title>Trivial bind examples in JavaScipts</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-bind-examples-in-javascripts.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-bind-examples-in-javascripts.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -2374,6 +2659,21 @@ The sum is:  6</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -2385,11 +2685,11 @@ The sum is:  6</code></pre>
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-bind-examples-in-javascripts.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-bind-examples-in-javascripts.html</guid>
 </item>
 <item>
     <title>Export a OrgMode doc in Chinese to PDF</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-export-orgmode-file-in-Chinese.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-export-orgmode-file-in-Chinese.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -2477,6 +2777,21 @@ The sum is:  6</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -2488,11 +2803,11 @@ The sum is:  6</code></pre>
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-export-orgmode-file-in-Chinese.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-export-orgmode-file-in-Chinese.html</guid>
 </item>
 <item>
     <title>Expression and Statement</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-expression-and-statement.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-expression-and-statement.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -2571,6 +2886,21 @@ return 10; </code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -2582,11 +2912,11 @@ return 10; </code></pre>
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-expression-and-statement.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-expression-and-statement.html</guid>
 </item>
 <item>
     <title>Git SVN</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-git-svn.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-git-svn.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -2686,6 +3016,21 @@ svn merge --dry-run
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -2697,11 +3042,11 @@ svn merge --dry-run
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-git-svn.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-git-svn.html</guid>
 </item>
 <item>
     <title>Git Tips</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-git-tips.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-git-tips.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -2811,6 +3156,21 @@ git reflog
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -2822,11 +3182,11 @@ git reflog
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-git-tips.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-git-tips.html</guid>
 </item>
 <item>
     <title>Perl Tips</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-perl-tips.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-perl-tips.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -2952,6 +3312,21 @@ git reflog
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -2963,11 +3338,11 @@ git reflog
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-perl-tips.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-perl-tips.html</guid>
 </item>
 <item>
     <title>Python Tips</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-python-tips.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-python-tips.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -3067,6 +3442,21 @@ tst_dict(<span class="st">'aaa'</span>, <span class="st">'bbb'</span>) <span cla
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -3078,11 +3468,11 @@ tst_dict(<span class="st">'aaa'</span>, <span class="st">'bbb'</span>) <span cla
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-python-tips.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-python-tips.html</guid>
 </item>
 <item>
     <title>Shell Tips</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-06-shell-tips.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-06-shell-tips.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -3216,6 +3606,21 @@ esac</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -3227,11 +3632,11 @@ esac</code></pre>
 </html>
 ]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-06-shell-tips.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-06-shell-tips.html</guid>
 </item>
 <item>
     <title>Confused Constructor in JavaScipts</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-12-confused-constructor-js.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-12-confused-constructor-js.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -3410,6 +3815,21 @@ esac</code></pre>
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -3421,11 +3841,11 @@ esac</code></pre>
 </html>
 ]]></description>
     <pubDate>Thu, 12 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-12-confused-constructor-js.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-12-confused-constructor-js.html</guid>
 </item>
 <item>
     <title>Objects created at one commit</title>
-    <link>http://haisgwu.info/posts/tech/2012-04-12-git-one-commit.html</link>
+    <link>http://freizl.github.com//posts/tech/2012-04-12-git-one-commit.html</link>
     <description><![CDATA[<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -3556,6 +3976,21 @@ first commit
 
 </div>
 
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+
       </div>
 
       <div class="footer clear">
@@ -3567,7 +4002,7 @@ first commit
 </html>
 ]]></description>
     <pubDate>Thu, 12 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://haisgwu.info/posts/tech/2012-04-12-git-one-commit.html</guid>
+    <guid>http://freizl.github.com//posts/tech/2012-04-12-git-one-commit.html</guid>
 </item>
 
     </channel> 
