@@ -50,4 +50,5 @@ VBoxManage modifyvdi /media/Blockk/VDI/NewHardDisk1.vdi compact
 
 ## increase disk size (to 20g example below)
 VBoxManage modifyhd "path-of-disk-file" --resize 20000
+  --> http://askubuntu.com/questions/101715/resizing-virtual-drive
 #+end_src
