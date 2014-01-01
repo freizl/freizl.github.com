@@ -1,8 +1,0 @@
-
-number, string
-list, dictionary, tuples : list=[1,2], table={'one':1, 'two':2}, tuple = (1,2)
-
-statements
-
-function programming: apple, map, list comprehension
- -- use functional tool rather that for loop

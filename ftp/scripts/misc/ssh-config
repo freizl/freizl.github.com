@@ -1,5 +1,0 @@
-Host aec-tokyo
-HostName ec2-175-41-219-205.ap-northeast-1.compute.amazonaws.com
-User ec2-user
-IdentityFile ~/Downloads/ec2-tokyo.pem
-Port 9999
