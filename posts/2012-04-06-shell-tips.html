@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Haisheng, Freizl" />
+    <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+    <meta name="description" content="Haisheng blog, freizl blog" />
+
+    <title>Happy Programming</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-6496210-5', 'freizl.github.io');
+        ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../">Home</a>
+          <a href="../cv.html">About</a>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="boxer">
+
+  <h1>Shell Tips</h1>
+
+  <div class="to-right">
+    <em>Haisheng, Wu on April  6, 2012, </em>
+    <span>Tags: </span><a href="../tags/shell.html">shell</a>
+  </div>
+
+  <div class="body clear">
+  <ul>
+<li><a href="#quicklinks">Quicklinks</a></li>
+<li><a href="#reference">Reference</a></li>
+<li><a href="#sample-section-a">Sample Section A</a><ul>
+<li><a href="#grep">grep</a></li>
+<li><a href="#find">find</a></li>
+<li><a href="#awk">awk</a></li>
+<li><a href="#sed">sed</a></li>
+<li><a href="#cp">cp</a></li>
+</ul></li>
+<li><a href="#sample-section-b">Sample Section B</a><ul>
+<li><a href="#while">while</a></li>
+<li><a href="#for">for</a></li>
+<li><a href="#case">case</a></li>
+</ul></li>
+</ul>
+<h2 id="quicklinks"><a href="#quicklinks">Quicklinks</a></h2>
+<ul>
+<li>[[http://bash.cyberciti.biz/guide/What_is_a_Subshell%3F][What is a Subshell]]</li>
+<li>[[http://en.wikipedia.org/wiki/List_of_Unix_utilities][List of Unix utilities]]</li>
+<li>[[http://www-128.ibm.com/developerworks/aix/library/au-badunixhabits.html?ca=lnxw01GoodUnixHabits][10 Good Unix habits]]</li>
+</ul>
+<h2 id="reference"><a href="#reference">Reference</a></h2>
+<ul>
+<li>() execute command in subshell</li>
+<li>{} execute command in currecnt shell Usage is same with () expect the final command in the list ends with a semicolon.</li>
+</ul>
+<h2 id="sample-section-a"><a href="#sample-section-a">Sample Section A</a></h2>
+<h3 id="grep"><a href="#grep">grep</a></h3>
+<pre class="sh"><code>grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
+### count process and exclude grep itself
+ps aux | grep vpnc | grep -v grep -c</code></pre>
+<h3 id="find"><a href="#find">find</a></h3>
+<pre class="sh"><code>find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
+find $update_dir \( -name '*.java' \) \( -path '**/source/**' -o -path '**/test/**' -o -path '**/resource/**' \)</code></pre>
+<h3 id="awk"><a href="#awk">awk</a></h3>
+<pre class="sh"><code>### list all time of each ping
+awk -F&quot;=&quot; '/time=/ {print substr($4,0,length($4)-3) }' &lt; ping.log
+### passing shell parameter to awk scripts
+svn st ${dirs} | awk -F&quot; &quot; -v ac=&quot;${*}&quot; ' /'${predicate}'/ &amp;&amp; (index($2,&quot;\\&quot;)==0 || gsub(/\\/,&quot;/&quot;,$2)) {print ac, $2}'
+### change Output Row Separator
+awk ' BEGIN { ORS = &quot; &quot; } { print }'</code></pre>
+<h3 id="sed"><a href="#sed">sed</a></h3>
+<pre class="sh"><code>ll | sed '/Stores\|Test\|^-\|^t/d' | wc
+smbclient -L \\\\hangzhou2\\twitters -U foobar | sed '/Hangzhou20/,$d'
+export BEA_IP=`/sbin/ifconfig eth0 | sed '/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g'`</code></pre>
+<h3 id="cp"><a href="#cp">cp</a></h3>
+<pre class="sh"><code>cp filename{,.bak}</code></pre>
+<h2 id="sample-section-b"><a href="#sample-section-b">Sample Section B</a></h2>
+<h3 id="while"><a href="#while">while</a></h3>
+<pre class="sh"><code>while getopts &quot;:ab:c&quot; opt; do
+	case $opt in
+	a ) echo &quot;I am a&quot; ;;
+	b ) echo $OPTARG  ;;
+	c ) echo &quot;i am c&quot; ;;
+	? ) echo &quot;usage : $0 [-a] [-b barg] [-c] args ..&quot;
+	    exit 1 ;;
+	esac
+    shift $(($OPTIND - 1))
+done</code></pre>
+<h3 id="for"><a href="#for">for</a></h3>
+<pre class="sh"><code>for s in $(echo $string | sed &quot;s/;/ /g&quot;); do
+	echo $s
+done</code></pre>
+<pre class="sh"><code>for (( i=1; i&lt;=$n; i++ )) do
+   ls -1 &quot;${file_pattern}&quot; | sed 's#\(.*\)\(.xml\).bak#cp &amp; \1'&quot;_$i&quot;'\2#g'
+done</code></pre>
+<h3 id="case"><a href="#case">case</a></h3>
+<pre class="sh"><code>case $action in
+    backup ) tar cfj &quot;$backup_dir/$bakfile&quot; * --exclude &quot;jobs/*/workspace&quot; ;;
+    rest | restore ) tar xfj $backup_dir/$bakfile ;;
+    * ) echo &quot;all supported actions: backup | rest[ore]&quot; ; exit 0 ;;
+esac</code></pre>
+  </div>
+
+  <div class="to-left">
+    <small><a href="../index.html">Back to Home</a></small>
+  </div>
+
+  <div class="to-right">
+    <small><a href="../posts.html">View archive</a></small>
+  </div>
+
+  <div class="clear"></div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+
+      <div class="footer clear">
+        <p>site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a></p>
+      </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Haisheng, Freizl" />
+    <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+    <meta name="description" content="Haisheng blog, freizl blog" />
+
+    <title>Happy Programming</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-6496210-5', 'freizl.github.io');
+        ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../">Home</a>
+          <a href="../cv.html">About</a>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="boxer">
+
+  <h1>Understand foldr operator</h1>
+
+  <div class="to-right">
+    <em>Haisheng, Wu on June  4, 2011, </em>
+    <span>Tags: </span><a href="../tags/fold.html">fold</a>, <a href="../tags/haskell.html">haskell</a>
+  </div>
+
+  <div class="body clear">
+  <ul>
+<li><a href="#descrption-by-erik">Descrption by Erik</a></li>
+<li><a href="#definition-by-graham">Definition by Graham</a></li>
+<li><a href="#in-one-sentence">In one sentence</a></li>
+</ul>
+<p>I can not quite remember the usage of foldr until I finish the video by Erik Meijer on <Programming in Haskell> Chapter 7<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<h2 id="descrption-by-erik"><a href="#descrption-by-erik">Descrption by Erik</a></h2>
+<p>Erik describe <code>foldr</code> in a very comprehensive way.</p>
+<p>Take refining the <code>length</code> function in terms of <code>foldr</code> as a example. <code>length</code> has a definition as</p>
+<pre><code>&gt; length  :: [a] -&gt; Int
+&gt; length []  = 0
+&gt; length (x:xs)   = 1 + length xs</code></pre>
+<p>and</p>
+<pre><code>  length [1,2,3]
+= length (1:(2:(3:[])))
+= 1 + (1 + (1  + 0))
+= 3</code></pre>
+<p>By replace each (:) by <code>\ _ n -&gt; 1 + n</code> and [] by 0, we have:</p>
+<pre><code>&gt; length = foldr (\ _ n -&gt; 1 + n) 0</code></pre>
+<h2 id="definition-by-graham"><a href="#definition-by-graham">Definition by Graham</a></h2>
+<p>Having such knowledge inside, I find Graham’s tutorial paper<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> about fold again. There is a concise decription of what fold is:</p>
+<blockquote>
+<p>The function <em>fold f v</em> processes a list of type <em>[a]</em> to give a value of type <em>b</em> by replacing the <em>nil</em> constructor [] at the end of the list by the value <em>v</em>, and each cons constructor (:) within the list by the function <em>f</em>.</p>
+</blockquote>
+<p>In Haskell, the <em>fold</em> operator can be defined as follows:</p>
+<pre><code>fold  :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b
+fold f v [] = v
+fold f v (x:xs) = f x (fold f v xs)</code></pre>
+<h2 id="in-one-sentence"><a href="#in-one-sentence">In one sentence</a></h2>
+<p>Thought it might not be that precisely.</p>
+<pre><code>foldr :: (a -&gt; b -&gt; b) -&gt; b -&gt; [a] -&gt; b</code></pre>
+<blockquote>
+<p>Pull element one by one from right side of the list and apply the callback</p>
+</blockquote>
+<pre><code>foldl :: (a -&gt; b -&gt; a) -&gt; a -&gt; [b] -&gt; a </code></pre>
+<blockquote>
+<p>Basically, pull element one by one from left side of the list and apply the callback</p>
+</blockquote>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://www.cs.nott.ac.uk/~gmh/book.html">Programming in Haskell</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="www.cs.nott.ac.uk/~gmh/fold.pdf">Tutorial on the universality and expressions of fold</a><a href="#fnref2">↩</a></p></li>
+</ol>
+</div>
+  </div>
+
+  <div class="to-left">
+    <small><a href="../index.html">Back to Home</a></small>
+  </div>
+
+  <div class="to-right">
+    <small><a href="../posts.html">View archive</a></small>
+  </div>
+
+  <div class="clear"></div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+
+      <div class="footer clear">
+        <p>site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a></p>
+      </div>
+
+    </div>
+  </body>
+</html>
