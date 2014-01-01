@@ -1,2 +1,0 @@
-
-- <http://freizl.github.com/>

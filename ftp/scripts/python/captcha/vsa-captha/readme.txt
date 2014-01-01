@@ -1,1 +1,0 @@
-detail information @see wiki page Captcha

@@ -1,4 +1,0 @@
-* Introduction
-  - [[http://en.wikipedia.org/wiki/CAPTCHA][At wikipedia]]
-  - [[http://blog.lazytech.info/2008/08/04/python-and-captcha/][A simple Python solution]]
-  - [[http://www.crazycoder.cn/YanZhengMa/Article25459.html][QQ Captcha, not in detail]]
