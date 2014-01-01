@@ -29,12 +29,12 @@ ir: install run
 
 ########## Mirror to github
 
-mirror:
+deploy: install run
 	cp -r _site/* ../
 
 ########## Compile slides
 
-## just by lazy not to cut off md file ext.
+## just being lazy not to cut off md file ext.
 slides:
 	for f in `ls -1 slides/*.md`; do \
 	$(PD) -t dzslides -s "$$f" -o "$$f".html; \
