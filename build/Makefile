@@ -30,7 +30,7 @@ ir: install run
 ########## Mirror to github
 
 mirror:
-	cp -r $(SITE)/* ../freizl.github.com/
+	cp -r _site/* ../
 
 ########## Compile slides
 
