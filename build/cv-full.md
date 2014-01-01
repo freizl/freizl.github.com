@@ -19,8 +19,8 @@ author: Haisheng, Wu
 
 ## Technical skills
   - **Languages**: JavaScript, Java, Haskell, Python, Shell, Perl
-  - **Web Technologies**: jQuery, CSS3, HTML5, ExtJS, PrototypeJS
-  - **Open source library**: NodeJS, BackboneJS, requireJS, Spring, Django, GWT
+  - **Web Technologies**: CSS, HTML, jQuery, AngularJS, BackboneJS, requireJS
+  - **Open source library**: NodeJS, Spring, Django, GWT
   - **Database**: MySQL, Oracle, MongoDB
   - **Operating System**: Ubuntu, CentOS, WindowsXP
 
