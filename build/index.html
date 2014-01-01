@@ -1,0 +1,31 @@
+
+<div style="width: 560px" class="to-left">
+
+  <div class="boxer">
+    <h1>Posts</h1>
+
+    $partial("templates/post-list.html")$
+
+    <a href="/rss.xml" type="application/rss+xml">
+      <img src="/images/rss.png" alt="rss feed" style="vertical-align: middle" class="inline-image">
+    </a>
+    <a href="posts.html">All posts...</a>
+  </div>
+
+  <div class="boxer">
+    <h1>Tags</h1>
+    <div>
+      $tags$
+    </div>
+  </div>
+
+</div>
+
+<div class="sidebar boxer to-right" style="width: 160px">
+  <h1 id="links">Links</h1>
+  <ul>
+    <li><a href="https://github.com/freizl/">Github</a></li>
+    <li><a href="http://www.haskellcn.org/">Haskell CN</a></li>
+    <li><a href="http://yijing.jit.su/">IChang</a></li>
+  </ul>
+</div>

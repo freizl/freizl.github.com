@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Haisheng, Freizl" />
+    <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+    <meta name="description" content="Haisheng blog, freizl blog" />
+
+    <title>Happy Programming</title>
+
+    <link rel="stylesheet" type="text/css" href="../css/default.css" />
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Ubuntu|Open+Sans" rel="stylesheet" type="text/css">
+    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-6496210-5', 'freizl.github.io');
+        ga('send', 'pageview');
+    </script>
+
+  </head>
+  <body>
+    <div id="main">
+
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="../">Home</a>
+          <a href="../cv.html">About</a>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="boxer">
+
+  <h1>Trivial bind examples in JavaScipts</h1>
+
+  <div class="to-right">
+    <em>Haisheng, Wu on April  6, 2012, </em>
+    <span>Tags: </span><a href="../tags/javascripts.html">javascripts</a>
+  </div>
+
+  <div class="body clear">
+  <ul>
+<li><a href="#defined-a-function">Defined a function</a></li>
+<li><a href="#run-it">Run it</a></li>
+<li><a href="#run-it-with-bind">Run it with bind</a><ul>
+<li><a href="#less">Less</a></li>
+<li><a href="#more">More</a></li>
+</ul></li>
+<li><a href="#run-with-bind-and-context">Run with bind and context</a></li>
+<li><a href="#diff-with-call-and-apply">Diff with call and apply</a></li>
+<li><a href="#further">Further</a></li>
+</ul>
+<h2 id="defined-a-function"><a href="#defined-a-function">Defined a function</a></h2>
+<pre class="javascripts"><code>var fn = function (x, y, z) {
+  console.log(&quot;The value: &quot;, this.shangHai);
+  console.log(&quot;The sum is: &quot;, x+y+z);
+}</code></pre>
+<h2 id="run-it"><a href="#run-it">Run it</a></h2>
+<pre class="javascripts"><code>fn(1);</code></pre>
+<p>-&gt; Output</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  NaN</code></pre>
+<pre class="javascripts"><code>fn(1,2,3);</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<h2 id="run-it-with-bind"><a href="#run-it-with-bind">Run it with bind</a></h2>
+<h3 id="less"><a href="#less">Less</a></h3>
+<pre class="javascripts"><code>fn.bind(null,1,2,3)</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>function () { [native code] }</code></pre>
+<p>Hmm…, seems bind return a function rather apply the function and return value.</p>
+<p>What will happen if invoke the new function?</p>
+<pre class="javascripts"><code>fn.bind(null,1,2,3)()</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<p>That is what we want.</p>
+<h3 id="more"><a href="#more">More</a></h3>
+<p>What are results respectively of following expressions?</p>
+<ul>
+<li><code>fn.bind(null, 1)()</code></li>
+<li><code>fn.bind(null, 1)(2)</code></li>
+<li><code>fn.bind(null, 1, 2)()</code></li>
+<li><code>fn.bind(null, 1, 2)(3)</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)()</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)(3)</code></li>
+</ul>
+<p>Take one example</p>
+<pre class="javascripts"><code>fn.bind(null,1,2)(3)</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<p>How it produce result 6?<br />Because <code>bind</code> return is actually a partially applied function of<code>fn</code>.</p>
+<p>In JavaScripts words, the new function got return is a closure which holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the third parameter in order to fully apply function <code>fn</code>.</p>
+<p>The concept is named <em>Currying</em> and find more in <a href="#further">Further</a> section.</p>
+<p><em>PS</em>: turns out that <code>bind</code> is not really doing Currying according to <a href="http://en.wikipedia.org/wiki/Currying">here</a> and <a href="http://www.uncarved.com/blog/not_currying.mrk">here</a>. It is Partially Function Application more than Currying thouht it can do Currying at some sense.</p>
+<h2 id="run-with-bind-and-context"><a href="#run-with-bind-and-context">Run with bind and context</a></h2>
+<p>What I really mean context here is actually about <code>this</code> used in the function. Still now, <em>this.shangHai</em> always output <code>undefined</code> but we would like it to mean something.</p>
+<pre class="javascripts"><code>fn.bind({shangHai:&quot;lovely&quot;},1,2,3)();</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  lovely
+The sum is:  6</code></pre>
+<p>This time <code>this.shangHai</code> outputs “lovely” which obviously comes from the object that pass as first parameter of <code>bind</code>.</p>
+<p>Generally speaking,<code>this</code> will be the object that pass in as the first parameter of bind when the object is not null.</p>
+<p>Quiz: what <code>this</code> will be when passing null?</p>
+<h2 id="diff-with-call-and-apply"><a href="#diff-with-call-and-apply">Diff with call and apply</a></h2>
+<p>My understanding the key point is bind return a function.</p>
+<p>By contract, <code>call</code> and <code>apply</code> is all about providing another way for invoking a function.</p>
+<h2 id="further"><a href="#further">Further</a></h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>
+</ul>
+  </div>
+
+  <div class="to-left">
+    <small><a href="../index.html">Back to Home</a></small>
+  </div>
+
+  <div class="to-right">
+    <small><a href="../posts.html">View archive</a></small>
+  </div>
+
+  <div class="clear"></div>
+
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'freizltech'; // required: replace example with your forum shortname
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+      </div>
+
+      <div class="footer clear">
+        <p>site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a></p>
+      </div>
+
+    </div>
+  </body>
+</html>
