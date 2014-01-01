@@ -1,0 +1,11 @@
+
+<freizl.github.com>
+
+## Build
+  - `make build`
+  - `make bp` (build and preview)
+  - etc.
+
+## TODO
+  1. Generate sitemaps
+  2. category + tags ??
