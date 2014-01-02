@@ -1,4 +1,3 @@
-
 body {
 /*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-family: Ubuntu, "Helvetica Neue", Helvetica, Arial;
@@ -41,8 +40,6 @@ body {
     margin : 10px 5px;
     padding: 10px;
     border: 1px solid #C0C0C0;
-    border-radius:10px;
-    box-shadow: 5px 5px 5px #CCCCCC;
 }
 
 p {
