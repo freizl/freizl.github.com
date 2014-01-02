@@ -1,5 +1,4 @@
 body {
-/*  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-family: Ubuntu, "Helvetica Neue", Helvetica, Arial;
   font-size: 13px;
   line-height: 18px;
@@ -10,16 +9,30 @@ body {
   width: 780px;
 }
 
+
+h1 {
+  font-family: 'The Girl Next Door', cursive;
+  font-size: 3em;
+  font-weight: normal;
+}
+
 .soft {
     font-style: italic;
     color: #C0C0C0;
 }
-.navbar-inner .container, .footer {
+nav,
+footer {
   margin-left: 5px;
 }
 
+nav a {
+  font-family: 'The Girl Next Door', cursive;
+  text-decoration: underline;
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
 .footer p {
-    /* text-align: center; */
 }
 
 .to-right {
