@@ -9,7 +9,6 @@ body {
   width: 780px;
 }
 
-
 h1 {
   font-family: 'The Girl Next Door', cursive;
   font-size: 3em;
@@ -20,6 +19,7 @@ h1 {
     font-style: italic;
     color: #C0C0C0;
 }
+
 nav,
 footer {
   margin-left: 5px;
@@ -32,7 +32,10 @@ nav a {
   margin-right: 10px;
 }
 
-.footer p {
+section.cv {
+  border: 1px solid #CCC;
+  padding: 5px 25px;
+  margin-top: 10px;
 }
 
 .to-right {
@@ -57,7 +60,7 @@ nav a {
 
 p {
   margin: 0 0 9px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 13px;
   line-height: 18px;
 }
