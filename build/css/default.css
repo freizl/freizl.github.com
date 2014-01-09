@@ -9,10 +9,26 @@ body {
   width: 780px;
 }
 
+h1, h2, h3 {
+  color: #3F4549;
+}
+
 h1 {
-  font-family: 'The Girl Next Door', cursive;
-  font-size: 3em;
   font-weight: normal;
+  font-size: 2em;
+}
+
+.brand {
+  padding: 40px 0 40px 10px;
+  margin: 5px;
+  background-color: #EEE;
+  display: block;
+  font-size: 3em;
+  color: #3F4549;
+}
+.brand:hover {
+  color: #3F4549;
+  text-decoration: none;
 }
 
 .soft {
@@ -20,16 +36,8 @@ h1 {
     color: #C0C0C0;
 }
 
-nav,
 footer {
   margin-left: 5px;
-}
-
-nav a {
-  font-family: 'The Girl Next Door', cursive;
-  text-decoration: underline;
-  font-size: 1.5em;
-  margin-right: 10px;
 }
 
 section.cv {
@@ -60,7 +68,6 @@ section.cv {
 
 p {
   margin: 0 0 9px;
-  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
   font-size: 13px;
   line-height: 18px;
 }
@@ -125,19 +132,22 @@ div.figure img {
   width: 200px;
 }
 
+.hide {
+  display: none;
+}
+
 /* ------------------------------------- syntax */
+
 table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode, table.sourceCode pre{margin:0;padding:0;border:0;vertical-align:baseline;border:none}td.lineNumbers{border-right:1px solid #AAAAAA;text-align:right;color:#AAAAAA;padding-right:5px;padding-left:5px}td.sourceCode{padding-left:5px}pre.sourceCode{}pre.sourceCode span.Normal{}pre.sourceCode span.Keyword{color:#007020;font-weight:bold}pre.sourceCode span.DataType{color:#902000}pre.sourceCode span.DecVal{color:#40a070}pre.sourceCode span.BaseN{color:#40a070}pre.sourceCode span.Float{color:#40a070}pre.sourceCode span.Char{color:#4070a0}pre.sourceCode span.String{color:#4070a0}pre.sourceCode span.Comment{color:#60a0b0;font-style:italic}pre.sourceCode span.Others{color:#007020}pre.sourceCode span.Alert{color:red;font-weight:bold}pre.sourceCode span.Function{color:#06287e}pre.sourceCode span.RegionMarker{}pre.sourceCode span.Error{color:red;font-weight:bold}
 
 code {
     border: 1px dotted #A0A0A0;
     border-radius: 5px;
 }
-/* 
-   box-shadow: 3px 3px 3px #bbb;
-*/
+
 pre code {
     display: block;
     padding: 8px;
     margin-bottom: 2em;
-    font-family: monospace, "Courier New";
+    font-family: consolas, monospace, "Courier New";
 }
