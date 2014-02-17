@@ -1,0 +1,54 @@
+* Cygwin
+  - mount -f -u -b "c:" "/c"
+  - install sshd
+    - install package openssh
+    - run "ssh-host-config" to install sshd as Windows service
+    - run "net start sshd"
+
+* FreeBSD
+  - pw usermod tom -G ftpusers,wwwusers
+  - append "ifconfig_de0="DHCP" to /etc/rc.conf then /etc/rc.d/netif restart
+  - user should be in group 'wheel' for switching to root user by using 'su'
+
+  - (?) how to list all kernel modules name, especially for rebuilding kernel.
+  - (?) auto completion (type tab) for normal user
+
+* Resize VBox Disk Image
+** Steps
+  1) Create new virtal disk at desired size
+  2) Clone the disk
+     #+begin_src sh
+VBoxManage.exe clonehd --existing old.vdi new.vdi
+#+end_src
+  3) Use resize tool like GParted to create new partition for unused space as ext3 in the new.vdi
+  4) use system-config-lvm to expand LogicVolumn with the new partition . ([[http://wiki.centos.org/TipsAndTricks/ExpandLV][Command line is preferred]])
+     - basic command in case the link is bad.
+       #+begin_src sh
+lvm pvcreate /dev/sda5
+lvm vgextend "MindbenderGroup" /dev/sda5
+  Volume group "MindbenderGroup" successfully extended
+lvm lvresize -l 2261 /dev/MindbenderGroup/MindbenderHome 
+  ;;; 2261 is calculated according to Free PE / Current LE show by lvm vgdiaply & lvm lvdisplay
+  Extending logical volume MindbenderHome to 70.66 GB
+  Logical volume MindbenderHome successfully resized
+resize2fs /dev/MindbenderGroup/MindbenderHome
+#+end_src    
+     - Expend/resize Swap partition
+       #+begin_src sh
+swapoff -v /dev/VolGroup00/LogVol01 
+lvm lvresize /dev/VolGroup00/LogVol01 -L +256M 
+mkswap /dev/VolGroup00/LogVol01 
+swapon -va 
+cat /proc/swaps # free 
+#+end_src
+
+** Others
+#+begin_src sh 
+
+## compact
+VBoxManage modifyvdi /media/Blockk/VDI/NewHardDisk1.vdi compact 
+
+## increase disk size (to 20g example below)
+VBoxManage modifyhd "path-of-disk-file" --resize 20000
+  --> http://askubuntu.com/questions/101715/resizing-virtual-drive
+#+end_src

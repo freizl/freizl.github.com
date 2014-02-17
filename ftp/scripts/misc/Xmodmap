@@ -1,0 +1,6 @@
+###
+### http://www.emacswiki.org/emacs/MovingTheCtrlKey
+### -- could redefine WIN key at same dialog of GNOME setting
+###
+
+! add control = Super_L

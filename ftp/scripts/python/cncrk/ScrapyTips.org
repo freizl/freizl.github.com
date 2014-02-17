@@ -1,0 +1,5 @@
+* Web Console
+  + in project type
+  + scrapy-ctl.py start
+  + then visit the page <http://localhost:6080>
+  + more infor [[http://doc.scrapy.org/topics/settings.html#extensions-base][here]]

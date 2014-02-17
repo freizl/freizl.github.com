@@ -1,0 +1,8 @@
+The problem arose in one-dimensional pattern recognition.
+
+input:  a vector x of n floating-point numbers
+output: maximum sum found in any contiguous subvector of the input
+
+For instance, if input is
+  31, -41, 59, 26, -53, 58, 97, -93, -23, 84
+output is sum of x[2..6] or 187.

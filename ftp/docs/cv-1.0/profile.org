@@ -1,0 +1,128 @@
+#+TITLE: Wu, Haisheng
+#+LANGUAGE: en
+#+AUTHOR: Haisheng, Wu
+#+EMAIL: freizl@gmail.com
+#+DATE: 
+#+STYLE: <link rel="stylesheet" href="./css/default.css" type="text/css"/>
+#+OPTIONS: num:1 toc:nil author:nil
+#+DESCRIPTION: resume, cv
+
+#+LaTeX_CLASS_OPTIONS: [a4paper,11pt]
+#+LaTeX_HEADER: \usepackage{resume}
+#+BIND: org-export-latex-tables-centered nil
+
+#+LaTeX_HEADER: \usepackage{resume}
+#+LaTeX_HEADER: \usepackage[urw-garamond]{mathdesign}
+
+* Profile
+  - Mobile      : +86 18616330571
+  - eMail       : [[mailto:freizl@gmail.com][freizl@gmail.com]]
+  - Born        : 06/1983
+
+* Self-assessment
+  - Able to learn new technology quickly and work independently.
+  - Have taken initiative to proactively resolve the technical issues.
+  - Willing to share technical knowledge with team members actively.
+  - Have great passion on development, delivery as well as problem solving.
+  - Fluent English at both speaking and writing.
+  - Good team player.
+  - Have oversea working experience.
+    
+* Work experience
+  - Technical Staff at C3-e Tech (Shanghai) Co., Ltd. , 09/2011 ~ 02/2012
+  - Senior Engineer        at EMC Corporation           , 11/2010 ~ 10/2011
+  - Senior Engineer        at Perficient China Ltd.     , 10/2006 ~ 10/2010
+  - Engineer               at Zhejiang Guotai Tech Inc. , 07/2005 ~ 10/2006
+
+* Technical skills
+  - *Languages*: JavaScript, Java, Python, Perl, Shell, ActionScript
+  - *Web Technologies*: ExtJS, PrototypeJS, CSS, XML, XLST, GWT, Django
+  - *Open source library*: NodeJS, Spring, Hibernate, WebWork
+  - *Database*: MySQL, Oracle
+  - *Operating System*: Ubuntu, CentOS, WindowsXP
+  
+* Project experience
+  1. Energy and Emissions Management Product
+     + The purpose of the product is to build software solutions that
+       enable organizations to optimize their energy and emissions strategy.
+     + Responsibilities
+       + Develop UI utilizing ExtJS.
+       + Application implementation utilizing a domain specific language.
+
+  2. Reviewboard Program Enhancement
+     + The purpose of this project is to have some enhancement into the
+       ReviewBoard which is a on-line code review application.
+     + Responsibilities
+       - Enhancement development leverage Django framework.
+       - Integration implementation with Teamforge application.
+
+  3. Project Portal Program
+    + The purpose of this project is to build a unified data sets from
+      various existing applications and generate high level statistics
+      report.
+    + Responsibilities
+      - Develop UI utilizing Flex 4.
+      - Develop Web Services leverage Spring framework.
+      - Develop ETL scripts in Perl.
+
+  4. State Children’S Health Insurance Program
+    + The purpose of the project is to build a Children Health
+      Insurance Program (CHIP) Application for a specific State base
+      on the Platform built before.
+    + Responsibilities
+      - Develop UI utilizing Google Web Toolkit.
+      - UI framework design with MVP pattern.
+      - Application domain development utilizing EJB/JPA.
+      - In charge of technical design.
+      - Lead junior team members.
+
+  5. Oracle Fusion Integration & Support
+    + The purpose of this project is to build a SOA based foundational
+      integration layer that allows scalable, seamless, and reliable
+      communication between the multiple disparate systems.
+    + Responsibilities
+      - Prepare Technical design documents.
+      - Develop ESB and BPEL Components with JDeveloper under Windows Platform.
+      - Conduct Unit Testing and End-2-End Testing.
+      - Develop Perl and Shell scripts to help in error log analysis under
+        Linux Platform.
+
+  6. Health Insurance Program Platform
+    + The purpose of the project is to build a Platform which collect
+      functions that are usable across multiple applications for the
+      Children Health Insurance Program (CHIP).
+    + Responsibilities
+     - Java Development base on JEE architecture.
+     - UI Development with Prototype JavaScript framework.
+     - Unit testing and functional testing.
+     - Implement Design documentations.
+
+  7. Project Profitability System
+    + The project improves visibility into the profitability of every
+      active project engagement. Design and develop the technical
+      infrastructure capable of supporting future extension into a
+      project management tool.
+    + Responsibilities
+      - Develop a Portal based on Pentaho BI Platform
+      - Design reports using Eclipse BIRT
+      - Development of build script
+      - SCM work
+
+  8. Supply Management Project  of Coal Industry
+    + The project involved the development of an online loan web
+      application using J2EE, which set all items information in the
+      warehouse to Database, including details of the usage, stock,
+      repair, etc. Leveraging workflow energy for approving plans and
+      the application of getting out items and storing into warehouse.
+    + Responsibilities
+      - Design the architecture of the project
+      - Conduct recruits to develop model.
+      - Integrate JBoss jBPM in the project.
+    
+* Education background
+  - Zhejiang Gongshang University, Bachelor of Computer Science,
+    09/2001 ~ 07/2005
+  
+* Certifications
+ - Scrum Master Certification, 07/2010
+

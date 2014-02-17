@@ -1,0 +1,6 @@
+Perl is a useful tool, which many people use to write some good software.
+But like all programming languages, Perl can also be used to create bad software.
+Bad software contains bugs, has security holes and is hard to fix or extend.
+
+Fortunately, Perl offers you many ways to increase the quality of the programs you write.
+In this last installment in the Beginner's Intro series, we'll take a look at a few of them.
