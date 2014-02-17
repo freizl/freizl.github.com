@@ -9,6 +9,7 @@ default: install
 
 clean:
 	rm -rf dist
+	rm -rf _site
 
 build:
 	cabal configure

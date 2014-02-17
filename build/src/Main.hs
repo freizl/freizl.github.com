@@ -59,7 +59,7 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/posts.html" ctx
                 >>= loadAndApplyTemplate "templates/default.html" ctx
                 >>= relativizeUrls
- 
+
     -- Post tags
     tagsRules tags $ \tag pattern -> do
         let title = "Posts tagged " ++ tag
@@ -147,8 +147,8 @@ main = hakyllWith config $ do
     match "templates/*" $ compile templateCompiler
 
   where
-    cvs = [ "cv.md", "cv-full.md" ]
-    
+    cvs = [ "cv.md", "cv-full.md", "cv-cn.md" ]
+
     pandocCompilerToc = pandocCompilerWith defaultHakyllReaderOptions withToc
 
     withToc = defaultHakyllWriterOptions
