@@ -69,7 +69,7 @@ author: Haisheng, Wu
     - 基于 Spring 框架的 Web Services 开发.
     - 使用 Perl 开发 ETL 工具.
 
-## State Children’S Health Insurance Program
+## State Children's Health Insurance Program
 
   + 设计一个针对健康保险业务的通用平台, 使用Google Web Toolkit(GWT)重新定制用户界面, 简化Ajax应用的开发。
   + 职责
@@ -107,7 +107,7 @@ author: Haisheng, Wu
     - 利用 Eclipse BIRT 设计报表
     - 系统配置管理(SCM)
 
-## Supply Management Project  of Coal Industry
+## Supply Management Project of Coal Industry
 
   + 应用JBoss jBPM 实现一个供应链子系统，明确并简化业务管理 提供相应
     的Web管理界面，实现日常的录入和审批. 实现元数据的输入和维护界面.
