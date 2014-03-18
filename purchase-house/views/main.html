@@ -5,63 +5,62 @@
             <fieldset>
                 <div class="pure-control-group">
                     <label for="total">报价</label>
-                    <input id="total" type="number" placeholder="" ng-model="input.price">
+                    <input class="pure-input-1-4" id="total" type="number" placeholder="" ng-model="input.price">
                 </div>
 
                 <div class="pure-control-group">
                     <label for="how-many-houses">第几套</label>
-                    <input id="how-many-houses" type="number" ng-model="input.howManyHouses">
+                    <input class="pure-input-1-4" id="how-many-houses" type="number" ng-model="input.howManyHouses">
                 </div>
 
                 <div class="pure-control-group">
-                    <label for="over-five-year">是否满五年?</label>
+                    <label for="over-five-year">满五年?</label>
                     <input id="over-five-year" type="checkbox" ng-model="input.overFiveYear">
                 </div>
                 <div class="pure-control-group" ng-show="input.overFiveYear">
                     <label for="original-value" class="extra-info">买进价</label>
-                    <input id="original-value" type="number" ng-model="input.originalValue">
+                    <input class="pure-input-1-4" id="original-value" type="number" ng-model="input.originalValue">
                 </div>
 
 
                 <div class="pure-control-group">
-                    <label for="only-house">是否唯一</label>
+                    <label for="only-house">唯一</label>
                     <input id="only-house" type="checkbox" ng-model="input.onlyOneHouse">
                 </div>
 
                 <div class="pure-control-group">
-                    <label for="normalHouse">是否做低成普通住宅</label>
+                    <label for="normalHouse">做低成普通住宅</label>
                     <input id="normalHouse" type="checkbox" ng-model="input.normalHouse">
                 </div>
 
                 <div class="pure-control-group" ng-show="input.normalHouse">
                     <label for="normalHouse-value" class="extra-info">做低房价</label>
-                    <input id="normalHouse-value" type="number" readonly="readonly" ng-model="input.normalHouseValue">
+                    <input class="pure-input-1-4" id="normalHouse-value" type="number" ng-model="input.normalHouseValue">
                 </div>
 
                 <div class="pure-control-group">
                     <label for="init-pay">首付</label>
-                    <input id="init-pay" type="number" ng-model="input.initPay">%
+                    <input class="pure-input-1-4" id="init-pay" type="number" ng-model="input.initPay">%
                 </div>
 
                 <div class="pure-control-group">
                     <label for="qi-tax">契税</label>
-                    <input id="qi-tax" type="number" ng-model="input.qiTax">%
+                    <input class="pure-input-1-4" id="qi-tax" type="number" ng-model="input.qiTax">%
                 </div>
 
                 <div class="pure-control-group">
                     <label for="ying-ye-tax">营业税</label>
-                    <input id="ying-ye-tax" type="number" ng-model="input.yingYeTax">%
+                    <input class="pure-input-1-4" id="ying-ye-tax" type="number" ng-model="input.yingYeTax">%
                 </div>
 
                 <div class="pure-control-group">
                     <label for="ge-tax">个税</label>
-                    <input id="ge-tax" type="number" ng-model="input.geTax">%
+                    <input class="pure-input-1-4" id="ge-tax" type="number" ng-model="input.geTax">%
                 </div>
-
 
                 <div class="pure-control-group">
                     <label for="middle-man-fee">中介费</label>
-                    <input id="middle-man-fee" type="number" ng-model="input.middleManFee">%
+                    <input class="pure-input-1-4" id="middle-man-fee" type="number" ng-model="input.middleManFee">%
                 </div>
 
             </fieldset>
