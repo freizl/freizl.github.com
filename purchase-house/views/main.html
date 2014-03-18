@@ -4,7 +4,7 @@
         <form class="pure-form pure-form-aligned">
             <fieldset>
                 <div class="pure-control-group">
-                    <label for="total">Total</label>
+                    <label for="total">报价</label>
                     <input id="total" type="number" placeholder="" ng-model="input.price">
                 </div>
 
@@ -17,7 +17,7 @@
                     <label for="over-five-year">是否满五年?</label>
                     <input id="over-five-year" type="checkbox" ng-model="input.overFiveYear">
                 </div>
-                <div class="pure-control-group" ng-show="needShowOriginalValue()">
+                <div class="pure-control-group" ng-show="input.overFiveYear">
                     <label for="original-value" class="extra-info">买进价</label>
                     <input id="original-value" type="number" ng-model="input.originalValue">
                 </div>
