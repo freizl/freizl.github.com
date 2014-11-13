@@ -3,3 +3,5 @@ _site
 _cache
 cabal.sandbox.config
 .cabal-sandbox
+.DS_Store
+
