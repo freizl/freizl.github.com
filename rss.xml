@@ -29,22 +29,12 @@
 <item>
     <title>Objects created at one commit</title>
     <link>http://freizl.github.io//posts/2012-04-12-git-one-commit.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#play-it">Play it</a><ul>
-<li><a href="#new-two-files">new two files</a></li>
-<li><a href="#git-add">git-add</a></li>
-<li><a href="#no-objects-created-yet">no objects created yet</a></li>
-<li><a href="#git-commit">git-commit</a></li>
-<li><a href="#git-obj-list">git-obj-list</a></li>
-<li><a href="#what-are-they">what are they</a></li>
-</ul></li>
-<li><a href="#further">Further</a></li>
-</ul>
-<h1 id="play-it"><a href="#play-it">Play it</a></h1>
-<h2 id="new-two-files"><a href="#new-two-files">new two files</a></h2>
+    <description><![CDATA[
+<h1 id="play-it">Play it</h1>
+<h2 id="new-two-files">new two files</h2>
 <pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &quot;11111&quot; &gt; 1.txt
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &quot;22222&quot; &gt; 2.txt</code></pre>
-<h2 id="git-add"><a href="#git-add">git-add</a></h2>
+<h2 id="git-add">git-add</h2>
 <pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add .
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
 # On branch master
@@ -57,16 +47,16 @@ haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
 #	new file:   1.txt
 #	new file:   2.txt
 #</code></pre>
-<h2 id="no-objects-created-yet"><a href="#no-objects-created-yet">no objects created yet</a></h2>
+<h2 id="no-objects-created-yet">no objects created yet</h2>
 <pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all</code></pre>
-<h2 id="git-commit"><a href="#git-commit">git-commit</a></h2>
+<h2 id="git-commit">git-commit</h2>
 <pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci &quot;first commit&quot;
 [master (root-commit) 8ef1919] first commit
  2 files changed, 2 insertions(+), 0 deletions(-)
  create mode 100644 1.txt
  create mode 100644 2.txt
 </code></pre>
-<h2 id="git-obj-list"><a href="#git-obj-list">git-obj-list</a></h2>
+<h2 id="git-obj-list">git-obj-list</h2>
 <pre class="sh"><code>
 haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
 8ef1919e4ca33cf602488a27b5671a6b6acf754b
@@ -74,7 +64,7 @@ haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects
 f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f 1.txt
 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c 2.txt
 </code></pre>
-<h2 id="what-are-they"><a href="#what-are-they">what are they</a></h2>
+<h2 id="what-are-they">what are they</h2>
 <pre class="sh"><code>## | Blob objects
 ~/github/haisheng-homepage/test$ git cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
 11111
@@ -94,7 +84,7 @@ first commit
 100644 blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f	1.txt
 100644 blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c	2.txt
 </code></pre>
-<h1 id="further"><a href="#further">Further</a></h1>
+<h1 id="further">Further</h1>
 <ul>
 <li><a href="" title="http://book.git-scm.com/">Git object model</a></li>
 <li><a href="" title="http://0.0.0.0:9900/posts/readings/2012-04-08-notes-progit.html#internal">Git internal in one image</a></li>
@@ -105,12 +95,8 @@ first commit
 <item>
     <title>Confused Constructor in JavaScipts</title>
     <link>http://freizl.github.io//posts/2012-04-12-confused-constructor-js.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#sample">Sample</a></li>
-<li><a href="#jquery.fn.init">JQuery.fn.init</a></li>
-</ul>
-<h1 id="introduction"><a href="#introduction">Introduction</a></h1>
+    <description><![CDATA[
+<h1 id="introduction">Introduction</h1>
 <p>I can not quite remember what happened when invoking <code>new</code> over a function. While I’m looking at function <code>init</code> at jQuery source, the concern comes to me again.</p>
 <p>Fourtunaly I think the answer at this<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> thread turns out to be a quite clear explanation.</p>
 <p>Just three things according to that answer.</p>
@@ -130,7 +116,7 @@ first commit
 <li>Basically <code>[[prototype]]</code> is used for prototype chain. Find details at here<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and Ecma-262<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</li>
 </ol>
 <p>Therefore if we change the <code>prototype</code> property of the function before <code>new</code>, the <code>[[prototype]]</code> of instances afterwards is vary accordingly. <em>Refer to line 19 at <a href="#sample">sample</a></em></p>
-<h1 id="sample"><a href="#sample">Sample</a></h1>
+<h1 id="sample">Sample</h1>
 <ul>
 <li><strong>tested at google chrome 18 and pay close attention to comments.</strong></li>
 </ul>
@@ -189,7 +175,7 @@ first commit
 <ul>
 <li>Quiz: Why y1.constructor is not same as x1.constructor?</li>
 </ul>
-<h1 id="jquery.fn.init"><a href="#jquery.fn.init">JQuery.fn.init</a></h1>
+<h1 id="jquery.fn.init">JQuery.fn.init</h1>
 <ul>
 <li><code>jQuery</code> is declarated as</li>
 </ul>
@@ -229,11 +215,8 @@ first commit
 <item>
     <title>Quotes: Rework</title>
     <link>http://freizl.github.io//posts/2012-04-08-quotes-rework.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#quotes">Quotes</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul>
-<h1 id="quotes"><a href="#quotes">Quotes</a></h1>
+    <description><![CDATA[
+<h1 id="quotes">Quotes</h1>
 <ul>
 <li>Draw a line in the sand</li>
 <li>Build half a product, not a half-assed product</li>
@@ -248,7 +231,7 @@ first commit
 <li>Ideas are immortal</li>
 <li>(need, can’t, must, easy, just, only, fast) Those words get in the way of healthy communication.</li>
 </ul>
-<h1 id="reference"><a href="#reference">Reference</a></h1>
+<h1 id="reference">Reference</h1>
 <ul>
 <li><a href="http://37signals.com/rework/">Rework</a></li>
 </ul>]]></description>
@@ -258,13 +241,8 @@ first commit
 <item>
     <title>Notes: ProGit</title>
     <link>http://freizl.github.io//posts/2012-04-08-notes-progit.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#chapter-9.3">Chapter 9.3</a></li>
-<li><a href="#chapter-6">Chapter 6</a></li>
-<li><a href="#internal">Internal</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul>
-<h1 id="chapter-9.3"><a href="#chapter-9.3">Chapter 9.3</a></h1>
+    <description><![CDATA[
+<h1 id="chapter-9.3">Chapter 9.3</h1>
 <ul>
 <li>refs</li>
 <li>refs/heads</li>
@@ -280,7 +258,7 @@ first commit
 <li>What does ‘git branch B_NAME’ actually do?</li>
 <li>What happened to HEAD when switching branch?</li>
 </ol>
-<h1 id="chapter-6"><a href="#chapter-6">Chapter 6</a></h1>
+<h1 id="chapter-6">Chapter 6</h1>
 <pre class="sh"><code>git add -i</code></pre>
 <pre class="sh"><code>###
 ### revision selection
@@ -292,12 +270,13 @@ git log HEAD~3</code></pre>
 git log origin/master..HEAD
 git log branchA branchB ^branchC
 git log master...branchA</code></pre>
-<h1 id="internal"><a href="#internal">Internal</a></h1>
+<h1 id="internal">Internal</h1>
 <p>Questions</p>
 <div class="figure">
-<img src="http://freizl.github.com/images/git_internal.png" alt="Git internal in one image" /><p class="caption">Git internal in one image</p>
+<img src="http://freizl.github.com/images/git_internal.png" alt="Git internal in one image" />
+<p class="caption">Git internal in one image</p>
 </div>
-<h1 id="reference"><a href="#reference">Reference</a></h1>
+<h1 id="reference">Reference</h1>
 <ul>
 <li><a href="http://progit.org/book/">ProGit</a></li>
 </ul>]]></description>
@@ -307,11 +286,8 @@ git log master...branchA</code></pre>
 <item>
     <title>Notes: Master of Regular Expression</title>
     <link>http://freizl.github.io//posts/2012-04-08-notes-master-regexp.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#notes">Notes</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul>
-<h1 id="notes"><a href="#notes">Notes</a></h1>
+    <description><![CDATA[
+<h1 id="notes">Notes</h1>
 <pre class="sourceCode perl"><code class="sourceCode perl">Matching <span class="kw">and</span> Capture, <span class="kw">or</span> just <span class="kw">not</span> Capture
 (?:...) <span class="kw">and</span> (...)
 
@@ -374,19 +350,15 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !abcde</span>
 <span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ot">\x</span><span class="ch">?</span><span class="kw">/</span><span class="st">!</span><span class="kw">/g</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></code></pre>
-<h1 id="reference"><a href="#reference">Reference</a></h1>]]></description>
+<h1 id="reference">Reference</h1>]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-08-notes-master-regexp.html</guid>
 </item>
 <item>
-    <title>"Magic" Monad Transformer</title>
+    <title>Magic Monad Transformer</title>
     <link>http://freizl.github.io//posts/2012-04-07-magic-monad-transformer.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#monad-transformer">Monad-Transformer</a></li>
-<li><a href="#what-is-the-so-called-magic">What is the so-called “Magic”</a></li>
-<li><a href="#a-trivial-demo">A trivial demo</a></li>
-</ul>
-<h1 id="monad-transformer"><a href="#monad-transformer">Monad-Transformer</a></h1>
+    <description><![CDATA[
+<h1 id="monad-transformer">Monad-Transformer</h1>
 <p>The code fragment below is from chapter 18 Monad Transform of &lt;Real World Haskell&gt;<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <p>When the first time I read this example, I was confused with how it is possible to use <code>ask</code> of <code>MonadReader</code> (line 6) and <code>get</code> of <code>MonadState</code> (line 13) functions in the same <code>App</code> Monad content.</p>
 <p>The only reasonable explanation is that <code>App</code> is both <code>MonadReader</code> and <code>MonadState</code>. While looking at <code>App</code> type definition (line 1), seems it is not possible.</p>
@@ -410,7 +382,7 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
 18
 </pre></td><td class="sourceCode"><pre><code class="sourceCode haskell"><span class="kw">type</span> <span class="dt">App</span> <span class="fu">=</span> <span class="dt">ReaderT</span> <span class="dt">AppConfig</span> (<span class="dt">StateT</span> <span class="dt">AppState</span> <span class="dt">IO</span>)
 
-<span class="ot">constrainedCount ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">App</span> [(<span class="dt">FilePath</span>, <span class="dt">Int</span>)]
+<span class="ot">constrainedCount ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> FilePath <span class="ot">-&gt;</span> <span class="dt">App</span> [(FilePath, <span class="dt">Int</span>)]
 constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</span>
   contents <span class="ot">&lt;-</span> liftIO <span class="fu">.</span> listDirectory <span class="fu">$</span> path
   cfg <span class="ot">&lt;-</span> ask
@@ -426,7 +398,7 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
                 constrainedCount newDepth newPath
               <span class="kw">else</span> return []
   return <span class="fu">$</span> (path, length contents) <span class="fu">:</span> concat rest</code></pre></td></tr></table>
-<h1 id="what-is-the-so-called-magic"><a href="#what-is-the-so-called-magic">What is the so-called “Magic”</a></h1>
+<h1 id="what-is-the-so-called-magic">What is the so-called “Magic”</h1>
 <p>I turn to the source of package mtl<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and finding following implementations.</p>
 <table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -465,7 +437,7 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
           =&gt; MonadState AppState (ReaderT AppConfig (StateT AppState IO)) where ...
    ~&gt; instance MonadState AppState App where ...</code></pre>
 <p>Therefore <code>App</code> is both MonadReader and MonadState.</p>
-<h1 id="a-trivial-demo"><a href="#a-trivial-demo">A trivial demo</a></h1>
+<h1 id="a-trivial-demo">A trivial demo</h1>
 <p>I made a very trivial sample <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> demostrating combine ReaderT and StateT.</p>
 <div class="footnotes">
 <hr />
@@ -481,56 +453,41 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 <item>
     <title>Shell Tips</title>
     <link>http://freizl.github.io//posts/2012-04-06-shell-tips.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#quicklinks">Quicklinks</a></li>
-<li><a href="#reference">Reference</a></li>
-<li><a href="#sample-section-a">Sample Section A</a><ul>
-<li><a href="#grep">grep</a></li>
-<li><a href="#find">find</a></li>
-<li><a href="#awk">awk</a></li>
-<li><a href="#sed">sed</a></li>
-<li><a href="#cp">cp</a></li>
-</ul></li>
-<li><a href="#sample-section-b">Sample Section B</a><ul>
-<li><a href="#while">while</a></li>
-<li><a href="#for">for</a></li>
-<li><a href="#case">case</a></li>
-</ul></li>
-</ul>
-<h1 id="quicklinks"><a href="#quicklinks">Quicklinks</a></h1>
+    <description><![CDATA[
+<h1 id="quicklinks">Quicklinks</h1>
 <ul>
 <li>[[http://bash.cyberciti.biz/guide/What_is_a_Subshell%3F][What is a Subshell]]</li>
 <li>[[http://en.wikipedia.org/wiki/List_of_Unix_utilities][List of Unix utilities]]</li>
 <li>[[http://www-128.ibm.com/developerworks/aix/library/au-badunixhabits.html?ca=lnxw01GoodUnixHabits][10 Good Unix habits]]</li>
 </ul>
-<h1 id="reference"><a href="#reference">Reference</a></h1>
+<h1 id="reference">Reference</h1>
 <ul>
 <li>() execute command in subshell</li>
 <li>{} execute command in currecnt shell Usage is same with () expect the final command in the list ends with a semicolon.</li>
 </ul>
-<h1 id="sample-section-a"><a href="#sample-section-a">Sample Section A</a></h1>
-<h2 id="grep"><a href="#grep">grep</a></h2>
+<h1 id="sample-section-a">Sample Section A</h1>
+<h2 id="grep">grep</h2>
 <pre class="sh"><code>grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
 ### count process and exclude grep itself
 ps aux | grep vpnc | grep -v grep -c</code></pre>
-<h2 id="find"><a href="#find">find</a></h2>
+<h2 id="find">find</h2>
 <pre class="sh"><code>find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
 find $update_dir \( -name &#39;*.java&#39; \) \( -path &#39;**/source/**&#39; -o -path &#39;**/test/**&#39; -o -path &#39;**/resource/**&#39; \)</code></pre>
-<h2 id="awk"><a href="#awk">awk</a></h2>
+<h2 id="awk">awk</h2>
 <pre class="sh"><code>### list all time of each ping
 awk -F&quot;=&quot; &#39;/time=/ {print substr($4,0,length($4)-3) }&#39; &lt; ping.log
 ### passing shell parameter to awk scripts
 svn st ${dirs} | awk -F&quot; &quot; -v ac=&quot;${*}&quot; &#39; /&#39;${predicate}&#39;/ &amp;&amp; (index($2,&quot;\\&quot;)==0 || gsub(/\\/,&quot;/&quot;,$2)) {print ac, $2}&#39;
 ### change Output Row Separator
 awk &#39; BEGIN { ORS = &quot; &quot; } { print }&#39;</code></pre>
-<h2 id="sed"><a href="#sed">sed</a></h2>
+<h2 id="sed">sed</h2>
 <pre class="sh"><code>ll | sed &#39;/Stores\|Test\|^-\|^t/d&#39; | wc
 smbclient -L \\\\hangzhou2\\twitters -U foobar | sed &#39;/Hangzhou20/,$d&#39;
 export BEA_IP=`/sbin/ifconfig eth0 | sed &#39;/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g&#39;`</code></pre>
-<h2 id="cp"><a href="#cp">cp</a></h2>
+<h2 id="cp">cp</h2>
 <pre class="sh"><code>cp filename{,.bak}</code></pre>
-<h1 id="sample-section-b"><a href="#sample-section-b">Sample Section B</a></h1>
-<h2 id="while"><a href="#while">while</a></h2>
+<h1 id="sample-section-b">Sample Section B</h1>
+<h2 id="while">while</h2>
 <pre class="sh"><code>while getopts &quot;:ab:c&quot; opt; do
 	case $opt in
 	a ) echo &quot;I am a&quot; ;;
@@ -541,14 +498,14 @@ export BEA_IP=`/sbin/ifconfig eth0 | sed &#39;/inet addr/!d;s/.*addr:\([^ ]\+\).
 	esac
     shift $(($OPTIND - 1))
 done</code></pre>
-<h2 id="for"><a href="#for">for</a></h2>
+<h2 id="for">for</h2>
 <pre class="sh"><code>for s in $(echo $string | sed &quot;s/;/ /g&quot;); do
 	echo $s
 done</code></pre>
 <pre class="sh"><code>for (( i=1; i&lt;=$n; i++ )) do
    ls -1 &quot;${file_pattern}&quot; | sed &#39;s#\(.*\)\(.xml\).bak#cp &amp; \1&#39;&quot;_$i&quot;&#39;\2#g&#39;
 done</code></pre>
-<h2 id="case"><a href="#case">case</a></h2>
+<h2 id="case">case</h2>
 <pre class="sh"><code>case $action in
     backup ) tar cfj &quot;$backup_dir/$bakfile&quot; * --exclude &quot;jobs/*/workspace&quot; ;;
     rest | restore ) tar xfj $backup_dir/$bakfile ;;
@@ -560,23 +517,17 @@ esac</code></pre>]]></description>
 <item>
     <title>Python Tips</title>
     <link>http://freizl.github.io//posts/2012-04-06-python-tips.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#re">re</a></li>
-<li><a href="#list">list</a></li>
-<li><a href="#dict">dict</a></li>
-<li><a href="#mise">Mise</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul>
-<h1 id="re"><a href="#re">re</a></h1>
+    <description><![CDATA[
+<h1 id="re">re</h1>
 <pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; re.split(<span class="st">&quot;[^0-9]&quot;</span>, <span class="st">&quot;12 34 + 2 *&quot;</span>)
 [<span class="st">&#39;12&#39;</span>, <span class="st">&#39;34&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>]</code></pre>
 <p>Cant understand how ’’ being produced.</p>
-<h1 id="list"><a href="#list">list</a></h1>
+<h1 id="list">list</h1>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="dt">str</span>(<span class="st">&quot;abcdef&quot;</span>)[::-<span class="dv">1</span>] ==&gt; <span class="st">&quot;fedcba&quot;</span>
 <span class="dt">reduce</span>(<span class="kw">lambda</span> x,y:y+x,<span class="st">&quot;abcdef&quot;</span>) ==&gt; <span class="st">&quot;fedcba&quot;</span>
 <span class="dt">sorted</span>([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]) ==&gt; [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]
 a = [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]; a.sort() ==&gt; a := [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]</code></pre>
-<h1 id="dict"><a href="#dict">dict</a></h1>
+<h1 id="dict">dict</h1>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="co">### demostrate loop a dict and list/dict parameter</span>
 <span class="kw">def</span> tst_dict(*args, **kargs):
     <span class="kw">for</span> k, v in <span class="dt">dict</span>(*args, **kargs).iteritems():
@@ -588,14 +539,14 @@ a = [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</spa
 
 tst_dict(name=<span class="st">&#39;aa&#39;</span>, place=<span class="st">&#39;bb&#39;</span>)
 tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</span>) <span class="co"># throw error</span></code></pre>
-<h1 id="mise"><a href="#mise">Mise</a></h1>
+<h1 id="mise">Mise</h1>
 <pre class="sourceCode python"><code class="sourceCode python"><span class="dt">range</span>(<span class="dv">4</span>) ==&gt; [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="co">#range start from 0 by default</span>
 <span class="co">&#39;%s: %r&#39;</span> % (something, other)
 <span class="co">&#39;%(name)s is %(value)d&#39;</span> % {
     <span class="st">&#39;name&#39;</span>: <span class="st">&#39;The answer&#39;</span>,
     <span class="co">&#39;value&#39;</span>: <span class="dv">42</span>,
 }</code></pre>
-<h1 id="reference"><a href="#reference">Reference</a></h1>
+<h1 id="reference">Reference</h1>
 <ul>
 <li><a href="http://docs.python.org/library/re.html">re reference</a></li>
 </ul>]]></description>
@@ -605,23 +556,15 @@ tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</
 <item>
     <title>Perl Tips</title>
     <link>http://freizl.github.io//posts/2012-04-06-perl-tips.html</link>
-    <description><![CDATA[<ul>
-<li><a href="#basic">Basic</a></li>
-<li><a href="#loop">Loop</a></li>
-<li><a href="#sub">Sub</a></li>
-<li><a href="#data-structure">Data Structure</a><ul>
-<li><a href="#aoa">AoA</a></li>
-</ul></li>
-<li><a href="#references">References</a></li>
-</ul>
-<h1 id="basic"><a href="#basic">Basic</a></h1>
+    <description><![CDATA[
+<h1 id="basic">Basic</h1>
 <pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@myarray</span> = ();
 <span class="fu">push</span> <span class="dt">@myarray</span>,<span class="kw">&quot;</span><span class="st">a</span><span class="kw">&quot;</span>;</code></pre>
 <pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@keys</span> = <span class="kw">qw(</span>a b c<span class="kw">)</span>;
 <span class="kw">my</span> <span class="dt">@vals</span> = (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>);
 <span class="kw">my</span> <span class="dt">%hash</span>;
 <span class="dt">@hash</span>{<span class="dt">@keys</span>} = <span class="dt">@vals</span>;</code></pre>
-<h1 id="loop"><a href="#loop">Loop</a></h1>
+<h1 id="loop">Loop</h1>
 <pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># loop elements in itemArray1 and itemArray2</span>
 <span class="kw">foreach</span> <span class="kw">my</span> <span class="dt">$item</span> (<span class="dt">@itemArray1</span>, <span class="dt">@itemArray2</span>) {
   ...
@@ -630,7 +573,7 @@ tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</
 <span class="kw">while</span> ( <span class="kw">my</span> (<span class="dt">$key</span>, <span class="dt">$value</span>) = <span class="kw">each</span>(<span class="dt">%hash</span>) ) {
   <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$key</span><span class="st"> =&gt; </span><span class="dt">$value</span><span class="ch">\n</span><span class="kw">&quot;</span>;
 }</code></pre>
-<h1 id="sub"><a href="#sub">Sub</a></h1>
+<h1 id="sub">Sub</h1>
 <pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">prepare_sth</span> {
   <span class="kw">my</span> <span class="dt">$param</span> = <span class="fu">shift</span>;  <span class="co"># means shift @_, @_ is param array</span>
   <span class="co"># my $param = $_;   # when could use $_ ??</span>
@@ -640,8 +583,8 @@ tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</
   <span class="dt">%seen</span> = ();
   <span class="dt">@uniqu</span> = <span class="fu">grep</span> { ! <span class="dt">$seen</span>{<span class="dt">$_</span>} ++ } <span class="dt">@list</span>;
 }</code></pre>
-<h1 id="data-structure"><a href="#data-structure">Data Structure</a></h1>
-<h2 id="aoa"><a href="#aoa">AoA</a></h2>
+<h1 id="data-structure">Data Structure</h1>
+<h2 id="aoa">AoA</h2>
 <p>from book <programming perl></p>
 <pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### Assign a list of array references to an array.</span>
 <span class="dt">@AoA</span> = (
@@ -666,12 +609,508 @@ tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</
 <p>are equivalent to these two lines:</p>
 <pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]
 <span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]</code></pre>
-<h1 id="references"><a href="#references">References</a></h1>
+<h1 id="references">References</h1>
 <ul>
 <li><a href="http://www.cs.mcgill.ca/~abatko/computers/programming/perl/howto/hash/">Perl Hash Howto</a></li>
 </ul>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-perl-tips.html</guid>
+</item>
+<item>
+    <title>Git Tips</title>
+    <link>http://freizl.github.io//posts/2012-04-06-git-tips.html</link>
+    <description><![CDATA[
+<h1 id="fetch">fetch</h1>
+<pre><code>### fetch origin &quot;FROM&quot; : &quot;TO&quot;
+fetch = +refs/heads/master:refs/remotes/origin/master
+
+git fetch origin master:refs/remotes/origin/mymaster
+git fetch origin master:refs/remotes/origin/mymaster
+          topic:refs/remotes/origin/topic</code></pre>
+<h1 id="one-commit">one commit</h1>
+<p><a href="/docs/git_one_commit.pdf">What happened after one commit</a></p>
+<h1 id="log">log</h1>
+<h1 id="miscs">miscs</h1>
+<pre><code>git instaweb --httpd=lighttpd
+
+### anything need push
+git remote show origin
+
+### init new repos
+git clone --bare my_project my_project.git
+
+git reset --hard 7e83
+
+git checkout 82f5 [-b branch_name]	This takes you back in time, while preserving newer commits.
+git checkout :/&quot;my first brach&quot;	        Jump to the commit that starts with a given message.
+git checkout master~5	                5th last saved state.(BRANCH_NAME~number)
+
+git whatchanged
+git cherry-pick
+
+git rebase
+git rebase -I HEAD~10	modify last 10 commits
+git commit --amend
+
+git filter-branch --tree-filter &#39;rm top/sececre/file&#39; HEAD	remove file from all commit
+
+git bundle
+
+git branch -r
+
+###diff with remote branch,a.k. what are local change
+git diff remotes/HEAD
+
+git reflog
+</code></pre>]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2012-04-06-git-tips.html</guid>
+</item>
+<item>
+    <title>Git SVN</title>
+    <link>http://freizl.github.io//posts/2012-04-06-git-svn.html</link>
+    <description><![CDATA[
+<h1 id="git-svn-initfetch">git svn init/fetch</h1>
+<pre><code>git svn init [-s] URL
+git svn fetch -r xxx|HEAD
+  a) it gets out &#39;all&#39; branches/tags/trunk when no specific -r
+  b) by change some at branch, chdir to branches folder and play with git
+  c) if specify with -r, means &quot;Just want to checkout that revision&quot;
+                         then try git svn rebase to update to HEAD
+git svn rebase
+</code></pre>
+<h1 id="git-svn-clone">git svn clone</h1>
+<pre><code># if any problems with init/fetch, just clone and seems this is recommanded...
+# seem should no targe name specified after URL
+# verify with git branch -r should show all svn branches and tags
+git svn clone [URL]</code></pre>
+<h1 id="git-svn-branch">git svn branch</h1>
+<pre><code># create svn branch
+git svn branch [svn_branch_1]
+
+# set up local branch to dcommit to svn branch
+git branch [local_branch_name] remotes/svn_branch_name
+
+# do change at git local branch and merge into master with
+git merge --squash
+git commit
+git svn dcommit</code></pre>
+<h1 id="alternative-with-svn-merge">alternative with svn merge</h1>
+<pre><code>svn mergeinfo ... :
+  git log master..branchx (diff commits that in branchx but master)
+  git branch [--no-merged|--merged]
+
+svn merge --dry-run
+  git merge --no-commit --no-ff
+</code></pre>]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2012-04-06-git-svn.html</guid>
+</item>
+<item>
+    <title>Expression and Statement</title>
+    <link>http://freizl.github.io//posts/2012-04-06-expression-and-statement.html</link>
+    <description><![CDATA[
+<h1 id="expression">Expression</h1>
+<p>Something which evaluates to a value. Example:</p>
+<pre><code>1 + 2/x</code></pre>
+<h1 id="statement">Statement</h1>
+<p>A line of code which does something. Example:</p>
+<pre><code>a = 1 + a;
+return 10;</code></pre>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="http://stackoverflow.com/questions/19132/expression-versus-statement">Discussion at Stackoverflow</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Statement_%28programming%29">Statement</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Expression_%28programming%29">Expression</a></li>
+</ul>]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2012-04-06-expression-and-statement.html</guid>
+</item>
+<item>
+    <title>Export a OrgMode doc in Chinese to PDF</title>
+    <link>http://freizl.github.io//posts/2012-04-06-export-orgmode-file-in-Chinese.html</link>
+    <description><![CDATA[
+<h1 id="introduction">Introduction</h1>
+<p>OrgMode is really cool and export context to latex then processed to PDF is quite straightforwards. However when working with Chinese characters, I need additional packages.</p>
+<p>First of all, install the following packages. (I already install the texlive package)</p>
+<pre><code>apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex</code></pre>
+<h1 id="first-solution">First solution</h1>
+<p>Then in the org file, add the following latex options.</p>
+<pre><code>#+LaTeX_HEADER: \usepackage{CJK}
+#+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}</code></pre>
+<p>A littel drawback here is the <code>\begin{CJK}</code> is added as a header option whice due to it will not be closed when I checked with the tex output.</p>
+<p>People suggest to change to <code>#+LaTeX: \begin{CJK}{UTF8}{gbsn}</code> and append <code>#+LaTex: \end{CJK}</code> to the end of document.</p>
+<p>It all works out OK except the title which is Chinese characters as well can not display at all.</p>
+<h1 id="second-solution">Second solution</h1>
+<p>Well, it is XeLaTex which has better support for UTF8. Actually I did not figure how to make it work with orgmode until a guy from orgmode mail list point out [[http://thread.gmane.org/gmane.emacs.orgmode/51914][another thread]].</p>
+<p>All I need to do is adding following option to the org document.</p>
+<pre><code>#+LATEX_HEADER: \usepackage{xltxtra}
+#+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}</code></pre>
+<p>Also need to customize emacs latex to pdf process.</p>
+<pre><code>(setq org-latex-to-pdf-process
+      &#39;(&quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
+        &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
+        &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;))</code></pre>
+<p><strong>PS: The main font has been setted may be vary among different systems. How I find a proper font under ubuntu is via command <code>fc-list</code>.</strong></p>]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2012-04-06-export-orgmode-file-in-Chinese.html</guid>
+</item>
+<item>
+    <title>Trivial bind examples in JavaScipts</title>
+    <link>http://freizl.github.io//posts/2012-04-06-bind-examples-in-javascripts.html</link>
+    <description><![CDATA[
+<h1 id="defined-a-function">Defined a function</h1>
+<pre class="javascripts"><code>var fn = function (x, y, z) {
+  console.log(&quot;The value: &quot;, this.shangHai);
+  console.log(&quot;The sum is: &quot;, x+y+z);
+}</code></pre>
+<h1 id="run-it">Run it</h1>
+<pre class="javascripts"><code>fn(1);</code></pre>
+<p>-&gt; Output</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  NaN</code></pre>
+<pre class="javascripts"><code>fn(1,2,3);</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<h1 id="run-it-with-bind">Run it with bind</h1>
+<h2 id="less">Less</h2>
+<pre class="javascripts"><code>fn.bind(null,1,2,3)</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>function () { [native code] }</code></pre>
+<p>Hmm…, seems bind return a function rather apply the function and return value.</p>
+<p>What will happen if invoke the new function?</p>
+<pre class="javascripts"><code>fn.bind(null,1,2,3)()</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<p>That is what we want.</p>
+<h2 id="more">More</h2>
+<p>What are results respectively of following expressions?</p>
+<ul>
+<li><code>fn.bind(null, 1)()</code></li>
+<li><code>fn.bind(null, 1)(2)</code></li>
+<li><code>fn.bind(null, 1, 2)()</code></li>
+<li><code>fn.bind(null, 1, 2)(3)</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)()</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)(3)</code></li>
+</ul>
+<p>Take one example</p>
+<pre class="javascripts"><code>fn.bind(null,1,2)(3)</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  undefined
+The sum is:  6</code></pre>
+<p>How it produce result 6?<br />Because <code>bind</code> return is actually a partially applied function of<code>fn</code>.</p>
+<p>In JavaScripts words, the new function got return is a closure which holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the third parameter in order to fully apply function <code>fn</code>.</p>
+<p>The concept is named <em>Currying</em> and find more in <a href="#further">Further</a> section.</p>
+<p><em>PS</em>: turns out that <code>bind</code> is not really doing Currying according to <a href="http://en.wikipedia.org/wiki/Currying">here</a> and <a href="http://www.uncarved.com/blog/not_currying.mrk">here</a>. It is Partially Function Application more than Currying thouht it can do Currying at some sense.</p>
+<h1 id="run-with-bind-and-context">Run with bind and context</h1>
+<p>What I really mean context here is actually about <code>this</code> used in the function. Still now, <em>this.shangHai</em> always output <code>undefined</code> but we would like it to mean something.</p>
+<pre class="javascripts"><code>fn.bind({shangHai:&quot;lovely&quot;},1,2,3)();</code></pre>
+<p>-&gt; Output:</p>
+<pre class="javascripts"><code>The value:  lovely
+The sum is:  6</code></pre>
+<p>This time <code>this.shangHai</code> outputs “lovely” which obviously comes from the object that pass as first parameter of <code>bind</code>.</p>
+<p>Generally speaking,<code>this</code> will be the object that pass in as the first parameter of bind when the object is not null.</p>
+<p>Quiz: what <code>this</code> will be when passing null?</p>
+<h1 id="diff-with-call-and-apply">Diff with call and apply</h1>
+<p>My understanding the key point is bind return a function.</p>
+<p>By contract, <code>call</code> and <code>apply</code> is all about providing another way for invoking a function.</p>
+<h1 id="further">Further</h1>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>
+</ul>]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2012-04-06-bind-examples-in-javascripts.html</guid>
+</item>
+<item>
+    <title>Bayesian Network Exercise 01</title>
+    <link>http://freizl.github.io//posts/2012-04-06-bayesian-network-exe01.html</link>
+    <description><![CDATA[
+<h1 id="introduction">Introduction</h1>
+<p>AI Course Bayesian network excerice 01 resolution using enumeration method.</p>
+<ul>
+<li>C 国家政策</li>
+<li>U 学校政策</li>
+<li>W 工作压力</li>
+<li>B 身体状况</li>
+<li>D 过劳死</li>
+</ul>
+<h1 id="scenarios">Scenarios</h1>
+<ul>
+<li>已知 : <a href="http://docs.google.com/fileview?id=0B4ERhObEn4HSOTRlMDQwMGEtZDI4OS00M2ExLWI1YTgtNzU1MzdjYjU2Mzlm&amp;authkey=CMWuqBQ&amp;hl=en">Exercise01</a></li>
+<li>求 : 当 学校政策＝＝True 而且 工作压力 == True 时, 过劳死的概率.</li>
+</ul>
+<h1 id="resolution">Resolution</h1>
+<ul>
+<li>Value T:0.95 means True case with probability 0.95</li>
+<li>Probability of C is omitted as it is not related. Even include C, the result should be same.</li>
+<li><p>Enumeration list</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">INDEX</th>
+<th align="center"><em>U</em></th>
+<th align="center"><em>W</em></th>
+<th align="center"><em>B</em></th>
+<th align="center"><em>D</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">T:0.96</td>
+<td align="center">T:0.90</td>
+<td align="center">T:0.3</td>
+<td align="center">T:0.335</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">T:0.96</td>
+<td align="center">T:0.90</td>
+<td align="center">F:0.7</td>
+<td align="center">T:0.3</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">T:0.96</td>
+<td align="center">T:0.90</td>
+<td align="center">T:0.3</td>
+<td align="center">F:0.665</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">T:0.06</td>
+<td align="center">T:0.90</td>
+<td align="center">F:0.7</td>
+<td align="center">F:0.7</td>
+</tr>
+</tbody>
+</table></li>
+<li><p>Probability calculation</p></li>
+</ul>
+<pre class="sh"><code>P(D=T|U=T,W=T)
+  = ( P(1) + P(2) ) / ( P(1) + P(2 )+ ... + P(4) )
+  = (0.96*0.90*0.3*0.335 + 0.96*0.90*0.7*0.3 ) / (...)
+  = 0.3 * 1.035 / (0.3 * 1.035 + 0.3 * 0.665 + 0.7 * 0.7)
+  = 31.05%</code></pre>]]></description>
+    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2012-04-06-bayesian-network-exe01.html</guid>
+</item>
+<item>
+    <title>Quotes: A Century of Innovation - 3M</title>
+    <link>http://freizl.github.io//posts/2012-01-13-quotes-3M-a-story.html</link>
+    <description><![CDATA[
+<h1 id="time-tested-truths">time-tested truths</h1>
+<ul>
+<li>Conceive, believe, achieve. Persistence—combined with creativity and faith—is still the best formula for long-term success.</li>
+<li>Don’t let one approach or solution blind you to better options.</li>
+<li>Struggle is a necessary component of success.</li>
+<li>“Patient money” and patient people help the big ideas germinate.</li>
+<li>Ask your customers what quality is—then never let the standard slip.</li>
+<li>Give good people opportunities, supp ort them and watch them thrive.</li>
+<li>Respect the “power of patents.”</li>
+</ul>]]></description>
+    <pubDate>Fri, 13 Jan 2012 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2012-01-13-quotes-3M-a-story.html</guid>
+</item>
+<item>
+    <title>Lesson learned from Euler Problem 104</title>
+    <link>http://freizl.github.io//posts/2011-12-15-euler-problem-104.html</link>
+    <description><![CDATA[
+<h1 id="solutions">Solutions</h1>
+<p>There are two solutions below. One is written by me and another from haskell wiki.</p>
+<p>They look quite similar and I can not figure out why the wiki solution can solve problem but not mine. (Actually mine take more than 15 minutes)</p>
+<ul>
+<li>My Solution</li>
+</ul>
+<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="sourceCode"><pre><code class="sourceCode haskell">main <span class="fu">=</span> print <span class="fu">$</span> snd <span class="fu">$</span> head <span class="fu">$</span>
+       dropWhile (\ (x,y) <span class="ot">-&gt;</span> (not <span class="fu">.</span> isLastNinePandigit <span class="st">&quot;123456789&quot;</span>) x)
+                 (zip fibs [<span class="dv">1</span><span class="fu">..</span>])
+
+bothNinePandigit digits n <span class="fu">=</span>  isFirstNinePandigit digits n
+                             <span class="fu">&amp;&amp;</span> isLastNinePandigit digits n
+
+isLastNinePandigit  digits <span class="fu">=</span> (<span class="fu">==</span> digits) <span class="fu">.</span> sort <span class="fu">.</span> lastDigits <span class="dv">9</span>
+isFirstNinePandigit digits <span class="fu">=</span> (<span class="fu">==</span> digits) <span class="fu">.</span> sort <span class="fu">.</span> firstDigits <span class="dv">9</span>
+
+firstDigits k n <span class="fu">=</span> take k (show n)
+lastDigits  k n <span class="fu">=</span> show (n <span class="ot">`mod`</span> <span class="dv">10</span><span class="fu">^</span>k)</code></pre></td></tr></table>
+<ul>
+<li>Haskell Wiki solution<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
+</ul>
+<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="sourceCode"><pre><code class="sourceCode haskell">
+fibs <span class="fu">=</span> <span class="dv">1</span> <span class="fu">:</span> <span class="dv">1</span> <span class="fu">:</span> zipWith (<span class="fu">+</span>) fibs (tail fibs)
+
+isFibPan n <span class="fu">=</span>
+  <span class="kw">let</span> a <span class="fu">=</span> n <span class="ot">`mod`</span> <span class="dv">1000000000</span>
+      b <span class="fu">=</span> sort (show a)
+      c <span class="fu">=</span> sort <span class="fu">$</span> take <span class="dv">9</span> <span class="fu">$</span> show n
+  <span class="kw">in</span>  b <span class="fu">==</span> <span class="st">&quot;123456789&quot;</span> <span class="fu">&amp;&amp;</span> c <span class="fu">==</span> <span class="st">&quot;123456789&quot;</span>
+
+ex_104 <span class="fu">=</span> snd <span class="fu">$</span> head <span class="fu">$</span>
+         dropWhile (\(x,y) <span class="ot">-&gt;</span> (not <span class="fu">.</span> isFibPan) x) (zip fibs [<span class="dv">1</span><span class="fu">..</span>])</code></pre></td></tr></table>
+<h1 id="why-the-differences">Why the differences?</h1>
+<p>The key point here is should test start nine digits first or test end nine digits.</p>
+<p>Two concerns here:</p>
+<ol style="list-style-type: decimal">
+<li><code>show</code> function is (relatively) slow which used in test first 9 digits function.</li>
+<li>quite few numbers are end in digits 1..9 in the first 329000 numbers</li>
+</ol>
+<p>Therefore test last 9 digits first make great performance improvement.</p>
+<p><em>Thanks Brent<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> explanation this sneaky thing very comprehensively in haskell-beginner.</em></p>
+<h1 id="profiling">Profiling</h1>
+<p>What help to identify is the GHC profiling tool.</p>
+<p>Several options used here are</p>
+<ul>
+<li><p><strong>prof</strong>: for basic time and allocation profiling</p></li>
+<li><p><strong>auto-all</strong>: auto insert cost centers on all top level functions. “cost center” is a location in the program like to collect statistics about and GHC will generate code to compute the cost of evalutating the expression at each location. e.g.</p></li>
+</ul>
+<pre><code>  mean  s = {-# SCC &quot;mean&quot; #-} sum  s / fromIntegral (length s)</code></pre>
+<ul>
+<li><p><strong>caf-all</strong>: function with no parameters only computed once. CAF means constant applicative forms which used for calculate that once time evaluation.</p></li>
+<li><p><strong>fforce-recomp</strong>: force full recompilation.</p></li>
+</ul>
+<p>More details could go to chapter 25<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> of [Real World Haskell] and GHC user guider chapter 5<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
+<pre><code># build with prof option on
+ghc --make -O2 -prof -auto-all -rtsopts p104.hs
+
+# then run
+./p104 +RTS -p -RTS</code></pre>
+<h1 id="further">Further</h1>
+<ol style="list-style-type: decimal">
+<li>Chapter 25 in Real Work Haskell about profile</li>
+</ol>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://www.haskell.org/haskellwiki/Euler_problems/100_to_110">Haskell Wiki Euler Problem</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://comments.gmane.org/gmane.comp.lang.haskell.beginners/9175">Haskell Beginner 9175</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="http://book.realworldhaskell.org/read/profiling-and-optimization.html">Profiling and optimization</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="http://www.haskell.org/ghc/docs/latest/html/users_guide/profiling.html">GHC User Guider</a><a href="#fnref4">↩</a></p></li>
+</ol>
+</div>]]></description>
+    <pubDate>Thu, 15 Dec 2011 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2011-12-15-euler-problem-104.html</guid>
+</item>
+<item>
+    <title>Solving Euler Problem 14</title>
+    <link>http://freizl.github.io//posts/2011-11-20-euler-problem-14.html</link>
+    <description><![CDATA[
+<h1 id="solution-one">Solution One</h1>
+<p>I should say this solution only work while upper limit is under 100000. Otherwise it is really slow and I have no patient for the result. I wonder it would take minutes or even hours.</p>
+<p>So, problem solving failed.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<span class="kw">import </span><span class="dt">Data.Word</span>
+
+<span class="ot">main ::</span> <span class="dt">IO</span> ()
+main <span class="fu">=</span> print <span class="fu">$</span> p14
+
+p14 <span class="fu">=</span> maximum [ (startChain n <span class="dv">0</span>, n) <span class="fu">|</span> n <span class="ot">&lt;-</span> [<span class="dv">2</span><span class="fu">..</span><span class="dv">1000000</span>] ]
+
+<span class="ot">startChain ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+startChain <span class="dv">1</span> count    <span class="fu">=</span> count <span class="fu">+</span> <span class="dv">1</span>
+startChain n count    <span class="fu">=</span> startChain (intTransform n) (count<span class="fu">+</span><span class="dv">1</span>)
+
+<span class="ot">intTransform ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+intTransform n
+  <span class="fu">|</span> even n         <span class="fu">=</span> n <span class="ot">`div`</span> <span class="dv">2</span>
+  <span class="fu">|</span> otherwise      <span class="fu">=</span> <span class="dv">3</span> <span class="fu">*</span> n <span class="fu">+</span> <span class="dv">1</span></code></pre>
+<p>Compile as otherwise Stack space overflow : <code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code></p>
+<h1 id="solution-two">Solution Two</h1>
+<p>I went for Haskell Wiki<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> for help by finding solution one there is similar to one of its solutions. The significate difference is it uses type <code>Word32</code> for <code>n</code> rather than <code>Int</code>. I picked this difference and make the following change and it worked out really cool.</p>
+<p>The result came under 1.5s at my local!</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell">
+<span class="ot">startChain ::</span> <span class="dt">Word32</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
+startChain <span class="dv">1</span> count    <span class="fu">=</span> count <span class="fu">+</span> <span class="dv">1</span>
+startChain n count    <span class="fu">=</span> startChain (intTransform n) (count<span class="fu">+</span><span class="dv">1</span>)
+
+<span class="ot">intTransform ::</span> <span class="dt">Word32</span> <span class="ot">-&gt;</span> <span class="dt">Word32</span>
+intTransform n
+  <span class="fu">|</span> even n         <span class="fu">=</span> n <span class="ot">`div`</span> <span class="dv">2</span>
+  <span class="fu">|</span> otherwise      <span class="fu">=</span> <span class="dv">3</span> <span class="fu">*</span> n <span class="fu">+</span> <span class="dv">1</span></code></pre>
+<p>Compile as otherwise Stack space overflow : <code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code></p>
+<h1 id="other-solutions">Other solutions</h1>
+<p>Haskell Wiki<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> presents several solutions. One interested me is that levearages parallel programming <code>Control.Parallel</code>.</p>
+<h1 id="further">Further</h1>
+<h2 id="why-solution-2-make-great-differences"><strong>Why solution 2 make great differences?</strong></h2>
+<p>I asked question in haskell-beginer but still can not get clear understanding.</p>
+<h2 id="more-about-parallel-programming-in-haskell">More about Parallel programming in Haskell?</h2>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://www.haskell.org/haskellwiki/Euler_problems/11_to_20">Haskell Wiki Euler Problem</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://www.haskell.org/haskellwiki/Euler_problems/11_to_20">Haskell Wiki Euler Problem</a><a href="#fnref2">↩</a></p></li>
+</ol>
+</div>]]></description>
+    <pubDate>Sun, 20 Nov 2011 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2011-11-20-euler-problem-14.html</guid>
+</item>
+<item>
+    <title>One solution to euler problem 12</title>
+    <link>http://freizl.github.io//posts/2011-11-18-one-solution-to-euler-12.html</link>
+    <description><![CDATA[
+<p>Nothing special but play haskell for fun.</p>
+<p><code>Priming</code> is a simple module which can be found at <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<pre><code>module Main where
+
+import Data.List
+import Primeing (primeFactors)
+
+main :: IO ()
+main = print $ p12 500
+
+p12 :: Int -&gt; Int
+p12 n = head $ filter (factorLimit n) [ smartGaus x | x &lt;- [1..]]
+
+smartGaus :: Int -&gt; Int
+smartGaus n = (1+n)*n `div` 2
+
+{-- |
+  Is factor count under the limit  
+--}
+factorLimit :: Int -&gt; Int -&gt; Bool
+factorLimit l n  
+  | 2 * sqrtInt n &lt; l    = False
+  | otherwise            = length (factors  n) &gt;= l
+
+
+factors :: Int -&gt; [Int]
+factors n = concat [ [x, n `div` x] | x &lt;- [1..sqrtInt n], n `mod` x == 0 ]
+
+sqrtInt :: Int -&gt; Int
+sqrtInt = truncate . sqrt . fromIntegral</code></pre>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://github.com/freizl/dive-into-haskell/tree/master/prime">Priming module</a><a href="#fnref1">↩</a></p></li>
+</ol>
+</div>]]></description>
+    <pubDate>Fri, 18 Nov 2011 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2011-11-18-one-solution-to-euler-12.html</guid>
 </item>
 
     </channel> 

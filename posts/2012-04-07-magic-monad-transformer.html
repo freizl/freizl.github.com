@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Haisheng, Freizl" />
-    <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
-    <meta name="description" content="Haisheng blog, freizl blog" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Haisheng, Freizl" />
+		<meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+		<meta name="description" content="Haisheng blog, freizl blog" />
 
-    <title>Happy Programming</title>
+		<title>λ Corner</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/default.css" />
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300 rel=" stylesheet' type="text/css">
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu:300 rel=" stylesheet' type="text/css">
 
-    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
-    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+		<link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+		<link rel="icon" type="image/png" href="../images/favicon.ico" />
 
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-6496210-5', 'freizl.github.io');
-        ga('send', 'pageview');
-    </script>
-  </head>
+		<script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+								  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-6496210-5', 'freizl.github.io');
+         ga('send', 'pageview');
+		</script>
+	</head>
 
-  <body>
-    <div id="main">
+	<body>
+		<div id="main">
 
-      <a href="../" class="brand">λ Corner</a>
+			<a href="../" class>HOME</a>
+			<span> / </span>
+			<a href="../posts.html">POSTS</a>
 
-      <div class="container">
-        <div class="boxer">
+			<div class="container">
+				<div class="boxer">
 
-  <h1>&quot;Magic&quot; Monad Transformer</h1>
+  <h1>Magic Monad Transformer</h1>
 
   <div class="to-right">
-    <span>Tags: </span><a href="../tags/monad.html">monad</a>, <a href="../tags/mtl.html">mtl</a>, <a href="../tags/haskell.html">haskell</a>
+    <span>April  7, 2012, Tags: </span><a href="../tags/monad.html">monad</a>, <a href="../tags/mtl.html">mtl</a>, <a href="../tags/haskell.html">haskell</a>
   </div>
 
   <div class="body clear">
-  <ul>
-<li><a href="#monad-transformer">Monad-Transformer</a></li>
-<li><a href="#what-is-the-so-called-magic">What is the so-called “Magic”</a></li>
-<li><a href="#a-trivial-demo">A trivial demo</a></li>
-</ul>
-<h2 id="monad-transformer"><a href="#monad-transformer">Monad-Transformer</a></h2>
+  
+<h2 id="monad-transformer">Monad-Transformer</h2>
 <p>The code fragment below is from chapter 18 Monad Transform of &lt;Real World Haskell&gt;<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <p>When the first time I read this example, I was confused with how it is possible to use <code>ask</code> of <code>MonadReader</code> (line 6) and <code>get</code> of <code>MonadState</code> (line 13) functions in the same <code>App</code> Monad content.</p>
 <p>The only reasonable explanation is that <code>App</code> is both <code>MonadReader</code> and <code>MonadState</code>. While looking at <code>App</code> type definition (line 1), seems it is not possible.</p>
@@ -68,7 +66,7 @@
 18
 </pre></td><td class="sourceCode"><pre><code class="sourceCode haskell"><span class="kw">type</span> <span class="dt">App</span> <span class="fu">=</span> <span class="dt">ReaderT</span> <span class="dt">AppConfig</span> (<span class="dt">StateT</span> <span class="dt">AppState</span> <span class="dt">IO</span>)
 
-<span class="ot">constrainedCount ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">App</span> [(<span class="dt">FilePath</span>, <span class="dt">Int</span>)]
+<span class="ot">constrainedCount ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> FilePath <span class="ot">-&gt;</span> <span class="dt">App</span> [(FilePath, <span class="dt">Int</span>)]
 constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</span>
   contents <span class="ot">&lt;-</span> liftIO <span class="fu">.</span> listDirectory <span class="fu">$</span> path
   cfg <span class="ot">&lt;-</span> ask
@@ -84,7 +82,7 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
                 constrainedCount newDepth newPath
               <span class="kw">else</span> return []
   return <span class="fu">$</span> (path, length contents) <span class="fu">:</span> concat rest</code></pre></td></tr></table>
-<h2 id="what-is-the-so-called-magic"><a href="#what-is-the-so-called-magic">What is the so-called “Magic”</a></h2>
+<h2 id="what-is-the-so-called-magic">What is the so-called “Magic”</h2>
 <p>I turn to the source of package mtl<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and finding following implementations.</p>
 <table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
@@ -123,7 +121,7 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
           =&gt; MonadState AppState (ReaderT AppConfig (StateT AppState IO)) where ...
    ~&gt; instance MonadState AppState App where ...</code></pre>
 <p>Therefore <code>App</code> is both MonadReader and MonadState.</p>
-<h2 id="a-trivial-demo"><a href="#a-trivial-demo">A trivial demo</a></h2>
+<h2 id="a-trivial-demo">A trivial demo</h2>
 <p>I made a very trivial sample <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> demostrating combine ReaderT and StateT.</p>
 <div class="footnotes">
 <hr />
@@ -133,19 +131,6 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 <li id="fn3"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3">↩</a></p></li>
 </ol>
 </div>
-  </div>
-
-  <div class="to-right">
-
-  </div>
-
-  <div class="to-left">
-    <small><a href="../index.html">Back to Home</a></small>
-    <small><a href="../posts.html">View archive</a></small>
-  </div>
-
-  <div class="to-right">
-    <small><em>Haisheng, Wu on April  7, 2012, </em></small>
   </div>
 
   <div class="clear"></div>
@@ -166,12 +151,19 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      </div>
+			</div>
 
-      <footer class="clear">
-        <p>site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a></p>
-      </footer>
+			<footer class="clear">
+				<a href="https://github.com/freizl/">Github</a>
+				<span> / </span>
+				<a href="../rss.xml" type="application/rss+xml">RSS</a>
+				<span> / </span>
+				<a href="http://a.haskellcn.org/">HaskellCN</a>
+				<span> / site generated by </span>
+				<a href="http://github.com/jaspervdj/hakyll">Hakyll</a>
 
-    </div>
-  </body>
+			</footer>
+
+		</div>
+	</body>
 </html>

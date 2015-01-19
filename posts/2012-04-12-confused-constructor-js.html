@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Haisheng, Freizl" />
-    <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
-    <meta name="description" content="Haisheng blog, freizl blog" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Haisheng, Freizl" />
+		<meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+		<meta name="description" content="Haisheng blog, freizl blog" />
 
-    <title>Happy Programming</title>
+		<title>λ Corner</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/default.css" />
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300 rel=" stylesheet' type="text/css">
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu:300 rel=" stylesheet' type="text/css">
 
-    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
-    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+		<link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+		<link rel="icon" type="image/png" href="../images/favicon.ico" />
 
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-6496210-5', 'freizl.github.io');
-        ga('send', 'pageview');
-    </script>
-  </head>
+		<script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+								  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-6496210-5', 'freizl.github.io');
+         ga('send', 'pageview');
+		</script>
+	</head>
 
-  <body>
-    <div id="main">
+	<body>
+		<div id="main">
 
-      <a href="../" class="brand">λ Corner</a>
+			<a href="../" class>HOME</a>
+			<span> / </span>
+			<a href="../posts.html">POSTS</a>
 
-      <div class="container">
-        <div class="boxer">
+			<div class="container">
+				<div class="boxer">
 
   <h1>Confused Constructor in JavaScipts</h1>
 
   <div class="to-right">
-    <span>Tags: </span><a href="../tags/javascripts.html">javascripts</a>
+    <span>April 12, 2012, Tags: </span><a href="../tags/javascripts.html">javascripts</a>
   </div>
 
   <div class="body clear">
-  <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#sample">Sample</a></li>
-<li><a href="#jquery.fn.init">JQuery.fn.init</a></li>
-</ul>
-<h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+  
+<h2 id="introduction">Introduction</h2>
 <p>I can not quite remember what happened when invoking <code>new</code> over a function. While I’m looking at function <code>init</code> at jQuery source, the concern comes to me again.</p>
 <p>Fourtunaly I think the answer at this<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> thread turns out to be a quite clear explanation.</p>
 <p>Just three things according to that answer.</p>
@@ -64,7 +62,7 @@
 <li>Basically <code>[[prototype]]</code> is used for prototype chain. Find details at here<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and Ecma-262<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</li>
 </ol>
 <p>Therefore if we change the <code>prototype</code> property of the function before <code>new</code>, the <code>[[prototype]]</code> of instances afterwards is vary accordingly. <em>Refer to line 19 at <a href="#sample">sample</a></em></p>
-<h2 id="sample"><a href="#sample">Sample</a></h2>
+<h2 id="sample">Sample</h2>
 <ul>
 <li><strong>tested at google chrome 18 and pay close attention to comments.</strong></li>
 </ul>
@@ -123,7 +121,7 @@
 <ul>
 <li>Quiz: Why y1.constructor is not same as x1.constructor?</li>
 </ul>
-<h2 id="jquery.fn.init"><a href="#jquery.fn.init">JQuery.fn.init</a></h2>
+<h2 id="jquery.fn.init">JQuery.fn.init</h2>
 <ul>
 <li><code>jQuery</code> is declarated as</li>
 </ul>
@@ -159,19 +157,6 @@
 </div>
   </div>
 
-  <div class="to-right">
-
-  </div>
-
-  <div class="to-left">
-    <small><a href="../index.html">Back to Home</a></small>
-    <small><a href="../posts.html">View archive</a></small>
-  </div>
-
-  <div class="to-right">
-    <small><em>Haisheng, Wu on April 12, 2012, </em></small>
-  </div>
-
   <div class="clear"></div>
 
 </div>
@@ -190,12 +175,19 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      </div>
+			</div>
 
-      <footer class="clear">
-        <p>site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a></p>
-      </footer>
+			<footer class="clear">
+				<a href="https://github.com/freizl/">Github</a>
+				<span> / </span>
+				<a href="../rss.xml" type="application/rss+xml">RSS</a>
+				<span> / </span>
+				<a href="http://a.haskellcn.org/">HaskellCN</a>
+				<span> / site generated by </span>
+				<a href="http://github.com/jaspervdj/hakyll">Hakyll</a>
 
-    </div>
-  </body>
+			</footer>
+
+		</div>
+	</body>
 </html>

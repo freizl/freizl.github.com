@@ -37,7 +37,7 @@ main = hakyllWith config $ do
     match "posts/*" $ do
         route   $ setExtension ".html"
         compile $ do
---            pandocCompiler
+            -- pandocCompiler
             pandocCompilerToc
                 >>= saveSnapshot "content"
                 >>= return . fmap demoteHeaders
@@ -45,7 +45,14 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext
                 >>= relativizeUrls
 
-    {--}
+    -- CV as HTML
+    match "cv/*" $ do
+        route   $ setExtension ".html"
+        compile $ do
+            cvTpl      <- loadBody "templates/cv.html"
+            pandocCompiler
+                >>= applyTemplate cvTpl defaultContext
+                >>= relativizeUrls
 
     -- Post list
     create ["posts.html"] $ do
@@ -122,18 +129,8 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
-    -- CV as HTML
-    match (fromList cvs) $ do
-        route   $ setExtension ".html"
-        compile $ do
-            cvTpl      <- loadBody "templates/cv.html"
-            defaultTpl <- loadBody "templates/default.html"
-            pandocCompiler
-                >>= applyTemplate cvTpl defaultContext
-                >>= applyTemplate defaultTpl defaultContext
-                >>= relativizeUrls
-
     -- CV as PDF
+{-
     match (fromList []) $ version "pdf" $ do
         route   $ setExtension ".pdf"
         compile $ do
@@ -143,11 +140,11 @@ main = hakyllWith config $ do
                 >>= (return . fmap (Pandoc.writeLaTeX Pandoc.def))
                 >>= applyTemplate cvTpl defaultContext
                 >>= pdflatex
+-}
 
     match "templates/*" $ compile templateCompiler
 
   where
-    cvs = [ "cv.md", "cv-full.md", "cv-cn.md" ]
 
     pandocCompilerToc = pandocCompilerWith defaultHakyllReaderOptions withToc
 

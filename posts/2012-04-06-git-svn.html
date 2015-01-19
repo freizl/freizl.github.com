@@ -1,51 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Haisheng, Freizl" />
-    <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
-    <meta name="description" content="Haisheng blog, freizl blog" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Haisheng, Freizl" />
+		<meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+		<meta name="description" content="Haisheng blog, freizl blog" />
 
-    <title>Happy Programming</title>
+		<title>λ Corner</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/default.css" />
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300 rel=" stylesheet' type="text/css">
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu:300 rel=" stylesheet' type="text/css">
 
-    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
-    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+		<link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+		<link rel="icon" type="image/png" href="../images/favicon.ico" />
 
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-6496210-5', 'freizl.github.io');
-        ga('send', 'pageview');
-    </script>
-  </head>
+		<script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+								  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-6496210-5', 'freizl.github.io');
+         ga('send', 'pageview');
+		</script>
+	</head>
 
-  <body>
-    <div id="main">
+	<body>
+		<div id="main">
 
-      <a href="../" class="brand">λ Corner</a>
+			<a href="../" class>HOME</a>
+			<span> / </span>
+			<a href="../posts.html">POSTS</a>
 
-      <div class="container">
-        <div class="boxer">
+			<div class="container">
+				<div class="boxer">
 
   <h1>Git SVN</h1>
 
   <div class="to-right">
-    <span>Tags: </span><a href="../tags/git.html">git</a>
+    <span>April  6, 2012, Tags: </span><a href="../tags/git.html">git</a>
   </div>
 
   <div class="body clear">
-  <ul>
-<li><a href="#git-svn-initfetch">git svn init/fetch</a></li>
-<li><a href="#git-svn-clone">git svn clone</a></li>
-<li><a href="#git-svn-branch">git svn branch</a></li>
-<li><a href="#alternative-with-svn-merge">alternative with svn merge</a></li>
-</ul>
-<h2 id="git-svn-initfetch"><a href="#git-svn-initfetch">git svn init/fetch</a></h2>
+  
+<h2 id="git-svn-initfetch">git svn init/fetch</h2>
 <pre><code>git svn init [-s] URL
 git svn fetch -r xxx|HEAD
   a) it gets out 'all' branches/tags/trunk when no specific -r
@@ -54,12 +51,12 @@ git svn fetch -r xxx|HEAD
                          then try git svn rebase to update to HEAD
 git svn rebase
 </code></pre>
-<h2 id="git-svn-clone"><a href="#git-svn-clone">git svn clone</a></h2>
+<h2 id="git-svn-clone">git svn clone</h2>
 <pre><code># if any problems with init/fetch, just clone and seems this is recommanded...
 # seem should no targe name specified after URL
 # verify with git branch -r should show all svn branches and tags
 git svn clone [URL]</code></pre>
-<h2 id="git-svn-branch"><a href="#git-svn-branch">git svn branch</a></h2>
+<h2 id="git-svn-branch">git svn branch</h2>
 <pre><code># create svn branch
 git svn branch [svn_branch_1]
 
@@ -70,7 +67,7 @@ git branch [local_branch_name] remotes/svn_branch_name
 git merge --squash
 git commit
 git svn dcommit</code></pre>
-<h2 id="alternative-with-svn-merge"><a href="#alternative-with-svn-merge">alternative with svn merge</a></h2>
+<h2 id="alternative-with-svn-merge">alternative with svn merge</h2>
 <pre><code>svn mergeinfo ... :
   git log master..branchx (diff commits that in branchx but master)
   git branch [--no-merged|--merged]
@@ -78,19 +75,6 @@ git svn dcommit</code></pre>
 svn merge --dry-run
   git merge --no-commit --no-ff
 </code></pre>
-  </div>
-
-  <div class="to-right">
-
-  </div>
-
-  <div class="to-left">
-    <small><a href="../index.html">Back to Home</a></small>
-    <small><a href="../posts.html">View archive</a></small>
-  </div>
-
-  <div class="to-right">
-    <small><em>Haisheng, Wu on April  6, 2012, </em></small>
   </div>
 
   <div class="clear"></div>
@@ -111,12 +95,19 @@ svn merge --dry-run
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      </div>
+			</div>
 
-      <footer class="clear">
-        <p>site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a></p>
-      </footer>
+			<footer class="clear">
+				<a href="https://github.com/freizl/">Github</a>
+				<span> / </span>
+				<a href="../rss.xml" type="application/rss+xml">RSS</a>
+				<span> / </span>
+				<a href="http://a.haskellcn.org/">HaskellCN</a>
+				<span> / site generated by </span>
+				<a href="http://github.com/jaspervdj/hakyll">Hakyll</a>
 
-    </div>
-  </body>
+			</footer>
+
+		</div>
+	</body>
 </html>

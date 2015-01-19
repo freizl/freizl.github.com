@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="author" content="Haisheng, Freizl" />
-    <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
-    <meta name="description" content="Haisheng blog, freizl blog" />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Haisheng, Freizl" />
+		<meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+		<meta name="description" content="Haisheng blog, freizl blog" />
 
-    <title>Happy Programming</title>
+		<title>λ Corner</title>
 
-    <link rel="stylesheet" type="text/css" href="../css/default.css" />
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300 rel=" stylesheet' type="text/css">
+		<link rel="stylesheet" type="text/css" href="../css/default.css" />
+		<link href="http://fonts.googleapis.com/css?family=Ubuntu:300 rel=" stylesheet' type="text/css">
 
-    <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
-    <link rel="icon" type="image/png" href="../images/favicon.ico" />
+		<link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+		<link rel="icon" type="image/png" href="../images/favicon.ico" />
 
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-6496210-5', 'freizl.github.io');
-        ga('send', 'pageview');
-    </script>
-  </head>
+		<script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+								  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-6496210-5', 'freizl.github.io');
+         ga('send', 'pageview');
+		</script>
+	</head>
 
-  <body>
-    <div id="main">
+	<body>
+		<div id="main">
 
-      <a href="../" class="brand">λ Corner</a>
+			<a href="../" class>HOME</a>
+			<span> / </span>
+			<a href="../posts.html">POSTS</a>
 
-      <div class="container">
-        <div class="boxer">
+			<div class="container">
+				<div class="boxer">
 
   <h1>Type parameter at type class instance</h1>
 
   <div class="to-right">
-    <span>Tags: </span><a href="../tags/typeclass.html">typeclass</a>, <a href="../tags/haskell.html">haskell</a>
+    <span>July  2, 2011, Tags: </span><a href="../tags/typeclass.html">typeclass</a>, <a href="../tags/haskell.html">haskell</a>
   </div>
 
   <div class="body clear">
-  <ul>
-<li><a href="#a-newbie-concern">A newbie concern</a></li>
-<li><a href="#another-interesting-funtor">Another interesting Funtor</a></li>
-<li><a href="#further-reading">Further reading</a></li>
-</ul>
-<h2 id="a-newbie-concern"><a href="#a-newbie-concern">A newbie concern</a></h2>
+  
+<h2 id="a-newbie-concern">A newbie concern</h2>
 <p>A concern arise while I compare following two instances of <code>Maybe</code>.</p>
 <pre><code>class Eq a where  
     (==) :: a -&gt; a -&gt; Bool  
@@ -75,7 +73,7 @@ instance Functor Maybe where
 </blockquote>
 <p>My understanding comes:</p>
 <p>parameter <code>f a</code> of <code>fmap</code> should be concrete type, therefore <code>f</code> is a Type Constructor which takes one type parameter in order to construct concrete type. That is the reason the quote says <em>it has to have a kind of</em> <code>* -&gt; *</code>.</p>
-<h2 id="another-interesting-funtor"><a href="#another-interesting-funtor">Another interesting Funtor</a></h2>
+<h2 id="another-interesting-funtor">Another interesting Funtor</h2>
 <p>It is <code>(-&gt;) r</code> which was confusing at first glance. However, if we read it having Polish notation<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> in mind, it looks like less confusing.</p>
 <pre><code>instance Functor ((-&gt;) r) where  
     fmap f g = (\x -&gt; f (g x))</code></pre>
@@ -83,7 +81,7 @@ instance Functor Maybe where
 <blockquote>
 <p>fmap (*3) (+100) 1</p>
 </blockquote>
-<h2 id="further-reading"><a href="#further-reading">Further reading</a></h2>
+<h2 id="further-reading">Further reading</h2>
 <p>I got to read paper at type class topic<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> in order to have more knowledge.</p>
 <div class="footnotes">
 <hr />
@@ -93,19 +91,6 @@ instance Functor Maybe where
 <li id="fn3"><p><a href="http://en.wikipedia.org/wiki/Type_class">Wikipedia Type Class</a><a href="#fnref3">↩</a></p></li>
 </ol>
 </div>
-  </div>
-
-  <div class="to-right">
-
-  </div>
-
-  <div class="to-left">
-    <small><a href="../index.html">Back to Home</a></small>
-    <small><a href="../posts.html">View archive</a></small>
-  </div>
-
-  <div class="to-right">
-    <small><em>Haisheng, Wu on July  2, 2011, </em></small>
   </div>
 
   <div class="clear"></div>
@@ -126,12 +111,19 @@ instance Functor Maybe where
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-      </div>
+			</div>
 
-      <footer class="clear">
-        <p>site generated by <a href="http://github.com/jaspervdj/hakyll">hakyll</a></p>
-      </footer>
+			<footer class="clear">
+				<a href="https://github.com/freizl/">Github</a>
+				<span> / </span>
+				<a href="../rss.xml" type="application/rss+xml">RSS</a>
+				<span> / </span>
+				<a href="http://a.haskellcn.org/">HaskellCN</a>
+				<span> / site generated by </span>
+				<a href="http://github.com/jaspervdj/hakyll">Hakyll</a>
 
-    </div>
-  </body>
+			</footer>
+
+		</div>
+	</body>
 </html>
