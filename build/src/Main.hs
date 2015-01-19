@@ -89,14 +89,14 @@ main = hakyllWith config $ do
         route idRoute
         compile $ do
             loadAllSnapshots "posts/*" "content"
-                >>= fmap (take 10) . recentFirst
+                >>= fmap (take 20) . recentFirst
                 >>= renderRss (feedConfiguration "All posts") feedCtx
 
     -- Index
     match "index.html" $ do
         route idRoute
         compile $ do
-            posts <- fmap (take 10) . recentFirst =<< loadAll "posts/*"
+            posts <- fmap (take 20) . recentFirst =<< loadAll "posts/*"
             let indexContext =
                     listField "posts" (postCtx tags) (return posts) <>
                     field "tags" (\_ -> renderTagList tags) <>
@@ -152,7 +152,7 @@ main = hakyllWith config $ do
     pandocCompilerToc = pandocCompilerWith defaultHakyllReaderOptions withToc
 
     withToc = defaultHakyllWriterOptions
-        { Pandoc.writerTableOfContents = True
+        { Pandoc.writerTableOfContents = False
         , Pandoc.writerTemplate = "$toc$\n$body$"
         , Pandoc.writerStandalone = True
         }
@@ -187,10 +187,6 @@ feedConfiguration title = FeedConfiguration
 --------------------------------------------------------------------------------
 config :: Configuration
 config = defaultConfiguration
-    { deployCommand = "rsync -c -r -ave 'ssh' \
-                      \_site/* freizl_freizl@ssh.phx.nearlyfreespeech.net:/home/public"
-    }
-
 
 --------------------------------------------------------------------------------
 -- | Hacky.

@@ -15,7 +15,7 @@ build:
 	cabal configure
 	cabal build
 
-install: slides
+install: build slides
 	cabal install
 
 run:
@@ -23,9 +23,7 @@ run:
 	$(PROG) build
 
 p:
-	$(PROG) preview
-
-ir: install run
+	$(PROG) watch
 
 
 ########## Mirror to github

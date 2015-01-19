@@ -5,7 +5,7 @@ body {
   color: #333333;
   background-color: #ffffff;
   margin: 0px auto 0px auto;
-  padding-top: 60px; 
+  padding-top: 60px;
   width: 780px;
 }
 
@@ -33,11 +33,15 @@ h1 {
 
 .soft {
     font-style: italic;
-    color: #C0C0C0;
+	font-size: 14px;
+	float: right;
 }
 
 footer {
-  margin-left: 5px;
+  border-top: 1px solid #C0C0C0;
+
+  margin-top: 15px;
+  padding-top: 15px;
 }
 
 section.cv {
@@ -63,8 +67,16 @@ section.cv {
 .container .boxer {
     margin : 10px 5px;
     padding: 10px;
-    border: 1px solid #C0C0C0;
+    /* border: 1px solid #C0C0C0; */
 }
+.container .boxer ul {
+  list-style:none;
+}
+.container .boxer ul li a{
+  font-size: 18px;
+  line-height: 30px
+}
+
 
 p {
   margin: 0 0 9px;

@@ -1,5 +1,5 @@
 ---
-title: "Magic" Monad Transformer
+title: Magic Monad Transformer
 author: Haisheng, Wu
 tags: monad, mtl,haskell
 ---
