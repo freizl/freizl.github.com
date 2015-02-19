@@ -48,6 +48,8 @@ tags: reading
 
 ## Faunna
 
+  - etc.
+
 # Top trails
 
 ## North Bay
@@ -84,5 +86,7 @@ tags: reading
   - [East Bay Regional Park District](http://www.ebparks.org/)
   - [Henry W. Coe State Park](http://www.coepark.org/)
   - [Midpeninsula Regional Open Space District](http://www.openspace.org/)
+  - [Bay Area Hiker](http://www.bahiker.com)
+  - [Bay Nature magazine](http://www.baynature.com)
 
 # English words
