@@ -6,8 +6,108 @@
         <description><![CDATA[Haisheng's Tech Blog.]]></description>
         <atom:link href="http://freizl.github.io//rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Wed, 12 Sep 2012 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Wed, 18 Feb 2015 00:00:00 UT</lastBuildDate>
         <item>
+    <title>Notes: SF Bay Area, MUST-DO HIKES FOR EVERYONE</title>
+    <link>http://freizl.github.io//posts/2015-02-18-notes-sf-bay-area-must-do-hiking.html</link>
+    <description><![CDATA[
+<h1 id="informations">Informations</h1>
+<h2 id="administrations">Administrations</h2>
+<ul>
+<li>California State Parks</li>
+<li>East Bay Regional Park District</li>
+<li>Golden Gate National Recreation Area</li>
+<li>Midpeninsula Regional Open Space District</li>
+<li>Santa Clara County Parks and Recreation</li>
+<li>San Mateo County Parks</li>
+<li>Marin Municipal Water District</li>
+<li>Marin County Open Space District</li>
+</ul>
+<h2 id="geography">Geography</h2>
+<ul>
+<li>Coast Ranges</li>
+<li>Central Valley</li>
+<li>subranges
+<ul>
+<li>Sonama</li>
+<li>Mayacamas</li>
+<li>Vaca mountains</li>
+<li>Diablo Range</li>
+<li>Santa Cruz Mountains</li>
+</ul></li>
+<li>Peaks
+<ul>
+<li>Mt. St. Helena</li>
+<li>Mt. Hamilton</li>
+<li>Mt. Diablo</li>
+<li>Loma Prieta</li>
+<li>Mt. Tamalpais</li>
+<li>Sonama Mountain</li>
+</ul></li>
+<li>San Andreas Fault</li>
+<li>Calaveras Fault</li>
+</ul>
+<h2 id="flora">Flora</h2>
+<ul>
+<li>oak woodland</li>
+<li>savanna</li>
+<li>riparian woodland</li>
+<li>coast redwoods</li>
+<li>douglas-fir</li>
+<li>chaparral community</li>
+<li>monkeyflower</li>
+<li>redwood groves</li>
+</ul>
+<h2 id="faunna">Faunna</h2>
+<ul>
+<li>etc.</li>
+</ul>
+<h1 id="top-trails">Top trails</h1>
+<h2 id="north-bay">North Bay</h2>
+<ul>
+<li>Mount Tamalpais: Middle Peak</li>
+<li>Point Reyes National Seashore: Sky Trail</li>
+<li>Mt. Burdell Open Space Preserve</li>
+</ul>
+<h2 id="easy-bay">Easy Bay</h2>
+<ul>
+<li>Black Diamond Mines Regional Preserve: Stewartville Loop</li>
+<li>Mount Diablo State Park: Grand Loop</li>
+<li>Pleasanton Ridge Regional Park</li>
+</ul>
+<h2 id="south-bay">South Bay</h2>
+<ul>
+<li>Henry W. Coe State Park</li>
+<li>Almaden Quicksilver County Park</li>
+</ul>
+<h2 id="peninsula">Peninsula</h2>
+<ul>
+<li>Russian Ridge Open Space Preserve</li>
+<li>Purisima Creek Redwoods Open Space Preserve</li>
+<li>San Bruno Mountain State and County Park</li>
+</ul>
+<h1 id="links">Links</h1>
+<ul>
+<li><a href="http://www.nps.gov/goga">NPS - Golden Gate National Recreation Area</a></li>
+<li><a href="http://www.nps.gov/pore">NPS - Point Reyes National Seashore</a></li>
+<li><a href="http://www.skylinepark.org">Skyline Park Citizens Association - Napa</a></li>
+<li><a href="http://parks.ca.gov">California State Parks</a></li>
+<li><a href="http://www.marinopenspace.org">Marin County Open Space District</a></li>
+<li><a href="http://www.mdia.org">Mt. Diablo Interpretive Association</a></li>
+<li><a href="http://www.ebparks.org/">East Bay Regional Park District</a></li>
+<li><a href="http://www.coepark.org/">Henry W. Coe State Park</a></li>
+<li><a href="http://www.openspace.org/">Midpeninsula Regional Open Space District</a></li>
+<li><a href="http://www.bahiker.com">Bay Area Hiker</a></li>
+<li><a href="http://www.baynature.com">Bay Nature magazine</a></li>
+</ul>
+<h1 id="english-words">English words</h1>
+<ul>
+<li>california quail</li>
+</ul>]]></description>
+    <pubDate>Wed, 18 Feb 2015 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2015-02-18-notes-sf-bay-area-must-do-hiking.html</guid>
+</item>
+<item>
     <title>Improve Space Usage</title>
     <link>http://freizl.github.io//posts/2012-09-12-improve-space-usage.html</link>
     <description><![CDATA[
@@ -1068,49 +1168,6 @@ intTransform n
 </div>]]></description>
     <pubDate>Sun, 20 Nov 2011 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2011-11-20-euler-problem-14.html</guid>
-</item>
-<item>
-    <title>One solution to euler problem 12</title>
-    <link>http://freizl.github.io//posts/2011-11-18-one-solution-to-euler-12.html</link>
-    <description><![CDATA[
-<p>Nothing special but play haskell for fun.</p>
-<p><code>Priming</code> is a simple module which can be found at <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
-<pre><code>module Main where
-
-import Data.List
-import Primeing (primeFactors)
-
-main :: IO ()
-main = print $ p12 500
-
-p12 :: Int -&gt; Int
-p12 n = head $ filter (factorLimit n) [ smartGaus x | x &lt;- [1..]]
-
-smartGaus :: Int -&gt; Int
-smartGaus n = (1+n)*n `div` 2
-
-{-- |
-  Is factor count under the limit  
---}
-factorLimit :: Int -&gt; Int -&gt; Bool
-factorLimit l n  
-  | 2 * sqrtInt n &lt; l    = False
-  | otherwise            = length (factors  n) &gt;= l
-
-
-factors :: Int -&gt; [Int]
-factors n = concat [ [x, n `div` x] | x &lt;- [1..sqrtInt n], n `mod` x == 0 ]
-
-sqrtInt :: Int -&gt; Int
-sqrtInt = truncate . sqrt . fromIntegral</code></pre>
-<div class="footnotes">
-<hr />
-<ol>
-<li id="fn1"><p><a href="https://github.com/freizl/dive-into-haskell/tree/master/prime">Priming module</a><a href="#fnref1">↩</a></p></li>
-</ol>
-</div>]]></description>
-    <pubDate>Fri, 18 Nov 2011 00:00:00 UT</pubDate>
-    <guid>http://freizl.github.io//posts/2011-11-18-one-solution-to-euler-12.html</guid>
 </item>
 
     </channel> 
