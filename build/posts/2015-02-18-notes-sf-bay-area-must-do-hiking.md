@@ -45,6 +45,8 @@ tags: reading
   - coast redwoods
   - douglas-fir
   - chaparral community
+  - monkeyflower
+  - redwood groves
 
 ## Faunna
 
@@ -90,3 +92,5 @@ tags: reading
   - [Bay Nature magazine](http://www.baynature.com)
 
 # English words
+
+  - california quail
