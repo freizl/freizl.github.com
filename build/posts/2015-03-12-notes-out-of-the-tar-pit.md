@@ -14,7 +14,8 @@ tags: reading, paper
 
 # Further reading
 
-
+  - Can Programming Be Liberated from the von Neumann Style? A Functional Style and Its Algebra of Programs
+  -  E. W. Dijkstra Archive: A review of the 1977 Turing Award Lecture
 
 # English
 
