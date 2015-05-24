@@ -1,0 +1,1 @@
+- [The history of “typeof null”](http://www.2ality.com/2013/10/typeof-null.html)

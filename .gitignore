@@ -4,4 +4,4 @@ _cache
 cabal.sandbox.config
 .cabal-sandbox
 .DS_Store
-
+.tern-port
