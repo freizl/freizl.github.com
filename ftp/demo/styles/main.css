@@ -43,17 +43,9 @@ body {
   background-color: #1798C1;
 }
 .second-menu .shopping-cart {
-  padding: 5px 10px 2px 10px;
+  padding: 5px 10px 1px 10px;
   color: #EEE;
   line-height: 40px;
-}
-.second-menu .shopping-cart-detail {
-  display: none;
-  position: absolute;
-  color: #FFF;
-}
-.second-menu .shopping-cart:hover ~ .shopping-cart-detail{
-  display: block
 }
 .second-menu .shopping-cart span {
   margin: 0 5px;
@@ -68,7 +60,8 @@ body {
 }
 .second-menu .fee {
   border-left: 1px solid #333;
-  margin-right: 40px;
+  /* padding-right: 8%; */
+  padding-right: 1.2em;
 }
 .second-menu .fee .title {
   display: block;
@@ -81,9 +74,90 @@ body {
   font-size: 16px;
 }
 .second-menu .button {
-  padding: 17px 30px;
+  padding: 16px 30px;
   color: #EEE;
   text-transform: uppercase;
+}
+
+/* ======================================== shopping cart details */
+
+.second-menu .shopping-cart:active + .shopping-cart-detail,
+.second-menu .shopping-cart:hover + .shopping-cart-detail {
+  display: block
+}
+
+.second-menu .shopping-cart-detail {
+  display: none;
+  box-sizing: border-box;
+  position: absolute;
+  color: #FFF;
+  z-index: 100;
+  left: 0;
+  width: 100%;
+}
+
+.second-menu .shopping-cart-detail .type {
+  border-top: 1px solid #333;
+  padding-left: 50px;
+}
+.second-menu .shopping-cart-detail h5 {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 11px;
+}
+
+.second-menu .shopping-cart-detail .items {
+  padding-left: 10px;
+  font-size: 10px;
+}
+
+.second-menu .shopping-cart-detail .items i {
+  font-size: 10px;
+  margin-top: 1px;
+}
+.second-menu .shopping-cart-detail .items .item {
+  height: 35px;
+  position: relative;
+}
+.second-menu .shopping-cart-detail .item .fa-trash-o {
+  display: none;
+  position: absolute;
+  left: -10px;
+  cursor: pointer;
+}
+.second-menu .shopping-cart-detail .item .name:hover + .fa-trash-o {
+  display: inline;
+}
+.second-menu .shopping-cart-detail .item .name:hover {
+  cursor: pointer;
+}
+.second-menu .shopping-cart-detail .items .name span {
+  margin-right: 5px;
+}
+.second-menu .shopping-cart-detail .items .item .fee {
+  border-left: 0;
+  position: absolute;
+  right: 26em;
+}
+.second-menu .shopping-cart-detail .items .item .monthly-fee {
+  right: 14.5em;
+}
+.second-menu .shopping-cart-detail .items .item .quantity {
+  position: absolute;
+  right: 5em;
+}
+.second-menu .shopping-cart-detail .items .item .fee .title {
+  font-size: 8px;
+  margin-bottom: 1px;
+}
+.second-menu .shopping-cart-detail .items .item .amount {
+  font-size: 9px;
+}
+.second-menu .shopping-cart-detail .items .item div {
+  display: inline-block;
+}
+.second-menu .shopping-cart-detail .items .item select {
+  color: #000;
 }
 
 /* ======================================== main body */
@@ -91,11 +165,11 @@ body {
 .checkout {
   background-color: #EEE;
   padding-top: 30px;
+  clear: both;
 }
 .checkout ul {
 }
 .checkout ul li {
-  list-style-type: none;
   padding: 0 30px;
 }
 .checkout .selected .step-title {
@@ -150,7 +224,7 @@ body {
 }
 .checkout .selected .step-content .col-3 .price {
   position: relative;
-  left: 35px;
+  left: 32px;
 }
 .checkout .selected .step-content .col-3 button {
   display: block;
@@ -170,7 +244,7 @@ body {
 }
 .checkout .selected .step-content .price {
   color: #FF0000;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .checkout .selected .step-content .title,
@@ -181,17 +255,16 @@ body {
 .checkout .selected .step-content .desc,
 .checkout .selected .step-content .more-desc {
   font-size: 10px;
-/* max-width: 500px; */
+}
+.checkout .selected .step-content .details {
+  text-transform: uppercase;
+  font-size: 8px;
 }
 .checkout .selected .step-content .details i {
   font-size: 12px;
   margin-top: 3px;
   margin-left: 2px;
   display: inline-block;
-}
-.checkout .selected .step-content .details {
-  text-transform: uppercase;
-  font-size: 8px;
 }
 .checkout .selected .step-content .old-price {
   text-decoration: line-through;
@@ -210,10 +283,10 @@ body {
 .checkout .unselected {
   background-color: #C0C0C0;
   color: #EFEFEF;
-  height: 50px;
-  line-height: 50px;
   margin-bottom: 1px;
   font-size: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 
@@ -238,8 +311,22 @@ ul {
   padding: 0;
 }
 
+ul li {
+  list-style-type: none;
+}
+
 /* ======================================== responsive */
 
+@media (max-width: 800px) {
+  .checkout .selected .step-content .col-2 {
+    width: 30%;
+  }
+}
+@media (max-width: 600px) {
+  .checkout .selected .step-content .col-2 {
+    width: 15%;
+  }
+}
 @media (max-width: 569px) {
   .main-menu .right.pure-menu-list {
     display: none;
@@ -251,18 +338,62 @@ ul {
   .second-menu .shopping-cart .title {
     display: none;
   }
+
+  .second-menu .pure-menu {
+    height: 100%;
+  }
+
   .second-menu .fee {
     margin-right: 5px;
   }
+  .second-menu .shopping-cart-detail {
+    position: relative;
+    left: -20px;
+  }
+  .second-menu .shopping-cart-detail .type {
+    padding-left: 28px;
+  }
+  .checkout .selected .step-content {
+    line-height: 15px
+  }
+  .second-menu .shopping-cart-detail .items .item {
+    height: 100%;
+    position: static;
+    margin-bottom: 17px;
+  }
+  .second-menu .shopping-cart-detail .items .item div {
+    display: block;
+    position: static !important;
+    margin: 5px 0 3px 3px;
+  }
+  .second-menu .shopping-cart-detail .items .item .fee .title {
+    margin-bottom: 0px;
+  }
+  .checkout .selected .step-content .col-2 {
+    border-left:0;
+    width: 80%;
+    padding-top: 5px;
+  }
 
-}
-@media (max-width: 800px) {
-  .checkout .selected .step-content .col-2 {
-    width: 30%;
+  .checkout .selected .step-content .desc {
+    margin-top: 10px;
   }
-}
-@media (max-width: 600px) {
-  .checkout .selected .step-content .col-2 {
-    width: 15%;
+  .checkout .selected .step-content .old-price {
+
   }
+
+  .checkout .selected .step-content .col-3 {
+    float: left;
+    margin: 0px 0 35px 10px;
+  }
+  .checkout .selected .step-content .col-3 .price {
+    left: 15px;
+  }
+  .checkout .selected .step-content .col-3 .button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 20px;
+  }
+
 }

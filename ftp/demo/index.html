@@ -6,7 +6,8 @@
         <title>css app</title>
         <link rel="shortcut icon" href="/favicon.ico">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="./styles/pure-min.css">
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+        <!-- <link rel="stylesheet" href="./styles/pure-min.css"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="stylesheet" href="styles/main.css">
     </head>
@@ -42,10 +43,6 @@
                     <span class="title">Your selection</span>
                     <i class="fa fa-angle-down"></i>
                 </a>
-                <div class="shopping-cart-detail black">
-                    coming soon
-                </div>
-
 
                 <ul class="right pure-menu-list">
                     <li class="fee pure-menu-item">
@@ -67,6 +64,89 @@
                     </li>
                 </ul>
 
+<div class="shopping-cart-detail header black">
+                    <div class="type">
+                        <h5>Package</h5>
+                        <ul class="items">
+                            <li class="item">
+
+                                <span class="name">
+                                    <span>Juventus Vs AS Rome</span><i class="fa fa-angle-right"></i>
+                                </span>
+                                <i class="fa fa-trash-o"></i>
+
+                                <div class="fee">
+                                    <span class="title">One Time Cost</span>
+                                    <span class="amount">$8.99</span>
+                                </div>
+                                <div class="fee monthly-fee">
+                                    <span class="title">Monthly Cost</span>
+                                    <span class="amount">$8.99</span>
+                                </div>
+                                <div class="quantity">
+                                    <span>x</span>
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <span class="name">
+                                    <span>Sky Famigila</span><i class="fa fa-angle-right"></i>
+                                </span>
+                                <i class="fa fa-trash-o"></i>
+
+                                <div class="fee">
+                                    <span class="title">One Time Cost</span>
+                                    <span class="amount">$8.99</span>
+                                </div>
+                                <div class="fee monthly-fee">
+                                    <span class="title">Monthly Cost</span>
+                                    <span class="amount">$8.99</span>
+                                </div>
+                                <div class="quantity">
+                                    <span>x</span>
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="type">
+                        <h5>Equipment</h5>
+                        <ul class="items">
+                            <li class="item">
+                                <span class="name">
+                                    <span>Juventus Vs AS Rome</span><i class="fa fa-angle-right"></i>
+                                </span>
+                                <i class="fa fa-trash-o"></i>
+
+                                <div class="fee">
+                                    <span class="title">One Time Cost</span>
+                                    <span class="amount">Free</span>
+                                </div>
+                                <div class="fee monthly-fee">
+                                    <span class="title">Monthly Cost</span>
+                                    <span class="amount">$8.99</span>
+                                </div>
+                                <div class="quantity">
+                                    <span>x</span>
+                                    <select>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option selected="selected">3</option>
+                                    </select>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -76,7 +156,7 @@
         <div class="checkout">
             <ul>
                 <li class="selected">
-                    <p class="step-title">1.Choose your packages</p>
+                    <h2 class="step-title">1.Choose your packages</h2>
 
                     <ul class="step-content">
                         <div class="col-1">
