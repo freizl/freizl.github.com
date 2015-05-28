@@ -81,8 +81,9 @@ body {
 
 /* ======================================== shopping cart details */
 
-.second-menu .shopping-cart:active + .shopping-cart-detail,
-.second-menu .shopping-cart:hover + .shopping-cart-detail {
+.second-menu .shopping-cart-detail:hover,
+.second-menu .shopping-cart:active ~ .shopping-cart-detail,
+.second-menu .shopping-cart:hover ~ .shopping-cart-detail {
   display: block
 }
 
@@ -120,16 +121,18 @@ body {
   position: relative;
 }
 .second-menu .shopping-cart-detail .item .fa-trash-o {
-  display: none;
-  position: absolute;
-  left: -10px;
-  cursor: pointer;
+  visibility: hidden;
+  margin: 0 3px;
 }
-.second-menu .shopping-cart-detail .item .name:hover + .fa-trash-o {
-  display: inline;
+.second-menu .shopping-cart-detail .item .name {
+  position: relative;
+  left: -10px;
 }
 .second-menu .shopping-cart-detail .item .name:hover {
   cursor: pointer;
+}
+.second-menu .shopping-cart-detail .item .name:hover .fa-trash-o {
+  visibility: visible;
 }
 .second-menu .shopping-cart-detail .items .name span {
   margin-right: 5px;
