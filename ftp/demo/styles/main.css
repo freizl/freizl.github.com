@@ -60,7 +60,6 @@ body {
 }
 .second-menu .fee {
   border-left: 1px solid #333;
-  /* padding-right: 8%; */
   padding-right: 1.2em;
 }
 .second-menu .fee .title {
@@ -82,11 +81,9 @@ body {
 /* ======================================== shopping cart details */
 
 .second-menu .shopping-cart-detail:hover,
-.second-menu .shopping-cart:active ~ .shopping-cart-detail,
 .second-menu .shopping-cart:hover ~ .shopping-cart-detail {
   display: block
 }
-
 .second-menu .shopping-cart-detail {
   display: none;
   box-sizing: border-box;
@@ -162,6 +159,23 @@ body {
 .second-menu .shopping-cart-detail .items .item select {
   color: #000;
 }
+
+.circle {
+     height:15px;
+     width:30px;
+     border-radius: 0 0 15px 15px;
+     -moz-border-radius: 0 0 150px 15px;
+     -webkit-border-radius: 0 0 15px 15px;
+     background: black;
+     position: absolute;
+     left: 50%;
+}
+.circle .fa {
+  margin: -5px 0 0 10px;
+  display: block;
+  color: #1798C1;
+}
+
 
 /* ======================================== main body */
 
@@ -367,7 +381,7 @@ ul li {
   .second-menu .shopping-cart-detail .items .item div {
     display: block;
     position: static !important;
-    margin: 5px 0 3px 3px;
+    margin: 5px 0 3px 10px;
   }
   .second-menu .shopping-cart-detail .items .item .fee .title {
     margin-bottom: 0px;
