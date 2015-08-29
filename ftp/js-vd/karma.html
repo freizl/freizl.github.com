@@ -1,9 +1,10 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>JavaScript dependencies Diagrams for karma&#x2F;lib</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.min.css" />
 
-        <style>
+        <style type="text/css">
          #graph { margin-top: 10px; }
          .node:hover { cursor: pointer; }
          .node:hover ellipse { fill: #3875d7; }
@@ -13,6 +14,7 @@
              color: grey;
              text-align: center;
          }
+         .pointer { cursor: pointer; }
         </style>
     </head>
     <body>
@@ -61,7 +63,8 @@
             <option value="watcher" >watcher</option>
             <option value="web-server" >web-server</option>
         </select>
-        <input id="reverse-deps" type="checkbox" /><label>Reverse Depends</label>
+        <input class="pointer" id="reverse-deps" type="checkbox" />
+        <label class="pointer" for="reverse-deps">Reverse Depends</label>
 
         <div id="graph" class=""> </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/viz.js/0.0.3/viz.js"></script>
@@ -83,7 +86,7 @@
 /* global rawData:false */
 /* global reverseDeps:false */
 
-(function (R, Viz, $, rawData, reverseDeps) {
+(function (R, viz, $, rawData, reverseDeps) {
 
   function actionHandler() {
     genDiagram($('#modules').val(), $('#reverse-deps').is(':checked'));
@@ -106,7 +109,7 @@
       // Viz takes times synchronizedly !!
       setTimeout(function () {
         console.time('renderTree');
-        var g = Viz(dots, "svg", "dot");
+        var g = viz(dots, "svg", "dot");
         $('#graph').html(g);
         console.timeEnd('renderTree');
       }, 0);
@@ -194,8 +197,10 @@
         val = that.find('text').text();
 
     if (rawData[val]) {
-      $('#modules').val(val)
-        .change();
+      $('#modules')
+        .val(val).change()
+        .trigger('chosen:updated');
+
     } else {
       $('#graph').html('<h3>ERROR: dont have module: ' + val + '</h3>');
     }
