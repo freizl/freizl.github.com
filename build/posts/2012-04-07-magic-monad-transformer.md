@@ -76,4 +76,4 @@ I made a very trivial sample [^demo] demostrating combine ReaderT and StateT.
 
 [^rwh-mt]: [Chapter 8 Monad Transformer](http://book.realworldhaskell.org/read/monad-transformers.html)
 [^package-mtl]: [mtl-2.0.1.0 in hackage](http://hackage.haskell.org/package/mtl-2.0.1.0)
-[^demo]: [A clear demo](https://github.com/freizl/dive-into-haskell/blob/master/monad/hello-mtl.hs)
+[^demo]: [A clear demo](https://github.com/freizl/dive-into-haskell/blob/master/codes/monad/hello-mtl.hs)
