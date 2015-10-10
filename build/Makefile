@@ -28,7 +28,8 @@ p:
 
 ########## Mirror to github
 
-deploy: install run
+deploy:
+	stack exec freizl build
 	cp -r _site/* ../
 
 ########## Compile slides
