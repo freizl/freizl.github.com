@@ -43,35 +43,35 @@
   <div class="body clear">
   
 <h2 id="basic">Basic</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@myarray</span> = ();
-<span class="fu">push</span> <span class="dt">@myarray</span>,<span class="kw">&quot;</span><span class="st">a</span><span class="kw">&quot;</span>;</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@keys</span> = <span class="kw">qw(</span>a b c<span class="kw">)</span>;
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@myarray</span> = ();
+<span class="fu">push</span> <span class="dt">@myarray</span>,<span class="kw">&quot;</span><span class="st">a</span><span class="kw">&quot;</span>;</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@keys</span> = <span class="kw">qw(</span>a b c<span class="kw">)</span>;
 <span class="kw">my</span> <span class="dt">@vals</span> = (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>);
 <span class="kw">my</span> <span class="dt">%hash</span>;
-<span class="dt">@hash</span>{<span class="dt">@keys</span>} = <span class="dt">@vals</span>;</code></pre>
+<span class="dt">@hash</span>{<span class="dt">@keys</span>} = <span class="dt">@vals</span>;</code></pre></div>
 <h2 id="loop">Loop</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># loop elements in itemArray1 and itemArray2</span>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># loop elements in itemArray1 and itemArray2</span>
 <span class="kw">foreach</span> <span class="kw">my</span> <span class="dt">$item</span> (<span class="dt">@itemArray1</span>, <span class="dt">@itemArray2</span>) {
   ...
 }
 
 <span class="kw">while</span> ( <span class="kw">my</span> (<span class="dt">$key</span>, <span class="dt">$value</span>) = <span class="kw">each</span>(<span class="dt">%hash</span>) ) {
   <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$key</span><span class="st"> =&gt; </span><span class="dt">$value</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-}</code></pre>
+}</code></pre></div>
 <h2 id="sub">Sub</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">prepare_sth</span> {
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">prepare_sth</span> {
   <span class="kw">my</span> <span class="dt">$param</span> = <span class="fu">shift</span>;  <span class="co"># means shift @_, @_ is param array</span>
   <span class="co"># my $param = $_;   # when could use $_ ??</span>
-}</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">uniq</span> {
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">uniq</span> {
   <span class="dt">@list</span> = <span class="fu">shift</span>;
   <span class="dt">%seen</span> = ();
   <span class="dt">@uniqu</span> = <span class="fu">grep</span> { ! <span class="dt">$seen</span>{<span class="dt">$_</span>} ++ } <span class="dt">@list</span>;
-}</code></pre>
+}</code></pre></div>
 <h2 id="data-structure">Data Structure</h2>
 <h3 id="aoa">AoA</h3>
 <p>from book <programming perl></p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### Assign a list of array references to an array.</span>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### Assign a list of array references to an array.</span>
 <span class="dt">@AoA</span> = (
          [ <span class="kw">&quot;</span><span class="st">fred</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">barney</span><span class="kw">&quot;</span> ],
          [ <span class="kw">&quot;</span><span class="st">george</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">jane</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">elroy</span><span class="kw">&quot;</span> ],
@@ -86,14 +86,14 @@
     [ <span class="kw">&quot;</span><span class="st">george</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">jane</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">elroy</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">judy</span><span class="kw">&quot;</span>, ],
 ];
 
-<span class="fu">print</span> <span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>];   <span class="co"># prints &quot;judy&quot;</span></code></pre>
+<span class="fu">print</span> <span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>];   <span class="co"># prints &quot;judy&quot;</span></code></pre></div>
 <p>Remember that there is an implied -&gt; between every pair of adjacent braces or brackets. <strong>(Simply saying, -&gt; indicates a reference which created via [])</strong>.</p>
 <p>Therefore these two lines:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>][<span class="dv">3</span>]
-<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>][<span class="dv">3</span>]
+<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>]</code></pre></div>
 <p>are equivalent to these two lines:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]
-<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]
+<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]</code></pre></div>
 <h2 id="references">References</h2>
 <ul>
 <li><a href="http://www.cs.mcgill.ca/~abatko/computers/programming/perl/howto/hash/">Perl Hash Howto</a></li>

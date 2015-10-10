@@ -43,7 +43,7 @@
   <div class="body clear">
   
 <p>It is example from [programming in haskell] video lection 12 by Eric M. I just like to know whether GHC profile tool could help to figure out such problem.</p>
-<pre class="sourceCode literate literatehaskell"><code class="sourceCode literatehaskell"><span class="ot">&gt;</span> <span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<div class="sourceCode"><pre class="sourceCode literate literatehaskell"><code class="sourceCode literatehaskell"><span class="ot">&gt;</span> <span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 <span class="ot">&gt;</span> 
 <span class="ot">&gt;</span> sumWith1 v [] <span class="fu">=</span> v
 <span class="ot">&gt;</span> sumWith1 v (x<span class="fu">:</span>xs) <span class="fu">=</span> sumWith1 (v<span class="fu">+</span>x) xs
@@ -53,7 +53,7 @@
 <span class="ot">&gt;</span> 
 <span class="ot">&gt;</span> test <span class="fu">=</span> sumWith2 <span class="dv">0</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">20000000</span>]
 <span class="ot">&gt;</span> 
-<span class="ot">&gt;</span> main <span class="fu">=</span> print test</code></pre>
+<span class="ot">&gt;</span> main <span class="fu">=</span> print test</code></pre></div>
   </div>
 
   <div class="clear"></div>

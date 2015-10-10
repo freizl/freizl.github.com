@@ -66,7 +66,7 @@
 <ul>
 <li><strong>tested at google chrome 18 and pay close attention to comments.</strong></li>
 </ul>
-<table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -93,31 +93,31 @@
 25
 26
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript">
-<span class="kw">var</span> fn1 = <span class="kw">function</span> () { <span class="kw">this</span>.<span class="fu">name</span> = <span class="st">&quot;fn1&quot;</span>; }
+<span class="kw">var</span> fn1 <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span> <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&quot;fn1&quot;</span><span class="op">;</span> <span class="op">}</span>
 
-<span class="ot">fn1</span>.<span class="fu">prototype</span>          <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
+<span class="va">fn1</span>.<span class="at">prototype</span>          <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
                        <span class="co">//        , __proto__: Object }</span>
 
-<span class="ot">fn1</span>.<span class="fu">__proto__</span>          <span class="co">// function Empty() {}</span>
+<span class="va">fn1</span>.<span class="at">__proto__</span>          <span class="co">// function Empty() {}</span>
 
 
-<span class="kw">var</span> x1 = <span class="kw">new</span> <span class="fu">fn1</span>();
-<span class="ot">x1</span>.<span class="fu">__proto__</span> === <span class="ot">fn1</span>.<span class="fu">prototype</span>  <span class="co">// True</span>
+<span class="kw">var</span> x1 <span class="op">=</span> <span class="kw">new</span> <span class="at">fn1</span>()<span class="op">;</span>
+<span class="va">x1</span>.<span class="at">__proto__</span> <span class="op">===</span> <span class="va">fn1</span>.<span class="at">prototype</span>  <span class="co">// True</span>
 
-<span class="ot">x1</span>.<span class="fu">__proto__</span>           <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
+<span class="va">x1</span>.<span class="at">__proto__</span>           <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
                        <span class="co">//        , __proto__: Object }</span>
-<span class="ot">x1</span>.<span class="fu">constructor</span>         <span class="co">// function () { this.name = &quot;fn1&quot;; }</span>
+<span class="va">x1</span>.<span class="at">constructor</span>         <span class="co">// function () { this.name = &quot;fn1&quot;; }</span>
 
 
-<span class="ot">fn1</span>.<span class="fu">prototype</span> = {<span class="st">'location'</span>: <span class="st">'sea'</span>}
+<span class="va">fn1</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span><span class="st">'location'</span><span class="op">:</span> <span class="st">'sea'</span><span class="op">}</span>
 
-<span class="kw">var</span> y1 = <span class="kw">new</span> <span class="fu">fn1</span>();
-<span class="ot">x1</span>.<span class="fu">__proto__</span> === <span class="ot">fn1</span>.<span class="fu">prototype</span>  <span class="co">// True</span>
+<span class="kw">var</span> y1 <span class="op">=</span> <span class="kw">new</span> <span class="at">fn1</span>()<span class="op">;</span>
+<span class="va">x1</span>.<span class="at">__proto__</span> <span class="op">===</span> <span class="va">fn1</span>.<span class="at">prototype</span>  <span class="co">// True</span>
 
-<span class="ot">y1</span>.<span class="fu">__proto__</span>;          <span class="co">// Object { location: &quot;sea&quot;</span>
+<span class="va">y1</span>.<span class="at">__proto__</span><span class="op">;</span>          <span class="co">// Object { location: &quot;sea&quot;</span>
                        <span class="co">//        ,__proto__: Object }</span>
-<span class="ot">y1</span>.<span class="fu">constructor</span>;        <span class="co">// function Object() { [native code] }</span>
-</code></pre></td></tr></table>
+<span class="va">y1</span>.<span class="at">constructor</span><span class="op">;</span>        <span class="co">// function Object() { [native code] }</span>
+</code></pre></td></tr></table></div>
 <ul>
 <li>Quiz: Why y1.constructor is not same as x1.constructor?</li>
 </ul>
@@ -125,27 +125,27 @@
 <ul>
 <li><code>jQuery</code> is declarated as</li>
 </ul>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> jQuery = <span class="kw">function</span>( selector, context ) {
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> jQuery <span class="op">=</span> <span class="kw">function</span>( selector<span class="op">,</span> context ) <span class="op">{</span>
 		<span class="co">// The jQuery object is actually just the init constructor 'enhanced'</span>
-		<span class="kw">return</span> <span class="kw">new</span> <span class="ot">jQuery</span>.<span class="ot">fn</span>.<span class="fu">init</span>( selector, context, rootjQuery );
-	},</code></pre>
+		<span class="cf">return</span> <span class="kw">new</span> <span class="va">jQuery</span>.<span class="va">fn</span>.<span class="at">init</span>( selector<span class="op">,</span> context<span class="op">,</span> rootjQuery )<span class="op">;</span>
+	<span class="op">},</span></code></pre></div>
 <ul>
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">jQuery</span>.<span class="fu">fn</span> = {
-	<span class="dt">constructor</span>: jQuery,
-	<span class="dt">init</span>: <span class="kw">function</span>( selector, context, rootjQuery ) {
-		    <span class="kw">var</span> match, elem, ret, doc;
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="at">fn</span> <span class="op">=</span> <span class="op">{</span>
+	<span class="dt">constructor</span><span class="op">:</span> jQuery<span class="op">,</span>
+	<span class="dt">init</span><span class="op">:</span> <span class="kw">function</span>( selector<span class="op">,</span> context<span class="op">,</span> rootjQuery ) <span class="op">{</span>
+		    <span class="kw">var</span> match<span class="op">,</span> elem<span class="op">,</span> ret<span class="op">,</span> doc<span class="op">;</span>
             ... ...
-          },
+          <span class="op">},</span>
     ... ... <span class="co">// many API declaration.</span>
-}</code></pre>
+<span class="op">}</span></code></pre></div>
 <ul>
 <li>Function chain</li>
 </ul>
 <p>Since <code>jQuery</code> is just a function, we are able to do with a selector like <code>jQuery('div.navigator').addClass('nav')</code>.</p>
 <p>Actually in order to use jQuery API like <code>addClass</code>, there must exists following something which of cource can be found at around line 322 of jQuery.1.7.1.css<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">jQuery</span>.<span class="ot">fn</span>.<span class="ot">init</span>.<span class="fu">prototype</span> = <span class="ot">jQuery</span>.<span class="fu">fn</span>;</code></pre>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="va">fn</span>.<span class="va">init</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">jQuery</span>.<span class="at">fn</span><span class="op">;</span></code></pre></div>
 <div class="footnotes">
 <hr />
 <ol>

@@ -46,7 +46,7 @@
 <p>The code fragment below is from chapter 18 Monad Transform of &lt;Real World Haskell&gt;<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <p>When the first time I read this example, I was confused with how it is possible to use <code>ask</code> of <code>MonadReader</code> (line 6) and <code>get</code> of <code>MonadState</code> (line 13) functions in the same <code>App</code> Monad content.</p>
 <p>The only reasonable explanation is that <code>App</code> is both <code>MonadReader</code> and <code>MonadState</code>. While looking at <code>App</code> type definition (line 1), seems it is not possible.</p>
-<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -81,10 +81,10 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
                   put st { stDeepestReached <span class="fu">=</span> newDepth }
                 constrainedCount newDepth newPath
               <span class="kw">else</span> return []
-  return <span class="fu">$</span> (path, length contents) <span class="fu">:</span> concat rest</code></pre></td></tr></table>
+  return <span class="fu">$</span> (path, length contents) <span class="fu">:</span> concat rest</code></pre></td></tr></table></div>
 <h2 id="what-is-the-so-called-magic">What is the so-called “Magic”</h2>
 <p>I turn to the source of package mtl<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and finding following implementations.</p>
-<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -113,7 +113,7 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 <span class="co">-- | Combine ReaderT and StataT</span>
 <span class="kw">instance</span> (<span class="dt">MonadState</span> s m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">ReaderT</span> r m) <span class="kw">where</span>
     get <span class="fu">=</span> lift get
-    put <span class="fu">=</span> lift <span class="fu">.</span> put</code></pre></td></tr></table>
+    put <span class="fu">=</span> lift <span class="fu">.</span> put</code></pre></td></tr></table></div>
 <p>If we do a substitution, will get</p>
 <pre><code>1. instance MonadReader AppConfig App where ...
 
@@ -128,7 +128,7 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 <ol>
 <li id="fn1"><p><a href="http://book.realworldhaskell.org/read/monad-transformers.html">Chapter 8 Monad Transformer</a><a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p><a href="http://hackage.haskell.org/package/mtl-2.0.1.0">mtl-2.0.1.0 in hackage</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3">↩</a></p></li>
+<li id="fn3"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/codes/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3">↩</a></p></li>
 </ol>
 </div>
   </div>

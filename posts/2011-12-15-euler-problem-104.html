@@ -48,7 +48,7 @@
 <ul>
 <li>My Solution</li>
 </ul>
-<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -71,11 +71,11 @@ isLastNinePandigit  digits <span class="fu">=</span> (<span class="fu">==</span>
 isFirstNinePandigit digits <span class="fu">=</span> (<span class="fu">==</span> digits) <span class="fu">.</span> sort <span class="fu">.</span> firstDigits <span class="dv">9</span>
 
 firstDigits k n <span class="fu">=</span> take k (show n)
-lastDigits  k n <span class="fu">=</span> show (n <span class="ot">`mod`</span> <span class="dv">10</span><span class="fu">^</span>k)</code></pre></td></tr></table>
+lastDigits  k n <span class="fu">=</span> show (n <span class="ot">`mod`</span> <span class="dv">10</span><span class="fu">^</span>k)</code></pre></td></tr></table></div>
 <ul>
 <li>Haskell Wiki solution<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
 </ul>
-<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -96,7 +96,7 @@ isFibPan n <span class="fu">=</span>
   <span class="kw">in</span>  b <span class="fu">==</span> <span class="st">&quot;123456789&quot;</span> <span class="fu">&amp;&amp;</span> c <span class="fu">==</span> <span class="st">&quot;123456789&quot;</span>
 
 ex_104 <span class="fu">=</span> snd <span class="fu">$</span> head <span class="fu">$</span>
-         dropWhile (\(x,y) <span class="ot">-&gt;</span> (not <span class="fu">.</span> isFibPan) x) (zip fibs [<span class="dv">1</span><span class="fu">..</span>])</code></pre></td></tr></table>
+         dropWhile (\(x,y) <span class="ot">-&gt;</span> (not <span class="fu">.</span> isFibPan) x) (zip fibs [<span class="dv">1</span><span class="fu">..</span>])</code></pre></td></tr></table></div>
 <h2 id="why-the-differences">Why the differences?</h2>
 <p>The key point here is should test start nine digits first or test end nine digits.</p>
 <p>Two concerns here:</p>

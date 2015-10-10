@@ -5,3 +5,4 @@ cabal.sandbox.config
 .cabal-sandbox
 .DS_Store
 .tern-port
+.stack-work

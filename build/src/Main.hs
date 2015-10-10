@@ -1,9 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 module Main where
 
-import           Data.Monoid     (mconcat, (<>))
+import           Data.Monoid     ((<>))
 import           Prelude         hiding (id)
-import           System.Cmd      (system)
+--import           System.Cmd      (system)
+import           System.Process      (system)
 import           System.FilePath (replaceExtension, takeDirectory)
 import qualified Text.Pandoc     as Pandoc
 

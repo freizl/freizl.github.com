@@ -45,7 +45,7 @@
 <h2 id="solution-one">Solution One</h2>
 <p>I should say this solution only work while upper limit is under 100000. Otherwise it is really slow and I have no patient for the result. I wonder it would take minutes or even hours.</p>
 <p>So, problem solving failed.</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 <span class="kw">import </span><span class="dt">Data.Word</span>
 
 <span class="ot">main ::</span> <span class="dt">IO</span> ()
@@ -60,12 +60,12 @@ startChain n count    <span class="fu">=</span> startChain (intTransform n) (cou
 <span class="ot">intTransform ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
 intTransform n
   <span class="fu">|</span> even n         <span class="fu">=</span> n <span class="ot">`div`</span> <span class="dv">2</span>
-  <span class="fu">|</span> otherwise      <span class="fu">=</span> <span class="dv">3</span> <span class="fu">*</span> n <span class="fu">+</span> <span class="dv">1</span></code></pre>
+  <span class="fu">|</span> otherwise      <span class="fu">=</span> <span class="dv">3</span> <span class="fu">*</span> n <span class="fu">+</span> <span class="dv">1</span></code></pre></div>
 <p>Compile as otherwise Stack space overflow : <code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code></p>
 <h2 id="solution-two">Solution Two</h2>
 <p>I went for Haskell Wiki<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> for help by finding solution one there is similar to one of its solutions. The significate difference is it uses type <code>Word32</code> for <code>n</code> rather than <code>Int</code>. I picked this difference and make the following change and it worked out really cool.</p>
 <p>The result came under 1.5s at my local!</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell">
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">
 <span class="ot">startChain ::</span> <span class="dt">Word32</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span>
 startChain <span class="dv">1</span> count    <span class="fu">=</span> count <span class="fu">+</span> <span class="dv">1</span>
 startChain n count    <span class="fu">=</span> startChain (intTransform n) (count<span class="fu">+</span><span class="dv">1</span>)
@@ -73,7 +73,7 @@ startChain n count    <span class="fu">=</span> startChain (intTransform n) (cou
 <span class="ot">intTransform ::</span> <span class="dt">Word32</span> <span class="ot">-&gt;</span> <span class="dt">Word32</span>
 intTransform n
   <span class="fu">|</span> even n         <span class="fu">=</span> n <span class="ot">`div`</span> <span class="dv">2</span>
-  <span class="fu">|</span> otherwise      <span class="fu">=</span> <span class="dv">3</span> <span class="fu">*</span> n <span class="fu">+</span> <span class="dv">1</span></code></pre>
+  <span class="fu">|</span> otherwise      <span class="fu">=</span> <span class="dv">3</span> <span class="fu">*</span> n <span class="fu">+</span> <span class="dv">1</span></code></pre></div>
 <p>Compile as otherwise Stack space overflow : <code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code></p>
 <h2 id="other-solutions">Other solutions</h2>
 <p>Haskell Wiki<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> presents several solutions. One interested me is that levearages parallel programming <code>Control.Parallel</code>.</p>

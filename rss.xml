@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:dc="http://purl.org/dc/elements/1.1/">
     <channel>
         <title>Haisheng's Tech Blog All posts</title>
         <link>http://freizl.github.io/</link>
@@ -33,6 +34,7 @@
 </blockquote>]]></description>
     <pubDate>Thu, 12 Mar 2015 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2015-03-12-notes-out-of-the-tar-pit.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Notes: SF Bay Area, MUST-DO HIKES FOR EVERYONE</title>
@@ -133,13 +135,14 @@
 </ul>]]></description>
     <pubDate>Wed, 18 Feb 2015 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2015-02-18-notes-sf-bay-area-must-do-hiking.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Improve Space Usage</title>
     <link>http://freizl.github.io//posts/2012-09-12-improve-space-usage.html</link>
     <description><![CDATA[
 <p>It is example from [programming in haskell] video lection 12 by Eric M. I just like to know whether GHC profile tool could help to figure out such problem.</p>
-<pre class="sourceCode literate literatehaskell"><code class="sourceCode literatehaskell"><span class="ot">&gt;</span> <span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
+<div class="sourceCode"><pre class="sourceCode literate literatehaskell"><code class="sourceCode literatehaskell"><span class="ot">&gt;</span> <span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
 <span class="ot">&gt;</span> 
 <span class="ot">&gt;</span> sumWith1 v [] <span class="fu">=</span> v
 <span class="ot">&gt;</span> sumWith1 v (x<span class="fu">:</span>xs) <span class="fu">=</span> sumWith1 (v<span class="fu">+</span>x) xs
@@ -149,9 +152,10 @@
 <span class="ot">&gt;</span> 
 <span class="ot">&gt;</span> test <span class="fu">=</span> sumWith2 <span class="dv">0</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">20000000</span>]
 <span class="ot">&gt;</span> 
-<span class="ot">&gt;</span> main <span class="fu">=</span> print test</code></pre>]]></description>
+<span class="ot">&gt;</span> main <span class="fu">=</span> print test</code></pre></div>]]></description>
     <pubDate>Wed, 12 Sep 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-09-12-improve-space-usage.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Objects created at one commit</title>
@@ -218,6 +222,7 @@ first commit
 </ul>]]></description>
     <pubDate>Thu, 12 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-12-git-one-commit.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Confused Constructor in JavaScipts</title>
@@ -247,7 +252,7 @@ first commit
 <ul>
 <li><strong>tested at google chrome 18 and pay close attention to comments.</strong></li>
 </ul>
-<table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -274,31 +279,31 @@ first commit
 25
 26
 </pre></td><td class="sourceCode"><pre><code class="sourceCode javascript">
-<span class="kw">var</span> fn1 = <span class="kw">function</span> () { <span class="kw">this</span>.<span class="fu">name</span> = <span class="st">&quot;fn1&quot;</span>; }
+<span class="kw">var</span> fn1 <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span> <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&quot;fn1&quot;</span><span class="op">;</span> <span class="op">}</span>
 
-<span class="ot">fn1</span>.<span class="fu">prototype</span>          <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
+<span class="va">fn1</span>.<span class="at">prototype</span>          <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
                        <span class="co">//        , __proto__: Object }</span>
 
-<span class="ot">fn1</span>.<span class="fu">__proto__</span>          <span class="co">// function Empty() {}</span>
+<span class="va">fn1</span>.<span class="at">__proto__</span>          <span class="co">// function Empty() {}</span>
 
 
-<span class="kw">var</span> x1 = <span class="kw">new</span> <span class="fu">fn1</span>();
-<span class="ot">x1</span>.<span class="fu">__proto__</span> === <span class="ot">fn1</span>.<span class="fu">prototype</span>  <span class="co">// True</span>
+<span class="kw">var</span> x1 <span class="op">=</span> <span class="kw">new</span> <span class="at">fn1</span>()<span class="op">;</span>
+<span class="va">x1</span>.<span class="at">__proto__</span> <span class="op">===</span> <span class="va">fn1</span>.<span class="at">prototype</span>  <span class="co">// True</span>
 
-<span class="ot">x1</span>.<span class="fu">__proto__</span>           <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
+<span class="va">x1</span>.<span class="at">__proto__</span>           <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
                        <span class="co">//        , __proto__: Object }</span>
-<span class="ot">x1</span>.<span class="fu">constructor</span>         <span class="co">// function () { this.name = &quot;fn1&quot;; }</span>
+<span class="va">x1</span>.<span class="at">constructor</span>         <span class="co">// function () { this.name = &quot;fn1&quot;; }</span>
 
 
-<span class="ot">fn1</span>.<span class="fu">prototype</span> = {<span class="st">&#39;location&#39;</span>: <span class="st">&#39;sea&#39;</span>}
+<span class="va">fn1</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span><span class="st">&#39;location&#39;</span><span class="op">:</span> <span class="st">&#39;sea&#39;</span><span class="op">}</span>
 
-<span class="kw">var</span> y1 = <span class="kw">new</span> <span class="fu">fn1</span>();
-<span class="ot">x1</span>.<span class="fu">__proto__</span> === <span class="ot">fn1</span>.<span class="fu">prototype</span>  <span class="co">// True</span>
+<span class="kw">var</span> y1 <span class="op">=</span> <span class="kw">new</span> <span class="at">fn1</span>()<span class="op">;</span>
+<span class="va">x1</span>.<span class="at">__proto__</span> <span class="op">===</span> <span class="va">fn1</span>.<span class="at">prototype</span>  <span class="co">// True</span>
 
-<span class="ot">y1</span>.<span class="fu">__proto__</span>;          <span class="co">// Object { location: &quot;sea&quot;</span>
+<span class="va">y1</span>.<span class="at">__proto__</span><span class="op">;</span>          <span class="co">// Object { location: &quot;sea&quot;</span>
                        <span class="co">//        ,__proto__: Object }</span>
-<span class="ot">y1</span>.<span class="fu">constructor</span>;        <span class="co">// function Object() { [native code] }</span>
-</code></pre></td></tr></table>
+<span class="va">y1</span>.<span class="at">constructor</span><span class="op">;</span>        <span class="co">// function Object() { [native code] }</span>
+</code></pre></td></tr></table></div>
 <ul>
 <li>Quiz: Why y1.constructor is not same as x1.constructor?</li>
 </ul>
@@ -306,27 +311,27 @@ first commit
 <ul>
 <li><code>jQuery</code> is declarated as</li>
 </ul>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> jQuery = <span class="kw">function</span>( selector, context ) {
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> jQuery <span class="op">=</span> <span class="kw">function</span>( selector<span class="op">,</span> context ) <span class="op">{</span>
 		<span class="co">// The jQuery object is actually just the init constructor &#39;enhanced&#39;</span>
-		<span class="kw">return</span> <span class="kw">new</span> <span class="ot">jQuery</span>.<span class="ot">fn</span>.<span class="fu">init</span>( selector, context, rootjQuery );
-	},</code></pre>
+		<span class="cf">return</span> <span class="kw">new</span> <span class="va">jQuery</span>.<span class="va">fn</span>.<span class="at">init</span>( selector<span class="op">,</span> context<span class="op">,</span> rootjQuery )<span class="op">;</span>
+	<span class="op">},</span></code></pre></div>
 <ul>
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">jQuery</span>.<span class="fu">fn</span> = {
-	<span class="dt">constructor</span>: jQuery,
-	<span class="dt">init</span>: <span class="kw">function</span>( selector, context, rootjQuery ) {
-		    <span class="kw">var</span> match, elem, ret, doc;
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="at">fn</span> <span class="op">=</span> <span class="op">{</span>
+	<span class="dt">constructor</span><span class="op">:</span> jQuery<span class="op">,</span>
+	<span class="dt">init</span><span class="op">:</span> <span class="kw">function</span>( selector<span class="op">,</span> context<span class="op">,</span> rootjQuery ) <span class="op">{</span>
+		    <span class="kw">var</span> match<span class="op">,</span> elem<span class="op">,</span> ret<span class="op">,</span> doc<span class="op">;</span>
             ... ...
-          },
+          <span class="op">},</span>
     ... ... <span class="co">// many API declaration.</span>
-}</code></pre>
+<span class="op">}</span></code></pre></div>
 <ul>
 <li>Function chain</li>
 </ul>
 <p>Since <code>jQuery</code> is just a function, we are able to do with a selector like <code>jQuery('div.navigator').addClass('nav')</code>.</p>
 <p>Actually in order to use jQuery API like <code>addClass</code>, there must exists following something which of cource can be found at around line 322 of jQuery.1.7.1.css<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
-<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="ot">jQuery</span>.<span class="ot">fn</span>.<span class="ot">init</span>.<span class="fu">prototype</span> = <span class="ot">jQuery</span>.<span class="fu">fn</span>;</code></pre>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="va">fn</span>.<span class="va">init</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">jQuery</span>.<span class="at">fn</span><span class="op">;</span></code></pre></div>
 <div class="footnotes">
 <hr />
 <ol>
@@ -338,6 +343,7 @@ first commit
 </div>]]></description>
     <pubDate>Thu, 12 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-12-confused-constructor-js.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Quotes: Rework</title>
@@ -364,6 +370,7 @@ first commit
 </ul>]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-08-quotes-rework.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Notes: ProGit</title>
@@ -409,13 +416,14 @@ git log master...branchA</code></pre>
 </ul>]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-08-notes-progit.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Notes: Master of Regular Expression</title>
     <link>http://freizl.github.io//posts/2012-04-08-notes-master-regexp.html</link>
     <description><![CDATA[
 <h1 id="notes">Notes</h1>
-<pre class="sourceCode perl"><code class="sourceCode perl">Matching <span class="kw">and</span> Capture, <span class="kw">or</span> just <span class="kw">not</span> Capture
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">Matching <span class="kw">and</span> Capture, <span class="kw">or</span> just <span class="kw">not</span> Capture
 (?:...) <span class="kw">and</span> (...)
 
 
@@ -430,8 +438,8 @@ perl <span class="kw">-p</span> -i <span class="kw">-e</span> <span class="kw">&
 
 
 ? What is <span class="kw">&#39;</span><span class="st">m</span><span class="kw">&#39;</span> modifier
-<span class="dt">$text</span> =~ <span class="kw">s/</span><span class="ch">^$</span><span class="kw">/</span><span class="st">&lt;p&gt;</span><span class="kw">/mg</span>;</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl">Lookaround
+<span class="dt">$text</span> =~ <span class="kw">s/</span><span class="ch">^$</span><span class="kw">/</span><span class="st">&lt;p&gt;</span><span class="kw">/mg</span>;</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">Lookaround
   (?= ...) (?! ...) (?&lt;= ...) (?&lt;! ...)
   - lookaround does <span class="kw">not</span> consume text
   - (?=Jeffery)Jeff <span class="kw">&lt;P61&gt;</span>
@@ -459,14 +467,14 @@ perl <span class="kw">-p</span> -i <span class="kw">-e</span> <span class="kw">&
 <span class="st">  &quot;this and not that&quot;</span>
 
 <span class="st">Greedy quantifiers &lt;P139&gt;</span>
-<span class="st">Lazy (Non-Greedy) quantifiers</span></code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl">quiz
+<span class="st">Lazy (Non-Greedy) quantifiers</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">quiz
 where does fat|cat|belly|you match in the string
  <span class="kw">&quot;</span><span class="st">The dragging belly indicates your cat is too fat</span><span class="kw">&quot;</span>
 
 Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span class="st">Copyright 2003</span><span class="kw">&quot;</span>,
- what<span class="kw">&#39;</span><span class="st">s captured by parentheses?</span></code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### &quot;look around&quot;</span>
+ what<span class="kw">&#39;</span><span class="st">s captured by parentheses?</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### &quot;look around&quot;</span>
 <span class="dt">$test</span> = <span class="kw">&quot;</span><span class="st">see Jeffs book</span><span class="kw">&quot;</span>;
 <span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ch">(?&lt;=</span><span class="ot">Jeff</span><span class="ch">)(?=</span><span class="ot">s</span><span class="ch">)</span><span class="kw">/</span><span class="st">&#39;</span><span class="kw">/g</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;    <span class="co">### expect see Jeff&#39;s book</span>
@@ -476,10 +484,11 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
 <span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ch">\G</span><span class="ot">x</span><span class="ch">?</span><span class="kw">/</span><span class="st">!</span><span class="kw">/g</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !abcde</span>
 <span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ot">\x</span><span class="ch">?</span><span class="kw">/</span><span class="st">!</span><span class="kw">/g</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></code></pre>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></code></pre></div>
 <h1 id="reference">Reference</h1>]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-08-notes-master-regexp.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Magic Monad Transformer</title>
@@ -489,7 +498,7 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
 <p>The code fragment below is from chapter 18 Monad Transform of &lt;Real World Haskell&gt;<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
 <p>When the first time I read this example, I was confused with how it is possible to use <code>ask</code> of <code>MonadReader</code> (line 6) and <code>get</code> of <code>MonadState</code> (line 13) functions in the same <code>App</code> Monad content.</p>
 <p>The only reasonable explanation is that <code>App</code> is both <code>MonadReader</code> and <code>MonadState</code>. While looking at <code>App</code> type definition (line 1), seems it is not possible.</p>
-<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -524,10 +533,10 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
                   put st { stDeepestReached <span class="fu">=</span> newDepth }
                 constrainedCount newDepth newPath
               <span class="kw">else</span> return []
-  return <span class="fu">$</span> (path, length contents) <span class="fu">:</span> concat rest</code></pre></td></tr></table>
+  return <span class="fu">$</span> (path, length contents) <span class="fu">:</span> concat rest</code></pre></td></tr></table></div>
 <h1 id="what-is-the-so-called-magic">What is the so-called “Magic”</h1>
 <p>I turn to the source of package mtl<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and finding following implementations.</p>
-<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -556,7 +565,7 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 <span class="co">-- | Combine ReaderT and StataT</span>
 <span class="kw">instance</span> (<span class="dt">MonadState</span> s m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">ReaderT</span> r m) <span class="kw">where</span>
     get <span class="fu">=</span> lift get
-    put <span class="fu">=</span> lift <span class="fu">.</span> put</code></pre></td></tr></table>
+    put <span class="fu">=</span> lift <span class="fu">.</span> put</code></pre></td></tr></table></div>
 <p>If we do a substitution, will get</p>
 <pre><code>1. instance MonadReader AppConfig App where ...
 
@@ -571,11 +580,12 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 <ol>
 <li id="fn1"><p><a href="http://book.realworldhaskell.org/read/monad-transformers.html">Chapter 8 Monad Transformer</a><a href="#fnref1">↩</a></p></li>
 <li id="fn2"><p><a href="http://hackage.haskell.org/package/mtl-2.0.1.0">mtl-2.0.1.0 in hackage</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3">↩</a></p></li>
+<li id="fn3"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/codes/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3">↩</a></p></li>
 </ol>
 </div>]]></description>
     <pubDate>Sat, 07 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-07-magic-monad-transformer.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Shell Tips</title>
@@ -640,80 +650,82 @@ done</code></pre>
 esac</code></pre>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-shell-tips.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Python Tips</title>
     <link>http://freizl.github.io//posts/2012-04-06-python-tips.html</link>
     <description><![CDATA[
 <h1 id="re">re</h1>
-<pre class="sourceCode python"><code class="sourceCode python">&gt;&gt;&gt; re.split(<span class="st">&quot;[^0-9]&quot;</span>, <span class="st">&quot;12 34 + 2 *&quot;</span>)
-[<span class="st">&#39;12&#39;</span>, <span class="st">&#39;34&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> re.split(<span class="st">&quot;[^0-9]&quot;</span>, <span class="st">&quot;12 34 + 2 *&quot;</span>)
+[<span class="st">&#39;12&#39;</span>, <span class="st">&#39;34&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>]</code></pre></div>
 <p>Cant understand how ’’ being produced.</p>
 <h1 id="list">list</h1>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">str</span>(<span class="st">&quot;abcdef&quot;</span>)[::-<span class="dv">1</span>] ==&gt; <span class="st">&quot;fedcba&quot;</span>
-<span class="dt">reduce</span>(<span class="kw">lambda</span> x,y:y+x,<span class="st">&quot;abcdef&quot;</span>) ==&gt; <span class="st">&quot;fedcba&quot;</span>
-<span class="dt">sorted</span>([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]) ==&gt; [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]
-a = [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]; a.sort() ==&gt; a := [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">str</span>(<span class="st">&quot;abcdef&quot;</span>)[::<span class="op">-</span><span class="dv">1</span>] <span class="op">==&gt;</span> <span class="st">&quot;fedcba&quot;</span>
+<span class="bu">reduce</span>(<span class="kw">lambda</span> x,y:y<span class="op">+</span>x,<span class="st">&quot;abcdef&quot;</span>) <span class="op">==&gt;</span> <span class="st">&quot;fedcba&quot;</span>
+<span class="bu">sorted</span>([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]) <span class="op">==&gt;</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]
+a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]<span class="op">;</span> a.sort() <span class="op">==&gt;</span> a :<span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]</code></pre></div>
 <h1 id="dict">dict</h1>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="co">### demostrate loop a dict and list/dict parameter</span>
-<span class="kw">def</span> tst_dict(*args, **kargs):
-    <span class="kw">for</span> k, v in <span class="dt">dict</span>(*args, **kargs).iteritems():
-        <span class="dt">print</span> k, v
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### demostrate loop a dict and list/dict parameter</span>
+<span class="kw">def</span> tst_dict(<span class="op">*</span>args, <span class="op">**</span>kargs):
+    <span class="cf">for</span> k, v <span class="op">in</span> <span class="bu">dict</span>(<span class="op">*</span>args, <span class="op">**</span>kargs).iteritems():
+        <span class="bu">print</span> k, v
 
 <span class="kw">def</span> tst_dict2():
-    <span class="kw">for</span> key in a_dict:
-        <span class="dt">print</span> key, a_dict[key]
+    <span class="cf">for</span> key <span class="op">in</span> a_dict:
+        <span class="bu">print</span> key, a_dict[key]
 
-tst_dict(name=<span class="st">&#39;aa&#39;</span>, place=<span class="st">&#39;bb&#39;</span>)
-tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</span>) <span class="co"># throw error</span></code></pre>
+tst_dict(name<span class="op">=</span><span class="st">&#39;aa&#39;</span>, place<span class="op">=</span><span class="st">&#39;bb&#39;</span>)
+tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</span>) <span class="co"># throw error</span></code></pre></div>
 <h1 id="mise">Mise</h1>
-<pre class="sourceCode python"><code class="sourceCode python"><span class="dt">range</span>(<span class="dv">4</span>) ==&gt; [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="co">#range start from 0 by default</span>
-<span class="co">&#39;%s: %r&#39;</span> % (something, other)
-<span class="co">&#39;%(name)s is %(value)d&#39;</span> % {
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">range</span>(<span class="dv">4</span>) <span class="op">==&gt;</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="co">#range start from 0 by default</span>
+<span class="co">&#39;%s: %r&#39;</span> <span class="op">%</span> (something, other)
+<span class="co">&#39;%(name)s is %(value)d&#39;</span> <span class="op">%</span> {
     <span class="st">&#39;name&#39;</span>: <span class="st">&#39;The answer&#39;</span>,
     <span class="co">&#39;value&#39;</span>: <span class="dv">42</span>,
-}</code></pre>
+}</code></pre></div>
 <h1 id="reference">Reference</h1>
 <ul>
 <li><a href="http://docs.python.org/library/re.html">re reference</a></li>
 </ul>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-python-tips.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Perl Tips</title>
     <link>http://freizl.github.io//posts/2012-04-06-perl-tips.html</link>
     <description><![CDATA[
 <h1 id="basic">Basic</h1>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@myarray</span> = ();
-<span class="fu">push</span> <span class="dt">@myarray</span>,<span class="kw">&quot;</span><span class="st">a</span><span class="kw">&quot;</span>;</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@keys</span> = <span class="kw">qw(</span>a b c<span class="kw">)</span>;
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@myarray</span> = ();
+<span class="fu">push</span> <span class="dt">@myarray</span>,<span class="kw">&quot;</span><span class="st">a</span><span class="kw">&quot;</span>;</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@keys</span> = <span class="kw">qw(</span>a b c<span class="kw">)</span>;
 <span class="kw">my</span> <span class="dt">@vals</span> = (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>);
 <span class="kw">my</span> <span class="dt">%hash</span>;
-<span class="dt">@hash</span>{<span class="dt">@keys</span>} = <span class="dt">@vals</span>;</code></pre>
+<span class="dt">@hash</span>{<span class="dt">@keys</span>} = <span class="dt">@vals</span>;</code></pre></div>
 <h1 id="loop">Loop</h1>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># loop elements in itemArray1 and itemArray2</span>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># loop elements in itemArray1 and itemArray2</span>
 <span class="kw">foreach</span> <span class="kw">my</span> <span class="dt">$item</span> (<span class="dt">@itemArray1</span>, <span class="dt">@itemArray2</span>) {
   ...
 }
 
 <span class="kw">while</span> ( <span class="kw">my</span> (<span class="dt">$key</span>, <span class="dt">$value</span>) = <span class="kw">each</span>(<span class="dt">%hash</span>) ) {
   <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$key</span><span class="st"> =&gt; </span><span class="dt">$value</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-}</code></pre>
+}</code></pre></div>
 <h1 id="sub">Sub</h1>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">prepare_sth</span> {
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">prepare_sth</span> {
   <span class="kw">my</span> <span class="dt">$param</span> = <span class="fu">shift</span>;  <span class="co"># means shift @_, @_ is param array</span>
   <span class="co"># my $param = $_;   # when could use $_ ??</span>
-}</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">uniq</span> {
+}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">uniq</span> {
   <span class="dt">@list</span> = <span class="fu">shift</span>;
   <span class="dt">%seen</span> = ();
   <span class="dt">@uniqu</span> = <span class="fu">grep</span> { ! <span class="dt">$seen</span>{<span class="dt">$_</span>} ++ } <span class="dt">@list</span>;
-}</code></pre>
+}</code></pre></div>
 <h1 id="data-structure">Data Structure</h1>
 <h2 id="aoa">AoA</h2>
 <p>from book <programming perl></p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### Assign a list of array references to an array.</span>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### Assign a list of array references to an array.</span>
 <span class="dt">@AoA</span> = (
          [ <span class="kw">&quot;</span><span class="st">fred</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">barney</span><span class="kw">&quot;</span> ],
          [ <span class="kw">&quot;</span><span class="st">george</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">jane</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">elroy</span><span class="kw">&quot;</span> ],
@@ -728,20 +740,21 @@ tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</
     [ <span class="kw">&quot;</span><span class="st">george</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">jane</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">elroy</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">judy</span><span class="kw">&quot;</span>, ],
 ];
 
-<span class="fu">print</span> <span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>];   <span class="co"># prints &quot;judy&quot;</span></code></pre>
+<span class="fu">print</span> <span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>];   <span class="co"># prints &quot;judy&quot;</span></code></pre></div>
 <p>Remember that there is an implied -&gt; between every pair of adjacent braces or brackets. <strong>(Simply saying, -&gt; indicates a reference which created via [])</strong>.</p>
 <p>Therefore these two lines:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>][<span class="dv">3</span>]
-<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>][<span class="dv">3</span>]
+<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>]</code></pre></div>
 <p>are equivalent to these two lines:</p>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]
-<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]</code></pre>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]
+<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]</code></pre></div>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="http://www.cs.mcgill.ca/~abatko/computers/programming/perl/howto/hash/">Perl Hash Howto</a></li>
 </ul>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-perl-tips.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Git Tips</title>
@@ -792,6 +805,7 @@ git reflog
 </code></pre>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-git-tips.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Git SVN</title>
@@ -832,6 +846,7 @@ svn merge --dry-run
 </code></pre>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-git-svn.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Expression and Statement</title>
@@ -852,6 +867,7 @@ return 10;</code></pre>
 </ul>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-expression-and-statement.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Export a OrgMode doc in Chinese to PDF</title>
@@ -881,6 +897,7 @@ return 10;</code></pre>
 <p><strong>PS: The main font has been setted may be vary among different systems. How I find a proper font under ubuntu is via command <code>fc-list</code>.</strong></p>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-export-orgmode-file-in-Chinese.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Trivial bind examples in JavaScipts</title>
@@ -927,7 +944,8 @@ The sum is:  6</code></pre>
 <p>-&gt; Output:</p>
 <pre class="javascripts"><code>The value:  undefined
 The sum is:  6</code></pre>
-<p>How it produce result 6?<br />Because <code>bind</code> return is actually a partially applied function of<code>fn</code>.</p>
+<p>How it produce result 6?<br />
+Because <code>bind</code> return is actually a partially applied function of<code>fn</code>.</p>
 <p>In JavaScripts words, the new function got return is a closure which holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the third parameter in order to fully apply function <code>fn</code>.</p>
 <p>The concept is named <em>Currying</em> and find more in <a href="#further">Further</a> section.</p>
 <p><em>PS</em>: turns out that <code>bind</code> is not really doing Currying according to <a href="http://en.wikipedia.org/wiki/Currying">here</a> and <a href="http://www.uncarved.com/blog/not_currying.mrk">here</a>. It is Partially Function Application more than Currying thouht it can do Currying at some sense.</p>
@@ -949,6 +967,7 @@ The sum is:  6</code></pre>
 </ul>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-bind-examples-in-javascripts.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Bayesian Network Exercise 01</title>
@@ -1023,6 +1042,7 @@ The sum is:  6</code></pre>
   = 31.05%</code></pre>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-bayesian-network-exe01.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Quotes: A Century of Innovation - 3M</title>
@@ -1040,6 +1060,7 @@ The sum is:  6</code></pre>
 </ul>]]></description>
     <pubDate>Fri, 13 Jan 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-01-13-quotes-3M-a-story.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 <item>
     <title>Lesson learned from Euler Problem 104</title>
@@ -1051,7 +1072,7 @@ The sum is:  6</code></pre>
 <ul>
 <li>My Solution</li>
 </ul>
-<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -1074,11 +1095,11 @@ isLastNinePandigit  digits <span class="fu">=</span> (<span class="fu">==</span>
 isFirstNinePandigit digits <span class="fu">=</span> (<span class="fu">==</span> digits) <span class="fu">.</span> sort <span class="fu">.</span> firstDigits <span class="dv">9</span>
 
 firstDigits k n <span class="fu">=</span> take k (show n)
-lastDigits  k n <span class="fu">=</span> show (n <span class="ot">`mod`</span> <span class="dv">10</span><span class="fu">^</span>k)</code></pre></td></tr></table>
+lastDigits  k n <span class="fu">=</span> show (n <span class="ot">`mod`</span> <span class="dv">10</span><span class="fu">^</span>k)</code></pre></td></tr></table></div>
 <ul>
 <li>Haskell Wiki solution<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
 </ul>
-<table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
 2
 3
 4
@@ -1099,7 +1120,7 @@ isFibPan n <span class="fu">=</span>
   <span class="kw">in</span>  b <span class="fu">==</span> <span class="st">&quot;123456789&quot;</span> <span class="fu">&amp;&amp;</span> c <span class="fu">==</span> <span class="st">&quot;123456789&quot;</span>
 
 ex_104 <span class="fu">=</span> snd <span class="fu">$</span> head <span class="fu">$</span>
-         dropWhile (\(x,y) <span class="ot">-&gt;</span> (not <span class="fu">.</span> isFibPan) x) (zip fibs [<span class="dv">1</span><span class="fu">..</span>])</code></pre></td></tr></table>
+         dropWhile (\(x,y) <span class="ot">-&gt;</span> (not <span class="fu">.</span> isFibPan) x) (zip fibs [<span class="dv">1</span><span class="fu">..</span>])</code></pre></td></tr></table></div>
 <h1 id="why-the-differences">Why the differences?</h1>
 <p>The key point here is should test start nine digits first or test end nine digits.</p>
 <p>Two concerns here:</p>
@@ -1142,7 +1163,8 @@ ghc --make -O2 -prof -auto-all -rtsopts p104.hs
 </div>]]></description>
     <pubDate>Thu, 15 Dec 2011 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2011-12-15-euler-problem-104.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
 </item>
 
-    </channel> 
+    </channel>
 </rss>

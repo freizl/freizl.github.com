@@ -43,7 +43,7 @@
   <div class="body clear">
   
 <h2 id="notes">Notes</h2>
-<pre class="sourceCode perl"><code class="sourceCode perl">Matching <span class="kw">and</span> Capture, <span class="kw">or</span> just <span class="kw">not</span> Capture
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">Matching <span class="kw">and</span> Capture, <span class="kw">or</span> just <span class="kw">not</span> Capture
 (?:...) <span class="kw">and</span> (...)
 
 
@@ -58,8 +58,8 @@ perl <span class="kw">-p</span> -i <span class="kw">-e</span> <span class="kw">'
 
 
 ? What is <span class="kw">'</span><span class="st">m</span><span class="kw">'</span> modifier
-<span class="dt">$text</span> =~ <span class="kw">s/</span><span class="ch">^$</span><span class="kw">/</span><span class="st">&lt;p&gt;</span><span class="kw">/mg</span>;</code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl">Lookaround
+<span class="dt">$text</span> =~ <span class="kw">s/</span><span class="ch">^$</span><span class="kw">/</span><span class="st">&lt;p&gt;</span><span class="kw">/mg</span>;</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">Lookaround
   (?= ...) (?! ...) (?&lt;= ...) (?&lt;! ...)
   - lookaround does <span class="kw">not</span> consume text
   - (?=Jeffery)Jeff <span class="kw">&lt;P61&gt;</span>
@@ -87,14 +87,14 @@ perl <span class="kw">-p</span> -i <span class="kw">-e</span> <span class="kw">'
 <span class="st">  &quot;this and not that&quot;</span>
 
 <span class="st">Greedy quantifiers &lt;P139&gt;</span>
-<span class="st">Lazy (Non-Greedy) quantifiers</span></code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl">quiz
+<span class="st">Lazy (Non-Greedy) quantifiers</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">quiz
 where does fat|cat|belly|you match in the string
  <span class="kw">&quot;</span><span class="st">The dragging belly indicates your cat is too fat</span><span class="kw">&quot;</span>
 
 Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span class="st">Copyright 2003</span><span class="kw">&quot;</span>,
- what<span class="kw">'</span><span class="st">s captured by parentheses?</span></code></pre>
-<pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### &quot;look around&quot;</span>
+ what<span class="kw">'</span><span class="st">s captured by parentheses?</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### &quot;look around&quot;</span>
 <span class="dt">$test</span> = <span class="kw">&quot;</span><span class="st">see Jeffs book</span><span class="kw">&quot;</span>;
 <span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ch">(?&lt;=</span><span class="ot">Jeff</span><span class="ch">)(?=</span><span class="ot">s</span><span class="ch">)</span><span class="kw">/</span><span class="st">'</span><span class="kw">/g</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;    <span class="co">### expect see Jeff's book</span>
@@ -104,7 +104,7 @@ Apply ^.*([<span class="dv">0-9</span>]+) to <span class="kw">&quot;</span><span
 <span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ch">\G</span><span class="ot">x</span><span class="ch">?</span><span class="kw">/</span><span class="st">!</span><span class="kw">/g</span>;
 <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !abcde</span>
 <span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ot">\x</span><span class="ch">?</span><span class="kw">/</span><span class="st">!</span><span class="kw">/g</span>;
-<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></code></pre>
+<span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="kw">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></code></pre></div>
 <h2 id="reference">Reference</h2>
   </div>
 
