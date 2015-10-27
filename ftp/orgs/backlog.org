@@ -1,0 +1,40 @@
+* Misc
+** clean up some existing
+   - [ ] evernote
+   - [ ] gist
+   - [ ] dropbox paper -> github
+   - [ ] amazon paper -> github
+   - [ ] chrome bookmarks
+
+
+* OnlineCourse
+
+** TODO Codeschool - SASS
+** TODO [[https://www.coursera.org/course/softwaresec][Coursera - Sofaware Security]]
+** TODO [[https://www.udacity.com/course/interactive-3d-graphics--cs291][Interactive 3D Graphics]]
+** TODO [[https://www.coursera.org/course/compdata][Coursea - Computing for Data Analysis]]
+** TODO [[https://www.udacity.com/course/cs212][Udacity - Design of Computer Programs]]
+** TODO [[https://www.udacity.com/course/cs271][Udacity - Intro to Artificial Intelligence]]
+
+* Books
+
+** TODO Beatiful Code
+** TODO Introduce to Algorithm
+** TODO Agile Software Development, Principles, Patterns, and Practices
+** TODO Programming Pearls 1,2
+** TODO [[http://patrickcollison.com/svhistory][Silicon Valley History]]
+   - Geek Silicon Valley, by Ashlee Van Vance
+   - Revolution in The Valley: The Insanely Great Story of How the Mac Was Made, by Andy Hertzfeld
+   - Making Silicon Valley: Innovation and the Growth of High Tech , Christophe Lécuyer
+   - The Chip: How Two Americans Invented the Microchip and Launched a Revolution, T.R. Reid
+   - Dealers of Lightning, Michael A. Hiltzik
+   - The Idea Factory: Bell Labs and the Great Age of American Innovation, Jon Gertner
+   - Computer Lib/Dream Machines Paperback, Theodor H. Nelson
+** DONE SF Bay Area, MUST-DO HIKES FOR EVERYONE
+   CLOSED: [2015-10-26 Mon 22:54]
+** TODO The essences of classical music
+
+* Videos
+
+** TODO mit - Gödel, Escher, Bach
+** TODO mit - Mathematics for Computer Science
