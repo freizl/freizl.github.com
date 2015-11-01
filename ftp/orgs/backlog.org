@@ -37,7 +37,6 @@ respect to that composition.
 
 * OnlineCourse
 
-** TODO [[https://www.coursera.org/course/softwaresec][Coursera - Sofaware Security]]
 ** TODO [[https://www.coursera.org/course/compdata][Coursea - Computing for Data Analysis]]
 ** TODO [[https://www.udacity.com/course/interactive-3d-graphics--cs291][Udacity - Interactive 3D Graphics]]
 ** TODO [[https://www.udacity.com/course/cs212][Udacity - Design of Computer Programs]]
