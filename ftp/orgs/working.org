@@ -1,6 +1,7 @@
-* INPROGRESS clean up some existing
-  - [ ] evernote
-  - [ ] gist
-  - [ ] dropbox paper -> github
-  - [ ] amazon paper -> github
-  - [ ] chrome bookmarks
+* DONE clean up some existing
+  CLOSED: [2015-11-01 Sun 10:51]
+  - [X] evernote
+  - [X] gist
+  - [X] dropbox paper -> github
+  - [X] amazon paper -> github
+  - [X] chrome bookmarks
