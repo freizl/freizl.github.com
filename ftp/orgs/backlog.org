@@ -1,18 +1,45 @@
-* Misc
-** clean up some existing
-   - [ ] evernote
-   - [ ] gist
-   - [ ] dropbox paper -> github
-   - [ ] amazon paper -> github
-   - [ ] chrome bookmarks
+* Articles
+** TODO [[http://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/][category-theory-for-programmers-the-preface]]
+*** Questions
+     - How to understand "Haskell types are sets and functions are
+       math function"?
+       - Object has 0 type Void
+       - Object has 1 type unit/()
+       - Object has 2 types True | False, type Boolean
+       - Monoid category only has one Object
+
+     - isomorphisim
+
+     - Keleis Category
+*** Interesting quotes
+
+#+BEGIN_QUOTE
+In the ideal world we would just say that Haskell types are sets and
+Haskell functions are mathematical functions between sets.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+That means we do reason about programs we write, and we usually do it
+by running an interpreter in our heads. It’s just really hard to keep
+track of all the variables. Computers are good at running programs —
+humans are not! If we were, we wouldn’t need computers.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+For our limited purposes, a Kleisli category has, as objects, the
+types of the underlying programming language. Morphisms from type A to
+type B are functions that go from A to a type derived from B using the
+particular embellishment. Each Kleisli category defines its own way of
+composing such morphisms, as well as the identity morphisms with
+respect to that composition.
+#+END_QUOTE
 
 
 * OnlineCourse
 
-** TODO Codeschool - SASS
 ** TODO [[https://www.coursera.org/course/softwaresec][Coursera - Sofaware Security]]
-** TODO [[https://www.udacity.com/course/interactive-3d-graphics--cs291][Interactive 3D Graphics]]
 ** TODO [[https://www.coursera.org/course/compdata][Coursea - Computing for Data Analysis]]
+** TODO [[https://www.udacity.com/course/interactive-3d-graphics--cs291][Udacity - Interactive 3D Graphics]]
 ** TODO [[https://www.udacity.com/course/cs212][Udacity - Design of Computer Programs]]
 ** TODO [[https://www.udacity.com/course/cs271][Udacity - Intro to Artificial Intelligence]]
 

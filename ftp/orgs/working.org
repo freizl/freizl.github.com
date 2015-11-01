@@ -1,0 +1,6 @@
+* INPROGRESS clean up some existing
+  - [ ] evernote
+  - [ ] gist
+  - [ ] dropbox paper -> github
+  - [ ] amazon paper -> github
+  - [ ] chrome bookmarks
