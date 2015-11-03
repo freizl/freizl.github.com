@@ -1035,11 +1035,12 @@ The sum is:  6</code></pre>
 </table></li>
 <li><p>Probability calculation</p></li>
 </ul>
-<pre class="sh"><code>P(D=T|U=T,W=T)
-  = ( P(1) + P(2) ) / ( P(1) + P(2 )+ ... + P(4) )
-  = (0.96*0.90*0.3*0.335 + 0.96*0.90*0.7*0.3 ) / (...)
-  = 0.3 * 1.035 / (0.3 * 1.035 + 0.3 * 0.665 + 0.7 * 0.7)
-  = 31.05%</code></pre>]]></description>
+<div class="sourceCode"><pre class="sourceCode fortran"><code class="sourceCode fortran">
+P(D<span class="kw">=</span>T<span class="kw">|</span>U<span class="kw">=</span>T,W<span class="kw">=</span>T)
+  <span class="kw">=</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span>) ) <span class="kw">/</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span> )<span class="kw">+</span> ... <span class="kw">+</span> P(<span class="dv">4</span>) )
+  <span class="kw">=</span> (<span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.3</span><span class="kw">*</span><span class="fl">0.335</span> <span class="kw">+</span> <span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.7</span><span class="kw">*</span><span class="fl">0.3</span> ) <span class="kw">/</span> (...)
+  <span class="kw">=</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">/</span> (<span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">+</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">0.665</span> <span class="kw">+</span> <span class="fl">0.7</span> <span class="kw">*</span> <span class="fl">0.7</span>)
+  <span class="kw">=</span> <span class="fl">31.05</span>%</code></pre></div>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-bayesian-network-exe01.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
