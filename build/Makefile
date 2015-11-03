@@ -1,30 +1,21 @@
-SB=.cabal-sandbox
-PD=$(SB)/bin/pandoc
-
-PROG  = $(SB)/bin/freizl
+PD=pandoc
 
 .PHONY: slides
 
-default: install
+default: build
 
 clean:
-	rm -rf dist
 	rm -rf _site
+	stack exec freizl clean
 
 build:
-	cabal configure
-	cabal build
+	stack build
 
-install: build slides
-	cabal install
+install:
+	stack instal
 
 run:
-	$(PROG) clean
-	$(PROG) build
-
-p:
-	$(PROG) watch
-
+	stack exec freizl watch
 
 ########## Mirror to github
 

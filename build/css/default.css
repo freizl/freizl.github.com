@@ -1,171 +1,68 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial;
-  font-size: 13px;
   line-height: 18px;
-  color: #333333;
-  background-color: #ffffff;
-  margin: 0px auto 0px auto;
-  padding: 50px 0;
-  width: 780px;
+  padding: 20px;
 }
 
-h1, h2, h3 {
-  color: #3F4549;
-}
-
-h1 {
-  font-weight: normal;
-  font-size: 2em;
-}
-
-.brand {
-  padding: 40px 0 40px 10px;
-  margin: 5px;
-  background-color: #EEE;
-  display: block;
-  font-size: 3em;
-  color: #3F4549;
-}
-.brand:hover {
-  color: #3F4549;
+a {
   text-decoration: none;
+}
+
+div.sourceCode {
+  border: 1px solid #C3C3C3;
+  border-radius: 5px;
+  padding-left:5px;
 }
 
 .soft {
   font-style: italic;
-  font-size: 14px;
-  float: right;
+  font-size: 13px;
 }
 
 footer {
-  /* margin-top: 15px; */
-  /* padding-top: 15px; */
+  border-top: 1px solid #C3C3C3;
+  padding-top: 10px;
+
 }
 
-section.cv {
-  border: 1px solid #CCC;
-  padding: 5px 25px;
-  margin-top: 10px;
-}
+/* ================================================== */
+/* duplicated from pandoc `pandoc a.md -s -o test.html` */`
+/* ================================================== */
 
-.to-right {
-  float: right;
-}
+code{white-space: pre;}
 
-.to-left {
-  float: left;
-}
-
-.container {
-  margin: 15px 0;
-  border-bottom: 1px solid #C0C0C0;
-  border-top: 1px solid #C0C0C0;
-}
-
-.container h2 {
-  border-bottom: 1px solid #C0C0C0;
-  line-height: 40px;
-  margin-bottom: 10px;
-  padding: 0;
-}
-.container .boxer {
-  margin : 10px 5px;
-  padding: 10px;
-  /* border: 1px solid #C0C0C0; */
-}
-.container .boxer ul {
-  list-style:none;
-}
-.container .boxer ul li a{
-  font-size: 17px;
-  line-height: 30px
-}
-
-
-p {
-  margin: 0 0 9px;
-  font-size: 13px;
-  line-height: 18px;
-}
-p small {
-  font-size: 11px;
-  color: #999999;
-}
-
-a {
-  color: #0088cc;
-  text-decoration: none;
-}
-a:hover {
-  color: #005580;
-  text-decoration: underline;
-}
-
-
-ul,
-ol {
-  padding: 0;
-  margin: 0 0 9px 25px;
-}
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin-bottom: 0;
-}
-ul {
-  list-style: disc;
-}
-ol {
-  list-style: decimal;
-}
-li {
-  line-height: 18px;
-}
-ul.unstyled,
-ol.unstyled {
-  margin-left: 0;
-  list-style: none;
-}
-
-li:target,
-h2:target,
-h3:target {
-  background-color: #DEF;
-}
-
-.clear {
-  clear: both;
-}
-
-.footnotes li {
-  line-height : 12px;
-}
-.footnotes p {
-  line-height : 12px;
-  font-size: 11px
-}
-
-div.figure img {
-  width: 200px;
-}
-
-.hide {
-  display: none;
-}
-
-/* ------------------------------------- syntax */
-
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode, table.sourceCode pre{margin:0;padding:0;border:0;vertical-align:baseline;border:none}td.lineNumbers{border-right:1px solid #AAAAAA;text-align:right;color:#AAAAAA;padding-right:5px;padding-left:5px}td.sourceCode{padding-left:5px}pre.sourceCode{}pre.sourceCode span.Normal{}pre.sourceCode span.Keyword{color:#007020;font-weight:bold}pre.sourceCode span.DataType{color:#902000}pre.sourceCode span.DecVal{color:#40a070}pre.sourceCode span.BaseN{color:#40a070}pre.sourceCode span.Float{color:#40a070}pre.sourceCode span.Char{color:#4070a0}pre.sourceCode span.String{color:#4070a0}pre.sourceCode span.Comment{color:#60a0b0;font-style:italic}pre.sourceCode span.Others{color:#007020}pre.sourceCode span.Alert{color:red;font-weight:bold}pre.sourceCode span.Function{color:#06287e}pre.sourceCode span.RegionMarker{}pre.sourceCode span.Error{color:red;font-weight:bold}
-
-code {
-  border: 1px dotted #A0A0A0;
-  border-radius: 5px;
-}
-
-pre code {
-  display: block;
-  padding: 8px;
-  margin-bottom: 2em;
-  font-family: consolas, monospace, "Courier New";
-}
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */

@@ -1,5 +1,5 @@
 ---
-title: Curriculum Vitae - Haisheng Wu
+title: Resume - Haisheng Wu
 author: Haisheng, Wu
 ---
 
