@@ -1,0 +1,13 @@
+* Books
+** DONE SF Bay Area, MUST-DO HIKES FOR EVERYONE
+   CLOSED: [2015-10-26 Mon 22:54]
+
+** DONE [[https://web.stanford.edu/class/e145/2007_fall/materials/noyce.html][The Tinkerings of Robert Noyce]]
+* Misc
+** DONE clean up some existing
+   CLOSED: [2015-11-01 Sun 10:51]
+   - [X] evernote
+   - [X] gist
+   - [X] dropbox paper -> github
+   - [X] amazon paper -> github
+   - [X] chrome bookmarks

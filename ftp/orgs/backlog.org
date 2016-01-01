@@ -34,7 +34,6 @@ composing such morphisms, as well as the identity morphisms with
 respect to that composition.
 #+END_QUOTE
 
-
 * OnlineCourse
 
 ** TODO [[https://www.coursera.org/course/compdata][Coursea - Computing for Data Analysis]]
@@ -56,8 +55,6 @@ respect to that composition.
    - Dealers of Lightning, Michael A. Hiltzik
    - The Idea Factory: Bell Labs and the Great Age of American Innovation, Jon Gertner
    - Computer Lib/Dream Machines Paperback, Theodor H. Nelson
-** DONE SF Bay Area, MUST-DO HIKES FOR EVERYONE
-   CLOSED: [2015-10-26 Mon 22:54]
 ** TODO The essences of classical music
 
 * Videos

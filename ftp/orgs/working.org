@@ -1,8 +1,2 @@
-* DONE clean up some existing
-  CLOSED: [2015-11-01 Sun 10:51]
-  - [X] evernote
-  - [X] gist
-  - [X] dropbox paper -> github
-  - [X] amazon paper -> github
-  - [X] chrome bookmarks
-* TODO [[https://www.coursera.org/course/softwaresec][Coursera - Sofaware Security]]
+* INPROGRESS Thinking fast and slow                                 :READING:
+* TODO [[https://www.coursera.org/course/softwaresec][Coursera - Sofaware Security]]                                  :COURSE:
