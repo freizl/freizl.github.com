@@ -5,6 +5,8 @@
    CLOSED: [2015-10-26 Mon 22:54]
 
 ** DONE [[https://web.stanford.edu/class/e145/2007_fall/materials/noyce.html][The Tinkerings of Robert Noyce]]
+** DONE 大数据时代 生活、工作和思维的大变革
+   SCHEDULED: <2016-01-08 Fri>
 * Misc
 ** DONE clean up some existing
    CLOSED: [2015-11-01 Sun 10:51]
