@@ -25,16 +25,16 @@ author: Haisheng, Wu
   - **Operating System**: Ubuntu, CentOS, WindowsXP
 
 ## Work experience
-  - Apr 2012 - Present, Software Engineer at [eBay COE].\
+  - Apr 1 2012 - Dec 1 2014, Software Engineer at [eBay COE].\
     *Front end engineer at [StubHub] COE team*
-  - Sep 2011 - Feb 2012, Technical Staff at [C3-e] Tech (Shanghai) Co.
+  - Sep 18 2011 - Feb 2012, Technical Staff at [C3-e] Tech (Shanghai) Co.
     Ltd.\
     *UI and applications engineer.*
-  - Oct 2010 - Sep 2011, Senior Engineer at [EMC] CoE Shanghai.\
+  - Nov 1 2010 - Sep 15 2011, Senior Engineer at [EMC] CoE Shanghai.\
     *Applications & tools engineer and build master.*
-  - Oct 2006 - Oct 2010, Senior Engineer at [Perficient China] Ltd.\
+  - Nov 13 2006 - Oct 28 2010, Senior Technical Consultant at [Perficient China] Ltd.\
     *Enterprise Software engineer.*
-  - July 2005 - Oct 2006, Engineer at Zhejiang Guotai Tech Inc.\
+  - July 2005 - Nov 2006, Engineer at Zhejiang Guotai Tech Inc.\
     *Web based Java application engineer.*
 
 [StubHub]: http://www.stubhub.com/
