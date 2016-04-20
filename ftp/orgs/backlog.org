@@ -37,11 +37,14 @@ respect to that composition.
 #+END_QUOTE
 
 * OnlineCourse
-
 ** TODO [[https://www.coursera.org/course/compdata][Coursea - Computing for Data Analysis]]
 ** TODO [[https://www.udacity.com/course/interactive-3d-graphics--cs291][Udacity - Interactive 3D Graphics]]
 ** TODO [[https://www.udacity.com/course/cs212][Udacity - Design of Computer Programs]]
 ** TODO [[https://www.udacity.com/course/cs271][Udacity - Intro to Artificial Intelligence]]
+
+** cryptography and applied cryptography
+   - http://cryptopals.com/
+   - security engineer
 
 * Books
 

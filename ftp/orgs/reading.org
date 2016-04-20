@@ -1,0 +1,5 @@
+* From Mathematics to Generic Programming
+** chapter 3
+   1. [ ] not really understand c++ impl of sieve prime
+   2. [ ] There is no segment that can measure both the side and the
+      diagonal of a square
