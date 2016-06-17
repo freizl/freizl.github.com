@@ -1,7 +1,1 @@
 #+TITLE: In Progress
-
-* INPROGRESS Thinking fast and slow                                 :READING:
-  SCHEDULED: <2016-01-01 Fri>
-* INPROGRESS 曾国藩家书                                             :READING:
-  SCHEDULED: <2016-01-12 Tue>
-* TODO [[https://www.coursera.org/course/softwaresec][Coursera - Sofaware Security]]                                  :COURSE:
