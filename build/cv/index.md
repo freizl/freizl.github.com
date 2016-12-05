@@ -5,38 +5,36 @@ author: Haisheng, Wu
 
 ## Profile
   - Email       : freizl [AT] gmail.com
-  - Born        : Jun 1983
   - github      : <http://github.com/freizl>
 
 ## Self assessment
-  - Be able to learn new technology quickly and work independently.
-  - Have taken initiative to proactively resolve the technical issues.
-  - Willing to share technical knowledge with team members actively.
+  - Great ability to quickly master new concepts and technologies.
   - Have great passion on development, delivery as well as problem solving.
   - Good team player and leadership experience.
-  - Have oversea working experience.
-  - Fluent English at both speaking and writing.
+  - Years of experience in JavaScript, HTML/CSS, AJAX as a Front End Engineer
+  - Years of experience in Java, especially in J2EE
+  - Experience with software development life cycle in agile way
+  - Experience in Object Oriented Programming (OOP)
 
 ## Technical skills
-  - **Languages**: JavaScript, Java, Haskell, Python, Shell, Perl
-  - **Web Technologies**: CSS, HTML, jQuery, AngularJS, BackboneJS, requireJS
-  - **Open source library**: NodeJS, Spring, Django, GWT
+  - **Languages**: JavaScript, HTML, CSS/LESS, Haskell, Elm, Python, Java, Scala
+  - **Technologies**: Git, NodeJS, RequireJS, Backbone, Jasmine, Mocha, sinon, express.js, connect.js, Selenium, Hoxy, jQuery, Mustache, Underscore, Ramda.js
   - **Database**: MySQL, Oracle, MongoDB
-  - **Operating System**: CentOS, Ubuntu, WindowsXP
+  - **Operating System**: CentOS, Ubuntu
 
 ## Work experience
-  - Apr 2012 - Present, Software Engineer at [eBay COE].\
-    *Front end engineer at StubHub COE team*
-  - Sep 2011 - Feb 2012, Technical Staff at [C3-e] Tech (Shanghai) Co.
+  - Jul 2014 - present, Senior Software Engineer at [Okta Inc.]
+  - Jan 2014 - May 2014, Application Engineer at [Beanstock Media]
+  - Dec 2014 - Jan 2015, Software Engineer at SKT Lab
+  - Apr 2012 - Dec 2014, Senior Front-End Engineer at [eBay COE]
+  - Sep 2011 - Feb 2012, Senior Technical Staff at [C3-e] Tech (Shanghai) Co.
     Ltd.\
-    *UI and applications engineer.*
-  - Oct 2010 - Sep 2011, Senior Engineer at [EMC] CoE Shanghai.\
-    *Applications & tools engineer and build master.*
+  - Oct 2010 - Sep 2011, Senior Engineer at [EMC] CoE Shanghai.
   - Oct 2006 - Oct 2010, Senior Engineer at [Perficient China] Ltd.\
-    *Enterprise Software engineer.*
   - July 2005 - Oct 2006, Engineer at Zhejiang Guotai Tech Inc.\
-    *Web based Java application engineer.*
 
+[Okta Inc.]: http://www.okta.com/
+[Beanstock Media]: http://www.beanstockmedia.com/
 [StubHub]: http://www.stubhub.com/
 [eBay COE]: http://wwww.ebay.com/
 [C3-e]: http://www.c3-e.com/
