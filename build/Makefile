@@ -8,13 +8,10 @@ clean:
 	rm -rf _site
 	stack exec freizl clean
 
-build:
+build: clean
 	stack build
 
-install:
-	stack install
-
-run:
+watch:
 	stack exec freizl watch
 
 ########## Mirror to github
