@@ -3,9 +3,8 @@ module Main where
 
 import           Data.Monoid     ((<>))
 import           Prelude         hiding (id)
---import           System.Cmd      (system)
-import           System.Process      (system)
 import           System.FilePath (replaceExtension, takeDirectory)
+import           System.Process  (system)
 import qualified Text.Pandoc     as Pandoc
 
 import           Hakyll
@@ -31,13 +30,13 @@ main = hakyllWith config $ do
 
     -- just copy pre-compiled slides.
     match "slides/*.html" $ do
-        route   $ idRoute
-        compile $ copyFileCompiler
+        route   idRoute
+        compile copyFileCompiler
 
     -- Render each and every post
     match "posts/*" $ do
         route   $ setExtension ".html"
-        compile $ do
+        compile $
             -- pandocCompiler
             pandocCompilerToc
                 >>= saveSnapshot "content"
@@ -69,13 +68,13 @@ main = hakyllWith config $ do
                 >>= relativizeUrls
 
     -- Post tags
-    tagsRules tags $ \tag pattern -> do
+    tagsRules tags $ \tag patn -> do
         let title = "Posts tagged " ++ tag
 
         -- Copied from posts, need to refactor
         route idRoute
         compile $ do
-            posts <- recentFirst =<< loadAll pattern
+            posts <- recentFirst =<< loadAll patn
             let ctx = constField "title" title <>
                         listField "posts" (postCtx tags) (return posts) <>
                         defaultContext
@@ -85,9 +84,9 @@ main = hakyllWith config $ do
                 >>= relativizeUrls
 
         -- Create RSS feed as well
-        version "rss" $ do
+        version "rss" $
           route   $ setExtension "xml"
-        compile $ loadAllSnapshots pattern "content"
+        compile $ loadAllSnapshots patn "content"
           >>= fmap (take 8) . recentFirst
           >>= renderRss (feedConfiguration title) feedCtx
 
@@ -95,7 +94,7 @@ main = hakyllWith config $ do
     -- Render RSS feed
     create ["rss.xml"] $ do
         route idRoute
-        compile $ do
+        compile $
             loadAllSnapshots "posts/*" "content"
                 >>= fmap (take 20) . recentFirst
                 >>= renderRss (feedConfiguration "All posts") feedCtx
