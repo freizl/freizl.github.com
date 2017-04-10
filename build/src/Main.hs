@@ -151,8 +151,7 @@ main = hakyllWith config $ do
 
     withToc = defaultHakyllWriterOptions
         { Pandoc.writerTableOfContents = False
-        , Pandoc.writerTemplate = "$toc$\n$body$"
-        , Pandoc.writerStandalone = True
+        , Pandoc.writerTemplate = Just "$toc$\n$body$"
         }
 
 --------------------------------------------------------------------------------
