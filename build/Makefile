@@ -12,7 +12,7 @@ build:
 	stack build
 
 install:
-	stack instal
+	stack install
 
 run:
 	stack exec freizl watch
