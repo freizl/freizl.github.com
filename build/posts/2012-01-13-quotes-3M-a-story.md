@@ -1,5 +1,5 @@
 ---
-title: Quotes: A Century of Innovation - 3M
+title: Quotes A Century of Innovation 3M
 author: Haisheng, Wu
 tags: reading
 ---

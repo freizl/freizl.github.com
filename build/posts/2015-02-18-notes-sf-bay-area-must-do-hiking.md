@@ -1,5 +1,5 @@
 ---
-title: Notes: SF Bay Area, MUST-DO HIKES FOR EVERYONE
+title: Notes SF Bay Area, MUST-DO HIKES FOR EVERYONE
 author: Haisheng, Wu
 tags: reading
 ---

@@ -1,5 +1,5 @@
 ---
-title: Notes: Master of Regular Expression
+title: Notes Master of Regular Expression
 author: Haisheng, Wu
 tags: reading, regex
 ---

@@ -1,5 +1,5 @@
 ---
-title: Notes: Out of the Tar Pit
+title: Notes Out of the Tar Pit
 author: Haisheng, Wu
 tags: reading, paper
 ---
