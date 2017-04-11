@@ -2,17 +2,35 @@ PD=pandoc
 
 .PHONY: slides
 
-default: build
+default: rebuild
 
-clean:
-	rm -rf _site
-	stack exec freizl clean
+###
+### build the tool
+###
 
-build: clean
+rebuild:
+	stack clean
 	stack build
+
+build:
+	stack build
+
+buildw:
+	stack build --file-watch
+
+
+###
+### generates site
+###
+freizl:
+	stack exec freizl build
 
 watch:
 	stack exec freizl watch
+
+refreizl:
+	stack exec freizl clean
+	stack exec freizl build
 
 ########## Mirror to github
 
