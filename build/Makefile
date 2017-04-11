@@ -34,8 +34,7 @@ refreizl:
 
 ########## Mirror to github
 
-deploy:
-	stack exec freizl build
+deploy: refreizl
 	cp -r _site/* ../
 
 ########## Compile slides

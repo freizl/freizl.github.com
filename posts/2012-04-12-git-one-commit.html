@@ -42,58 +42,55 @@
         
 <h2 id="play-it">Play it</h2>
 <h3 id="new-two-files">new two files</h3>
-<pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &quot;11111&quot; &gt; 1.txt
-haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &quot;22222&quot; &gt; 2.txt</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ echo <span class="st">&quot;11111&quot;</span> <span class="op">&gt;</span> 1.txt
+<span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ echo <span class="st">&quot;22222&quot;</span> <span class="op">&gt;</span> 2.txt</code></pre></div>
 <h3 id="git-add">git-add</h3>
-<pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add .
-haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
-# On branch master
-#
-# Initial commit
-#
-# Changes to be committed:
-#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
-#
-#	new file:   1.txt
-#	new file:   2.txt
-#</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git add .
+<span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git st
+<span class="co"># On branch master</span>
+<span class="co">#</span>
+<span class="co"># Initial commit</span>
+<span class="co">#</span>
+<span class="co"># Changes to be committed:</span>
+<span class="co">#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span>
+<span class="co">#</span>
+<span class="co">#	new file:   1.txt</span>
+<span class="co">#	new file:   2.txt</span>
+<span class="co">#</span></code></pre></div>
 <h3 id="no-objects-created-yet">no objects created yet</h3>
-<pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git rev-list --objects --all</code></pre></div>
 <h3 id="git-commit">git-commit</h3>
-<pre class="sh"><code>haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci &quot;first commit&quot;
-[master (root-commit) 8ef1919] first commit
- 2 files changed, 2 insertions(+), 0 deletions(-)
- create mode 100644 1.txt
- create mode 100644 2.txt
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git ci <span class="st">&quot;first commit&quot;</span>
+[<span class="ex">master</span> (root-commit) <span class="ex">8ef1919</span>] first commit
+ <span class="ex">2</span> files changed, 2 insertions(+), <span class="ex">0</span> deletions(-)
+ <span class="ex">create</span> mode 100644 1.txt
+ <span class="ex">create</span> mode 100644 2.txt</code></pre></div>
 <h3 id="git-obj-list">git-obj-list</h3>
-<pre class="sh"><code>
-haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
-8ef1919e4ca33cf602488a27b5671a6b6acf754b
-8ed6deeabbbb89cda775aafc10745ea40dcd8456
-f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f 1.txt
-0ac1ae0ae201d8db7ac29015a6ba7494db37d59c 2.txt
-</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash">
+<span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git rev-list --objects --all
+<span class="ex">8ef1919e4ca33cf602488a27b5671a6b6acf754b</span>
+<span class="ex">8ed6deeabbbb89cda775aafc10745ea40dcd8456</span>
+<span class="ex">f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f</span> 1.txt
+<span class="ex">0ac1ae0ae201d8db7ac29015a6ba7494db37d59c</span> 2.txt</code></pre></div>
 <h3 id="what-are-they">what are they</h3>
-<pre class="sh"><code>## | Blob objects
-~/github/haisheng-homepage/test$ git cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
-11111
-~/github/haisheng-homepage/test$ git cat-file -p 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c
-22222
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">## | Blob objects</span>
+<span class="ex">~/github/haisheng-homepage/test</span>$ <span class="fu">git</span> cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
+<span class="ex">11111</span>
+<span class="ex">~/github/haisheng-homepage/test</span>$ <span class="fu">git</span> cat-file -p 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c
+<span class="ex">22222</span>
 
-## | Commit objects
-~/github/haisheng-homepage/test$ git cat-file -p 8ef1919e4ca33cf602488a27b5671a6b6acf754b
-tree 8ed6deeabbbb89cda775aafc10745ea40dcd8456
-author Haisheng.W.WU &lt;freizl@gmail.com&gt; 1334230087 +0800
-committer Haisheng.W.WU &lt;freizl@gmail.com&gt; 1334230087 +0800
+<span class="co">## | Commit objects</span>
+<span class="ex">~/github/haisheng-homepage/test</span>$ <span class="fu">git</span> cat-file -p 8ef1919e4ca33cf602488a27b5671a6b6acf754b
+<span class="ex">tree</span> 8ed6deeabbbb89cda775aafc10745ea40dcd8456
+<span class="ex">author</span> Haisheng.W.WU <span class="op">&lt;</span>freizl@gmail.com<span class="op">&gt;</span> 1334230087 +0800
+<span class="ex">committer</span> Haisheng.W.WU <span class="op">&lt;</span>freizl@gmail.com<span class="op">&gt;</span> 1334230087 +0800
 
-first commit
+<span class="ex">first</span> commit
 
-## | Tree objects
-~/github/haisheng-homepage/test$ git cat-file -p 8ed6deeabbbb89cda775aafc10745ea40dcd8456
-100644 blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f	1.txt
-100644 blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c	2.txt
-</code></pre>
+<span class="co">## | Tree objects</span>
+<span class="ex">~/github/haisheng-homepage/test</span>$ <span class="fu">git</span> cat-file -p 8ed6deeabbbb89cda775aafc10745ea40dcd8456
+<span class="ex">100644</span> blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f	1.txt
+<span class="ex">100644</span> blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c	2.txt</code></pre></div>
 <h2 id="further">Further</h2>
 <ul>
 <li><a href title="http://book.git-scm.com/">Git object model</a></li>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="HaishengWu" />
+        <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="description" content="Haisheng programming life" />
+
+        <title>λ Corner - Somes notes to BayArea Haskell Hackathon 2017</title>
+        <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+        <link rel="icon" type="image/png" href="../images/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-6496210-5', 'freizl.github.io');
+         ga('send', 'pageview');
+        </script>
+    </head>
+
+    <body>
+        <div id="main">
+
+            <nav>
+                <a href="../" class>HOME</a>
+                <span> / </span>
+                <a href="../posts.html">POSTS</a>
+            </nav>
+
+            <div class="container">
+                <div class="boxer">
+
+    <h1>Somes notes to BayArea Haskell Hackathon 2017</h1>
+
+    <div class="soft">
+        <span>April  9, 2017, Tags: </span><a href="../tags/meetup.html">meetup</a>
+    </div>
+
+    <div class="body clear">
+        
+<h2 id="some-notes-to-sessions">Some notes to sessions</h2>
+<ul>
+<li>BayArea Haskell Hackathon 2017 wiki home <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
+</ul>
+<h3 id="haskell-for-flight-control-at-kittyhawk-by-greg-horn">Haskell for Flight Control at Kittyhawk by Greg Horn</h3>
+<ul>
+<li>arrived a little later after session was started and the session didn’t last as long as 50 minutes.</li>
+<li>the scenario is they’re using haskell to genarate lots of C++ code to control motor of flight devices but missed the key concept how to convert Haskell to C++?</li>
+</ul>
+<h3 id="how-to-create-a-new-haskell-project-by-gabriel-gonzalez">How to create a new Haskell project by Gabriel Gonzalez</h3>
+<ul>
+<li>Quite practical introduction session</li>
+<li><code>Setup.hs</code> could be used to customize build. Shall check more details what it can do.</li>
+<li><code>doctest</code> library could check haddock coverage. fabulous!</li>
+<li><code>multi-ghc-travis</code> could test library against multiple ghc at travis. Interesting. While I still it’s a lot easier to utilize multiple stack yaml files.</li>
+<li>Best practice: always to add example to haddock.</li>
+<li>Best practice: 100% haddock coverage.</li>
+</ul>
+<h3 id="putting-lenses-to-work-by-john-wiegley">Putting lenses to work by John Wiegley</h3>
+<ul>
+<li>recommend SPJ lens talk at skill matter <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> which insprise John</li>
+<li>take away: “use lenses in application and write your own lenses function for library”</li>
+<li>my question is that will your own lenses functions compatible with the <code>lens</code> library when people uses my library and use <code>lens</code> library at same time.</li>
+<li>lens comes has theory background (semantic editor contract??) plus Functor and ProFunctor.</li>
+</ul>
+<h3 id="all-about-applicative---adelbert-chang">All About Applicative - Adelbert Chang</h3>
+<ul>
+<li>free applicative (inspired by free monad)</li>
+<li><code>Const</code> and <code>Identity</code> are pretty interesting. (quite similar usage from SPJ talk <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>)</li>
+<li>the key point is use data type (data structor) to represents program so that could do static analysis along with when program is running, and base on the assumption that the analysis doesn’t need to know the program computation result.</li>
+<li>code samples at here <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">FileIOF</span> a <span class="kw">where</span>
+  <span class="dt">FileRead</span><span class="ot"> ::</span> FilePath <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> <span class="dt">String</span>
+  <span class="dt">FileWrite</span><span class="ot"> ::</span> FilePath <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> ()
+
+<span class="co">-- the program is created in terms of data</span>
+program <span class="fu">=</span> fileRead <span class="st">&quot;hello.txt&quot;</span> <span class="fu">*&gt;</span> fileWrite <span class="st">&quot;hello.txt&quot;</span> <span class="st">&quot;hello!&quot;</span></code></pre></div>
+<h3 id="real-world-uis-with-reflex-by-doug-beardsley">Real World UIs with Reflex by Doug Beardsley</h3>
+<ul>
+<li>It’s so great to meet Doug in person who is co-author of snap which I was using years ago!</li>
+<li>never use reflex before so cant understand lots of content from talk</li>
+<li>still didnt buy the idea using FRP and GHCJS for frontend.</li>
+</ul>
+<h3 id="dont-eff-it-up-free-monads-in-action-by-sandy-maguire">Don’t Eff It Up: Free Monads in Action by Sandy Maguire</h3>
+<ul>
+<li>quite interesting talk. an smart to way to run program in <code>IO</code> (usually) and test in within another Monad.</li>
+<li>again, use data type to represent program</li>
+<li>free monad, he uses library called <code>free-effect</code>.</li>
+<li>slides: http://reasonablypolymorphic.com/dont-eff-it-up/</li>
+</ul>
+<h3 id="adjunctions-in-everyday-life-by-rúnar-bjarnason">Adjunctions in Everyday Life by Rúnar Bjarnason</h3>
+<ul>
+<li>too theoretical to be understood</li>
+<li>looks very beautiful</li>
+<li>more like an proof to existing know stuff rather than discover news</li>
+</ul>
+<h3 id="epilogue">Epilogue</h3>
+<ul>
+<li>Some sessions were happening in parallel at certain time period and some of them I missed seems interesting. Would watch videos after.</li>
+</ul>
+<h2 id="home-work">Home work</h2>
+<ul>
+<li>what’s the fundimental theory of <code>Functor</code>, <code>Applicative</code>?</li>
+<li>lens</li>
+<li>free monad</li>
+<li>GADT</li>
+<li>type family</li>
+</ul>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://wiki.haskell.org/BayHac2017">BayHac2017 wiki home</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://github.com/adelbertc/bayhac17/blob/master/src/Main.hs">adelbertc bayhac 2017</a><a href="#fnref4">↩</a></p></li>
+</ol>
+</div>
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+            </div>
+
+            <footer>
+                Copyright 2009-<script>document.write(new Date().getFullYear())</script> Haisheng Wu /
+                <a href="https://github.com/freizl/">Github</a>
+                <span> / </span>
+                <a href="../rss.xml" type="application/rss+xml">RSS</a>
+                <span> / site generated by </span>
+                <a href="http://github.com/jaspervdj/hakyll">Hakyll</a>
+            </footer>
+
+        </div>
+    </body>
+</html>

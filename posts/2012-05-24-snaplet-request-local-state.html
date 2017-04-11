@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="HaishengWu" />
+        <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="description" content="Haisheng programming life" />
+
+        <title>λ Corner - 对Snaplet的Request local state的理解</title>
+        <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
+        <link rel="icon" type="image/png" href="../images/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                                  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-6496210-5', 'freizl.github.io');
+         ga('send', 'pageview');
+        </script>
+    </head>
+
+    <body>
+        <div id="main">
+
+            <nav>
+                <a href="../" class>HOME</a>
+                <span> / </span>
+                <a href="../posts.html">POSTS</a>
+            </nav>
+
+            <div class="container">
+                <div class="boxer">
+
+    <h1>对Snaplet的Request local state的理解</h1>
+
+    <div class="soft">
+        <span>May 24, 2012, Tags: </span><a href="../tags/snap.html">snap</a>, <a href="../tags/snaplet.html">snaplet</a>
+    </div>
+
+    <div class="body clear">
+        
+<h3 id="什么snaplet">什么Snaplet</h3>
+<p>Snap从0.6版本引入Snaplet这个设计，它使得Web应用什么可组合化，开发者可以设计许多独立的功能模块，或者说小的应用模块，然后通过组合以组建一个大型的应用。</p>
+<p>详细资料请看这里<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。</p>
+<h3 id="request-local-state">Request local state</h3>
+<p><strong>Request Local State</strong> 是snaplet的一个设计目标<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。初识时并没引起什么关注，也是不太理解具体含义。最近在写Snaplet-OAuth的时候遇到问题，就是由于不知道这个东西的含义所造成的。</p>
+<h3 id="snaplet-oauth-0.0.0">Snaplet-oauth-0.0.0</h3>
+<p>根据Snaplet的常规模式，定义一个data type用于保存相关信息，比如</p>
+<pre><code>data OAuthSnaplet = OAuthSnaplet 
+                    { getOauth     :: OAuth2
+                    , getCodeParam :: BS.ByteString
+                    } 
+
+class HasOauth b where
+    oauthLens :: Lens b (Snaplet OAuthSnaplet)
+
+data OAuth2 = OAuth2 { oauthClientId :: BS.ByteString
+                     , oauthClientSecret :: BS.ByteString
+                     , oauthOAuthorizeEndpoint :: BS.ByteString
+                     , oauthAccessTokenEndpoint :: BS.ByteString
+                     , oauthCallback :: Maybe BS.ByteString
+                     , oauthAccessToken :: Maybe BS.ByteString
+                     } deriving (Show, Eq)</code></pre>
+<p>如果从Monad State Trans的角度去理解， <code>OAuthSnaplet</code>就是一个要成为State的一个用户类型。 <code>HasOauth</code>可以理解为用户和其他Snaplet组合的接口。</p>
+<p>如下代码就展示了如果将OAuthSnaplet加入到一个新的应用程序。(其实就是另一个Snaplet) 如果你已用过其他Snaplet，这看上去会很熟悉、常规。</p>
+<pre><code>data App = App
+    { _weibo   :: Snaplet OAuthSnaplet
+    }
+
+makeLens ''App
+
+instance HasOauth App where
+   oauthLens = weibo</code></pre>
+<p>拿新浪微薄<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>举例，OAuth的验证简单来说就是</p>
+<ol style="list-style-type: decimal">
+<li>重定向到新浪微薄OAuth的验证页面，让用户授权</li>
+<li>授权后新浪微薄会调用我们的App指定的Callback URL</li>
+<li>我们需要实现这个Callback已获取最终的access token</li>
+</ol>
+<p>下面来看下这个callback的实现</p>
+<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="sourceCode"><pre><code class="sourceCode haskell">
+<span class="ot">oauthCallbackHandler ::</span> <span class="dt">HasOauth</span> b 
+                     <span class="ot">=&gt;</span> <span class="dt">Maybe</span> <span class="dt">BS.ByteString</span>
+                     <span class="ot">-&gt;</span> <span class="dt">Handler</span> b b ()
+oauthCallbackHandler uri <span class="fu">=</span> <span class="kw">do</span>
+    oauthSnaplet <span class="ot">&lt;-</span> getOauthSnaplet
+    codeParam    <span class="ot">&lt;-</span> decodedParam' (getCodeParam oauthSnaplet)
+    oauth        <span class="ot">&lt;-</span> getOauth oauthSnaplet
+    maybeToken   <span class="ot">&lt;-</span> liftIO <span class="fu">$</span> requestAccessToken oauth codeParam
+    <span class="kw">case</span> maybeToken <span class="kw">of</span> 
+        <span class="dt">Just</span> token <span class="ot">-&gt;</span> <span class="kw">do</span>
+             updateOAuthSnaplet (modify <span class="fu">$</span> modifyOAuthState token)
+             redirect <span class="fu">$</span> fromMaybe <span class="st">&quot;/&quot;</span> uri 
+        _ <span class="ot">-&gt;</span> writeBS <span class="st">&quot;Error getting access token.&quot;</span>
+
+
+<span class="ot">modifyOAuthState ::</span> <span class="dt">AccessToken</span> <span class="ot">-&gt;</span> <span class="dt">OAuthSnaplet</span> <span class="ot">-&gt;</span> <span class="dt">OAuthSnaplet</span>
+modifyOAuthState (<span class="dt">AccessToken</span> at) oa <span class="fu">=</span> <span class="dt">OAuthSnaplet</span> { getOauth <span class="fu">=</span> newOA, getCodeParam <span class="fu">=</span> getCodeParam oa }
+                                       <span class="kw">where</span> newOA <span class="fu">=</span> originOA { oauthAccessToken <span class="fu">=</span> <span class="dt">Just</span> at }
+                                             originOA <span class="fu">=</span> getOauth oa
+
+<span class="ot">updateOAuthSnaplet ::</span> (<span class="dt">MonadSnaplet</span> m) <span class="ot">=&gt;</span> m b <span class="dt">OAuthSnaplet</span> a <span class="ot">-&gt;</span> m b <span class="dt">OAuthSnaplet</span> a
+updateOAuthSnaplet <span class="fu">=</span> with' oauthLens</code></pre></td></tr></table></div>
+<p>这里主要关注的是第11行到13行，<code>Just token</code>表示成功获取了AccessToken，然后要</p>
+<ol style="list-style-type: decimal">
+<li>将OAuthSnpalet里的oauth的AccessToken更新掉。</li>
+<li>然后将更新后OAuthSnaplet替代掉原来的</li>
+</ol>
+<p>这样一来OAuthSnaplet就有AccessToken，在往后的Handler都可以拿到这个AcceeToken来访问微薄资源。</p>
+<p>然后事实并不是这样子，在这个oauthCallbackHandler对OAuthSnaplet的更新只限于这个Handler。 <strong>因为snap是多线程的且线程安全，每一次的request都是对snaplet状态的一份新拷贝。</strong> 而由于初始化OauthSnaplet的时候是没有AccessToken的，这就意谓着所有的Handler默认读到的AccessToken是空的。</p>
+<h3 id="如何解决">如何解决</h3>
+<p>解决方案就是把<code>OAuthSnaplet</code>里的<code>oauth</code>变成一个共享变量，这样可以在多线程之间共享。</p>
+<p>一种实现方式就是用<code>MVar</code><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>，这样OAuthSnaplet就成了这样子</p>
+<pre><code>data OAuthSnaplet = OAuthSnaplet 
+                    { getOauth     :: MVar OAuth2
+                    , getCodeParam :: BS.ByteString
+                    } </code></pre>
+<p>然后就很直观了，用<code>Control.Concurrent</code>库里提供的更新一个MVar的方式来做更新和读取。 最后的实现可以参考这里<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>，不在这里累赘。</p>
+<h3 id="还有什么问题">还有什么问题</h3>
+<p>你可能已经发现，这样的实现方式，如何支持多用户，以及多个OAuth Provider呢？ 我还没有答案，如果你知道怎么做，欢迎<a href="https://github.com/HaskellCNOrg/snaplet-oauth">send Pull Request</a>.</p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="http://snapframework.com/docs/tutorials/snaplets-tutorial">Snaplets Tutorial</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p><a href="http://snapframework.com/docs/tutorials/snaplets-design">Snaplets-Design</a><a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E">新浪微博授权机制说明</a><a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="http://www.haskell.org/ghc/docs/7.0-latest/html/libraries/base-4.3.1.0/Control-Concurrent-MVar.html">MVar</a><a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p><a href="https://github.com/HaskellCNOrg/snaplet-oauth">Snaplet-OAuth in Github</a><a href="#fnref5">↩</a></p></li>
+</ol>
+</div>
+    </div>
+
+    <div class="clear"></div>
+
+</div>
+
+            </div>
+
+            <footer>
+                Copyright 2009-<script>document.write(new Date().getFullYear())</script> Haisheng Wu /
+                <a href="https://github.com/freizl/">Github</a>
+                <span> / </span>
+                <a href="../rss.xml" type="application/rss+xml">RSS</a>
+                <span> / site generated by </span>
+                <a href="http://github.com/jaspervdj/hakyll">Hakyll</a>
+            </footer>
+
+        </div>
+    </body>
+</html>

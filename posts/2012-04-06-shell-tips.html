@@ -53,50 +53,50 @@
 </ul>
 <h2 id="sample-section-a">Sample Section A</h2>
 <h3 id="grep">grep</h3>
-<pre class="sh"><code>grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
-### count process and exclude grep itself
-ps aux | grep vpnc | grep -v grep -c</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> -Elr --include=*.xsd --exclude-dir=<span class="dt">{branches,tags}</span> VendorDesc.xsd <span class="va">$DIRECTORY</span>
+<span class="co">### count process and exclude grep itself</span>
+<span class="fu">ps</span> aux <span class="kw">|</span> <span class="fu">grep</span> vpnc <span class="kw">|</span> <span class="fu">grep</span> -v grep -c</code></pre></div>
 <h3 id="find">find</h3>
-<pre class="sh"><code>find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
-find $update_dir \( -name '*.java' \) \( -path '**/source/**' -o -path '**/test/**' -o -path '**/resource/**' \)</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">find</span> <span class="va">${1}</span> <span class="dt">\(</span> -name Consume*wsdl -o -name Produce*wsdl <span class="dt">\)</span> -path *trunk*
+<span class="fu">find</span> <span class="va">$update_dir</span> <span class="dt">\(</span> -name <span class="st">'*.java'</span> <span class="dt">\)</span> <span class="dt">\(</span> -path <span class="st">'**/source/**'</span> -o -path <span class="st">'**/test/**'</span> -o -path <span class="st">'**/resource/**'</span> <span class="dt">\)</span></code></pre></div>
 <h3 id="awk">awk</h3>
-<pre class="sh"><code>### list all time of each ping
-awk -F&quot;=&quot; '/time=/ {print substr($4,0,length($4)-3) }' &lt; ping.log
-### passing shell parameter to awk scripts
-svn st ${dirs} | awk -F&quot; &quot; -v ac=&quot;${*}&quot; ' /'${predicate}'/ &amp;&amp; (index($2,&quot;\\&quot;)==0 || gsub(/\\/,&quot;/&quot;,$2)) {print ac, $2}'
-### change Output Row Separator
-awk ' BEGIN { ORS = &quot; &quot; } { print }'</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">### list all time of each ping</span>
+<span class="fu">awk</span> -F<span class="st">&quot;=&quot;</span> <span class="st">'/time=/ {print substr($4,0,length($4)-3) }'</span> <span class="op">&lt;</span> ping.log
+<span class="co">### passing shell parameter to awk scripts</span>
+<span class="fu">svn</span> st <span class="va">${dirs}</span> <span class="kw">|</span> <span class="fu">awk</span> -F<span class="st">&quot; &quot;</span> -v ac=<span class="st">&quot;</span><span class="va">${*}</span><span class="st">&quot;</span> <span class="st">' /'</span><span class="va">${predicate}</span><span class="st">'/ &amp;&amp; (index($2,&quot;\\&quot;)==0 || gsub(/\\/,&quot;/&quot;,$2)) {print ac, $2}'</span>
+<span class="co">### change Output Row Separator</span>
+<span class="fu">awk</span> <span class="st">' BEGIN { ORS = &quot; &quot; } { print }'</span></code></pre></div>
 <h3 id="sed">sed</h3>
-<pre class="sh"><code>ll | sed '/Stores\|Test\|^-\|^t/d' | wc
-smbclient -L \\\\hangzhou2\\twitters -U foobar | sed '/Hangzhou20/,$d'
-export BEA_IP=`/sbin/ifconfig eth0 | sed '/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g'`</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">ll</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'/Stores\|Test\|^-\|^t/d'</span> <span class="kw">|</span> <span class="fu">wc</span>
+<span class="ex">smbclient</span> -L <span class="dt">\\\\</span>hangzhou2<span class="dt">\\</span>twitters -U foobar <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'/Hangzhou20/,$d'</span>
+<span class="bu">export</span> <span class="va">BEA_IP=</span><span class="kw">`</span><span class="ex">/sbin/ifconfig</span> eth0 <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g'</span><span class="kw">`</span></code></pre></div>
 <h3 id="cp">cp</h3>
-<pre class="sh"><code>cp filename{,.bak}</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cp</span> filename<span class="dt">{,.bak}</span></code></pre></div>
 <h2 id="sample-section-b">Sample Section B</h2>
 <h3 id="while">while</h3>
-<pre class="sh"><code>while getopts &quot;:ab:c&quot; opt; do
-	case $opt in
-	a ) echo &quot;I am a&quot; ;;
-	b ) echo $OPTARG  ;;
-	c ) echo &quot;i am c&quot; ;;
-	? ) echo &quot;usage : $0 [-a] [-b barg] [-c] args ..&quot;
-	    exit 1 ;;
-	esac
-    shift $(($OPTIND - 1))
-done</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">while</span> <span class="bu">getopts</span> <span class="st">&quot;:ab:c&quot;</span> opt<span class="kw">;</span> <span class="kw">do</span>
+	<span class="kw">case</span> <span class="va">$opt</span><span class="kw"> in</span>
+	a <span class="kw">)</span> <span class="bu">echo</span> <span class="st">&quot;I am a&quot;</span> <span class="kw">;;</span>
+	<span class="ex">b</span> ) <span class="bu">echo</span> <span class="va">$OPTARG</span>  <span class="kw">;;</span>
+	<span class="ex">c</span> ) <span class="bu">echo</span> <span class="st">&quot;i am c&quot;</span> <span class="kw">;;</span>
+	<span class="ex">?</span> ) <span class="bu">echo</span> <span class="st">&quot;usage : </span><span class="va">$0</span><span class="st"> [-a] [-b barg] [-c] args ..&quot;</span>
+	    <span class="bu">exit</span> 1 <span class="kw">;;</span>
+	<span class="kw">esac</span>
+    <span class="bu">shift</span> <span class="va">$(($OPTIND</span> - 1<span class="va">))</span>
+<span class="kw">done</span></code></pre></div>
 <h3 id="for">for</h3>
-<pre class="sh"><code>for s in $(echo $string | sed &quot;s/;/ /g&quot;); do
-	echo $s
-done</code></pre>
-<pre class="sh"><code>for (( i=1; i&lt;=$n; i++ )) do
-   ls -1 &quot;${file_pattern}&quot; | sed 's#\(.*\)\(.xml\).bak#cp &amp; \1'&quot;_$i&quot;'\2#g'
-done</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">for</span> <span class="ex">s</span> in <span class="va">$(</span><span class="bu">echo</span> <span class="va">$string</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&quot;s/;/ /g&quot;</span><span class="va">)</span><span class="kw">;</span> <span class="kw">do</span>
+	<span class="bu">echo</span> <span class="va">$s</span>
+<span class="kw">done</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">((</span> i=1; i&lt;=<span class="va">$n</span>; i++ <span class="kw">))</span> <span class="kw">do</span>
+   <span class="fu">ls</span> -1 <span class="st">&quot;</span><span class="va">${file_pattern}</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">'s#\(.*\)\(.xml\).bak#cp &amp; \1'&quot;_</span><span class="va">$i</span><span class="st">&quot;'\2#g'</span>
+<span class="kw">done</span></code></pre></div>
 <h3 id="case">case</h3>
-<pre class="sh"><code>case $action in
-    backup ) tar cfj &quot;$backup_dir/$bakfile&quot; * --exclude &quot;jobs/*/workspace&quot; ;;
-    rest | restore ) tar xfj $backup_dir/$bakfile ;;
-    * ) echo &quot;all supported actions: backup | rest[ore]&quot; ; exit 0 ;;
-esac</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">case</span> <span class="va">$action</span><span class="kw"> in</span>
+    backup <span class="kw">)</span> <span class="fu">tar</span> cfj <span class="st">&quot;</span><span class="va">$backup_dir</span><span class="st">/</span><span class="va">$bakfile</span><span class="st">&quot;</span> * --exclude <span class="st">&quot;jobs/*/workspace&quot;</span> <span class="kw">;;</span>
+    <span class="ex">rest</span> <span class="kw">|</span> <span class="ex">restore</span> ) <span class="fu">tar</span> xfj <span class="va">$backup_dir</span>/<span class="va">$bakfile</span> <span class="kw">;;</span>
+    <span class="ex">*</span> ) <span class="bu">echo</span> <span class="st">&quot;all supported actions: backup | rest[ore]&quot;</span> <span class="kw">;</span> <span class="bu">exit</span> 0 <span class="kw">;;</span>
+<span class="kw">esac</span></code></pre></div>
     </div>
 
     <div class="clear"></div>

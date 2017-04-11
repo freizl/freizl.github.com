@@ -6,7 +6,7 @@
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
         <meta name="description" content="Haisheng programming life" />
 
-        <title>λ Corner - Notes: ProGit</title>
+        <title>λ Corner - Notes ProGit</title>
         <link rel="alternate" type="application/rss+xml" title="Haisheng's Blog" href="rss.xml" />
         <link rel="icon" type="image/png" href="../images/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="../css/default.css" />
@@ -32,7 +32,7 @@
             <div class="container">
                 <div class="boxer">
 
-    <h1>Notes: ProGit</h1>
+    <h1>Notes ProGit</h1>
 
     <div class="soft">
         <span>April  8, 2012, Tags: </span><a href="../tags/reading.html">reading</a>, <a href="../tags/git.html">git</a>
@@ -46,28 +46,28 @@
 <li>refs/heads</li>
 <li>refs/tags</li>
 </ul>
-<pre class="sh"><code>[remote &quot;origin&quot;]
-    url = ...
-    fetch = +refs/heads/* : refs/remotes/origin/*
-      ===&gt; fetch all the references under &quot;refs/heads&quot; on the server
-           and writes them to refs/remotes/origin locally</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash">[<span class="ex">remote</span> <span class="st">&quot;origin&quot;</span>]
+    <span class="ex">url</span> = ...
+    <span class="ex">fetch</span> = +refs/heads/* : refs/remotes/origin/*
+      ===<span class="op">&gt;</span> <span class="ex">fetch</span> all the references under <span class="st">&quot;refs/heads&quot;</span> on the server
+           <span class="ex">and</span> writes them to refs/remotes/origin locally</code></pre></div>
 <p><em>Questions</em></p>
 <ol style="list-style-type: decimal">
 <li>What does ‘git branch B_NAME’ actually do?</li>
 <li>What happened to HEAD when switching branch?</li>
 </ol>
 <h2 id="chapter-6">Chapter 6</h2>
-<pre class="sh"><code>git add -i</code></pre>
-<pre class="sh"><code>###
-### revision selection
-### ^ ::= parent of something, only two format ^ and ^2
-git log HEAD^2
-git log d107aoeu^2
-git log HEAD~3</code></pre>
-<pre class="sh"><code>git log master..branchA
-git log origin/master..HEAD
-git log branchA branchB ^branchC
-git log master...branchA</code></pre>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">git</span> add -i</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">###</span>
+<span class="co">### revision selection</span>
+<span class="co">### ^ ::= parent of something, only two format ^ and ^2</span>
+<span class="fu">git</span> log HEAD^2
+<span class="fu">git</span> log d107aoeu^2
+<span class="fu">git</span> log HEAD~3</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">git</span> log master..branchA
+<span class="fu">git</span> log origin/master..HEAD
+<span class="fu">git</span> log branchA branchB ^branchC
+<span class="fu">git</span> log master...branchA</code></pre></div>
 <h2 id="internal">Internal</h2>
 <p>Questions</p>
 <div class="figure">
