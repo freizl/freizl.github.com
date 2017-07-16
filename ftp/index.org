@@ -1,0 +1,3 @@
+* Static files
+  - [[file:orgs][Org Files]]
+  - [[file:tech][Tech Study Notes]]
