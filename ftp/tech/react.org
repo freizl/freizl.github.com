@@ -1,0 +1,76 @@
+* React
+
+* Redux
+
+* React-Redux
+** TODO high level concept (diagrams)
+** Provider
+
+#+BEGIN_SRC javascript
+  class Provider extends Component {
+
+      // what's this function?
+      getChildContext() {
+          return { [storeKey]: this[storeKey], [subscriptionKey]: null }
+      }
+
+      constructor(props, context) {
+          super(props, context)
+          this[storeKey] = props.store;
+      }
+
+      render() {
+          // what is `Children`
+          return Children.only(this.props.children)
+      }
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+      Provider.prototype.componentWillReceiveProps = function (nextProps) {
+          if (this[storeKey] !== nextProps.store) {
+              warnAboutReceivingStore()
+          }
+      }
+  }
+
+  // Assume this is type definition to prop and context
+  Provider.propTypes = {
+      store: storeShape.isRequired,
+      children: PropTypes.element.isRequired,
+  }
+  Provider.childContextTypes = {
+      [storeKey]: storeShape.isRequired,
+      [subscriptionKey]: subscriptionShape,
+  }
+
+#+END_SRC
+
+** Connect
+
+#+BEGIN_QUOTE
+Now it's time to hook up those presentational components to Redux by
+creating some containers. Technically, a container component is just a
+React component that uses store.subscribe() to read a part of the
+Redux state tree and supply props to a presentational component it
+renders. You could write a container component by hand, but we suggest
+instead generating container components with the React Redux library's
+connect() function, which provides many useful optimizations to
+prevent unnecessary re-renders. (One result of this is that you
+shouldn't have to worry about the React performance suggestion of
+implementing shouldComponentUpdate yourself.)
+#+END_QUOTE
+
+   - [ ] what are possible unnecessary re-renders?
+   - [ ] isn't ~store~ available at all children component?
+   - [ ] isn't ~props~ specific to Component? hence need to read
+     ~store~ and map to ~props~?
+   - [ ] isn't ~props~ sort of readonly but shall update ~state~ when
+     store changed?
+   - [ ] does it make to have global ~props~ derived from ~store~?
+     like the update model function from Elm Architecture.
+
+** References
+
+* prop-types
+
+* hoist-non-react-statics

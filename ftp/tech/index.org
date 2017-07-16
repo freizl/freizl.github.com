@@ -1,0 +1,4 @@
+#+TITLE: Technology study notes
+
+- [[file:nix.org][Nix]]
+- [[file:react.org][React]]
