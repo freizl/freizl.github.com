@@ -1,3 +1,4 @@
-* Static files
-  - [[file:orgs][Org Files]]
-  - [[file:tech][Tech Study Notes]]
+#+TITLE: Static files
+
+- [[file:orgs][Org Files]]
+- [[file:tech][Tech Study Notes]]
