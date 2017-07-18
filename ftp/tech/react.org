@@ -2,8 +2,42 @@
 
 * Redux
 
+#+BEGIN_SRC haskell
+  data State = ??
+
+  data Action a = Action { type :: String
+                         , value :: a
+                         }
+  data Reducer = Reducer { State -> Action a -> State }
+
+  combineReducers :: [Reducers] -> Reducer
+  combineReducers = undefined
+#+END_SRC
+
+#+BEGIN_SRC plantuml :file ./imgs/redux-high-level.png
+  @startuml
+  [*] --> StateA
+  StateA --> StateB: applyReducer(reducers, action)
+
+  @enduml
+#+END_SRC
+
+#+CAPTION: Redux High Level
+#+RESULTS:
+[[file:./imgs/redux-high-level.png]]
+
 * React-Redux
-** TODO high level concept (diagrams)
+
+#+CAPTION: React Redux High Level
+#+ATTR_HTML: :width 200px
+#+ATTR_HTML: :height 200px
+#+ATTR_HTML: :style transform: rotate(90deg);
+[[file:imgs/react-redux-high-level.jpg]]
+
+  1. [ ] looks like react-redux didn't encourage to use /State/ but
+     just /Props/ at /Component/ level. How does it force to re-render
+     the /Component/ when /Props/ changed.
+
 ** Provider
 
 #+BEGIN_SRC javascript
@@ -70,6 +104,11 @@ implementing shouldComponentUpdate yourself.)
      like the update model function from Elm Architecture.
 
 ** References
+
+* Redux Middleware
+  - [[https://redux-observable.js.org/][Redux Observable]]
+  - Redux saga
+  - Redux thunk
 
 * prop-types
 
