@@ -4,8 +4,9 @@ author: Haisheng, Wu
 ---
 
 ## Profile
-  - Email       : freizl [AT] gmail.com
+  - Email       : freizl [AT] gmail [DOT] com
   - github      : <http://github.com/freizl>
+  - Linkedin    : <https://www.linkedin.com/in/freizl/>
 
 ## Self assessment
   - Great ability to quickly master new concepts and technologies.
@@ -17,14 +18,14 @@ author: Haisheng, Wu
   - Experience in Object Oriented Programming (OOP)
 
 ## Technical skills
-  - **Languages**: JavaScript, HTML, CSS/LESS, Haskell, Elm, Python, Java, Scala
-  - **Technologies**: Git, NodeJS, RequireJS, Backbone, Jasmine, Mocha, sinon, express.js, connect.js, Selenium, Hoxy, jQuery, Mustache, Underscore, Ramda.js
+  - **Languages**: JavaScript, HTML, CSS/LESS, Haskell, Java, Elm, Scala
+  - **Technologies**: Backbone, jQuery, Git, NodeJS, Jasmine, Mocha, sinon, Selenium
   - **Database**: MySQL, Oracle, MongoDB
   - **Operating System**: CentOS, Ubuntu
 
 ## Work experience
-  - Jul 2014 - present, Senior Software Engineer at [Okta Inc.]
-  - Jan 2014 - May 2014, Application Engineer at [Beanstock Media]
+  - Jul 2015 - present, Principle Software Engineer at [Okta Inc.]
+  - Jan 2015 - May 2015, Application Engineer at [Beanstock Media]
   - Dec 2014 - Jan 2015, Software Engineer at SKT Lab
   - Apr 2012 - Dec 2014, Senior Front-End Engineer at [eBay COE]
   - Sep 2011 - Feb 2012, Senior Technical Staff at [C3-e] Tech (Shanghai) Co.
