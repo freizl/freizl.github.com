@@ -1,6 +1,14 @@
 * React
 
 * Redux
+  - ~state~ plain javascript object
+  - ~store~ has state, dispatch, subscribe
+  - ~reducer~ take previous ~state~ and ~action~, return an new
+    ~state~
+  - ~combineReducers~
+  - how to pass ~store~ down to children? props v.s. context
+  - ~Provider~
+  - ~connect~
 
 #+BEGIN_SRC haskell
   data State = ??
@@ -25,6 +33,7 @@
 #+CAPTION: Redux High Level
 #+RESULTS:
 [[file:./imgs/redux-high-level.png]]
+
 
 * React-Redux
 
@@ -113,3 +122,4 @@ implementing shouldComponentUpdate yourself.)
 * prop-types
 
 * hoist-non-react-statics
+* deep-freeze

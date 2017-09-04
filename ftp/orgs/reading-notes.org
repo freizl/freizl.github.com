@@ -3,3 +3,21 @@
    1. [ ] not really understand c++ impl of sieve prime
    2. [ ] There is no segment that can measure both the side and the
       diagonal of a square
+* A post by Finance Ph.d about Math
+** Books
+   1. <Principle of Mathematical Analysis>, 最为严格，基础不好的人看起
+      来比较枯燥，但是个人认为将会受益终生.
+   2. 夏道行先生的<实变函数与泛函分析>
+   3. 钟开莱的 <A Course in Probability>
+   4. James Munkres的 <Topology>
+   5. 张禾瑞 <近世代数基础>
+   6. Rotman的 <A First Course in Abstract Algebra>
+   7. Durrett <Probability: Theory and Examples>
+   8. Durrett <The essentials of Probability>
+   9. Casella & Berger <Statistical Inference>
+   10. <Calculus> Hughes-Hallet,Gleason,McCallum et al.
+   11. <Advanced Calculus> Patrick M. Fitzpatrick
+   12. <Calculus> Dale E Varberg, Edwin J Purcell, Steven E Rigdon
+   13. <Linear Algebra and its Applications> Gilbert Strang
+   14. <First Course in Probability> Sheldon M. Ross
+   15. <Algebra> Michael Artin
