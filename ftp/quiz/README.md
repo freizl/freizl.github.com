@@ -31,3 +31,7 @@
 ## Cache
 
   - https://devcenter.heroku.com/articles/increasing-application-performance-with-http-cache-headers
+
+## Geeksforgeeks
+
+  - http://www.geeksforgeeks.org/stock-buy-sell/
