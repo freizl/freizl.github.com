@@ -1,8 +1,8 @@
 dist
 _site
 _cache
-cabal.sandbox.config
-.cabal-sandbox
 .DS_Store
 .tern-port
 .stack-work
+
+dist-newstyle

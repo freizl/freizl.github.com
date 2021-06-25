@@ -1,41 +1,97 @@
 <!DOCTYPE html>
 <head>
-<meta charset="utf-8">
-  <meta name="author" content="John Doe" />
-  <meta name="dcterms.date" content="2005-03-22" />
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="John Doe">
+  <meta name="dcterms.date" content="2005-03-22">
   <title>Habits</title>
-  <style type="text/css">code{white-space: pre;}</style>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+
 <style>
-  html { background-color: black; }
-  body { background-color: white; border-radius: 12px}
+  html, .view body { background-color: black; counter-reset: slideidx; }
+  body, .view section { background-color: white; border-radius: 12px }
   /* A section is a slide. It's size is 800x600, and this will never change */
-  section {
-      font-family: Arial, serif;
-      font-size: 20pt;
-    }
-  address, blockquote, dl, fieldset, form, h1, h2, h3, h4, h5, h6, hr, ol, p, pre, table, ul, dl { padding: 10px 20px 10px 20px; }
-  h1, h2, h3 {
+  section, .view head > title {
+      /* The font from Google */
+      font-family: 'Oswald', arial, serif;
+      font-size: 30px;
+  }
+
+  .view section:after {
+    counter-increment: slideidx;
+    content: counter(slideidx, decimal-leading-zero);
+    position: absolute; bottom: -80px; right: 100px;
+    color: white;
+  }
+
+  .view head > title {
+    color: white;
     text-align: center;
-    margin: 10pt 10pt 20pt 10pt;
+    margin: 1em 0 1em 0;
   }
-  ul, ol {
-    margin: 10px 10px 10px 50px;
+
+  h1, h2 {
+    margin-top: 200px;
+    text-align: center;
+    font-size: 80px;
   }
-  section.titleslide h1 { margin-top: 200px; }
-  h1.title { margin-top: 150px; }
-  h1 { font-size: 180%; }
-  h2 { font-size: 120%; }
-  h3 { font-size: 100%; }
-  q { quotes: "“" "”" "‘" "’"; }
-  blockquote { font-style: italic }
-  /* Figures are displayed full-page, with the caption on
-     top of the image/video */
+  h3 {
+    margin: 100px 0 50px 100px;
+  }
+
+  ul {
+      margin: 50px 200px;
+  }
+  li > ul {
+      margin: 15px 50px;
+  }
+
+  p {
+    margin: 75px;
+    font-size: 50px;
+  }
+
+  blockquote {
+    height: 100%;
+    background-color: black;
+    color: white;
+    font-size: 60px;
+    padding: 50px;
+  }
+  blockquote:before {
+    content: open-quote;
+  }
+  blockquote:after {
+    content: close-quote;
+  }
+
+  /* Figures are displayed full-page, with the caption
+     on top of the image/video */
   figure {
     background-color: black;
+    width: 100%;
+    height: 100%;
+  }
+  figure > * {
+    position: absolute;
+  }
+  figure > img, figure > video {
+    width: 100%; height: 100%;
   }
   figcaption {
     margin: 70px;
+    font-size: 50px;
   }
+
   footer {
     position: absolute;
     bottom: 0;
@@ -52,10 +108,20 @@
      https://developer.mozilla.org/en/CSS/CSS_transitions
      How to use CSS3 Transitions: */
   section {
-      -moz-transition: left 400ms linear 0s;
-      -webkit-transition: left 400ms linear 0s;
-      -ms-transition: left 400ms linear 0s;
-      transition: left 400ms linear 0s;
+    -moz-transition: left 400ms linear 0s;
+    -webkit-transition: left 400ms linear 0s;
+    -ms-transition: left 400ms linear 0s;
+    transition: left 400ms linear 0s;
+  }
+  .view section {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+
+  .view section[aria-selected] {
+    border: 5px red solid;
   }
 
   /* Before */
@@ -71,39 +137,58 @@
   .incremental > * { opacity: 1; }
 
   /* The current item */
-  .incremental > *[aria-selected] { color: red; opacity: 1; }
+  .incremental > *[aria-selected] { opacity: 1; }
 
   /* The items to-be-selected */
-  .incremental > *[aria-selected] ~ * { opacity: 0.2; }
+  .incremental > *[aria-selected] ~ * { opacity: 0; }
+
+  /* The progressbar, at the bottom of the slides, show the global
+     progress of the presentation. */
+  #progress-bar {
+    height: 2px;
+    background: #AAA;
+  }
 </style>
 </head>
 <body>
 <section class="title">
   <h1 class="title">Habits</h1>
-  <h2 class="author">John Doe</h2>
-  <h3 class="date">March 22, 2005</h3>
+  <footer>
+    <span class="author">John Doe</span> · <span class="date">March 22, 2005</span>
+  </footer>
 </section>
-<section id="in-the-morning" class="titleslide slide level1"><h1>In the morning</h1></section><section id="getting-up" class="slide level2">
-<h1>Getting up</h1>
+<section id="in-the-morning" class="title-slide slide level1">
+<h1>In the morning</h1>
+
+</section>
+<section id="getting-up" class="slide level2">
+<h2>Getting up</h2>
 <ul>
 <li>Turn off alarm</li>
 <li>Get out of bed</li>
 </ul>
-</section><section id="breakfast" class="slide level2">
-<h1>Breakfast</h1>
+</section>
+<section id="breakfast" class="slide level2">
+<h2>Breakfast</h2>
 <ul>
 <li>Eat eggs</li>
 <li>Drink coffee</li>
 </ul>
 </section>
-<section id="in-the-evening" class="titleslide slide level1"><h1>In the evening</h1></section><section id="dinner" class="slide level2">
-<h1>Dinner</h1>
+
+<section id="in-the-evening" class="title-slide slide level1">
+<h1>In the evening</h1>
+
+</section>
+<section id="dinner" class="slide level2">
+<h2>Dinner</h2>
 <ul>
 <li>Eat spaghetti</li>
 <li>Drink wine</li>
 </ul>
-</section><section id="going-to-sleep" class="slide level2">
-<h1>Going to sleep</h1>
+</section>
+<section id="going-to-sleep" class="slide level2">
+<h2>Going to sleep</h2>
 <ul>
 <li>Get in bed</li>
 <li>Count sheep</li>
@@ -128,21 +213,50 @@
 <!-- Default Style -->
 <style>
   * { margin: 0; padding: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
-  details { display: none; }
+  [role="note"] { display: none; }
   body {
     width: 800px; height: 600px;
     margin-left: -400px; margin-top: -300px;
     position: absolute; top: 50%; left: 50%;
     overflow: hidden;
+    display: none;
   }
+  .view body {
+    position: static;
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
+    display: inline-block;
+    overflow: visible; overflow-x: hidden;
+    /* undo Dz.onresize */
+    transform: none !important;
+    -moz-transform: none !important;
+    -webkit-transform: none !important;
+    -o-transform: none !important;
+    -ms-transform: none !important;
+  }
+  .view head, .view head > title { display: block }
   section {
     position: absolute;
     pointer-events: none;
     width: 100%; height: 100%;
   }
+  .view section {
+    pointer-events: auto;
+    position: static;
+    width: 800px; height: 600px;
+    margin: -150px -200px;
+    float: left;
+
+    transform: scale(.4);
+    -moz-transform: scale(.4);
+    -webkit-transform: scale(.4);
+    -o-transform: scale(.4);
+    -ms-transform: scale(.4);
+  }
+  .view section > * { pointer-events: none; }
   section[aria-selected] { pointer-events: auto; }
   html { overflow: hidden; }
-  body { display: none; }
+  html.view { overflow: visible; }
   body.loaded { display: block; }
   .incremental {visibility: hidden; }
   .incremental[active] {visibility: visible; }
@@ -154,15 +268,8 @@
     -ms-transition: width 400ms linear 0s;
     transition: width 400ms linear 0s;
   }
-  figure {
-    width: 100%;
-    height: 100%;
-  }
-  figure > * {
-    position: absolute;
-  }
-  figure > img, figure > video {
-    width: 100%; height: 100%;
+  .view #progress-bar {
+    display: none;
   }
 </style>
 
@@ -171,6 +278,7 @@
     remoteWindows: [],
     idx: -1,
     step: 0,
+    html: null,
     slides: null,
     progressBar : null,
     params: {
@@ -180,14 +288,16 @@
 
   Dz.init = function() {
     document.body.className = "loaded";
-    this.slides = $$("body > section");
+    this.slides = Array.prototype.slice.call($$("body > section"));
     this.progressBar = $("#progress-bar");
+    this.html = document.body.parentNode;
     this.setupParams();
     this.onhashchange();
     this.setupTouchEvents();
     this.onresize();
+    this.setupView();
   }
-  
+
   Dz.setupParams = function() {
     var p = window.location.search.substr(1).split('&');
     p.forEach(function(e, i, a) {
@@ -237,6 +347,10 @@
       aEvent.preventDefault();
       this.goFullscreen();
     }
+    if (aEvent.keyCode == 79) { // o
+      aEvent.preventDefault();
+      this.toggleView();
+    }
   }
 
   /* Touch Events */
@@ -270,6 +384,16 @@
     }
   }
 
+  Dz.setupView = function() {
+    document.body.addEventListener("click", function ( e ) {
+      if (!Dz.html.classList.contains("view")) return;
+      if (!e.target || e.target.nodeName != "SECTION") return;
+
+      Dz.html.classList.remove("view");
+      Dz.setCursor(Dz.slides.indexOf(e.target) + 1);
+    }, false);
+  }
+
   /* Adapt the size of the slides to the window */
 
   Dz.onresize = function() {
@@ -286,9 +410,9 @@
   }
 
 
-  Dz.getDetails = function(aIdx) {
+  Dz.getNotes = function(aIdx) {
     var s = $("section:nth-of-type(" + aIdx + ")");
-    var d = s.$("details");
+    var d = s.$("[role='note']");
     return d ? d.innerHTML : "";
   }
 
@@ -317,7 +441,7 @@
     if (argv[0] === "GET_CURSOR" && argc === 1)
       this.postMsg(win, "CURSOR", this.idx + "." + this.step);
     if (argv[0] === "GET_NOTES" && argc === 1)
-      this.postMsg(win, "NOTES", this.getDetails(this.idx));
+      this.postMsg(win, "NOTES", this.getNotes(this.idx));
   }
 
   Dz.toggleContent = function() {
@@ -401,6 +525,14 @@
     this.setCursor(lastIdx, lastStep);
   }
 
+  Dz.toggleView = function() {
+    this.html.classList.toggle("view");
+
+    if (this.html.classList.contains("view")) {
+      $("section[aria-selected]").scrollIntoView(true);
+    }
+  }
+
   Dz.setSlide = function(aIdx) {
     this.idx = aIdx;
     var old = $("section[aria-selected]");
@@ -414,6 +546,9 @@
     }
     if (next) {
       next.setAttribute("aria-selected", "true");
+      if (this.html.classList.contains("view")) {
+        next.scrollIntoView();
+      }
       var video = next.$("video");
       if (video && !!+this.params.autoplay) {
         video.play();

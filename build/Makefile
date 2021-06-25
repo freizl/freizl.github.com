@@ -9,28 +9,24 @@ default: rebuild
 ###
 
 rebuild:
-	stack clean
-	stack build
+	cabal clean
+	cabal v2-build
 
 build:
-	stack build
-
-buildw:
-	stack build --file-watch
+	cabal v2-build
 
 
 ###
 ### generates site
 ###
 freizl:
-	stack exec freizl build
+	cabal v2-exec freizl --  build
 
 watch:
-	stack exec freizl watch
+	cabal v2-exec freizl --  watch
 
 refreizl:
-	stack exec freizl clean
-	stack exec freizl build
+	cabal v2-exec freizl --  rebuild
 
 ########## Mirror to github
 

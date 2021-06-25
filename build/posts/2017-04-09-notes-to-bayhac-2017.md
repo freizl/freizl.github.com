@@ -6,7 +6,7 @@ tags: meetup
 
 # Some notes to sessions
 
-- BayArea Haskell Hackathon 2017 wiki home [^BayHac2017]
+- BayArea Haskell Hackathon 2017 wiki home [^bayhac2017]
 
 ## Haskell for Flight Control at Kittyhawk by Greg Horn
 
@@ -24,7 +24,7 @@ tags: meetup
 
 ## Putting lenses to work by John Wiegley
 
-- recommend SPJ lens talk at skill matter [^SPJ-talk] which insprise John
+- recommend SPJ lens talk at skill matter [^spj-talk] which insprise John
 - take away: "use lenses in application and write your own lenses function for library"
   - my question is that will your own lenses functions compatible with the `lens` library when people uses my library and use `lens` library at same time.
 - lens comes has theory background (semantic editor contract??) plus Functor and ProFunctor.
@@ -32,11 +32,11 @@ tags: meetup
 ## All About Applicative - Adelbert Chang
 
 - free applicative (inspired by free monad)
-- `Const` and `Identity` are pretty interesting. (quite similar usage from SPJ talk [^SPJ-talk])
+- `Const` and `Identity` are pretty interesting. (quite similar usage from SPJ talk [^spj-talk])
 - the key point is use data type (data structor) to represents program so that could do static analysis along with when program is running, and base on the assumption that the analysis doesn't need to know the program computation result.
 - code samples at here [^ac-bayhac-2017]
 
-``` haskell
+```haskell
 data FileIOF a where
   FileRead :: FilePath -> FileIOF String
   FileWrite :: FilePath -> String -> FileIOF ()
@@ -77,6 +77,6 @@ program = fileRead "hello.txt" *> fileWrite "hello.txt" "hello!"
 - GADT
 - type family
 
-[^BayHac2017]: [BayHac2017 wiki home](https://wiki.haskell.org/BayHac2017)
-[^SPJ-talk]: [SPJ lens talk](https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation)
+[^bayhac2017]: [BayHac2017 wiki home](https://wiki.haskell.org/BayHac2017)
+[^spj-talk]: [SPJ lens talk](https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation)
 [^ac-bayhac-2017]: [adelbertc bayhac 2017](https://github.com/adelbertc/bayhac17/blob/master/src/Main.hs)
