@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - Max size file in desired directory</title>
@@ -35,12 +36,12 @@
     <h1>Max size file in desired directory</h1>
 
     <div class="soft">
-        <span>June 21, 2011, Tags: </span><a href="../tags/monad.html">monad</a>, <a href="../tags/haskell.html">haskell</a>
+        <span>June 21, 2011, Tags: </span><a title="All pages tagged 'monad'." href="../tags/monad.html">monad</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html">haskell</a>
     </div>
 
     <div class="body clear">
         
-<p>While doing some refactoring work on solution from this guy<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>, I realized a pretty trivial thing about Manod method <code>&gt;&gt;=</code>.</p>
+<p>While doing some refactoring work on solution from this guy<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, I realized a pretty trivial thing about Manod method <code>&gt;&gt;=</code>.</p>
 <p>Take a look at its definition:</p>
 <pre><code>Prelude&gt; :t (&gt;&gt;=)
 (&gt;&gt;=) :: (Monad m) =&gt; m a -&gt; (a -&gt; m b) -&gt; m b</code></pre>
@@ -59,18 +60,18 @@ getFilesInDir inp = do
   return $ concat files</code></pre>
 <p>PS:</p>
 <ul>
-<li>Full source code here<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> or hpaste<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> which is cool as give me several suggestions.</li>
+<li>Full source code here<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> or hpaste<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> which is cool as give me several suggestions.</li>
 <li>I think hpaste using hlint to do code analysis and provide suggestions</li>
 <li>Actually it is possible to have multiple Monad in one <code>do</code> levarage Monad Transformers.</li>
 </ul>
-<div class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://www.never-ending.me/blog/2011/06/16/276/">Never ending</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/io/MaxSizeFile.hs">MaxSizeFile.hs</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="http://hpaste.org/47969">hpaset</a><a href="#fnref3">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://www.never-ending.me/blog/2011/06/16/276/">Never ending</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/io/MaxSizeFile.hs">MaxSizeFile.hs</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="http://hpaste.org/47969">hpaset</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
     </div>
 
     <div class="clear"></div>

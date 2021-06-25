@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - Somes notes to BayArea Haskell Hackathon 2017</title>
@@ -35,14 +36,14 @@
     <h1>Somes notes to BayArea Haskell Hackathon 2017</h1>
 
     <div class="soft">
-        <span>April  9, 2017, Tags: </span><a href="../tags/meetup.html">meetup</a>
+        <span>April  9, 2017, Tags: </span><a title="All pages tagged 'meetup'." href="../tags/meetup.html">meetup</a>
     </div>
 
     <div class="body clear">
         
 <h2 id="some-notes-to-sessions">Some notes to sessions</h2>
 <ul>
-<li>BayArea Haskell Hackathon 2017 wiki home <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
+<li>BayArea Haskell Hackathon 2017 wiki home <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ul>
 <h3 id="haskell-for-flight-control-at-kittyhawk-by-greg-horn">Haskell for Flight Control at Kittyhawk by Greg Horn</h3>
 <ul>
@@ -60,24 +61,26 @@
 </ul>
 <h3 id="putting-lenses-to-work-by-john-wiegley">Putting lenses to work by John Wiegley</h3>
 <ul>
-<li>recommend SPJ lens talk at skill matter <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> which insprise John</li>
-<li>take away: “use lenses in application and write your own lenses function for library”</li>
+<li>recommend SPJ lens talk at skill matter <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> which insprise John</li>
+<li>take away: “use lenses in application and write your own lenses function for library”
+<ul>
 <li>my question is that will your own lenses functions compatible with the <code>lens</code> library when people uses my library and use <code>lens</code> library at same time.</li>
+</ul></li>
 <li>lens comes has theory background (semantic editor contract??) plus Functor and ProFunctor.</li>
 </ul>
 <h3 id="all-about-applicative---adelbert-chang">All About Applicative - Adelbert Chang</h3>
 <ul>
 <li>free applicative (inspired by free monad)</li>
-<li><code>Const</code> and <code>Identity</code> are pretty interesting. (quite similar usage from SPJ talk <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>)</li>
+<li><code>Const</code> and <code>Identity</code> are pretty interesting. (quite similar usage from SPJ talk <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>)</li>
 <li>the key point is use data type (data structor) to represents program so that could do static analysis along with when program is running, and base on the assumption that the analysis doesn’t need to know the program computation result.</li>
-<li>code samples at here <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></li>
+<li>code samples at here <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">FileIOF</span> a <span class="kw">where</span>
-  <span class="dt">FileRead</span><span class="ot"> ::</span> FilePath <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> <span class="dt">String</span>
-  <span class="dt">FileWrite</span><span class="ot"> ::</span> FilePath <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> ()
-
-<span class="co">-- the program is created in terms of data</span>
-program <span class="fu">=</span> fileRead <span class="st">&quot;hello.txt&quot;</span> <span class="fu">*&gt;</span> fileWrite <span class="st">&quot;hello.txt&quot;</span> <span class="st">&quot;hello!&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">FileIOF</span> a <span class="kw">where</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">FileRead</span><span class="ot"> ::</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> <span class="dt">String</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">FileWrite</span><span class="ot"> ::</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> ()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- the program is created in terms of data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>program <span class="ot">=</span> fileRead <span class="st">&quot;hello.txt&quot;</span> <span class="op">*&gt;</span> fileWrite <span class="st">&quot;hello.txt&quot;</span> <span class="st">&quot;hello!&quot;</span></span></code></pre></div>
 <h3 id="real-world-uis-with-reflex-by-doug-beardsley">Real World UIs with Reflex by Doug Beardsley</h3>
 <ul>
 <li>It’s so great to meet Doug in person who is co-author of snap which I was using years ago!</li>
@@ -109,15 +112,15 @@ program <span class="fu">=</span> fileRead <span class="st">&quot;hello.txt&quot
 <li>GADT</li>
 <li>type family</li>
 </ul>
-<div class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://wiki.haskell.org/BayHac2017">BayHac2017 wiki home</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="https://github.com/adelbertc/bayhac17/blob/master/src/Main.hs">adelbertc bayhac 2017</a><a href="#fnref4">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="https://wiki.haskell.org/BayHac2017">BayHac2017 wiki home</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="https://github.com/adelbertc/bayhac17/blob/master/src/Main.hs">adelbertc bayhac 2017</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
     </div>
 
     <div class="clear"></div>

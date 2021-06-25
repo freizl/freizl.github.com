@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - Magic Monad Transformer</title>
@@ -35,83 +36,50 @@
     <h1>Magic Monad Transformer</h1>
 
     <div class="soft">
-        <span>April  7, 2012, Tags: </span><a href="../tags/monad.html">monad</a>, <a href="../tags/mtl.html">mtl</a>, <a href="../tags/haskell.html">haskell</a>
+        <span>April  7, 2012, Tags: </span><a title="All pages tagged 'monad'." href="../tags/monad.html">monad</a>, <a title="All pages tagged 'mtl'." href="../tags/mtl.html">mtl</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html">haskell</a>
     </div>
 
     <div class="body clear">
         
 <h2 id="monad-transformer">Monad-Transformer</h2>
-<p>The code fragment below is from chapter 18 Monad Transform of &lt;Real World Haskell&gt;<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<p>The code fragment below is from chapter 18 Monad Transform of &lt;Real World Haskell&gt;<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>When the first time I read this example, I was confused with how it is possible to use <code>ask</code> of <code>MonadReader</code> (line 6) and <code>get</code> of <code>MonadState</code> (line 13) functions in the same <code>App</code> Monad content.</p>
 <p>The only reasonable explanation is that <code>App</code> is both <code>MonadReader</code> and <code>MonadState</code>. While looking at <code>App</code> type definition (line 1), seems it is not possible.</p>
-<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="sourceCode"><pre><code class="sourceCode haskell"><span class="kw">type</span> <span class="dt">App</span> <span class="fu">=</span> <span class="dt">ReaderT</span> <span class="dt">AppConfig</span> (<span class="dt">StateT</span> <span class="dt">AppState</span> <span class="dt">IO</span>)
-
-<span class="ot">constrainedCount ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> FilePath <span class="ot">-&gt;</span> <span class="dt">App</span> [(FilePath, <span class="dt">Int</span>)]
-constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</span>
-  contents <span class="ot">&lt;-</span> liftIO <span class="fu">.</span> listDirectory <span class="fu">$</span> path
-  cfg <span class="ot">&lt;-</span> ask
-  rest <span class="ot">&lt;-</span> forM contents <span class="fu">$</span> \name <span class="ot">-&gt;</span> <span class="kw">do</span>
-            <span class="kw">let</span> newPath <span class="fu">=</span> path <span class="fu">&lt;/&gt;</span> name
-            isDir <span class="ot">&lt;-</span> liftIO <span class="fu">$</span> doesDirectoryExist newPath
-            <span class="kw">if</span> isDir <span class="fu">&amp;&amp;</span> curDepth <span class="fu">&lt;</span> cfgMaxDepth cfg
-              <span class="kw">then</span> <span class="kw">do</span>
-                <span class="kw">let</span> newDepth <span class="fu">=</span> curDepth <span class="fu">+</span> <span class="dv">1</span>
-                st <span class="ot">&lt;-</span> get
-                when (stDeepestReached st <span class="fu">&lt;</span> newDepth) <span class="fu">$</span>
-                  put st { stDeepestReached <span class="fu">=</span> newDepth }
-                constrainedCount newDepth newPath
-              <span class="kw">else</span> return []
-  return <span class="fu">$</span> (path, length contents) <span class="fu">:</span> concat rest</code></pre></td></tr></table></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource haskell numberLines"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">type</span> <span class="dt">App</span> <span class="ot">=</span> <span class="dt">ReaderT</span> <span class="dt">AppConfig</span> (<span class="dt">StateT</span> <span class="dt">AppState</span> <span class="dt">IO</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ot">constrainedCount ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">App</span> [(<span class="dt">FilePath</span>, <span class="dt">Int</span>)]</span>
+<span id="cb1-4"><a href="#cb1-4"></a>constrainedCount curDepth path <span class="ot">=</span> <span class="kw">do</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  contents <span class="ot">&lt;-</span> liftIO <span class="op">.</span> listDirectory <span class="op">$</span> path</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  cfg <span class="ot">&lt;-</span> ask</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  rest <span class="ot">&lt;-</span> forM contents <span class="op">$</span> \name <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>            <span class="kw">let</span> newPath <span class="ot">=</span> path <span class="op">&lt;/&gt;</span> name</span>
+<span id="cb1-9"><a href="#cb1-9"></a>            isDir <span class="ot">&lt;-</span> liftIO <span class="op">$</span> doesDirectoryExist newPath</span>
+<span id="cb1-10"><a href="#cb1-10"></a>            <span class="kw">if</span> isDir <span class="op">&amp;&amp;</span> curDepth <span class="op">&lt;</span> cfgMaxDepth cfg</span>
+<span id="cb1-11"><a href="#cb1-11"></a>              <span class="kw">then</span> <span class="kw">do</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>                <span class="kw">let</span> newDepth <span class="ot">=</span> curDepth <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>                st <span class="ot">&lt;-</span> get</span>
+<span id="cb1-14"><a href="#cb1-14"></a>                when (stDeepestReached st <span class="op">&lt;</span> newDepth) <span class="op">$</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>                  put st { stDeepestReached <span class="ot">=</span> newDepth }</span>
+<span id="cb1-16"><a href="#cb1-16"></a>                constrainedCount newDepth newPath</span>
+<span id="cb1-17"><a href="#cb1-17"></a>              <span class="kw">else</span> <span class="fu">return</span> []</span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="fu">return</span> <span class="op">$</span> (path, <span class="fu">length</span> contents) <span class="op">:</span> <span class="fu">concat</span> rest</span></code></pre></div>
 <h2 id="what-is-the-so-called-magic">What is the so-called “Magic”</h2>
-<p>I turn to the source of package mtl<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and finding following implementations.</p>
-<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="sourceCode"><pre><code class="sourceCode haskell">
-<span class="co">-- | ReaderT</span>
-<span class="kw">instance</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadReader</span> r (<span class="dt">ReaderT</span> r m) <span class="kw">where</span>
-    ask <span class="fu">=</span> ReaderT.ask
-    local <span class="fu">=</span> ReaderT.local
-
-<span class="co">-- | StateT</span>
-<span class="kw">instance</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">Lazy.StateT</span> s m) <span class="kw">where</span>
-    get <span class="fu">=</span> Lazy.get
-    put <span class="fu">=</span> Lazy.put
-
-<span class="co">-- | Combine ReaderT and StataT</span>
-<span class="kw">instance</span> (<span class="dt">MonadState</span> s m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">ReaderT</span> r m) <span class="kw">where</span>
-    get <span class="fu">=</span> lift get
-    put <span class="fu">=</span> lift <span class="fu">.</span> put</code></pre></td></tr></table></div>
+<p>I turn to the source of package mtl<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and finding following implementations.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource haskell numberLines"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">-- | ReaderT</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">instance</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadReader</span> r (<span class="dt">ReaderT</span> r m) <span class="kw">where</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    ask <span class="ot">=</span> ReaderT.ask</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    local <span class="ot">=</span> ReaderT.local</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">-- | StateT</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="kw">instance</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">Lazy.StateT</span> s m) <span class="kw">where</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    get <span class="ot">=</span> Lazy.get</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    put <span class="ot">=</span> Lazy.put</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">-- | Combine ReaderT and StataT</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="kw">instance</span> (<span class="dt">MonadState</span> s m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">ReaderT</span> r m) <span class="kw">where</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>    get <span class="ot">=</span> lift get</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    put <span class="ot">=</span> lift <span class="op">.</span> put</span></code></pre></div>
 <p>If we do a substitution, will get</p>
 <pre><code>1. instance MonadReader AppConfig App where ...
 
@@ -120,15 +88,15 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
    ~&gt; instance MonadState AppState App where ...</code></pre>
 <p>Therefore <code>App</code> is both MonadReader and MonadState.</p>
 <h2 id="a-trivial-demo">A trivial demo</h2>
-<p>I made a very trivial sample <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> demostrating combine ReaderT and StateT.</p>
-<div class="footnotes">
+<p>I made a very trivial sample <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> demostrating combine ReaderT and StateT.</p>
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://book.realworldhaskell.org/read/monad-transformers.html">Chapter 8 Monad Transformer</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://hackage.haskell.org/package/mtl-2.0.1.0">mtl-2.0.1.0 in hackage</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/codes/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://book.realworldhaskell.org/read/monad-transformers.html">Chapter 8 Monad Transformer</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://hackage.haskell.org/package/mtl-2.0.1.0">mtl-2.0.1.0 in hackage</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/codes/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
     </div>
 
     <div class="clear"></div>

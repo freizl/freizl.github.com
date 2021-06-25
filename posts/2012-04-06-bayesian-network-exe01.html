@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - Bayesian Network Exercise 01</title>
@@ -35,7 +36,7 @@
     <h1>Bayesian Network Exercise 01</h1>
 
     <div class="soft">
-        <span>April  6, 2012, Tags: </span><a href="../tags/AI.html">AI</a>
+        <span>April  6, 2012, Tags: </span><a title="All pages tagged 'AI'." href="../tags/AI.html">AI</a>
     </div>
 
     <div class="body clear">
@@ -56,58 +57,58 @@
 </ul>
 <h2 id="resolution">Resolution</h2>
 <ul>
-<li>Value T:0.95 means True case with probability 0.95</li>
-<li>Probability of C is omitted as it is not related. Even include C, the result should be same.</li>
+<li><p>Value T:0.95 means True case with probability 0.95</p></li>
+<li><p>Probability of C is omitted as it is not related. Even include C, the result should be same.</p></li>
 <li><p>Enumeration list</p>
 <table>
 <thead>
 <tr class="header">
-<th align="center">INDEX</th>
-<th align="center"><em>U</em></th>
-<th align="center"><em>W</em></th>
-<th align="center"><em>B</em></th>
-<th align="center"><em>D</em></th>
+<th style="text-align: center;">INDEX</th>
+<th style="text-align: center;"><em>U</em></th>
+<th style="text-align: center;"><em>W</em></th>
+<th style="text-align: center;"><em>B</em></th>
+<th style="text-align: center;"><em>D</em></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="center">1</td>
-<td align="center">T:0.96</td>
-<td align="center">T:0.90</td>
-<td align="center">T:0.3</td>
-<td align="center">T:0.335</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">T:0.96</td>
+<td style="text-align: center;">T:0.90</td>
+<td style="text-align: center;">T:0.3</td>
+<td style="text-align: center;">T:0.335</td>
 </tr>
 <tr class="even">
-<td align="center">2</td>
-<td align="center">T:0.96</td>
-<td align="center">T:0.90</td>
-<td align="center">F:0.7</td>
-<td align="center">T:0.3</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">T:0.96</td>
+<td style="text-align: center;">T:0.90</td>
+<td style="text-align: center;">F:0.7</td>
+<td style="text-align: center;">T:0.3</td>
 </tr>
 <tr class="odd">
-<td align="center">3</td>
-<td align="center">T:0.96</td>
-<td align="center">T:0.90</td>
-<td align="center">T:0.3</td>
-<td align="center">F:0.665</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">T:0.96</td>
+<td style="text-align: center;">T:0.90</td>
+<td style="text-align: center;">T:0.3</td>
+<td style="text-align: center;">F:0.665</td>
 </tr>
 <tr class="even">
-<td align="center">4</td>
-<td align="center">T:0.06</td>
-<td align="center">T:0.90</td>
-<td align="center">F:0.7</td>
-<td align="center">F:0.7</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">T:0.06</td>
+<td style="text-align: center;">T:0.90</td>
+<td style="text-align: center;">F:0.7</td>
+<td style="text-align: center;">F:0.7</td>
 </tr>
 </tbody>
 </table></li>
 <li><p>Probability calculation</p></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode fortran"><code class="sourceCode fortran">
-P(D<span class="kw">=</span>T<span class="kw">|</span>U<span class="kw">=</span>T,W<span class="kw">=</span>T)
-  <span class="kw">=</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span>) ) <span class="kw">/</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span> )<span class="kw">+</span> ... <span class="kw">+</span> P(<span class="dv">4</span>) )
-  <span class="kw">=</span> (<span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.3</span><span class="kw">*</span><span class="fl">0.335</span> <span class="kw">+</span> <span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.7</span><span class="kw">*</span><span class="fl">0.3</span> ) <span class="kw">/</span> (...)
-  <span class="kw">=</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">/</span> (<span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">+</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">0.665</span> <span class="kw">+</span> <span class="fl">0.7</span> <span class="kw">*</span> <span class="fl">0.7</span>)
-  <span class="kw">=</span> <span class="fl">31.05</span>%</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>P(D<span class="kw">=</span>T<span class="kw">|</span>U<span class="kw">=</span>T,W<span class="kw">=</span>T)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span>) ) <span class="kw">/</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span> )<span class="kw">+</span> ... <span class="kw">+</span> P(<span class="dv">4</span>) )</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> (<span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.3</span><span class="kw">*</span><span class="fl">0.335</span> <span class="kw">+</span> <span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.7</span><span class="kw">*</span><span class="fl">0.3</span> ) <span class="kw">/</span> (...)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">/</span> (<span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">+</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">0.665</span> <span class="kw">+</span> <span class="fl">0.7</span> <span class="kw">*</span> <span class="fl">0.7</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> <span class="fl">31.05</span>%</span></code></pre></div>
     </div>
 
     <div class="clear"></div>

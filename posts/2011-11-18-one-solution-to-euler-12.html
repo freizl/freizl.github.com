@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - One solution to euler problem 12</title>
@@ -35,13 +36,13 @@
     <h1>One solution to euler problem 12</h1>
 
     <div class="soft">
-        <span>November 18, 2011, Tags: </span><a href="../tags/euler.html">euler</a>, <a href="../tags/haskell.html">haskell</a>
+        <span>November 18, 2011, Tags: </span><a title="All pages tagged 'euler'." href="../tags/euler.html">euler</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html">haskell</a>
     </div>
 
     <div class="body clear">
         
 <p>Nothing special but play haskell for fun.</p>
-<p><code>Priming</code> is a simple module which can be found at <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></p>
+<p><code>Priming</code> is a simple module which can be found at <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <pre><code>module Main where
 
 import Data.List
@@ -70,12 +71,12 @@ factors n = concat [ [x, n `div` x] | x &lt;- [1..sqrtInt n], n `mod` x == 0 ]
 
 sqrtInt :: Int -&gt; Int
 sqrtInt = truncate . sqrt . fromIntegral</code></pre>
-<div class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://github.com/freizl/dive-into-haskell/tree/master/prime">Priming module</a><a href="#fnref1">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="https://github.com/freizl/dive-into-haskell/tree/master/prime">Priming module</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
     </div>
 
     <div class="clear"></div>

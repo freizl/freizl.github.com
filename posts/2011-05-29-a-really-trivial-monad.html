@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - A really trivial monad</title>
@@ -35,13 +36,13 @@
     <h1>A really trivial monad</h1>
 
     <div class="soft">
-        <span>May 29, 2011, Tags: </span><a href="../tags/monad.html">monad</a>, <a href="../tags/haskell.html">haskell</a>
+        <span>May 29, 2011, Tags: </span><a title="All pages tagged 'monad'." href="../tags/monad.html">monad</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html">haskell</a>
     </div>
 
     <div class="body clear">
         
 <p>Generally some people saying that Monad is a computation that take a ‘world’ as parameter and produce a result along with modified ‘world’. And this a manner that doing inpure in a pure language.</p>
-<p>While thinking in terms of Parser, it means taking a String and produce a result along with the rest of the string which is not parsed<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. Consequently, we think a monadic type in Haskell is just a function.</p>
+<p>While thinking in terms of Parser, it means taking a String and produce a result along with the rest of the string which is not parsed<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Consequently, we think a monadic type in Haskell is just a function.</p>
 <p>It probably is at most of time but not have to be. For instance the <code>Maybe</code> type. The trial mentioned below is a little similar with <code>Maybe</code>.</p>
 <p>Actually I would to play with such idea:</p>
 <blockquote>
@@ -57,15 +58,15 @@
 <p>Now, I realiaze that to implement a Monadic Type, two key points we need to do, which also turn to be simple.</p>
 <ul>
 <li>Define a type that carry along the ‘side effect’</li>
-<li>Implement Monad class, a.k.a the <code>&gt;&gt;=</code> and <code>return</code> function<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></li>
+<li>Implement Monad class, a.k.a the <code>&gt;&gt;=</code> and <code>return</code> function<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
 </ul>
-<div class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://ecn.channel9.msdn.com/o9/ch9/1/1/2/4/0/5/C9LecturesMeijerC8_2MB_ch9.wmv">Functional parsers by Erik Meijer</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://channel9.msdn.com/shows/Going+Deep/Brian-Beckman-Dont-fear-the-Monads/">Brian Beckman: Don’t fear the Monad</a><a href="#fnref2">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://ecn.channel9.msdn.com/o9/ch9/1/1/2/4/0/5/C9LecturesMeijerC8_2MB_ch9.wmv">Functional parsers by Erik Meijer</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://channel9.msdn.com/shows/Going+Deep/Brian-Beckman-Dont-fear-the-Monads/">Brian Beckman: Don’t fear the Monad</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
     </div>
 
     <div class="clear"></div>

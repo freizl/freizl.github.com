@@ -14,7 +14,7 @@
     <description><![CDATA[
 <h1 id="some-notes-to-sessions">Some notes to sessions</h1>
 <ul>
-<li>BayArea Haskell Hackathon 2017 wiki home <a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a></li>
+<li>BayArea Haskell Hackathon 2017 wiki home <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
 </ul>
 <h2 id="haskell-for-flight-control-at-kittyhawk-by-greg-horn">Haskell for Flight Control at Kittyhawk by Greg Horn</h2>
 <ul>
@@ -32,24 +32,26 @@
 </ul>
 <h2 id="putting-lenses-to-work-by-john-wiegley">Putting lenses to work by John Wiegley</h2>
 <ul>
-<li>recommend SPJ lens talk at skill matter <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> which insprise John</li>
-<li>take away: “use lenses in application and write your own lenses function for library”</li>
+<li>recommend SPJ lens talk at skill matter <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> which insprise John</li>
+<li>take away: “use lenses in application and write your own lenses function for library”
+<ul>
 <li>my question is that will your own lenses functions compatible with the <code>lens</code> library when people uses my library and use <code>lens</code> library at same time.</li>
+</ul></li>
 <li>lens comes has theory background (semantic editor contract??) plus Functor and ProFunctor.</li>
 </ul>
 <h2 id="all-about-applicative---adelbert-chang">All About Applicative - Adelbert Chang</h2>
 <ul>
 <li>free applicative (inspired by free monad)</li>
-<li><code>Const</code> and <code>Identity</code> are pretty interesting. (quite similar usage from SPJ talk <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>)</li>
+<li><code>Const</code> and <code>Identity</code> are pretty interesting. (quite similar usage from SPJ talk <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>)</li>
 <li>the key point is use data type (data structor) to represents program so that could do static analysis along with when program is running, and base on the assumption that the analysis doesn’t need to know the program computation result.</li>
-<li>code samples at here <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a></li>
+<li>code samples at here <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">data</span> <span class="dt">FileIOF</span> a <span class="kw">where</span>
-  <span class="dt">FileRead</span><span class="ot"> ::</span> FilePath <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> <span class="dt">String</span>
-  <span class="dt">FileWrite</span><span class="ot"> ::</span> FilePath <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> ()
-
-<span class="co">-- the program is created in terms of data</span>
-program <span class="fu">=</span> fileRead <span class="st">&quot;hello.txt&quot;</span> <span class="fu">*&gt;</span> fileWrite <span class="st">&quot;hello.txt&quot;</span> <span class="st">&quot;hello!&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">FileIOF</span> a <span class="kw">where</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">FileRead</span><span class="ot"> ::</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> <span class="dt">String</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">FileWrite</span><span class="ot"> ::</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">String</span> <span class="ot">-&gt;</span> <span class="dt">FileIOF</span> ()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">-- the program is created in terms of data</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>program <span class="ot">=</span> fileRead <span class="st">&quot;hello.txt&quot;</span> <span class="op">*&gt;</span> fileWrite <span class="st">&quot;hello.txt&quot;</span> <span class="st">&quot;hello!&quot;</span></span></code></pre></div>
 <h2 id="real-world-uis-with-reflex-by-doug-beardsley">Real World UIs with Reflex by Doug Beardsley</h2>
 <ul>
 <li>It’s so great to meet Doug in person who is co-author of snap which I was using years ago!</li>
@@ -81,15 +83,15 @@ program <span class="fu">=</span> fileRead <span class="st">&quot;hello.txt&quot
 <li>GADT</li>
 <li>type family</li>
 </ul>
-<div class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://wiki.haskell.org/BayHac2017">BayHac2017 wiki home</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="https://github.com/adelbertc/bayhac17/blob/master/src/Main.hs">adelbertc bayhac 2017</a><a href="#fnref4">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="https://wiki.haskell.org/BayHac2017">BayHac2017 wiki home</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://skillsmatter.com/skillscasts/4251-lenses-compositional-data-access-and-manipulation">SPJ lens talk</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="https://github.com/adelbertc/bayhac17/blob/master/src/Main.hs">adelbertc bayhac 2017</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>]]></description>
+</section>]]></description>
     <pubDate>Sun, 09 Apr 2017 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2017-04-09-notes-to-bayhac-2017.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
@@ -213,7 +215,7 @@ program <span class="fu">=</span> fileRead <span class="st">&quot;hello.txt&quot
 <li><a href="http://www.coepark.org/">Henry W. Coe State Park</a></li>
 <li><a href="http://www.openspace.org/">Midpeninsula Regional Open Space District</a></li>
 <li><a href="http://www.bahiker.com">Bay Area Hiker</a></li>
-<li><a href="http://www.baynature.com">Bay Nature magazine</a></li>
+<li><a href="http://www.baynature.org">Bay Nature magazine</a></li>
 </ul>
 <h1 id="english-words">English words</h1>
 <ul>
@@ -228,17 +230,17 @@ program <span class="fu">=</span> fileRead <span class="st">&quot;hello.txt&quot
     <link>http://freizl.github.io//posts/2012-09-12-improve-space-usage.html</link>
     <description><![CDATA[
 <p>It is example from [programming in haskell] video lection 12 by Eric M. I just like to know whether GHC profile tool could help to figure out such problem.</p>
-<div class="sourceCode"><pre class="sourceCode literate literatehaskell"><code class="sourceCode literatehaskell"><span class="ot">&gt;</span> <span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span>
-<span class="ot">&gt;</span> 
-<span class="ot">&gt;</span> sumWith1 v [] <span class="fu">=</span> v
-<span class="ot">&gt;</span> sumWith1 v (x<span class="fu">:</span>xs) <span class="fu">=</span> sumWith1 (v<span class="fu">+</span>x) xs
-<span class="ot">&gt;</span> 
-<span class="ot">&gt;</span> sumWith2 v [] <span class="fu">=</span> v
-<span class="ot">&gt;</span> sumWith2 v (x<span class="fu">:</span>xs) <span class="fu">=</span> (sumWith2 <span class="fu">$!</span> (v<span class="fu">+</span>x)) xs
-<span class="ot">&gt;</span> 
-<span class="ot">&gt;</span> test <span class="fu">=</span> sumWith2 <span class="dv">0</span> [<span class="dv">1</span><span class="fu">..</span><span class="dv">20000000</span>]
-<span class="ot">&gt;</span> 
-<span class="ot">&gt;</span> main <span class="fu">=</span> print test</code></pre></div>]]></description>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell literate"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sumWith1 v [] <span class="ot">=</span> v</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sumWith1 v (x<span class="op">:</span>xs) <span class="ot">=</span> sumWith1 (v<span class="op">+</span>x) xs</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sumWith2 v [] <span class="ot">=</span> v</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sumWith2 v (x<span class="op">:</span>xs) <span class="ot">=</span> (sumWith2 <span class="op">$!</span> (v<span class="op">+</span>x)) xs</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>test <span class="ot">=</span> sumWith2 <span class="dv">0</span> [<span class="dv">1</span><span class="op">..</span><span class="dv">20000000</span>]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="fu">print</span> test</span></code></pre></div>]]></description>
     <pubDate>Wed, 12 Sep 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-09-12-improve-space-usage.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
@@ -249,9 +251,9 @@ program <span class="fu">=</span> fileRead <span class="st">&quot;hello.txt&quot
     <description><![CDATA[
 <h2 id="什么snaplet">什么Snaplet</h2>
 <p>Snap从0.6版本引入Snaplet这个设计，它使得Web应用什么可组合化，开发者可以设计许多独立的功能模块，或者说小的应用模块，然后通过组合以组建一个大型的应用。</p>
-<p>详细资料请看这里<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>。</p>
+<p>详细资料请看这里<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
 <h2 id="request-local-state">Request local state</h2>
-<p><strong>Request Local State</strong> 是snaplet的一个设计目标<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>。初识时并没引起什么关注，也是不太理解具体含义。最近在写Snaplet-OAuth的时候遇到问题，就是由于不知道这个东西的含义所造成的。</p>
+<p><strong>Request Local State</strong> 是snaplet的一个设计目标<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。初识时并没引起什么关注，也是不太理解具体含义。最近在写Snaplet-OAuth的时候遇到问题，就是由于不知道这个东西的含义所造成的。</p>
 <h2 id="snaplet-oauth-0.0.0">Snaplet-oauth-0.0.0</h2>
 <p>根据Snaplet的常规模式，定义一个data type用于保存相关信息，比如</p>
 <pre><code>data OAuthSnaplet = OAuthSnaplet 
@@ -279,61 +281,38 @@ makeLens &#39;&#39;App
 
 instance HasOauth App where
    oauthLens = weibo</code></pre>
-<p>拿新浪微薄<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>举例，OAuth的验证简单来说就是</p>
-<ol style="list-style-type: decimal">
+<p>拿新浪微薄<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>举例，OAuth的验证简单来说就是</p>
+<ol type="1">
 <li>重定向到新浪微薄OAuth的验证页面，让用户授权</li>
 <li>授权后新浪微薄会调用我们的App指定的Callback URL</li>
 <li>我们需要实现这个Callback已获取最终的access token</li>
 </ol>
 <p>下面来看下这个callback的实现</p>
-<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-</pre></td><td class="sourceCode"><pre><code class="sourceCode haskell">
-<span class="ot">oauthCallbackHandler ::</span> <span class="dt">HasOauth</span> b 
-                     <span class="ot">=&gt;</span> <span class="dt">Maybe</span> <span class="dt">BS.ByteString</span>
-                     <span class="ot">-&gt;</span> <span class="dt">Handler</span> b b ()
-oauthCallbackHandler uri <span class="fu">=</span> <span class="kw">do</span>
-    oauthSnaplet <span class="ot">&lt;-</span> getOauthSnaplet
-    codeParam    <span class="ot">&lt;-</span> decodedParam&#39; (getCodeParam oauthSnaplet)
-    oauth        <span class="ot">&lt;-</span> getOauth oauthSnaplet
-    maybeToken   <span class="ot">&lt;-</span> liftIO <span class="fu">$</span> requestAccessToken oauth codeParam
-    <span class="kw">case</span> maybeToken <span class="kw">of</span> 
-        <span class="dt">Just</span> token <span class="ot">-&gt;</span> <span class="kw">do</span>
-             updateOAuthSnaplet (modify <span class="fu">$</span> modifyOAuthState token)
-             redirect <span class="fu">$</span> fromMaybe <span class="st">&quot;/&quot;</span> uri 
-        _ <span class="ot">-&gt;</span> writeBS <span class="st">&quot;Error getting access token.&quot;</span>
-
-
-<span class="ot">modifyOAuthState ::</span> <span class="dt">AccessToken</span> <span class="ot">-&gt;</span> <span class="dt">OAuthSnaplet</span> <span class="ot">-&gt;</span> <span class="dt">OAuthSnaplet</span>
-modifyOAuthState (<span class="dt">AccessToken</span> at) oa <span class="fu">=</span> <span class="dt">OAuthSnaplet</span> { getOauth <span class="fu">=</span> newOA, getCodeParam <span class="fu">=</span> getCodeParam oa }
-                                       <span class="kw">where</span> newOA <span class="fu">=</span> originOA { oauthAccessToken <span class="fu">=</span> <span class="dt">Just</span> at }
-                                             originOA <span class="fu">=</span> getOauth oa
-
-<span class="ot">updateOAuthSnaplet ::</span> (<span class="dt">MonadSnaplet</span> m) <span class="ot">=&gt;</span> m b <span class="dt">OAuthSnaplet</span> a <span class="ot">-&gt;</span> m b <span class="dt">OAuthSnaplet</span> a
-updateOAuthSnaplet <span class="fu">=</span> with&#39; oauthLens</code></pre></td></tr></table></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource haskell numberLines"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="ot">oauthCallbackHandler ::</span> <span class="dt">HasOauth</span> b </span>
+<span id="cb3-3"><a href="#cb3-3"></a>                     <span class="ot">=&gt;</span> <span class="dt">Maybe</span> <span class="dt">BS.ByteString</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>                     <span class="ot">-&gt;</span> <span class="dt">Handler</span> b b ()</span>
+<span id="cb3-5"><a href="#cb3-5"></a>oauthCallbackHandler uri <span class="ot">=</span> <span class="kw">do</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>    oauthSnaplet <span class="ot">&lt;-</span> getOauthSnaplet</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    codeParam    <span class="ot">&lt;-</span> decodedParam&#39; (getCodeParam oauthSnaplet)</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    oauth        <span class="ot">&lt;-</span> getOauth oauthSnaplet</span>
+<span id="cb3-9"><a href="#cb3-9"></a>    maybeToken   <span class="ot">&lt;-</span> liftIO <span class="op">$</span> requestAccessToken oauth codeParam</span>
+<span id="cb3-10"><a href="#cb3-10"></a>    <span class="kw">case</span> maybeToken <span class="kw">of</span> </span>
+<span id="cb3-11"><a href="#cb3-11"></a>        <span class="dt">Just</span> token <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a>             updateOAuthSnaplet (modify <span class="op">$</span> modifyOAuthState token)</span>
+<span id="cb3-13"><a href="#cb3-13"></a>             redirect <span class="op">$</span> fromMaybe <span class="st">&quot;/&quot;</span> uri </span>
+<span id="cb3-14"><a href="#cb3-14"></a>        _ <span class="ot">-&gt;</span> writeBS <span class="st">&quot;Error getting access token.&quot;</span></span>
+<span id="cb3-15"><a href="#cb3-15"></a></span>
+<span id="cb3-16"><a href="#cb3-16"></a></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="ot">modifyOAuthState ::</span> <span class="dt">AccessToken</span> <span class="ot">-&gt;</span> <span class="dt">OAuthSnaplet</span> <span class="ot">-&gt;</span> <span class="dt">OAuthSnaplet</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a>modifyOAuthState (<span class="dt">AccessToken</span> at) oa <span class="ot">=</span> <span class="dt">OAuthSnaplet</span> { getOauth <span class="ot">=</span> newOA, getCodeParam <span class="ot">=</span> getCodeParam oa }</span>
+<span id="cb3-19"><a href="#cb3-19"></a>                                       <span class="kw">where</span> newOA <span class="ot">=</span> originOA { oauthAccessToken <span class="ot">=</span> <span class="dt">Just</span> at }</span>
+<span id="cb3-20"><a href="#cb3-20"></a>                                             originOA <span class="ot">=</span> getOauth oa</span>
+<span id="cb3-21"><a href="#cb3-21"></a></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="ot">updateOAuthSnaplet ::</span> (<span class="dt">MonadSnaplet</span> m) <span class="ot">=&gt;</span> m b <span class="dt">OAuthSnaplet</span> a <span class="ot">-&gt;</span> m b <span class="dt">OAuthSnaplet</span> a</span>
+<span id="cb3-23"><a href="#cb3-23"></a>updateOAuthSnaplet <span class="ot">=</span> with&#39; oauthLens</span></code></pre></div>
 <p>这里主要关注的是第11行到13行，<code>Just token</code>表示成功获取了AccessToken，然后要</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>将OAuthSnpalet里的oauth的AccessToken更新掉。</li>
 <li>然后将更新后OAuthSnaplet替代掉原来的</li>
 </ol>
@@ -341,24 +320,24 @@ updateOAuthSnaplet <span class="fu">=</span> with&#39; oauthLens</code></pre></t
 <p>然后事实并不是这样子，在这个oauthCallbackHandler对OAuthSnaplet的更新只限于这个Handler。 <strong>因为snap是多线程的且线程安全，每一次的request都是对snaplet状态的一份新拷贝。</strong> 而由于初始化OauthSnaplet的时候是没有AccessToken的，这就意谓着所有的Handler默认读到的AccessToken是空的。</p>
 <h2 id="如何解决">如何解决</h2>
 <p>解决方案就是把<code>OAuthSnaplet</code>里的<code>oauth</code>变成一个共享变量，这样可以在多线程之间共享。</p>
-<p>一种实现方式就是用<code>MVar</code><a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>，这样OAuthSnaplet就成了这样子</p>
+<p>一种实现方式就是用<code>MVar</code><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>，这样OAuthSnaplet就成了这样子</p>
 <pre><code>data OAuthSnaplet = OAuthSnaplet 
                     { getOauth     :: MVar OAuth2
                     , getCodeParam :: BS.ByteString
                     } </code></pre>
-<p>然后就很直观了，用<code>Control.Concurrent</code>库里提供的更新一个MVar的方式来做更新和读取。 最后的实现可以参考这里<a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>，不在这里累赘。</p>
+<p>然后就很直观了，用<code>Control.Concurrent</code>库里提供的更新一个MVar的方式来做更新和读取。 最后的实现可以参考这里<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>，不在这里累赘。</p>
 <h2 id="还有什么问题">还有什么问题</h2>
 <p>你可能已经发现，这样的实现方式，如何支持多用户，以及多个OAuth Provider呢？ 我还没有答案，如果你知道怎么做，欢迎<a href="https://github.com/HaskellCNOrg/snaplet-oauth">send Pull Request</a>.</p>
-<div class="footnotes">
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://snapframework.com/docs/tutorials/snaplets-tutorial">Snaplets Tutorial</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://snapframework.com/docs/tutorials/snaplets-design">Snaplets-Design</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E">新浪微博授权机制说明</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="http://www.haskell.org/ghc/docs/7.0-latest/html/libraries/base-4.3.1.0/Control-Concurrent-MVar.html">MVar</a><a href="#fnref4">↩</a></p></li>
-<li id="fn5"><p><a href="https://github.com/HaskellCNOrg/snaplet-oauth">Snaplet-OAuth in Github</a><a href="#fnref5">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://snapframework.com/docs/tutorials/snaplets-tutorial">Snaplets Tutorial</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://snapframework.com/docs/tutorials/snaplets-design">Snaplets-Design</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E">新浪微博授权机制说明</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="http://www.haskell.org/ghc/docs/7.0-latest/html/libraries/base-4.3.1.0/Control-Concurrent-MVar.html">MVar</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p><a href="https://github.com/HaskellCNOrg/snaplet-oauth">Snaplet-OAuth in Github</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>]]></description>
+</section>]]></description>
     <pubDate>Thu, 24 May 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-05-24-snaplet-request-local-state.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
@@ -369,33 +348,33 @@ updateOAuthSnaplet <span class="fu">=</span> with&#39; oauthLens</code></pre></t
     <description><![CDATA[
 <p><strong>此问题发生在GHC &lt; 7.2.x的环境，据说7.2.x已经修正了造成此原因的bug(未验证)。</strong></p>
 <h2 id="问题">问题</h2>
-<p>Hakyll<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>会给每个标签单独生成一个html，比如<em>foo.html</em>, 用来显示标签对应的所有文章。 然而当标签为中文时，文件名会是乱码，而非对应的中文标签名。</p>
+<p>Hakyll<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>会给每个标签单独生成一个html，比如<em>foo.html</em>, 用来显示标签对应的所有文章。 然而当标签为中文时，文件名会是乱码，而非对应的中文标签名。</p>
 <h2 id="原因">原因</h2>
 <p>造成问题是原因由于Haskell里写文件的方法。 如下所是，<code>writeFile</code>用base库里的<code>String</code>类型表示文件名， 这就限制其只能表示ASC-II字符集。</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">type</span> FilePath <span class="fu">=</span> <span class="dt">String</span>
-              
-writeFile<span class="ot"> ::</span> FilePath  <span class="co">-- ^ 文件名</span>
-          <span class="ot">-&gt;</span> <span class="dt">String</span>    <span class="co">-- ^ 要写到文件的内容</span>
-          <span class="ot">-&gt;</span> <span class="dt">IO</span> ()
- </code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">FilePath</span> <span class="ot">=</span> <span class="dt">String</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">writeFile</span><span class="ot"> ::</span> <span class="dt">FilePath</span>  <span class="co">-- ^ 文件名</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>          <span class="ot">-&gt;</span> <span class="dt">String</span>    <span class="co">-- ^ 要写到文件的内容</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h2 id="一种解决办法">一种解决办法</h2>
-<p>最直接的方式就是用类库utf8-string<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>里的<code>encodeString</code>方法，现将文件名进行encode然后再调<code>writeFile</code>方法。比如</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Codec.Binary.UTF8.String</span> <span class="kw">as</span> <span class="dt">UTF8</span>
-
-main <span class="fu">=</span> myWriteFile <span class="st">&quot;新天地.html&quot;</span> <span class="st">&quot;test&quot;</span>
-myWriteFile <span class="fu">=</span> writeFile <span class="fu">.</span> UTF8.encodeString</code></pre></div>
-<p>对应到Hakyll, 就是将上述的改动加到这个文件里<em>src/Hakyll/Core/Writable.hs</em>.详见这里<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</p>
+<p>最直接的方式就是用类库utf8-string<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>里的<code>encodeString</code>方法，现将文件名进行encode然后再调<code>writeFile</code>方法。比如</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">qualified</span> <span class="dt">Codec.Binary.UTF8.String</span> <span class="kw">as</span> <span class="dt">UTF8</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> myWriteFile <span class="st">&quot;新天地.html&quot;</span> <span class="st">&quot;test&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>myWriteFile <span class="ot">=</span> <span class="fu">writeFile</span> <span class="op">.</span> UTF8.encodeString</span></code></pre></div>
+<p>对应到Hakyll, 就是将上述的改动加到这个文件里<em>src/Hakyll/Core/Writable.hs</em>.详见这里<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
 <h2 id="再一种解决办法">再一种解决办法</h2>
-<p>hakyll goole groups有人帖了他的一个解决方案，也是用utf8-string先encode，但修改的地方不一样。详见此<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>。</p>
-<div class="footnotes">
+<p>hakyll goole groups有人帖了他的一个解决方案，也是用utf8-string先encode，但修改的地方不一样。详见此<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>。</p>
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://jaspervdj.be/hakyll/">Hakyll Home</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://hackage.haskell.org/package/utf8-string">Hackage utf8-string</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://github.com/freizl/hakyll/commits/private/3.2.6.1">Private branch for hakyll</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="https://github.com/hwa/hakyll/commit/cb7dc75d40fcb2ccbbea9ee3a5582d1ee7fd3cc9">Another fix</a><a href="#fnref4">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://jaspervdj.be/hakyll/">Hakyll Home</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://hackage.haskell.org/package/utf8-string">Hackage utf8-string</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://github.com/freizl/hakyll/commits/private/3.2.6.1">Private branch for hakyll</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="https://github.com/hwa/hakyll/commit/cb7dc75d40fcb2ccbbea9ee3a5582d1ee7fd3cc9">Another fix</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>]]></description>
+</section>]]></description>
     <pubDate>Thu, 26 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-26-chinese-tag-in-hakyll.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
@@ -404,14 +383,14 @@ myWriteFile <span class="fu">=</span> writeFile <span class="fu">.</span> UTF8.e
     <title>关于Haskell中文社区的上线</title>
     <link>http://freizl.github.io//posts/2012-04-20-starting.html</link>
     <description><![CDATA[
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell">
-<span class="co">-- | Haskell中文社区</span>
-haskellcnOrg <span class="fu">=</span> <span class="dt">HaskellCNOrg</span> 
-               { <span class="st">&quot;http://www.haskellcn.org&quot;</span>       <span class="co">-- ^ 主页</span>
-               , <span class="st">&quot;http://a.haskellcn.org&quot;</span>         <span class="co">-- ^ 分享、提问、交流</span>
-               , <span class="st">&quot;http://www.haskellcn.org/blog/&quot;</span> <span class="co">-- ^ 点滴心得、原文翻译</span>
-               }
-  </code></pre></div>]]></description>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">-- | Haskell中文社区</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>haskellcnOrg <span class="ot">=</span> <span class="dt">HaskellCNOrg</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               { <span class="st">&quot;http://www.haskellcn.org&quot;</span>       <span class="co">-- ^ 主页</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               , <span class="st">&quot;http://a.haskellcn.org&quot;</span>         <span class="co">-- ^ 分享、提问、交流</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>               , <span class="st">&quot;http://www.haskellcn.org/blog/&quot;</span> <span class="co">-- ^ 点滴心得、原文翻译</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>               }</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  </span></code></pre></div>]]></description>
     <pubDate>Fri, 20 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-20-starting.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
@@ -422,55 +401,55 @@ haskellcnOrg <span class="fu">=</span> <span class="dt">HaskellCNOrg</span>
     <description><![CDATA[
 <h1 id="play-it">Play it</h1>
 <h2 id="new-two-files">new two files</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ echo <span class="st">&quot;11111&quot;</span> <span class="op">&gt;</span> 1.txt
-<span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ echo <span class="st">&quot;22222&quot;</span> <span class="op">&gt;</span> 2.txt</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$</span> echo <span class="st">&quot;11111&quot;</span> <span class="op">&gt;</span> 1.txt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$</span> echo <span class="st">&quot;22222&quot;</span> <span class="op">&gt;</span> 2.txt</span></code></pre></div>
 <h2 id="git-add">git-add</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git add .
-<span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git st
-<span class="co"># On branch master</span>
-<span class="co">#</span>
-<span class="co"># Initial commit</span>
-<span class="co">#</span>
-<span class="co"># Changes to be committed:</span>
-<span class="co">#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span>
-<span class="co">#</span>
-<span class="co">#	new file:   1.txt</span>
-<span class="co">#	new file:   2.txt</span>
-<span class="co">#</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$</span> git add .</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$</span> git st</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># On branch master</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initial commit</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Changes to be committed:</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#	new file:   1.txt</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#	new file:   2.txt</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code></pre></div>
 <h2 id="no-objects-created-yet">no objects created yet</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git rev-list --objects --all</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$</span> git rev-list <span class="at">--objects</span> <span class="at">--all</span></span></code></pre></div>
 <h2 id="git-commit">git-commit</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git ci <span class="st">&quot;first commit&quot;</span>
-[<span class="ex">master</span> (root-commit) <span class="ex">8ef1919</span>] first commit
- <span class="ex">2</span> files changed, 2 insertions(+), <span class="ex">0</span> deletions(-)
- <span class="ex">create</span> mode 100644 1.txt
- <span class="ex">create</span> mode 100644 2.txt</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$</span> git ci <span class="st">&quot;first commit&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">[master</span> <span class="er">(</span><span class="ex">root-commit</span><span class="kw">)</span> <span class="ex">8ef1919]</span> first commit</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">2</span> files changed, 2 insertions<span class="er">(</span><span class="ex">+</span><span class="kw">)</span><span class="ex">,</span> 0 deletions<span class="er">(</span><span class="ex">-</span><span class="kw">)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 1.txt</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a> <span class="ex">create</span> mode 100644 2.txt</span></code></pre></div>
 <h2 id="git-obj-list">git-obj-list</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash">
-<span class="ex">haiswu@haiswu-VirtualBox</span>:~/github/haisheng-homepage/test$ git rev-list --objects --all
-<span class="ex">8ef1919e4ca33cf602488a27b5671a6b6acf754b</span>
-<span class="ex">8ed6deeabbbb89cda775aafc10745ea40dcd8456</span>
-<span class="ex">f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f</span> 1.txt
-<span class="ex">0ac1ae0ae201d8db7ac29015a6ba7494db37d59c</span> 2.txt</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$</span> git rev-list <span class="at">--objects</span> <span class="at">--all</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">8ef1919e4ca33cf602488a27b5671a6b6acf754b</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">8ed6deeabbbb89cda775aafc10745ea40dcd8456</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f</span> 1.txt</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">0ac1ae0ae201d8db7ac29015a6ba7494db37d59c</span> 2.txt</span></code></pre></div>
 <h2 id="what-are-they">what are they</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">## | Blob objects</span>
-<span class="ex">~/github/haisheng-homepage/test</span>$ <span class="fu">git</span> cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
-<span class="ex">11111</span>
-<span class="ex">~/github/haisheng-homepage/test</span>$ <span class="fu">git</span> cat-file -p 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c
-<span class="ex">22222</span>
-
-<span class="co">## | Commit objects</span>
-<span class="ex">~/github/haisheng-homepage/test</span>$ <span class="fu">git</span> cat-file -p 8ef1919e4ca33cf602488a27b5671a6b6acf754b
-<span class="ex">tree</span> 8ed6deeabbbb89cda775aafc10745ea40dcd8456
-<span class="ex">author</span> Haisheng.W.WU <span class="op">&lt;</span>freizl@gmail.com<span class="op">&gt;</span> 1334230087 +0800
-<span class="ex">committer</span> Haisheng.W.WU <span class="op">&lt;</span>freizl@gmail.com<span class="op">&gt;</span> 1334230087 +0800
-
-<span class="ex">first</span> commit
-
-<span class="co">## | Tree objects</span>
-<span class="ex">~/github/haisheng-homepage/test</span>$ <span class="fu">git</span> cat-file -p 8ed6deeabbbb89cda775aafc10745ea40dcd8456
-<span class="ex">100644</span> blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f	1.txt
-<span class="ex">100644</span> blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c	2.txt</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">## | Blob objects</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">~/github/haisheng-homepage/test$</span> git cat-file <span class="at">-p</span> f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">11111</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">~/github/haisheng-homepage/test$</span> git cat-file <span class="at">-p</span> 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">22222</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">## | Commit objects</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ex">~/github/haisheng-homepage/test$</span> git cat-file <span class="at">-p</span> 8ef1919e4ca33cf602488a27b5671a6b6acf754b</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="ex">tree</span> 8ed6deeabbbb89cda775aafc10745ea40dcd8456</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="ex">author</span> Haisheng.W.WU <span class="op">&lt;</span>freizl@gmail.com<span class="op">&gt;</span> 1334230087 +0800</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ex">committer</span> Haisheng.W.WU <span class="op">&lt;</span>freizl@gmail.com<span class="op">&gt;</span> 1334230087 +0800</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ex">first</span> commit</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">## | Tree objects</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="ex">~/github/haisheng-homepage/test$</span> git cat-file <span class="at">-p</span> 8ed6deeabbbb89cda775aafc10745ea40dcd8456</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ex">100644</span> blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f	1.txt</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="ex">100644</span> blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c	2.txt</span></code></pre></div>
 <h1 id="further">Further</h1>
 <ul>
 <li><a href="" title="http://book.git-scm.com/">Git object model</a></li>
@@ -486,80 +465,54 @@ haskellcnOrg <span class="fu">=</span> <span class="dt">HaskellCNOrg</span>
     <description><![CDATA[
 <h1 id="introduction">Introduction</h1>
 <p>I can not quite remember what happened when invoking <code>new</code> over a function. While I’m looking at function <code>init</code> at jQuery source, the concern comes to me again.</p>
-<p>Fourtunaly I think the answer at this<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> thread turns out to be a quite clear explanation.</p>
+<p>Fourtunaly I think the answer at this<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> thread turns out to be a quite clear explanation.</p>
 <p>Just three things according to that answer.</p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>Creates a new object. Its type is <code>object</code>.</li>
 <li>Sets this new object’s internal, inaccessible, <code>[[prototype]]</code> property to be the constructor function’s external, accessible, <code>prototype</code> object. <em>Refer to line 11 at <a href="#sample">sample</a></em>.</li>
 <li>Executes the constructor function, using the new object whenever <code>this</code> is mentioned.</li>
 </ol>
 <p>Regarding #2, we might have question like</p>
-<ol style="list-style-type: lower-roman">
+<ol type="i">
 <li>What is constuctor function’s <code>prototype</code> object?</li>
 <li>What is the <code>[[prototype]]</code>?</li>
 </ol>
 <p>The answer are</p>
-<ol style="list-style-type: lower-roman">
+<ol type="i">
 <li>Function’s <code>prototype</code> property is automatically created which in turn has a constructor property pointing back to the function. <em>Refer to line 4 at <a href="#sample">sample</a></em></li>
-<li>Basically <code>[[prototype]]</code> is used for prototype chain. Find details at here<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and Ecma-262<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</li>
+<li>Basically <code>[[prototype]]</code> is used for prototype chain. Find details at here<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and Ecma-262<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</li>
 </ol>
 <p>Therefore if we change the <code>prototype</code> property of the function before <code>new</code>, the <code>[[prototype]]</code> of instances afterwards is vary accordingly. <em>Refer to line 19 at <a href="#sample">sample</a></em></p>
 <h1 id="sample">Sample</h1>
 <ul>
 <li><strong>tested at google chrome 18 and pay close attention to comments.</strong></li>
 </ul>
-<div class="sourceCode"><table class="sourceCode javascript numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-</pre></td><td class="sourceCode"><pre><code class="sourceCode javascript">
-<span class="kw">var</span> fn1 <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span> <span class="kw">this</span>.<span class="at">name</span> <span class="op">=</span> <span class="st">&quot;fn1&quot;</span><span class="op">;</span> <span class="op">}</span>
-
-<span class="va">fn1</span>.<span class="at">prototype</span>          <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
-                       <span class="co">//        , __proto__: Object }</span>
-
-<span class="va">fn1</span>.<span class="at">__proto__</span>          <span class="co">// function Empty() {}</span>
-
-
-<span class="kw">var</span> x1 <span class="op">=</span> <span class="kw">new</span> <span class="at">fn1</span>()<span class="op">;</span>
-<span class="va">x1</span>.<span class="at">__proto__</span> <span class="op">===</span> <span class="va">fn1</span>.<span class="at">prototype</span>  <span class="co">// True</span>
-
-<span class="va">x1</span>.<span class="at">__proto__</span>           <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span>
-                       <span class="co">//        , __proto__: Object }</span>
-<span class="va">x1</span>.<span class="at">constructor</span>         <span class="co">// function () { this.name = &quot;fn1&quot;; }</span>
-
-
-<span class="va">fn1</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="op">{</span><span class="st">&#39;location&#39;</span><span class="op">:</span> <span class="st">&#39;sea&#39;</span><span class="op">}</span>
-
-<span class="kw">var</span> y1 <span class="op">=</span> <span class="kw">new</span> <span class="at">fn1</span>()<span class="op">;</span>
-<span class="va">x1</span>.<span class="at">__proto__</span> <span class="op">===</span> <span class="va">fn1</span>.<span class="at">prototype</span>  <span class="co">// True</span>
-
-<span class="va">y1</span>.<span class="at">__proto__</span><span class="op">;</span>          <span class="co">// Object { location: &quot;sea&quot;</span>
-                       <span class="co">//        ,__proto__: Object }</span>
-<span class="va">y1</span>.<span class="at">constructor</span><span class="op">;</span>        <span class="co">// function Object() { [native code] }</span>
-</code></pre></td></tr></table></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource javascript numberLines"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">var</span> fn1 <span class="op">=</span> <span class="kw">function</span> () { <span class="kw">this</span><span class="op">.</span><span class="at">name</span> <span class="op">=</span> <span class="st">&quot;fn1&quot;</span><span class="op">;</span> }</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>fn1<span class="op">.</span><span class="at">prototype</span>          <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>                       <span class="co">//        , __proto__: Object }</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a>fn1<span class="op">.</span><span class="at">__proto__</span>          <span class="co">// function Empty() {}</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="kw">var</span> x1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">fn1</span>()<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>x1<span class="op">.</span><span class="at">__proto__</span> <span class="op">===</span> fn1<span class="op">.</span><span class="at">prototype</span>  <span class="co">// True</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>x1<span class="op">.</span><span class="at">__proto__</span>           <span class="co">// Object { constructor: function () { this.name = &quot;fn1&quot;; }</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>                       <span class="co">//        , __proto__: Object }</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>x1<span class="op">.</span><span class="at">constructor</span>         <span class="co">// function () { this.name = &quot;fn1&quot;; }</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>fn1<span class="op">.</span><span class="at">prototype</span> <span class="op">=</span> {<span class="st">&#39;location&#39;</span><span class="op">:</span> <span class="st">&#39;sea&#39;</span>}</span>
+<span id="cb1-19"><a href="#cb1-19"></a></span>
+<span id="cb1-20"><a href="#cb1-20"></a><span class="kw">var</span> y1 <span class="op">=</span> <span class="kw">new</span> <span class="fu">fn1</span>()<span class="op">;</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>x1<span class="op">.</span><span class="at">__proto__</span> <span class="op">===</span> fn1<span class="op">.</span><span class="at">prototype</span>  <span class="co">// True</span></span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a>y1<span class="op">.</span><span class="at">__proto__</span><span class="op">;</span>          <span class="co">// Object { location: &quot;sea&quot;</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>                       <span class="co">//        ,__proto__: Object }</span></span>
+<span id="cb1-25"><a href="#cb1-25"></a>y1<span class="op">.</span><span class="at">constructor</span><span class="op">;</span>        <span class="co">// function Object() { [native code] }</span></span>
+<span id="cb1-26"><a href="#cb1-26"></a></span></code></pre></div>
 <ul>
 <li>Quiz: Why y1.constructor is not same as x1.constructor?</li>
 </ul>
@@ -567,36 +520,36 @@ haskellcnOrg <span class="fu">=</span> <span class="dt">HaskellCNOrg</span>
 <ul>
 <li><code>jQuery</code> is declarated as</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="kw">var</span> jQuery <span class="op">=</span> <span class="kw">function</span>( selector<span class="op">,</span> context ) <span class="op">{</span>
-		<span class="co">// The jQuery object is actually just the init constructor &#39;enhanced&#39;</span>
-		<span class="cf">return</span> <span class="kw">new</span> <span class="va">jQuery</span>.<span class="va">fn</span>.<span class="at">init</span>( selector<span class="op">,</span> context<span class="op">,</span> rootjQuery )<span class="op">;</span>
-	<span class="op">},</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> jQuery <span class="op">=</span> <span class="kw">function</span>( selector<span class="op">,</span> context ) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>		<span class="co">// The jQuery object is actually just the init constructor &#39;enhanced&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>		<span class="cf">return</span> <span class="kw">new</span> jQuery<span class="op">.</span><span class="at">fn</span><span class="op">.</span><span class="fu">init</span>( selector<span class="op">,</span> context<span class="op">,</span> rootjQuery )<span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>	}<span class="op">,</span></span></code></pre></div>
 <ul>
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="at">fn</span> <span class="op">=</span> <span class="op">{</span>
-	<span class="dt">constructor</span><span class="op">:</span> jQuery<span class="op">,</span>
-	<span class="dt">init</span><span class="op">:</span> <span class="kw">function</span>( selector<span class="op">,</span> context<span class="op">,</span> rootjQuery ) <span class="op">{</span>
-		    <span class="kw">var</span> match<span class="op">,</span> elem<span class="op">,</span> ret<span class="op">,</span> doc<span class="op">;</span>
-            ... ...
-          <span class="op">},</span>
-    ... ... <span class="co">// many API declaration.</span>
-<span class="op">}</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>jQuery<span class="op">.</span><span class="at">fn</span> <span class="op">=</span> {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>	<span class="dt">constructor</span><span class="op">:</span> jQuery<span class="op">,</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>	<span class="dt">init</span><span class="op">:</span> <span class="kw">function</span>( selector<span class="op">,</span> context<span class="op">,</span> rootjQuery ) {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>		    <span class="kw">var</span> match<span class="op">,</span> elem<span class="op">,</span> ret<span class="op">,</span> doc<span class="op">;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="op">...</span> <span class="op">...</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>          }<span class="op">,</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">...</span> <span class="op">...</span> <span class="co">// many API declaration.</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <ul>
 <li>Function chain</li>
 </ul>
 <p>Since <code>jQuery</code> is just a function, we are able to do with a selector like <code>jQuery('div.navigator').addClass('nav')</code>.</p>
-<p>Actually in order to use jQuery API like <code>addClass</code>, there must exists following something which of cource can be found at around line 322 of jQuery.1.7.1.css<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>.</p>
-<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="va">jQuery</span>.<span class="va">fn</span>.<span class="va">init</span>.<span class="at">prototype</span> <span class="op">=</span> <span class="va">jQuery</span>.<span class="at">fn</span><span class="op">;</span></code></pre></div>
-<div class="footnotes">
+<p>Actually in order to use jQuery API like <code>addClass</code>, there must exists following something which of cource can be found at around line 322 of jQuery.1.7.1.css<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>jQuery<span class="op">.</span><span class="at">fn</span><span class="op">.</span><span class="at">init</span><span class="op">.</span><span class="at">prototype</span> <span class="op">=</span> jQuery<span class="op">.</span><span class="at">fn</span><span class="op">;</span></span></code></pre></div>
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript">What is new keyword in JS</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://joost.zeekat.nl/constructors-considered-mildly-confusing.html">Constructors considered confusing</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">Ecma262</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="http://code.jquery.com/jquery-1.7.2.js">jQuery 1.7.1</a><a href="#fnref4">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript">What is new keyword in JS</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://joost.zeekat.nl/constructors-considered-mildly-confusing.html">Constructors considered confusing</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="http://www.ecma-international.org/publications/standards/Ecma-262.htm">Ecma262</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="http://code.jquery.com/jquery-1.7.2.js">jQuery 1.7.1</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>]]></description>
+</section>]]></description>
     <pubDate>Thu, 12 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-12-confused-constructor-js.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
@@ -638,37 +591,36 @@ haskellcnOrg <span class="fu">=</span> <span class="dt">HaskellCNOrg</span>
 <li>refs/heads</li>
 <li>refs/tags</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash">[<span class="ex">remote</span> <span class="st">&quot;origin&quot;</span>]
-    <span class="ex">url</span> = ...
-    <span class="ex">fetch</span> = +refs/heads/* : refs/remotes/origin/*
-      ===<span class="op">&gt;</span> <span class="ex">fetch</span> all the references under <span class="st">&quot;refs/heads&quot;</span> on the server
-           <span class="ex">and</span> writes them to refs/remotes/origin locally</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">[remote</span> <span class="st">&quot;origin&quot;</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">url</span> = ...</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">fetch</span> = +refs/heads/<span class="pp">*</span> : refs/remotes/origin/<span class="pp">*</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      <span class="ex">===</span><span class="op">&gt;</span> fetch all the references under <span class="st">&quot;refs/heads&quot;</span> on the server</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>           <span class="ex">and</span> writes them to refs/remotes/origin locally</span></code></pre></div>
 <p><em>Questions</em></p>
-<ol style="list-style-type: decimal">
+<ol type="1">
 <li>What does ‘git branch B_NAME’ actually do?</li>
 <li>What happened to HEAD when switching branch?</li>
 </ol>
 <h1 id="chapter-6">Chapter 6</h1>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">git</span> add -i</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">###</span>
-<span class="co">### revision selection</span>
-<span class="co">### ^ ::= parent of something, only two format ^ and ^2</span>
-<span class="fu">git</span> log HEAD^2
-<span class="fu">git</span> log d107aoeu^2
-<span class="fu">git</span> log HEAD~3</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">git</span> log master..branchA
-<span class="fu">git</span> log origin/master..HEAD
-<span class="fu">git</span> log branchA branchB ^branchC
-<span class="fu">git</span> log master...branchA</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-i</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">###</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">### revision selection</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">### ^ ::= parent of something, only two format ^ and ^2</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log HEAD^2</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log d107aoeu^2</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log HEAD~3</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log master..branchA</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log origin/master..HEAD</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log branchA branchB ^branchC</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log master...branchA</span></code></pre></div>
 <h1 id="internal">Internal</h1>
 <p>Questions</p>
-<div class="figure">
-<img src="http://freizl.github.com/images/git_internal.png" alt="Git internal in one image" />
-<p class="caption">Git internal in one image</p>
-</div>
+<figure>
+<img src="http://freizl.github.com/images/git_internal.png" alt="Git internal in one image" /><figcaption aria-hidden="true">Git internal in one image</figcaption>
+</figure>
 <h1 id="reference">Reference</h1>
 <ul>
-<li><a href="http://progit.org/book/">ProGit</a></li>
+<li><a href="https://git-scm.com/book/en/v2">ProGit</a></li>
 </ul>]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-08-notes-progit.html</guid>
@@ -679,68 +631,68 @@ haskellcnOrg <span class="fu">=</span> <span class="dt">HaskellCNOrg</span>
     <link>http://freizl.github.io//posts/2012-04-08-notes-master-regexp.html</link>
     <description><![CDATA[
 <h1 id="notes">Notes</h1>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">Matching <span class="kw">and</span> Capture, <span class="kw">or</span> just <span class="kw">not</span> Capture
-(?:...) <span class="kw">and</span> (...)
-
-
-<span class="kw">/</span><span class="ot">i has no effect on the replacement text</span>
-<span class="ot">e.g.  </span><span class="dt">$var</span><span class="ot"> =~ s</span><span class="kw">/</span>\bJeff\b/Jeff/i;
-compare difference with:
-<span class="dt">$var</span> =~ <span class="kw">s/</span><span class="bn">\s</span><span class="ot">Jeff</span><span class="bn">\s</span><span class="ot">/Jeff/i;</span>
-
-
-<span class="ot">Automated Editing</span>
-<span class="ot">perl -p -i -e &#39;s/sysread/read/g&#39; file</span>
-
-
-<span class="ch">?</span><span class="ot"> What is &#39;m&#39; modifier</span>
-<span class="dt">$text</span><span class="ot"> =~ s/</span><span class="ch">^</span><span class="dt">$/</span><span class="ot">&lt;p&gt;/mg;</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">Lookaround
-  (?= ...) (?! ...) (?&lt;= ...) (?&lt;! ...)
-  - lookaround does <span class="kw">not</span> consume text
-  - (?=Jeffery)Jeff <span class="kw">&lt;P61&gt;</span>
-  - (?&lt;=\bJeff)(?=<span class="kw">s\</span><span class="ot">b</span><span class="ch">)</span>
-
-
-<span class="ch">\G</span><span class="ot"> &lt;P128&gt;</span>
-<span class="ot">  X</span><span class="ch">?</span><span class="ot"> ...</span>
-
-<span class="ot">Comments and Mode modifiers &lt;P133&gt;</span>
-<span class="ot">  </span><span class="ch">(?modifier)</span><span class="ot"> such as </span><span class="ch">(?i)</span><span class="ot">, </span><span class="ch">(?-i)</span>
-<span class="ot">  e.g. &lt;B&gt;</span><span class="ch">(?i)</span><span class="ot">very</span><span class="ch">(?-i)</span><span class="ot">&lt;/B&gt;</span>
-<span class="ot">       match: &lt;B&gt;VERY&lt;/B&gt;</span>
-<span class="ot">              &lt;B&gt;Very&lt;/B&gt;</span>
-<span class="ot">       but not: &lt;b&gt;Very&lt;/b&gt;</span>
-<span class="ot">  </span><span class="ch">(?modifier:)</span><span class="ot">, </span><span class="ch">(?i:</span><span class="ot"> ...</span><span class="ch">)</span>
-
-
-<span class="ot">Named Capture &lt;P137&gt;</span>
-<span class="ot">Atomic grouping</span>
-<span class="ot">  </span><span class="ch">(?&gt;</span><span class="ot"> ...</span><span class="ch">)</span>
-
-<span class="ot">Class set opertions &lt;P123&gt;</span>
-<span class="ot">  </span><span class="ch">[</span><span class="bn">[a-z</span><span class="ch">]</span><span class="ot">&amp;&amp;</span><span class="ch">[^</span><span class="bn">aeiou</span><span class="ch">]</span><span class="ot">]</span>
-<span class="ot">  &quot;this and not that&quot;</span>
-
-<span class="ot">Greedy quantifiers &lt;P139&gt;</span>
-<span class="ot">Lazy </span><span class="ch">(</span><span class="ot">Non-Greedy</span><span class="ch">)</span><span class="ot"> quantifiers</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">quiz
-where does fat|cat|belly|you match in the string
- <span class="kw">&quot;</span><span class="st">The dragging belly indicates your cat is too fat</span><span class="kw">&quot;</span>
-
-Apply ^.*([<span class="dv">0</span>-<span class="dv">9</span>]+) to <span class="kw">&quot;</span><span class="st">Copyright 2003</span><span class="kw">&quot;</span>,
- what<span class="kw">&#39;</span><span class="st">s captured by parentheses?</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### &quot;look around&quot;</span>
-<span class="dt">$test</span> = <span class="kw">&quot;</span><span class="st">see Jeffs book</span><span class="kw">&quot;</span>;
-<span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ch">(?&lt;=</span><span class="ot">Jeff</span><span class="ch">)(?=</span><span class="ot">s</span><span class="ch">)</span><span class="ot">/&#39;/g;</span>
-<span class="ot">print &quot;</span><span class="dt">$test</span><span class="ot"> </span><span class="bn">\n</span><span class="ot">&quot;;</span><span class="co">    ### expect see Jeff&#39;s book</span>
-
-<span class="co">### Start of match ( or end of previous match): \G</span>
-<span class="dt">$test</span><span class="ot"> = &quot;abcde&quot;;</span>
-<span class="dt">$test</span><span class="ot"> =~ s/</span><span class="ch">\G</span><span class="ot">x</span><span class="ch">?</span><span class="ot">/!/g;</span>
-<span class="ot">print &quot;</span><span class="dt">$test</span><span class="ot"> </span><span class="bn">\n</span><span class="ot">&quot;;</span><span class="co">             ### expect !abcde</span>
-<span class="dt">$test</span><span class="ot"> =~ s/\x</span><span class="ch">?</span><span class="ot">/!/g;</span>
-<span class="ot">print &quot;</span><span class="dt">$test</span><span class="ot"> </span><span class="bn">\n</span><span class="ot">&quot;;</span><span class="co">             ### expect !a!b!c!d!e</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Matching <span class="ot">and</span> Capture, <span class="ot">or</span> just <span class="ot">not</span> Capture</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(?:...) <span class="ot">and</span> (...)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ot">/i has no effect on the replacement text</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ot">e.g.  </span><span class="dt">$var</span><span class="ot"> =~ s/</span>\bJeff\b/Jeff/i;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>compare difference with:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">$var</span> =~ <span class="ot">s/</span><span class="bn">\s</span><span class="ot">Jeff</span><span class="bn">\s</span><span class="ot">/</span><span class="st">Jeff</span><span class="ot">/i</span>;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Automated Editing</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>perl <span class="ot">-p</span> -i <span class="ot">-e</span> <span class="ot">&#39;</span><span class="ss">s/sysread/read/g</span><span class="ot">&#39;</span> file</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>? What is <span class="ot">&#39;</span><span class="ss">m</span><span class="ot">&#39;</span> modifier</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="dt">$text</span> =~ <span class="ot">s/</span><span class="ch">^$</span><span class="ot">/</span><span class="st">&lt;p&gt;</span><span class="ot">/mg</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Lookaround</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  (?= ...) (?! ...) (?&lt;= ...) (?&lt;! ...)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  - lookaround does <span class="ot">not</span> consume text</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  - (?=Jeffery)Jeff <span class="kw">&lt;P61&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  - (?&lt;=\bJeff)(?=<span class="ot">s\b</span><span class="ch">)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ot">\</span><span class="st">G &lt;P128&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">  X? ...</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">Comments and Mode modifiers &lt;P133&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">  (?modifier) such as (?i), (?-i)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">  e.g. &lt;B&gt;(?i)very(?-i)&lt;/B&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">       match: &lt;B&gt;VERY&lt;/B&gt;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">              &lt;B&gt;Very&lt;/B&gt;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">       but not: &lt;b&gt;Very&lt;/b&gt;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">  (?modifier:), (?i: ...)</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">Named Capture &lt;P137&gt;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">Atomic grouping</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">  (?&gt; ...)</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">Class set opertions &lt;P123&gt;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">  [[a-z]&amp;&amp;[^aeiou]]</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">  &quot;this and not that&quot;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">Greedy quantifiers &lt;P139&gt;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">Lazy (Non-Greedy) quantifiers</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>quiz</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>where does fat|cat|belly|you match in the string</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> <span class="ot">&quot;</span><span class="st">The dragging belly indicates your cat is too fat</span><span class="ot">&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Apply ^.*([<span class="dv">0-9</span>]+) to <span class="ot">&quot;</span><span class="st">Copyright 2003</span><span class="ot">&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a> what<span class="ot">&#39;</span><span class="ss">s captured by parentheses?</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">### &quot;look around&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> = <span class="ot">&quot;</span><span class="st">see Jeffs book</span><span class="ot">&quot;</span>;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> =~ <span class="ot">s/</span><span class="ch">(?&lt;</span><span class="ot">=Jeff</span><span class="ch">)(?=</span><span class="ot">s</span><span class="ch">)</span><span class="ot">/</span><span class="st">&#39;</span><span class="ot">/g</span>;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;    <span class="co">### expect see Jeff&#39;s book</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">### Start of match ( or end of previous match): \G</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> = <span class="ot">&quot;</span><span class="st">abcde</span><span class="ot">&quot;</span>;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> =~ <span class="ot">s/</span><span class="ch">\G</span><span class="ot">x</span><span class="ch">?</span><span class="ot">/</span><span class="st">!</span><span class="ot">/g</span>;</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;             <span class="co">### expect !abcde</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> =~ <span class="ot">s/\x</span><span class="ch">?</span><span class="ot">/</span><span class="st">!</span><span class="ot">/g</span>;</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></span></code></pre></div>
 <h1 id="reference">Reference</h1>]]></description>
     <pubDate>Sun, 08 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-08-notes-master-regexp.html</guid>
@@ -751,77 +703,44 @@ Apply ^.*([<span class="dv">0</span>-<span class="dv">9</span>]+) to <span class
     <link>http://freizl.github.io//posts/2012-04-07-magic-monad-transformer.html</link>
     <description><![CDATA[
 <h1 id="monad-transformer">Monad-Transformer</h1>
-<p>The code fragment below is from chapter 18 Monad Transform of &lt;Real World Haskell&gt;<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
+<p>The code fragment below is from chapter 18 Monad Transform of &lt;Real World Haskell&gt;<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>When the first time I read this example, I was confused with how it is possible to use <code>ask</code> of <code>MonadReader</code> (line 6) and <code>get</code> of <code>MonadState</code> (line 13) functions in the same <code>App</code> Monad content.</p>
 <p>The only reasonable explanation is that <code>App</code> is both <code>MonadReader</code> and <code>MonadState</code>. While looking at <code>App</code> type definition (line 1), seems it is not possible.</p>
-<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-</pre></td><td class="sourceCode"><pre><code class="sourceCode haskell"><span class="kw">type</span> <span class="dt">App</span> <span class="fu">=</span> <span class="dt">ReaderT</span> <span class="dt">AppConfig</span> (<span class="dt">StateT</span> <span class="dt">AppState</span> <span class="dt">IO</span>)
-
-<span class="ot">constrainedCount ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> FilePath <span class="ot">-&gt;</span> <span class="dt">App</span> [(FilePath, <span class="dt">Int</span>)]
-constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</span>
-  contents <span class="ot">&lt;-</span> liftIO <span class="fu">.</span> listDirectory <span class="fu">$</span> path
-  cfg <span class="ot">&lt;-</span> ask
-  rest <span class="ot">&lt;-</span> forM contents <span class="fu">$</span> \name <span class="ot">-&gt;</span> <span class="kw">do</span>
-            <span class="kw">let</span> newPath <span class="fu">=</span> path <span class="fu">&lt;/&gt;</span> name
-            isDir <span class="ot">&lt;-</span> liftIO <span class="fu">$</span> doesDirectoryExist newPath
-            <span class="kw">if</span> isDir <span class="fu">&amp;&amp;</span> curDepth <span class="fu">&lt;</span> cfgMaxDepth cfg
-              <span class="kw">then</span> <span class="kw">do</span>
-                <span class="kw">let</span> newDepth <span class="fu">=</span> curDepth <span class="fu">+</span> <span class="dv">1</span>
-                st <span class="ot">&lt;-</span> get
-                when (stDeepestReached st <span class="fu">&lt;</span> newDepth) <span class="fu">$</span>
-                  put st { stDeepestReached <span class="fu">=</span> newDepth }
-                constrainedCount newDepth newPath
-              <span class="kw">else</span> return []
-  return <span class="fu">$</span> (path, length contents) <span class="fu">:</span> concat rest</code></pre></td></tr></table></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource haskell numberLines"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">type</span> <span class="dt">App</span> <span class="ot">=</span> <span class="dt">ReaderT</span> <span class="dt">AppConfig</span> (<span class="dt">StateT</span> <span class="dt">AppState</span> <span class="dt">IO</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ot">constrainedCount ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">App</span> [(<span class="dt">FilePath</span>, <span class="dt">Int</span>)]</span>
+<span id="cb1-4"><a href="#cb1-4"></a>constrainedCount curDepth path <span class="ot">=</span> <span class="kw">do</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  contents <span class="ot">&lt;-</span> liftIO <span class="op">.</span> listDirectory <span class="op">$</span> path</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  cfg <span class="ot">&lt;-</span> ask</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  rest <span class="ot">&lt;-</span> forM contents <span class="op">$</span> \name <span class="ot">-&gt;</span> <span class="kw">do</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>            <span class="kw">let</span> newPath <span class="ot">=</span> path <span class="op">&lt;/&gt;</span> name</span>
+<span id="cb1-9"><a href="#cb1-9"></a>            isDir <span class="ot">&lt;-</span> liftIO <span class="op">$</span> doesDirectoryExist newPath</span>
+<span id="cb1-10"><a href="#cb1-10"></a>            <span class="kw">if</span> isDir <span class="op">&amp;&amp;</span> curDepth <span class="op">&lt;</span> cfgMaxDepth cfg</span>
+<span id="cb1-11"><a href="#cb1-11"></a>              <span class="kw">then</span> <span class="kw">do</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>                <span class="kw">let</span> newDepth <span class="ot">=</span> curDepth <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a>                st <span class="ot">&lt;-</span> get</span>
+<span id="cb1-14"><a href="#cb1-14"></a>                when (stDeepestReached st <span class="op">&lt;</span> newDepth) <span class="op">$</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>                  put st { stDeepestReached <span class="ot">=</span> newDepth }</span>
+<span id="cb1-16"><a href="#cb1-16"></a>                constrainedCount newDepth newPath</span>
+<span id="cb1-17"><a href="#cb1-17"></a>              <span class="kw">else</span> <span class="fu">return</span> []</span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="fu">return</span> <span class="op">$</span> (path, <span class="fu">length</span> contents) <span class="op">:</span> <span class="fu">concat</span> rest</span></code></pre></div>
 <h1 id="what-is-the-so-called-magic">What is the so-called “Magic”</h1>
-<p>I turn to the source of package mtl<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> and finding following implementations.</p>
-<div class="sourceCode"><table class="sourceCode haskell numberLines"><tr class="sourceCode"><td class="lineNumbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-</pre></td><td class="sourceCode"><pre><code class="sourceCode haskell">
-<span class="co">-- | ReaderT</span>
-<span class="kw">instance</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadReader</span> r (<span class="dt">ReaderT</span> r m) <span class="kw">where</span>
-    ask <span class="fu">=</span> ReaderT.ask
-    local <span class="fu">=</span> ReaderT.local
-
-<span class="co">-- | StateT</span>
-<span class="kw">instance</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">Lazy.StateT</span> s m) <span class="kw">where</span>
-    get <span class="fu">=</span> Lazy.get
-    put <span class="fu">=</span> Lazy.put
-
-<span class="co">-- | Combine ReaderT and StataT</span>
-<span class="kw">instance</span> (<span class="dt">MonadState</span> s m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">ReaderT</span> r m) <span class="kw">where</span>
-    get <span class="fu">=</span> lift get
-    put <span class="fu">=</span> lift <span class="fu">.</span> put</code></pre></td></tr></table></div>
+<p>I turn to the source of package mtl<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> and finding following implementations.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource haskell numberLines"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">-- | ReaderT</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">instance</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadReader</span> r (<span class="dt">ReaderT</span> r m) <span class="kw">where</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    ask <span class="ot">=</span> ReaderT.ask</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    local <span class="ot">=</span> ReaderT.local</span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">-- | StateT</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="kw">instance</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">Lazy.StateT</span> s m) <span class="kw">where</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    get <span class="ot">=</span> Lazy.get</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    put <span class="ot">=</span> Lazy.put</span>
+<span id="cb2-11"><a href="#cb2-11"></a></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">-- | Combine ReaderT and StataT</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="kw">instance</span> (<span class="dt">MonadState</span> s m) <span class="ot">=&gt;</span> <span class="dt">MonadState</span> s (<span class="dt">ReaderT</span> r m) <span class="kw">where</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>    get <span class="ot">=</span> lift get</span>
+<span id="cb2-15"><a href="#cb2-15"></a>    put <span class="ot">=</span> lift <span class="op">.</span> put</span></code></pre></div>
 <p>If we do a substitution, will get</p>
 <pre><code>1. instance MonadReader AppConfig App where ...
 
@@ -830,15 +749,15 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
    ~&gt; instance MonadState AppState App where ...</code></pre>
 <p>Therefore <code>App</code> is both MonadReader and MonadState.</p>
 <h1 id="a-trivial-demo">A trivial demo</h1>
-<p>I made a very trivial sample <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> demostrating combine ReaderT and StateT.</p>
-<div class="footnotes">
+<p>I made a very trivial sample <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> demostrating combine ReaderT and StateT.</p>
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://book.realworldhaskell.org/read/monad-transformers.html">Chapter 8 Monad Transformer</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://hackage.haskell.org/package/mtl-2.0.1.0">mtl-2.0.1.0 in hackage</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/codes/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://book.realworldhaskell.org/read/monad-transformers.html">Chapter 8 Monad Transformer</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://hackage.haskell.org/package/mtl-2.0.1.0">mtl-2.0.1.0 in hackage</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://github.com/freizl/dive-into-haskell/blob/master/codes/monad/hello-mtl.hs">A clear demo</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>]]></description>
+</section>]]></description>
     <pubDate>Sat, 07 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-07-magic-monad-transformer.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
@@ -860,50 +779,50 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
 </ul>
 <h1 id="sample-section-a">Sample Section A</h1>
 <h2 id="grep">grep</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">grep</span> -Elr --include=*.xsd --exclude-dir=<span class="dt">{branches,tags}</span> VendorDesc.xsd <span class="va">$DIRECTORY</span>
-<span class="co">### count process and exclude grep itself</span>
-<span class="fu">ps</span> aux <span class="kw">|</span> <span class="fu">grep</span> vpnc <span class="kw">|</span> <span class="fu">grep</span> -v grep -c</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">grep</span> <span class="at">-Elr</span> <span class="at">--include</span><span class="op">=</span><span class="pp">*</span>.xsd <span class="at">--exclude-dir</span><span class="op">=</span><span class="dt">{branches</span><span class="op">,</span><span class="dt">tags}</span> VendorDesc.xsd <span class="va">$DIRECTORY</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">### count process and exclude grep itself</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ps</span> aux <span class="kw">|</span> <span class="fu">grep</span> vpnc <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-v</span> grep <span class="at">-c</span></span></code></pre></div>
 <h2 id="find">find</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">find</span> <span class="va">${1}</span> <span class="dt">\(</span> -name Consume*wsdl -o -name Produce*wsdl <span class="dt">\)</span> -path *trunk*
-<span class="fu">find</span> <span class="va">$update_dir</span> <span class="dt">\(</span> -name <span class="st">&#39;*.java&#39;</span> <span class="dt">\)</span> <span class="dt">\(</span> -path <span class="st">&#39;**/source/**&#39;</span> -o -path <span class="st">&#39;**/test/**&#39;</span> -o -path <span class="st">&#39;**/resource/**&#39;</span> <span class="dt">\)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> <span class="va">${1}</span> <span class="dt">\(</span> <span class="at">-name</span> Consume<span class="pp">*</span>wsdl <span class="at">-o</span> <span class="at">-name</span> Produce<span class="pp">*</span>wsdl <span class="dt">\)</span> <span class="at">-path</span> <span class="pp">*</span>trunk<span class="pp">*</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">find</span> <span class="va">$update_dir</span> <span class="dt">\(</span> <span class="at">-name</span> <span class="st">&#39;*.java&#39;</span> <span class="dt">\)</span> <span class="dt">\(</span> <span class="at">-path</span> <span class="st">&#39;**/source/**&#39;</span> <span class="at">-o</span> <span class="at">-path</span> <span class="st">&#39;**/test/**&#39;</span> <span class="at">-o</span> <span class="at">-path</span> <span class="st">&#39;**/resource/**&#39;</span> <span class="dt">\)</span></span></code></pre></div>
 <h2 id="awk">awk</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="co">### list all time of each ping</span>
-<span class="fu">awk</span> -F<span class="st">&quot;=&quot;</span> <span class="st">&#39;/time=/ {print substr($4,0,length($4)-3) }&#39;</span> <span class="op">&lt;</span> ping.log
-<span class="co">### passing shell parameter to awk scripts</span>
-<span class="fu">svn</span> st <span class="va">${dirs}</span> <span class="kw">|</span> <span class="fu">awk</span> -F<span class="st">&quot; &quot;</span> -v ac=<span class="st">&quot;</span><span class="va">${*}</span><span class="st">&quot;</span> <span class="st">&#39; /&#39;</span><span class="va">${predicate}</span><span class="st">&#39;/ &amp;&amp; (index($2,&quot;\\&quot;)==0 || gsub(/\\/,&quot;/&quot;,$2)) {print ac, $2}&#39;</span>
-<span class="co">### change Output Row Separator</span>
-<span class="fu">awk</span> <span class="st">&#39; BEGIN { ORS = &quot; &quot; } { print }&#39;</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">### list all time of each ping</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="at">-F</span><span class="st">&quot;=&quot;</span> <span class="st">&#39;/time=/ {print substr($4,0,length($4)-3) }&#39;</span> <span class="op">&lt;</span> ping.log</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">### passing shell parameter to awk scripts</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">svn</span> st <span class="va">${dirs}</span> <span class="kw">|</span> <span class="fu">awk</span> <span class="at">-F</span><span class="st">&quot; &quot;</span> <span class="at">-v</span> ac=<span class="st">&quot;</span><span class="va">${*}</span><span class="st">&quot;</span> <span class="st">&#39; /&#39;</span><span class="va">${predicate}</span><span class="st">&#39;/ &amp;&amp; (index($2,&quot;\\&quot;)==0 || gsub(/\\/,&quot;/&quot;,$2)) {print ac, $2}&#39;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">### change Output Row Separator</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">awk</span> <span class="st">&#39; BEGIN { ORS = &quot; &quot; } { print }&#39;</span></span></code></pre></div>
 <h2 id="sed">sed</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="ex">ll</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;/Stores\|Test\|^-\|^t/d&#39;</span> <span class="kw">|</span> <span class="fu">wc</span>
-<span class="ex">smbclient</span> -L <span class="dt">\\\\</span>hangzhou2<span class="dt">\\</span>twitters -U foobar <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;/Hangzhou20/,$d&#39;</span>
-<span class="bu">export</span> <span class="va">BEA_IP=</span><span class="kw">`</span><span class="ex">/sbin/ifconfig</span> eth0 <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g&#39;</span><span class="kw">`</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ll</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;/Stores\|Test\|^-\|^t/d&#39;</span> <span class="kw">|</span> <span class="fu">wc</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">smbclient</span> <span class="at">-L</span> <span class="dt">\\\\</span>hangzhou2<span class="dt">\\</span>twitters <span class="at">-U</span> foobar <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;/Hangzhou20/,$d&#39;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">BEA_IP</span><span class="op">=</span><span class="kw">`</span><span class="ex">/sbin/ifconfig</span> eth0 <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g&#39;</span><span class="kw">`</span></span></code></pre></div>
 <h2 id="cp">cp</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="fu">cp</span> filename<span class="dt">{,.bak}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> filename<span class="dt">{</span><span class="op">,</span><span class="dt">.bak}</span></span></code></pre></div>
 <h1 id="sample-section-b">Sample Section B</h1>
 <h2 id="while">while</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">while</span> <span class="bu">getopts</span> <span class="st">&quot;:ab:c&quot;</span> opt<span class="kw">;</span> <span class="kw">do</span>
-	<span class="kw">case</span> <span class="va">$opt</span><span class="kw"> in</span>
-	a <span class="kw">)</span> <span class="bu">echo</span> <span class="st">&quot;I am a&quot;</span> <span class="kw">;;</span>
-	<span class="ex">b</span> ) <span class="bu">echo</span> <span class="va">$OPTARG</span>  <span class="kw">;;</span>
-	<span class="ex">c</span> ) <span class="bu">echo</span> <span class="st">&quot;i am c&quot;</span> <span class="kw">;;</span>
-	<span class="ex">?</span> ) <span class="bu">echo</span> <span class="st">&quot;usage : </span><span class="va">$0</span><span class="st"> [-a] [-b barg] [-c] args ..&quot;</span>
-	    <span class="bu">exit</span> 1 <span class="kw">;;</span>
-	<span class="kw">esac</span>
-    <span class="bu">shift</span> <span class="va">$(($OPTIND</span> - 1<span class="va">))</span>
-<span class="kw">done</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> <span class="bu">getopts</span> <span class="st">&quot;:ab:c&quot;</span> <span class="va">opt</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>	<span class="cf">case</span> <span class="va">$opt</span> <span class="kw">in</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>	<span class="ss">a</span> <span class="kw">)</span> <span class="bu">echo</span> <span class="st">&quot;I am a&quot;</span> <span class="cf">;;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>	<span class="ss">b</span> <span class="kw">)</span> <span class="bu">echo</span> <span class="va">$OPTARG</span>  <span class="cf">;;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>	<span class="ss">c</span> <span class="kw">)</span> <span class="bu">echo</span> <span class="st">&quot;i am c&quot;</span> <span class="cf">;;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>	<span class="pp">?</span> <span class="kw">)</span> <span class="bu">echo</span> <span class="st">&quot;usage : </span><span class="va">$0</span><span class="st"> [-a] [-b barg] [-c] args ..&quot;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>	    <span class="bu">exit</span> 1 <span class="cf">;;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>	<span class="cf">esac</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">shift</span> <span class="va">$(($OPTIND</span> <span class="op">-</span> <span class="dv">1</span><span class="va">))</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <h2 id="for">for</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">for</span> <span class="ex">s</span> in <span class="va">$(</span><span class="bu">echo</span> <span class="va">$string</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&quot;s/;/ /g&quot;</span><span class="va">)</span><span class="kw">;</span> <span class="kw">do</span>
-	<span class="bu">echo</span> <span class="va">$s</span>
-<span class="kw">done</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">for</span> <span class="kw">((</span> i=1; i&lt;=<span class="va">$n</span>; i++ <span class="kw">))</span> <span class="kw">do</span>
-   <span class="fu">ls</span> -1 <span class="st">&quot;</span><span class="va">${file_pattern}</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;s#\(.*\)\(.xml\).bak#cp &amp; \1&#39;&quot;_</span><span class="va">$i</span><span class="st">&quot;&#39;\2#g&#39;</span>
-<span class="kw">done</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> <span class="va">$(</span><span class="bu">echo</span> <span class="va">$string</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&quot;s/;/ /g&quot;</span><span class="va">)</span><span class="kw">;</span> <span class="cf">do</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>	<span class="bu">echo</span> <span class="va">$s</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="kw">((</span> <span class="va">i</span><span class="op">=</span><span class="dv">1</span><span class="kw">;</span> <span class="va">i</span><span class="op">&lt;=</span><span class="va">$n</span><span class="kw">;</span> <span class="va">i</span><span class="op">++</span> <span class="kw">))</span> <span class="cf">do</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">ls</span> <span class="at">-1</span> <span class="st">&quot;</span><span class="va">${file_pattern}</span><span class="st">&quot;</span> <span class="kw">|</span> <span class="fu">sed</span> <span class="st">&#39;s#\(.*\)\(.xml\).bak#cp &amp; \1&#39;&quot;_</span><span class="va">$i</span><span class="st">&quot;&#39;\2#g&#39;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">done</span></span></code></pre></div>
 <h2 id="case">case</h2>
-<div class="sourceCode"><pre class="sourceCode sh"><code class="sourceCode bash"><span class="kw">case</span> <span class="va">$action</span><span class="kw"> in</span>
-    backup <span class="kw">)</span> <span class="fu">tar</span> cfj <span class="st">&quot;</span><span class="va">$backup_dir</span><span class="st">/</span><span class="va">$bakfile</span><span class="st">&quot;</span> * --exclude <span class="st">&quot;jobs/*/workspace&quot;</span> <span class="kw">;;</span>
-    <span class="ex">rest</span> <span class="kw">|</span> <span class="ex">restore</span> ) <span class="fu">tar</span> xfj <span class="va">$backup_dir</span>/<span class="va">$bakfile</span> <span class="kw">;;</span>
-    <span class="ex">*</span> ) <span class="bu">echo</span> <span class="st">&quot;all supported actions: backup | rest[ore]&quot;</span> <span class="kw">;</span> <span class="bu">exit</span> 0 <span class="kw">;;</span>
-<span class="kw">esac</span></code></pre></div>]]></description>
+<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">case</span> <span class="va">$action</span> <span class="kw">in</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="ss">backup</span> <span class="kw">)</span> <span class="fu">tar</span> cfj <span class="st">&quot;</span><span class="va">$backup_dir</span><span class="st">/</span><span class="va">$bakfile</span><span class="st">&quot;</span> <span class="pp">*</span> <span class="at">--exclude</span> <span class="st">&quot;jobs/*/workspace&quot;</span> <span class="cf">;;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="ss">rest</span> <span class="kw">|</span> <span class="ss">restore</span> <span class="kw">)</span> <span class="fu">tar</span> xfj <span class="va">$backup_dir</span>/<span class="va">$bakfile</span> <span class="cf">;;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="pp">*</span> <span class="kw">)</span> <span class="bu">echo</span> <span class="st">&quot;all supported actions: backup | rest[ore]&quot;</span> <span class="kw">;</span> <span class="bu">exit</span> 0 <span class="cf">;;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">esac</span></span></code></pre></div>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-shell-tips.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
@@ -913,33 +832,33 @@ constrainedCount curDepth path <span class="fu">=</span> <span class="kw">do</sp
     <link>http://freizl.github.io//posts/2012-04-06-python-tips.html</link>
     <description><![CDATA[
 <h1 id="re">re</h1>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="op">&gt;&gt;&gt;</span> re.split(<span class="st">&quot;[^0-9]&quot;</span>, <span class="st">&quot;12 34 + 2 *&quot;</span>)
-[<span class="st">&#39;12&#39;</span>, <span class="st">&#39;34&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>]</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> re.split(<span class="st">&quot;[^0-9]&quot;</span>, <span class="st">&quot;12 34 + 2 *&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>[<span class="st">&#39;12&#39;</span>, <span class="st">&#39;34&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;2&#39;</span>, <span class="st">&#39;&#39;</span>, <span class="st">&#39;&#39;</span>]</span></code></pre></div>
 <p>Cant understand how ’’ being produced.</p>
 <h1 id="list">list</h1>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">str</span>(<span class="st">&quot;abcdef&quot;</span>)[::<span class="op">-</span><span class="dv">1</span>] <span class="op">==&gt;</span> <span class="st">&quot;fedcba&quot;</span>
-<span class="bu">reduce</span>(<span class="kw">lambda</span> x,y:y<span class="op">+</span>x,<span class="st">&quot;abcdef&quot;</span>) <span class="op">==&gt;</span> <span class="st">&quot;fedcba&quot;</span>
-<span class="bu">sorted</span>([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]) <span class="op">==&gt;</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]
-a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]<span class="op">;</span> a.sort() <span class="op">==&gt;</span> a :<span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span>(<span class="st">&quot;abcdef&quot;</span>)[::<span class="op">-</span><span class="dv">1</span>] <span class="op">==&gt;</span> <span class="st">&quot;fedcba&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">reduce</span>(<span class="kw">lambda</span> x,y:y<span class="op">+</span>x,<span class="st">&quot;abcdef&quot;</span>) <span class="op">==&gt;</span> <span class="st">&quot;fedcba&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">sorted</span>([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]) <span class="op">==&gt;</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">2</span>]<span class="op">;</span> a.sort() <span class="op">==&gt;</span> a :<span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>]</span></code></pre></div>
 <h1 id="dict">dict</h1>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### demostrate loop a dict and list/dict parameter</span>
-<span class="kw">def</span> tst_dict(<span class="op">*</span>args, <span class="op">**</span>kargs):
-    <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">dict</span>(<span class="op">*</span>args, <span class="op">**</span>kargs).iteritems():
-        <span class="bu">print</span> k, v
-
-<span class="kw">def</span> tst_dict2():
-    <span class="cf">for</span> key <span class="kw">in</span> a_dict:
-        <span class="bu">print</span> key, a_dict[key]
-
-tst_dict(name<span class="op">=</span><span class="st">&#39;aa&#39;</span>, place<span class="op">=</span><span class="st">&#39;bb&#39;</span>)
-tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</span>) <span class="co"># throw error</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">### demostrate loop a dict and list/dict parameter</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tst_dict(<span class="op">*</span>args, <span class="op">**</span>kargs):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> k, v <span class="kw">in</span> <span class="bu">dict</span>(<span class="op">*</span>args, <span class="op">**</span>kargs).iteritems():</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> k, v</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tst_dict2():</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> key <span class="kw">in</span> a_dict:</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span> key, a_dict[key]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>tst_dict(name<span class="op">=</span><span class="st">&#39;aa&#39;</span>, place<span class="op">=</span><span class="st">&#39;bb&#39;</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</span>) <span class="co"># throw error</span></span></code></pre></div>
 <h1 id="mise">Mise</h1>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="bu">range</span>(<span class="dv">4</span>) <span class="op">==&gt;</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="co">#range start from 0 by default</span>
-<span class="co">&#39;%s: %r&#39;</span> <span class="op">%</span> (something, other)
-<span class="co">&#39;%(name)s is %(value)d&#39;</span> <span class="op">%</span> {
-    <span class="st">&#39;name&#39;</span>: <span class="st">&#39;The answer&#39;</span>,
-    <span class="st">&#39;value&#39;</span>: <span class="dv">42</span>,
-}</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">range</span>(<span class="dv">4</span>) <span class="op">==&gt;</span> [<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>] <span class="co">#range start from 0 by default</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;%s: %r&#39;</span> <span class="op">%</span> (something, other)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">&#39;%(name)s is %(value)d&#39;</span> <span class="op">%</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;name&#39;</span>: <span class="st">&#39;The answer&#39;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;value&#39;</span>: <span class="dv">42</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h1 id="reference">Reference</h1>
 <ul>
 <li><a href="http://docs.python.org/library/re.html">re reference</a></li>
@@ -953,57 +872,57 @@ tst_dict(<span class="st">&#39;aaa&#39;</span>, <span class="st">&#39;bbb&#39;</
     <link>http://freizl.github.io//posts/2012-04-06-perl-tips.html</link>
     <description><![CDATA[
 <h1 id="basic">Basic</h1>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@myarray</span> = ();
-<span class="fu">push</span> <span class="dt">@myarray</span>,<span class="kw">&quot;</span><span class="st">a</span><span class="kw">&quot;</span>;</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">my</span> <span class="dt">@keys</span> = <span class="kw">qw(</span>a b c<span class="kw">)</span>;
-<span class="kw">my</span> <span class="dt">@vals</span> = (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>);
-<span class="kw">my</span> <span class="dt">%hash</span>;
-<span class="dt">@hash</span>{<span class="dt">@keys</span>} = <span class="dt">@vals</span>;</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@myarray</span> = ();</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">push</span> <span class="dt">@myarray</span>,<span class="ot">&quot;</span><span class="st">a</span><span class="ot">&quot;</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@keys</span> = <span class="ot">qw(</span>a b c<span class="ot">)</span>;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">@vals</span> = (<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>);</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">my</span> <span class="dt">%hash</span>;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dt">@hash</span>{<span class="dt">@keys</span>} = <span class="dt">@vals</span>;</span></code></pre></div>
 <h1 id="loop">Loop</h1>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co"># loop elements in itemArray1 and itemArray2</span>
-<span class="kw">foreach</span> <span class="kw">my</span> <span class="dt">$item</span> (<span class="dt">@itemArray1</span>, <span class="dt">@itemArray2</span>) {
-  ...
-}
-
-<span class="kw">while</span> ( <span class="kw">my</span> (<span class="dt">$key</span>, <span class="dt">$value</span>) = <span class="kw">each</span>(<span class="dt">%hash</span>) ) {
-  <span class="fu">print</span> <span class="kw">&quot;</span><span class="dt">$key</span><span class="st"> =&gt; </span><span class="dt">$value</span><span class="ch">\n</span><span class="kw">&quot;</span>;
-}</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># loop elements in itemArray1 and itemArray2</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">foreach</span> <span class="kw">my</span> <span class="dt">$item</span> (<span class="dt">@itemArray1</span>, <span class="dt">@itemArray2</span>) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  ...</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">while</span> ( <span class="kw">my</span> (<span class="dt">$key</span>, <span class="dt">$value</span>) = <span class="kw">each</span>(<span class="dt">%hash</span>) ) {</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$key</span><span class="st"> =&gt; </span><span class="dt">$value</span><span class="ch">\n</span><span class="ot">&quot;</span>;</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h1 id="sub">Sub</h1>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">prepare_sth</span> {
-  <span class="kw">my</span> <span class="dt">$param</span> = <span class="fu">shift</span>;  <span class="co"># means shift @_, @_ is param array</span>
-  <span class="co"># my $param = $_;   # when could use $_ ??</span>
-}</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="kw">sub </span><span class="fu">uniq</span> {
-  <span class="dt">@list</span> = <span class="fu">shift</span>;
-  <span class="dt">%seen</span> = ();
-  <span class="dt">@uniqu</span> = <span class="fu">grep</span> { ! <span class="dt">$seen</span>{<span class="dt">$_</span>} ++ } <span class="dt">@list</span>;
-}</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">sub </span><span class="fu">prepare_sth</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">my</span> <span class="dt">$param</span> = <span class="fu">shift</span>;  <span class="co"># means shift @_, @_ is param array</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># my $param = $_;   # when could use $_ ??</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">sub </span><span class="fu">uniq</span> {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">@list</span> = <span class="fu">shift</span>;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">%seen</span> = ();</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">@uniqu</span> = <span class="fu">grep</span> { ! <span class="dt">$seen</span>{<span class="wa">$_</span>} ++ } <span class="dt">@list</span>;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <h1 id="data-structure">Data Structure</h1>
 <h2 id="aoa">AoA</h2>
 <p>from book <programming perl></p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### Assign a list of array references to an array.</span>
-<span class="dt">@AoA</span> = (
-         [ <span class="kw">&quot;</span><span class="st">fred</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">barney</span><span class="kw">&quot;</span> ],
-         [ <span class="kw">&quot;</span><span class="st">george</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">jane</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">elroy</span><span class="kw">&quot;</span> ],
-         [ <span class="kw">&quot;</span><span class="st">homer</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">marge</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">bart</span><span class="kw">&quot;</span> ],
-);
-<span class="fu">print</span> <span class="dt">$AoA</span>[<span class="dv">2</span>][<span class="dv">1</span>];   <span class="co"># prints &quot;marge&quot;</span>
-
-<span class="co">### Create an reference to an array of array references.</span>
-<span class="dt">$ref_to_AoA</span> = [
-    [ <span class="kw">&quot;</span><span class="st">fred</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">barney</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">pebbles</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">bamm bamm</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">dino</span><span class="kw">&quot;</span>, ],
-    [ <span class="kw">&quot;</span><span class="st">homer</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">bart</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">marge</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">maggie</span><span class="kw">&quot;</span>, ],
-    [ <span class="kw">&quot;</span><span class="st">george</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">jane</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">elroy</span><span class="kw">&quot;</span>, <span class="kw">&quot;</span><span class="st">judy</span><span class="kw">&quot;</span>, ],
-];
-
-<span class="fu">print</span> <span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>];   <span class="co"># prints &quot;judy&quot;</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">### Assign a list of array references to an array.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="dt">@AoA</span> = (</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>         [ <span class="ot">&quot;</span><span class="st">fred</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">barney</span><span class="ot">&quot;</span> ],</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>         [ <span class="ot">&quot;</span><span class="st">george</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">jane</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">elroy</span><span class="ot">&quot;</span> ],</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>         [ <span class="ot">&quot;</span><span class="st">homer</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">marge</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">bart</span><span class="ot">&quot;</span> ],</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="dt">$AoA</span>[<span class="dv">2</span>][<span class="dv">1</span>];   <span class="co"># prints &quot;marge&quot;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">### Create an reference to an array of array references.</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="dt">$ref_to_AoA</span> = [</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    [ <span class="ot">&quot;</span><span class="st">fred</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">barney</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">pebbles</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">bamm bamm</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">dino</span><span class="ot">&quot;</span>, ],</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    [ <span class="ot">&quot;</span><span class="st">homer</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">bart</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">marge</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">maggie</span><span class="ot">&quot;</span>, ],</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    [ <span class="ot">&quot;</span><span class="st">george</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">jane</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">elroy</span><span class="ot">&quot;</span>, <span class="ot">&quot;</span><span class="st">judy</span><span class="ot">&quot;</span>, ],</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>];</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>];   <span class="co"># prints &quot;judy&quot;</span></span></code></pre></div>
 <p>Remember that there is an implied -&gt; between every pair of adjacent braces or brackets. <strong>(Simply saying, -&gt; indicates a reference which created via [])</strong>.</p>
 <p>Therefore these two lines:</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>][<span class="dv">3</span>]
-<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>]</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">$AoA</span>[<span class="dv">2</span>][<span class="dv">3</span>]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>][<span class="dv">3</span>]</span></code></pre></div>
 <p>are equivalent to these two lines:</p>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="dt">$AoA</span>[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]
-<span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]</code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">$AoA</span>[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="dt">$ref_to_AoA</span>-&gt;[<span class="dv">2</span>]-&gt;[<span class="dv">3</span>]</span></code></pre></div>
 <h1 id="references">References</h1>
 <ul>
 <li><a href="http://www.cs.mcgill.ca/~abatko/computers/programming/perl/howto/hash/">Perl Hash Howto</a></li>

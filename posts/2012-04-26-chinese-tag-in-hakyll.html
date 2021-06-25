@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - 在Hakyll中使用中文标签</title>
@@ -35,40 +36,40 @@
     <h1>在Hakyll中使用中文标签</h1>
 
     <div class="soft">
-        <span>April 26, 2012, Tags: </span><a href="../tags/hakyll.html">hakyll</a>, <a href="../tags/encoding.html">encoding</a>
+        <span>April 26, 2012, Tags: </span><a title="All pages tagged 'hakyll'." href="../tags/hakyll.html">hakyll</a>, <a title="All pages tagged 'encoding'." href="../tags/encoding.html">encoding</a>
     </div>
 
     <div class="body clear">
         
 <p><strong>此问题发生在GHC &lt; 7.2.x的环境，据说7.2.x已经修正了造成此原因的bug(未验证)。</strong></p>
 <h3 id="问题">问题</h3>
-<p>Hakyll<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>会给每个标签单独生成一个html，比如<em>foo.html</em>, 用来显示标签对应的所有文章。 然而当标签为中文时，文件名会是乱码，而非对应的中文标签名。</p>
+<p>Hakyll<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>会给每个标签单独生成一个html，比如<em>foo.html</em>, 用来显示标签对应的所有文章。 然而当标签为中文时，文件名会是乱码，而非对应的中文标签名。</p>
 <h3 id="原因">原因</h3>
 <p>造成问题是原因由于Haskell里写文件的方法。 如下所是，<code>writeFile</code>用base库里的<code>String</code>类型表示文件名， 这就限制其只能表示ASC-II字符集。</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">type</span> FilePath <span class="fu">=</span> <span class="dt">String</span>
-              
-writeFile<span class="ot"> ::</span> FilePath  <span class="co">-- ^ 文件名</span>
-          <span class="ot">-&gt;</span> <span class="dt">String</span>    <span class="co">-- ^ 要写到文件的内容</span>
-          <span class="ot">-&gt;</span> <span class="dt">IO</span> ()
- </code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">FilePath</span> <span class="ot">=</span> <span class="dt">String</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">writeFile</span><span class="ot"> ::</span> <span class="dt">FilePath</span>  <span class="co">-- ^ 文件名</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>          <span class="ot">-&gt;</span> <span class="dt">String</span>    <span class="co">-- ^ 要写到文件的内容</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
 <h3 id="一种解决办法">一种解决办法</h3>
-<p>最直接的方式就是用类库utf8-string<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>里的<code>encodeString</code>方法，现将文件名进行encode然后再调<code>writeFile</code>方法。比如</p>
-<div class="sourceCode"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="kw">import qualified</span> <span class="dt">Codec.Binary.UTF8.String</span> <span class="kw">as</span> <span class="dt">UTF8</span>
-
-main <span class="fu">=</span> myWriteFile <span class="st">&quot;新天地.html&quot;</span> <span class="st">&quot;test&quot;</span>
-myWriteFile <span class="fu">=</span> writeFile <span class="fu">.</span> UTF8.encodeString</code></pre></div>
-<p>对应到Hakyll, 就是将上述的改动加到这个文件里<em>src/Hakyll/Core/Writable.hs</em>.详见这里<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>.</p>
+<p>最直接的方式就是用类库utf8-string<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>里的<code>encodeString</code>方法，现将文件名进行encode然后再调<code>writeFile</code>方法。比如</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">qualified</span> <span class="dt">Codec.Binary.UTF8.String</span> <span class="kw">as</span> <span class="dt">UTF8</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> myWriteFile <span class="st">&quot;新天地.html&quot;</span> <span class="st">&quot;test&quot;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>myWriteFile <span class="ot">=</span> <span class="fu">writeFile</span> <span class="op">.</span> UTF8.encodeString</span></code></pre></div>
+<p>对应到Hakyll, 就是将上述的改动加到这个文件里<em>src/Hakyll/Core/Writable.hs</em>.详见这里<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
 <h3 id="再一种解决办法">再一种解决办法</h3>
-<p>hakyll goole groups有人帖了他的一个解决方案，也是用utf8-string先encode，但修改的地方不一样。详见此<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>。</p>
-<div class="footnotes">
+<p>hakyll goole groups有人帖了他的一个解决方案，也是用utf8-string先encode，但修改的地方不一样。详见此<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>。</p>
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://jaspervdj.be/hakyll/">Hakyll Home</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://hackage.haskell.org/package/utf8-string">Hackage utf8-string</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="https://github.com/freizl/hakyll/commits/private/3.2.6.1">Private branch for hakyll</a><a href="#fnref3">↩</a></p></li>
-<li id="fn4"><p><a href="https://github.com/hwa/hakyll/commit/cb7dc75d40fcb2ccbbea9ee3a5582d1ee7fd3cc9">Another fix</a><a href="#fnref4">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://jaspervdj.be/hakyll/">Hakyll Home</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://hackage.haskell.org/package/utf8-string">Hackage utf8-string</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="https://github.com/freizl/hakyll/commits/private/3.2.6.1">Private branch for hakyll</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p><a href="https://github.com/hwa/hakyll/commit/cb7dc75d40fcb2ccbbea9ee3a5582d1ee7fd3cc9">Another fix</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
     </div>
 
     <div class="clear"></div>

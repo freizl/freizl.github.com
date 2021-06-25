@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - Type parameter at type class instance</title>
@@ -35,7 +36,7 @@
     <h1>Type parameter at type class instance</h1>
 
     <div class="soft">
-        <span>July  2, 2011, Tags: </span><a href="../tags/typeclass.html">typeclass</a>, <a href="../tags/haskell.html">haskell</a>
+        <span>July  2, 2011, Tags: </span><a title="All pages tagged 'typeclass'." href="../tags/typeclass.html">typeclass</a>, <a title="All pages tagged 'haskell'." href="../tags/haskell.html">haskell</a>
     </div>
 
     <div class="body clear">
@@ -60,7 +61,7 @@ instance Functor Maybe where
 </code></pre>
 <p>It put <code>Maybe</code> as type parameter while instance <code>Functor</code> class. By contract, it is <code>Maybe a</code> while at <code>Eq</code> case.</p>
 <p>Why?</p>
-<p>A answer from Haskell beginner seems comprehensive but I did not understand completely. And I re-read chapters related to type from LYGH<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> and found several useful explanations.</p>
+<p>A answer from Haskell beginner seems comprehensive but I did not understand completely. And I re-read chapters related to type from LYGH<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and found several useful explanations.</p>
 <p>For instance <code>Maybe</code> of <code>Eq</code>, it reads</p>
 <blockquote>
 <p>the a has to be a concrete type but Maybe isn’t a concrete type. It’s a type constructor that takes one parameter and then produces a concrete type. It would also be tedious to write instance Eq (Maybe Int) where, instance Eq (Maybe Char) where, etc. for every type ever. So we could write it out like so: (Eq a) =&gt; Eq (Maybe a)</p>
@@ -72,7 +73,7 @@ instance Functor Maybe where
 <p>My understanding comes:</p>
 <p>parameter <code>f a</code> of <code>fmap</code> should be concrete type, therefore <code>f</code> is a Type Constructor which takes one type parameter in order to construct concrete type. That is the reason the quote says <em>it has to have a kind of</em> <code>* -&gt; *</code>.</p>
 <h2 id="another-interesting-funtor">Another interesting Funtor</h2>
-<p>It is <code>(-&gt;) r</code> which was confusing at first glance. However, if we read it having Polish notation<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> in mind, it looks like less confusing.</p>
+<p>It is <code>(-&gt;) r</code> which was confusing at first glance. However, if we read it having Polish notation<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> in mind, it looks like less confusing.</p>
 <pre><code>instance Functor ((-&gt;) r) where  
     fmap f g = (\x -&gt; f (g x))</code></pre>
 <p>Quiz: what does following expression produce?</p>
@@ -80,15 +81,15 @@ instance Functor Maybe where
 <p>fmap (*3) (+100) 1</p>
 </blockquote>
 <h2 id="further-reading">Further reading</h2>
-<p>I got to read paper at type class topic<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> in order to have more knowledge.</p>
-<div class="footnotes">
+<p>I got to read paper at type class topic<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> in order to have more knowledge.</p>
+<section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="http://learnyouahaskell.com">Learn Your Good Haskell</a><a href="#fnref1">↩</a></p></li>
-<li id="fn2"><p><a href="http://en.wikipedia.org/wiki/Polish_notation">Polish notation</a><a href="#fnref2">↩</a></p></li>
-<li id="fn3"><p><a href="http://en.wikipedia.org/wiki/Type_class">Wikipedia Type Class</a><a href="#fnref3">↩</a></p></li>
+<li id="fn1" role="doc-endnote"><p><a href="http://learnyouahaskell.com">Learn Your Good Haskell</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p><a href="http://en.wikipedia.org/wiki/Polish_notation">Polish notation</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p><a href="http://en.wikipedia.org/wiki/Type_class">Wikipedia Type Class</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</div>
+</section>
     </div>
 
     <div class="clear"></div>

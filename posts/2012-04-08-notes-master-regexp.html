@@ -2,8 +2,9 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="author" content="HaishengWu" />
+        <meta name="author" content="Haisheng, Wu" />
         <meta name="keywords" content="Haskell, JavaScript, Programming, Web" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <meta name="description" content="Haisheng programming life" />
 
         <title>λ Corner - Notes Master of Regular Expression</title>
@@ -35,74 +36,74 @@
     <h1>Notes Master of Regular Expression</h1>
 
     <div class="soft">
-        <span>April  8, 2012, Tags: </span><a href="../tags/reading.html">reading</a>, <a href="../tags/regex.html">regex</a>
+        <span>April  8, 2012, Tags: </span><a title="All pages tagged 'reading'." href="../tags/reading.html">reading</a>, <a title="All pages tagged 'regex'." href="../tags/regex.html">regex</a>
     </div>
 
     <div class="body clear">
         
 <h2 id="notes">Notes</h2>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">Matching <span class="kw">and</span> Capture, <span class="kw">or</span> just <span class="kw">not</span> Capture
-(?:...) <span class="kw">and</span> (...)
-
-
-<span class="kw">/</span><span class="ot">i has no effect on the replacement text</span>
-<span class="ot">e.g.  </span><span class="dt">$var</span><span class="ot"> =~ s</span><span class="kw">/</span>\bJeff\b/Jeff/i;
-compare difference with:
-<span class="dt">$var</span> =~ <span class="kw">s/</span><span class="bn">\s</span><span class="ot">Jeff</span><span class="bn">\s</span><span class="ot">/Jeff/i;</span>
-
-
-<span class="ot">Automated Editing</span>
-<span class="ot">perl -p -i -e 's/sysread/read/g' file</span>
-
-
-<span class="ch">?</span><span class="ot"> What is 'm' modifier</span>
-<span class="dt">$text</span><span class="ot"> =~ s/</span><span class="ch">^</span><span class="dt">$/</span><span class="ot">&lt;p&gt;/mg;</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">Lookaround
-  (?= ...) (?! ...) (?&lt;= ...) (?&lt;! ...)
-  - lookaround does <span class="kw">not</span> consume text
-  - (?=Jeffery)Jeff <span class="kw">&lt;P61&gt;</span>
-  - (?&lt;=\bJeff)(?=<span class="kw">s\</span><span class="ot">b</span><span class="ch">)</span>
-
-
-<span class="ch">\G</span><span class="ot"> &lt;P128&gt;</span>
-<span class="ot">  X</span><span class="ch">?</span><span class="ot"> ...</span>
-
-<span class="ot">Comments and Mode modifiers &lt;P133&gt;</span>
-<span class="ot">  </span><span class="ch">(?modifier)</span><span class="ot"> such as </span><span class="ch">(?i)</span><span class="ot">, </span><span class="ch">(?-i)</span>
-<span class="ot">  e.g. &lt;B&gt;</span><span class="ch">(?i)</span><span class="ot">very</span><span class="ch">(?-i)</span><span class="ot">&lt;/B&gt;</span>
-<span class="ot">       match: &lt;B&gt;VERY&lt;/B&gt;</span>
-<span class="ot">              &lt;B&gt;Very&lt;/B&gt;</span>
-<span class="ot">       but not: &lt;b&gt;Very&lt;/b&gt;</span>
-<span class="ot">  </span><span class="ch">(?modifier:)</span><span class="ot">, </span><span class="ch">(?i:</span><span class="ot"> ...</span><span class="ch">)</span>
-
-
-<span class="ot">Named Capture &lt;P137&gt;</span>
-<span class="ot">Atomic grouping</span>
-<span class="ot">  </span><span class="ch">(?&gt;</span><span class="ot"> ...</span><span class="ch">)</span>
-
-<span class="ot">Class set opertions &lt;P123&gt;</span>
-<span class="ot">  </span><span class="ch">[</span><span class="bn">[a-z</span><span class="ch">]</span><span class="ot">&amp;&amp;</span><span class="ch">[^</span><span class="bn">aeiou</span><span class="ch">]</span><span class="ot">]</span>
-<span class="ot">  &quot;this and not that&quot;</span>
-
-<span class="ot">Greedy quantifiers &lt;P139&gt;</span>
-<span class="ot">Lazy </span><span class="ch">(</span><span class="ot">Non-Greedy</span><span class="ch">)</span><span class="ot"> quantifiers</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl">quiz
-where does fat|cat|belly|you match in the string
- <span class="kw">&quot;</span><span class="st">The dragging belly indicates your cat is too fat</span><span class="kw">&quot;</span>
-
-Apply ^.*([<span class="dv">0</span>-<span class="dv">9</span>]+) to <span class="kw">&quot;</span><span class="st">Copyright 2003</span><span class="kw">&quot;</span>,
- what<span class="kw">'</span><span class="st">s captured by parentheses?</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode perl"><code class="sourceCode perl"><span class="co">### &quot;look around&quot;</span>
-<span class="dt">$test</span> = <span class="kw">&quot;</span><span class="st">see Jeffs book</span><span class="kw">&quot;</span>;
-<span class="dt">$test</span> =~ <span class="kw">s/</span><span class="ch">(?&lt;=</span><span class="ot">Jeff</span><span class="ch">)(?=</span><span class="ot">s</span><span class="ch">)</span><span class="ot">/'/g;</span>
-<span class="ot">print &quot;</span><span class="dt">$test</span><span class="ot"> </span><span class="bn">\n</span><span class="ot">&quot;;</span><span class="co">    ### expect see Jeff's book</span>
-
-<span class="co">### Start of match ( or end of previous match): \G</span>
-<span class="dt">$test</span><span class="ot"> = &quot;abcde&quot;;</span>
-<span class="dt">$test</span><span class="ot"> =~ s/</span><span class="ch">\G</span><span class="ot">x</span><span class="ch">?</span><span class="ot">/!/g;</span>
-<span class="ot">print &quot;</span><span class="dt">$test</span><span class="ot"> </span><span class="bn">\n</span><span class="ot">&quot;;</span><span class="co">             ### expect !abcde</span>
-<span class="dt">$test</span><span class="ot"> =~ s/\x</span><span class="ch">?</span><span class="ot">/!/g;</span>
-<span class="ot">print &quot;</span><span class="dt">$test</span><span class="ot"> </span><span class="bn">\n</span><span class="ot">&quot;;</span><span class="co">             ### expect !a!b!c!d!e</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Matching <span class="ot">and</span> Capture, <span class="ot">or</span> just <span class="ot">not</span> Capture</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(?:...) <span class="ot">and</span> (...)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ot">/i has no effect on the replacement text</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ot">e.g.  </span><span class="dt">$var</span><span class="ot"> =~ s/</span>\bJeff\b/Jeff/i;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>compare difference with:</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">$var</span> =~ <span class="ot">s/</span><span class="bn">\s</span><span class="ot">Jeff</span><span class="bn">\s</span><span class="ot">/</span><span class="st">Jeff</span><span class="ot">/i</span>;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>Automated Editing</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>perl <span class="ot">-p</span> -i <span class="ot">-e</span> <span class="ot">'</span><span class="ss">s/sysread/read/g</span><span class="ot">'</span> file</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>? What is <span class="ot">'</span><span class="ss">m</span><span class="ot">'</span> modifier</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="dt">$text</span> =~ <span class="ot">s/</span><span class="ch">^$</span><span class="ot">/</span><span class="st">&lt;p&gt;</span><span class="ot">/mg</span>;</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Lookaround</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  (?= ...) (?! ...) (?&lt;= ...) (?&lt;! ...)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  - lookaround does <span class="ot">not</span> consume text</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  - (?=Jeffery)Jeff <span class="kw">&lt;P61&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  - (?&lt;=\bJeff)(?=<span class="ot">s\b</span><span class="ch">)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ot">\</span><span class="st">G &lt;P128&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="st">  X? ...</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="st">Comments and Mode modifiers &lt;P133&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">  (?modifier) such as (?i), (?-i)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="st">  e.g. &lt;B&gt;(?i)very(?-i)&lt;/B&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="st">       match: &lt;B&gt;VERY&lt;/B&gt;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="st">              &lt;B&gt;Very&lt;/B&gt;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">       but not: &lt;b&gt;Very&lt;/b&gt;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="st">  (?modifier:), (?i: ...)</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">Named Capture &lt;P137&gt;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="st">Atomic grouping</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="st">  (?&gt; ...)</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="st">Class set opertions &lt;P123&gt;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="st">  [[a-z]&amp;&amp;[^aeiou]]</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="st">  &quot;this and not that&quot;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="st">Greedy quantifiers &lt;P139&gt;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="st">Lazy (Non-Greedy) quantifiers</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>quiz</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>where does fat|cat|belly|you match in the string</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> <span class="ot">&quot;</span><span class="st">The dragging belly indicates your cat is too fat</span><span class="ot">&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Apply ^.*([<span class="dv">0-9</span>]+) to <span class="ot">&quot;</span><span class="st">Copyright 2003</span><span class="ot">&quot;</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a> what<span class="ot">'</span><span class="ss">s captured by parentheses?</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode perl"><code class="sourceCode perl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">### &quot;look around&quot;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> = <span class="ot">&quot;</span><span class="st">see Jeffs book</span><span class="ot">&quot;</span>;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> =~ <span class="ot">s/</span><span class="ch">(?&lt;</span><span class="ot">=Jeff</span><span class="ch">)(?=</span><span class="ot">s</span><span class="ch">)</span><span class="ot">/</span><span class="st">'</span><span class="ot">/g</span>;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;    <span class="co">### expect see Jeff's book</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">### Start of match ( or end of previous match): \G</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> = <span class="ot">&quot;</span><span class="st">abcde</span><span class="ot">&quot;</span>;</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> =~ <span class="ot">s/</span><span class="ch">\G</span><span class="ot">x</span><span class="ch">?</span><span class="ot">/</span><span class="st">!</span><span class="ot">/g</span>;</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;             <span class="co">### expect !abcde</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="dt">$test</span> =~ <span class="ot">s/\x</span><span class="ch">?</span><span class="ot">/</span><span class="st">!</span><span class="ot">/g</span>;</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span> <span class="ot">&quot;</span><span class="dt">$test</span><span class="st"> </span><span class="ch">\n</span><span class="ot">&quot;</span>;             <span class="co">### expect !a!b!c!d!e</span></span></code></pre></div>
 <h2 id="reference">Reference</h2>
     </div>
 
