@@ -14,7 +14,7 @@ use `ask` of `MonadReader` (line 6) and `get` of `MonadState` (line 13) function
 The only reasonable explanation is that `App` is both `MonadReader` and `MonadState`.
 While looking at `App` type definition (line 1), seems it is not possible.
 
-~~~~~~~{.haskell .numberLines}
+```haskell
 type App = ReaderT AppConfig (StateT AppState IO)
 
 constrainedCount :: Int -> FilePath -> App [(FilePath, Int)]
@@ -33,13 +33,13 @@ constrainedCount curDepth path = do
                 constrainedCount newDepth newPath
               else return []
   return $ (path, length contents) : concat rest
-~~~~~~~
+```
 
 # What is the so-called "Magic"
 
 I turn to the source of package mtl[^package-mtl] and finding following implementations.
 
-~~~~~~~{.haskell .numberLines}
+```haskell
 
 -- | ReaderT
 instance (Monad m) => MonadReader r (ReaderT r m) where
@@ -56,17 +56,17 @@ instance (MonadState s m) => MonadState s (ReaderT r m) where
     get = lift get
     put = lift . put
 
-~~~~~~~
+```
 
 If we do a substitution, will get
 
-~~~~~~~
-1. instance MonadReader AppConfig App where ...
+```haskell
+instance MonadReader AppConfig App where ...
 
-2. instance (MonadState AppState (StateT AppState IO)
-          => MonadState AppState (ReaderT AppConfig (StateT AppState IO)) where ...
+instance (MonadState AppState (StateT AppState IO)
+       => MonadState AppState (ReaderT AppConfig (StateT AppState IO)) where ...
    ~> instance MonadState AppState App where ...
-~~~~~~~
+```
 
 Therefore `App` is both MonadReader and MonadState.
 

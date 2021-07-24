@@ -6,9 +6,9 @@ tags: euler,haskell
 
 Nothing special but play haskell for fun.
 
-`Priming` is a simple module which can be found at [^Priming]
+`Priming` is a simple module which can be found at [^priming]
 
-~~~~~
+```haskell
 module Main where
 
 import Data.List
@@ -24,10 +24,10 @@ smartGaus :: Int -> Int
 smartGaus n = (1+n)*n `div` 2
 
 {-- |
-  Is factor count under the limit  
+  Is factor count under the limit
 --}
 factorLimit :: Int -> Int -> Bool
-factorLimit l n  
+factorLimit l n
   | 2 * sqrtInt n < l    = False
   | otherwise            = length (factors  n) >= l
 
@@ -37,6 +37,6 @@ factors n = concat [ [x, n `div` x] | x <- [1..sqrtInt n], n `mod` x == 0 ]
 
 sqrtInt :: Int -> Int
 sqrtInt = truncate . sqrt . fromIntegral
-~~~~~
+```
 
-[^Priming]: [Priming module](https://github.com/freizl/dive-into-haskell/tree/master/prime)
+[^priming]: [Priming module](https://github.com/freizl/dive-into-haskell/tree/master/prime)

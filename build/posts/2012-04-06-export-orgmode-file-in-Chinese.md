@@ -14,18 +14,18 @@ packages.
 First of all, install the following packages. (I already
 install the texlive package)
 
-~~~~~~
+```sh
 apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex
-~~~~~~
+```
 
 # First solution
 
 Then in the org file, add the following latex options.
 
-~~~~~~
+```
 #+LaTeX_HEADER: \usepackage{CJK}
 #+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}
-~~~~~~
+```
 
 A littel drawback here is the `\begin{CJK}` is added as a header
 option whice due to it will not be closed when I checked with the tex
@@ -45,19 +45,19 @@ mail list point out [[http://thread.gmane.org/gmane.emacs.orgmode/51914][another
 
 All I need to do is adding following option to the org document.
 
-~~~~~~
+```
 #+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}
-~~~~~~
+```
 
 Also need to customize emacs latex to pdf process.
 
-~~~~~~
+```emacs-lisp
 (setq org-latex-to-pdf-process
       '("xelatex -interaction nonstopmode -output-directory %o %f"
         "xelatex -interaction nonstopmode -output-directory %o %f"
         "xelatex -interaction nonstopmode -output-directory %o %f"))
-~~~~~~
+```
 
 **PS: The main font has been setted may be vary among different systems.
 How I find a proper font under ubuntu is via command `fc-list`.**

@@ -11,9 +11,9 @@ There are two solutions below. One is written by me and another from haskell wik
 They look quite similar and I can not figure out why the wiki solution can solve problem but not mine.
 (Actually mine take more than 15 minutes)
 
-* My Solution
+- My Solution
 
-~~~~~~~{.haskell .numberLines}
+```haskell
 main = print $ snd $ head $
        dropWhile (\ (x,y) -> (not . isLastNinePandigit "123456789") x)
                  (zip fibs [1..])
@@ -27,11 +27,11 @@ isFirstNinePandigit digits = (== digits) . sort . firstDigits 9
 firstDigits k n = take k (show n)
 lastDigits  k n = show (n `mod` 10^k)
 
-~~~~~~~
+```
 
-* Haskell Wiki solution[^HaskellWiki]
+- Haskell Wiki solution[^haskellwiki]
 
-~~~~~~~{.haskell .numberLines}
+```haskell
 
 fibs = 1 : 1 : zipWith (+) fibs (tail fibs)
 
@@ -44,7 +44,7 @@ isFibPan n =
 ex_104 = snd $ head $
          dropWhile (\(x,y) -> (not . isFibPan) x) (zip fibs [1..])
 
-~~~~~~~
+```
 
 # Why the differences?
 
@@ -57,7 +57,7 @@ Two concerns here:
 
 Therefore test last 9 digits first make great performance improvement.
 
-*Thanks Brent[^Brent] explanation this sneaky thing very comprehensively in haskell-beginner.*
+_Thanks Brent[^brent] explanation this sneaky thing very comprehensively in haskell-beginner._
 
 # Profiling
 
@@ -73,9 +73,9 @@ Several options used here are
   and GHC will generate code to compute the cost of evalutating the expression at each location.
   e.g.
 
-~~~~~
+```haskell
   mean  s = {-# SCC "mean" #-} sum  s / fromIntegral (length s)
-~~~~~
+```
 
 - **caf-all**:
   function with no parameters only computed once.
@@ -84,22 +84,21 @@ Several options used here are
 - **fforce-recomp**:
   force full recompilation.
 
-
 More details could go to chapter 25[^chp25] of [Real World Haskell] and GHC user guider chapter 5[^userguider].
 
-~~~~~
+```haskell
 # build with prof option on
 ghc --make -O2 -prof -auto-all -rtsopts p104.hs
 
 # then run
 ./p104 +RTS -p -RTS
-~~~~~
+```
 
 # Further
 
 1. Chapter 25 in Real Work Haskell about profile
 
-[^HaskellWiki]: [Haskell Wiki Euler Problem](http://www.haskell.org/haskellwiki/Euler_problems/100_to_110)
-[^Brent]: [Haskell Beginner 9175](http://comments.gmane.org/gmane.comp.lang.haskell.beginners/9175)
+[^haskellwiki]: [Haskell Wiki Euler Problem](http://www.haskell.org/haskellwiki/Euler_problems/100_to_110)
+[^brent]: [Haskell Beginner 9175](http://comments.gmane.org/gmane.comp.lang.haskell.beginners/9175)
 [^chp25]: [Profiling and optimization](http://book.realworldhaskell.org/read/profiling-and-optimization.html)
 [^userguider]: [GHC User Guider](http://www.haskell.org/ghc/docs/latest/html/users_guide/profiling.html)
