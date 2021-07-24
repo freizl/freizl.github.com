@@ -53,62 +53,28 @@
 <h2 id="scenarios">Scenarios</h2>
 <ul>
 <li>已知 : <a href="http://docs.google.com/fileview?id=0B4ERhObEn4HSOTRlMDQwMGEtZDI4OS00M2ExLWI1YTgtNzU1MzdjYjU2Mzlm&amp;authkey=CMWuqBQ&amp;hl=en">Exercise01</a></li>
-<li>求 : 当 学校政策＝＝True 而且 工作压力 == True 时, 过劳死的概率.</li>
+<li>求 : 当 学校政策＝＝ True 而且 工作压力 == True 时, 过劳死的概率.</li>
 </ul>
 <h2 id="resolution">Resolution</h2>
 <ul>
 <li><p>Value T:0.95 means True case with probability 0.95</p></li>
 <li><p>Probability of C is omitted as it is not related. Even include C, the result should be same.</p></li>
 <li><p>Enumeration list</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">INDEX</th>
-<th style="text-align: center;"><em>U</em></th>
-<th style="text-align: center;"><em>W</em></th>
-<th style="text-align: center;"><em>B</em></th>
-<th style="text-align: center;"><em>D</em></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">1</td>
-<td style="text-align: center;">T:0.96</td>
-<td style="text-align: center;">T:0.90</td>
-<td style="text-align: center;">T:0.3</td>
-<td style="text-align: center;">T:0.335</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">2</td>
-<td style="text-align: center;">T:0.96</td>
-<td style="text-align: center;">T:0.90</td>
-<td style="text-align: center;">F:0.7</td>
-<td style="text-align: center;">T:0.3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">3</td>
-<td style="text-align: center;">T:0.96</td>
-<td style="text-align: center;">T:0.90</td>
-<td style="text-align: center;">T:0.3</td>
-<td style="text-align: center;">F:0.665</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">4</td>
-<td style="text-align: center;">T:0.06</td>
-<td style="text-align: center;">T:0.90</td>
-<td style="text-align: center;">F:0.7</td>
-<td style="text-align: center;">F:0.7</td>
-</tr>
-</tbody>
-</table></li>
+<p>INDEX <em>U</em> <em>W</em> <em>B</em> <em>D</em></p>
+<hr />
+<pre><code> 1    T:0.96    T:0.90    T:0.3    T:0.335
+ 2    T:0.96    T:0.90    F:0.7    T:0.3
+ 3    T:0.96    T:0.90    T:0.3    F:0.665
+ 4    T:0.06    T:0.90    F:0.7    F:0.7</code></pre>
+<hr /></li>
 <li><p>Probability calculation</p></li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>P(D<span class="kw">=</span>T<span class="kw">|</span>U<span class="kw">=</span>T,W<span class="kw">=</span>T)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span>) ) <span class="kw">/</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span> )<span class="kw">+</span> ... <span class="kw">+</span> P(<span class="dv">4</span>) )</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> (<span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.3</span><span class="kw">*</span><span class="fl">0.335</span> <span class="kw">+</span> <span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.7</span><span class="kw">*</span><span class="fl">0.3</span> ) <span class="kw">/</span> (...)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">/</span> (<span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">+</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">0.665</span> <span class="kw">+</span> <span class="fl">0.7</span> <span class="kw">*</span> <span class="fl">0.7</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> <span class="fl">31.05</span>%</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>P(D<span class="kw">=</span>T<span class="kw">|</span>U<span class="kw">=</span>T,W<span class="kw">=</span>T)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span>) ) <span class="kw">/</span> ( P(<span class="dv">1</span>) <span class="kw">+</span> P(<span class="dv">2</span> )<span class="kw">+</span> ... <span class="kw">+</span> P(<span class="dv">4</span>) )</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> (<span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.3</span><span class="kw">*</span><span class="fl">0.335</span> <span class="kw">+</span> <span class="fl">0.96</span><span class="kw">*</span><span class="fl">0.90</span><span class="kw">*</span><span class="fl">0.7</span><span class="kw">*</span><span class="fl">0.3</span> ) <span class="kw">/</span> (...)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">/</span> (<span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">1.035</span> <span class="kw">+</span> <span class="fl">0.3</span> <span class="kw">*</span> <span class="fl">0.665</span> <span class="kw">+</span> <span class="fl">0.7</span> <span class="kw">*</span> <span class="fl">0.7</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">=</span> <span class="fl">31.05</span>%</span></code></pre></div>
     </div>
 
     <div class="clear"></div>

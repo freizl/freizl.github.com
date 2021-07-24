@@ -44,7 +44,7 @@
 <h2 id="introduction">Introduction</h2>
 <p>OrgMode is really cool and export context to latex then processed to PDF is quite straightforwards. However when working with Chinese characters, I need additional packages.</p>
 <p>First of all, install the following packages. (I already install the texlive package)</p>
-<pre><code>apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install latex-cjk-chinese latex-cjk-xcjk texlive-xetex</span></code></pre></div>
 <h2 id="first-solution">First solution</h2>
 <p>Then in the org file, add the following latex options.</p>
 <pre><code>#+LaTeX_HEADER: \usepackage{CJK}
@@ -58,7 +58,7 @@
 <pre><code>#+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}</code></pre>
 <p>Also need to customize emacs latex to pdf process.</p>
-<pre><code>(setq org-latex-to-pdf-process
+<pre class="emacs-lisp"><code>(setq org-latex-to-pdf-process
       '(&quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
         &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
         &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;))</code></pre>

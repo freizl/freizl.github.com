@@ -42,48 +42,47 @@
     <div class="body clear">
         
 <h2 id="fetch">fetch</h2>
-<pre><code>### fetch origin &quot;FROM&quot; : &quot;TO&quot;
-fetch = +refs/heads/master:refs/remotes/origin/master
-
-git fetch origin master:refs/remotes/origin/mymaster
-git fetch origin master:refs/remotes/origin/mymaster
-          topic:refs/remotes/origin/topic</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">### fetch origin &quot;FROM&quot; : &quot;TO&quot;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">fetch</span> = +refs/heads/master:refs/remotes/origin/master</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin master:refs/remotes/origin/mymaster</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch origin master:refs/remotes/origin/mymaster</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>          <span class="ex">topic:refs/remotes/origin/topic</span></span></code></pre></div>
 <h2 id="one-commit">one commit</h2>
 <p><a href="../docs/git_one_commit.pdf">What happened after one commit</a></p>
 <h2 id="log">log</h2>
 <h2 id="miscs">miscs</h2>
-<pre><code>git instaweb --httpd=lighttpd
-
-### anything need push
-git remote show origin
-
-### init new repos
-git clone --bare my_project my_project.git
-
-git reset --hard 7e83
-
-git checkout 82f5 [-b branch_name]	This takes you back in time, while preserving newer commits.
-git checkout :/&quot;my first brach&quot;	        Jump to the commit that starts with a given message.
-git checkout master~5	                5th last saved state.(BRANCH_NAME~number)
-
-git whatchanged
-git cherry-pick
-
-git rebase
-git rebase -I HEAD~10	modify last 10 commits
-git commit --amend
-
-git filter-branch --tree-filter 'rm top/sececre/file' HEAD	remove file from all commit
-
-git bundle
-
-git branch -r
-
-###diff with remote branch,a.k. what are local change
-git diff remotes/HEAD
-
-git reflog
-</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> instaweb <span class="at">--httpd</span><span class="op">=</span>lighttpd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">### anything need push</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote show origin</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">### init new repos</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--bare</span> my_project my_project.git</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> 7e83</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout 82f5 [-b branch_name]	This takes you back in time, while preserving newer commits.</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout :/<span class="st">&quot;my first brach&quot;</span>	        Jump to the commit that starts with a given message.</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout master~5	                5th last saved state.<span class="er">(</span><span class="ex">BRANCH_NAME~number</span><span class="kw">)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> whatchanged</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> cherry-pick</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase <span class="at">-I</span> HEAD~10	modify last 10 commits</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> filter-branch <span class="at">--tree-filter</span> <span class="st">'rm top/sececre/file'</span> HEAD	remove file from all commit</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> bundle</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-r</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">###diff with remote branch,a.k. what are local change</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff remotes/HEAD</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reflog</span></code></pre></div>
     </div>
 
     <div class="clear"></div>

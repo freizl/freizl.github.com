@@ -43,21 +43,21 @@
         
 <p>While doing some refactoring work on solution from this guy<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, I realized a pretty trivial thing about Manod method <code>&gt;&gt;=</code>.</p>
 <p>Take a look at its definition:</p>
-<pre><code>Prelude&gt; :t (&gt;&gt;=)
-(&gt;&gt;=) :: (Monad m) =&gt; m a -&gt; (a -&gt; m b) -&gt; m b</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">Prelude</span><span class="op">&gt;</span> <span class="op">:</span>t (<span class="op">&gt;&gt;=</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ot">(&gt;&gt;=) ::</span> (<span class="dt">Monad</span> m) <span class="ot">=&gt;</span> m a <span class="ot">-&gt;</span> (a <span class="ot">-&gt;</span> m b) <span class="ot">-&gt;</span> m b</span></code></pre></div>
 <p>Both <code>a</code> and <code>b</code> ought to be some Monadic type! In other words, all computation glued together by <code>&gt;&gt;=</code> have same Manodic type.</p>
 <p>It is really straightforward however I did not have that in mind.</p>
 <p>Since I did want to define a function take a <code>String</code> and return a list of <code>String</code> while its implementation has several computations that return IO type. Obviously the function failed to compiled. Therefore I changed it to return <code>IO [String]</code>.</p>
-<pre><code>-- FilePath is from package System.IO and it is synonyms of String
-getFilesInDir :: FilePath -&gt; IO [FilePath]
-getFilesInDir inp = do 
-  isDir &lt;- doesDirectoryExist inp
-  files &lt;- if isDir then
-              (do
-               names &lt;- getDirectoryContents inp
-               forM [ inp &lt;/&gt; x | x &lt;- names, isNotSpecialDir x ] getFilesInDir)
-           else return [[inp]]              
-  return $ concat files</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- FilePath is from package System.IO and it is synonyms of String</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ot">getFilesInDir ::</span> <span class="dt">FilePath</span> <span class="ot">-&gt;</span> <span class="dt">IO</span> [<span class="dt">FilePath</span>]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>getFilesInDir inp <span class="ot">=</span> <span class="kw">do</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  isDir <span class="ot">&lt;-</span> doesDirectoryExist inp</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  files <span class="ot">&lt;-</span> <span class="kw">if</span> isDir <span class="kw">then</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>              (<span class="kw">do</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>               names <span class="ot">&lt;-</span> getDirectoryContents inp</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>               forM [ inp <span class="op">&lt;/&gt;</span> x <span class="op">|</span> x <span class="ot">&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>           <span class="kw">else</span> <span class="fu">return</span> [[inp]]</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span> <span class="op">$</span> <span class="fu">concat</span> files</span></code></pre></div>
 <p>PS:</p>
 <ul>
 <li>Full source code here<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> or hpaste<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> which is cool as give me several suggestions.</li>

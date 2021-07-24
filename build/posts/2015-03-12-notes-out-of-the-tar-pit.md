@@ -6,20 +6,20 @@ tags: reading, paper
 
 # Notes
 
-  - FP
-  - Lambda calculus
-  - combinatory logic
-  - Von Neumann
-  - the turning machine
+- FP
+- Lambda calculus
+- combinatory logic
+- Von Neumann
+- the turning machine
 
 # Further reading
 
-  - Can Programming Be Liberated from the von Neumann Style? A Functional Style and Its Algebra of Programs
-  -  E. W. Dijkstra Archive: A review of the 1977 Turing Award Lecture
+- Can Programming Be Liberated from the von Neumann Style? A Functional Style and Its Algebra of Programs
+- E. W. Dijkstra Archive: A review of the 1977 Turing Award Lecture
 
 # English
 
-  - when u let the [nose of the camel](http://en.wikipedia.org/wiki/Camel%27s_nose) into the tent, the rest of him will follow
+- when u let the [nose of the camel](http://en.wikipedia.org/wiki/Camel%27s_nose) into the tent, the rest of him will follow
 
 > They're saying that if you have a method completely free of state management or side effects itself
 > If that method invokes any other method , the ability to reason about our state free method is no longer simple

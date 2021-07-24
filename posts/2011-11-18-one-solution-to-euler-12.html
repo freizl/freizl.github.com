@@ -43,34 +43,34 @@
         
 <p>Nothing special but play haskell for fun.</p>
 <p><code>Priming</code> is a simple module which can be found at <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<pre><code>module Main where
-
-import Data.List
-import Primeing (primeFactors)
-
-main :: IO ()
-main = print $ p12 500
-
-p12 :: Int -&gt; Int
-p12 n = head $ filter (factorLimit n) [ smartGaus x | x &lt;- [1..]]
-
-smartGaus :: Int -&gt; Int
-smartGaus n = (1+n)*n `div` 2
-
-{-- |
-  Is factor count under the limit  
---}
-factorLimit :: Int -&gt; Int -&gt; Bool
-factorLimit l n  
-  | 2 * sqrtInt n &lt; l    = False
-  | otherwise            = length (factors  n) &gt;= l
-
-
-factors :: Int -&gt; [Int]
-factors n = concat [ [x, n `div` x] | x &lt;- [1..sqrtInt n], n `mod` x == 0 ]
-
-sqrtInt :: Int -&gt; Int
-sqrtInt = truncate . sqrt . fromIntegral</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">module</span> <span class="dt">Main</span> <span class="kw">where</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Data.List</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="dt">Primeing</span> (primeFactors)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ot">main ::</span> <span class="dt">IO</span> ()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> <span class="fu">print</span> <span class="op">$</span> p12 <span class="dv">500</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ot">p12 ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>p12 n <span class="ot">=</span> <span class="fu">head</span> <span class="op">$</span> <span class="fu">filter</span> (factorLimit n) [ smartGaus x <span class="op">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="op">..</span>]]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ot">smartGaus ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>smartGaus n <span class="ot">=</span> (<span class="dv">1</span><span class="op">+</span>n)<span class="op">*</span>n <span class="ot">`div`</span> <span class="dv">2</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">{-- |</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">  Is factor count under the limit</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">--}</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="ot">factorLimit ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Bool</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>factorLimit l n</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> <span class="dv">2</span> <span class="op">*</span> sqrtInt n <span class="op">&lt;</span> l    <span class="ot">=</span> <span class="dt">False</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> <span class="fu">otherwise</span>            <span class="ot">=</span> <span class="fu">length</span> (factors  n) <span class="op">&gt;=</span> l</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ot">factors ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> [<span class="dt">Int</span>]</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>factors n <span class="ot">=</span> <span class="fu">concat</span> [ [x, n <span class="ot">`div`</span> x] <span class="op">|</span> x <span class="ot">&lt;-</span> [<span class="dv">1</span><span class="op">..</span>sqrtInt n], n <span class="ot">`mod`</span> x <span class="op">==</span> <span class="dv">0</span> ]</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="ot">sqrtInt ::</span> <span class="dt">Int</span> <span class="ot">-&gt;</span> <span class="dt">Int</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>sqrtInt <span class="ot">=</span> <span class="fu">truncate</span> <span class="op">.</span> <span class="fu">sqrt</span> <span class="op">.</span> <span class="fu">fromIntegral</span></span></code></pre></div>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>

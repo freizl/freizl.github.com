@@ -41,7 +41,7 @@
 
     <div class="body clear">
         
-<p>Generally some people saying that Monad is a computation that take a ‘world’ as parameter and produce a result along with modified ‘world’. And this a manner that doing inpure in a pure language.</p>
+<p>Generally some people saying that Monad is a computation that take a ‘world’ as parameter and produce a result along with modified ‘world’. And this a manner that doing impure in a pure language.</p>
 <p>While thinking in terms of Parser, it means taking a String and produce a result along with the rest of the string which is not parsed<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Consequently, we think a monadic type in Haskell is just a function.</p>
 <p>It probably is at most of time but not have to be. For instance the <code>Maybe</code> type. The trial mentioned below is a little similar with <code>Maybe</code>.</p>
 <p>Actually I would to play with such idea:</p>
@@ -49,13 +49,13 @@
 <p>To add a count of operations performed to it</p>
 </blockquote>
 <p>Therefore the type is actually any value plus a count</p>
-<pre><code>&gt; newtype Sint a = Sint (a, Count)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;</span> <span class="kw">newtype</span> <span class="dt">Sint</span> a <span class="ot">=</span> <span class="dt">Sint</span> (a, <span class="dt">Count</span>)</span></code></pre></div>
 <p>In order to be a monad, it has to be a instance of <code>Monad</code> and the implementation of <code>&gt;&gt;=</code> is</p>
 <pre><code>&gt; p &gt;&gt;= f = let (a, c1) = getSint p
 &gt;               (b, c2) = getSint (f a)
 &gt;               in Sint (b, c1+c2)</code></pre>
-<p>It means keep the result of the second computation and combinate the count together. Find full code <a href="../codes/SideEffectInc.lhs"><code>here</code></a></p>
-<p>Now, I realiaze that to implement a Monadic Type, two key points we need to do, which also turn to be simple.</p>
+<p>It means keep the result of the second computation and combined the count together. Find full code <a href="../codes/SideEffectInc.lhs"><code>here</code></a></p>
+<p>Now, I realize that to implement a Monadic Type, two key points we need to do, which also turn to be simple.</p>
 <ul>
 <li>Define a type that carry along the ‘side effect’</li>
 <li>Implement Monad class, a.k.a the <code>&gt;&gt;=</code> and <code>return</code> function<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>

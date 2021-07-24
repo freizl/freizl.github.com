@@ -42,38 +42,36 @@
     <div class="body clear">
         
 <h2 id="git-svn-initfetch">git svn init/fetch</h2>
-<pre><code>git svn init [-s] URL
-git svn fetch -r xxx|HEAD
-  a) it gets out 'all' branches/tags/trunk when no specific -r
-  b) by change some at branch, chdir to branches folder and play with git
-  c) if specify with -r, means &quot;Just want to checkout that revision&quot;
-                         then try git svn rebase to update to HEAD
-git svn rebase
-</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> svn init [-s] URL</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> svn fetch <span class="at">-r</span> xxx<span class="kw">|</span><span class="ex">HEAD</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">a</span><span class="er">)</span> <span class="ex">it</span> gets out <span class="st">'all'</span> branches/tags/trunk when no specific <span class="at">-r</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="ex">b</span><span class="er">)</span> <span class="ex">by</span> change some at branch, chdir to branches folder and play with git</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="ex">c</span><span class="er">)</span> <span class="cf">if</span> <span class="ex">specify</span> with <span class="at">-r,</span> means <span class="st">&quot;Just want to checkout that revision&quot;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                         <span class="cf">then</span> <span class="ex">try</span> git svn rebase to update to HEAD</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> svn rebase</span></code></pre></div>
 <h2 id="git-svn-clone">git svn clone</h2>
-<pre><code># if any problems with init/fetch, just clone and seems this is recommanded...
-# seem should no targe name specified after URL
-# verify with git branch -r should show all svn branches and tags
-git svn clone [URL]</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># if any problems with init/fetch, just clone and seems this is recommanded...</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># seem should no targe name specified after URL</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># verify with git branch -r should show all svn branches and tags</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> svn clone [URL]</span></code></pre></div>
 <h2 id="git-svn-branch">git svn branch</h2>
-<pre><code># create svn branch
-git svn branch [svn_branch_1]
-
-# set up local branch to dcommit to svn branch
-git branch [local_branch_name] remotes/svn_branch_name
-
-# do change at git local branch and merge into master with
-git merge --squash
-git commit
-git svn dcommit</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create svn branch</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> svn branch [svn_branch_1]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># set up local branch to dcommit to svn branch</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch [local_branch_name] remotes/svn_branch_name</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># do change at git local branch and merge into master with</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="at">--squash</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> svn dcommit</span></code></pre></div>
 <h2 id="alternative-with-svn-merge">alternative with svn merge</h2>
-<pre><code>svn mergeinfo ... :
-  git log master..branchx (diff commits that in branchx but master)
-  git branch [--no-merged|--merged]
-
-svn merge --dry-run
-  git merge --no-commit --no-ff
-</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svn</span> mergeinfo ... :</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> log master..branchx <span class="er">(</span><span class="fu">diff</span> commits that in branchx but master<span class="kw">)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> branch [--no-merged<span class="kw">|</span><span class="ex">--merged]</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">svn</span> merge <span class="at">--dry-run</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">git</span> merge <span class="at">--no-commit</span> <span class="at">--no-ff</span></span></code></pre></div>
     </div>
 
     <div class="clear"></div>

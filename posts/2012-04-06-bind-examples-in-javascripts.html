@@ -42,30 +42,30 @@
     <div class="body clear">
         
 <h2 id="defined-a-function">Defined a function</h2>
-<pre class="javascripts"><code>var fn = function (x, y, z) {
-  console.log(&quot;The value: &quot;, this.shangHai);
-  console.log(&quot;The sum is: &quot;, x+y+z);
-}</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">var</span> fn <span class="op">=</span> <span class="kw">function</span> (x<span class="op">,</span> y<span class="op">,</span> z) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;The value: &quot;</span><span class="op">,</span> <span class="kw">this</span><span class="op">.</span><span class="at">shangHai</span>)<span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&quot;The sum is: &quot;</span><span class="op">,</span> x <span class="op">+</span> y <span class="op">+</span> z)<span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
 <h2 id="run-it">Run it</h2>
-<pre class="javascripts"><code>fn(1);</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fn</span>(<span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
 <p>-&gt; Output</p>
-<pre class="javascripts"><code>The value:  undefined
-The sum is:  NaN</code></pre>
-<pre class="javascripts"><code>fn(1,2,3);</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>The value<span class="op">:</span>  <span class="kw">undefined</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>The sum is<span class="op">:</span>  <span class="kw">NaN</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fn</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span></span></code></pre></div>
 <p>-&gt; Output:</p>
-<pre class="javascripts"><code>The value:  undefined
-The sum is:  6</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>The value<span class="op">:</span>  <span class="kw">undefined</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>The sum is<span class="op">:</span>  <span class="dv">6</span></span></code></pre></div>
 <h2 id="run-it-with-bind">Run it with bind</h2>
 <h3 id="less">Less</h3>
-<pre class="javascripts"><code>fn.bind(null,1,2,3)</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fn<span class="op">.</span><span class="fu">bind</span>(<span class="kw">null</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)<span class="op">;</span></span></code></pre></div>
 <p>-&gt; Output:</p>
-<pre class="javascripts"><code>function () { [native code] }</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> () { [native code] }</span></code></pre></div>
 <p>Hmm…, seems bind return a function rather apply the function and return value.</p>
 <p>What will happen if invoke the new function?</p>
-<pre class="javascripts"><code>fn.bind(null,1,2,3)()</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fn<span class="op">.</span><span class="fu">bind</span>(<span class="kw">null</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)()<span class="op">;</span></span></code></pre></div>
 <p>-&gt; Output:</p>
-<pre class="javascripts"><code>The value:  undefined
-The sum is:  6</code></pre>
+<div class="sourceCode" id="cb9"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>The value<span class="op">:</span>  <span class="kw">undefined</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>The sum is<span class="op">:</span>  <span class="dv">6</span></span></code></pre></div>
 <p>That is what we want.</p>
 <h3 id="more">More</h3>
 <p>What are results respectively of following expressions?</p>
@@ -78,10 +78,10 @@ The sum is:  6</code></pre>
 <li><code>fn.bind(null, 1).bind(null, 2)(3)</code></li>
 </ul>
 <p>Take one example</p>
-<pre class="javascripts"><code>fn.bind(null,1,2)(3)</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fn<span class="op">.</span><span class="fu">bind</span>(<span class="kw">null</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>)(<span class="dv">3</span>)<span class="op">;</span></span></code></pre></div>
 <p>-&gt; Output:</p>
-<pre class="javascripts"><code>The value:  undefined
-The sum is:  6</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>The value<span class="op">:</span>  <span class="kw">undefined</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>The sum is<span class="op">:</span>  <span class="dv">6</span></span></code></pre></div>
 <p>How it produce result 6?<br />
 Because <code>bind</code> return is actually a partially applied function of<code>fn</code>.</p>
 <p>In JavaScripts words, the new function got return is a closure which holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the third parameter in order to fully apply function <code>fn</code>.</p>
@@ -89,10 +89,10 @@ Because <code>bind</code> return is actually a partially applied function of<cod
 <p><em>PS</em>: turns out that <code>bind</code> is not really doing Currying according to <a href="http://en.wikipedia.org/wiki/Currying">here</a> and <a href="http://www.uncarved.com/blog/not_currying.mrk">here</a>. It is Partially Function Application more than Currying thouht it can do Currying at some sense.</p>
 <h2 id="run-with-bind-and-context">Run with bind and context</h2>
 <p>What I really mean context here is actually about <code>this</code> used in the function. Still now, <em>this.shangHai</em> always output <code>undefined</code> but we would like it to mean something.</p>
-<pre class="javascripts"><code>fn.bind({shangHai:&quot;lovely&quot;},1,2,3)();</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fn<span class="op">.</span><span class="fu">bind</span>({ <span class="dt">shangHai</span><span class="op">:</span> <span class="st">&quot;lovely&quot;</span> }<span class="op">,</span> <span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>)()<span class="op">;</span></span></code></pre></div>
 <p>-&gt; Output:</p>
-<pre class="javascripts"><code>The value:  lovely
-The sum is:  6</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>The value<span class="op">:</span>  lovely</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>The sum is<span class="op">:</span>  <span class="dv">6</span></span></code></pre></div>
 <p>This time <code>this.shangHai</code> outputs “lovely” which obviously comes from the object that pass as first parameter of <code>bind</code>.</p>
 <p>Generally speaking,<code>this</code> will be the object that pass in as the first parameter of bind when the object is not null.</p>
 <p>Quiz: what <code>this</code> will be when passing null?</p>
@@ -103,6 +103,7 @@ The sum is:  6</code></pre>
 <ul>
 <li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>
 </ul>
+<pre><code></code></pre>
     </div>
 
     <div class="clear"></div>

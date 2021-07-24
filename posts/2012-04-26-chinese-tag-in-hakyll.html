@@ -41,26 +41,25 @@
 
     <div class="body clear">
         
-<p><strong>此问题发生在GHC &lt; 7.2.x的环境，据说7.2.x已经修正了造成此原因的bug(未验证)。</strong></p>
+<p><strong>此问题发生在 GHC &lt; 7.2.x 的环境，据说 7.2.x 已经修正了造成此原因的 bug(未验证)。</strong></p>
 <h3 id="问题">问题</h3>
-<p>Hakyll<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>会给每个标签单独生成一个html，比如<em>foo.html</em>, 用来显示标签对应的所有文章。 然而当标签为中文时，文件名会是乱码，而非对应的中文标签名。</p>
+<p>Hakyll<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>会给每个标签单独生成一个 html，比如<em>foo.html</em>, 用来显示标签对应的所有文章。 然而当标签为中文时，文件名会是乱码，而非对应的中文标签名。</p>
 <h3 id="原因">原因</h3>
-<p>造成问题是原因由于Haskell里写文件的方法。 如下所是，<code>writeFile</code>用base库里的<code>String</code>类型表示文件名， 这就限制其只能表示ASC-II字符集。</p>
+<p>造成问题是原因由于 Haskell 里写文件的方法。 如下所是，<code>writeFile</code>用 base 库里的<code>String</code>类型表示文件名， 这就限制其只能表示 ASC-II 字符集。</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">type</span> <span class="dt">FilePath</span> <span class="ot">=</span> <span class="dt">String</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>              </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">writeFile</span><span class="ot"> ::</span> <span class="dt">FilePath</span>  <span class="co">-- ^ 文件名</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>          <span class="ot">-&gt;</span> <span class="dt">String</span>    <span class="co">-- ^ 要写到文件的内容</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> </span></code></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          <span class="ot">-&gt;</span> <span class="dt">IO</span> ()</span></code></pre></div>
 <h3 id="一种解决办法">一种解决办法</h3>
-<p>最直接的方式就是用类库utf8-string<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>里的<code>encodeString</code>方法，现将文件名进行encode然后再调<code>writeFile</code>方法。比如</p>
+<p>最直接的方式就是用类库 utf8-string<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>里的<code>encodeString</code>方法，现将文件名进行 encode 然后再调<code>writeFile</code>方法。比如</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">import</span> <span class="kw">qualified</span> <span class="dt">Codec.Binary.UTF8.String</span> <span class="kw">as</span> <span class="dt">UTF8</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>main <span class="ot">=</span> myWriteFile <span class="st">&quot;新天地.html&quot;</span> <span class="st">&quot;test&quot;</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>myWriteFile <span class="ot">=</span> <span class="fu">writeFile</span> <span class="op">.</span> UTF8.encodeString</span></code></pre></div>
-<p>对应到Hakyll, 就是将上述的改动加到这个文件里<em>src/Hakyll/Core/Writable.hs</em>.详见这里<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
+<p>对应到 Hakyll, 就是将上述的改动加到这个文件里<em>src/Hakyll/Core/Writable.hs</em>.详见这里<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.</p>
 <h3 id="再一种解决办法">再一种解决办法</h3>
-<p>hakyll goole groups有人帖了他的一个解决方案，也是用utf8-string先encode，但修改的地方不一样。详见此<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>。</p>
+<p>hakyll goole groups 有人帖了他的一个解决方案，也是用 utf8-string 先 encode，但修改的地方不一样。详见此<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>。</p>
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>

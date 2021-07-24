@@ -44,22 +44,24 @@
 <h2 id="deriving">Deriving</h2>
 <p>What the cool thing that Deriving does is actually <strong>automaticlly implementing instance</strong> for perticular type class.</p>
 <p>For instance, a <code>Person</code> derives <code>Eq</code></p>
-<pre><code>data Person = Person { firstName :: String, 
-                       lastName  :: String, 
-                       age       :: Int }
-                     deriving (Eq)</code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Person</span> <span class="ot">=</span> <span class="dt">Person</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  {<span class="ot"> firstName ::</span> <span class="dt">String</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  ,<span class="ot"> lastName  ::</span> <span class="dt">String</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  ,<span class="ot"> age       ::</span> <span class="dt">Int</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">deriving</span> <span class="dt">Eq</span></span></code></pre></div>
 <p>Then we are able to compare two Persons because Haskell make the type <code>Person</code> to be a instance of typeclass <code>Eq</code>.</p>
 <p>Take another example,</p>
-<pre><code>data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
-           deriving (Bounded, Enum)</code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">Day</span> <span class="ot">=</span> <span class="dt">Monday</span> <span class="op">|</span> <span class="dt">Tuesday</span> <span class="op">|</span> <span class="dt">Wednesday</span> <span class="op">|</span> <span class="dt">Thursday</span> <span class="op">|</span> <span class="dt">Friday</span> <span class="op">|</span> <span class="dt">Saturday</span> <span class="op">|</span> <span class="dt">Sunday</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           <span class="kw">deriving</span> (<span class="dt">Bounded</span>, <span class="dt">Enum</span>)</span></code></pre></div>
 <p>The <code>Bounded</code> typeclass defines things that have lowest possible value and highest possible value. The <code>Enum</code> typeclass defines things that have predecessors and successors.</p>
 <p>Let’s read one of function in <code>Bounded</code> typeclass <code>minBound</code>, which just return something that is instance of <code>Bounded</code>.</p>
-<pre><code>minBound :: (Bounded a) =&gt; a</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">minBound</span><span class="ot"> ::</span> (<span class="dt">Bounded</span> a) <span class="ot">=&gt;</span> a</span></code></pre></div>
 <p>Hence, if enforce its return type to be <code>Day</code>, we will get result</p>
-<pre><code>ghci&gt; minBound :: Day  
-Monday </code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>ghci<span class="op">&gt;</span><span class="ot"> minBound ::</span> <span class="dt">Day</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">Monday</span></span></code></pre></div>
 <p>Take a look at one function of <code>Enum</code> typeclass</p>
-<pre><code>succ :: (Enum a) =&gt; a -&gt; a</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">succ</span><span class="ot"> ::</span> (<span class="dt">Enum</span> a) <span class="ot">=&gt;</span> a <span class="ot">-&gt;</span> a</span></code></pre></div>
 <p>We could easy guess the result of <code>succ Tuesday</code> will be Wednesday.</p>
 <h2 id="further-study">Further study</h2>
 <ul>
