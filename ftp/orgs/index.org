@@ -1,5 +1,0 @@
-#+TITLE: My TODOS
-
-- [[file:backlog.org][Backlog]]
-- [[file:working.org][Working]]
-- [[file:done.org][Done]]
