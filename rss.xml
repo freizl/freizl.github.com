@@ -7,8 +7,17 @@
         <description><![CDATA[Haisheng's Tech Blog.]]></description>
         <atom:link href="http://freizl.github.io//rss.xml" rel="self"
                    type="application/rss+xml" />
-        <lastBuildDate>Sun, 09 Apr 2017 00:00:00 UT</lastBuildDate>
+        <lastBuildDate>Thu, 09 Sep 2021 00:00:00 UT</lastBuildDate>
         <item>
+    <title>在梦里</title>
+    <link>http://freizl.github.io//posts/2021-09-09-a-dream.html</link>
+    <description><![CDATA[
+<p>我是否真的那么想念你 我常常在梦里见到你 真真切切 相依相伴</p>]]></description>
+    <pubDate>Thu, 09 Sep 2021 00:00:00 UT</pubDate>
+    <guid>http://freizl.github.io//posts/2021-09-09-a-dream.html</guid>
+    <dc:creator>Haisheng Wu</dc:creator>
+</item>
+<item>
     <title>Somes notes to BayArea Haskell Hackathon 2017</title>
     <link>http://freizl.github.io//posts/2017-04-09-notes-to-bayhac-2017.html</link>
     <description><![CDATA[
@@ -1038,36 +1047,6 @@ return 10;</code></pre>
 </ul>]]></description>
     <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
     <guid>http://freizl.github.io//posts/2012-04-06-expression-and-statement.html</guid>
-    <dc:creator>Haisheng Wu</dc:creator>
-</item>
-<item>
-    <title>Export a OrgMode doc in Chinese to PDF</title>
-    <link>http://freizl.github.io//posts/2012-04-06-export-orgmode-file-in-Chinese.html</link>
-    <description><![CDATA[
-<h1 id="introduction">Introduction</h1>
-<p>OrgMode is really cool and export context to latex then processed to PDF is quite straightforwards. However when working with Chinese characters, I need additional packages.</p>
-<p>First of all, install the following packages. (I already install the texlive package)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">apt-get</span> install latex-cjk-chinese latex-cjk-xcjk texlive-xetex</span></code></pre></div>
-<h1 id="first-solution">First solution</h1>
-<p>Then in the org file, add the following latex options.</p>
-<pre><code>#+LaTeX_HEADER: \usepackage{CJK}
-#+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}</code></pre>
-<p>A littel drawback here is the <code>\begin{CJK}</code> is added as a header option whice due to it will not be closed when I checked with the tex output.</p>
-<p>People suggest to change to <code>#+LaTeX: \begin{CJK}{UTF8}{gbsn}</code> and append <code>#+LaTex: \end{CJK}</code> to the end of document.</p>
-<p>It all works out OK except the title which is Chinese characters as well can not display at all.</p>
-<h1 id="second-solution">Second solution</h1>
-<p>Well, it is XeLaTex which has better support for UTF8. Actually I did not figure how to make it work with orgmode until a guy from orgmode mail list point out [[http://thread.gmane.org/gmane.emacs.orgmode/51914][another thread]].</p>
-<p>All I need to do is adding following option to the org document.</p>
-<pre><code>#+LATEX_HEADER: \usepackage{xltxtra}
-#+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}</code></pre>
-<p>Also need to customize emacs latex to pdf process.</p>
-<pre class="emacs-lisp"><code>(setq org-latex-to-pdf-process
-      &#39;(&quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
-        &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;
-        &quot;xelatex -interaction nonstopmode -output-directory %o %f&quot;))</code></pre>
-<p><strong>PS: The main font has been setted may be vary among different systems. How I find a proper font under ubuntu is via command <code>fc-list</code>.</strong></p>]]></description>
-    <pubDate>Fri, 06 Apr 2012 00:00:00 UT</pubDate>
-    <guid>http://freizl.github.io//posts/2012-04-06-export-orgmode-file-in-Chinese.html</guid>
     <dc:creator>Haisheng Wu</dc:creator>
 </item>
 
