@@ -1,7 +1,0 @@
-* To start the demo, press S/s
-* To quit the demo, press Q/q
-
-* LIMITATION
-  - Air resistance is not being involved but only approximate ground resistance.
-  - The stop position of last ball was not 'saved'.
-    In other words, only one ball stay on the ground after throwing multiple balls.

@@ -1,6 +1,0 @@
-
-6.1, 6.2, 6.3
-  sample for using/studying __setattr__ and __getattr__ of Class
-
-6.4 
-  __getitem__
