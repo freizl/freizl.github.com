@@ -1,0 +1,95 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Max File Size</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Max File Size</h1>
+<b><time>06/21/2011</time></b>
+<a href=../../tags/monad>monad</a>
+<a href=../../tags/haskell>haskell</a>
+<div>
+<p>While doing some refactoring work on solution from this guy<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, I
+realized a pretty trivial thing about Manod method <code>>>=</code>.</p>
+<p>Take a look at its definition:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#66d9ef>Prelude</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>:</span>t (<span style=color:#f92672>&gt;&gt;=</span>)
+  (<span style=color:#f92672>&gt;&gt;=</span>) <span style=color:#f92672>::</span> (<span style=color:#66d9ef>Monad</span> m) <span style=color:#f92672>=&gt;</span> m a <span style=color:#f92672>-&gt;</span> (a <span style=color:#f92672>-&gt;</span> m b) <span style=color:#f92672>-&gt;</span> m b
+</code></pre></div><p>Both <code>a</code> and <code>b</code> ought to be some Monadic type! In other words, all
+computation glued together by <code>>>=</code> have same Manodic type.</p>
+<p>It is really straightforward however I did not have that in mind.</p>
+<p>Since I did want to define a function take a <code>String</code> and return a list
+of <code>String</code> while its implementation has several computations that
+return IO type. Obviously the function failed to compiled. Therefore I
+changed it to return <code>IO [String]</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#75715e>-- FilePath is from package System.IO and it is synonyms of String</span>
+  getFilesInDir <span style=color:#f92672>::</span> <span style=color:#66d9ef>FilePath</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>IO</span> [<span style=color:#66d9ef>FilePath</span>]
+  getFilesInDir inp <span style=color:#f92672>=</span> <span style=color:#66d9ef>do</span>
+    isDir <span style=color:#f92672>&lt;-</span> doesDirectoryExist inp
+    files <span style=color:#f92672>&lt;-</span> <span style=color:#66d9ef>if</span> isDir <span style=color:#66d9ef>then</span>
+                (<span style=color:#66d9ef>do</span>
+                 names <span style=color:#f92672>&lt;-</span> getDirectoryContents inp
+                 forM [ inp <span style=color:#f92672>&lt;/&gt;</span> x <span style=color:#f92672>|</span> x <span style=color:#f92672>&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)
+             <span style=color:#66d9ef>else</span> return [[inp]]
+    return <span style=color:#f92672>$</span> concat files
+</code></pre></div><p>PS:</p>
+<ul>
+<li>Full source code here<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> or hpaste<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> which is cool as give me
+several suggestions.</li>
+<li>I think hpaste using hlint to do code analysis and provide suggestions</li>
+<li>Actually it is possible to have multiple Monad in one <code>do</code> levarage
+Monad Transformers.</li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=http://www.never-ending.me/blog/2011/06/16/276/>Never ending</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=https://github.com/freizl/dive-into-haskell/blob/master/io/MaxSizeFile.hs>MaxSizeFile.hs</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:3 role=doc-endnote>
+<p><a href=http://hpaste.org/47969>hpaset</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

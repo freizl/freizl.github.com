@@ -1,0 +1,82 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Git Svn</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Git Svn</h1>
+<b><time>04/06/2012</time></b>
+<a href=../../tags/git>git</a>
+<div>
+<h2 id=git-svn-initfetch>git svn init/fetch</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  git svn init [-s] URL
+  git svn fetch -r xxx|HEAD
+    a) it gets out &#39;all&#39; branches/tags/trunk when no specific -r
+    b) by change some at branch, chdir to branches folder and play with git
+    c) if specify with -r, means &#34;Just want to checkout that revision&#34;
+                           then try git svn rebase to update to HEAD
+  git svn rebase
+</code></pre></div><h2 id=git-svn-clone>git svn clone</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  # if any problems with init/fetch, just clone and seems this is recommanded...
+  # seem should no targe name specified after URL
+  # verify with git branch -r should show all svn branches and tags
+  git svn clone [URL]
+</code></pre></div><h2 id=git-svn-branch>git svn branch</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  # create svn branch
+  git svn branch [svn_branch_1]
+
+  # set up local branch to dcommit to svn branch
+  git branch [local_branch_name] remotes/svn_branch_name
+
+  # do change at git local branch and merge into master with
+  git merge --squash
+  git commit
+  git svn dcommit
+</code></pre></div><h2 id=alternative-with-svn-merge>alternative with svn merge</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  svn mergeinfo ... :
+    git log master..branchx (diff commits that in branchx but master)
+    git branch [--no-merged|--merged]
+
+  svn merge --dry-run
+    git merge --no-commit --no-ff
+</code></pre></div>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

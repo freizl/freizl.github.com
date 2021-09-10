@@ -1,0 +1,93 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Git Tips</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Git Tips</h1>
+<b><time>04/06/2012</time></b>
+<a href=../../tags/git>git</a>
+<div>
+<h2 id=fetch>fetch</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  ### fetch origin &#34;FROM&#34; : &#34;TO&#34;
+  fetch = +refs/heads/master:refs/remotes/origin/master
+
+  git fetch origin master:refs/remotes/origin/mymaster
+  git fetch origin master:refs/remotes/origin/mymaster
+            topic:refs/remotes/origin/topic
+</code></pre></div><h2 id=one-commit>one commit</h2>
+<p><a href=../../docs/git_one_commit.pdf>What happened after one commit</a></p>
+<h2 id=log>log</h2>
+<h2 id=miscs>miscs</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  git instaweb --httpd=lighttpd
+
+  ### anything need push
+  git remote show origin
+
+  ### init new repos
+  git clone --bare my_project my_project.git
+
+  git reset --hard 7e83
+
+  git checkout 82f5 [-b branch_name]  This takes you back in time, while preserving newer commits.
+  git checkout :/&#34;my first brach&#34;         Jump to the commit that starts with a given message.
+  git checkout master~5                   5th last saved state.(BRANCH_NAME~number)
+
+  git whatchanged
+  git cherry-pick
+
+  git rebase
+  git rebase -I HEAD~10   modify last 10 commits
+  git commit --amend
+
+  git filter-branch --tree-filter &#39;rm top/sececre/file&#39; HEAD  remove file from all commit
+
+  git bundle
+
+  git branch -r
+
+  ###diff with remote branch,a.k. what are local change
+  git diff remotes/HEAD
+
+  git reflog
+</code></pre></div>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

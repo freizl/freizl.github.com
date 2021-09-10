@@ -1,0 +1,89 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Notes Progit</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Notes Progit</h1>
+<b><time>04/08/2012</time></b>
+<a href=../../tags/reading>reading</a>
+<a href=../../tags/git>git</a>
+<div>
+<h2 id=chapter-9.3>Chapter 9.3</h2>
+<ul>
+<li>refs</li>
+<li>refs/heads</li>
+<li>refs/tags</li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  [remote &#34;origin&#34;]
+      url = ...
+      fetch = +refs/heads/* : refs/remotes/origin/*
+        ===&gt; fetch all the references under &#34;refs/heads&#34; on the server
+             and writes them to refs/remotes/origin locally
+</code></pre></div><p><em>Questions</em></p>
+<ol>
+<li>What does &lsquo;git branch B_NAME&rsquo; actually do?</li>
+<li>What happened to HEAD when switching branch?</li>
+</ol>
+<h2 id=chapter-6>Chapter 6</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  git add -i
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  ###
+  ### revision selection
+  ### ^ ::= parent of something, only two format ^ and ^2
+  git log HEAD^2
+  git log d107aoeu^2
+  git log HEAD~3
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  git log master..branchA
+  git log origin/master..HEAD
+  git log branchA branchB ^branchC
+  git log master...branchA
+</code></pre></div><h2 id=internal>Internal</h2>
+<p>Questions</p>
+<figure><img src=http://freizl.github.com/images/git%5Finternal.png alt="Figure 1: Git internal in one image"><figcaption>
+<p>Figure 1: Git internal in one image</p>
+</figcaption>
+</figure>
+<h2 id=reference>Reference</h2>
+<ul>
+<li><a href=https://git-scm.com/book/en/v2>ProGit</a></li>
+</ul>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

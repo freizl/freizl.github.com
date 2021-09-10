@@ -1,0 +1,110 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Euler Problem 14</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Euler Problem 14</h1>
+<b><time>11/20/2011</time></b>
+<a href=../../tags/euler>euler</a>
+<a href=../../tags/haskell>haskell</a>
+<div>
+<h2 id=solution-one>Solution One</h2>
+<p>I should say this solution only work while upper limit is under 100000.
+Otherwise it is really slow and I have no patient for the result. I
+wonder it would take minutes or even hours.</p>
+<p>So, problem solving failed.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#66d9ef>module</span> Main <span style=color:#66d9ef>where</span>
+  <span style=color:#66d9ef>import</span> Data.Word
+
+  main <span style=color:#f92672>::</span> <span style=color:#66d9ef>IO</span> ()
+  main <span style=color:#f92672>=</span> print <span style=color:#f92672>$</span> p14
+
+  p14 <span style=color:#f92672>=</span> maximum [ (startChain n <span style=color:#ae81ff>0</span>, n) <span style=color:#f92672>|</span> n <span style=color:#f92672>&lt;-</span> [<span style=color:#ae81ff>2</span><span style=color:#f92672>..</span><span style=color:#ae81ff>1000000</span>] ]
+
+  startChain <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Int</span>
+  startChain <span style=color:#ae81ff>1</span> count    <span style=color:#f92672>=</span> count <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+  startChain n count    <span style=color:#f92672>=</span> startChain (intTransform n) (count<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)
+
+  intTransform <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Int</span>
+  intTransform n
+    <span style=color:#f92672>|</span> even n         <span style=color:#f92672>=</span> n `div` <span style=color:#ae81ff>2</span>
+    <span style=color:#f92672>|</span> otherwise      <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>*</span> n <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</code></pre></div><p>Compile as otherwise Stack space overflow :
+<code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code></p>
+<h2 id=solution-two>Solution Two</h2>
+<p>I went for Haskell Wiki<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> for help by finding solution one there is
+similar to one of its solutions. The significate difference is it uses
+type <code>Word32</code> for <code>n</code> rather than <code>Int</code>. I picked this difference and
+make the following change and it worked out really cool.</p>
+<p>The result came under 1.5s at my local!</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>
+  startChain <span style=color:#f92672>::</span> <span style=color:#66d9ef>Word32</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Int</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Int</span>
+  startChain <span style=color:#ae81ff>1</span> count    <span style=color:#f92672>=</span> count <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+  startChain n count    <span style=color:#f92672>=</span> startChain (intTransform n) (count<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>)
+
+  intTransform <span style=color:#f92672>::</span> <span style=color:#66d9ef>Word32</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Word32</span>
+  intTransform n
+    <span style=color:#f92672>|</span> even n         <span style=color:#f92672>=</span> n `div` <span style=color:#ae81ff>2</span>
+    <span style=color:#f92672>|</span> otherwise      <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span> <span style=color:#f92672>*</span> n <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</code></pre></div><p>Compile as otherwise Stack space overflow :
+<code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code></p>
+<h2 id=other-solutions>Other solutions</h2>
+<p>Haskell Wiki<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> presents several solutions. One interested me is that
+levearages parallel programming <code>Control.Parallel</code>.</p>
+<h2 id=further>Further</h2>
+<h3 id=why-solution-2-make-great-differences><strong>Why solution 2 make great differences?</strong></h3>
+<p>I asked question in haskell-beginer but still can not get clear
+understanding.</p>
+<h3 id=more-about-parallel-programming-in-haskell>More about Parallel programming in Haskell?</h3>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=http://www.haskell.org/haskellwiki/Euler%5Fproblems/11%5Fto%5F20>Haskell Wiki Euler Problem</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=http://www.haskell.org/haskellwiki/Euler%5Fproblems/11%5Fto%5F20>Haskell Wiki Euler Problem</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

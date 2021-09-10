@@ -1,0 +1,106 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Git One Commit</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Git One Commit</h1>
+<b><time>04/12/2012</time></b>
+<a href=../../tags/git>git</a>
+<div>
+<h2 id=play-it>Play it</h2>
+<h3 id=new-two-files>new two files</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &#34;11111&#34; &gt; 1.txt
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &#34;22222&#34; &gt; 2.txt
+</code></pre></div><h3 id=git-add>git-add</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add .
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
+  # On branch master
+  #
+  # Initial commit
+  #
+  # Changes to be committed:
+  #   (use &#34;git rm --cached &lt;file&gt;...&#34; to unstage)
+  #
+  #   new file:   1.txt
+  #   new file:   2.txt
+  #
+</code></pre></div><h3 id=no-objects-created-yet>no objects created yet</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
+</code></pre></div><h3 id=git-commit>git-commit</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci &#34;first commit&#34;
+  [master (root-commit) 8ef1919] first commit
+   2 files changed, 2 insertions(+), 0 deletions(-)
+   create mode 100644 1.txt
+   create mode 100644 2.txt
+</code></pre></div><h3 id=git-obj-list>git-obj-list</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
+  8ef1919e4ca33cf602488a27b5671a6b6acf754b
+  8ed6deeabbbb89cda775aafc10745ea40dcd8456
+  f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f 1.txt
+  0ac1ae0ae201d8db7ac29015a6ba7494db37d59c 2.txt
+</code></pre></div><h3 id=what-are-they>what are they</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  ## | Blob objects
+  ~/github/haisheng-homepage/test$ git cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
+  11111
+  ~/github/haisheng-homepage/test$ git cat-file -p 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c
+  22222
+
+  ## | Commit objects
+  ~/github/haisheng-homepage/test$ git cat-file -p 8ef1919e4ca33cf602488a27b5671a6b6acf754b
+  tree 8ed6deeabbbb89cda775aafc10745ea40dcd8456
+  author Haisheng.W.WU &lt;freizl@gmail.com&gt; 1334230087 +0800
+  committer Haisheng.W.WU &lt;freizl@gmail.com&gt; 1334230087 +0800
+
+  first commit
+
+  ## | Tree objects
+  ~/github/haisheng-homepage/test$ git cat-file -p 8ed6deeabbbb89cda775aafc10745ea40dcd8456
+  100644 blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f    1.txt
+  100644 blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c    2.txt
+</code></pre></div><h2 id=further>Further</h2>
+<ul>
+<li>[[][Git object model]]</li>
+<li>[[][Git internal in one image]]</li>
+</ul>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

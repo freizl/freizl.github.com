@@ -1,0 +1,82 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Python Tips</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Python Tips</h1>
+<b><time>04/06/2012</time></b>
+<a href=../../tags/python>python</a>
+<div>
+<h2 id=re>re</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>  <span style=color:#f92672>&gt;&gt;&gt;</span> re<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#34;[^0-9]&#34;</span>, <span style=color:#e6db74>&#34;12 34 + 2 *&#34;</span>)
+  [<span style=color:#e6db74>&#39;12&#39;</span>, <span style=color:#e6db74>&#39;34&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>, <span style=color:#e6db74>&#39;2&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>, <span style=color:#e6db74>&#39;&#39;</span>]
+</code></pre></div><p>Cant understand how '' being produced.</p>
+<h2 id=list>list</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>  str(<span style=color:#e6db74>&#34;abcdef&#34;</span>)[::<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>==&gt;</span> <span style=color:#e6db74>&#34;fedcba&#34;</span>
+  reduce(<span style=color:#66d9ef>lambda</span> x,y:y<span style=color:#f92672>+</span>x,<span style=color:#e6db74>&#34;abcdef&#34;</span>) <span style=color:#f92672>==&gt;</span> <span style=color:#e6db74>&#34;fedcba&#34;</span>
+  sorted([<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>2</span>]) <span style=color:#f92672>==&gt;</span> [<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>5</span>]
+  a <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>5</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>2</span>]; a<span style=color:#f92672>.</span>sort() <span style=color:#f92672>==&gt;</span> a <span style=color:#f92672>:=</span> [<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>,<span style=color:#ae81ff>5</span>]
+</code></pre></div><h2 id=dict>dict</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>  <span style=color:#75715e>### demostrate loop a dict and list/dict parameter</span>
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>tst_dict</span>(<span style=color:#f92672>*</span>args, <span style=color:#f92672>**</span>kargs):
+      <span style=color:#66d9ef>for</span> k, v <span style=color:#f92672>in</span> dict(<span style=color:#f92672>*</span>args, <span style=color:#f92672>**</span>kargs)<span style=color:#f92672>.</span>iteritems():
+          print k, v
+
+  <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>tst_dict2</span>():
+      <span style=color:#66d9ef>for</span> key <span style=color:#f92672>in</span> a_dict:
+          print key, a_dict[key]
+
+  tst_dict(name<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;aa&#39;</span>, place<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;bb&#39;</span>)
+  tst_dict(<span style=color:#e6db74>&#39;aaa&#39;</span>, <span style=color:#e6db74>&#39;bbb&#39;</span>) <span style=color:#75715e># throw error</span>
+</code></pre></div><h2 id=mise>Mise</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>  range(<span style=color:#ae81ff>4</span>) <span style=color:#f92672>==&gt;</span> [<span style=color:#ae81ff>0</span>,<span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>2</span>,<span style=color:#ae81ff>3</span>] <span style=color:#75715e>#range start from 0 by default</span>
+  <span style=color:#e6db74>&#39;</span><span style=color:#e6db74>%s</span><span style=color:#e6db74>: </span><span style=color:#e6db74>%r</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> (something, other)
+  <span style=color:#e6db74>&#39;</span><span style=color:#e6db74>%(name)s</span><span style=color:#e6db74> is </span><span style=color:#e6db74>%(value)d</span><span style=color:#e6db74>&#39;</span> <span style=color:#f92672>%</span> {
+      <span style=color:#e6db74>&#39;name&#39;</span>: <span style=color:#e6db74>&#39;The answer&#39;</span>,
+      <span style=color:#e6db74>&#39;value&#39;</span>: <span style=color:#ae81ff>42</span>,
+  }
+</code></pre></div><h2 id=reference>Reference</h2>
+<ul>
+<li><a href=http://docs.python.org/library/re.html>re reference</a></li>
+</ul>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

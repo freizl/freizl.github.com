@@ -1,0 +1,91 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Deriving</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Deriving</h1>
+<b><time>06/14/2011</time></b>
+<a href=../../tags/typeclass>typeclass</a>
+<a href=../../tags/deriving>deriving</a>
+<a href=../../tags/haskell>haskell</a>
+<div>
+<h2 id=deriving>Deriving</h2>
+<p>What the cool thing that Deriving does is actually <strong>automaticlly
+implementing instance</strong> for perticular type class.</p>
+<p>For instance, a <code>Person</code> derives <code>Eq</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>Person</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>Person</span>
+    { firstName <span style=color:#f92672>::</span> <span style=color:#66d9ef>String</span>
+    , lastName  <span style=color:#f92672>::</span> <span style=color:#66d9ef>String</span>
+    , age       <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span>
+    }
+    <span style=color:#66d9ef>deriving</span> <span style=color:#66d9ef>Eq</span>
+</code></pre></div><p>Then we are able to compare two Persons because Haskell make the type
+<code>Person</code> to be a instance of typeclass <code>Eq</code>.</p>
+<p>Take another example,</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>Day</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>Monday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Tuesday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Wednesday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Thursday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Friday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Saturday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Sunday</span>
+             <span style=color:#66d9ef>deriving</span> (<span style=color:#66d9ef>Bounded</span>, <span style=color:#66d9ef>Enum</span>)
+</code></pre></div><p>The <code>Bounded</code> typeclass defines things that have lowest possible value
+and highest possible value. The <code>Enum</code> typeclass defines things that
+have predecessors and successors.</p>
+<p>Let&rsquo;s read one of function in <code>Bounded</code> typeclass <code>minBound</code>, which just
+return something that is instance of <code>Bounded</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  minBound <span style=color:#f92672>::</span> (<span style=color:#66d9ef>Bounded</span> a) <span style=color:#f92672>=&gt;</span> a
+</code></pre></div><p>Hence, if enforce its return type to be <code>Day</code>, we will get result</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  ghci<span style=color:#f92672>&gt;</span> minBound <span style=color:#f92672>::</span> <span style=color:#66d9ef>Day</span>
+  <span style=color:#66d9ef>Monday</span>
+</code></pre></div><p>Take a look at one function of <code>Enum</code> typeclass</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  succ <span style=color:#f92672>::</span> (<span style=color:#66d9ef>Enum</span> a) <span style=color:#f92672>=&gt;</span> a <span style=color:#f92672>-&gt;</span> a
+</code></pre></div><p>We could easy guess the result of <code>succ Tuesday</code> will be Wednesday.</p>
+<h2 id=further-study>Further study</h2>
+<ul>
+<li>How does the Deriving being implemented in Haskell?</li>
+</ul>
+<p>Thanks a guy point me I could go further by study
+<a href=http://hackage.haskell.org/package/derive>Data.derive</a> at the
+beginner mailing session.</p>
+<h2 id=reference>Reference</h2>
+<ul>
+<li><a href=http://learnyouahaskell.com/making-our-own-types-and-typeclasses>Learn
+Your Haskell, Chapter 8</a></li>
+</ul>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

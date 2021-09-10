@@ -1,0 +1,127 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Bind Examples In Javascripts</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Bind Examples In Javascripts</h1>
+<b><time>04/06/2012</time></b>
+<a href=../../tags/javascripts>javascripts</a>
+<div>
+<h2 id=defined-a-function>Defined a function</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  var fn = function (x, y, z) {
+    console.log(&#34;The value: &#34;, this.shangHai);
+    console.log(&#34;The sum is: &#34;, x + y + z);
+  };
+</code></pre></div><h2 id=run-it>Run it</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  fn(1);
+</code></pre></div><p>-> Output</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  The value:  undefined
+  The sum is:  NaN
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  fn(1, 2, 3);
+</code></pre></div><p>-> Output:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  The value:  undefined
+  The sum is:  6
+</code></pre></div><h2 id=run-it-with-bind>Run it with bind</h2>
+<h3 id=less>Less</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  fn.bind(null, 1, 2, 3);
+</code></pre></div><p>-> Output:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  function () { [native code] }
+</code></pre></div><p>Hmm&mldr;, seems bind return a function rather apply the function and
+return value.</p>
+<p>What will happen if invoke the new function?</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  fn.bind(null, 1, 2, 3)();
+</code></pre></div><p>-> Output:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  The value:  undefined
+  The sum is:  6
+</code></pre></div><p>That is what we want.</p>
+<h3 id=more>More</h3>
+<p>What are results respectively of following expressions?</p>
+<ul>
+<li><code>fn.bind(null, 1)()</code></li>
+<li><code>fn.bind(null, 1)(2)</code></li>
+<li><code>fn.bind(null, 1, 2)()</code></li>
+<li><code>fn.bind(null, 1, 2)(3)</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)()</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)(3)</code></li>
+</ul>
+<p>Take one example</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  fn.bind(null, 1, 2)(3);
+</code></pre></div><p>-> Output:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  The value:  undefined
+  The sum is:  6
+</code></pre></div><p>How it produce result 6?
+Because <code>bind</code> return is actually a partially applied function of=fn=.</p>
+<p>In JavaScripts words, the new function got return is a closure which
+holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the
+third parameter in order to fully apply function <code>fn</code>.</p>
+<p>The concept is named <em>Currying</em> and find more in <a href=#further>Further</a>
+section.</p>
+<p><em>PS</em>: turns out that <code>bind</code> is not really doing Currying according to
+<a href=http://en.wikipedia.org/wiki/Currying>here</a> and
+<a href=http://www.uncarved.com/blog/not%5Fcurrying.mrk>here</a>. It is Partially
+Function Application more than Currying thouht it can do Currying at
+some sense.</p>
+<h2 id=run-with-bind-and-context>Run with bind and context</h2>
+<p>What I really mean context here is actually about <code>this</code> used in the
+function. Still now, <em>this.shangHai</em> always output <code>undefined</code> but we
+would like it to mean something.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  fn.bind({ shangHai: &#34;lovely&#34; }, 1, 2, 3)();
+</code></pre></div><p>-> Output:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  The value:  lovely
+  The sum is:  6
+</code></pre></div><p>This time <code>this.shangHai</code> outputs &ldquo;lovely&rdquo; which obviously comes from
+the object that pass as first parameter of <code>bind</code>.</p>
+<p>Generally speaking,=this= will be the object that pass in as the first
+parameter of bind when the object is not null.</p>
+<p>Quiz: what <code>this</code> will be when passing null?</p>
+<h2 id=diff-with-call-and-apply>Diff with call and apply</h2>
+<p>My understanding the key point is bind return a function.</p>
+<p>By contract, <code>call</code> and <code>apply</code> is all about providing another way for
+invoking a function.</p>
+<h2 id=further>Further</h2>
+<ul>
+<li><a href=http://en.wikipedia.org/wiki/Currying>Currying</a></li>
+</ul>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>
+</code></pre></div>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

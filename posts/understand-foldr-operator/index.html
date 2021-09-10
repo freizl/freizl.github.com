@@ -1,0 +1,103 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Understand Foldr Operator</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Understand Foldr Operator</h1>
+<b><time>06/04/2011</time></b>
+<a href=../../tags/fold>fold</a>
+<a href=../../tags/haskell>haskell</a>
+<div>
+<p>I can not quite remember the usage of foldr until I finish the video by
+Erik Meijer on Chapter 7<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p>
+<h2 id=descrption-by-erik>Descrption by Erik</h2>
+<p>Erik describe <code>foldr</code> in a very comprehensive way.</p>
+<p>Take refining the <code>length</code> function in terms of <code>foldr</code> as a example.
+<code>length</code> has a definition as</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#f92672>&gt;</span> length  <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Int</span>
+  <span style=color:#f92672>&gt;</span> length <span style=color:#66d9ef>[]</span>  <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+  <span style=color:#f92672>&gt;</span> length (x<span style=color:#66d9ef>:</span>xs)   <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> length xs
+</code></pre></div><p>and</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>    length [1,2,3]
+  = length (1:(2:(3:[])))
+  = 1 + (1 + (1 + 0))
+  = 3
+</code></pre></div><p>By replace each (:) by <code>\ _ n -> 1 + n</code> and [] by 0, we have:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#f92672>&gt;</span> length <span style=color:#f92672>=</span> foldr (<span style=color:#a6e22e>\</span> <span style=color:#66d9ef>_</span> n <span style=color:#f92672>-&gt;</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> n) <span style=color:#ae81ff>0</span>
+</code></pre></div><h2 id=definition-by-graham>Definition by Graham</h2>
+<p>Having such knowledge inside, I find Graham&rsquo;s tutorial paper<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> about
+fold again. There is a concise decription of what fold is:</p>
+<blockquote>
+<p>The function <em>fold f v</em> processes a list of type <em>[a]</em> to give a value
+of type <em>b</em> by replacing the <em>nil</em> constructor [] at the end of the
+list by the value <em>v</em>, and each cons constructor (:) within the list
+by the function <em>f</em>.</p>
+</blockquote>
+<p>In Haskell, the <em>fold</em> operator can be defined as follows:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  fold  <span style=color:#f92672>::</span> (a <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> b) <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> [a] <span style=color:#f92672>-&gt;</span> b
+  fold f v <span style=color:#66d9ef>[]</span> <span style=color:#f92672>=</span> v
+  fold f v (x<span style=color:#66d9ef>:</span>xs) <span style=color:#f92672>=</span> f x (fold f v xs)
+</code></pre></div><h2 id=in-one-sentence>In one sentence</h2>
+<p>Thought it might not be that precisely.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  foldr <span style=color:#f92672>::</span> (a <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> b) <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> [a] <span style=color:#f92672>-&gt;</span> b
+</code></pre></div><blockquote>
+<p>Pull element one by one from right side of the list and apply the
+callback</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  foldl <span style=color:#f92672>::</span> (a <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> a) <span style=color:#f92672>-&gt;</span> a <span style=color:#f92672>-&gt;</span> [b] <span style=color:#f92672>-&gt;</span> a
+</code></pre></div><blockquote>
+<p>Basically, pull element one by one from left side of the list and
+apply the callback</p>
+</blockquote>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=http://www.cs.nott.ac.uk/~gmh/book.html>Programming in Haskell</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=http://www.cs.nott.ac.uk/~gmh/fold.pdf>Tutorial on the universality and expressions of fold</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>Improve Space Usage</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>Improve Space Usage</h1>
+<b><time>09/12/2012</time></b>
+<a href=../../tags/reading>reading</a>
+<a href=../../tags/haskell>haskell</a>
+<div>
+<p>It is example from [programming in haskell] video lecture 12 by Eric M.
+I just like to know whether GHC profile tool could help to figure out
+such problem.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#66d9ef>module</span> Main <span style=color:#66d9ef>where</span>
+
+  sumWith1 v <span style=color:#66d9ef>[]</span> <span style=color:#f92672>=</span> v
+  sumWith1 v (x<span style=color:#66d9ef>:</span>xs) <span style=color:#f92672>=</span> sumWith1 (v<span style=color:#f92672>+</span>x) xs
+
+  sumWith2 v <span style=color:#66d9ef>[]</span> <span style=color:#f92672>=</span> v
+  sumWith2 v (x<span style=color:#66d9ef>:</span>xs) <span style=color:#f92672>=</span> (sumWith2 <span style=color:#f92672>$!</span> (v<span style=color:#f92672>+</span>x)) xs
+
+  test <span style=color:#f92672>=</span> sumWith2 <span style=color:#ae81ff>0</span> [<span style=color:#ae81ff>1</span><span style=color:#f92672>..</span><span style=color:#ae81ff>20000000</span>]
+
+  main <span style=color:#f92672>=</span> print test
+</code></pre></div>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></li>
+<li><a href=../../posts/improve-space-usage/>Improve Space Usage</a></li>
+<li><a href=../../posts/snaplet-request-local-state/>Snaplet Request Local State</a></li>
+<li><a href=../../posts/chinese-tag-in-hakyll/>Chinese Tag In Hakyll</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>
