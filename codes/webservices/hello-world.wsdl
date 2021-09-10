@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="HelloWorldDescription"
+                  targetNamespace="urn:HelloWorld"
+                  xmlns:tns="urn:HelloWorld"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <!-- WSDL preamble -->
+  <wsdl:message name="sayHello_IN">
+    <part name="name" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="sayHello_Out">
+    <part name="greeting" type="xsd:string" />
+  </wsdl:message>
+
+  <!-- ######################################## Web Service Interface -->
+  <!-- how a method corresponds to messages -->
+  <!-- Port types function as the specification of the software interface (HelloWorldInterface in this example), and are
+       composed of collections of operations (the individual method signatures) that define the ordered exchanges of messages -->
+  <wsdl:portType name="HelloWorldInterface">
+    <wsdl:operation name="sayHello">
+      <wsdl:input message="tns:sayHello_IN" />
+      <wsdl:output message="tns:sayHello_OUT" />
+    </wsdl:operation>
+  </wsdl:portType>
+
+  <!-- ######################################## the implementation of the method -->
+  <!-- Bindings: Bindings say which protocols are used by the port, including the packaging protocol (SOAP in this case). -->
+  <wsdl:binding name="HelloWorldBinding"
+                type="tns:HelloWorldInterface">
+    <soap:binding style="rpc"
+                  transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="sayHello">
+      <soap:operation soapAction="urn:Hello" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:Hello" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:Hello" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+
+  <!-- Service: showing the location of the service -->
+  <!-- A service is a collection of ports -->
+  <wsdl:service name="HelloWorldService">
+    <wsdl:port name="HelloWorldPort"
+               binding="tns:HelloWorldBinding">
+      <!-- location of the Perl Hello World Service -->
+      <soap:address
+          location="http://localhost:8080" />
+    </wsdl:port>
+  </wsdl:service>
+
+</wsdl:definitions>

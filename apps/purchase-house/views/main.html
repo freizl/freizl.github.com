@@ -1,0 +1,197 @@
+<div class="pure-g-r">
+
+    <div class="pure-u-1-3">
+        <form class="pure-form pure-form-aligned">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label for="total">报价<span>(万元)</span></label>
+                    <input class="pure-input-1-4" id="total" type="number" placeholder="" ng-model="input.price">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="how-many-houses">第几套</label>
+                    <input class="pure-input-1-4" id="how-many-houses" type="number" ng-model="input.howManyHouses">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="over-five-year">满五年?</label>
+                    <input id="over-five-year" type="checkbox" ng-model="input.overFiveYear">
+                </div>
+                <div class="pure-control-group" ng-show="input.overFiveYear">
+                    <label for="original-value" class="extra-info">买进价</label>
+                    <input class="pure-input-1-4" id="original-value" type="number" ng-model="input.originalValue">
+                </div>
+
+
+                <div class="pure-control-group">
+                    <label for="only-house">唯一</label>
+                    <input id="only-house" type="checkbox" ng-model="input.onlyOneHouse">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="normalHouse">做低成普通住宅</label>
+                    <input id="normalHouse" type="checkbox" ng-model="input.normalHouse">
+                </div>
+
+                <div class="pure-control-group" ng-show="input.normalHouse">
+                    <label for="normalHouse-value" class="extra-info">做低房价</label>
+                    <input class="pure-input-1-4" id="normalHouse-value" type="number" ng-model="input.normalHouseValue">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="init-pay">首付%</label>
+                    <input class="pure-input-1-4" id="init-pay" type="number" ng-model="input.initPay">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="qi-tax">契税%</label>
+                    <input class="pure-input-1-4" id="qi-tax" type="number" ng-model="input.qiTax">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="ying-ye-tax">营业税%</label>
+                    <input class="pure-input-1-4" id="ying-ye-tax" type="number" ng-model="input.yingYeTax">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="ge-tax">个税%</label>
+                    <input class="pure-input-1-4" id="ge-tax" type="number" ng-model="input.geTax">
+                </div>
+
+                <div class="pure-control-group">
+                    <label for="middle-man-fee">中介费%</label>
+                    <input class="pure-input-1-4" id="middle-man-fee" type="number" ng-model="input.middleManFee">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+    <div class="pure-u-1-3" ng-show="input.price">
+        <h2>非普通住宅</h2>
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>首付</td>
+                    <td>{{result.initPay | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>营业税</td>
+                    <td>{{result.yingYeTax | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>契税</td>
+                    <td>{{result.qiTax | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>个税</td>
+                    <td>{{result.geTax | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>税费小计</td>
+                    <td></td>
+                    <td>{{result.taxSubTotal | naValue }}</td>
+                </tr>
+                <tr>
+                    <td>中介费</td>
+                    <td>{{result.middleManFee | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>首款</td>
+                    <td></td>
+                    <td>{{result.firstPayTotal | naValue }}</td>
+                </tr>
+                <tr>
+                    <td>贷款</td>
+                    <td>{{result.load | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>总计</td>
+                    <td></td>
+                    <td>{{result.total | naValue }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div class="pure-u-1-3" ng-show="input.normalHouse">
+        <h2>普通住宅</h2>
+        <table class="pure-table pure-table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Amount</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>首付</td>
+                    <td>{{cheating.initPay | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>差额</td>
+                    <td>{{cheating.diff | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>营业税</td>
+                    <td>{{cheating.yingYeTax | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>契税</td>
+                    <td>{{cheating.qiTax | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>个税</td>
+                    <td>{{cheating.geTax | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>税费小计</td>
+                    <td></td>
+                    <td>{{cheating.taxSubTotal | naValue }}</td>
+                </tr>
+                <tr>
+                    <td>中介费</td>
+                    <td>{{cheating.middleManFee | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>首款</td>
+                    <td></td>
+                    <td>{{cheating.firstPayTotal | naValue }}</td>
+                </tr>
+                <tr>
+                    <td>贷款</td>
+                    <td>{{cheating.load | naValue }}</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>总计</td>
+                    <td></td>
+                    <td>{{cheating.total | naValue }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>

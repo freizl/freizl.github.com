@@ -1,0 +1,40 @@
+#+TITLE: Arch Linux notes
+#+LANGUAGE: en
+#+AUTHOR: Haisheng Wu
+#+EMAIL: freizl@gmail.com
+#+OPTIONS: toc:2 num:nil 
+
+* pacman
+  - list all orphans. (unused packages)
+
+#+begin_src sh
+pacman -Qdt
+#+end_src
+
+
+  - This will remove them all.
+#+begin_src sh
+pacman -Rsn $(pacman -Qdtq)
+#+end_src
+
+* Configuration files
+  * /etc/rc.conf
+  * /etc/pacman.conf
+  * /etc/pacman.d/mirror.list
+
+* abs
+  * [[http://wiki.archlinux.org/index.php/Arch_Build_System][ABS]]
+  * [[http://wiki.archlinux.org/index.php/Kernel_Compilation_From_Source][Kernel Compilation]]
+
+* misc
+  - clear keyring
+
+#+begin_src sh
+rm ~/.gnome2/keyrings/default.keyring
+#+end_src
+
+  - network restart
+
+#+begin_src sh
+/etc/rc.d/network restart
+#+end_src   

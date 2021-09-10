@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <style type="text/css" media="screen">
+      section { border: 1px solid green; margin-top: 10px; }
+#test1 ul > li { color: blue; }
+#test1 ul li { color: red; }
+
+#test2 p + p { color: red; }
+#test2 div + p { color: green; }
+
+#test3 p ~ p { color: yellow; }
+#test3 div ~ p { color: red; }
+
+    </style>
+  </head>
+  <body>
+    <section id="test1">
+      <ul>
+        <li>List item one</li>
+        <li>List item two
+          <ol>
+            <li>Nested item one</li>
+            <li>Nested item one</li>
+          </ol>
+        </li>
+        <li>List item three</li>
+      </ul>
+    </section>
+
+    <section id="test2">
+      <p>Line one</p>
+      <p>Line two</p>
+      <section>sssss</section>
+      <p>Line three</p>
+      <div>Foo</div>
+      <p>Line three</p>
+    </section>
+
+    <section id="test3">
+      <p>Line one</p>
+      <p>Line two</p>
+      <section>ssss</section>
+      <p>Line three</p>
+      <div>Foo</div>
+      <p>Line three</p>
+    </section>
+
+  </body>
+</html>

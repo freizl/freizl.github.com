@@ -22,9 +22,43 @@
 <main>
 <article>
 <h1><a href=https://freizl.github.io/posts/hello-hugo/>Hello Hugo</a></h1>
-<b><time>09/10/2021 15:33</time></b>
+<b><time>09/10/2021</time></b>
 <div>
-Hello, Hugo Generated from Org file
+This is my first blog The content is generated from Org file.
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/bayesian-network-exe01/>Bayesian Network Exe01</a></h1>
+<b><time>04/06/2012</time></b>
+<a href=./tags/ai>AI</a>
+<div>
+Introduction AI Course Bayesian network excerice 01 resolution using enumeration method.
+C 国家政策 U 学校政策 W 工作压力 B 身体状况 D 过劳死 Scenarios 已知 : Exercise01 求 : 当 学校政策＝＝ True 而且 工作压力 == True 时, 过劳死的概率. Resolution Value T:0.95 means True case with probability 0.95
+Probability of C is omitted as it is not related. Even include C, the result should be same.
+<a href=https://freizl.github.io/posts/bayesian-network-exe01/>Read more...</a>
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/mapm/>MapM</a></h1>
+<b><time>06/14/2011</time></b>
+<a href=./tags/monad>monad</a>
+<a href=./tags/haskell>haskell</a>
+<div>
+How to understand the following computation result? Prelude> mapM id [Just 1, Nothing, Just 3] Nothing &lsquo;Reason about&rsquo; mapM :: (a -> m b) -> [a] -> m [b] id :: a -> a sequence :: (Monad m) => [m a] -> m [a] Therefore,
+> a = Maybe Int > m = Maybe > b = Int the mapM and sequence is implemented like this:
+mapM f xs = sequence (map f xs) sequence (c:cs) = do x &lt;- c xs &lt;- sequence cs return (x:xs) Hence the result could be understood in such way
+<a href=https://freizl.github.io/posts/mapm/>Read more...</a>
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/a-really-trivial-monad/>A Really Trivial Monad</a></h1>
+<b><time>05/29/2011</time></b>
+<a href=./tags/haskell>haskell</a>
+<a href=./tags/monad>monad</a>
+<div>
+Generally some people saying that Monad is a computation that take a &lsquo;world&rsquo; as parameter and produce a result along with modified &lsquo;world&rsquo;. And this a manner that doing impure in a pure language.
+While thinking in terms of Parser, it means taking a String and produce a result along with the rest of the string which is not parsed1. Consequently, we think a monadic type in Haskell is just a function.
+<a href=https://freizl.github.io/posts/a-really-trivial-monad/>Read more...</a>
 </div>
 </article>
 <div>

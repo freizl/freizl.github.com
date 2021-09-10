@@ -1,0 +1,89 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<style type=text/css>body{font-family:monospace}</style>
+<title>A Really Trivial Monad</title>
+<link rel=stylesheet href=../../css/style.css>
+</head>
+<body>
+<header>
+=================<br>
+== <a href=https://freizl.github.io/>Corner case</a> ==<br>
+=================
+<div style=float:right>Welcome to my new blog!</div><br>
+<p>
+<nav>
+<a href=../../><b>Start</b></a>.
+</header>
+<main>
+<article>
+<h1>A Really Trivial Monad</h1>
+<b><time>05/29/2011</time></b>
+<a href=../../tags/haskell>haskell</a>
+<a href=../../tags/monad>monad</a>
+<div>
+<p>Generally some people saying that Monad is a computation that take a
+&lsquo;world&rsquo; as parameter and produce a result along with modified &lsquo;world&rsquo;.
+And this a manner that doing impure in a pure language.</p>
+<p>While thinking in terms of Parser, it means taking a String and produce
+a result along with the rest of the string which is not parsed<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.
+Consequently, we think a monadic type in Haskell is just a function.</p>
+<p>It probably is at most of time but not have to be. For instance the
+<code>Maybe</code> type. The trial mentioned below is a little similar with
+<code>Maybe</code>.</p>
+<p>Actually I would to play with such idea:</p>
+<blockquote>
+<p>To add a count of operations performed to it</p>
+</blockquote>
+<p>Therefore the type is actually any value plus a count</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>newtype</span> <span style=color:#66d9ef>Sint</span> a <span style=color:#f92672>=</span> <span style=color:#66d9ef>Sint</span> (a, <span style=color:#66d9ef>Count</span>)
+</code></pre></div><p>In order to be a monad, it has to be a instance of <code>Monad</code> and the
+implementation of <code>>>=</code> is</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  &gt; p &gt;&gt;= f = let (a, c1) = getSint p
+  &gt;               (b, c2) = getSint (f a)
+  &gt;               in Sint (b, c1+c2)
+</code></pre></div><p>It means keep the result of the second computation and combined the
+count together. Find full code <a href=../../codes/SideEffectInc.lhs><code>here</code></a></p>
+<p>Now, I realize that to implement a Monadic Type, two key points we need
+to do, which also turn to be simple.</p>
+<ul>
+<li>Define a type that carry along the &lsquo;side effect&rsquo;</li>
+<li>Implement Monad class, a.k.a the <code>>>=</code> and <code>return</code> function<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></li>
+</ul>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=http://ecn.channel9.msdn.com/o9/ch9/1/1/2/4/0/5/C9LecturesMeijerC8%5F2MB%5Fch9.wmv>Functional parsers by Erik Meijer</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=http://channel9.msdn.com/shows/Going+Deep/Brian-Beckman-Dont-fear-the-Monads/>Brian Beckman: Don&rsquo;t fear the Monad</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+</article>
+</main>
+<aside>
+<div>
+<div>
+<h3>LATEST POSTS</h3>
+</div>
+<div>
+<ul>
+<li><a href=../../posts/hello-hugo/>Hello Hugo</a></li>
+<li><a href=../../posts/bayesian-network-exe01/>Bayesian Network Exe01</a></li>
+<li><a href=../../posts/mapm/>MapM</a></li>
+<li><a href=../../posts/a-really-trivial-monad/>A Really Trivial Monad</a></li>
+</ul>
+</div>
+</div>
+</aside>
+<footer>
+<p>&copy; 2021 <a href=https://freizl.github.io/><b>Haisheng Wu</b></a>.
+</p>
+</footer>
+</body>
+</html>

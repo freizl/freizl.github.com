@@ -1,0 +1,24 @@
+.boxes {
+  width: 300px;
+  height: 400px;
+  border: 1px solid black;
+}
+
+.boxes > div {
+  width: 100px;
+  height: 100px;
+  border-width: 0;
+  float: left;
+}
+
+.boxes > div:first-child {
+  background-color: red;
+}
+
+.boxes > div:nth-child(2) {
+  background-color: yellow;
+}
+
+.boxes > div:last-child {
+  background-color: green;
+}

@@ -1,0 +1,76 @@
+#summary XSLK samples and tips
+
+= Introduction =
+== Template == 
+The <xsl:apply-templates> element applies a template to the current element or to the current element's child nodes.
+
+If we add a select attribute to the <xsl:apply-templates> element it will process only the child element that matches the value of the attribute. We can use the select attribute to specify in which order the child nodes are to be processed.
+
+Syntax:
+{{{
+<xsl:apply-templates select="expression" mode="name">
+<!-- Content:(xsl:sort|xsl:with-param)* -->
+</xsl:apply-templates> 
+}}}
+
+|| *Attribute* || *Value* || *Description* ||
+|| Select|| Expression || Optional. Specifies the nodes to be processed. An asterisk selects the entire node-set. If this attribute is omitted, all child nodes of the current node will be selected ||
+|| Mode || Name || Optional, If there are multiple ways of processing defined for the same element, distinguishes among them. In other words, “apply-template” need to know which template it shall apply if there are multiple templates available for current field. ||
+
+
+= Samples =
+=== Copy of but not empty ===
+{{{
+<!-- For all elements but non-empty under root, do a copy along with namesapce -->
+<xsl:template match="/ns0:root//*[node()]">
+    <xsl:copy>
+      <xsl:apply-templates/>
+    </xsl:copy>
+ </xsl:template>
+}}}
+
+  * [http://soa-howto.blogspot.com/2009/09/how-to-remove-empty-nodes-from-xml.html more]
+
+=== Create Element Dynamically ===
+{{{
+<xsl:template name="Other">
+    <xsl:param name="gid_value" select="$string_default_value"/>
+    <xsl:param name="node_name" select="'Other'"/>   
+    <xsl:element name="imp1:{$node_name}">
+      <xsl:value-of select="$gid_value"/>
+    </xsl:element>
+  </xsl:template>
+}}}
+
+=== Init Array === 
+{{{
+<xsl:variable name="append-number"
+                select="10 - count(/ns0:ESBVendorMessage/ns0:ESBVendor/ns0:divisions/ns0:division)"/>
+  <xsl:template match="/">
+    <ns0:ESBVendorMessage>
+      <ns0:ESBVendor>
+        <ns0:divisions>
+          <xsl:for-each select="/ns0:ESBVendorMessage/ns0:ESBVendor/ns0:divisions/ns0:division[position() &lt;= 10]">
+            <ns0:division>
+              <xsl:value-of select="."/>
+            </ns0:division>
+          </xsl:for-each>
+          <xsl:call-template name="init-array">
+            <xsl:with-param name="length" select="$append-number"/>
+          </xsl:call-template>
+        </ns0:divisions>
+      </ns0:ESBVendor>
+    </ns0:ESBVendorMessage>
+  </xsl:template>
+  <xsl:template name="init-array">
+    <xsl:param name="length"/>
+    <xsl:if test="$length > 0">
+      <ns0:division>0</ns0:division>
+      <xsl:call-template name="init-array">
+        <xsl:with-param name="length" select="$length - 1"/>
+      </xsl:call-template>
+    </xsl:if>
+  </xsl:template>
+</xsl:stylesheet>
+}}}
+  * Expected Result: there are exactly 10 ns0:division elements.
