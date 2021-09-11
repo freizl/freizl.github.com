@@ -1,0 +1,294 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<script type=text/javascript src=https://latest.cactus.chat/cactus.js></script>
+<link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title> Deriving | Corner case</title>
+<link rel=canonical href=https://freizl.github.io/posts/deriving/>
+<meta name=description content="Welcome to my personal blog.">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="all,follow">
+<meta name=googlebot content="index,follow,snippet,archive">
+<meta property="og:title" content="Deriving">
+<meta property="og:description" content="Deriving What the cool thing that Deriving does is actually automaticlly implementing instance for perticular type class.
+For instance, a Person derives Eq
+data Person = Person { firstName :: String , lastName :: String , age :: Int } deriving Eq Then we are able to compare two Persons because Haskell make the type Person to be a instance of typeclass Eq.
+Take another example,
+data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday deriving (Bounded, Enum) The Bounded typeclass defines things that have lowest possible value and highest possible value.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freizl.github.io/posts/deriving/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2011-06-14T00:00:00+00:00">
+<meta property="article:modified_time" content="2011-06-14T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Deriving">
+<meta name=twitter:description content="Deriving What the cool thing that Deriving does is actually automaticlly implementing instance for perticular type class.
+For instance, a Person derives Eq
+data Person = Person { firstName :: String , lastName :: String , age :: Int } deriving Eq Then we are able to compare two Persons because Haskell make the type Person to be a instance of typeclass Eq.
+Take another example,
+data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday deriving (Bounded, Enum) The Bounded typeclass defines things that have lowest possible value and highest possible value.">
+<link rel=stylesheet href=https://freizl.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
+<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
+<link rel=icon type=image/png href=https://freizl.github.io/images/favicon.ico>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-6496210-5','auto'),ga('send','pageview'))</script>
+</head>
+<body class="max-width mx-auto px3 ltr">
+<div class="content index py4">
+<div id=header-post>
+<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=top-icon-tablet href=# onclick="$('html, body').animate({scrollTop:0},'fast')" style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu>
+<span id=nav>
+<ul>
+</ul>
+</span>
+<br>
+<span id=actions>
+<ul>
+<li>
+<a class=icon href=https://freizl.github.io/posts/mapm/ aria-label=Previous>
+<i class="fas fa-chevron-left" aria-hidden=true onmouseover="$('#i-prev').toggle()" onmouseout="$('#i-prev').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=https://freizl.github.io/posts/max-file-size/ aria-label=Next>
+<i class="fas fa-chevron-right" aria-hidden=true onmouseover="$('#i-next').toggle()" onmouseout="$('#i-next').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<i class="fas fa-chevron-up" aria-hidden=true onmouseover="$('#i-top').toggle()" onmouseout="$('#i-top').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=# aria-label=Share>
+<i class="fas fa-share-alt" aria-hidden=true onmouseover="$('#i-share').toggle()" onmouseout="$('#i-share').toggle()" onclick="return $('#share').toggle(),!1"></i>
+</a>
+</li>
+</ul>
+<span id=i-prev class=info style=display:none>Previous post</span>
+<span id=i-next class=info style=display:none>Next post</span>
+<span id=i-top class=info style=display:none>Back to top</span>
+<span id=i-share class=info style=display:none>Share post</span>
+</span>
+<br>
+<div id=share style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f" aria-label=Facebook>
+<i class="fab fa-facebook" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&text=Deriving" aria-label=Twitter>
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&title=Deriving" aria-label=Linkedin>
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&is_video=false&description=Deriving" aria-label=Pinterest>
+<i class="fab fa-pinterest" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Deriving&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f" aria-label=Email>
+<i class="fas fa-envelope" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&title=Deriving" aria-label=Pocket>
+<i class="fab fa-get-pocket" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&title=Deriving" aria-label=reddit>
+<i class="fab fa-reddit" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&name=Deriving&description=Deriving%20What%20the%20cool%20thing%20that%20Deriving%20does%20is%20actually%20automaticlly%20implementing%20instance%20for%20perticular%20type%20class.%0aFor%20instance%2c%20a%20Person%20derives%20Eq%0adata%20Person%20%3d%20Person%20%7b%20firstName%20%3a%3a%20String%20%2c%20lastName%20%3a%3a%20String%20%2c%20age%20%3a%3a%20Int%20%7d%20deriving%20Eq%20Then%20we%20are%20able%20to%20compare%20two%20Persons%20because%20Haskell%20make%20the%20type%20Person%20to%20be%20a%20instance%20of%20typeclass%20Eq.%0aTake%20another%20example%2c%0adata%20Day%20%3d%20Monday%20%7c%20Tuesday%20%7c%20Wednesday%20%7c%20Thursday%20%7c%20Friday%20%7c%20Saturday%20%7c%20Sunday%20deriving%20%28Bounded%2c%20Enum%29%20The%20Bounded%20typeclass%20defines%20things%20that%20have%20lowest%20possible%20value%20and%20highest%20possible%20value." aria-label=Tumblr>
+<i class="fab fa-tumblr" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&t=Deriving" aria-label="Hacker News">
+<i class="fab fa-hacker-news" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#deriving>Deriving</a></li>
+<li><a href=#further-study>Further study</a></li>
+<li><a href=#reference>Reference</a></li>
+</ul>
+</nav>
+</div>
+</span>
+</div>
+<article class=post itemscope itemtype=http://schema.org/BlogPosting>
+<header>
+<h1 class=posttitle itemprop="name headline">
+Deriving
+</h1>
+<div class=meta>
+<div class=postdate>
+<time datetime="2011-06-14 00:00:00 +0000 UTC" itemprop=datePublished>2011-06-14</time>
+</div>
+<div class=article-tag>
+<i class="fas fa-tag"></i>
+<a class=tag-link href=../../tags/typeclass rel=tag>typeclass</a>
+,
+<a class=tag-link href=../../tags/deriving rel=tag>deriving</a>
+,
+<a class=tag-link href=../../tags/haskell rel=tag>haskell</a>
+</div>
+</div>
+</header>
+<div class=content itemprop=articleBody>
+<h2 id=deriving>Deriving</h2>
+<p>What the cool thing that Deriving does is actually <strong>automaticlly
+implementing instance</strong> for perticular type class.</p>
+<p>For instance, a <code>Person</code> derives <code>Eq</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>Person</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>Person</span>
+    { firstName <span style=color:#f92672>::</span> <span style=color:#66d9ef>String</span>
+    , lastName  <span style=color:#f92672>::</span> <span style=color:#66d9ef>String</span>
+    , age       <span style=color:#f92672>::</span> <span style=color:#66d9ef>Int</span>
+    }
+    <span style=color:#66d9ef>deriving</span> <span style=color:#66d9ef>Eq</span>
+</code></pre></div><p>Then we are able to compare two Persons because Haskell make the type
+<code>Person</code> to be a instance of typeclass <code>Eq</code>.</p>
+<p>Take another example,</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#66d9ef>data</span> <span style=color:#66d9ef>Day</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>Monday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Tuesday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Wednesday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Thursday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Friday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Saturday</span> <span style=color:#f92672>|</span> <span style=color:#66d9ef>Sunday</span>
+             <span style=color:#66d9ef>deriving</span> (<span style=color:#66d9ef>Bounded</span>, <span style=color:#66d9ef>Enum</span>)
+</code></pre></div><p>The <code>Bounded</code> typeclass defines things that have lowest possible value
+and highest possible value. The <code>Enum</code> typeclass defines things that
+have predecessors and successors.</p>
+<p>Let&rsquo;s read one of function in <code>Bounded</code> typeclass <code>minBound</code>, which just
+return something that is instance of <code>Bounded</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  minBound <span style=color:#f92672>::</span> (<span style=color:#66d9ef>Bounded</span> a) <span style=color:#f92672>=&gt;</span> a
+</code></pre></div><p>Hence, if enforce its return type to be <code>Day</code>, we will get result</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  ghci<span style=color:#f92672>&gt;</span> minBound <span style=color:#f92672>::</span> <span style=color:#66d9ef>Day</span>
+  <span style=color:#66d9ef>Monday</span>
+</code></pre></div><p>Take a look at one function of <code>Enum</code> typeclass</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  succ <span style=color:#f92672>::</span> (<span style=color:#66d9ef>Enum</span> a) <span style=color:#f92672>=&gt;</span> a <span style=color:#f92672>-&gt;</span> a
+</code></pre></div><p>We could easy guess the result of <code>succ Tuesday</code> will be Wednesday.</p>
+<h2 id=further-study>Further study</h2>
+<ul>
+<li>How does the Deriving being implemented in Haskell?</li>
+</ul>
+<p>Thanks a guy point me I could go further by study
+<a href=http://hackage.haskell.org/package/derive>Data.derive</a> at the
+beginner mailing session.</p>
+<h2 id=reference>Reference</h2>
+<ul>
+<li><a href=http://learnyouahaskell.com/making-our-own-types-and-typeclasses>Learn
+Your Haskell, Chapter 8</a></li>
+</ul>
+</div>
+</article>
+<div id=footer-post-container>
+<div id=footer-post>
+<div id=nav-footer style=display:none>
+<ul>
+</ul>
+</div>
+<div id=toc-footer style=display:none>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#deriving>Deriving</a></li>
+<li><a href=#further-study>Further study</a></li>
+<li><a href=#reference>Reference</a></li>
+</ul>
+</nav>
+</div>
+<div id=share-footer style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f" aria-label=Facebook>
+<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&text=Deriving" aria-label=Twitter>
+<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&title=Deriving" aria-label=Linkedin>
+<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&is_video=false&description=Deriving" aria-label=Pinterest>
+<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Deriving&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f" aria-label=Email>
+<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&title=Deriving" aria-label=Pocket>
+<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&title=Deriving" aria-label=reddit>
+<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&name=Deriving&description=Deriving%20What%20the%20cool%20thing%20that%20Deriving%20does%20is%20actually%20automaticlly%20implementing%20instance%20for%20perticular%20type%20class.%0aFor%20instance%2c%20a%20Person%20derives%20Eq%0adata%20Person%20%3d%20Person%20%7b%20firstName%20%3a%3a%20String%20%2c%20lastName%20%3a%3a%20String%20%2c%20age%20%3a%3a%20Int%20%7d%20deriving%20Eq%20Then%20we%20are%20able%20to%20compare%20two%20Persons%20because%20Haskell%20make%20the%20type%20Person%20to%20be%20a%20instance%20of%20typeclass%20Eq.%0aTake%20another%20example%2c%0adata%20Day%20%3d%20Monday%20%7c%20Tuesday%20%7c%20Wednesday%20%7c%20Thursday%20%7c%20Friday%20%7c%20Saturday%20%7c%20Sunday%20deriving%20%28Bounded%2c%20Enum%29%20The%20Bounded%20typeclass%20defines%20things%20that%20have%20lowest%20possible%20value%20and%20highest%20possible%20value." aria-label=Tumblr>
+<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fderiving%2f&t=Deriving" aria-label="Hacker News">
+<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=actions-footer>
+<a id=menu-toggle class=icon href=# onclick="return $('#nav-footer').toggle(),!1" aria-label=Menu>
+<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick="return $('#toc-footer').toggle(),!1" aria-label=TOC>
+<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick="return $('#share-footer').toggle(),!1" aria-label=Share>
+<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
+</div>
+</div>
+</div>
+<footer id=footer>
+<div class=footer-left>
+Copyright &copy; 2021 Haisheng Wu
+</div>
+<div class=footer-right>
+<nav>
+<ul>
+</ul>
+</nav>
+</div>
+</footer>
+</div>
+</body>
+<link rel=stylesheet href=../../lib/font-awesome/css/all.min.css>
+<script src=../../lib/jquery/jquery.min.js></script>
+<script src=../../js/main.js></script>
+<script src=../../js/code-copy.js></script>
+</html>

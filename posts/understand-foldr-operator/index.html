@@ -1,0 +1,305 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<script type=text/javascript src=https://latest.cactus.chat/cactus.js></script>
+<link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title> Understand Foldr Operator | Corner case</title>
+<link rel=canonical href=https://freizl.github.io/posts/understand-foldr-operator/>
+<meta name=description content="Welcome to my personal blog.">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="all,follow">
+<meta name=googlebot content="index,follow,snippet,archive">
+<meta property="og:title" content="Understand Foldr Operator">
+<meta property="og:description" content="I can not quite remember the usage of foldr until I finish the video by Erik Meijer on Chapter 71.
+Descrption by Erik Erik describe foldr in a very comprehensive way.
+Take refining the length function in terms of foldr as a example. length has a definition as
+> length :: [a] -> Int > length [] = 0 > length (x:xs) = 1 + length xs and
+length [1,2,3] = length (1:(2:(3:[]))) = 1 + (1 + (1 + 0)) = 3 By replace each (:) by \ _ n -> 1 + n and [] by 0, we have:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freizl.github.io/posts/understand-foldr-operator/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2011-06-04T00:00:00+00:00">
+<meta property="article:modified_time" content="2011-06-04T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Understand Foldr Operator">
+<meta name=twitter:description content="I can not quite remember the usage of foldr until I finish the video by Erik Meijer on Chapter 71.
+Descrption by Erik Erik describe foldr in a very comprehensive way.
+Take refining the length function in terms of foldr as a example. length has a definition as
+> length :: [a] -> Int > length [] = 0 > length (x:xs) = 1 + length xs and
+length [1,2,3] = length (1:(2:(3:[]))) = 1 + (1 + (1 + 0)) = 3 By replace each (:) by \ _ n -> 1 + n and [] by 0, we have:">
+<link rel=stylesheet href=https://freizl.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
+<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
+<link rel=icon type=image/png href=https://freizl.github.io/images/favicon.ico>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-6496210-5','auto'),ga('send','pageview'))</script>
+</head>
+<body class="max-width mx-auto px3 ltr">
+<div class="content index py4">
+<div id=header-post>
+<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=top-icon-tablet href=# onclick="$('html, body').animate({scrollTop:0},'fast')" style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu>
+<span id=nav>
+<ul>
+</ul>
+</span>
+<br>
+<span id=actions>
+<ul>
+<li>
+<a class=icon href=https://freizl.github.io/posts/exe-3/ aria-label=Previous>
+<i class="fas fa-chevron-left" aria-hidden=true onmouseover="$('#i-prev').toggle()" onmouseout="$('#i-prev').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=https://freizl.github.io/posts/mapm/ aria-label=Next>
+<i class="fas fa-chevron-right" aria-hidden=true onmouseover="$('#i-next').toggle()" onmouseout="$('#i-next').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<i class="fas fa-chevron-up" aria-hidden=true onmouseover="$('#i-top').toggle()" onmouseout="$('#i-top').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=# aria-label=Share>
+<i class="fas fa-share-alt" aria-hidden=true onmouseover="$('#i-share').toggle()" onmouseout="$('#i-share').toggle()" onclick="return $('#share').toggle(),!1"></i>
+</a>
+</li>
+</ul>
+<span id=i-prev class=info style=display:none>Previous post</span>
+<span id=i-next class=info style=display:none>Next post</span>
+<span id=i-top class=info style=display:none>Back to top</span>
+<span id=i-share class=info style=display:none>Share post</span>
+</span>
+<br>
+<div id=share style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f" aria-label=Facebook>
+<i class="fab fa-facebook" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&text=Understand%20Foldr%20Operator" aria-label=Twitter>
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&title=Understand%20Foldr%20Operator" aria-label=Linkedin>
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&is_video=false&description=Understand%20Foldr%20Operator" aria-label=Pinterest>
+<i class="fab fa-pinterest" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Understand%20Foldr%20Operator&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f" aria-label=Email>
+<i class="fas fa-envelope" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&title=Understand%20Foldr%20Operator" aria-label=Pocket>
+<i class="fab fa-get-pocket" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&title=Understand%20Foldr%20Operator" aria-label=reddit>
+<i class="fab fa-reddit" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&name=Understand%20Foldr%20Operator&description=I%20can%20not%20quite%20remember%20the%20usage%20of%20foldr%20until%20I%20finish%20the%20video%20by%20Erik%20Meijer%20on%20Chapter%2071.%0aDescrption%20by%20Erik%20Erik%20describe%20foldr%20in%20a%20very%20comprehensive%20way.%0aTake%20refining%20the%20length%20function%20in%20terms%20of%20foldr%20as%20a%20example.%20length%20has%20a%20definition%20as%0a%26gt%3b%20length%20%3a%3a%20%5ba%5d%20-%26gt%3b%20Int%20%26gt%3b%20length%20%5b%5d%20%3d%200%20%26gt%3b%20length%20%28x%3axs%29%20%3d%201%20%2b%20length%20xs%20and%0alength%20%5b1%2c2%2c3%5d%20%3d%20length%20%281%3a%282%3a%283%3a%5b%5d%29%29%29%20%3d%201%20%2b%20%281%20%2b%20%281%20%2b%200%29%29%20%3d%203%20By%20replace%20each%20%28%3a%29%20by%20%5c%20_%20n%20-%26gt%3b%201%20%2b%20n%20and%20%5b%5d%20by%200%2c%20we%20have%3a" aria-label=Tumblr>
+<i class="fab fa-tumblr" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&t=Understand%20Foldr%20Operator" aria-label="Hacker News">
+<i class="fab fa-hacker-news" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=toc>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#descrption-by-erik>Descrption by Erik</a></li>
+<li><a href=#definition-by-graham>Definition by Graham</a></li>
+<li><a href=#in-one-sentence>In one sentence</a></li>
+</ul>
+</nav>
+</div>
+</span>
+</div>
+<article class=post itemscope itemtype=http://schema.org/BlogPosting>
+<header>
+<h1 class=posttitle itemprop="name headline">
+Understand Foldr Operator
+</h1>
+<div class=meta>
+<div class=postdate>
+<time datetime="2011-06-04 00:00:00 +0000 UTC" itemprop=datePublished>2011-06-04</time>
+</div>
+<div class=article-tag>
+<i class="fas fa-tag"></i>
+<a class=tag-link href=../../tags/fold rel=tag>fold</a>
+,
+<a class=tag-link href=../../tags/haskell rel=tag>haskell</a>
+</div>
+</div>
+</header>
+<div class=content itemprop=articleBody>
+<p>I can not quite remember the usage of foldr until I finish the video by
+Erik Meijer on Chapter 7<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p>
+<h2 id=descrption-by-erik>Descrption by Erik</h2>
+<p>Erik describe <code>foldr</code> in a very comprehensive way.</p>
+<p>Take refining the <code>length</code> function in terms of <code>foldr</code> as a example.
+<code>length</code> has a definition as</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#f92672>&gt;</span> length  <span style=color:#f92672>::</span> [a] <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>Int</span>
+  <span style=color:#f92672>&gt;</span> length <span style=color:#66d9ef>[]</span>  <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+  <span style=color:#f92672>&gt;</span> length (x<span style=color:#66d9ef>:</span>xs)   <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> length xs
+</code></pre></div><p>and</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>    length [1,2,3]
+  = length (1:(2:(3:[])))
+  = 1 + (1 + (1 + 0))
+  = 3
+</code></pre></div><p>By replace each (:) by <code>\ _ n -> 1 + n</code> and [] by 0, we have:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#f92672>&gt;</span> length <span style=color:#f92672>=</span> foldr (<span style=color:#a6e22e>\</span> <span style=color:#66d9ef>_</span> n <span style=color:#f92672>-&gt;</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> n) <span style=color:#ae81ff>0</span>
+</code></pre></div><h2 id=definition-by-graham>Definition by Graham</h2>
+<p>Having such knowledge inside, I find Graham&rsquo;s tutorial paper<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> about
+fold again. There is a concise decription of what fold is:</p>
+<blockquote>
+<p>The function <em>fold f v</em> processes a list of type <em>[a]</em> to give a value
+of type <em>b</em> by replacing the <em>nil</em> constructor [] at the end of the
+list by the value <em>v</em>, and each cons constructor (:) within the list
+by the function <em>f</em>.</p>
+</blockquote>
+<p>In Haskell, the <em>fold</em> operator can be defined as follows:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  fold  <span style=color:#f92672>::</span> (a <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> b) <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> [a] <span style=color:#f92672>-&gt;</span> b
+  fold f v <span style=color:#66d9ef>[]</span> <span style=color:#f92672>=</span> v
+  fold f v (x<span style=color:#66d9ef>:</span>xs) <span style=color:#f92672>=</span> f x (fold f v xs)
+</code></pre></div><h2 id=in-one-sentence>In one sentence</h2>
+<p>Thought it might not be that precisely.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  foldr <span style=color:#f92672>::</span> (a <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> b) <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> [a] <span style=color:#f92672>-&gt;</span> b
+</code></pre></div><blockquote>
+<p>Pull element one by one from right side of the list and apply the
+callback</p>
+</blockquote>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  foldl <span style=color:#f92672>::</span> (a <span style=color:#f92672>-&gt;</span> b <span style=color:#f92672>-&gt;</span> a) <span style=color:#f92672>-&gt;</span> a <span style=color:#f92672>-&gt;</span> [b] <span style=color:#f92672>-&gt;</span> a
+</code></pre></div><blockquote>
+<p>Basically, pull element one by one from left side of the list and
+apply the callback</p>
+</blockquote>
+<section class=footnotes role=doc-endnotes>
+<hr>
+<ol>
+<li id=fn:1 role=doc-endnote>
+<p><a href=http://www.cs.nott.ac.uk/~gmh/book.html>Programming in Haskell</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+<li id=fn:2 role=doc-endnote>
+<p><a href=http://www.cs.nott.ac.uk/~gmh/fold.pdf>Tutorial on the universality and expressions of fold</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+</div>
+</article>
+<div id=footer-post-container>
+<div id=footer-post>
+<div id=nav-footer style=display:none>
+<ul>
+</ul>
+</div>
+<div id=toc-footer style=display:none>
+<nav id=TableOfContents>
+<ul>
+<li><a href=#descrption-by-erik>Descrption by Erik</a></li>
+<li><a href=#definition-by-graham>Definition by Graham</a></li>
+<li><a href=#in-one-sentence>In one sentence</a></li>
+</ul>
+</nav>
+</div>
+<div id=share-footer style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f" aria-label=Facebook>
+<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&text=Understand%20Foldr%20Operator" aria-label=Twitter>
+<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&title=Understand%20Foldr%20Operator" aria-label=Linkedin>
+<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&is_video=false&description=Understand%20Foldr%20Operator" aria-label=Pinterest>
+<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Understand%20Foldr%20Operator&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f" aria-label=Email>
+<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&title=Understand%20Foldr%20Operator" aria-label=Pocket>
+<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&title=Understand%20Foldr%20Operator" aria-label=reddit>
+<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&name=Understand%20Foldr%20Operator&description=I%20can%20not%20quite%20remember%20the%20usage%20of%20foldr%20until%20I%20finish%20the%20video%20by%20Erik%20Meijer%20on%20Chapter%2071.%0aDescrption%20by%20Erik%20Erik%20describe%20foldr%20in%20a%20very%20comprehensive%20way.%0aTake%20refining%20the%20length%20function%20in%20terms%20of%20foldr%20as%20a%20example.%20length%20has%20a%20definition%20as%0a%26gt%3b%20length%20%3a%3a%20%5ba%5d%20-%26gt%3b%20Int%20%26gt%3b%20length%20%5b%5d%20%3d%200%20%26gt%3b%20length%20%28x%3axs%29%20%3d%201%20%2b%20length%20xs%20and%0alength%20%5b1%2c2%2c3%5d%20%3d%20length%20%281%3a%282%3a%283%3a%5b%5d%29%29%29%20%3d%201%20%2b%20%281%20%2b%20%281%20%2b%200%29%29%20%3d%203%20By%20replace%20each%20%28%3a%29%20by%20%5c%20_%20n%20-%26gt%3b%201%20%2b%20n%20and%20%5b%5d%20by%200%2c%20we%20have%3a" aria-label=Tumblr>
+<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2funderstand-foldr-operator%2f&t=Understand%20Foldr%20Operator" aria-label="Hacker News">
+<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=actions-footer>
+<a id=menu-toggle class=icon href=# onclick="return $('#nav-footer').toggle(),!1" aria-label=Menu>
+<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick="return $('#toc-footer').toggle(),!1" aria-label=TOC>
+<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick="return $('#share-footer').toggle(),!1" aria-label=Share>
+<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
+</div>
+</div>
+</div>
+<footer id=footer>
+<div class=footer-left>
+Copyright &copy; 2021 Haisheng Wu
+</div>
+<div class=footer-right>
+<nav>
+<ul>
+</ul>
+</nav>
+</div>
+</footer>
+</div>
+</body>
+<link rel=stylesheet href=../../lib/font-awesome/css/all.min.css>
+<script src=../../lib/jquery/jquery.min.js></script>
+<script src=../../js/main.js></script>
+<script src=../../js/code-copy.js></script>
+</html>
