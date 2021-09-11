@@ -28,19 +28,6 @@ This is my first blog The content is generated from Org file.
 </div>
 </article>
 <article>
-<h1><a href=https://freizl.github.io/posts/notes-sf-bay-area-must-do-hiking/>Notes Sf Bay Area Must Do Hiking</a></h1>
-<b><time>02/18/2015</time></b>
-<a href=./tags/reading>reading</a>
-<div>
-Informations Administrations California State Parks East Bay Regional Park District Golden Gate National Recreation Area Midpeninsula Regional Open Space District Santa Clara County Parks and Recreation San Mateo County Parks Marin Municipal Water District Marin County Open Space District Geography Coast Ranges
-Central Valley
-subranges
-Sonama Mayacamas Vaca mountains Diablo Range Santa Cruz Mountains Peaks
-Mt. St. Helena Mt.
-<a href=https://freizl.github.io/posts/notes-sf-bay-area-must-do-hiking/>Read more...</a>
-</div>
-</article>
-<article>
 <h1><a href=https://freizl.github.io/posts/improve-space-usage/>Improve Space Usage</a></h1>
 <b><time>09/12/2012</time></b>
 <a href=./tags/reading>reading</a>
@@ -101,27 +88,6 @@ Play it new two files haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ 
 </div>
 </article>
 <article>
-<h1><a href=https://freizl.github.io/posts/notes-master-regexp/>Notes Master Regexp</a></h1>
-<b><time>04/08/2012</time></b>
-<a href=./tags/reading>reading</a>
-<a href=./tags/regex>regex</a>
-<div>
-Notes Matching and Capture, or just not Capture (?:...) and (...) /i has no effect on the replacement text e.g. $var =~ s/\bJeff\b/Jeff/i; compare difference with: $var =~ s/\sJeff\s/Jeff/i; Automated Editing perl -p -i -e 's/sysread/read/g' file ? What is 'm' modifier $text =~ s/^$/&lt;p>/mg; Lookaround (?= ...) (?! ...) (?&lt;= ...) (?&lt;! ...) - lookaround does not consume text - (?=Jeffery)Jeff &lt;P61> - (?&lt;=\bJeff)(?=s\b) \G &lt;P128> X? ... Comments and Mode modifiers &lt;P133> (?
-<a href=https://freizl.github.io/posts/notes-master-regexp/>Read more...</a>
-</div>
-</article>
-<article>
-<h1><a href=https://freizl.github.io/posts/notes-progit/>Notes Progit</a></h1>
-<b><time>04/08/2012</time></b>
-<a href=./tags/reading>reading</a>
-<a href=./tags/git>git</a>
-<div>
-Chapter 9.3 refs refs/heads refs/tags [remote "origin"] url = ... fetch = +refs/heads/* : refs/remotes/origin/* ===> fetch all the references under "refs/heads" on the server and writes them to refs/remotes/origin locally Questions
-What does &lsquo;git branch B_NAME&rsquo; actually do? What happened to HEAD when switching branch? Chapter 6 git add -i ### ### revision selection ### ^ ::= parent of something, only two format ^ and ^2 git log HEAD^2 git log d107aoeu^2 git log HEAD~3 git log master.
-<a href=https://freizl.github.io/posts/notes-progit/>Read more...</a>
-</div>
-</article>
-<article>
 <h1><a href=https://freizl.github.io/posts/magic-monad-transformer/>Magic Monad Transformer</a></h1>
 <b><time>04/07/2012</time></b>
 <a href=./tags/monad>monad</a>
@@ -132,6 +98,42 @@ Monad-Transformer The code fragment below is from chapter 18 Monad Transform of 
 When the first time I read this example, I was confused with how it is possible to use ask of MonadReader (line 6) and get of MonadState (line 13) functions in the same App Monad content.
 The only reasonable explanation is that App is both MonadReader and MonadState. While looking at App type definition (line 1), seems it is not possible.
 <a href=https://freizl.github.io/posts/magic-monad-transformer/>Read more...</a>
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/bayesian-network-exe01/>Bayesian Network Exe01</a></h1>
+<b><time>04/06/2012</time></b>
+<a href=./tags/ai>AI</a>
+<div>
+Introduction AI Course Bayesian network excerice 01 resolution using enumeration method.
+C 国家政策 U 学校政策 W 工作压力 B 身体状况 D 过劳死 Scenarios 已知 : Exercise01 求 : 当 学校政策＝＝ True 而且 工作压力 == True 时, 过劳死的概率. Resolution Value T:0.95 means True case with probability 0.95
+Probability of C is omitted as it is not related. Even include C, the result should be same.
+<a href=https://freizl.github.io/posts/bayesian-network-exe01/>Read more...</a>
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/bind-examples-in-javascripts/>Bind Examples In Javascripts</a></h1>
+<b><time>04/06/2012</time></b>
+<a href=./tags/javascripts>javascripts</a>
+<div>
+Defined a function var fn = function (x, y, z) { console.log("The value: ", this.shangHai); console.log("The sum is: ", x + y + z); }; Run it fn(1); -> Output
+The value: undefined The sum is: NaN fn(1, 2, 3); -> Output:
+The value: undefined The sum is: 6 Run it with bind Less fn.bind(null, 1, 2, 3); -> Output:
+function () { [native code] } Hmm&mldr;, seems bind return a function rather apply the function and return value.
+<a href=https://freizl.github.io/posts/bind-examples-in-javascripts/>Read more...</a>
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/export-orgmode-file-in-chinese/>Export Orgmode File In Chinese</a></h1>
+<b><time>04/06/2012</time></b>
+<a href=./tags/emacs>emacs</a>
+<a href=./tags/latex>latex</a>
+<div>
+Introduction OrgMode is really cool and export context to latex then processed to PDF is quite straightforwards. However when working with Chinese characters, I need additional packages.
+First of all, install the following packages. (I already install the texlive package)
+apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex First solution Then in the org file, add the following latex options.
+#+LaTeX_HEADER: \usepackage{CJK} #+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn} A littel drawback here is the \begin{CJK} is added as a header option whice due to it will not be closed when I checked with the tex output.
+<a href=https://freizl.github.io/posts/export-orgmode-file-in-chinese/>Read more...</a>
 </div>
 </article>
 <div>

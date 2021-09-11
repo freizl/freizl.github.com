@@ -21,42 +21,6 @@
 </header>
 <main>
 <article>
-<h1><a href=https://freizl.github.io/posts/bayesian-network-exe01/>Bayesian Network Exe01</a></h1>
-<b><time>04/06/2012</time></b>
-<a href=../../tags/ai>AI</a>
-<div>
-Introduction AI Course Bayesian network excerice 01 resolution using enumeration method.
-C 国家政策 U 学校政策 W 工作压力 B 身体状况 D 过劳死 Scenarios 已知 : Exercise01 求 : 当 学校政策＝＝ True 而且 工作压力 == True 时, 过劳死的概率. Resolution Value T:0.95 means True case with probability 0.95
-Probability of C is omitted as it is not related. Even include C, the result should be same.
-<a href=https://freizl.github.io/posts/bayesian-network-exe01/>Read more...</a>
-</div>
-</article>
-<article>
-<h1><a href=https://freizl.github.io/posts/bind-examples-in-javascripts/>Bind Examples In Javascripts</a></h1>
-<b><time>04/06/2012</time></b>
-<a href=../../tags/javascripts>javascripts</a>
-<div>
-Defined a function var fn = function (x, y, z) { console.log("The value: ", this.shangHai); console.log("The sum is: ", x + y + z); }; Run it fn(1); -> Output
-The value: undefined The sum is: NaN fn(1, 2, 3); -> Output:
-The value: undefined The sum is: 6 Run it with bind Less fn.bind(null, 1, 2, 3); -> Output:
-function () { [native code] } Hmm&mldr;, seems bind return a function rather apply the function and return value.
-<a href=https://freizl.github.io/posts/bind-examples-in-javascripts/>Read more...</a>
-</div>
-</article>
-<article>
-<h1><a href=https://freizl.github.io/posts/export-orgmode-file-in-chinese/>Export Orgmode File In Chinese</a></h1>
-<b><time>04/06/2012</time></b>
-<a href=../../tags/emacs>emacs</a>
-<a href=../../tags/latex>latex</a>
-<div>
-Introduction OrgMode is really cool and export context to latex then processed to PDF is quite straightforwards. However when working with Chinese characters, I need additional packages.
-First of all, install the following packages. (I already install the texlive package)
-apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex First solution Then in the org file, add the following latex options.
-#+LaTeX_HEADER: \usepackage{CJK} #+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn} A littel drawback here is the \begin{CJK} is added as a header option whice due to it will not be closed when I checked with the tex output.
-<a href=https://freizl.github.io/posts/export-orgmode-file-in-chinese/>Read more...</a>
-</div>
-</article>
-<article>
 <h1><a href=https://freizl.github.io/posts/expression-and-statement/>Expression And Statement</a></h1>
 <b><time>04/06/2012</time></b>
 <a href=../../tags/misc>misc</a>
@@ -122,6 +86,41 @@ Solutions There are two solutions below. One is written by me and another from h
 They look quite similar and I can not figure out why the wiki solution can solve problem but not mine. (Actually mine take more than 15 minutes)
 My Solution main = print $ snd $ head $ dropWhile (\ (x,y) -> (not . isLastNinePandigit "123456789") x) (zip fibs [1..]) bothNinePandigit digits n = isFirstNinePandigit digits n && isLastNinePandigit digits n isLastNinePandigit digits = (== digits) .
 <a href=https://freizl.github.io/posts/euler-problem-104/>Read more...</a>
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/euler-problem-14/>Euler Problem 14</a></h1>
+<b><time>11/20/2011</time></b>
+<a href=../../tags/euler>euler</a>
+<a href=../../tags/haskell>haskell</a>
+<div>
+Solution One I should say this solution only work while upper limit is under 100000. Otherwise it is really slow and I have no patient for the result. I wonder it would take minutes or even hours.
+So, problem solving failed.
+module Main where import Data.Word main :: IO () main = print $ p14 p14 = maximum [ (startChain n 0, n) | n &lt;- [2..1000000] ] startChain :: Int -> Int -> Int startChain 1 count = count + 1 startChain n count = startChain (intTransform n) (count+1) intTransform :: Int -> Int intTransform n | even n = n `div` 2 | otherwise = 3 * n + 1 Compile as otherwise Stack space overflow : ghc --make p14-1.
+<a href=https://freizl.github.io/posts/euler-problem-14/>Read more...</a>
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/one-solution-to-euler-12/>One Solution To Euler 12</a></h1>
+<b><time>11/18/2011</time></b>
+<a href=../../tags/euler>euler</a>
+<a href=../../tags/haskell>haskell</a>
+<div>
+Nothing special but play haskell for fun.
+Priming is a simple module which can be found at 1
+module Main where import Data.List import Primeing (primeFactors) main :: IO () main = print $ p12 500 p12 :: Int -> Int p12 n = head $ filter (factorLimit n) [ smartGaus x | x &lt;- [1..]] smartGaus :: Int -> Int smartGaus n = (1+n)*n `div` 2 {-- | Is factor count under the limit --} factorLimit :: Int -> Int -> Bool factorLimit l n | 2 * sqrtInt n &lt; l = False | otherwise = length (factors n) >= l factors :: Int -> [Int] factors n = concat [ [x, n `div` x] | x &lt;- [1.
+<a href=https://freizl.github.io/posts/one-solution-to-euler-12/>Read more...</a>
+</div>
+</article>
+<article>
+<h1><a href=https://freizl.github.io/posts/type-parameter-at-typeclass-instance/>Type Parameter At Typeclass Instance</a></h1>
+<b><time>07/02/2011</time></b>
+<a href=../../tags/typeclass>typeclass</a>
+<a href=../../tags/haskell>haskell</a>
+<div>
+A newbie concern A concern arise while I compare following two instances of Maybe.
+class Eq a where (==) :: a -> a -> Bool (/=) :: a -> a -> Bool class Functor f where fmap :: (a -> b) -> f a -> f b instance (Eq a) => Eq (Maybe a) where Just x == Just y = x == y Nothing == Nothing = True _ == _ = False instance Functor Maybe where fmap f (Just x) = Just (f x) fmap f Nothing = Nothing It put Maybe as type parameter while instance Functor class.
+<a href=https://freizl.github.io/posts/type-parameter-at-typeclass-instance/>Read more...</a>
 </div>
 </article>
 <div>
