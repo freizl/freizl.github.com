@@ -177,12 +177,33 @@ mail list point out in <a href=http://thread.gmane.org/gmane.emacs.orgmode/51914
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>#+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}
 </code></pre></div><p>Also need to customize emacs latex to pdf process.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>(setq org-latex-to-pdf-process
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>(setq org-latex-pdf-process
       &#39;(&#34;xelatex -interaction nonstopmode -output-directory %o %f&#34;
         &#34;xelatex -interaction nonstopmode -output-directory %o %f&#34;
         &#34;xelatex -interaction nonstopmode -output-directory %o %f&#34;))
-</code></pre></div><p><strong>PS: The main font has been set may be vary among different systems.
-How I find a proper font under ubuntu is via command <code>fc-list</code>.</strong></p>
+</code></pre></div><p><strong>PS</strong>:</p>
+<ul>
+<li>The main font has been set may be vary among different systems.</li>
+<li>How I find a proper font under ubuntu is via command <code>fc-list</code>.</li>
+</ul>
+<p><strong>PS</strong> &lt;2021-10-26 Tue></p>
+<ul>
+<li>
+<p>This work in MacOS 10.15 in terms of chinese font.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>#+LATEX_HEADER: \setmainfont{STHeiti}
+</code></pre></div></li>
+<li>
+<p><code>ctex</code> package also works besides <code>xltxtra</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>#+LATEX_HEADER: \usepackage{ctex}
+</code></pre></div></li>
+<li>
+<p>install <code>ctex</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>tlmgr install ctex
+</code></pre></div></li>
+<li>
+<p>Another useful reference <a href=https://en.wikipedia.org/wiki/List%5Fof%5Ftypefaces%5Fincluded%5Fwith%5FmacOS>Typefaces in MacOS</a></p>
+</li>
+</ul>
 </div>
 </article>
 <div id=footer-post-container>
