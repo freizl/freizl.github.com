@@ -1,0 +1,254 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<script type=text/javascript src=https://latest.cactus.chat/cactus.js></script>
+<link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title> Performance Testing? | Corner case</title>
+<link rel=canonical href=https://freizl.github.io/posts/performance-testing/>
+<meta name=description content="Welcome to my personal blog.">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="all,follow">
+<meta name=googlebot content="index,follow,snippet,archive">
+<meta property="og:title" content="Performance Testing?">
+<meta property="og:description" content="We are going to use JMeter to take the performance testing in our project.
+Till now I have no idea about how to contribute it to the project.
+I read several documentations at the official site, just finding I lost at the graph results and some concepts.
+Also I failed to use the Assertion component to validate the response.
+Have to continue researching.
+These two days I back to write functional test using Selenium.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freizl.github.io/posts/performance-testing/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2007-08-14T06:33:00-07:00">
+<meta property="article:modified_time" content="2007-08-14T06:33:00-07:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Performance Testing?">
+<meta name=twitter:description content="We are going to use JMeter to take the performance testing in our project.
+Till now I have no idea about how to contribute it to the project.
+I read several documentations at the official site, just finding I lost at the graph results and some concepts.
+Also I failed to use the Assertion component to validate the response.
+Have to continue researching.
+These two days I back to write functional test using Selenium.">
+<link rel=stylesheet href=https://freizl.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
+<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
+<link rel=icon type=image/png href=https://freizl.github.io/images/favicon.ico>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-6496210-5','auto'),ga('send','pageview'))</script>
+</head>
+<body class="max-width mx-auto px3 ltr">
+<div class="content index py4">
+<div id=header-post>
+<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=top-icon-tablet href=# onclick="$('html, body').animate({scrollTop:0},'fast')" style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu>
+<span id=nav>
+<ul>
+</ul>
+</span>
+<br>
+<span id=actions>
+<ul>
+<li>
+<a class=icon href=https://freizl.github.io/posts/twos-component_8467/ aria-label=Previous>
+<i class="fas fa-chevron-left" aria-hidden=true onmouseover="$('#i-prev').toggle()" onmouseout="$('#i-prev').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=https://freizl.github.io/posts/jmeter-and-dwr/ aria-label=Next>
+<i class="fas fa-chevron-right" aria-hidden=true onmouseover="$('#i-next').toggle()" onmouseout="$('#i-next').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<i class="fas fa-chevron-up" aria-hidden=true onmouseover="$('#i-top').toggle()" onmouseout="$('#i-top').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=# aria-label=Share>
+<i class="fas fa-share-alt" aria-hidden=true onmouseover="$('#i-share').toggle()" onmouseout="$('#i-share').toggle()" onclick="return $('#share').toggle(),!1"></i>
+</a>
+</li>
+</ul>
+<span id=i-prev class=info style=display:none>Previous post</span>
+<span id=i-next class=info style=display:none>Next post</span>
+<span id=i-top class=info style=display:none>Back to top</span>
+<span id=i-share class=info style=display:none>Share post</span>
+</span>
+<br>
+<div id=share style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f" aria-label=Facebook>
+<i class="fab fa-facebook" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&text=Performance%20Testing%3f" aria-label=Twitter>
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&title=Performance%20Testing%3f" aria-label=Linkedin>
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&is_video=false&description=Performance%20Testing%3f" aria-label=Pinterest>
+<i class="fab fa-pinterest" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Performance%20Testing%3f&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f" aria-label=Email>
+<i class="fas fa-envelope" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&title=Performance%20Testing%3f" aria-label=Pocket>
+<i class="fab fa-get-pocket" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&title=Performance%20Testing%3f" aria-label=reddit>
+<i class="fab fa-reddit" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&name=Performance%20Testing%3f&description=We%20are%20going%20to%20use%20JMeter%20to%20take%20the%20performance%20testing%20in%20our%20project.%0aTill%20now%20I%20have%20no%20idea%20about%20how%20to%20contribute%20it%20to%20the%20project.%0aI%20read%20several%20documentations%20at%20the%20official%20site%2c%20just%20finding%20I%20lost%20at%20the%20graph%20results%20and%20some%20concepts.%0aAlso%20I%20failed%20to%20use%20the%20Assertion%20component%20to%20validate%20the%20response.%0aHave%20to%20continue%20researching.%0aThese%20two%20days%20I%20back%20to%20write%20functional%20test%20using%20Selenium." aria-label=Tumblr>
+<i class="fab fa-tumblr" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&t=Performance%20Testing%3f" aria-label="Hacker News">
+<i class="fab fa-hacker-news" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=toc>
+<nav id=TableOfContents></nav>
+</div>
+</span>
+</div>
+<article class=post itemscope itemtype=http://schema.org/BlogPosting>
+<header>
+<h1 class=posttitle itemprop="name headline">
+Performance Testing?
+</h1>
+<div class=meta>
+<div class=postdate>
+<time datetime="2007-08-14 06:33:00.001 -0700 -0700" itemprop=datePublished>2007-08-14</time>
+</div>
+<div class=article-tag>
+<i class="fas fa-tag"></i>
+<a class=tag-link href=../../tags/life rel=tag>Life</a>
+</div>
+</div>
+</header>
+<div class=content itemprop=articleBody>
+<p>We are going to use <a href="http://www.google.com/url?sa=t&ct=res&cd=1&url=http%253A%252F%252Fjakarta.apache.org%252Fjmeter%252F&ei=0KfBRuuCE5aaswLY1cTACA&usg=AFQjCNEdq6eRaHJcXrTvdQvXRXBz7zv19w&sig2=eJOgx0IF9GF7fA5EFIoMWw">JMeter</a> to take the performance testing in our project.<br>
+Till now I have no idea about how to contribute it to the project.<br>
+I read several documentations at the official site, just finding I lost at the graph results and some concepts.<br>
+Also I failed to use the Assertion component to validate the response.<br>
+Have to continue researching.</p>
+<p>These two days I back to write functional test using <a href="http://www.google.com/url?sa=t&ct=res&cd=1&url=http%253A%252F%252Fwww.openqa.org%252Fselenium%252F&ei=nanBRrufO4uAswL2osyxCA&usg=AFQjCNHiV1wk2ceU3PaGVCKa0hxMBqcNDQ&sig2=ybVKyFYreRReAGPnEtH7ig">Selenium.</a><br>
+In the previous practice, I enjoyed locating elements by <a href="http://www.google.com/url?sa=t&ct=res&cd=1&url=http%253A%252F%252Fwww.w3schools.com%252Fxpath%252F&ei=g6rBRoLjJ4jIsgKox9yxCA&usg=AFQjCNGnqfjNU8axSnUoUmwLFt90KJwLWw&sig2=xc3VVgiRV2rXypAsoJqPBw">XPath</a>. I found it&rsquo;s definitely easy for almost all elements.<br>
+Even though people say different browsers may evaluate the expressions differently. I just ignored this problem now because we only need to focus on Mozilla&rsquo;s Firefox. But this time I encountered a situation (siniarie?) that a page has a tree hierarchy which is created by YUI treeview component.<br>
+So I tried to use DOM locater. It&rsquo;s not very difficult to write the Javascript expressions.<br>
+And problem is about the frame element. The Javascripts didn&rsquo;t work in the main page which contained a frame element.<br>
+But it did work well in the page itself which that frame referred.<br>
+There&rsquo;s a Selenium function named selectFrame. It seemed it either did not work out.<br>
+Or I used it in a wrong way?</p>
+</div>
+</article>
+<div id=footer-post-container>
+<div id=footer-post>
+<div id=nav-footer style=display:none>
+<ul>
+</ul>
+</div>
+<div id=toc-footer style=display:none>
+<nav id=TableOfContents></nav>
+</div>
+<div id=share-footer style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f" aria-label=Facebook>
+<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&text=Performance%20Testing%3f" aria-label=Twitter>
+<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&title=Performance%20Testing%3f" aria-label=Linkedin>
+<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&is_video=false&description=Performance%20Testing%3f" aria-label=Pinterest>
+<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Performance%20Testing%3f&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f" aria-label=Email>
+<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&title=Performance%20Testing%3f" aria-label=Pocket>
+<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&title=Performance%20Testing%3f" aria-label=reddit>
+<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&name=Performance%20Testing%3f&description=We%20are%20going%20to%20use%20JMeter%20to%20take%20the%20performance%20testing%20in%20our%20project.%0aTill%20now%20I%20have%20no%20idea%20about%20how%20to%20contribute%20it%20to%20the%20project.%0aI%20read%20several%20documentations%20at%20the%20official%20site%2c%20just%20finding%20I%20lost%20at%20the%20graph%20results%20and%20some%20concepts.%0aAlso%20I%20failed%20to%20use%20the%20Assertion%20component%20to%20validate%20the%20response.%0aHave%20to%20continue%20researching.%0aThese%20two%20days%20I%20back%20to%20write%20functional%20test%20using%20Selenium." aria-label=Tumblr>
+<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fperformance-testing%2f&t=Performance%20Testing%3f" aria-label="Hacker News">
+<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=actions-footer>
+<a id=menu-toggle class=icon href=# onclick="return $('#nav-footer').toggle(),!1" aria-label=Menu>
+<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick="return $('#toc-footer').toggle(),!1" aria-label=TOC>
+<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick="return $('#share-footer').toggle(),!1" aria-label=Share>
+<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
+</div>
+</div>
+</div>
+<footer id=footer>
+<div class=footer-left>
+Copyright &copy; 2022 Haisheng Wu
+</div>
+<div class=footer-right>
+<nav>
+<ul>
+</ul>
+</nav>
+</div>
+</footer>
+</div>
+</body>
+<link rel=stylesheet href=../../lib/font-awesome/css/all.min.css>
+<script src=../../lib/jquery/jquery.min.js></script>
+<script src=../../js/main.js></script>
+<script src=../../js/code-copy.js></script>
+</html>

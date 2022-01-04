@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LISP on Corner case</title><link>https://freizl.github.io/tags/lisp/</link><description>Recent content in LISP on Corner case</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Haisheng Wu</copyright><lastBuildDate>Wed, 19 Aug 2009 01:20:00 -0700</lastBuildDate><atom:link href="https://freizl.github.io/tags/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello-Macro in Clojure</title><link>https://freizl.github.io/2009/08/hello-macro-in-clojure.html</link><pubDate>Wed, 19 Aug 2009 01:20:00 -0700</pubDate><guid>https://freizl.github.io/2009/08/hello-macro-in-clojure.html</guid><description>If define the unless as function like this,
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LISP on Corner case</title><link>https://freizl.github.io/tags/lisp/</link><description>Recent content in LISP on Corner case</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Haisheng Wu</copyright><lastBuildDate>Wed, 19 Aug 2009 01:20:00 -0700</lastBuildDate><atom:link href="https://freizl.github.io/tags/lisp/index.xml" rel="self" type="application/rss+xml"/><item><title>Hello-Macro in Clojure</title><link>https://freizl.github.io/posts/hello-macro-in-clojure/</link><pubDate>Wed, 19 Aug 2009 01:20:00 -0700</pubDate><guid>https://freizl.github.io/posts/hello-macro-in-clojure/</guid><description>If define the unless as function like this,
 (defn unless [expr form] (if expr nil form))
 Does that work?
 (unless false (println &amp;ldquo;this should print&amp;rdquo;))
@@ -7,7 +7,7 @@ Does that work?
 =&amp;gt; this should not print
 Obviously the answer is no.
 The reason is Clojure evaluates all the arguments before passing them to a function,
-so the println is called before unless ever sees it.</description></item><item><title>Compare ', #' and ` in LISP</title><link>https://freizl.github.io/2008/08/compare-and-in-lisp.html</link><pubDate>Thu, 14 Aug 2008 00:10:00 -0700</pubDate><guid>https://freizl.github.io/2008/08/compare-and-in-lisp.html</guid><description>quote &amp;lsquo;
+so the println is called before unless ever sees it.</description></item><item><title>Compare ', #' and ` in LISP</title><link>https://freizl.github.io/posts/compare-and-in-lisp/</link><pubDate>Thu, 14 Aug 2008 00:10:00 -0700</pubDate><guid>https://freizl.github.io/posts/compare-and-in-lisp/</guid><description>quote &amp;lsquo;
 is syntactic sugar for QUOTE, which takes a single expression as its &amp;ldquo;argument&amp;rdquo; and simply returns it, unevaluated.
 (quote (+ 1 2)) === &amp;lsquo;(+ 1 2)
 #'
