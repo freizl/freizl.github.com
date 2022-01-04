@@ -1,0 +1,275 @@
+<!doctype html><html lang=en-us>
+<head>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<link rel=preload href=../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
+<script type=text/javascript src=https://latest.cactus.chat/cactus.js></script>
+<link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<title> Addtional VIM commands | Corner case</title>
+<link rel=canonical href=https://freizl.github.io/2008/01/addtional-vim-commands.html>
+<meta name=description content="Welcome to my personal blog.">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="all,follow">
+<meta name=googlebot content="index,follow,snippet,archive">
+<meta property="og:title" content="Addtional VIM commands">
+<meta property="og:description" content=":set number/nonumber => show/hidden the line number
+/\<the\> => search the whole word &lsquo;the&rsquo;
+:nohlsearch => un-highlight the search result temporaryly
+:set hlsearch/nohlsearc => set highlight/not highlight the search result
+x stands for dl (delete character under the cursor)
+X stands for dh (delete character left of the cursor)
+D stands for d$ (delete to end of the line)
+C stands for c$ (change to end of the line)
+s stands for cl (change one character)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://freizl.github.io/2008/01/addtional-vim-commands.html"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2008-01-08T22:29:00-08:00">
+<meta property="article:modified_time" content="2008-01-08T22:29:00-08:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Addtional VIM commands">
+<meta name=twitter:description content=":set number/nonumber => show/hidden the line number
+/\<the\> => search the whole word &lsquo;the&rsquo;
+:nohlsearch => un-highlight the search result temporaryly
+:set hlsearch/nohlsearc => set highlight/not highlight the search result
+x stands for dl (delete character under the cursor)
+X stands for dh (delete character left of the cursor)
+D stands for d$ (delete to end of the line)
+C stands for c$ (change to end of the line)
+s stands for cl (change one character)">
+<link rel=stylesheet href=https://freizl.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
+<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
+<link rel=icon type=image/png href=https://freizl.github.io/images/favicon.ico>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-6496210-5','auto'),ga('send','pageview'))</script>
+</head>
+<body class="max-width mx-auto px3 ltr">
+<div class="content index py4">
+<div id=header-post>
+<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
+<a id=top-icon-tablet href=# onclick="$('html, body').animate({scrollTop:0},'fast')" style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu>
+<span id=nav>
+<ul>
+</ul>
+</span>
+<br>
+<span id=actions>
+<ul>
+<li>
+<a class=icon href=https://freizl.github.io/2008/01/happy-new-year-being-ot.html aria-label=Previous>
+<i class="fas fa-chevron-left" aria-hidden=true onmouseover="$('#i-prev').toggle()" onmouseout="$('#i-prev').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=https://freizl.github.io/2008/01/install-ubuntu-710-in-ms-virtual-pc.html aria-label=Next>
+<i class="fas fa-chevron-right" aria-hidden=true onmouseover="$('#i-next').toggle()" onmouseout="$('#i-next').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<i class="fas fa-chevron-up" aria-hidden=true onmouseover="$('#i-top').toggle()" onmouseout="$('#i-top').toggle()"></i>
+</a>
+</li>
+<li>
+<a class=icon href=# aria-label=Share>
+<i class="fas fa-share-alt" aria-hidden=true onmouseover="$('#i-share').toggle()" onmouseout="$('#i-share').toggle()" onclick="return $('#share').toggle(),!1"></i>
+</a>
+</li>
+</ul>
+<span id=i-prev class=info style=display:none>Previous post</span>
+<span id=i-next class=info style=display:none>Next post</span>
+<span id=i-top class=info style=display:none>Back to top</span>
+<span id=i-share class=info style=display:none>Share post</span>
+</span>
+<br>
+<div id=share style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html" aria-label=Facebook>
+<i class="fab fa-facebook" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&text=Addtional%20VIM%20commands" aria-label=Twitter>
+<i class="fab fa-twitter" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&title=Addtional%20VIM%20commands" aria-label=Linkedin>
+<i class="fab fa-linkedin" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&is_video=false&description=Addtional%20VIM%20commands" aria-label=Pinterest>
+<i class="fab fa-pinterest" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Addtional%20VIM%20commands&body=Check out this article: https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html" aria-label=Email>
+<i class="fas fa-envelope" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&title=Addtional%20VIM%20commands" aria-label=Pocket>
+<i class="fab fa-get-pocket" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&title=Addtional%20VIM%20commands" aria-label=reddit>
+<i class="fab fa-reddit" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&name=Addtional%20VIM%20commands&description=%3aset%20number%2fnonumber%20%3d%26gt%3b%20show%2fhidden%20the%20line%20number%0a%2f%5c%26lt%3bthe%5c%26gt%3b%20%3d%26gt%3b%20search%20the%20whole%20word%20%26lsquo%3bthe%26rsquo%3b%0a%3anohlsearch%20%3d%26gt%3b%20un-highlight%20the%20search%20result%20temporaryly%0a%3aset%20hlsearch%2fnohlsearc%20%3d%26gt%3b%20set%20highlight%2fnot%20highlight%20the%20search%20result%0ax%20stands%20for%20dl%20%28delete%20character%20under%20the%20cursor%29%0aX%20stands%20for%20dh%20%28delete%20character%20left%20of%20the%20cursor%29%0aD%20stands%20for%20d%24%20%28delete%20to%20end%20of%20the%20line%29%0aC%20stands%20for%20c%24%20%28change%20to%20end%20of%20the%20line%29%0as%20stands%20for%20cl%20%28change%20one%20character%29" aria-label=Tumblr>
+<i class="fab fa-tumblr" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&t=Addtional%20VIM%20commands" aria-label="Hacker News">
+<i class="fab fa-hacker-news" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=toc>
+<nav id=TableOfContents></nav>
+</div>
+</span>
+</div>
+<article class=post itemscope itemtype=http://schema.org/BlogPosting>
+<header>
+<h1 class=posttitle itemprop="name headline">
+Addtional VIM commands
+</h1>
+<div class=meta>
+<div class=postdate>
+<time datetime="2008-01-08 22:29:00.001 -0800 -0800" itemprop=datePublished>2008-01-08</time>
+</div>
+<div class=article-tag>
+<i class="fas fa-tag"></i>
+<a class=tag-link href=../../tags/vim rel=tag>Vim</a>
+</div>
+</div>
+</header>
+<div class=content itemprop=articleBody>
+<p>:set number/nonumber => show/hidden the line number<br>
+/\&lt;the\> => search the whole word &lsquo;the&rsquo;<br>
+:nohlsearch => un-highlight the search result temporaryly<br>
+:set hlsearch/nohlsearc => set highlight/not highlight the search result</p>
+<p>x stands for dl (delete character under the cursor)<br>
+X stands for dh (delete character left of the cursor)<br>
+D stands for d$ (delete to end of the line)<br>
+C stands for c$ (change to end of the line)<br>
+s stands for cl (change one character)<br>
+S stands for cc (change a whole line)</p>
+<p>. The &ldquo;.&rdquo; command is one of the most simple yet powerful commands in Vim. It repeats the last change.</p>
+<p>~ change case of the character under the cursor, and move the cursor to the next character. This is not an operator (unless &lsquo;tildeop&rsquo; is set), thus you can&rsquo;t use it with a motion command. It does works in Visual mode and changes case for all the selected text then.</p>
+<p>-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;- Start up settings for GUI Vim<br>
+" Windows size<br>
+set columns=110<br>
+set lines=40<br>
+&ldquo;Max mine Windows when open<br>
+au GUIEnter * simalt ~x<br>
+" set scheme<br>
+color murphy<br>
+" set font<br>
+set guifont=courier_new:h10<br>
+" Turn off useless toolbar<br>
+set guioptions-=T<br>
+" Turn off right-hand scroll-bar<br>
+set guioptions-=r<br>
+" Turn off menu bar<br>
+set guioptions-=M</p>
+</div>
+</article>
+<div id=footer-post-container>
+<div id=footer-post>
+<div id=nav-footer style=display:none>
+<ul>
+</ul>
+</div>
+<div id=toc-footer style=display:none>
+<nav id=TableOfContents></nav>
+</div>
+<div id=share-footer style=display:none>
+<ul>
+<li>
+<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html" aria-label=Facebook>
+<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&text=Addtional%20VIM%20commands" aria-label=Twitter>
+<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&title=Addtional%20VIM%20commands" aria-label=Linkedin>
+<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&is_video=false&description=Addtional%20VIM%20commands" aria-label=Pinterest>
+<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="mailto:?subject=Addtional%20VIM%20commands&body=Check out this article: https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html" aria-label=Email>
+<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&title=Addtional%20VIM%20commands" aria-label=Pocket>
+<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&title=Addtional%20VIM%20commands" aria-label=reddit>
+<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&name=Addtional%20VIM%20commands&description=%3aset%20number%2fnonumber%20%3d%26gt%3b%20show%2fhidden%20the%20line%20number%0a%2f%5c%26lt%3bthe%5c%26gt%3b%20%3d%26gt%3b%20search%20the%20whole%20word%20%26lsquo%3bthe%26rsquo%3b%0a%3anohlsearch%20%3d%26gt%3b%20un-highlight%20the%20search%20result%20temporaryly%0a%3aset%20hlsearch%2fnohlsearc%20%3d%26gt%3b%20set%20highlight%2fnot%20highlight%20the%20search%20result%0ax%20stands%20for%20dl%20%28delete%20character%20under%20the%20cursor%29%0aX%20stands%20for%20dh%20%28delete%20character%20left%20of%20the%20cursor%29%0aD%20stands%20for%20d%24%20%28delete%20to%20end%20of%20the%20line%29%0aC%20stands%20for%20c%24%20%28change%20to%20end%20of%20the%20line%29%0as%20stands%20for%20cl%20%28change%20one%20character%29" aria-label=Tumblr>
+<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
+</a>
+</li>
+<li>
+<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2f2008%2f01%2faddtional-vim-commands.html&t=Addtional%20VIM%20commands" aria-label="Hacker News">
+<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
+</a>
+</li>
+</ul>
+</div>
+<div id=actions-footer>
+<a id=menu-toggle class=icon href=# onclick="return $('#nav-footer').toggle(),!1" aria-label=Menu>
+<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick="return $('#toc-footer').toggle(),!1" aria-label=TOC>
+<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick="return $('#share-footer').toggle(),!1" aria-label=Share>
+<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
+<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
+</div>
+</div>
+</div>
+<footer id=footer>
+<div class=footer-left>
+Copyright &copy; 2022 Haisheng Wu
+</div>
+<div class=footer-right>
+<nav>
+<ul>
+</ul>
+</nav>
+</div>
+</footer>
+</div>
+</body>
+<link rel=stylesheet href=../../lib/font-awesome/css/all.min.css>
+<script src=../../lib/jquery/jquery.min.js></script>
+<script src=../../js/main.js></script>
+<script src=../../js/code-copy.js></script>
+</html>

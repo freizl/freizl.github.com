@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Corner case</title><link>https://freizl.github.io/posts/</link><description>Recent content in Posts on Corner case</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Haisheng Wu</copyright><lastBuildDate>Tue, 04 Jan 2022 00:00:00 -0800</lastBuildDate><atom:link href="https://freizl.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>命理学基础知识</title><link>https://freizl.github.io/posts/basic-knowledge-of-mingli/</link><pubDate>Tue, 04 Jan 2022 00:00:00 -0800</pubDate><guid>https://freizl.github.io/posts/basic-knowledge-of-mingli/</guid><description>五行 相生相克：金、水、木、火、土，顺序相生，隔序相克，非常简单易记。 五行相生：金生水，水生木，木生火，火生土，土生金。 五行相克：金克木，木克土，土克水，水克火，火克金。 天干地支 十天干：甲、乙、丙、丁、戊（wù）、己、庚（gēng）、辛、壬（rén）、癸（guǐ） 天干五行：甲乙木、丙丁火、戊己土、庚辛金、壬癸水 天干阴阳：甲丙戊庚壬为阳干，乙丁己辛癸为阴干 十二地支：子、丑、寅（yín）、卯（mǎo）、辰、巳、午、未、申、酉（yǒu）、戌（xū）、亥（hài） 地支五行：寅卯木、巳午火、申酉金、亥子水、丑未辰戌土 地支阴阳：子寅辰午申戌为阳支，丑卯巳未酉亥为阴支 十神 同性为偏，异性为正。 同我者比劫，我生者食伤，我克者才财，克我者杀官，生我者枭印。
 1、同我者为比劫。同性为比肩，简称比；异性为劫财，简称劫。比如日干为甲，甲、寅为比肩，乙卯为劫财。 1、生我者为枭印。同性为偏印，也叫枭神，简称枭；异性为正印，简称印。比如日干为甲木，壬、亥为偏印，癸、子则为正印。 1、我生者为食伤。同性为食神，简称食；异性为伤官，简称伤。比如日干为甲，丙午为食神，丁巳为伤官。 1、我克者为才财。同性为偏财，简称财；异性为正财，简称才（贝）。比如日干为甲，戊、辰、戌土就是偏财，己、丑，未土就是正财。 1、克我者为杀官。同性为偏官，或者七杀，简称杀；异性为正官，简称官。比如日干为甲木，庚申为七杀，辛酉为正官。</description></item><item><title>Hello Hugo</title><link>https://freizl.github.io/posts/hello-hugo/</link><pubDate>Fri, 10 Sep 2021 15:33:00 -0700</pubDate><guid>https://freizl.github.io/posts/hello-hugo/</guid><description>This is my first blog The content is generated from Org file.</description></item><item><title>Improve Space Usage</title><link>https://freizl.github.io/posts/improve-space-usage/</link><pubDate>Wed, 12 Sep 2012 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/improve-space-usage/</guid><description>It is example from [programming in haskell] video lecture 12 by Eric M. I just like to know whether GHC profile tool could help to figure out such problem.
-module Main where sumWith1 v [] = v sumWith1 v (x:xs) = sumWith1 (v+x) xs sumWith2 v [] = v sumWith2 v (x:xs) = (sumWith2 $! (v+x)) xs test = sumWith2 0 [1..20000000] main = print test</description></item><item><title>Snaplet Request Local State</title><link>https://freizl.github.io/posts/snaplet-request-local-state/</link><pubDate>Thu, 24 May 2012 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/snaplet-request-local-state/</guid><description>什么 Snaplet Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web 应用什么可组合化，开发者可以设计许多独立的功能模块，或者说小的应用模块，然后通过组合以组建一个大型的应用。
+module Main where sumWith1 v [] = v sumWith1 v (x:xs) = sumWith1 (v+x) xs sumWith2 v [] = v sumWith2 v (x:xs) = (sumWith2 $! (v+x)) xs test = sumWith2 0 [1..20000000] main = print test</description></item><item><title>Play with Github</title><link>https://freizl.github.io/2012/08/play-with-github.html</link><pubDate>Thu, 16 Aug 2012 23:49:00 -0700</pubDate><guid>https://freizl.github.io/2012/08/play-with-github.html</guid><description>Play with Github: https://freizl.github.io</description></item><item><title>Snaplet Request Local State</title><link>https://freizl.github.io/posts/snaplet-request-local-state/</link><pubDate>Thu, 24 May 2012 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/snaplet-request-local-state/</guid><description>什么 Snaplet Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web 应用什么可组合化，开发者可以设计许多独立的功能模块，或者说小的应用模块，然后通过组合以组建一个大型的应用。
 详细资料请看这里1。
 Request local state Request Local State 是 snaplet 的一个设计目标2。初识时并没引起什么关注，也是不太理解具体含义。最近在写 Snaplet-OAuth 的时候遇到问题，就是由于不知道这个东西的含义所造成的。
 Snaplet-oauth-0.0.0 根据 Snaplet 的常规模式，定义一个 data type 用于保存相关信息，比如
@@ -9,7 +9,7 @@ data OAuthSnaplet = OAuthSnaplet { getOauth :: OAuth2 , getCodeParam :: BS.ByteS
 原因 造成问题是原因由于 Haskell 里写文件的方法。 如下所是，=writeFile=用 base 库里的=String=类型表示文件名， 这就限制其只能表示 ASC-II 字符集。
 type FilePath = String writeFile :: FilePath -- ^ 文件名 -&amp;gt; String -- ^ 要写到文件的内容 -&amp;gt; IO () 一种解决办法 最直接的方式就是用类库 utf8-string2里的=encodeString=方法，现将文件名进行 encode 然后再调=writeFile=方法。比如
 import qualified Codec.Binary.UTF8.String as UTF8 main = myWriteFile &amp;#34;新天地.html&amp;#34; &amp;#34;test&amp;#34; myWriteFile = writeFile . UTF8.encodeString 对应到 Hakyll, 就是将上述的改动加到这个文件里/src/Hakyll/Core/Writable.hs/.详见这里3.
-再一种解决办法 hakyll goole groups 有人帖了他的一个解决方案，也是用 utf8-string 先 encode，但修改的地方不一样。详见此4。</description></item><item><title>Confused Constructor Js</title><link>https://freizl.github.io/posts/confused-constructor-js/</link><pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/confused-constructor-js/</guid><description>Introduction I can not quite remember what happened when invoking new over a function. While I&amp;rsquo;m looking at function init at jQuery source, the concern comes to me again.
+再一种解决办法 hakyll goole groups 有人帖了他的一个解决方案，也是用 utf8-string 先 encode，但修改的地方不一样。详见此4。</description></item><item><title>undefined</title><link>https://freizl.github.io/2012/04/objects-created-at-one-commit.html</link><pubDate>Thu, 12 Apr 2012 09:13:00 -0700</pubDate><guid>https://freizl.github.io/2012/04/objects-created-at-one-commit.html</guid><description>Objects created at one commit</description></item><item><title>Confused Constructor Js</title><link>https://freizl.github.io/posts/confused-constructor-js/</link><pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/confused-constructor-js/</guid><description>Introduction I can not quite remember what happened when invoking new over a function. While I&amp;rsquo;m looking at function init at jQuery source, the concern comes to me again.
 Fourtunaly I think the answer at this1 thread turns out to be a quite clear explanation.
 Just three things according to that answer.
 Creates a new object. Its type is object. Sets this new object&amp;rsquo;s internal, inaccessible, [[prototype]] property to be the constructor function&amp;rsquo;s external, accessible, prototype object.</description></item><item><title>Git One Commit</title><link>https://freizl.github.io/posts/git-one-commit/</link><pubDate>Thu, 12 Apr 2012 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/git-one-commit/</guid><description>Play it new two files haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &amp;#34;11111&amp;#34; &amp;gt; 1.txt haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo &amp;#34;22222&amp;#34; &amp;gt; 2.txt git-add haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add . haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st # On branch master # # Initial commit # # Changes to be committed: # (use &amp;#34;git rm --cached &amp;lt;file&amp;gt;...&amp;#34; to unstage) # # new file: 1.txt # new file: 2.txt # no objects created yet haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all git-commit haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci &amp;#34;first commit&amp;#34; [master (root-commit) 8ef1919] first commit 2 files changed, 2 insertions(+), 0 deletions(-) create mode 100644 1.</description></item><item><title>Magic Monad Transformer</title><link>https://freizl.github.io/posts/magic-monad-transformer/</link><pubDate>Sat, 07 Apr 2012 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/magic-monad-transformer/</guid><description>Monad-Transformer The code fragment below is from chapter 18 Monad Transform of 1.
@@ -48,4 +48,773 @@ Take refining the length function in terms of foldr as a example. length has a d
 &amp;gt; length :: [a] -&amp;gt; Int &amp;gt; length [] = 0 &amp;gt; length (x:xs) = 1 + length xs and
 length [1,2,3] = length (1:(2:(3:[]))) = 1 + (1 + (1 + 0)) = 3 By replace each (:) by \ _ n -&amp;gt; 1 + n and [] by 0, we have:</description></item><item><title>Yet another Haskell toturial - Exercise 3</title><link>https://freizl.github.io/posts/exe-3/</link><pubDate>Sat, 04 Jun 2011 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/exe-3/</guid><description>The exercise asks writing a program that will repeatedly ask the user for numbers until she types in zero, at which point it will tell her the sum of all the numbers, the product of all the numbers, and, for each number, its factorial.
 In the solution, I practice a idea that Monad is lazy as well. In other words, here, could generate a list of Monads then print out to console.</description></item><item><title>A Really Trivial Monad</title><link>https://freizl.github.io/posts/a-really-trivial-monad/</link><pubDate>Sun, 29 May 2011 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/a-really-trivial-monad/</guid><description>Generally some people saying that Monad is a computation that take a &amp;lsquo;world&amp;rsquo; as parameter and produce a result along with modified &amp;lsquo;world&amp;rsquo;. And this a manner that doing impure in a pure language.
-While thinking in terms of Parser, it means taking a String and produce a result along with the rest of the string which is not parsed1. Consequently, we think a monadic type in Haskell is just a function.</description></item></channel></rss>
+While thinking in terms of Parser, it means taking a String and produce a result along with the rest of the string which is not parsed1. Consequently, we think a monadic type in Haskell is just a function.</description></item><item><title>A quote</title><link>https://freizl.github.io/2011/04/quote.html</link><pubDate>Sat, 23 Apr 2011 23:13:00 -0700</pubDate><guid>https://freizl.github.io/2011/04/quote.html</guid><description>&amp;ldquo;.. there are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.&amp;rdquo;
+ &amp;ndash; Tony Hoare, 1980 ACM Turing Award Lecture.</description></item><item><title>Init implementation MVP in Flex / Action Scripts</title><link>https://freizl.github.io/2011/02/init-implementation-mvp-in-flex-action.html</link><pubDate>Tue, 22 Feb 2011 03:39:00 -0800</pubDate><guid>https://freizl.github.io/2011/02/init-implementation-mvp-in-flex-action.html</guid><description>The motivation is MVP turns out to be less couple as well as more flexible that MVC in my opinion.
+This init version have been done without taking into account &amp;ldquo;Event Bus&amp;rdquo;.
+Detail here.</description></item><item><title>Try to understand Git internal in one picture</title><link>https://freizl.github.io/2011/02/try-to-understand-git-internal-in-one.html</link><pubDate>Tue, 15 Feb 2011 04:09:00 -0800</pubDate><guid>https://freizl.github.io/2011/02/try-to-understand-git-internal-in-one.html</guid><description>The image is actually origin from a cool book GitPro by adding a few comments in order to have all key point in one place hopefully&amp;hellip;</description></item><item><title>How to do multiple row/column dimensions in OLAPDataGrid</title><link>https://freizl.github.io/2011/02/how-to-do-multiple-rowcolumn-dimensions.html</link><pubDate>Sun, 13 Feb 2011 23:26:00 -0800</pubDate><guid>https://freizl.github.io/2011/02/how-to-do-multiple-rowcolumn-dimensions.html</guid><description>A simple OLAPDataGrid sample here.
+A good sample having multiple dimensions here.
+The key point is that OLAPSet could join each other.
+For instance,
+var customerSet:OLAPSet = new OLAPSet;
+customerSet.addElements(cube.findDimension(&amp;ldquo;CustomerDim&amp;rdquo;).findAttribute(&amp;ldquo;Customer&amp;rdquo;).children);
+var quarterSet:OLAPSet = new OLAPSet;
+quarterSet.addElements(cube.findDimension(&amp;ldquo;QuarterDim&amp;rdquo;).findAttribute(&amp;ldquo;Quarter&amp;rdquo;).children);
+colQueryAxis.addSet(quarterSet.crossJoin(customerSet));</description></item><item><title>How to Boot a System to Run Level S</title><link>https://freizl.github.io/2010/11/how-to-boot-system-to-run-level-s.html</link><pubDate>Thu, 25 Nov 2010 17:27:00 -0800</pubDate><guid>https://freizl.github.io/2010/11/how-to-boot-system-to-run-level-s.html</guid><description>Type -s at the end of the boot entry line
+Details</description></item><item><title>Dive into mercurial</title><link>https://freizl.github.io/2010/08/dive-into-mercurial.html</link><pubDate>Sat, 21 Aug 2010 07:59:00 -0700</pubDate><guid>https://freizl.github.io/2010/08/dive-into-mercurial.html</guid><description>IMHO Mercurial is using the Tree structure idea to manipulate the so-called &amp;lsquo;trunk/branches/tags&amp;rsquo; which probably because of its storage scheme revlog.
+This tree has only one top (r0) and one end. In case this rule is being broken, merge comes in.
+The following graph show a common scenario that one person change something base on r2.
+After he make the change, revision goes to 6.
+In Subversion, if person do update base on r5, he will get the change which is at r6.</description></item><item><title>"Operation" Enum</title><link>https://freizl.github.io/2010/08/operation-enum.html</link><pubDate>Tue, 10 Aug 2010 07:02:00 -0700</pubDate><guid>https://freizl.github.io/2010/08/operation-enum.html</guid><description>public enum Operation { PLUS { double eval(double x, double y) { return x + y; } }, MINUS { double eval(double x, double y) { return x - y; } }, TIMES { double eval(double x, double y) { return x \* y; } }, DIVIDED\_BY { double eval(double x, double y) { return x / y; } }; // Perform the arithmetic operation represented by this constant abstract double eval(double x, double y); public static void main(String args\[\]) { double x = 2.</description></item><item><title>Increment/Decrement operators</title><link>https://freizl.github.io/2010/08/incrementdecrement-operators.html</link><pubDate>Tue, 10 Aug 2010 05:54:00 -0700</pubDate><guid>https://freizl.github.io/2010/08/incrementdecrement-operators.html</guid><description>The increment/decrement operators can be applied before (prefix) or after (postfix) the operand.
+The code result++; and ++result; will both end in result being incremented by one.
+The only difference is thatthe prefix version (++result) evaluates to the incremented value,
+whereas the postfix version (result++) evaluates to the original value.
+If you are just performing a simple increment/decrement, it doesn&amp;rsquo;t really matter which version you choose.
+But if you use this operator in part of a larger expression, the one that you choose may make a significant difference.</description></item><item><title>Refactoring StockWatcher in MVP</title><link>https://freizl.github.io/2010/06/refactoring-stockwatcher-in-mvp.html</link><pubDate>Sun, 13 Jun 2010 00:15:00 -0700</pubDate><guid>https://freizl.github.io/2010/06/refactoring-stockwatcher-in-mvp.html</guid><description>GWT get started tutorial has a sample project StockWatcher and I got refactoring it in a MVP way.
+StockWatcher in MVP StockWatcher in MVP with UiBinder Reference:
+GWT get started
+MVP Architecture</description></item><item><title>Dual Header at CentOS 5.4</title><link>https://freizl.github.io/2010/05/dual-header-at-centos-54.html</link><pubDate>Wed, 05 May 2010 05:43:00 -0700</pubDate><guid>https://freizl.github.io/2010/05/dual-header-at-centos-54.html</guid><description>Host: CentOS 5.4
+Laptop: Dell 630
+Following second approach mentioned here.
+I just replace local config with what the instruction said though I did not quit understand it.
+Find my detail xorg.conf here.</description></item><item><title>'Swap' Win and Ctrl in Linux</title><link>https://freizl.github.io/2010/02/swap-win-and-ctrl-in-linux.html</link><pubDate>Sun, 07 Feb 2010 22:19:00 -0800</pubDate><guid>https://freizl.github.io/2010/02/swap-win-and-ctrl-in-linux.html</guid><description>OS: CentOS 5.4
+Add following line into $HOME/.Xmodmap: add control = Super_L Add following line into $HOME/.xinitrc: /usr/bin/xmodmap $HOME/.Xmodmap check xmodmap manual for more information.
+OS: Ubuntu 10.x
+Go into System -&amp;gt; Preferences -&amp;gt; Keyboard Click on the &amp;ldquo;Layouts&amp;rdquo; tab and then click the &amp;ldquo;Layout Options&amp;rdquo; button. Click on &amp;ldquo;Alt/Win key behavior&amp;rdquo; Select &amp;ldquo;Control is mapped to Win keys (and the usual ctrl key).</description></item><item><title>Resize a VirtualBox Disk Image</title><link>https://freizl.github.io/2009/11/resize-virtualbox-disk-image.html</link><pubDate>Wed, 25 Nov 2009 06:43:00 -0800</pubDate><guid>https://freizl.github.io/2009/11/resize-virtualbox-disk-image.html</guid><description>VirtualBox V3.0.8
+Host: Windows XP
+Guest: CentOS 5.4
+Create new virtal disk at desired size VBoxManage.exe clonehd &amp;ndash;existing old.vdi new.vdi Use resize tool like GParted to create new partition for unused space as ext3 in the new.vdi use system-config-lvm to expand LogicVolumn with the new partition . (Command line is preferred)  basic command in case the url is bad
+ # lvm pvcreate /dev/sda5
+ # lvm vgextend &amp;ldquo;MindbenderGroup&amp;rdquo; /dev/sda5</description></item><item><title>Crawl Chinese web site with Scrapy</title><link>https://freizl.github.io/2009/09/crawl-chinese-web-site-with-scrapy.html</link><pubDate>Sat, 26 Sep 2009 18:48:00 -0700</pubDate><guid>https://freizl.github.io/2009/09/crawl-chinese-web-site-with-scrapy.html</guid><description>The response return by Scrapy is a Python repr() object thus Chinese character &amp;lsquo;display&amp;rsquo; in Unicode.
+Quick fix is like this:
+item[&amp;lsquo;name&amp;rsquo;][0].encode(&amp;lsquo;utf-8&amp;rsquo;)
+Though some characters are still display incorrectly.
+Find source code here.
+More about Unicode in Python:
+http://evanjones.ca/python-utf8.html
+http://www.b-list.org/weblog/2007/nov/10/unicode/</description></item><item><title>Trac quick setup</title><link>https://freizl.github.io/2009/09/trac-quick-setup.html</link><pubDate>Fri, 18 Sep 2009 05:10:00 -0700</pubDate><guid>https://freizl.github.io/2009/09/trac-quick-setup.html</guid><description>Came across Trac while checking information of Scrapy and had a quick try.
+Operation System is Ubuntu.
+Operation performed:
+Download package from official site
+Follow INSTALL doc in the package to complete installation
+Start Trac and visit Guide
+Auth
+basic auth
+TODO other auth of adding register feature
+Subversion
+python Subversion module (ubuntu install script: apt-get install python-subversion)</description></item><item><title>Verify Binary Search result with duplicate target in the array</title><link>https://freizl.github.io/2009/09/verify-binary-search-result-with.html</link><pubDate>Thu, 03 Sep 2009 21:27:00 -0700</pubDate><guid>https://freizl.github.io/2009/09/verify-binary-search-result-with.html</guid><description>Testing scenario: If testArray contains target at position n, then binarySearch (testArray, target) must return _n
+_
+public void assertTheory4(int[] testArray, int target, int returnValue) {
+assertEquals(getTargetPosition(testArray, target), returnValue);
+}
+public int getTargetPosition(int[] testArray, int target) {
+for (int i = 0; i &amp;lt; testArray.length; i++)
+if (testArray[i] == target)
+return i;
+return -1;
+}
+Array=[2, 11, 36, 66, 104, 108, 108, 108, 122, 155, 159, 161, 191]
+target=108
+Binary Search 108 will return 6 while getTargetPosition return 5.</description></item><item><title>NameCheck of XML Validation</title><link>https://freizl.github.io/2009/09/namecheck-of-xml-validation.html</link><pubDate>Tue, 01 Sep 2009 23:57:00 -0700</pubDate><guid>https://freizl.github.io/2009/09/namecheck-of-xml-validation.html</guid><description>The beautiful part is build up a array with size 2^16, each value is 8bits, each bit indicate something like whether current character could be start of name, valid name.
+For instance, number 4 is at 0x34 (decimal 52), so flags[52] = 0x0b (00001100), those 8bits 0/1 are indication.
+Chapter 5 of has the detail.</description></item><item><title>Patterns: Factory method,Template method and Strategy</title><link>https://freizl.github.io/2009/09/patterns-factory-methodtemplate-method.html</link><pubDate>Tue, 01 Sep 2009 21:30:00 -0700</pubDate><guid>https://freizl.github.io/2009/09/patterns-factory-methodtemplate-method.html</guid><description>Basically, Factory method is a method that is defined in Parent class and is implemented in Child class, which usually is abstract method.
+By contract, Template method is a method that implements an &amp;ldquo;algorithm&amp;rdquo;. This implementation is usually defined in a &amp;ldquo;Parent&amp;rdquo; class and leveraging other methods including Factory methods. (See sample below)
+public abstract class PizzaStore {
+/**
+* #templateMethod(String type) is an Template Method.
+* * #factoryMethodOfInit() AND #factoryMethodOfCreate(String type) are both</description></item><item><title>Tail Call Optimization</title><link>https://freizl.github.io/2009/08/tail-call-optimization.html</link><pubDate>Wed, 19 Aug 2009 21:41:00 -0700</pubDate><guid>https://freizl.github.io/2009/08/tail-call-optimization.html</guid><description>A tail call is a subroutine call which is followed by a return to the calling code.
+Tail calls are often optimized by interpreters and compilers of functional programming languages to more efficient forms of iteration.
+See here and here.</description></item><item><title>Hello-Macro in Clojure</title><link>https://freizl.github.io/2009/08/hello-macro-in-clojure.html</link><pubDate>Wed, 19 Aug 2009 01:20:00 -0700</pubDate><guid>https://freizl.github.io/2009/08/hello-macro-in-clojure.html</guid><description>If define the unless as function like this,
+(defn unless [expr form] (if expr nil form))
+Does that work?
+(unless false (println &amp;ldquo;this should print&amp;rdquo;))
+=&amp;gt; this should print
+(unless true (println &amp;ldquo;this should not print&amp;rdquo;))
+=&amp;gt; this should not print
+Obviously the answer is no.
+The reason is Clojure evaluates all the arguments before passing them to a function,
+so the println is called before unless ever sees it.</description></item><item><title>Uninstall Oracle DB in Windows XP</title><link>https://freizl.github.io/2009/03/uninstall-oracle-db-in-windows-xp.html</link><pubDate>Thu, 05 Mar 2009 21:22:00 -0800</pubDate><guid>https://freizl.github.io/2009/03/uninstall-oracle-db-in-windows-xp.html</guid><description>This article shows the detail.
+But problem is the OUI failed to show all installed components&amp;hellip;
+After read this post, I got chance to read the inventory.xml by finding out that my Oracle DB was not appeared in the HOME LIST&amp;hellip;
+Everything went well once fix the inventory.xml manualy.</description></item><item><title>雨天</title><link>https://freizl.github.io/2009/02/blog-post.html</link><pubDate>Sun, 22 Feb 2009 06:53:00 -0800</pubDate><guid>https://freizl.github.io/2009/02/blog-post.html</guid><description>还在继续。
+人们似乎都不喜欢雨天，在言语上排斥，在心里面厌烦。
+空气中弥漫着雨水，打湿了漂亮的装扮，&amp;lsquo;浸湿&amp;rsquo;了衣服和被子。
+水气冲到了家里的每一个角落。
+落在雨棚上的雨滴是一种噪音。
+人们开始头痛，身体感到不适。
+打开窗，深呼吸，清心舒畅。
+空气中，树叶上，街道里，
+雨水洗刷了灰尘，雨滴变成了音符。
+路上行人寥寥，雨点拍打湖面，声音依稀可见。
+人们开始微笑，心里发现平静。
+为了看到雨后的清澈，人们每天快乐。</description></item><item><title>Firemacs</title><link>https://freizl.github.io/2009/02/firemacs.html</link><pubDate>Wed, 18 Feb 2009 21:38:00 -0800</pubDate><guid>https://freizl.github.io/2009/02/firemacs.html</guid><description>Pretty cool Firefox addon.
+https://addons.mozilla.org/en-US/firefox/addon/4141</description></item><item><title>Euler Problem 28</title><link>https://freizl.github.io/2009/01/euler-problem-28.html</link><pubDate>Tue, 13 Jan 2009 05:42:00 -0800</pubDate><guid>https://freizl.github.io/2009/01/euler-problem-28.html</guid><description>problem 28
+&amp;quot;&amp;quot;&amp;quot; Mathmatics method
+S1 = 1
+S2 = 1 + 1 * (8*2*2 - 2 + 6) * 2 / 3 = 1 + 24 = 25
+Sn = S1 + (Pn-1 + n-1) + (Pn-1 + (n-1)*2) + (Pn-1 + (n-1)*3) + (Pn-1 + (n-1)*4)
+= S1 + 4 * Pn-1 + (2*n - 2)*10
+= S1 + 16*{ sigma:X^2 | n-1 &amp;gt;= X &amp;gt;= 1 } + 4*{ sigma:X | n-1 &amp;gt;= X &amp;gt;= 1 } + 4*(n-1)</description></item><item><title>VIM Commands learned</title><link>https://freizl.github.io/2009/01/vim-commands-learned.html</link><pubDate>Tue, 06 Jan 2009 05:33:00 -0800</pubDate><guid>https://freizl.github.io/2009/01/vim-commands-learned.html</guid><description>-- move the windows
+CTRL-W K move window to the top
+CTRL-W H move window to the far left
+CTRL-W J move window to the bottom
+CTRL-W L move window to the far right
+-- Editing Mulitple Files
+# is particularly useful with :e, since it allows you to switch back and forth between two files easily
+you could save a second version of the file letter with the command: :w %.</description></item><item><title>Decode Characters in Python</title><link>https://freizl.github.io/2008/12/class-cp037decoder-charset-cp037-def.html</link><pubDate>Mon, 08 Dec 2008 23:15:00 -0800</pubDate><guid>https://freizl.github.io/2008/12/class-cp037decoder-charset-cp037-def.html</guid><description>class CP037Decoder:
+_CHARSET_ = &amp;lsquo;cp037&amp;rsquo;
+def __init__(self, message):
+self.decode_message = unicode(message, self._CHARSET_)
+def show_in_utf8(self):
+print self.decode_message.encode(&amp;lsquo;utf8&amp;rsquo;)
+if __name__ == &amp;lsquo;__main__':
+msg_file = open(sys.argv[1], &amp;lsquo;r&amp;rsquo;)
+CP037Decoder(msg_file.read()).show_in_utf8()
+msg_file.close()</description></item><item><title>Interview with Donald Knuth</title><link>https://freizl.github.io/2008/10/interview-with-donald-knuth.html</link><pubDate>Sun, 19 Oct 2008 17:15:00 -0700</pubDate><guid>https://freizl.github.io/2008/10/interview-with-donald-knuth.html</guid><description>http://www.informit.com/articles/article.aspx?p=1193856</description></item><item><title>Hermes vs Oracle AQ</title><link>https://freizl.github.io/2008/10/hermes-vs-oracle-aq.html</link><pubDate>Sun, 12 Oct 2008 18:10:00 -0700</pubDate><guid>https://freizl.github.io/2008/10/hermes-vs-oracle-aq.html</guid><description>1. Need a wrapped connect factory, see here. And package it into a jar, like oracleaq-factory.jar
+2. How to in Hermes:
+ 2.1 add a new provider including those jars: aqapi.jar, jms.jar, jta.jar, ojdbc.jar and oracleaq-factory.jar
+2.2 create a new session for AQ topic (EAB_DEMO_QUEUE here):
+3. Double click the topic under the session, EAB_DEMO_QUEUE here, to connect to the topic.
+Hermes will create a new subscriber for this topic.</description></item><item><title>Interactive with AQ Topic in Java</title><link>https://freizl.github.io/2008/09/interactive-with-aq-topic-in-java.html</link><pubDate>Sun, 21 Sep 2008 19:19:00 -0700</pubDate><guid>https://freizl.github.io/2008/09/interactive-with-aq-topic-in-java.html</guid><description>import static org.junit.Assert.assertNotNull;
+import java.util.Calendar;
+import javax.jms.Message;
+import javax.jms.QueueConnection;
+import javax.jms.QueueConnectionFactory;
+import javax.jms.Topic;
+import oracle.jms.AQjmsAgent;
+import oracle.jms.AQjmsFactory;
+import oracle.jms.AQjmsSession;
+import oracle.jms.AQjmsTextMessage;
+import oracle.jms.AQjmsTopicPublisher;
+import oracle.jms.AQjmsTopicReceiver;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+public class TestOracleAQ {
+private static final String AQ_TOPIC = &amp;ldquo;ESB_DEMO_QUEUE&amp;rdquo;;
+/** AQ Server Connection */
+private static final String HOST_NAME = &amp;ldquo;VLINUX&amp;rdquo;;
+private static final String SID = &amp;ldquo;XE&amp;rdquo;;
+private static final int CONNECT_PORT = 1521;
+private static final String CONNECT_TYPE = &amp;ldquo;thin&amp;rdquo;;</description></item><item><title>Erich Gamma Discusses Jazz, Eclipse, JUnit and Design Patterns</title><link>https://freizl.github.io/2008/09/erich-gamma-discusses-jazz-eclipse.html</link><pubDate>Sun, 21 Sep 2008 19:14:00 -0700</pubDate><guid>https://freizl.github.io/2008/09/erich-gamma-discusses-jazz-eclipse.html</guid><description>http://www.infoq.com/interviews/gamma-jazz-eclipse-junit-design-patterns</description></item><item><title>Set programs installed in Windows Program files folder to PATH (Cygwin)</title><link>https://freizl.github.io/2008/08/set-programs-installed-in-windows.html</link><pubDate>Tue, 19 Aug 2008 01:50:00 -0700</pubDate><guid>https://freizl.github.io/2008/08/set-programs-installed-in-windows.html</guid><description>VIM_HOME='/cygdrive/c/Program Files/Vim/vim72'
+JAVA_HOME='/cygdrive/c/Program Files/Java/jdk1.5.0_11'
+alias ll=&amp;ldquo;ls -lh&amp;rdquo;
+alias l=&amp;ldquo;ls -a&amp;rdquo;
+PATH=&amp;quot;${VIM_HOME}&amp;quot;:&amp;quot;${JAVA_HOME}/bin&amp;quot;:${PATH}
+export PATH
+The quote and double quote play the magic..</description></item><item><title>Compare ', #' and ` in LISP</title><link>https://freizl.github.io/2008/08/compare-and-in-lisp.html</link><pubDate>Thu, 14 Aug 2008 00:10:00 -0700</pubDate><guid>https://freizl.github.io/2008/08/compare-and-in-lisp.html</guid><description>quote &amp;lsquo;
+is syntactic sugar for QUOTE, which takes a single expression as its &amp;ldquo;argument&amp;rdquo; and simply returns it, unevaluated.
+(quote (+ 1 2)) === &amp;lsquo;(+ 1 2)
+#'
+is syntactic sugar for FUNCTION.
+(function foo) === #&amp;lsquo;foo
+backquote `
+a backquoted expression is similar to a quoted expression except you can &amp;ldquo;unquote&amp;rdquo; particular subexpressions by preceding them with a comma, possibly followed by an at (@) sign.
+[Basicly it&amp;rsquo;s similar with quote &amp;lsquo;, but can do more, like evaluate subexpressions by a comma]</description></item><item><title>Reset Root Password of OpenBSD</title><link>https://freizl.github.io/2008/08/reset-root-password-of-openbsd.html</link><pubDate>Wed, 06 Aug 2008 17:58:00 -0700</pubDate><guid>https://freizl.github.io/2008/08/reset-root-password-of-openbsd.html</guid><description>At boot&amp;gt; prompt type boot -s to boot into single user mode:
+boot&amp;gt; boot -s
+Next you will see a message as follows:
+Enter pathname of shell or RETURN for sh:
+Just hit [Enter] key to load sh shell.
+Mount / and /usr file system in read-write mode:
+# mount -uw /
+# mount /usr
+Finally set or change the password for root user, enter:
+# passwd
+Press CTRL+D to boot into multiuser mode or just reboot server:</description></item><item><title>Notes from</title><link>https://freizl.github.io/2008/07/notes-from.html</link><pubDate>Thu, 31 Jul 2008 07:43:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/notes-from.html</guid><description>From the book &amp;lt;Elements of Java Style&amp;gt;
+62. Describe why the code is doing what it does, not what the code is doing.
+70. Define subclasses so they may be used anywhere their superclasses may be used.
+The Liskov Substitution Principle
+The Open-Closed Principle
+100. Use lazy initialization
+class PersonalFinance {
+private LoanRateCalculator loan = null;
+public LoanRateCalculator getLoan(){
+if (this.loan == null) {
+this.loan = new LoanRateCalculator();
+}
+return this.</description></item><item><title>Switching Control and Caps Lock on Windows(For Emacs)</title><link>https://freizl.github.io/2008/07/switching-control-and-caps-lock-on.html</link><pubDate>Mon, 28 Jul 2008 21:24:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/switching-control-and-caps-lock-on.html</guid><description>I didn&amp;rsquo;t know I can do this till my colleague told me when he saw I&amp;rsquo;m playing Emacs. &amp;ldquo;Your small figure will probably feel bad after you doing too much in Emacs&amp;rdquo;, he said, &amp;ldquo;Try to switch the Control and Caps Lock.&amp;rdquo; Sounds interesting! I google the solution and it makes life easier in Emacs. But not very convenient out of Emacs.
+key points: add a new field to HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout with name : Scancode Map</description></item><item><title>Olympics 2008, Welcome to Beijing</title><link>https://freizl.github.io/2008/07/olympics-2008-welcome-to-beijing.html</link><pubDate>Sat, 26 Jul 2008 10:24:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/olympics-2008-welcome-to-beijing.html</guid><description>北京欢迎你
+词：林夕 曲：小柯
+迎接另一个晨曦，带来全新空气
+气息改变情味不变，茶香飘满情谊
+我家大门常打开，开放怀抱等你
+拥抱过就有了默契，你会爱上这里
+不管远近都是客人请不用客气
+相约好了在一起，我们欢迎你
+我家种着万年青，开放每段传奇
+为传统的土壤播种，为你留下回忆
+陌生熟悉都是客人请不用拘礼
+第几次来没关系，有太多话题
+北京欢迎你，为你开天辟地
+流动中的魅力充满着朝气
+北京欢迎你，在太阳下分享呼吸
+在黄土地刷新成绩
+我家大门常打开，开怀容纳天地
+岁月绽放青春笑容，迎接这个日期
+天大地大都是朋友请不用客气
+画意诗情带笑意，只为等待你
+北京欢迎你 像音乐感动你
+让我们都加油去超越自己
+北京欢迎你，有梦想谁都了不起
+有勇气就会有奇迹
+北京欢迎你，为你开天辟地
+流动中的魅力充满着朝气
+北京欢迎你，在太阳下分享呼吸
+在黄土地刷新成绩
+北京欢迎你，像音乐感动你
+让我们都加油去超越自己
+北京欢迎你，有梦想谁都了不起
+有勇气就会有奇迹
+我家大门常打开 开放怀抱等你
+拥抱过就有了默契，你会爱上这里
+不管远近都是客人请不用客气
+相约好了在一起，我们欢迎你
+北京欢迎你 为你开天辟地
+流动中的魅力充满着朝气
+北京欢迎你，在太阳下分享呼吸
+在黄土地刷新成绩
+我家大门常打开 开怀容纳天地
+岁月绽放青春笑容 迎接这个日期
+天大地大都是朋友请不用客气
+画意诗情带笑意，只为等待你许茹芸
+北京欢迎你，像音乐感动你
+让我们都加油去超越自己游鸿明
+北京欢迎你，有梦想谁都了不起
+有勇气就会有奇迹金海心
+北京欢迎你，为你开天辟地
+流动中的魅力充满着朝气
+北京欢迎你，在太阳下分享呼吸
+在黄土地刷新成绩
+北京欢迎你，像音乐感动你
+让我们都加油去超越自己
+北京欢迎你，有梦想谁都了不起
+有勇气就会有奇迹付丽珊
+北京欢迎你，有梦想谁都了不起
+有勇气就会有奇迹
+北京欢迎你 有梦想谁都了不起
+有勇气就会有奇迹</description></item><item><title>Install Subversion in Ubuntu Server</title><link>https://freizl.github.io/2008/07/install-subversion-in-ubuntu-server.html</link><pubDate>Sun, 20 Jul 2008 20:54:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/install-subversion-in-ubuntu-server.html</guid><description>https://help.ubuntu.com/8.04/serverguide/C/subversion.html
+Enable/Disable Apache Mod:
+a2enmod/a2dismod</description></item><item><title>"Instance" an Interface (Java)</title><link>https://freizl.github.io/2008/07/instance-interface-java.html</link><pubDate>Sun, 20 Jul 2008 05:26:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/instance-interface-java.html</guid><description>It looks like &amp;ldquo;instance&amp;rdquo; an Interface&amp;hellip;
+import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+public class InterestingTests {
+ @Test
+public void TestConstructInterface() {
+TurnstileController controller = new TurnstileController() {
+private boolean lockState = false;
+private boolean unlockState = false;
+ public void lock() {
+lockState = true;
+}
+ public void unlock() {
+unlockState = true;
+}
+ public boolean isLockState() {
+return lockState;
+}
+ public boolean isUnlockState() {
+return unlockState;</description></item><item><title>My Network Config of (Sun)VirtualBox</title><link>https://freizl.github.io/2008/07/my-network-config-of-sunvirtualbox.html</link><pubDate>Thu, 17 Jul 2008 20:34:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/my-network-config-of-sunvirtualbox.html</guid><description>Host: Windows XP
+Guest: ubuntu 8.04 Server
+VirtualBox Network Config:
+ubuntu network config:
+Why eth1 has address 169.254.4.130 ?
+Actually it depends.
+Start the VirtualBox with two network adapters and check all IP address in your host.
+You&amp;rsquo;ll see the IP address of the adapter for VirtualBox, then set the eth1 IP address accordingly.</description></item><item><title>Install SVN as Windows Service</title><link>https://freizl.github.io/2008/07/install-svn-as-windows-service.html</link><pubDate>Wed, 16 Jul 2008 17:25:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/install-svn-as-windows-service.html</guid><description>sc create svn binpath= &amp;ldquo;\&amp;ldquo;C:\svn-win32-1.4.4\bin\svnserve.exe\&amp;rdquo; &amp;ndash;service -r C:\Workspace\SVN\repos&amp;rdquo; displayname= &amp;ldquo;Subversion Server&amp;rdquo; depend= Tcpip start= auto
+net start svn</description></item><item><title>Something in Generic Programming</title><link>https://freizl.github.io/2008/07/something-in-generic-programming.html</link><pubDate>Wed, 16 Jul 2008 06:33:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/something-in-generic-programming.html</guid><description>-- difference between raw type list and wildcard type list
+You can put any element into a collection with a raw type, easily corrupting the collections type invariant. you cant put any element(other than null) into a Collection&amp;lt;?&amp;gt;. Attempting to do so will generate a compile-time error message.
+-- parametrized types are invariant.
+In other words, for any two distinct types Type1 and Type2, Listis either a subtype nor a supertype of List.</description></item><item><title>Simple Sample of Regular Expression in Python</title><link>https://freizl.github.io/2008/07/simple-sample-of-regular-expression-in.html</link><pubDate>Fri, 11 Jul 2008 03:50:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/simple-sample-of-regular-expression-in.html</guid><description>import re
+def read_file():
+file_name = &amp;lsquo;merge.log&amp;rsquo;
+file = open(file_name, &amp;lsquo;r&amp;rsquo;)
+file_content = file.read()
+patterns = re.compile(r'(r\d{5}\s\|\scn-cma)(.*(?!cn-cma).*)(r\d{5}\s\|\s(?!cn-cma))', re.DOTALL)
+results = patterns.search(file_content)
+#results = patterns.match(file_content)
+print dir(results)
+if results :
+results = results.groups()
+print results[0]
+def display(x):
+print &amp;lsquo;$&amp;rsquo; * 50, &amp;lsquo;\n&amp;rsquo;, x
+#[ display(x) for x in results ]
+file.close()
+merge.log</description></item><item><title>JSE5, New Language Features Introduce by Joshua Bloch</title><link>https://freizl.github.io/2008/07/jse5-new-language-features-introduce-by.html</link><pubDate>Mon, 07 Jul 2008 20:16:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/jse5-new-language-features-introduce-by.html</guid><description>(For me), it&amp;rsquo;s a good overview introduce of JSE5 new feature.
+http://java.sun.com/features/2003/05/bloch_qa.html
+Any other advance articles?</description></item><item><title>Clean Up Ubuntu Grub Menu after Updates</title><link>https://freizl.github.io/2008/07/clean-up-ubuntu-grub-menu-after-updates.html</link><pubDate>Sat, 05 Jul 2008 08:19:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/clean-up-ubuntu-grub-menu-after-updates.html</guid><description>change the file: /boot/grub/menu.lst
+details here</description></item><item><title>Links for Blackberry</title><link>https://freizl.github.io/2008/07/links-for-blackberry.html</link><pubDate>Wed, 02 Jul 2008 04:56:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/links-for-blackberry.html</guid><description>gmail : http://gmail.com/app
+miniopera : http://mini.opera.com
+Update System
+0. prerequisites
+1. rename/rm Vendor.xml in &amp;ldquo;program files&amp;rdquo;/&amp;ldquo;Common Files&amp;rdquo;/&amp;ldquo;Research In Motion&amp;rdquo;/AppLoader
+2. loader.exe /nojvm will start the application installation.</description></item><item><title>Lexically Function Scrop</title><link>https://freizl.github.io/2008/07/lexically-function-scrop.html</link><pubDate>Tue, 01 Jul 2008 06:08:00 -0700</pubDate><guid>https://freizl.github.io/2008/07/lexically-function-scrop.html</guid><description>The following definition help to understand why need closure implement in JavaScript.
+Functions in JavaScript are lexically rather than dynamically scoped. This means that they run in the scope in which they are defined, not the scope from which they are executed.</description></item><item><title>HighLight Current Line in GVim 7</title><link>https://freizl.github.io/2008/05/highlight-current-line-in-gvim-7.html</link><pubDate>Wed, 21 May 2008 22:16:00 -0700</pubDate><guid>https://freizl.github.io/2008/05/highlight-current-line-in-gvim-7.html</guid><description>augroup vim7highlightCurrentLineInActiveWindow
+au WinEnter * if g:HighlightCurrentLine | setlocal cul | endif
+au WinLeave * if g:HighlightCurrentLine | setlocal nocul | endif
+augroup end
+function! s:ToggleHighlightCurrentLine()
+if !exists(&amp;lsquo;g:HighlightCurrentLine&amp;rsquo;) || g:HighlightCurrentLine==0
+setlocal cul
+let g:HighlightCurrentLine=1
+else
+setlocal nocul
+let g:HighlightCurrentLine=0
+endif
+endfunction
+command! ToggleHighlightCurrentLine :call ToggleHighlightCurrentLine()
+call ToggleHighlightCurrentLine()
+More information.</description></item><item><title>Set External Diff of SVN as gvimdiff (ubuntu)</title><link>https://freizl.github.io/2008/05/set-external-diff-of-svn-as-gvimdiff_13.html</link><pubDate>Tue, 13 May 2008 06:55:00 -0700</pubDate><guid>https://freizl.github.io/2008/05/set-external-diff-of-svn-as-gvimdiff_13.html</guid><description>SVN Config: /etc/subversion/config
+diff-cmd = /home/username/diffwrap.sh
+diffwrap.sh (make sure it&amp;rsquo;s executable.)
+#!/bin/sh
+# Configure your favorite diff program here.
+DIFF=&amp;quot;/usr/bin/gvimdiff&amp;quot;
+# Subversion provides the paths we need as the sixth and seventh
+# parameters.
+LEFT=${6}
+RIGHT=${7}
+# Call the diff command (change the following line to make sense for
+# your merge program).
+$DIFF $LEFT $RIGHT
+# Return an errorcode of 0 if no differences were detected, 1 if some were.</description></item><item><title>Set External Diff of SVN as gvimdiff (Windows)</title><link>https://freizl.github.io/2008/05/set-external-diff-of-svn-as-gvimdiff.html</link><pubDate>Mon, 12 May 2008 20:44:00 -0700</pubDate><guid>https://freizl.github.io/2008/05/set-external-diff-of-svn-as-gvimdiff.html</guid><description>svn config (usually in: c:\Document and Settings\Application\Subversion\config)
+diff-cmd = c:/diffwrap.bat
+c:/diffwrap.bat
+@ECHO OFF
+REM Configure your favorite diff program here.
+SET DIFF=&amp;ldquo;C:\Program Files\Vim\vim71\gvim.exe&amp;quot;REM Subversion provides the paths we need as the sixth and seventh REM parameters.
+SET LEFT=%6
+SET RIGHT=%7
+REM Call the diff command (change the following line to make sense for
+REM your merge program).
+%DIFF% -d %LEFT% %RIGHT%
+REM Return an errorcode of 0 if no differences were detected, 1 if some were.</description></item><item><title>An Abstract Class when using DBUnit</title><link>https://freizl.github.io/2008/05/abstract-class-when-using-dbunit.html</link><pubDate>Mon, 05 May 2008 01:32:00 -0700</pubDate><guid>https://freizl.github.io/2008/05/abstract-class-when-using-dbunit.html</guid><description>http://sites.google.com/site/freizl/Home/java-code/sampledbunittest</description></item><item><title>Concert by Secret Garden</title><link>https://freizl.github.io/2008/04/concert-by-secret-garden.html</link><pubDate>Sun, 27 Apr 2008 22:36:00 -0700</pubDate><guid>https://freizl.github.io/2008/04/concert-by-secret-garden.html</guid><description>For me, they are awesome!
+I know the Secret Garden almost ten years ago. I&amp;rsquo;m really being attractive by their music for long period.
+And I couldn&amp;rsquo;t image I can ever get a chance to enjoy their music in live.
+As Sherry said, even we are speaking in different language, but tonight we communicate with music.
+Last Saturday, I spend several hours having a quick practice the Django, which is a web framework wrote in Python.</description></item><item><title>Quotes from Pragmatic Programming</title><link>https://freizl.github.io/2008/04/quotes-from-pragmatic-programming.html</link><pubDate>Thu, 17 Apr 2008 05:50:00 -0700</pubDate><guid>https://freizl.github.io/2008/04/quotes-from-pragmatic-programming.html</guid><description>Tip4: Don&amp;rsquo;t live with Broken Windows
+&amp;ldquo;&amp;hellip;.You may be thinking that no one has the time to go around cleaning up all the broken glass of a project. If you continue to think like that, then you&amp;rsquo;d better plan on getting a dumpster, or moving to another neighborhood. Don&amp;rsquo;t let entropy win.&amp;rdquo;
+Tip5: Be a catalyst for Change
+[The stone soup story]
+Basically I think I experience the negative thing which is described in the Tip4.</description></item><item><title>Install Taglist Vim plugin</title><link>https://freizl.github.io/2008/04/install-taglist-vim-plugin.html</link><pubDate>Wed, 16 Apr 2008 07:56:00 -0700</pubDate><guid>https://freizl.github.io/2008/04/install-taglist-vim-plugin.html</guid><description>Home Page: http://vim-taglist.sourceforge.net/
+Installation: http://vim-taglist.sourceforge.net/installation.html
+The _vimrc setting for taglist:
+**filetype on
+let Tlist_Ctags_Cmd = &amp;lsquo;C:\MyWorkplace\ctags57\ctags.exe&amp;rsquo;
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Sort_Type = &amp;ldquo;name&amp;rdquo;
+nnoremap :TlistToggle&amp;quot; Shortcut for switch between split windows quickly
+nnoremap H nnoremap L **</description></item><item><title>Java and Modern Web</title><link>https://freizl.github.io/2008/04/java-and-modern-web.html</link><pubDate>Wed, 16 Apr 2008 06:57:00 -0700</pubDate><guid>https://freizl.github.io/2008/04/java-and-modern-web.html</guid><description>http://andigutmans.blogspot.com/2008/03/java-is-losing-battle-for-modern-web.html</description></item><item><title>Virtual Community</title><link>https://freizl.github.io/2008/04/virtual-community.html</link><pubDate>Mon, 14 Apr 2008 06:27:00 -0700</pubDate><guid>https://freizl.github.io/2008/04/virtual-community.html</guid><description>Several days ago,I started to &amp;ldquo;live&amp;rdquo; in the Facebook and Douban(CN), which are both so called virtual community as far as I know.
+It&amp;rsquo;s even interesting to myself why I got a idea to start to experience those sites.
+The Douban is ok and it&amp;rsquo;s all about sharing informations on books, music and movies.
+And several other sections, like blog and &amp;lsquo;Channels&amp;rsquo; provide many things as well.
+The Facebook turns out to be COOL!</description></item><item><title>map, iterate function list, time in python</title><link>https://freizl.github.io/2008/04/map-iterate-function-list-time-in.html</link><pubDate>Thu, 03 Apr 2008 20:34:00 -0700</pubDate><guid>https://freizl.github.io/2008/04/map-iterate-function-list-time-in.html</guid><description>from __future__ import division
+def prime1(y):
+if y &amp;lt;= 1:
+print y, &amp;lsquo;not prime&amp;rsquo;
+else:
+x = y // 2
+while x &amp;gt; 1:
+if y % x == 0:
+retValue = y, &amp;lsquo;has factor&amp;rsquo;, x
+break
+x -= 1
+else:
+retValue = y, &amp;lsquo;is prime&amp;rsquo;
+def timer(reps, func, *args):
+import time
+start = time.clock()
+for i in xrange(reps):
+map(func, args)
+return time.clock() - start
+for func in (prime1,):
+print timer(10000, func, 12,15,18,20,22,30)</description></item><item><title>Mirro the Wikipedia at your local</title><link>https://freizl.github.io/2008/03/mirro-wikipedia-at-your-local.html</link><pubDate>Sat, 22 Mar 2008 23:46:00 -0700</pubDate><guid>https://freizl.github.io/2008/03/mirro-wikipedia-at-your-local.html</guid><description>sudo apt-get update
+sudo apt-get install apache2 php5 libapache2-mod-php5 mysql-server mysql-client php5-mysql phpmyadmin
+mkdir ~/wiki/
+cd ~/wiki/
+wget http://download.wikimedia.org/mediawiki/1.10/mediawiki-1.10.0.tar.gz
+sudo mkdir /var/www/w/
+sudo tar xzf mediawiki-1.10.0.tar.gz -C /var/www/
+cd /var/www/mediawiki-1.10.0/
+sudo chmod a+x config
+$ mysql
+mysql&amp;gt; USE mysql;
+mysql&amp;gt; UPDATE user SET Password=PASSWORD(’new-password’) WHERE user=’root’;
+mysql&amp;gt; FLUSH PRIVILEGES;
+add user &amp;lsquo;wikiuser&amp;rsquo; and database &amp;lsquo;wikidb&amp;rsquo; and set privileges
+wget http://download.wikimedia.org/enwiki/20070402/enwiki-20070402-pages-articles.xml.bz2
+bunzip2 -k enwiki-20070402-pages-articles.xml.bz2
+wget http://modzer0.cs.uaf.edu/~dev2c/mwimport.sh (OR http://freizl.googlepages.com/mwimport.sh)
+chmod +x mwimport.sh</description></item><item><title>Static Field/Method, Initialization Block Cont. (Java Disassemble)</title><link>https://freizl.github.io/2008/03/static-fieldmethod-initialization-block_20.html</link><pubDate>Thu, 20 Mar 2008 06:08:00 -0700</pubDate><guid>https://freizl.github.io/2008/03/static-fieldmethod-initialization-block_20.html</guid><description>Disassembles class files:
+javap -c BaseObject</description></item><item><title>Static Field/Method, Initialization Block Cont. (Java Disassemble)</title><link>https://freizl.github.io/2008/03/static-fieldmethod-initialization-block_3944.html</link><pubDate>Thu, 20 Mar 2008 06:08:00 -0700</pubDate><guid>https://freizl.github.io/2008/03/static-fieldmethod-initialization-block_3944.html</guid><description>Disassembles class files:
+javap -c BaseObject</description></item><item><title>Static Field/Method, Initialization Block Cont. (After compile)</title><link>https://freizl.github.io/2008/03/static-fieldmethod-initialization-block_19.html</link><pubDate>Wed, 19 Mar 2008 19:14:00 -0700</pubDate><guid>https://freizl.github.io/2008/03/static-fieldmethod-initialization-block_19.html</guid><description>package com.foo;
+import java.io.PrintStream;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder;
+public class BaseObject
+{
+private static long second = 0L;
+private String name;
+public BaseObject()
+{
+name = &amp;ldquo;&amp;quot;;
+System.out.println(&amp;ldquo;I am class block initialization.&amp;quot;);
+second++;
+System.out.println(&amp;ldquo;I am constructor.&amp;quot;);
+}
+public BaseObject(String name)
+{
+this.name = &amp;ldquo;&amp;quot;;
+System.out.println(&amp;ldquo;I am class block initialization.&amp;quot;);
+this.name = name;
+second++;
+}
+public String getName()
+{
+return name;
+}
+public void setName(String name)
+{
+this.name = name;
+}
+public static long getSecond()</description></item><item><title>Static Field/Method, Initialization Block (Java)</title><link>https://freizl.github.io/2008/03/static-fieldmethod-initialization-block.html</link><pubDate>Wed, 19 Mar 2008 19:12:00 -0700</pubDate><guid>https://freizl.github.io/2008/03/static-fieldmethod-initialization-block.html</guid><description>package com.foo;
+import org.apache.commons.lang.builder.ReflectionToStringBuilder; public class BaseObject { /** a static field; all object of this class share this variable. */ private static long second = 0; private String name = &amp;ldquo;&amp;quot;; { System.out.println(&amp;ldquo;I am class block initialization.&amp;quot;); } static { System.out.println(&amp;ldquo;I am static block initialization.&amp;quot;); } public BaseObject() { super(); second++; System.out.println(&amp;ldquo;I am constructor.&amp;quot;); } public BaseObject(String name) { super(); this.name = name; second++; } public String getName() { return name; } public void setName(String name) { this.</description></item><item><title>Vim commands</title><link>https://freizl.github.io/2008/03/vim-commands.html</link><pubDate>Wed, 19 Mar 2008 19:09:00 -0700</pubDate><guid>https://freizl.github.io/2008/03/vim-commands.html</guid><description>-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-
+&amp;quot; could be in startup setting
+:ab MAA multiAccountAlert # define a abbreviations
+:map :w!# define a shortcut
+-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-
+&amp;quot; useful tips
+then select &amp;ldquo;column(s)&amp;rdquo; with motion commands (win32 )
+: pull word under the cursor into a command line or search; i.e: -&amp;gt; / -&amp;gt; then this command
+: pull WORD under the cursor into a command line or search
+:n1,n2 d # delete content between line n1 and n2</description></item><item><title>Back to Hangzhou</title><link>https://freizl.github.io/2008/02/back-to-hangzhou.html</link><pubDate>Wed, 27 Feb 2008 20:27:00 -0800</pubDate><guid>https://freizl.github.io/2008/02/back-to-hangzhou.html</guid><description>At this moment&amp;hellip;what can I recall about those two months&amp;hellip;
+And we are leaving at 4 AM and arrive at Shanghai at 6pm.</description></item><item><title>Runnning Warcraft 3 in Widescreen</title><link>https://freizl.github.io/2008/01/runnning-warcraft-3-in-widescreen.html</link><pubDate>Thu, 31 Jan 2008 23:01:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/runnning-warcraft-3-in-widescreen.html</guid><description>START &amp;gt; run &amp;gt; regedit
+locate to:
+HKEY_CURRENT_USER &amp;gt; Software &amp;gt; Blizzard Entertainment &amp;gt; Warcraft III &amp;gt; Video
+Make below change in decimal format:
+(Right click &amp;gt; Change &amp;gt; select &amp;ldquo;decimal&amp;rdquo; &amp;gt; fill in new value)
+resheight = 1600
+reswidth = 900
+Replace width &amp;amp; height with whatever resolution you wanna play in, examples:
+1280x720 16:9 Widescreen
+1440x900 16:10 Widescreen
+1680x1050 16:10 Widescreen
+1920x1200 16:10 Widescreen
+For Details</description></item><item><title>Custom WebWork Result Type</title><link>https://freizl.github.io/2008/01/custom-webwork-result-type.html</link><pubDate>Sun, 27 Jan 2008 15:59:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/custom-webwork-result-type.html</guid><description>add following to a xwork.xml config file:
+use this custom type in the action:
+foo.jspActually can simply extend a webwork predefined resulttype for some purpose and override the conditionalParse and return a final location for the action. major methods in WebWorkSupport.java
+/** * Implementation of the execute method from the Result interface. This will call * the abstract method {@link #doExecute(String, ActionInvocation)} after optionally evaluating the * location as an OGNL evaluation.</description></item><item><title>Force a vertical scroll bar in Firefox with CSS</title><link>https://freizl.github.io/2008/01/force-vertical-scroll-bar-in-firefox.html</link><pubDate>Sun, 27 Jan 2008 09:17:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/force-vertical-scroll-bar-in-firefox.html</guid><description>html {overflow-y:scroll;}</description></item><item><title>Move to a new Hotel</title><link>https://freizl.github.io/2008/01/move-to-new-hotel.html</link><pubDate>Tue, 15 Jan 2008 21:05:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/move-to-new-hotel.html</guid><description>Actually it&amp;rsquo;s a kind of apartment named Boston Commons, at the south of Denver.
+We moved to here last Saturday and I lived in a two rooms' apartment with a colleague.
+It has a living room with a stove. And we took the light rail to the office.
+Still busy these days and I didn&amp;rsquo;t have much time to check the GMail and write post.
+And generallyI didn&amp;rsquo;t find few interesting things to blog and forgot .</description></item><item><title>Block &amp; Inline Elments</title><link>https://freizl.github.io/2008/01/block-inline-elments.html</link><pubDate>Sun, 13 Jan 2008 23:07:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/block-inline-elments.html</guid><description>An inline element is only as wide as the content inside it. Inline elements don&amp;rsquo;t create a line break before or after them as block-level elements do. more infor. BLOCK ELMENTS:
+DIV : Your general-purpose box H1 &amp;hellip; h6 : All headings P : Paragraph UL, OL, DL : Lists (unordered, ordered and definition) LI, DT, DD : List items, definition list terms, and definition list definitions TABLE : Tables BLOCKQUOTE : Like an indented paragraph, meant for quoting passages of text PRE : Indicates a block of preformatted code FORM : An input form INLINE ELMENTS:</description></item><item><title>Which Style Wins</title><link>https://freizl.github.io/2008/01/which-style-wins.html</link><pubDate>Sun, 13 Jan 2008 23:05:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/which-style-wins.html</guid><description> A tag selector is worth 1 point.
+A class selector is worth 10 points.
+An ID selector is worth 100 points.
+An inline style is worth 1000 points.</description></item><item><title>The Limits of CSS Inheritance</title><link>https://freizl.github.io/2008/01/limits-of-css-inheritance.html</link><pubDate>Sun, 13 Jan 2008 23:00:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/limits-of-css-inheritance.html</guid><description>Here are examples of times when inheritance doesn&amp;rsquo;t strictly apply:
+As a general rule, properties that affect the placement of elements on the page, or the margins, background colors, and borders of elements aren&amp;rsquo;t inherited.
+Web browsers use their own inherent styles to format various tags: headings are big and bold, links are blue, and so on. When you define a font-size for the text on a page and apply it to the tag, headings still appear larger than paragraphs, and tags are still larger than tags.</description></item><item><title>Happy hour</title><link>https://freizl.github.io/2008/01/happy-hour.html</link><pubDate>Tue, 08 Jan 2008 23:22:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/happy-hour.html</guid><description>It&amp;rsquo;s happy hour and also thanks party since several GDC guys are gonna back to Hangzhou.
+It&amp;rsquo;s a bar nearby office in downtown. It looks not very modern and a litter different with those in Hangzhou. And the drinkings here, wo&amp;hellip; I&amp;rsquo;m almost lost. Beer,Vodka and Whisky, those all I can remember. To be honestly I couldn&amp;rsquo;t drink and just tasted a small bottle of wine, that I forgot its name.</description></item><item><title>Install Ubuntu 7.10 in MS Virtual PC</title><link>https://freizl.github.io/2008/01/install-ubuntu-710-in-ms-virtual-pc.html</link><pubDate>Tue, 08 Jan 2008 23:17:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/install-ubuntu-710-in-ms-virtual-pc.html</guid><description>I have to say this guide is great.
+For simulate the mice, option &amp;ldquo;i8042.noloop&amp;rdquo; play the magic.</description></item><item><title>Addtional VIM commands</title><link>https://freizl.github.io/2008/01/addtional-vim-commands.html</link><pubDate>Tue, 08 Jan 2008 22:29:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/addtional-vim-commands.html</guid><description>:set number/nonumber =&amp;gt; show/hidden the line number
+/\&amp;lt;the\&amp;gt; =&amp;gt; search the whole word &amp;lsquo;the&amp;rsquo;
+:nohlsearch =&amp;gt; un-highlight the search result temporaryly
+:set hlsearch/nohlsearc =&amp;gt; set highlight/not highlight the search result
+x stands for dl (delete character under the cursor)
+X stands for dh (delete character left of the cursor)
+D stands for d$ (delete to end of the line)
+C stands for c$ (change to end of the line)
+s stands for cl (change one character)</description></item><item><title>Happy New Year &amp; Being OT</title><link>https://freizl.github.io/2008/01/happy-new-year-being-ot.html</link><pubDate>Tue, 01 Jan 2008 21:18:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/happy-new-year-being-ot.html</guid><description>This is the new year, 2008. But we are working from hotel.
+I didn&amp;rsquo;t have much complain of being working over time occasionally.
+And we do solve something by the end of day.
+But this time turn out to be a litter different since it&amp;rsquo;s the new year,.
+We should take a good rest, shouldn&amp;rsquo;t we?
+I&amp;rsquo;m thinking about when we were working today, what were those management team, architecture team and customers doing?</description></item><item><title>Pacific Ocean Marketplace</title><link>https://freizl.github.io/2007/12/pacific-ocean-marketplace.html</link><pubDate>Sun, 30 Dec 2007 19:56:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/pacific-ocean-marketplace.html</guid><description>终于去到了传说中的太平洋超市，有所谓的Chinese stuff. 果然是看着9眼熟，
+很多东西一眼望过去就知道是啥玩意，而且很多都有中文。
+确实方便不少。米，醋，酒，一应俱全。连年糕，面，泡面都有，虽然和国内有些差别。
+再过几天就是这边的新年，看看会有些啥玩意，似乎不像农历新年热闹得很，
+这里似乎很平静，或许是没去市区逛逛。</description></item><item><title>Quiet</title><link>https://freizl.github.io/2007/12/quiet.html</link><pubDate>Sun, 30 Dec 2007 06:47:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/quiet.html</guid><description>这个地方很安静，除了冰箱的一点点噪音和如果开着的空调。没有多余的人和动物。
+昨天晚12点多睡，一觉睡到7点，真爽。这样的状态似乎已然消逝很久。
+昨天和安仔聊天，说US并没有给太多的惊喜，其实就是这样。
+工作有点点忙，而且有不是很顺畅；语言还得下功夫；出去购物得有车，自己又不会开；
+去购物的时候很多都不认识，不认识是什么牌子，不认识是什么东西；
+而通常是集体出动，就跟着走走看看，稍微了解了解。
+不过后来想了想，应该是看店面能看出这个牌子的档次，比如Calvin Klein的样子就比很多店装修的要好，
+所以东西卖的也贵，名气应该不小。不过听说LV还是个太高档次的属于我们无法承受的店，所以去的那两个地方都没有。
+不过那帮人挑的东西大概都还是很值得买的，比起国内要便宜好些，牌子都是数得上。
+一瓶Amarni 70$, 据说比国内便宜好些。香水和衣服是买的比较多的，可能正赶上还在打折的时间。
+怪不得black Friday的时候要去血拼，原来几百的东西打到几十块，还不赶紧买。</description></item><item><title>Cheery Creek &amp; Castle Rock</title><link>https://freizl.github.io/2007/12/cheery-creek-crystal-rock.html</link><pubDate>Sat, 29 Dec 2007 20:30:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/cheery-creek-crystal-rock.html</guid><description>It&amp;rsquo;s weekend. So it&amp;rsquo;s shopping day as some guys will go back to China soon.
+We started to Cheery Creek first which has lots of cosmetics, perfume, clothing, electronic, etc..
+We saw Clinique, Lascome, Channel and many brands we didn&amp;rsquo;t know ever.
+There&amp;rsquo;s a Apple store as well and we tested i Phone. How cool it is! 8G memory, 399$ without tax.
+The only disappointed thing is I can&amp;rsquo;t use it in China as well as in US.</description></item><item><title>WalMart</title><link>https://freizl.github.io/2007/12/walmart.html</link><pubDate>Fri, 28 Dec 2007 22:29:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/walmart.html</guid><description>We rended several cars for shopping by COB. First is the BestBuy. It&amp;rsquo;s not very big but do have many productions, software, CD/DVD, computer accessorizes. And seems doesn&amp;rsquo;t have much deals. Then went to Walmart nearby. It&amp;rsquo;s huge. Lots of stuff and most of them I can&amp;rsquo;t identify what they are as well as what they are used for. Since we didn&amp;rsquo;t have enough time, I just asked for partners to give me suggestions what I should buy for the coming a week.</description></item><item><title>Radio in Denver</title><link>https://freizl.github.io/2007/12/radio-in-denver.html</link><pubDate>Thu, 27 Dec 2007 22:21:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/radio-in-denver.html</guid><description>I can receive more than 20 radio channels in Denver.
+But my iRiver T10 could only save 20 channels.Sound bad!.
+Any stuff can deal with this tough thing?
+Save all channels then I can select one I like easily.</description></item><item><title>The first day</title><link>https://freizl.github.io/2007/12/first-day.html</link><pubDate>Thu, 27 Dec 2007 19:58:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/first-day.html</guid><description>It&amp;rsquo;s snow day here.
+We walked for about 10 Minutes to take bus to client office and learned the
+environment.
+Everywhere is covered by snow. The view outside is like what we saw in
+some old US films.
+And the bus is definitely more comfortable than that in Hangzhou as
+well as it&amp;rsquo;s bigger.
+About half of ten o&amp;rsquo;clock, Billy brought our new arrivals to
+our company office. It&amp;rsquo;s
+smaller than the GDC office and nothing better than GDC I think.</description></item><item><title>Arrival in US</title><link>https://freizl.github.io/2007/12/arrival-in-us.html</link><pubDate>Wed, 26 Dec 2007 18:58:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/arrival-in-us.html</guid><description>1一个半小时的火车，1个小时机场大巴，近11点才到达浦东机场
+下午1点40的飞机，经过日本上空(听说的)，近12小时达到San Francisco.
+San Francisco 就在西海岸，飞机跨过海岸线后，就开始准备着陆了。
+地上的汽车小的像是自行车队；看到了朔长的金门大桥，只是耳朵痛得没来得急拍照，
+8:45AM进机场，取行李，又安检，两瓶老干妈，一瓶咸菜，一瓶豆腐乳都扣押扔掉，NND&amp;hellip;
+这便算是安全进入美国境内了。时间大致9:30AM.
+再在机场等1个小时，转机到Denver。这趟飞机作的实在舒服，一上飞机就开始睡，
+连起飞都没不知道，就在降落的时候醒来了。Local time 2:45PM the plane landed in Denver.
+Denver似乎下了大雪，外面除了公路上到处是积雪，天气还是很晴朗，温度零下8度。
+等了半个多小时接送的车才到，直接送往旅馆，安排房间，单人房，有电视，网络，还算不错。
+拆包，旅途结束。</description></item><item><title>Opensource Cache/Caching Solutions in Java</title><link>https://freizl.github.io/2007/12/opensource-cachecaching-solutions-in.html</link><pubDate>Mon, 24 Dec 2007 19:03:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/opensource-cachecaching-solutions-in.html</guid><description>Details: http://entips.sharmavishal.com/2007/10/open-source-cachecaching-solutions-in.html
+Bamboo DHT
+cache4j
+FreePastry
+EHCache
+Java Caching System (JCS)
+JBoss Cache
+JCache
+Jofti
+OceanStore
+Open Terracotta
+OSCache
+ShiftOne
+SwarmCache
+WhirlyCache</description></item><item><title>Webware Top 10 website design 2007</title><link>https://freizl.github.io/2007/12/webware-top-10-website-design-2007.html</link><pubDate>Sat, 22 Dec 2007 05:54:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/webware-top-10-website-design-2007.html</guid><description>http://cssherald.com/webware-top-10-website-design-2007/</description></item><item><title>Removing duplicate whitespace using regular expression</title><link>https://freizl.github.io/2007/12/removing-duplicate-whitespace-using.html</link><pubDate>Fri, 14 Dec 2007 18:06:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/removing-duplicate-whitespace-using.html</guid><description>Think about how to implement this before clicking the link below&amp;hellip;
+http://www.memezilla.com/2007/12/14/removing-duplicate-whitespace-using-regular-expression-2</description></item><item><title>What's new in Groovy 1.5</title><link>https://freizl.github.io/2007/12/whats-new-in-groovy-15.html</link><pubDate>Tue, 11 Dec 2007 20:25:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/whats-new-in-groovy-15.html</guid><description>http://www.infoq.com/articles/groovy-1.5-new
+A couple of things I found are pretty cool.
+Annotation. Aha&amp;hellip; getters and setters are gone! Actually that means we don&amp;rsquo;t auto-generate ourselves in IDE. And code becomes naturally concise and readable. Elvis operator. Compare piece of code below&amp;hellip; String name = &amp;quot;Guillaume&amp;quot;; String displayName = name != **null** ? name : &amp;quot;Unknown&amp;quot;; String name = &amp;quot;Guillaume&amp;quot; String displayName = name ?: &amp;quot;Unknown&amp;quot;</description></item><item><title>Hooters, Hangzhou</title><link>https://freizl.github.io/2007/12/hooters-hangzhou.html</link><pubDate>Sat, 08 Dec 2007 09:59:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/hooters-hangzhou.html</guid><description>Michael asked for a party in the hooters since he&amp;rsquo;s going back to US a couple weeks later.
+We really enjoyed ourselves I think, the beer, the chicken wings and of course hot girls.
+Except the cost is expensive.
+One guy here told that she&amp;rsquo;s preparing GRE and ToFEL. In another words she&amp;rsquo;s planning to study in US.
+Sounds good. And it made me think that I had this plan before.</description></item><item><title>Top Ten Obscure but Useful Java Open Source Projects - Circa 2007</title><link>https://freizl.github.io/2007/12/top-ten-obscure-but-useful-java-open.html</link><pubDate>Tue, 04 Dec 2007 19:03:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/top-ten-obscure-but-useful-java-open.html</guid><description>1. SymmetricDS
+2. Bedework
+3. Gadget
+4. Carbonado
+5. Nux
+6. Cleversafe
+7. XXL
+8. UIMA
+9. Queplix
+10. ZK
+More information&amp;rsquo;s here.</description></item><item><title>Color labels in GMail</title><link>https://freizl.github.io/2007/12/color-labels-in-gmail.html</link><pubDate>Tue, 04 Dec 2007 00:13:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/color-labels-in-gmail.html</guid><description>I supported it&amp;rsquo;s a cool new feature!
+Today I open GMail and found that a green box next to every label.
+You can select a color for each label by clicking that box.
+Then turn back to your inbox &amp;hellip;</description></item><item><title>Multiple Firefox profile in single machine</title><link>https://freizl.github.io/2007/12/multiple-firefox-profile-in-single.html</link><pubDate>Sun, 02 Dec 2007 06:11:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/multiple-firefox-profile-in-single.html</guid><description>Start Firefox ProfileManager from command line or windows-&amp;gt;run
+Firefox.exe &amp;ndash;profilemanager
+By using the profile manager, we can configure multiple profiles.
+Then start Firefox with specific profile by adding appropriate parameter to properties of each shortcut.
+&amp;ldquo;C:\Program Files\Mozilla Firefox 3 Beta 1\firefox.exe&amp;rdquo; -P FF3-Beta1
+TIPS: It seems the parameter P is case sensitive.
+Here is the details.</description></item><item><title>Floating number in binary format</title><link>https://freizl.github.io/2007/11/floating-number-in-binary-format.html</link><pubDate>Sun, 25 Nov 2007 23:51:00 -0800</pubDate><guid>https://freizl.github.io/2007/11/floating-number-in-binary-format.html</guid><description>How to calculate its decimal value:
+exponent(0111 1100) := 27 - 4 - (2(8-1) - 1) = -3
+fraction :=1.012 = 1.2510
+here, m = 1. because the number above is normalized. follow to the link below to see the detail why m=1.
+So the result is: 1.25 * (2-3) = 0.15625
+Found interesting when I was studying the IEEE-754 Standard, and of course I can not understand several concepts.</description></item><item><title>Keyborad Shortcuts Experient in Google Search</title><link>https://freizl.github.io/2007/11/keyborad-shortcuts-experient-in-google.html</link><pubDate>Wed, 14 Nov 2007 20:38:00 -0800</pubDate><guid>https://freizl.github.io/2007/11/keyborad-shortcuts-experient-in-google.html</guid><description>It&amp;rsquo;s interesting.
+I like the shortcuts J/K, just like working in VIM.
+more information here.
+ But a big problem is that I have to select one kind of experient every time even with a login session.
+Is there any ways to let google remember my favoriate experimental selection?</description></item><item><title>Shortcut to System.out.println in Eclipse</title><link>https://freizl.github.io/2007/11/shortcut-to-systemoutprintln-in-eclipse.html</link><pubDate>Thu, 08 Nov 2007 22:14:00 -0800</pubDate><guid>https://freizl.github.io/2007/11/shortcut-to-systemoutprintln-in-eclipse.html</guid><description>type: sysonow presss CTRL + SPACE BAR</description></item><item><title>margin:0px auto;</title><link>https://freizl.github.io/2007/10/margin0px-auto.html</link><pubDate>Thu, 18 Oct 2007 00:08:00 -0700</pubDate><guid>https://freizl.github.io/2007/10/margin0px-auto.html</guid><description>This setting make a box(DIV) horizontally centered.
+a example: http://bluerobot.com/web/css/center1.html
+So why it can take that effect?
+What&amp;rsquo;s the difference with margin: 0px 100px;</description></item><item><title>Becoming a Better Programmer......</title><link>https://freizl.github.io/2007/10/becoming-better-programmer.html</link><pubDate>Wed, 17 Oct 2007 07:25:00 -0700</pubDate><guid>https://freizl.github.io/2007/10/becoming-better-programmer.html</guid><description>Here &amp;rsquo;s the interview with the Java Champion Heinz Kabutz by sun.
+In his closing thoughts, that guy gave some suggestions for how to be a good programmer.
+And I found that the continuous learning again is a very important thing.
+As Kabutz mentioned, keep learning and experiment in technical, we have to sacrifice our personal time.
+It push me thinking that recently I spent all my personal time in playing WOW since the expansion TBC launched in China.</description></item><item><title>Exhausted and extremely happy</title><link>https://freizl.github.io/2007/10/exhausted-and-extremely-happy.html</link><pubDate>Tue, 02 Oct 2007 20:36:00 -0700</pubDate><guid>https://freizl.github.io/2007/10/exhausted-and-extremely-happy.html</guid><description>It&amp;rsquo;s great interesting to get a comment from a foreigner on previous Chinese post.
+Maybe he&amp;rsquo;s interested in foreign language like Chinese, or something else.
+And I have to say I&amp;rsquo;m not able to write every post in English just because of my little English skills.
+I couldn&amp;rsquo;t express something in my mind exactly in English and mostly English is used for reporting something and instant communication.
+On the Oct. 01 and Oct.</description></item><item><title>My Sister got married</title><link>https://freizl.github.io/2007/09/my-sister-got-married.html</link><pubDate>Sat, 29 Sep 2007 21:31:00 -0700</pubDate><guid>https://freizl.github.io/2007/09/my-sister-got-married.html</guid><description>28号二姐结婚了。
+说起来作为弟弟的我当天是重要角色，按照家乡的习俗，小舅子当天做&amp;quot;大&amp;quot;，不光事情要忙里忙外的，特别是酒席上敬酒环节，似乎会显的格外重要。
+只是我是太不经事故，亦拙于言词，所以大部分事情都父母们操办了，或者情人&amp;quot;代替&amp;quot;操办，我便显得没啥事情。
+姐夫的亲戚们比较远，所以晚上得去他们那边再一次酒席，我们先开车到姐夫老家，稍坐休息，吃过汤圆，便要去酒店了。
+到是从姐夫家里出来的时候感觉怪怪的，原来嫁人确实不是那么的容易，这么多年和父母生活，突然现在把她放到了&amp;quot;别人&amp;quot;家里。。。
+老妈的话语里是在说二姐有些&amp;quot;强势&amp;quot;，有时候说话乱讲，和她相处起来心理还是有疙瘩，这到也罢，只是会让姐夫在家里显得拘束。
+这到真是个不好的事情，二姐的脾气大概向来如此，不知道这以后会不会有所改变。
+但只要他们同心同德，事情肯定是越来越好的。 Best wishes for your guys！
+二姐的事情基本上算是完成了，下面就会轮到我了，然后便说起相亲来。我对这事并不排斥，反倒觉得还是不错的认识人的方式。
+但说归说，想归想，真的遇上自己，却又觉得很是别扭，目的性似乎过于明确。还真难迈出这步。。。</description></item><item><title>Boltech no more Boldtech</title><link>https://freizl.github.io/2007/09/boltech-no-more-boldtech.html</link><pubDate>Thu, 20 Sep 2007 19:44:00 -0700</pubDate><guid>https://freizl.github.io/2007/09/boltech-no-more-boldtech.html</guid><description>Ron announced a very important news this morning that Boldtech Systems has been acquired by Perficient, Inc. And GDC China became a part of the Perficient as well. According Ron&amp;rsquo;s words, we won&amp;rsquo;t get much change in short term in China but not including time&amp;amp;expense system and email system. More official information might come along next. A surprise definitely. Good news or bad news? who knows.
+Detail news here.</description></item><item><title>Several VIM commands learned today</title><link>https://freizl.github.io/2007/09/several-vim-commands-learned-today.html</link><pubDate>Wed, 05 Sep 2007 04:30:00 -0700</pubDate><guid>https://freizl.github.io/2007/09/several-vim-commands-learned-today.html</guid><description>Substitute words
+:s/From/To/g
+:%s/From/To/g
+/g means substitute all happens in the line.
+%s means means affect all lines in the file.
+Split window
+:split
+:split file-name -&amp;gt;open a second window and starts editing the file
+:vsplit -&amp;gt; vertical splits
+CTRL-W w -&amp;gt; jump between windows
+vim -o one.txt two.txt three.txt -&amp;gt; open a window for each file
+CTRL-V : block visual mode
+SHIFT-V : select a line
+Y : copy a line</description></item><item><title>Script Cross-tab in BIRT 2.2</title><link>https://freizl.github.io/2007/09/script-cross-tab-in-birt-22.html</link><pubDate>Tue, 04 Sep 2007 04:39:00 -0700</pubDate><guid>https://freizl.github.io/2007/09/script-cross-tab-in-birt-22.html</guid><description>I failed to find out how to add column name for a &amp;lsquo;dimension&amp;rsquo; in cross-tab item of BIRT 2.2, so I have to use scripts to create a cross-table. The idea here is creating table columns before the create table event。
+(You may notice that the top-left part of the cross-tab in BIRT 2.2 is blank and could not add any other report items into it. It&amp;rsquo;s confused!??)
+`importPackage(Packages.org.eclipse.birt.report.model.api);
+// invode a java object to get all &amp;lsquo;usTitles&amp;rsquo; datas from Database.</description></item><item><title>DWR Request in JMeter 2.3RC3 [CODE]</title><link>https://freizl.github.io/2007/09/dwr-request-in-jmeter-23rc3-code.html</link><pubDate>Tue, 04 Sep 2007 04:19:00 -0700</pubDate><guid>https://freizl.github.io/2007/09/dwr-request-in-jmeter-23rc3-code.html</guid><description>Continuous to:http://freizl.blogspot.com/2007/08/jmeter-and-dwr.html
+httprequest for engine.js METHOD: get PATH: /seed/dwr/engine.js
+add a regular extractor for this request NAME: SCRIPTSESSIONID REGEX: dwr.engine._origScriptSessionId = &amp;quot;(.*)&amp;quot;; [work in DWR 2.x] TEMPLATE: $1$
+httprequest for a DWR request
+METHOD: post PATH: /seed/dwr/call/plaincall/authenticationService.login.dwr VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CRLF}scriptSessionId=${SCRIPTSESSIONID}${CRLF}c0-scriptName=authenticationService${CRLF}c0-methodName=login${CRLF}c0-id=0${CRLF}c0-param0=string:${SEED}${CRLF}c0-param1=string:${PWD}${CRLF}batchId=0
+user variables CRLF: ${__javaScript('\r\n')} LOGINPAGE: \seed\login.html SEED: seed PWD: seed
+JSESSIONID is available when a http cookie manager is added.</description></item><item><title>JMeter and DWR</title><link>https://freizl.github.io/2007/08/jmeter-and-dwr.html</link><pubDate>Thu, 16 Aug 2007 06:14:00 -0700</pubDate><guid>https://freizl.github.io/2007/08/jmeter-and-dwr.html</guid><description>I just follow this article to test DWR request in JMeter.
+To tell the truth, I didn&amp;rsquo;t get its content very well. I had no choice but read a second time and went through all comments.
+So I decided to give a try in my desktop. Eventually I worked it out and now I can test DWR request.
+Two important and great thing the author dig out is how to get httpSessionId and scriptSessionId for a DWR request.</description></item><item><title>Performance Testing?</title><link>https://freizl.github.io/2007/08/performance-testing.html</link><pubDate>Tue, 14 Aug 2007 06:33:00 -0700</pubDate><guid>https://freizl.github.io/2007/08/performance-testing.html</guid><description>We are going to use JMeter to take the performance testing in our project.
+Till now I have no idea about how to contribute it to the project.
+I read several documentations at the official site, just finding I lost at the graph results and some concepts.
+Also I failed to use the Assertion component to validate the response.
+Have to continue researching.
+These two days I back to write functional test using Selenium.</description></item><item><title>Two's component</title><link>https://freizl.github.io/2007/08/twos-component_8467.html</link><pubDate>Tue, 14 Aug 2007 06:00:00 -0700</pubDate><guid>https://freizl.github.io/2007/08/twos-component_8467.html</guid><description>Two&amp;rsquo;s component is one of the Signed number representations. Its principles is described as following. (refer to original at http://en.wikipedia.org/wiki/Two%27s_complement )
+The 2_n_ possible values of n bits actually form a ring of equivalence classes, namely the integers modulo 2_n_, Z/(2_n_)Z . Each class represents a set {j + k 2_n_ | k is an integer} for some integer j, 0 ≤ j ≤ 2 n − 1. There are 2_n_ such sets, and addition and multiplication are well-defined on them.</description></item><item><title>Resources in ongoing project</title><link>https://freizl.github.io/2007/07/resources-in-ongoing-project.html</link><pubDate>Tue, 24 Jul 2007 19:17:00 -0700</pubDate><guid>https://freizl.github.io/2007/07/resources-in-ongoing-project.html</guid><description>Hibernate 3.x
+Spring Framework 2.x
+DWR 1.x
+Ext / Ext-Yui (javascript library)
+JUnit 3.x
+Cobertura 1.8 (coverage test)
+Cruisecontrol (continuous integration toolkit)</description></item><item><title>New Office</title><link>https://freizl.github.io/2007/07/new-office.html</link><pubDate>Mon, 16 Jul 2007 23:28:00 -0700</pubDate><guid>https://freizl.github.io/2007/07/new-office.html</guid><description>We moved to a new office. It&amp;rsquo;s pretty nice and much better than the previous one.
+The guys in back office did the great job!
+But what&amp;rsquo;s the most disappointed thing was I still used a CRT monitor.
+So I have to replace it with my own LCD monitor thus I will not have a network in home.
+Probably it turn out to be a terrible thing.</description></item><item><title>Mathematic Game</title><link>https://freizl.github.io/2007/06/mathematic-game.html</link><pubDate>Sat, 09 Jun 2007 21:03:00 -0700</pubDate><guid>https://freizl.github.io/2007/06/mathematic-game.html</guid><description>Array := {1,2,3,4,5,6,7,8,9,10}
+Get four numbers from the Array.
+For example: {1,3,5,8} or {1,1,3,8} or {2,2,2,2} &amp;hellip;
+So IMO there are 10*10*10*10 cases.
+Then do a calculate of the four numbers with the basic operators: ADD,MINUS,MULTIPLY,DIVIDE
+The operators can be duplicated.
+For example: {1,3,5,8}.
+We can calculate it like: 1*3*5*8 = 120
+or: 1*3*5/8 = 1.xxx
+or: (1+3)*5-8 = 12
+or: (1+3)*(5-8) = -12
+QUESTION: Give a integer N(0&amp;lt;N&amp;lt;10001), count how many times when the calculated result is equaled to N.</description></item><item><title>Being a WOWer</title><link>https://freizl.github.io/2007/06/being-wower.html</link><pubDate>Sat, 09 Jun 2007 20:29:00 -0700</pubDate><guid>https://freizl.github.io/2007/06/being-wower.html</guid><description>I came back to the World of Warcraft after several months.
+There was a new expansion the Burning crusade having lots of new features.
+Two new races, new land named Outland,the highest level now is 70th,etc.
+Those all seemed to be very interesting.
+But after I launched the game and played for several levels, I found it&amp;rsquo;s almost the same as before.
+Even new tasks,the process is identical. I mean in the lower level because I don&amp;rsquo;t what would happen after 60th level.</description></item><item><title>Basic Understanding of SELECT statement</title><link>https://freizl.github.io/2007/05/basic-understanding-of-select-statement.html</link><pubDate>Wed, 30 May 2007 05:54:00 -0700</pubDate><guid>https://freizl.github.io/2007/05/basic-understanding-of-select-statement.html</guid><description>The syntax:
+SELECT [ DISTINCT | ALL ] { * | }
+FROM [ { , } . . . ]
+[ WHERE ]
+[ GROUP BY ]
+[ HAVING ]
+[ ORDER BY ]
+The evaluation:
+● FROM clause
+● WHERE clause (optional)
+● GROUP BY clause (optional)
+● HAVING clause (optional)
+● SELECT clause
+● ORDER BY clause (optional)</description></item><item><title>Researching week...</title><link>https://freizl.github.io/2007/05/researching-week.html</link><pubDate>Sat, 26 May 2007 08:33:00 -0700</pubDate><guid>https://freizl.github.io/2007/05/researching-week.html</guid><description>Since we didn&amp;rsquo;t get the requitment for next release, so we spend the whole week to do some reseaches about the technology we are using.
+BIRT chart
+I think design a simple chart in BIRT is very easy job. As we might introduce some charts for the project in the following release, I think preparing good SQL querys turns out to be more challege.
+JBoss Portal
+I learned how to configure portlet and portal page.</description></item><item><title>Qian had a baby</title><link>https://freizl.github.io/2007/05/qian-had-baby.html</link><pubDate>Tue, 22 May 2007 06:46:00 -0700</pubDate><guid>https://freizl.github.io/2007/05/qian-had-baby.html</guid><description>Qian had a baby boy this afternoon!
+Congratulation!</description></item><item><title>International Developer Conference (second day)</title><link>https://freizl.github.io/2007/05/international-developer-conference.html</link><pubDate>Sun, 20 May 2007 07:12:00 -0700</pubDate><guid>https://freizl.github.io/2007/05/international-developer-conference.html</guid><description>The first section this day is about SAAS. The guy spend lots of time introducing a platform designed by Alibaba.
+And I didn&amp;rsquo;t find much interesting.
+The second one is talking about the search engine and looking forward its future.
+At third section, distinguished Engineer Mark Harpner from Sun Microsystems Inc. shared several products for implementing SOA.
+Then Ben Wang from JBoss showed several JBoss open source project in SOA area.</description></item><item><title>China International Developer Conference</title><link>https://freizl.github.io/2007/05/china-international-developer.html</link><pubDate>Sat, 19 May 2007 05:54:00 -0700</pubDate><guid>https://freizl.github.io/2007/05/china-international-developer.html</guid><description>首�弥����W�j工程���b客行大�� 暨中��互���W技�g精英����
+This conference is arranged by Alibaba in Hang Zhou, China. Today is the first day.
+In the morning, the first presentation was taken by Rasmus Lerdorf who is the father of PHP.
+And the second guy is Jermy Zawodny,also a extreme famous from Yahoo Inc. and an expert in Yahoo search engine.
+I couldn&amp;rsquo;t totally follow what they were talking without translation. But it&amp;rsquo;s fine.
+Because I think that listening their talking was an interesting thing.</description></item><item><title>The May Holiday</title><link>https://freizl.github.io/2007/05/may-holiday.html</link><pubDate>Sun, 13 May 2007 08:39:00 -0700</pubDate><guid>https://freizl.github.io/2007/05/may-holiday.html</guid><description>放假那天看了张学友的2007世界巡回演唱会，效果一般，大概是坐的太远了，索性没兴趣欣赏歌曲，找个机会溜进了内场，挤到最前面看他表演，也算是一睹真容.^^
+其实每次放假都是想待在杭州的，可以整理些东西，房间，书，电脑，不像回家去，吃喝，睡觉，聊天娱乐，基本上就这么过去了。也许这样也好，算作休息，
+本来一年里待在家里的时间就没多少，和朋友碰面的机会自然也少，整理的事情应该随时安排掉。
+似乎已经跟不上家里那些朋友们的言语了，不再真话，是实话，带几分虚；
+我不大相信说者无心，听者有意的事情，所以我认为被间那个总是把兄弟挂在嘴上的兄弟间接的骂了一次；
+还有一位朋友把同一个东西对不同的人说了不同的价格，很是不解为何如此，意在何为？心里寒阿！
+&amp;lsquo;突然&amp;rsquo;发现一些朋友原来那么有钱，也不过工作了同样长的时间，而我却&amp;hellip;; &amp;lsquo;突然&amp;rsquo;发现家里经济状况不乐观，而我却素手无策.
+Maybe what I can do is only keeping learning something, English, technology and something else.
+And I even have no planning for the next. So terrible!</description></item><item><title>Why got tired so easily</title><link>https://freizl.github.io/2007/04/why-got-tired-so-easily.html</link><pubDate>Sat, 21 Apr 2007 08:58:00 -0700</pubDate><guid>https://freizl.github.io/2007/04/why-got-tired-so-easily.html</guid><description>似乎现在稍微坐久点就感觉腰酸背痛的&amp;hellip; 对于台式显示器倒是一直不喜欢的，看得眼睛难受，要是再没得换，看来也只能拿家里的LCD去了。
+还有便是每天的班车，虽然来回都可以睡好一会儿，不过还是不喜欢汽车。搬去滨江?买房?&amp;hellip; &amp;hellip;
+这个星期学英语的态度也没上星期来的积极，兴趣降低，似乎特别容易觉得累，不容易集中精神。
+Time&amp;rsquo;s limited. 又想学点英语，又想多看点技术的东西，可是晚上的这几个小时还是太快，没有很好的计划。
+经常想着周末可以多用些时间在这上面，其实不然，会做些零星的事情，人也容易放松。
+当天的事当天做，听上去很容易，做起来似乎就不是那么回事了。
+在公司加班到7点多，出来去坐公交。走在路上，看了看夜空，突然想，如果这个时候可以有个人聊聊多好，即使打个电话也好。可惜没有。
+没有就没有吧，一切总还得继续，听听音乐，当作放松。
+这又不禁让人想起来，恋爱图个啥，婚姻又图个啥。也许是我们需要一比独特的精神财富，成为另一半，成为father。
+试想没有这两样东西，生活应该可以照样精彩的继续，但是没有人放弃去追求它们。
+婚姻是有条件的，或许也是有目的的；但爱情是无价的。</description></item><item><title>What have done these days</title><link>https://freizl.github.io/2007/04/what-have-done-these-days.html</link><pubDate>Sat, 21 Apr 2007 08:25:00 -0700</pubDate><guid>https://freizl.github.io/2007/04/what-have-done-these-days.html</guid><description>It seems that BIRT is a easy to learn and great reporting tool. I designed several reports with it.
+Not very difficult and I also used its shared libraries feature, very cool. But we met a hard time of the drill through report, which also used shared libraries.
+Everything goes well of each single report in BIRT Designer but failed when combining them through drill down,either deploying to Pentaho server.</description></item><item><title>Hope Genuine MS OS in lower price</title><link>https://freizl.github.io/2007/04/hope-genuine-ms-os-in-lower-price.html</link><pubDate>Wed, 11 Apr 2007 08:29:00 -0700</pubDate><guid>https://freizl.github.io/2007/04/hope-genuine-ms-os-in-lower-price.html</guid><description>I started to use Vista OS again and it indeed a fantastic Operation System I even experienced (And I also wish I will get Apple machine in future. ^^ ).
+And it just has 30 days to use. What a pity! I do want to get a genuine copyright instead of cracking it.
+But a genuine one is tooooo expensive for ordinary Chinese guys like me. I am sure most of us will still use a cracked Vista.</description></item><item><title>Get busy livin' or get busy dyin'</title><link>https://freizl.github.io/2007/04/get-busy-livin-or-get-busy-dyin.html</link><pubDate>Sun, 08 Apr 2007 08:02:00 -0700</pubDate><guid>https://freizl.github.io/2007/04/get-busy-livin-or-get-busy-dyin.html</guid><description>This was a quote from the film &amp;lt;The Shawshank Redemption&amp;gt;, which made me think a lot.
+Its main theme is hope. And recently I also think about it. Because I wonder almost everything should be possible and you should not lose faith.
+It&amp;rsquo;s much worth to take two hours in watching this film and also for more than once.
+This time I took a good rest and feel peaceful.
+上星期参加林健的婚礼，顺便在逛了下苏州。城市很有特色，蛮值得一去。</description></item><item><title>Blogspot came back to Chinese!</title><link>https://freizl.github.io/2007/03/blogspot-came-back-to-chinese.html</link><pubDate>Thu, 29 Mar 2007 04:37:00 -0700</pubDate><guid>https://freizl.github.io/2007/03/blogspot-came-back-to-chinese.html</guid><description>Blogspot was bared again in China mainland. Maybe the reason was some political words about TaiWan and Tibet.
+But today we can access this site again. Good news for our Chinese users I think.
+Release One is almost completed of our project and project manager was back to U.S.
+This was the first time for me to work with foreign people and we did pratice much English.
+Even though my speaking English just got a little progress.</description></item><item><title>Http Header Referer</title><link>https://freizl.github.io/2007/03/http-header-referer.html</link><pubDate>Fri, 23 Mar 2007 05:20:00 -0700</pubDate><guid>https://freizl.github.io/2007/03/http-header-referer.html</guid><description>It seems that Pentaho Pre-Configged server doesn&amp;rsquo;t support reporting security.That means everyone can see the report if he know the URL.
+And I found out I could get the users' role set in JBoss portal session but not Pentaho session since I used two filter in both session.
+Then I think they are different sessions and I tried to find the relationship but failed.
+So I didnot know how to transfer the role infor from JBoss portal session to Pentaho session.</description></item><item><title>What do I really want</title><link>https://freizl.github.io/2007/03/what-do-i-really-want.html</link><pubDate>Thu, 22 Mar 2007 07:37:00 -0700</pubDate><guid>https://freizl.github.io/2007/03/what-do-i-really-want.html</guid><description>鼻涕，咳嗽，有点点发烧，这就是今天的样子。
+Our COO gave us a soft-training about what&amp;rsquo;s the career this afternoon.
+It&amp;rsquo;s pretty interesting and make me think a lot, but just for what&amp;rsquo;s the love these days.
+因为我似乎又一次陷入某种莫名的沉思状态，只要一离开电脑，脑子就开始想别的。
+很奇怪为何会这样。我是真心的还是只为了某种可能性。我到底希望得到什么吗？
+或许我只想要另一份关心，彼此心里在乎。可是我似乎都没有得到，那我还在坚持什么？
+婚姻永远是现实的，也应该是现实的，精神的东西永远可以阿Q，也应该可以阿Q；试想如果对方有更好的选择，为何屈嫁与你。
+无奈了？不甘心了？真的只能这样了？</description></item><item><title>Missing</title><link>https://freizl.github.io/2007/03/missing.html</link><pubDate>Wed, 21 Mar 2007 06:11:00 -0700</pubDate><guid>https://freizl.github.io/2007/03/missing.html</guid><description>似乎有一半的自己还在北京，想念那里的景，更想那时的人。
+我们一起快乐，一起憨笑，一起跑在长城上，一起回顾照片，开始靠得很近，也许从来没有那么的接近，
+可是也就那么几天，那么几秒，就各自回到自己熟悉的城市，继续之前的生活。
+So I much hope if we were just sitting together for another time.
+这是一次美丽的结束，还是精彩的开始？
+可是为何不为这样的旅行感到心满意足呢？为何还在乎其过去没有我参与的&amp;rsquo;生活'？为何还在乎它是结束亦或开始？
+3月20号，早起收拾了下东西，在房间里呆到9点多，然后一起在旁边的cafe bar吃完午饭，开始去机场。
+似乎时间不是匆逾，换票，安检，我们俩就开始在候机室等着了。两班飞机都晚点，于是我们又可以多坐半个小时。
+很快，她登机了，半个小时后，我也登机了。晚上6点，飞机都着陆了；7点多，都到家了。
+3月19号，早上在天坛，地方挺大的，不过可看的就那么三个地方，整个还是那么有文化味道。
+我们匆匆路过王府井，吃过午饭，阿梦肚子难受，逛了下药店；然后去了清华，北大，略显匆忙，都累了。
+3月18号，从德胜门坐车去八达岭，天公也很作美，开始下小雪，来得真是时候 ！
+我们开始慢慢地往上逛，拍拍照，看看雪景；然后沿着另一条路，慢慢下来，拍拍照，看看雪景，我们多么得快乐！
+下到长城底下，雪大了起来，我们躲进了starbuck coffee。休息，看看拍的照片；开始poker，然后我们笑得前俯后仰！
+3月17号，7点半到北京站，有点冷，北方的空气显得有点熟悉。天安门广场，天安门城楼，故宫，景山公园，北海，恭亲王府。
+最舒服的是躺在故宫城墙后面的椅子上晒太阳，看看故宫； 最美的是傍晚那会儿的恭王府，平静。
+似乎还记得这天晚上做了很令人心痛的梦，maybe it indicated I did care about something!
+3月16号，晚上6点火车，时间在打牌中很快得过去，不过并没睡好，thinking something.</description></item><item><title>A Trip to BeiJing</title><link>https://freizl.github.io/2007/03/trip-to-beijing.html</link><pubDate>Thu, 15 Mar 2007 08:01:00 -0700</pubDate><guid>https://freizl.github.io/2007/03/trip-to-beijing.html</guid><description>老大来杭州待了一天，想来他是N年前来的杭州。
+都说朋友是&amp;rsquo;臭味相同'，突然发现和这位朋友还是有许多相似地方，虽然工作不同，赚钱不同
+我们都刚开始工作不久，谈得多还是钱，因为身边总是能听到生意做得好同龄人，可惜我们都还不是；
+然后会说相亲，婚姻，这似乎是个该恋爱的年龄，可惜还是始终single，没有合适的。
+阿芊和我说起其实她还是会偶尔想起过去的一些事情，很美好的回忆；
+我说其实我也是，只是我现在更愿意忘记，因为我会在有些时候回忆当时的感觉；
+然后开始无奈，然后开始说就让它过去了。
+明天和露梦去北京玩，周二回。希望天公作美，一切都顺利。
+虽然说雨天的景色应该也很美，但晴天总是好点~
+ For Iteration Three:
+We change the technology of reporting tool to Eclipse BIRT and use its multiple datasets.
+Fix out these issues in report side:
+&amp;ndash; How to pass parameter from Pentaho to BIRT report. Refer to document in Pentaho JIRA site.
+&amp;ndash; Make the new version BIRT report work in Pentaho 1.2.x. Modify the name space.
+&amp;ndash; The image item in BIRT.</description></item><item><title>Two interations</title><link>https://freizl.github.io/2007/03/two-interations.html</link><pubDate>Sat, 10 Mar 2007 06:53:00 -0800</pubDate><guid>https://freizl.github.io/2007/03/two-interations.html</guid><description>Well,the iteration 2 was done when COB this Friday.
+Iteration 1 last week just setted the environment of developing and testing.
+Got the tools: MySQL Database,a open ETL tool named CloverETL, Pentaho BI platform, xPlanner,Bugzilla.
+We just used a litter part of Pentaho,such as reporting (basic on JFreeChart) and portal (basic on JBoss portal).
+This week, we have got the Authentication task completed, which using JBoss LDAP login module against MS AD.</description></item><item><title>About Marriage,About love</title><link>https://freizl.github.io/2007/03/about-marriageabout-love.html</link><pubDate>Sat, 10 Mar 2007 06:08:00 -0800</pubDate><guid>https://freizl.github.io/2007/03/about-marriageabout-love.html</guid><description>一朋友说她最近苦恼于有人来提亲。
+男方条件个方面应该都很好，至少她的家人朋友都一致赞同。这也许又是一个幸福的开始！
+只是她不是完全的愿意，因为这个开始没有带着相互建立起来的感情，
+她想经历一场感情，彼此相爱，然后一起走向幸福。否则这样的结婚似乎显得&amp;rsquo;草草了事'。
+也不无道理，与一位不曾了结过的人结婚，然后一起度过经后那么长的日子，显得那么不可预测，迷茫。
+又或许，这就是另外一种爱情？婚后再彼此了解，所谓的培养感情。
+毕竟相亲后事情基本上就这样，而且相亲习俗自古至今，总有其道理所在。
+很多看来结婚是自己的事情，因为是关自己将来的生活， 但我觉得结婚是父母的事情的说法更好接受，
+从选对象到婚礼到婚后，无不是长辈们的张罗着，特别是那般热闹的婚宴，领结婚证这样的事情是从西方传来的，
+而摆酒这样的形势才算是&amp;quot;中国式结婚&amp;quot;。
+她是位乖孩子 ，她说自己心里不肯，又不愿让父母失望，所以心里很矛盾。
+我想这样的心情只是一时，一旦作了决定，迷茫的心情会很快消逝。
+这大概就是所谓的&amp;quot;两难&amp;quot;，无论哪个方向都不是，似乎中国人常常遇到两难的事情。
+我们的办法不该是2选1，而是寻找第三条出路。Interesting,isn&amp;rsquo;t it!
+就像老外只会说yes or no,而我们经常都是说it depends.
+能遇上一位值得去喜欢的人，真得很快乐；如果可以与她相爱，那会很幸福。
+但是如果只能参加她和别人婚礼，也只能真心的祝福，而心里大概也只有难受。
+换个似乎想想，只有在合适的时间出现的合适的人，那才是最好，其她都是有缘无份。
+Who said,people come into to your life for a reason.
+每个进入你生活的人都是有原因，而只有一个人是为了与你结伴而来的。</description></item><item><title>Start</title><link>https://freizl.github.io/2007/03/start.html</link><pubDate>Sat, 03 Mar 2007 19:26:00 -0800</pubDate><guid>https://freizl.github.io/2007/03/start.html</guid><description>As I used several google services more and more these days, such as mail,reader,bookmark,book note,
+so I start to adopt its blog service Blogger instead of live spaces which I think has a more beautiful displaying.
+Blogger was unprohibited by Chinese Government last year and also it was updated to a better version, more easy use.
+Blogger has a pretty interesting feature that one account can create multi blog sites,not only one.</description></item></channel></rss>

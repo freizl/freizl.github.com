@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Wiki on Corner case</title><link>https://freizl.github.io/tags/wiki/</link><description>Recent content in Wiki on Corner case</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Haisheng Wu</copyright><lastBuildDate>Fri, 18 Sep 2009 05:10:00 -0700</lastBuildDate><atom:link href="https://freizl.github.io/tags/wiki/index.xml" rel="self" type="application/rss+xml"/><item><title>Trac quick setup</title><link>https://freizl.github.io/2009/09/trac-quick-setup.html</link><pubDate>Fri, 18 Sep 2009 05:10:00 -0700</pubDate><guid>https://freizl.github.io/2009/09/trac-quick-setup.html</guid><description>Came across Trac while checking information of Scrapy and had a quick try.
+Operation System is Ubuntu.
+Operation performed:
+Download package from official site
+Follow INSTALL doc in the package to complete installation
+Start Trac and visit Guide
+Auth
+basic auth
+TODO other auth of adding register feature
+Subversion
+python Subversion module (ubuntu install script: apt-get install python-subversion)</description></item><item><title>Mirro the Wikipedia at your local</title><link>https://freizl.github.io/2008/03/mirro-wikipedia-at-your-local.html</link><pubDate>Sat, 22 Mar 2008 23:46:00 -0700</pubDate><guid>https://freizl.github.io/2008/03/mirro-wikipedia-at-your-local.html</guid><description>sudo apt-get update
+sudo apt-get install apache2 php5 libapache2-mod-php5 mysql-server mysql-client php5-mysql phpmyadmin
+mkdir ~/wiki/
+cd ~/wiki/
+wget http://download.wikimedia.org/mediawiki/1.10/mediawiki-1.10.0.tar.gz
+sudo mkdir /var/www/w/
+sudo tar xzf mediawiki-1.10.0.tar.gz -C /var/www/
+cd /var/www/mediawiki-1.10.0/
+sudo chmod a+x config
+$ mysql
+mysql&amp;gt; USE mysql;
+mysql&amp;gt; UPDATE user SET Password=PASSWORD(’new-password’) WHERE user=’root’;
+mysql&amp;gt; FLUSH PRIVILEGES;
+add user &amp;lsquo;wikiuser&amp;rsquo; and database &amp;lsquo;wikidb&amp;rsquo; and set privileges
+wget http://download.wikimedia.org/enwiki/20070402/enwiki-20070402-pages-articles.xml.bz2
+bunzip2 -k enwiki-20070402-pages-articles.xml.bz2
+wget http://modzer0.cs.uaf.edu/~dev2c/mwimport.sh (OR http://freizl.googlepages.com/mwimport.sh)
+chmod +x mwimport.sh</description></item></channel></rss>

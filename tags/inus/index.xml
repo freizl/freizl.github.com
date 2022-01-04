@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>InUS on Corner case</title><link>https://freizl.github.io/tags/inus/</link><description>Recent content in InUS on Corner case</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Haisheng Wu</copyright><lastBuildDate>Thu, 31 Jan 2008 23:01:00 -0800</lastBuildDate><atom:link href="https://freizl.github.io/tags/inus/index.xml" rel="self" type="application/rss+xml"/><item><title>Runnning Warcraft 3 in Widescreen</title><link>https://freizl.github.io/2008/01/runnning-warcraft-3-in-widescreen.html</link><pubDate>Thu, 31 Jan 2008 23:01:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/runnning-warcraft-3-in-widescreen.html</guid><description>START &amp;gt; run &amp;gt; regedit
+locate to:
+HKEY_CURRENT_USER &amp;gt; Software &amp;gt; Blizzard Entertainment &amp;gt; Warcraft III &amp;gt; Video
+Make below change in decimal format:
+(Right click &amp;gt; Change &amp;gt; select &amp;ldquo;decimal&amp;rdquo; &amp;gt; fill in new value)
+resheight = 1600
+reswidth = 900
+Replace width &amp;amp; height with whatever resolution you wanna play in, examples:
+1280x720 16:9 Widescreen
+1440x900 16:10 Widescreen
+1680x1050 16:10 Widescreen
+1920x1200 16:10 Widescreen
+For Details</description></item><item><title>Move to a new Hotel</title><link>https://freizl.github.io/2008/01/move-to-new-hotel.html</link><pubDate>Tue, 15 Jan 2008 21:05:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/move-to-new-hotel.html</guid><description>Actually it&amp;rsquo;s a kind of apartment named Boston Commons, at the south of Denver.
+We moved to here last Saturday and I lived in a two rooms' apartment with a colleague.
+It has a living room with a stove. And we took the light rail to the office.
+Still busy these days and I didn&amp;rsquo;t have much time to check the GMail and write post.
+And generallyI didn&amp;rsquo;t find few interesting things to blog and forgot .</description></item><item><title>Happy hour</title><link>https://freizl.github.io/2008/01/happy-hour.html</link><pubDate>Tue, 08 Jan 2008 23:22:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/happy-hour.html</guid><description>It&amp;rsquo;s happy hour and also thanks party since several GDC guys are gonna back to Hangzhou.
+It&amp;rsquo;s a bar nearby office in downtown. It looks not very modern and a litter different with those in Hangzhou. And the drinkings here, wo&amp;hellip; I&amp;rsquo;m almost lost. Beer,Vodka and Whisky, those all I can remember. To be honestly I couldn&amp;rsquo;t drink and just tasted a small bottle of wine, that I forgot its name.</description></item><item><title>Happy New Year &amp; Being OT</title><link>https://freizl.github.io/2008/01/happy-new-year-being-ot.html</link><pubDate>Tue, 01 Jan 2008 21:18:00 -0800</pubDate><guid>https://freizl.github.io/2008/01/happy-new-year-being-ot.html</guid><description>This is the new year, 2008. But we are working from hotel.
+I didn&amp;rsquo;t have much complain of being working over time occasionally.
+And we do solve something by the end of day.
+But this time turn out to be a litter different since it&amp;rsquo;s the new year,.
+We should take a good rest, shouldn&amp;rsquo;t we?
+I&amp;rsquo;m thinking about when we were working today, what were those management team, architecture team and customers doing?</description></item><item><title>Pacific Ocean Marketplace</title><link>https://freizl.github.io/2007/12/pacific-ocean-marketplace.html</link><pubDate>Sun, 30 Dec 2007 19:56:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/pacific-ocean-marketplace.html</guid><description>终于去到了传说中的太平洋超市，有所谓的Chinese stuff. 果然是看着9眼熟，
+很多东西一眼望过去就知道是啥玩意，而且很多都有中文。
+确实方便不少。米，醋，酒，一应俱全。连年糕，面，泡面都有，虽然和国内有些差别。
+再过几天就是这边的新年，看看会有些啥玩意，似乎不像农历新年热闹得很，
+这里似乎很平静，或许是没去市区逛逛。</description></item><item><title>Quiet</title><link>https://freizl.github.io/2007/12/quiet.html</link><pubDate>Sun, 30 Dec 2007 06:47:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/quiet.html</guid><description>这个地方很安静，除了冰箱的一点点噪音和如果开着的空调。没有多余的人和动物。
+昨天晚12点多睡，一觉睡到7点，真爽。这样的状态似乎已然消逝很久。
+昨天和安仔聊天，说US并没有给太多的惊喜，其实就是这样。
+工作有点点忙，而且有不是很顺畅；语言还得下功夫；出去购物得有车，自己又不会开；
+去购物的时候很多都不认识，不认识是什么牌子，不认识是什么东西；
+而通常是集体出动，就跟着走走看看，稍微了解了解。
+不过后来想了想，应该是看店面能看出这个牌子的档次，比如Calvin Klein的样子就比很多店装修的要好，
+所以东西卖的也贵，名气应该不小。不过听说LV还是个太高档次的属于我们无法承受的店，所以去的那两个地方都没有。
+不过那帮人挑的东西大概都还是很值得买的，比起国内要便宜好些，牌子都是数得上。
+一瓶Amarni 70$, 据说比国内便宜好些。香水和衣服是买的比较多的，可能正赶上还在打折的时间。
+怪不得black Friday的时候要去血拼，原来几百的东西打到几十块，还不赶紧买。</description></item><item><title>Cheery Creek &amp; Castle Rock</title><link>https://freizl.github.io/2007/12/cheery-creek-crystal-rock.html</link><pubDate>Sat, 29 Dec 2007 20:30:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/cheery-creek-crystal-rock.html</guid><description>It&amp;rsquo;s weekend. So it&amp;rsquo;s shopping day as some guys will go back to China soon.
+We started to Cheery Creek first which has lots of cosmetics, perfume, clothing, electronic, etc..
+We saw Clinique, Lascome, Channel and many brands we didn&amp;rsquo;t know ever.
+There&amp;rsquo;s a Apple store as well and we tested i Phone. How cool it is! 8G memory, 399$ without tax.
+The only disappointed thing is I can&amp;rsquo;t use it in China as well as in US.</description></item><item><title>WalMart</title><link>https://freizl.github.io/2007/12/walmart.html</link><pubDate>Fri, 28 Dec 2007 22:29:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/walmart.html</guid><description>We rended several cars for shopping by COB. First is the BestBuy. It&amp;rsquo;s not very big but do have many productions, software, CD/DVD, computer accessorizes. And seems doesn&amp;rsquo;t have much deals. Then went to Walmart nearby. It&amp;rsquo;s huge. Lots of stuff and most of them I can&amp;rsquo;t identify what they are as well as what they are used for. Since we didn&amp;rsquo;t have enough time, I just asked for partners to give me suggestions what I should buy for the coming a week.</description></item><item><title>Radio in Denver</title><link>https://freizl.github.io/2007/12/radio-in-denver.html</link><pubDate>Thu, 27 Dec 2007 22:21:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/radio-in-denver.html</guid><description>I can receive more than 20 radio channels in Denver.
+But my iRiver T10 could only save 20 channels.Sound bad!.
+Any stuff can deal with this tough thing?
+Save all channels then I can select one I like easily.</description></item><item><title>The first day</title><link>https://freizl.github.io/2007/12/first-day.html</link><pubDate>Thu, 27 Dec 2007 19:58:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/first-day.html</guid><description>It&amp;rsquo;s snow day here.
+We walked for about 10 Minutes to take bus to client office and learned the
+environment.
+Everywhere is covered by snow. The view outside is like what we saw in
+some old US films.
+And the bus is definitely more comfortable than that in Hangzhou as
+well as it&amp;rsquo;s bigger.
+About half of ten o&amp;rsquo;clock, Billy brought our new arrivals to
+our company office. It&amp;rsquo;s
+smaller than the GDC office and nothing better than GDC I think.</description></item><item><title>Arrival in US</title><link>https://freizl.github.io/2007/12/arrival-in-us.html</link><pubDate>Wed, 26 Dec 2007 18:58:00 -0800</pubDate><guid>https://freizl.github.io/2007/12/arrival-in-us.html</guid><description>1一个半小时的火车，1个小时机场大巴，近11点才到达浦东机场
+下午1点40的飞机，经过日本上空(听说的)，近12小时达到San Francisco.
+San Francisco 就在西海岸，飞机跨过海岸线后，就开始准备着陆了。
+地上的汽车小的像是自行车队；看到了朔长的金门大桥，只是耳朵痛得没来得急拍照，
+8:45AM进机场，取行李，又安检，两瓶老干妈，一瓶咸菜，一瓶豆腐乳都扣押扔掉，NND&amp;hellip;
+这便算是安全进入美国境内了。时间大致9:30AM.
+再在机场等1个小时，转机到Denver。这趟飞机作的实在舒服，一上飞机就开始睡，
+连起飞都没不知道，就在降落的时候醒来了。Local time 2:45PM the plane landed in Denver.
+Denver似乎下了大雪，外面除了公路上到处是积雪，天气还是很晴朗，温度零下8度。
+等了半个多小时接送的车才到，直接送往旅馆，安排房间，单人房，有电视，网络，还算不错。
+拆包，旅途结束。</description></item></channel></rss>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cygwin on Corner case</title><link>https://freizl.github.io/tags/cygwin/</link><description>Recent content in Cygwin on Corner case</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Haisheng Wu</copyright><lastBuildDate>Tue, 19 Aug 2008 01:50:00 -0700</lastBuildDate><atom:link href="https://freizl.github.io/tags/cygwin/index.xml" rel="self" type="application/rss+xml"/><item><title>Set programs installed in Windows Program files folder to PATH (Cygwin)</title><link>https://freizl.github.io/2008/08/set-programs-installed-in-windows.html</link><pubDate>Tue, 19 Aug 2008 01:50:00 -0700</pubDate><guid>https://freizl.github.io/2008/08/set-programs-installed-in-windows.html</guid><description>VIM_HOME='/cygdrive/c/Program Files/Vim/vim72'
+JAVA_HOME='/cygdrive/c/Program Files/Java/jdk1.5.0_11'
+alias ll=&amp;ldquo;ls -lh&amp;rdquo;
+alias l=&amp;ldquo;ls -a&amp;rdquo;
+PATH=&amp;quot;${VIM_HOME}&amp;quot;:&amp;quot;${JAVA_HOME}/bin&amp;quot;:${PATH}
+export PATH
+The quote and double quote play the magic..</description></item></channel></rss>
