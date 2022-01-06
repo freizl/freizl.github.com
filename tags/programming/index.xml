@@ -15,8 +15,4 @@ Binary Search 108 will return 6 while getTargetPosition return 5.</description><
 For instance, number 4 is at 0x34 (decimal 52), so flags[52] = 0x0b (00001100), those 8bits 0/1 are indication.
 Chapter 5 of has the detail.</description></item><item><title>Tail Call Optimization</title><link>https://freizl.github.io/posts/tail-call-optimization/</link><pubDate>Wed, 19 Aug 2009 21:41:00 -0700</pubDate><guid>https://freizl.github.io/posts/tail-call-optimization/</guid><description>A tail call is a subroutine call which is followed by a return to the calling code.
 Tail calls are often optimized by interpreters and compilers of functional programming languages to more efficient forms of iteration.
-See here and here.</description></item><item><title>Quotes from Pragmatic Programming</title><link>https://freizl.github.io/posts/quotes-from-pragmatic-programming/</link><pubDate>Thu, 17 Apr 2008 05:50:00 -0700</pubDate><guid>https://freizl.github.io/posts/quotes-from-pragmatic-programming/</guid><description>Tip4: Don&amp;rsquo;t live with Broken Windows
-&amp;ldquo;&amp;hellip;.You may be thinking that no one has the time to go around cleaning up all the broken glass of a project. If you continue to think like that, then you&amp;rsquo;d better plan on getting a dumpster, or moving to another neighborhood. Don&amp;rsquo;t let entropy win.&amp;rdquo;
-Tip5: Be a catalyst for Change
-[The stone soup story]
-Basically I think I experience the negative thing which is described in the Tip4.</description></item></channel></rss>
+See here and here.</description></item></channel></rss>

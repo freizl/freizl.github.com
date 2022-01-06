@@ -37,19 +37,7 @@ private static final String AQ_TOPIC = &amp;ldquo;ESB_DEMO_QUEUE&amp;rdquo;;
 private static final String HOST_NAME = &amp;ldquo;VLINUX&amp;rdquo;;
 private static final String SID = &amp;ldquo;XE&amp;rdquo;;
 private static final int CONNECT_PORT = 1521;
-private static final String CONNECT_TYPE = &amp;ldquo;thin&amp;rdquo;;</description></item><item><title>Notes from</title><link>https://freizl.github.io/posts/notes-from/</link><pubDate>Thu, 31 Jul 2008 07:43:00 -0700</pubDate><guid>https://freizl.github.io/posts/notes-from/</guid><description>From the book &amp;lt;Elements of Java Style&amp;gt;
-62. Describe why the code is doing what it does, not what the code is doing.
-70. Define subclasses so they may be used anywhere their superclasses may be used.
-The Liskov Substitution Principle
-The Open-Closed Principle
-100. Use lazy initialization
-class PersonalFinance {
-private LoanRateCalculator loan = null;
-public LoanRateCalculator getLoan(){
-if (this.loan == null) {
-this.loan = new LoanRateCalculator();
-}
-return this.</description></item><item><title>"Instance" an Interface (Java)</title><link>https://freizl.github.io/posts/instance-interface-java/</link><pubDate>Sun, 20 Jul 2008 05:26:00 -0700</pubDate><guid>https://freizl.github.io/posts/instance-interface-java/</guid><description>It looks like &amp;ldquo;instance&amp;rdquo; an Interface&amp;hellip;
+private static final String CONNECT_TYPE = &amp;ldquo;thin&amp;rdquo;;</description></item><item><title>"Instance" an Interface (Java)</title><link>https://freizl.github.io/posts/instance-interface-java/</link><pubDate>Sun, 20 Jul 2008 05:26:00 -0700</pubDate><guid>https://freizl.github.io/posts/instance-interface-java/</guid><description>It looks like &amp;ldquo;instance&amp;rdquo; an Interface&amp;hellip;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 public class InterestingTests {

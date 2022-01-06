@@ -31,24 +31,4 @@ def display(x):
 print &amp;lsquo;$&amp;rsquo; * 50, &amp;lsquo;\n&amp;rsquo;, x
 #[ display(x) for x in results ]
 file.close()
-merge.log</description></item><item><title>map, iterate function list, time in python</title><link>https://freizl.github.io/posts/map-iterate-function-list-time-in/</link><pubDate>Thu, 03 Apr 2008 20:34:00 -0700</pubDate><guid>https://freizl.github.io/posts/map-iterate-function-list-time-in/</guid><description>from __future__ import division
-def prime1(y):
-if y &amp;lt;= 1:
-print y, &amp;lsquo;not prime&amp;rsquo;
-else:
-x = y // 2
-while x &amp;gt; 1:
-if y % x == 0:
-retValue = y, &amp;lsquo;has factor&amp;rsquo;, x
-break
-x -= 1
-else:
-retValue = y, &amp;lsquo;is prime&amp;rsquo;
-def timer(reps, func, *args):
-import time
-start = time.clock()
-for i in xrange(reps):
-map(func, args)
-return time.clock() - start
-for func in (prime1,):
-print timer(10000, func, 12,15,18,20,22,30)</description></item></channel></rss>
+merge.log</description></item><item><title>map, iterate function list, time in python</title><link>https://freizl.github.io/posts/map-iterate-function-list-time-in/</link><pubDate>Thu, 03 Apr 2008 20:34:00 -0700</pubDate><guid>https://freizl.github.io/posts/map-iterate-function-list-time-in/</guid><description>from \_\_future\_\_ import division def prime1(y): if y &amp;lt;= 1: print y, &amp;#39;not prime&amp;#39; else: x = y // 2 while x &amp;gt; 1: if y % x == 0: retValue = y, &amp;#39;has factor&amp;#39;, x break x -= 1 else: retValue = y, &amp;#39;is prime&amp;#39; def timer(reps, func, \*args): import time start = time.clock() for i in xrange(reps): map(func, args) return time.clock() - start for func in (prime1,): print timer(10000, func, 12,15,18,20,22,30) download file</description></item></channel></rss>
