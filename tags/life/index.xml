@@ -130,7 +130,7 @@ Its main theme is hope. And recently I also think about it. Because I wonder alm
 It&amp;rsquo;s much worth to take two hours in watching this film and also for more than once.
 This time I took a good rest and feel peaceful.
 上星期参加林健的婚礼，顺便在逛了下苏州。城市很有特色，蛮值得一去。</description></item><item><title>Http Header Referer</title><link>https://freizl.github.io/posts/http-header-referer/</link><pubDate>Fri, 23 Mar 2007 05:20:00 -0700</pubDate><guid>https://freizl.github.io/posts/http-header-referer/</guid><description>It seems that Pentaho Pre-Configged server doesn&amp;rsquo;t support reporting security.That means everyone can see the report if he know the URL.
-And I found out I could get the users' role set in JBoss portal session but not Pentaho session since I used two filter in both session.
+And I found out I could get the users&amp;rsquo; role set in JBoss portal session but not Pentaho session since I used two filter in both session.
 Then I think they are different sessions and I tried to find the relationship but failed.
 So I didnot know how to transfer the role infor from JBoss portal session to Pentaho session.</description></item><item><title>Two interations</title><link>https://freizl.github.io/posts/two-interations/</link><pubDate>Sat, 10 Mar 2007 06:53:00 -0800</pubDate><guid>https://freizl.github.io/posts/two-interations/</guid><description>Well,the iteration 2 was done when COB this Friday.
 Iteration 1 last week just setted the environment of developing and testing.

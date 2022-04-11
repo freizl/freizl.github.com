@@ -57,7 +57,7 @@ return lockState;
 }
  public boolean isUnlockState() {
 return unlockState;</description></item><item><title>Something in Generic Programming</title><link>https://freizl.github.io/posts/something-in-generic-programming/</link><pubDate>Wed, 16 Jul 2008 06:33:00 -0700</pubDate><guid>https://freizl.github.io/posts/something-in-generic-programming/</guid><description>-- difference between raw type list and wildcard type list
-You can put any element into a collection with a raw type, easily corrupting the collections type invariant. you cant put any element(other than null) into a Collection&amp;lt;?&amp;gt;. Attempting to do so will generate a compile-time error message.
+You can put any element into a collection with a raw type, easily corrupting the collections type invariant. you cant put any element(other than null) into a Collection. Attempting to do so will generate a compile-time error message.
 -- parametrized types are invariant.
 In other words, for any two distinct types Type1 and Type2, Listis either a subtype nor a supertype of List.</description></item><item><title>JSE5, New Language Features Introduce by Joshua Bloch</title><link>https://freizl.github.io/posts/jse5-new-language-features-introduce-by/</link><pubDate>Mon, 07 Jul 2008 20:16:00 -0700</pubDate><guid>https://freizl.github.io/posts/jse5-new-language-features-introduce-by/</guid><description>(For me), it&amp;rsquo;s a good overview introduce of JSE5 new feature.
 http://java.sun.com/features/2003/05/bloch_qa.html
@@ -72,15 +72,15 @@ private static long second = 0L;
 private String name;
 public BaseObject()
 {
-name = &amp;ldquo;&amp;quot;;
-System.out.println(&amp;ldquo;I am class block initialization.&amp;quot;);
+name = &amp;ldquo;&amp;rdquo;;
+System.out.println(&amp;ldquo;I am class block initialization.&amp;rdquo;);
 second++;
-System.out.println(&amp;ldquo;I am constructor.&amp;quot;);
+System.out.println(&amp;ldquo;I am constructor.&amp;rdquo;);
 }
 public BaseObject(String name)
 {
-this.name = &amp;ldquo;&amp;quot;;
-System.out.println(&amp;ldquo;I am class block initialization.&amp;quot;);
+this.name = &amp;ldquo;&amp;rdquo;;
+System.out.println(&amp;ldquo;I am class block initialization.&amp;rdquo;);
 this.name = name;
 second++;
 }
@@ -93,4 +93,4 @@ public void setName(String name)
 this.name = name;
 }
 public static long getSecond()</description></item><item><title>Static Field/Method, Initialization Block (Java)</title><link>https://freizl.github.io/posts/static-fieldmethod-initialization-block/</link><pubDate>Wed, 19 Mar 2008 19:12:00 -0700</pubDate><guid>https://freizl.github.io/posts/static-fieldmethod-initialization-block/</guid><description>package com.foo;
-import org.apache.commons.lang.builder.ReflectionToStringBuilder; public class BaseObject { /** a static field; all object of this class share this variable. */ private static long second = 0; private String name = &amp;ldquo;&amp;quot;; { System.out.println(&amp;ldquo;I am class block initialization.&amp;quot;); } static { System.out.println(&amp;ldquo;I am static block initialization.&amp;quot;); } public BaseObject() { super(); second++; System.out.println(&amp;ldquo;I am constructor.&amp;quot;); } public BaseObject(String name) { super(); this.name = name; second++; } public String getName() { return name; } public void setName(String name) { this.</description></item></channel></rss>
+import org.apache.commons.lang.builder.ReflectionToStringBuilder; public class BaseObject { /** a static field; all object of this class share this variable. */ private static long second = 0; private String name = &amp;ldquo;&amp;rdquo;; { System.out.println(&amp;ldquo;I am class block initialization.&amp;rdquo;); } static { System.out.println(&amp;ldquo;I am static block initialization.&amp;rdquo;); } public BaseObject() { super(); second++; System.out.println(&amp;ldquo;I am constructor.&amp;rdquo;); } public BaseObject(String name) { super(); this.name = name; second++; } public String getName() { return name; } public void setName(String name) { this.</description></item></channel></rss>

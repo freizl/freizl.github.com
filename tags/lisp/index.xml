@@ -10,7 +10,7 @@ The reason is Clojure evaluates all the arguments before passing them to a funct
 so the println is called before unless ever sees it.</description></item><item><title>Compare ', #' and ` in LISP</title><link>https://freizl.github.io/posts/compare-and-in-lisp/</link><pubDate>Thu, 14 Aug 2008 00:10:00 -0700</pubDate><guid>https://freizl.github.io/posts/compare-and-in-lisp/</guid><description>quote &amp;lsquo;
 is syntactic sugar for QUOTE, which takes a single expression as its &amp;ldquo;argument&amp;rdquo; and simply returns it, unevaluated.
 (quote (+ 1 2)) === &amp;lsquo;(+ 1 2)
-#'
+#&amp;rsquo;
 is syntactic sugar for FUNCTION.
 (function foo) === #&amp;lsquo;foo
 backquote `

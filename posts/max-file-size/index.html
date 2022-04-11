@@ -1,283 +1,42 @@
-<!doctype html><html lang=en-us>
-<head>
-<link rel=preload href=../../lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=../../lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=../../lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<script type=text/javascript src=https://latest.cactus.chat/cactus.js></script>
-<link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<title> Max File Size | Corner case</title>
-<link rel=canonical href=https://freizl.github.io/posts/max-file-size/>
-<meta name=description content="Welcome to my personal blog.">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="all,follow">
-<meta name=googlebot content="index,follow,snippet,archive">
-<meta property="og:title" content="Max File Size">
-<meta property="og:description" content="While doing some refactoring work on solution from this guy1, I realized a pretty trivial thing about Manod method >>=.
+<!doctype html><html lang=en-us><head><link rel=preload href=../../lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=../../lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=../../lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous><script type=text/javascript src=https://latest.cactus.chat/cactus.js></script>
+<link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Max File Size | Corner case</title><link rel=canonical href=https://freizl.github.io/posts/max-file-size/><meta name=description content="Welcome to my personal blog."><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="all,follow"><meta name=googlebot content="index,follow,snippet,archive"><meta property="og:title" content="Max File Size"><meta property="og:description" content="While doing some refactoring work on solution from this guy1, I realized a pretty trivial thing about Manod method >>=.
 Take a look at its definition:
-Prelude> :t (>>=) (>>=) :: (Monad m) => m a -> (a -> m b) -> m b Both a and b ought to be some Monadic type! In other words, all computation glued together by >>= have same Manodic type.
-It is really straightforward however I did not have that in mind.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://freizl.github.io/posts/max-file-size/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2011-06-21T00:00:00+00:00">
-<meta property="article:modified_time" content="2011-06-21T00:00:00+00:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Max File Size">
-<meta name=twitter:description content="While doing some refactoring work on solution from this guy1, I realized a pretty trivial thing about Manod method >>=.
+ Prelude> :t (>>=)  (>>=) :: (Monad m) => m a -> (a -> m b) -> m b Both a and b ought to be some Monadic type! In other words, all computation glued together by >>= have same Manodic type.
+It is really straightforward however I did not have that in mind."><meta property="og:type" content="article"><meta property="og:url" content="https://freizl.github.io/posts/max-file-size/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2011-06-21T00:00:00+00:00"><meta property="article:modified_time" content="2011-06-21T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Max File Size"><meta name=twitter:description content="While doing some refactoring work on solution from this guy1, I realized a pretty trivial thing about Manod method >>=.
 Take a look at its definition:
-Prelude> :t (>>=) (>>=) :: (Monad m) => m a -> (a -> m b) -> m b Both a and b ought to be some Monadic type! In other words, all computation glued together by >>= have same Manodic type.
-It is really straightforward however I did not have that in mind.">
-<link rel=stylesheet href=https://freizl.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
-<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-<link rel=icon type=image/png href=https://freizl.github.io/images/favicon.ico>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-6496210-5','auto'),ga('send','pageview'))</script>
-</head>
-<body class="max-width mx-auto px3 ltr">
-<div class="content index py4">
-<div id=header-post>
-<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+ Prelude> :t (>>=)  (>>=) :: (Monad m) => m a -> (a -> m b) -> m b Both a and b ought to be some Monadic type! In other words, all computation glued together by >>= have same Manodic type.
+It is really straightforward however I did not have that in mind."><link rel=stylesheet href=https://freizl.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
+<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=icon type=image/png href=https://freizl.github.io/images/favicon.ico><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-6496210-5","auto"),ga("send","pageview"))</script></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
-<a id=top-icon-tablet href=# onclick="$('html, body').animate({scrollTop:0},'fast')" style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
-<span id=menu>
-<span id=nav>
-<ul>
-</ul>
-</span>
-<br>
-<span id=actions>
-<ul>
-<li>
-<a class=icon href=https://freizl.github.io/posts/deriving/ aria-label=Previous>
-<i class="fas fa-chevron-left" aria-hidden=true onmouseover="$('#i-prev').toggle()" onmouseout="$('#i-prev').toggle()"></i>
-</a>
-</li>
-<li>
-<a class=icon href=https://freizl.github.io/posts/type-parameter-at-typeclass-instance/ aria-label=Next>
-<i class="fas fa-chevron-right" aria-hidden=true onmouseover="$('#i-next').toggle()" onmouseout="$('#i-next').toggle()"></i>
-</a>
-</li>
-<li>
-<a class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
-<i class="fas fa-chevron-up" aria-hidden=true onmouseover="$('#i-top').toggle()" onmouseout="$('#i-top').toggle()"></i>
-</a>
-</li>
-<li>
-<a class=icon href=# aria-label=Share>
-<i class="fas fa-share-alt" aria-hidden=true onmouseover="$('#i-share').toggle()" onmouseout="$('#i-share').toggle()" onclick="return $('#share').toggle(),!1"></i>
-</a>
-</li>
-</ul>
-<span id=i-prev class=info style=display:none>Previous post</span>
+<a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu><span id=nav><ul></ul></span><br><span id=actions><ul><li><a class=icon href=https://freizl.github.io/posts/deriving/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://freizl.github.io/posts/type-parameter-at-typeclass-instance/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
 <span id=i-next class=info style=display:none>Next post</span>
 <span id=i-top class=info style=display:none>Back to top</span>
-<span id=i-share class=info style=display:none>Share post</span>
-</span>
-<br>
-<div id=share style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f" aria-label=Facebook>
-<i class="fab fa-facebook" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&text=Max%20File%20Size" aria-label=Twitter>
-<i class="fab fa-twitter" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=Linkedin>
-<i class="fab fa-linkedin" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&is_video=false&description=Max%20File%20Size" aria-label=Pinterest>
-<i class="fab fa-pinterest" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="mailto:?subject=Max%20File%20Size&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f" aria-label=Email>
-<i class="fas fa-envelope" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=Pocket>
-<i class="fab fa-get-pocket" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=reddit>
-<i class="fab fa-reddit" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&name=Max%20File%20Size&description=While%20doing%20some%20refactoring%20work%20on%20solution%20from%20this%20guy1%2c%20I%20realized%20a%20pretty%20trivial%20thing%20about%20Manod%20method%20%26gt%3b%26gt%3b%3d.%0aTake%20a%20look%20at%20its%20definition%3a%0aPrelude%26gt%3b%20%3at%20%28%26gt%3b%26gt%3b%3d%29%20%28%26gt%3b%26gt%3b%3d%29%20%3a%3a%20%28Monad%20m%29%20%3d%26gt%3b%20m%20a%20-%26gt%3b%20%28a%20-%26gt%3b%20m%20b%29%20-%26gt%3b%20m%20b%20Both%20a%20and%20b%20ought%20to%20be%20some%20Monadic%20type%21%20In%20other%20words%2c%20all%20computation%20glued%20together%20by%20%26gt%3b%26gt%3b%3d%20have%20same%20Manodic%20type.%0aIt%20is%20really%20straightforward%20however%20I%20did%20not%20have%20that%20in%20mind." aria-label=Tumblr>
-<i class="fab fa-tumblr" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&t=Max%20File%20Size" aria-label="Hacker News">
-<i class="fab fa-hacker-news" aria-hidden=true></i>
-</a>
-</li>
-</ul>
-</div>
-<div id=toc>
-<nav id=TableOfContents></nav>
-</div>
-</span>
-</div>
-<article class=post itemscope itemtype=http://schema.org/BlogPosting>
-<header>
-<h1 class=posttitle itemprop="name headline">
-Max File Size
-</h1>
-<div class=meta>
-<div class=postdate>
-<time datetime="2011-06-21 00:00:00 +0000 UTC" itemprop=datePublished>2011-06-21</time>
-</div>
-<div class=article-tag>
-<i class="fas fa-tag"></i>
+<span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&text=Max%20File%20Size" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&is_video=false&description=Max%20File%20Size" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Max%20File%20Size&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&name=Max%20File%20Size&description=While%20doing%20some%20refactoring%20work%20on%20solution%20from%20this%20guy1%2c%20I%20realized%20a%20pretty%20trivial%20thing%20about%20Manod%20method%20%26gt%3b%26gt%3b%3d.%0aTake%20a%20look%20at%20its%20definition%3a%0a%20Prelude%26gt%3b%20%3at%20%28%26gt%3b%26gt%3b%3d%29%20%20%28%26gt%3b%26gt%3b%3d%29%20%3a%3a%20%28Monad%20m%29%20%3d%26gt%3b%20m%20a%20-%26gt%3b%20%28a%20-%26gt%3b%20m%20b%29%20-%26gt%3b%20m%20b%20Both%20a%20and%20b%20ought%20to%20be%20some%20Monadic%20type%21%20In%20other%20words%2c%20all%20computation%20glued%20together%20by%20%26gt%3b%26gt%3b%3d%20have%20same%20Manodic%20type.%0aIt%20is%20really%20straightforward%20however%20I%20did%20not%20have%20that%20in%20mind." aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&t=Max%20File%20Size" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">Max File Size</h1><div class=meta><div class=postdate><time datetime="2011-06-21 00:00:00 +0000 UTC" itemprop=datePublished>2011-06-21</time></div><div class=article-tag><i class="fas fa-tag"></i>
 <a class=tag-link href=../../tags/monad rel=tag>monad</a>
 ,
-<a class=tag-link href=../../tags/haskell rel=tag>haskell</a>
-</div>
-</div>
-</header>
-<div class=content itemprop=articleBody>
-<p>While doing some refactoring work on solution from this guy<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, I
-realized a pretty trivial thing about Manod method <code>>>=</code>.</p>
-<p>Take a look at its definition:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#66d9ef>Prelude</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>:</span>t (<span style=color:#f92672>&gt;&gt;=</span>)
-  (<span style=color:#f92672>&gt;&gt;=</span>) <span style=color:#f92672>::</span> (<span style=color:#66d9ef>Monad</span> m) <span style=color:#f92672>=&gt;</span> m a <span style=color:#f92672>-&gt;</span> (a <span style=color:#f92672>-&gt;</span> m b) <span style=color:#f92672>-&gt;</span> m b
-</code></pre></div><p>Both <code>a</code> and <code>b</code> ought to be some Monadic type! In other words, all
-computation glued together by <code>>>=</code> have same Manodic type.</p>
-<p>It is really straightforward however I did not have that in mind.</p>
-<p>Since I did want to define a function take a <code>String</code> and return a list
+<a class=tag-link href=../../tags/haskell rel=tag>haskell</a></div></div></header><div class=content itemprop=articleBody><p>While doing some refactoring work on solution from this guy<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>, I
+realized a pretty trivial thing about Manod method <code>>>=</code>.</p><p>Take a look at its definition:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=display:flex><span>  <span style=color:#66d9ef>Prelude</span><span style=color:#f92672>&gt;</span> <span style=color:#66d9ef>:</span>t (<span style=color:#f92672>&gt;&gt;=</span>)
+</span></span><span style=display:flex><span>  (<span style=color:#f92672>&gt;&gt;=</span>) <span style=color:#f92672>::</span> (<span style=color:#66d9ef>Monad</span> m) <span style=color:#f92672>=&gt;</span> m a <span style=color:#f92672>-&gt;</span> (a <span style=color:#f92672>-&gt;</span> m b) <span style=color:#f92672>-&gt;</span> m b
+</span></span></code></pre></div><p>Both <code>a</code> and <code>b</code> ought to be some Monadic type! In other words, all
+computation glued together by <code>>>=</code> have same Manodic type.</p><p>It is really straightforward however I did not have that in mind.</p><p>Since I did want to define a function take a <code>String</code> and return a list
 of <code>String</code> while its implementation has several computations that
 return IO type. Obviously the function failed to compiled. Therefore I
-changed it to return <code>IO [String]</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell>  <span style=color:#75715e>-- FilePath is from package System.IO and it is synonyms of String</span>
-  getFilesInDir <span style=color:#f92672>::</span> <span style=color:#66d9ef>FilePath</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>IO</span> [<span style=color:#66d9ef>FilePath</span>]
-  getFilesInDir inp <span style=color:#f92672>=</span> <span style=color:#66d9ef>do</span>
-    isDir <span style=color:#f92672>&lt;-</span> doesDirectoryExist inp
-    files <span style=color:#f92672>&lt;-</span> <span style=color:#66d9ef>if</span> isDir <span style=color:#66d9ef>then</span>
-                (<span style=color:#66d9ef>do</span>
-                 names <span style=color:#f92672>&lt;-</span> getDirectoryContents inp
-                 forM [ inp <span style=color:#f92672>&lt;/&gt;</span> x <span style=color:#f92672>|</span> x <span style=color:#f92672>&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)
-             <span style=color:#66d9ef>else</span> return [[inp]]
-    return <span style=color:#f92672>$</span> concat files
-</code></pre></div><p>PS:</p>
-<ul>
-<li>Full source code here<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> or hpaste<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> which is cool as give me
-several suggestions.</li>
-<li>I think hpaste using hlint to do code analysis and provide suggestions</li>
-<li>Actually it is possible to have multiple Monad in one <code>do</code> levarage
-Monad Transformers.</li>
-</ul>
-<section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p><a href=http://www.never-ending.me/blog/2011/06/16/276/>Never ending</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:2 role=doc-endnote>
-<p><a href=https://github.com/freizl/dive-into-haskell/blob/master/io/MaxSizeFile.hs>MaxSizeFile.hs</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:3 role=doc-endnote>
-<p><a href=http://hpaste.org/47969>hpaset</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-</article>
-<div id=footer-post-container>
-<div id=footer-post>
-<div id=nav-footer style=display:none>
-<ul>
-</ul>
-</div>
-<div id=toc-footer style=display:none>
-<nav id=TableOfContents></nav>
-</div>
-<div id=share-footer style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f" aria-label=Facebook>
-<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&text=Max%20File%20Size" aria-label=Twitter>
-<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=Linkedin>
-<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&is_video=false&description=Max%20File%20Size" aria-label=Pinterest>
-<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="mailto:?subject=Max%20File%20Size&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f" aria-label=Email>
-<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=Pocket>
-<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=reddit>
-<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&name=Max%20File%20Size&description=While%20doing%20some%20refactoring%20work%20on%20solution%20from%20this%20guy1%2c%20I%20realized%20a%20pretty%20trivial%20thing%20about%20Manod%20method%20%26gt%3b%26gt%3b%3d.%0aTake%20a%20look%20at%20its%20definition%3a%0aPrelude%26gt%3b%20%3at%20%28%26gt%3b%26gt%3b%3d%29%20%28%26gt%3b%26gt%3b%3d%29%20%3a%3a%20%28Monad%20m%29%20%3d%26gt%3b%20m%20a%20-%26gt%3b%20%28a%20-%26gt%3b%20m%20b%29%20-%26gt%3b%20m%20b%20Both%20a%20and%20b%20ought%20to%20be%20some%20Monadic%20type%21%20In%20other%20words%2c%20all%20computation%20glued%20together%20by%20%26gt%3b%26gt%3b%3d%20have%20same%20Manodic%20type.%0aIt%20is%20really%20straightforward%20however%20I%20did%20not%20have%20that%20in%20mind." aria-label=Tumblr>
-<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&t=Max%20File%20Size" aria-label="Hacker News">
-<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
-</a>
-</li>
-</ul>
-</div>
-<div id=actions-footer>
-<a id=menu-toggle class=icon href=# onclick="return $('#nav-footer').toggle(),!1" aria-label=Menu>
-<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
-<a id=toc-toggle class=icon href=# onclick="return $('#toc-footer').toggle(),!1" aria-label=TOC>
-<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
-<a id=share-toggle class=icon href=# onclick="return $('#share-footer').toggle(),!1" aria-label=Share>
-<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
-<a id=top style=display:none class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
-<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
-</div>
-</div>
-</div>
-<footer id=footer>
-<div class=footer-left>
-Copyright &copy; 2022 Haisheng Wu
-</div>
-<div class=footer-right>
-<nav>
-<ul>
-</ul>
-</nav>
-</div>
-</footer>
-</div>
-</body>
-<link rel=stylesheet href=../../lib/font-awesome/css/all.min.css>
-<script src=../../lib/jquery/jquery.min.js></script>
+changed it to return <code>IO [String]</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-haskell data-lang=haskell><span style=display:flex><span>  <span style=color:#75715e>-- FilePath is from package System.IO and it is synonyms of String</span>
+</span></span><span style=display:flex><span>  getFilesInDir <span style=color:#f92672>::</span> <span style=color:#66d9ef>FilePath</span> <span style=color:#f92672>-&gt;</span> <span style=color:#66d9ef>IO</span> [<span style=color:#66d9ef>FilePath</span>]
+</span></span><span style=display:flex><span>  getFilesInDir inp <span style=color:#f92672>=</span> <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>    isDir <span style=color:#f92672>&lt;-</span> doesDirectoryExist inp
+</span></span><span style=display:flex><span>    files <span style=color:#f92672>&lt;-</span> <span style=color:#66d9ef>if</span> isDir <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span>                (<span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>                 names <span style=color:#f92672>&lt;-</span> getDirectoryContents inp
+</span></span><span style=display:flex><span>                 forM [ inp <span style=color:#f92672>&lt;/&gt;</span> x <span style=color:#f92672>|</span> x <span style=color:#f92672>&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)
+</span></span><span style=display:flex><span>             <span style=color:#66d9ef>else</span> return [[inp]]
+</span></span><span style=display:flex><span>    return <span style=color:#f92672>$</span> concat files
+</span></span></code></pre></div><p>PS:</p><ul><li>Full source code here<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> or hpaste<sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup> which is cool as give me
+several suggestions.</li><li>I think hpaste using hlint to do code analysis and provide suggestions</li><li>Actually it is possible to have multiple Monad in one <code>do</code> levarage
+Monad Transformers.</li></ul><section class=footnotes role=doc-endnotes><hr><ol><li id=fn:1 role=doc-endnote><p><a href=http://www.never-ending.me/blog/2011/06/16/276/>Never ending</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2 role=doc-endnote><p><a href=https://github.com/freizl/dive-into-haskell/blob/master/io/MaxSizeFile.hs>MaxSizeFile.hs</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3 role=doc-endnote><p><a href=http://hpaste.org/47969>hpaset</a>&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></section></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&text=Max%20File%20Size" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&is_video=false&description=Max%20File%20Size" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Max%20File%20Size&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&title=Max%20File%20Size" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&name=Max%20File%20Size&description=While%20doing%20some%20refactoring%20work%20on%20solution%20from%20this%20guy1%2c%20I%20realized%20a%20pretty%20trivial%20thing%20about%20Manod%20method%20%26gt%3b%26gt%3b%3d.%0aTake%20a%20look%20at%20its%20definition%3a%0a%20Prelude%26gt%3b%20%3at%20%28%26gt%3b%26gt%3b%3d%29%20%20%28%26gt%3b%26gt%3b%3d%29%20%3a%3a%20%28Monad%20m%29%20%3d%26gt%3b%20m%20a%20-%26gt%3b%20%28a%20-%26gt%3b%20m%20b%29%20-%26gt%3b%20m%20b%20Both%20a%20and%20b%20ought%20to%20be%20some%20Monadic%20type%21%20In%20other%20words%2c%20all%20computation%20glued%20together%20by%20%26gt%3b%26gt%3b%3d%20have%20same%20Manodic%20type.%0aIt%20is%20really%20straightforward%20however%20I%20did%20not%20have%20that%20in%20mind." aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fmax-file-size%2f&t=Max%20File%20Size" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a></div></div></div><footer id=footer><div class=footer-left>Copyright &copy; 2022 Haisheng Wu</div><div class=footer-right><nav><ul></ul></nav></div></footer></div></body><link rel=stylesheet href=../../lib/font-awesome/css/all.min.css><script src=../../lib/jquery/jquery.min.js></script>
 <script src=../../js/main.js></script>
-<script src=../../js/code-copy.js></script>
-</html>
+<script src=../../js/code-copy.js></script></html>

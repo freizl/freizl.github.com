@@ -3,5 +3,4 @@ Fourtunaly I think the answer at this1 thread turns out to be a quite clear expl
 Just three things according to that answer.
 Creates a new object. Its type is object. Sets this new object&amp;rsquo;s internal, inaccessible, [[prototype]] property to be the constructor function&amp;rsquo;s external, accessible, prototype object.</description></item><item><title>Bind Examples In Javascripts</title><link>https://freizl.github.io/posts/bind-examples-in-javascripts/</link><pubDate>Fri, 06 Apr 2012 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/bind-examples-in-javascripts/</guid><description>Defined a function var fn = function (x, y, z) { console.log(&amp;#34;The value: &amp;#34;, this.shangHai); console.log(&amp;#34;The sum is: &amp;#34;, x + y + z); }; Run it fn(1); -&amp;gt; Output
 The value: undefined The sum is: NaN fn(1, 2, 3); -&amp;gt; Output:
-The value: undefined The sum is: 6 Run it with bind Less fn.bind(null, 1, 2, 3); -&amp;gt; Output:
-function () { [native code] } Hmm&amp;hellip;, seems bind return a function rather apply the function and return value.</description></item></channel></rss>
+The value: undefined The sum is: 6 Run it with bind Less fn.bind(null, 1, 2, 3); -&amp;gt; Output:</description></item></channel></rss>

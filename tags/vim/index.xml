@@ -62,7 +62,7 @@ then select &amp;ldquo;column(s)&amp;rdquo; with motion commands (win32 )
 : pull word under the cursor into a command line or search; i.e: -&amp;gt; / -&amp;gt; then this command
 : pull WORD under the cursor into a command line or search
 :n1,n2 d # delete content between line n1 and n2</description></item><item><title>Addtional VIM commands</title><link>https://freizl.github.io/posts/addtional-vim-commands/</link><pubDate>Tue, 08 Jan 2008 22:29:00 -0800</pubDate><guid>https://freizl.github.io/posts/addtional-vim-commands/</guid><description>:set number/nonumber =&amp;gt; show/hidden the line number
-/\&amp;lt;the\&amp;gt; =&amp;gt; search the whole word &amp;lsquo;the&amp;rsquo;
+/\&amp;lt;the\&amp;gt; =&amp;gt; search the whole word &amp;rsquo;the&amp;rsquo;
 :nohlsearch =&amp;gt; un-highlight the search result temporaryly
 :set hlsearch/nohlsearc =&amp;gt; set highlight/not highlight the search result
 x stands for dl (delete character under the cursor)

@@ -1,335 +1,55 @@
-<!doctype html><html lang=en-us>
-<head>
-<link rel=preload href=../../lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=../../lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=../../lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<link rel=preload href=../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous>
-<script type=text/javascript src=https://latest.cactus.chat/cactus.js></script>
-<link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<title> Shell Tips | Corner case</title>
-<link rel=canonical href=https://freizl.github.io/posts/shell-tips/>
-<meta name=description content="Welcome to my personal blog.">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=robots content="all,follow">
-<meta name=googlebot content="index,follow,snippet,archive">
-<meta property="og:title" content="Shell Tips">
-<meta property="og:description" content="Quicklinks  What is a Subshell List of Unix utilities 10 Good Unix habits  Reference  () execute command in subshell {} execute command in currecnt shell Usage is same with () expect the final command in the list ends with a semicolon.  Sample Section A grep grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY ### count process and exclude grep itself ps aux | grep vpnc | grep -v grep -c find find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk* find $update_dir \( -name '*.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://freizl.github.io/posts/shell-tips/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2012-04-06T00:00:00+00:00">
-<meta property="article:modified_time" content="2012-04-06T00:00:00+00:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Shell Tips">
-<meta name=twitter:description content="Quicklinks  What is a Subshell List of Unix utilities 10 Good Unix habits  Reference  () execute command in subshell {} execute command in currecnt shell Usage is same with () expect the final command in the list ends with a semicolon.  Sample Section A grep grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY ### count process and exclude grep itself ps aux | grep vpnc | grep -v grep -c find find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk* find $update_dir \( -name '*.">
-<link rel=stylesheet href=https://freizl.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
-<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]-->
-<link rel=icon type=image/png href=https://freizl.github.io/images/favicon.ico>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-6496210-5','auto'),ga('send','pageview'))</script>
-</head>
-<body class="max-width mx-auto px3 ltr">
-<div class="content index py4">
-<div id=header-post>
-<a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
+<!doctype html><html lang=en-us><head><link rel=preload href=../../lib/font-awesome/webfonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=../../lib/font-awesome/webfonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=../../lib/font-awesome/webfonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin=anonymous><link rel=preload href=../../lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2 as=font type=font/woff2 crossorigin=anonymous><script type=text/javascript src=https://latest.cactus.chat/cactus.js></script>
+<link rel=stylesheet href=https://latest.cactus.chat/style.css type=text/css><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><title>Shell Tips | Corner case</title><link rel=canonical href=https://freizl.github.io/posts/shell-tips/><meta name=description content="Welcome to my personal blog."><meta name=viewport content="width=device-width,initial-scale=1"><meta name=robots content="all,follow"><meta name=googlebot content="index,follow,snippet,archive"><meta property="og:title" content="Shell Tips"><meta property="og:description" content="Quicklinks  What is a Subshell List of Unix utilities 10 Good Unix habits  Reference  () execute command in subshell {} execute command in currecnt shell Usage is same with () expect the final command in the list ends with a semicolon.  Sample Section A grep  grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY  ### count process and exclude grep itself  ps aux | grep vpnc | grep -v grep -c find  find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*  find $update_dir \( -name '*."><meta property="og:type" content="article"><meta property="og:url" content="https://freizl.github.io/posts/shell-tips/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2012-04-06T00:00:00+00:00"><meta property="article:modified_time" content="2012-04-06T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Shell Tips"><meta name=twitter:description content="Quicklinks  What is a Subshell List of Unix utilities 10 Good Unix habits  Reference  () execute command in subshell {} execute command in currecnt shell Usage is same with () expect the final command in the list ends with a semicolon.  Sample Section A grep  grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY  ### count process and exclude grep itself  ps aux | grep vpnc | grep -v grep -c find  find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*  find $update_dir \( -name '*."><link rel=stylesheet href=https://freizl.github.io/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="><!--[if lt IE 9]><script src=https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js></script>
+<script src=https://oss.maxcdn.com/respond/1.4.2/respond.min.js></script><![endif]--><link rel=icon type=image/png href=https://freizl.github.io/images/favicon.ico><script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(e,o,i,a,t,n,s){e.GoogleAnalyticsObject=t,e[t]=e[t]||function(){(e[t].q=e[t].q||[]).push(arguments)},e[t].l=1*new Date,n=o.createElement(i),s=o.getElementsByTagName(i)[0],n.async=1,n.src=a,s.parentNode.insertBefore(n,s)}(window,document,"script","https://www.google-analytics.com/analytics.js","ga"),ga("create","UA-6496210-5","auto"),ga("send","pageview"))</script></head><body class="max-width mx-auto px3 ltr"><div class="content index py4"><div id=header-post><a id=menu-icon href=#><i class="fas fa-bars fa-lg"></i></a>
 <a id=menu-icon-tablet href=#><i class="fas fa-bars fa-lg"></i></a>
-<a id=top-icon-tablet href=# onclick="$('html, body').animate({scrollTop:0},'fast')" style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
-<span id=menu>
-<span id=nav>
-<ul>
-</ul>
-</span>
-<br>
-<span id=actions>
-<ul>
-<li>
-<a class=icon href=https://freizl.github.io/posts/euler-problem-104/ aria-label=Previous>
-<i class="fas fa-chevron-left" aria-hidden=true onmouseover="$('#i-prev').toggle()" onmouseout="$('#i-prev').toggle()"></i>
-</a>
-</li>
-<li>
-<a class=icon href=https://freizl.github.io/posts/python-tips/ aria-label=Next>
-<i class="fas fa-chevron-right" aria-hidden=true onmouseover="$('#i-next').toggle()" onmouseout="$('#i-next').toggle()"></i>
-</a>
-</li>
-<li>
-<a class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
-<i class="fas fa-chevron-up" aria-hidden=true onmouseover="$('#i-top').toggle()" onmouseout="$('#i-top').toggle()"></i>
-</a>
-</li>
-<li>
-<a class=icon href=# aria-label=Share>
-<i class="fas fa-share-alt" aria-hidden=true onmouseover="$('#i-share').toggle()" onmouseout="$('#i-share').toggle()" onclick="return $('#share').toggle(),!1"></i>
-</a>
-</li>
-</ul>
-<span id=i-prev class=info style=display:none>Previous post</span>
+<a id=top-icon-tablet href=# onclick='$("html, body").animate({scrollTop:0},"fast")' style=display:none aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+<span id=menu><span id=nav><ul></ul></span><br><span id=actions><ul><li><a class=icon href=https://freizl.github.io/posts/euler-problem-104/ aria-label=Previous><i class="fas fa-chevron-left" aria-hidden=true onmouseover='$("#i-prev").toggle()' onmouseout='$("#i-prev").toggle()'></i></a></li><li><a class=icon href=https://freizl.github.io/posts/python-tips/ aria-label=Next><i class="fas fa-chevron-right" aria-hidden=true onmouseover='$("#i-next").toggle()' onmouseout='$("#i-next").toggle()'></i></a></li><li><a class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up" aria-hidden=true onmouseover='$("#i-top").toggle()' onmouseout='$("#i-top").toggle()'></i></a></li><li><a class=icon href=# aria-label=Share><i class="fas fa-share-alt" aria-hidden=true onmouseover='$("#i-share").toggle()' onmouseout='$("#i-share").toggle()' onclick='return $("#share").toggle(),!1'></i></a></li></ul><span id=i-prev class=info style=display:none>Previous post</span>
 <span id=i-next class=info style=display:none>Next post</span>
 <span id=i-top class=info style=display:none>Back to top</span>
-<span id=i-share class=info style=display:none>Share post</span>
-</span>
-<br>
-<div id=share style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f" aria-label=Facebook>
-<i class="fab fa-facebook" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&text=Shell%20Tips" aria-label=Twitter>
-<i class="fab fa-twitter" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=Linkedin>
-<i class="fab fa-linkedin" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&is_video=false&description=Shell%20Tips" aria-label=Pinterest>
-<i class="fab fa-pinterest" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="mailto:?subject=Shell%20Tips&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f" aria-label=Email>
-<i class="fas fa-envelope" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=Pocket>
-<i class="fab fa-get-pocket" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=reddit>
-<i class="fab fa-reddit" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&name=Shell%20Tips&description=Quicklinks%20%20What%20is%20a%20Subshell%20List%20of%20Unix%20utilities%2010%20Good%20Unix%20habits%20%20Reference%20%20%28%29%20execute%20command%20in%20subshell%20%7b%7d%20execute%20command%20in%20currecnt%20shell%20Usage%20is%20same%20with%20%28%29%20expect%20the%20final%20command%20in%20the%20list%20ends%20with%20a%20semicolon.%20%20Sample%20Section%20A%20grep%20grep%20-Elr%20--include%3d%2a.xsd%20--exclude-dir%3d%7bbranches%2ctags%7d%20VendorDesc.xsd%20%24DIRECTORY%20%23%23%23%20count%20process%20and%20exclude%20grep%20itself%20ps%20aux%20%7c%20grep%20vpnc%20%7c%20grep%20-v%20grep%20-c%20find%20find%20%24%7b1%7d%20%5c%28%20-name%20Consume%2awsdl%20-o%20-name%20Produce%2awsdl%20%5c%29%20-path%20%2atrunk%2a%20find%20%24update_dir%20%5c%28%20-name%20%26%2339%3b%2a." aria-label=Tumblr>
-<i class="fab fa-tumblr" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&t=Shell%20Tips" aria-label="Hacker News">
-<i class="fab fa-hacker-news" aria-hidden=true></i>
-</a>
-</li>
-</ul>
-</div>
-<div id=toc>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#quicklinks>Quicklinks</a></li>
-<li><a href=#reference>Reference</a></li>
-<li><a href=#sample-section-a>Sample Section A</a>
-<ul>
-<li><a href=#grep>grep</a></li>
-<li><a href=#find>find</a></li>
-<li><a href=#awk>awk</a></li>
-<li><a href=#sed>sed</a></li>
-<li><a href=#cp>cp</a></li>
-</ul>
-</li>
-<li><a href=#sample-section-b>Sample Section B</a>
-<ul>
-<li><a href=#while>while</a></li>
-<li><a href=#for>for</a></li>
-<li><a href=#case>case</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</span>
-</div>
-<article class=post itemscope itemtype=http://schema.org/BlogPosting>
-<header>
-<h1 class=posttitle itemprop="name headline">
-Shell Tips
-</h1>
-<div class=meta>
-<div class=postdate>
-<time datetime="2012-04-06 00:00:00 +0000 UTC" itemprop=datePublished>2012-04-06</time>
-</div>
-<div class=article-tag>
-<i class="fas fa-tag"></i>
-<a class=tag-link href=../../tags/shell rel=tag>shell</a>
-</div>
-</div>
-</header>
-<div class=content itemprop=articleBody>
-<h2 id=quicklinks>Quicklinks</h2>
-<ul>
-<li><a href=http://bash.cyberciti.biz/guide/What%5Fis%5Fa%5FSubshell%3F>What is a
-Subshell</a></li>
-<li><a href=http://en.wikipedia.org/wiki/List%5Fof%5FUnix%5Futilities>List of Unix
-utilities</a></li>
-<li><a href="http://www-128.ibm.com/developerworks/aix/library/au-badunixhabits.html?ca=lnxw01GoodUnixHabits">10
-Good Unix habits</a></li>
-</ul>
-<h2 id=reference>Reference</h2>
-<ul>
-<li>() execute command in subshell</li>
-<li>{} execute command in currecnt shell Usage is same with () expect the
-final command in the list ends with a semicolon.</li>
-</ul>
-<h2 id=sample-section-a>Sample Section A</h2>
-<h3 id=grep>grep</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
-  ### count process and exclude grep itself
-  ps aux | grep vpnc | grep -v grep -c
-</code></pre></div><h3 id=find>find</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
-  find $update_dir \( -name &#39;*.java&#39; \) \( -path &#39;**/source/**&#39; -o -path &#39;**/test/**&#39; -o -path &#39;**/resource/**&#39; \)
-</code></pre></div><h3 id=awk>awk</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  ### list all time of each ping
-  awk -F&#34;=&#34; &#39;/time=/ {print substr($4,0,length($4)-3) }&#39; &lt; ping.log
-  ### passing shell parameter to awk scripts
-  svn st ${dirs} | awk -F&#34; &#34; -v ac=&#34;${*}&#34; &#39; /&#39;${predicate}&#39;/ &amp;&amp; (index($2,&#34;\\&#34;)==0 || gsub(/\\/,&#34;/&#34;,$2)) {print ac, $2}&#39;
-  ### change Output Row Separator
-  awk &#39; BEGIN { ORS = &#34; &#34; } { print }&#39;
-</code></pre></div><h3 id=sed>sed</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  ll | sed &#39;/Stores\|Test\|^-\|^t/d&#39; | wc
-  smbclient -L \\\\hangzhou2\\twitters -U foobar | sed &#39;/Hangzhou20/,$d&#39;
-  export BEA_IP=`/sbin/ifconfig eth0 | sed &#39;/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g&#39;`
-</code></pre></div><h3 id=cp>cp</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  cp filename{,.bak}
-</code></pre></div><h2 id=sample-section-b>Sample Section B</h2>
-<h3 id=while>while</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  while getopts &#34;🆎c&#34; opt; do
-      case $opt in
-      a ) echo &#34;I am a&#34; ;;
-      b ) echo $OPTARG  ;;
-      c ) echo &#34;i am c&#34; ;;
-      ? ) echo &#34;usage : $0 [-a] [-b barg] [-c] args ..&#34;
-          exit 1 ;;
-      esac
-      shift $(($OPTIND - 1))
-  done
-</code></pre></div><h3 id=for>for</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  for s in $(echo $string | sed &#34;s/;/ /g&#34;); do
-      echo $s
-  done
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  for (( i=1; i&lt;=$n; i++ )) do
-     ls -1 &#34;${file_pattern}&#34; | sed &#39;s#\(.*\)\(.xml\).bak#cp &amp; \1&#39;&#34;_$i&#34;&#39;\2#g&#39;
-  done
-</code></pre></div><h3 id=case>case</h3>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>  case $action in
-      backup ) tar cfj &#34;$backup_dir/$bakfile&#34; * --exclude &#34;jobs/*/workspace&#34; ;;
-      rest | restore ) tar xfj $backup_dir/$bakfile ;;
-      * ) echo &#34;all supported actions: backup | rest[ore]&#34; ; exit 0 ;;
-  esac
-</code></pre></div>
-</div>
-</article>
-<div id=footer-post-container>
-<div id=footer-post>
-<div id=nav-footer style=display:none>
-<ul>
-</ul>
-</div>
-<div id=toc-footer style=display:none>
-<nav id=TableOfContents>
-<ul>
-<li><a href=#quicklinks>Quicklinks</a></li>
-<li><a href=#reference>Reference</a></li>
-<li><a href=#sample-section-a>Sample Section A</a>
-<ul>
-<li><a href=#grep>grep</a></li>
-<li><a href=#find>find</a></li>
-<li><a href=#awk>awk</a></li>
-<li><a href=#sed>sed</a></li>
-<li><a href=#cp>cp</a></li>
-</ul>
-</li>
-<li><a href=#sample-section-b>Sample Section B</a>
-<ul>
-<li><a href=#while>while</a></li>
-<li><a href=#for>for</a></li>
-<li><a href=#case>case</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-<div id=share-footer style=display:none>
-<ul>
-<li>
-<a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f" aria-label=Facebook>
-<i class="fab fa-facebook fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&text=Shell%20Tips" aria-label=Twitter>
-<i class="fab fa-twitter fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=Linkedin>
-<i class="fab fa-linkedin fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&is_video=false&description=Shell%20Tips" aria-label=Pinterest>
-<i class="fab fa-pinterest fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="mailto:?subject=Shell%20Tips&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f" aria-label=Email>
-<i class="fas fa-envelope fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=Pocket>
-<i class="fab fa-get-pocket fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=reddit>
-<i class="fab fa-reddit fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&name=Shell%20Tips&description=Quicklinks%20%20What%20is%20a%20Subshell%20List%20of%20Unix%20utilities%2010%20Good%20Unix%20habits%20%20Reference%20%20%28%29%20execute%20command%20in%20subshell%20%7b%7d%20execute%20command%20in%20currecnt%20shell%20Usage%20is%20same%20with%20%28%29%20expect%20the%20final%20command%20in%20the%20list%20ends%20with%20a%20semicolon.%20%20Sample%20Section%20A%20grep%20grep%20-Elr%20--include%3d%2a.xsd%20--exclude-dir%3d%7bbranches%2ctags%7d%20VendorDesc.xsd%20%24DIRECTORY%20%23%23%23%20count%20process%20and%20exclude%20grep%20itself%20ps%20aux%20%7c%20grep%20vpnc%20%7c%20grep%20-v%20grep%20-c%20find%20find%20%24%7b1%7d%20%5c%28%20-name%20Consume%2awsdl%20-o%20-name%20Produce%2awsdl%20%5c%29%20-path%20%2atrunk%2a%20find%20%24update_dir%20%5c%28%20-name%20%26%2339%3b%2a." aria-label=Tumblr>
-<i class="fab fa-tumblr fa-lg" aria-hidden=true></i>
-</a>
-</li>
-<li>
-<a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&t=Shell%20Tips" aria-label="Hacker News">
-<i class="fab fa-hacker-news fa-lg" aria-hidden=true></i>
-</a>
-</li>
-</ul>
-</div>
-<div id=actions-footer>
-<a id=menu-toggle class=icon href=# onclick="return $('#nav-footer').toggle(),!1" aria-label=Menu>
-<i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
-<a id=toc-toggle class=icon href=# onclick="return $('#toc-footer').toggle(),!1" aria-label=TOC>
-<i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
-<a id=share-toggle class=icon href=# onclick="return $('#share-footer').toggle(),!1" aria-label=Share>
-<i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
-<a id=top style=display:none class=icon href=# onclick="$('html, body').animate({scrollTop:0},'fast')" aria-label="Top of Page">
-<i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a>
-</div>
-</div>
-</div>
-<footer id=footer>
-<div class=footer-left>
-Copyright &copy; 2022 Haisheng Wu
-</div>
-<div class=footer-right>
-<nav>
-<ul>
-</ul>
-</nav>
-</div>
-</footer>
-</div>
-</body>
-<link rel=stylesheet href=../../lib/font-awesome/css/all.min.css>
-<script src=../../lib/jquery/jquery.min.js></script>
+<span id=i-share class=info style=display:none>Share post</span></span><br><div id=share style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f" aria-label=Facebook><i class="fab fa-facebook" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&text=Shell%20Tips" aria-label=Twitter><i class="fab fa-twitter" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=Linkedin><i class="fab fa-linkedin" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&is_video=false&description=Shell%20Tips" aria-label=Pinterest><i class="fab fa-pinterest" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Shell%20Tips&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f" aria-label=Email><i class="fas fa-envelope" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=Pocket><i class="fab fa-get-pocket" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=reddit><i class="fab fa-reddit" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&name=Shell%20Tips&description=Quicklinks%20%20What%20is%20a%20Subshell%20List%20of%20Unix%20utilities%2010%20Good%20Unix%20habits%20%20Reference%20%20%28%29%20execute%20command%20in%20subshell%20%7b%7d%20execute%20command%20in%20currecnt%20shell%20Usage%20is%20same%20with%20%28%29%20expect%20the%20final%20command%20in%20the%20list%20ends%20with%20a%20semicolon.%20%20Sample%20Section%20A%20grep%20%20grep%20-Elr%20--include%3d%2a.xsd%20--exclude-dir%3d%7bbranches%2ctags%7d%20VendorDesc.xsd%20%24DIRECTORY%20%20%23%23%23%20count%20process%20and%20exclude%20grep%20itself%20%20ps%20aux%20%7c%20grep%20vpnc%20%7c%20grep%20-v%20grep%20-c%20find%20%20find%20%24%7b1%7d%20%5c%28%20-name%20Consume%2awsdl%20-o%20-name%20Produce%2awsdl%20%5c%29%20-path%20%2atrunk%2a%20%20find%20%24update_dir%20%5c%28%20-name%20%26%2339%3b%2a." aria-label=Tumblr><i class="fab fa-tumblr" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&t=Shell%20Tips" aria-label="Hacker News"><i class="fab fa-hacker-news" aria-hidden=true></i></a></li></ul></div><div id=toc><nav id=TableOfContents><ul><li><a href=#quicklinks>Quicklinks</a></li><li><a href=#reference>Reference</a></li><li><a href=#sample-section-a>Sample Section A</a><ul><li><a href=#grep>grep</a></li><li><a href=#find>find</a></li><li><a href=#awk>awk</a></li><li><a href=#sed>sed</a></li><li><a href=#cp>cp</a></li></ul></li><li><a href=#sample-section-b>Sample Section B</a><ul><li><a href=#while>while</a></li><li><a href=#for>for</a></li><li><a href=#case>case</a></li></ul></li></ul></nav></div></span></div><article class=post itemscope itemtype=http://schema.org/BlogPosting><header><h1 class=posttitle itemprop="name headline">Shell Tips</h1><div class=meta><div class=postdate><time datetime="2012-04-06 00:00:00 +0000 UTC" itemprop=datePublished>2012-04-06</time></div><div class=article-tag><i class="fas fa-tag"></i>
+<a class=tag-link href=../../tags/shell rel=tag>shell</a></div></div></header><div class=content itemprop=articleBody><h2 id=quicklinks>Quicklinks</h2><ul><li><a href=http://bash.cyberciti.biz/guide/What%5Fis%5Fa%5FSubshell%3F>What is a
+Subshell</a></li><li><a href=http://en.wikipedia.org/wiki/List%5Fof%5FUnix%5Futilities>List of Unix
+utilities</a></li><li><a href="http://www-128.ibm.com/developerworks/aix/library/au-badunixhabits.html?ca=lnxw01GoodUnixHabits">10
+Good Unix habits</a></li></ul><h2 id=reference>Reference</h2><ul><li>() execute command in subshell</li><li>{} execute command in currecnt shell Usage is same with () expect the
+final command in the list ends with a semicolon.</li></ul><h2 id=sample-section-a>Sample Section A</h2><h3 id=grep>grep</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
+</span></span><span style=display:flex><span>  ### count process and exclude grep itself
+</span></span><span style=display:flex><span>  ps aux | grep vpnc | grep -v grep -c
+</span></span></code></pre></div><h3 id=find>find</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
+</span></span><span style=display:flex><span>  find $update_dir \( -name &#39;*.java&#39; \) \( -path &#39;**/source/**&#39; -o -path &#39;**/test/**&#39; -o -path &#39;**/resource/**&#39; \)
+</span></span></code></pre></div><h3 id=awk>awk</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  ### list all time of each ping
+</span></span><span style=display:flex><span>  awk -F&#34;=&#34; &#39;/time=/ {print substr($4,0,length($4)-3) }&#39; &lt; ping.log
+</span></span><span style=display:flex><span>  ### passing shell parameter to awk scripts
+</span></span><span style=display:flex><span>  svn st ${dirs} | awk -F&#34; &#34; -v ac=&#34;${*}&#34; &#39; /&#39;${predicate}&#39;/ &amp;&amp; (index($2,&#34;\\&#34;)==0 || gsub(/\\/,&#34;/&#34;,$2)) {print ac, $2}&#39;
+</span></span><span style=display:flex><span>  ### change Output Row Separator
+</span></span><span style=display:flex><span>  awk &#39; BEGIN { ORS = &#34; &#34; } { print }&#39;
+</span></span></code></pre></div><h3 id=sed>sed</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  ll | sed &#39;/Stores\|Test\|^-\|^t/d&#39; | wc
+</span></span><span style=display:flex><span>  smbclient -L \\\\hangzhou2\\twitters -U foobar | sed &#39;/Hangzhou20/,$d&#39;
+</span></span><span style=display:flex><span>  export BEA_IP=`/sbin/ifconfig eth0 | sed &#39;/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g&#39;`
+</span></span></code></pre></div><h3 id=cp>cp</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  cp filename{,.bak}
+</span></span></code></pre></div><h2 id=sample-section-b>Sample Section B</h2><h3 id=while>while</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  while getopts &#34;🆎c&#34; opt; do
+</span></span><span style=display:flex><span>      case $opt in
+</span></span><span style=display:flex><span>      a ) echo &#34;I am a&#34; ;;
+</span></span><span style=display:flex><span>      b ) echo $OPTARG  ;;
+</span></span><span style=display:flex><span>      c ) echo &#34;i am c&#34; ;;
+</span></span><span style=display:flex><span>      ? ) echo &#34;usage : $0 [-a] [-b barg] [-c] args ..&#34;
+</span></span><span style=display:flex><span>          exit 1 ;;
+</span></span><span style=display:flex><span>      esac
+</span></span><span style=display:flex><span>      shift $(($OPTIND - 1))
+</span></span><span style=display:flex><span>  done
+</span></span></code></pre></div><h3 id=for>for</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  for s in $(echo $string | sed &#34;s/;/ /g&#34;); do
+</span></span><span style=display:flex><span>      echo $s
+</span></span><span style=display:flex><span>  done
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  for (( i=1; i&lt;=$n; i++ )) do
+</span></span><span style=display:flex><span>     ls -1 &#34;${file_pattern}&#34; | sed &#39;s#\(.*\)\(.xml\).bak#cp &amp; \1&#39;&#34;_$i&#34;&#39;\2#g&#39;
+</span></span><span style=display:flex><span>  done
+</span></span></code></pre></div><h3 id=case>case</h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text><span style=display:flex><span>  case $action in
+</span></span><span style=display:flex><span>      backup ) tar cfj &#34;$backup_dir/$bakfile&#34; * --exclude &#34;jobs/*/workspace&#34; ;;
+</span></span><span style=display:flex><span>      rest | restore ) tar xfj $backup_dir/$bakfile ;;
+</span></span><span style=display:flex><span>      * ) echo &#34;all supported actions: backup | rest[ore]&#34; ; exit 0 ;;
+</span></span><span style=display:flex><span>  esac
+</span></span></code></pre></div></div></article><div id=footer-post-container><div id=footer-post><div id=nav-footer style=display:none><ul></ul></div><div id=toc-footer style=display:none><nav id=TableOfContents><ul><li><a href=#quicklinks>Quicklinks</a></li><li><a href=#reference>Reference</a></li><li><a href=#sample-section-a>Sample Section A</a><ul><li><a href=#grep>grep</a></li><li><a href=#find>find</a></li><li><a href=#awk>awk</a></li><li><a href=#sed>sed</a></li><li><a href=#cp>cp</a></li></ul></li><li><a href=#sample-section-b>Sample Section B</a><ul><li><a href=#while>while</a></li><li><a href=#for>for</a></li><li><a href=#case>case</a></li></ul></li></ul></nav></div><div id=share-footer style=display:none><ul><li><a class=icon href="http://www.facebook.com/sharer.php?u=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f" aria-label=Facebook><i class="fab fa-facebook fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://twitter.com/share?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&text=Shell%20Tips" aria-label=Twitter><i class="fab fa-twitter fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=Linkedin><i class="fab fa-linkedin fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&is_video=false&description=Shell%20Tips" aria-label=Pinterest><i class="fab fa-pinterest fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="mailto:?subject=Shell%20Tips&body=Check out this article: https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f" aria-label=Email><i class="fas fa-envelope fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://getpocket.com/save?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=Pocket><i class="fab fa-get-pocket fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://reddit.com/submit?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&title=Shell%20Tips" aria-label=reddit><i class="fab fa-reddit fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="http://www.tumblr.com/share/link?url=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&name=Shell%20Tips&description=Quicklinks%20%20What%20is%20a%20Subshell%20List%20of%20Unix%20utilities%2010%20Good%20Unix%20habits%20%20Reference%20%20%28%29%20execute%20command%20in%20subshell%20%7b%7d%20execute%20command%20in%20currecnt%20shell%20Usage%20is%20same%20with%20%28%29%20expect%20the%20final%20command%20in%20the%20list%20ends%20with%20a%20semicolon.%20%20Sample%20Section%20A%20grep%20%20grep%20-Elr%20--include%3d%2a.xsd%20--exclude-dir%3d%7bbranches%2ctags%7d%20VendorDesc.xsd%20%24DIRECTORY%20%20%23%23%23%20count%20process%20and%20exclude%20grep%20itself%20%20ps%20aux%20%7c%20grep%20vpnc%20%7c%20grep%20-v%20grep%20-c%20find%20%20find%20%24%7b1%7d%20%5c%28%20-name%20Consume%2awsdl%20-o%20-name%20Produce%2awsdl%20%5c%29%20-path%20%2atrunk%2a%20%20find%20%24update_dir%20%5c%28%20-name%20%26%2339%3b%2a." aria-label=Tumblr><i class="fab fa-tumblr fa-lg" aria-hidden=true></i></a></li><li><a class=icon href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2ffreizl.github.io%2fposts%2fshell-tips%2f&t=Shell%20Tips" aria-label="Hacker News"><i class="fab fa-hacker-news fa-lg" aria-hidden=true></i></a></li></ul></div><div id=actions-footer><a id=menu-toggle class=icon href=# onclick='return $("#nav-footer").toggle(),!1' aria-label=Menu><i class="fas fa-bars fa-lg" aria-hidden=true></i> Menu</a>
+<a id=toc-toggle class=icon href=# onclick='return $("#toc-footer").toggle(),!1' aria-label=TOC><i class="fas fa-list fa-lg" aria-hidden=true></i> TOC</a>
+<a id=share-toggle class=icon href=# onclick='return $("#share-footer").toggle(),!1' aria-label=Share><i class="fas fa-share-alt fa-lg" aria-hidden=true></i> share</a>
+<a id=top style=display:none class=icon href=# onclick='$("html, body").animate({scrollTop:0},"fast")' aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg" aria-hidden=true></i> Top</a></div></div></div><footer id=footer><div class=footer-left>Copyright &copy; 2022 Haisheng Wu</div><div class=footer-right><nav><ul></ul></nav></div></footer></div></body><link rel=stylesheet href=../../lib/font-awesome/css/all.min.css><script src=../../lib/jquery/jquery.min.js></script>
 <script src=../../js/main.js></script>
-<script src=../../js/code-copy.js></script>
-</html>
+<script src=../../js/code-copy.js></script></html>
