@@ -8,7 +8,9 @@ Auth
 basic auth
 TODO other auth of adding register feature
 Subversion
-python Subversion module (ubuntu install script: apt-get install python-subversion)</description></item><item><title>Mirro the Wikipedia at your local</title><link>https://freizl.github.io/posts/mirro-wikipedia-at-your-local/</link><pubDate>Sat, 22 Mar 2008 23:46:00 -0700</pubDate><guid>https://freizl.github.io/posts/mirro-wikipedia-at-your-local/</guid><description>sudo apt-get update
+python Subversion module (ubuntu install script: apt-get install python-subversion)
+&amp;ldquo;svnadmin create&amp;rdquo; Subversion repos and update trac.ini accordingly
+Permission (Guide section TracPermissions)</description></item><item><title>Mirro the Wikipedia at your local</title><link>https://freizl.github.io/posts/mirro-wikipedia-at-your-local/</link><pubDate>Sat, 22 Mar 2008 23:46:00 -0700</pubDate><guid>https://freizl.github.io/posts/mirro-wikipedia-at-your-local/</guid><description>sudo apt-get update
 sudo apt-get install apache2 php5 libapache2-mod-php5 mysql-server mysql-client php5-mysql phpmyadmin
 mkdir ~/wiki/
 cd ~/wiki/

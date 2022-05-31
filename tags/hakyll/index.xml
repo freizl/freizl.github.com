@@ -2,4 +2,5 @@
 问题 Hakyll1会给每个标签单独生成一个 html，比如/foo.html/, 用来显示标签对应的所有文章。 然而当标签为中文时，文件名会是乱码，而非对应的中文标签名。
 原因 造成问题是原因由于 Haskell 里写文件的方法。 如下所是，=writeFile=用 base 库里的=String=类型表示文件名， 这就限制其只能表示 ASC-II 字符集。
 type FilePath = String writeFile :: FilePath -- ^ 文件名 -&amp;gt; String -- ^ 要写到文件的内容 -&amp;gt; IO () 一种解决办法 最直接的方式就是用类库 utf8-string2里的=encodeString=方法，现将文件名进行 encode 然后再调=writeFile=方法。比如
-import qualified Codec.Binary.UTF8.String as UTF8 main = myWriteFile &amp;#34;新天地.html&amp;#34; &amp;#34;test&amp;#34; myWriteFile = writeFile . UTF8.encodeString 对应到 Hakyll, 就是将上述的改动加到这个文件里/src/Hakyll/Core/Writable.</description></item></channel></rss>
+import qualified Codec.Binary.UTF8.String as UTF8 main = myWriteFile &amp;#34;新天地.html&amp;#34; &amp;#34;test&amp;#34; myWriteFile = writeFile . UTF8.encodeString 对应到 Hakyll, 就是将上述的改动加到这个文件里/src/Hakyll/Core/Writable.hs/.详见这里3.
+再一种解决办法 hakyll goole groups 有人帖了他的一个解决方案，也是用 utf8-string 先 encode，但修改的地方不一样。详见此4。</description></item></channel></rss>

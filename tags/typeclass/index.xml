@@ -2,4 +2,5 @@
 class Eq a where (==) :: a -&amp;gt; a -&amp;gt; Bool (/=) :: a -&amp;gt; a -&amp;gt; Bool class Functor f where fmap :: (a -&amp;gt; b) -&amp;gt; f a -&amp;gt; f b instance (Eq a) =&amp;gt; Eq (Maybe a) where Just x == Just y = x == y Nothing == Nothing = True _ == _ = False instance Functor Maybe where fmap f (Just x) = Just (f x) fmap f Nothing = Nothing It put Maybe as type parameter while instance Functor class.</description></item><item><title>Deriving</title><link>https://freizl.github.io/posts/deriving/</link><pubDate>Tue, 14 Jun 2011 00:00:00 +0000</pubDate><guid>https://freizl.github.io/posts/deriving/</guid><description>Deriving What the cool thing that Deriving does is actually automaticlly implementing instance for perticular type class.
 For instance, a Person derives Eq
 data Person = Person { firstName :: String , lastName :: String , age :: Int } deriving Eq Then we are able to compare two Persons because Haskell make the type Person to be a instance of typeclass Eq.
-Take another example,</description></item></channel></rss>
+Take another example,
+data Day = Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday deriving (Bounded, Enum) The Bounded typeclass defines things that have lowest possible value and highest possible value.</description></item></channel></rss>

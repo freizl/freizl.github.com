@@ -51,11 +51,12 @@ The _vimrc setting for taglist:
 let Tlist_Ctags_Cmd = &amp;lsquo;C:\MyWorkplace\ctags57\ctags.exe&amp;rsquo;
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Sort_Type = &amp;ldquo;name&amp;rdquo;
-nnoremap :TlistToggle&amp;quot; Shortcut for switch between split windows quickly
+nnoremap :TlistToggle
+&amp;quot; Shortcut for switch between split windows quickly
 nnoremap H nnoremap L **</description></item><item><title>Vim commands</title><link>https://freizl.github.io/posts/vim-commands/</link><pubDate>Wed, 19 Mar 2008 19:09:00 -0700</pubDate><guid>https://freizl.github.io/posts/vim-commands/</guid><description>-&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-
 &amp;quot; could be in startup setting
 :ab MAA multiAccountAlert # define a abbreviations
-:map :w!# define a shortcut
+:map :w! # define a shortcut
 -&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-
 &amp;quot; useful tips
 then select &amp;ldquo;column(s)&amp;rdquo; with motion commands (win32 )

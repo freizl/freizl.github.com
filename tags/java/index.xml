@@ -13,10 +13,11 @@ public abstract class PizzaStore {
 * #templateMethod(String type) is an Template Method.
 * * #factoryMethodOfInit() AND #factoryMethodOfCreate(String type) are both</description></item><item><title>Hermes vs Oracle AQ</title><link>https://freizl.github.io/posts/hermes-vs-oracle-aq/</link><pubDate>Sun, 12 Oct 2008 18:10:00 -0700</pubDate><guid>https://freizl.github.io/posts/hermes-vs-oracle-aq/</guid><description>1. Need a wrapped connect factory, see here. And package it into a jar, like oracleaq-factory.jar
 2. How to in Hermes:
- 2.1 add a new provider including those jars: aqapi.jar, jms.jar, jta.jar, ojdbc.jar and oracleaq-factory.jar
+2.1 add a new provider including those jars: aqapi.jar, jms.jar, jta.jar, ojdbc.jar and oracleaq-factory.jar
 2.2 create a new session for AQ topic (EAB_DEMO_QUEUE here):
 3. Double click the topic under the session, EAB_DEMO_QUEUE here, to connect to the topic.
-Hermes will create a new subscriber for this topic.</description></item><item><title>Interactive with AQ Topic in Java</title><link>https://freizl.github.io/posts/interactive-with-aq-topic-in-java/</link><pubDate>Sun, 21 Sep 2008 19:19:00 -0700</pubDate><guid>https://freizl.github.io/posts/interactive-with-aq-topic-in-java/</guid><description>import static org.junit.Assert.assertNotNull;
+Hermes will create a new subscriber for this topic.
+And once there&amp;rsquo;s message push into this topic, it will be display in the Hermes.</description></item><item><title>Interactive with AQ Topic in Java</title><link>https://freizl.github.io/posts/interactive-with-aq-topic-in-java/</link><pubDate>Sun, 21 Sep 2008 19:19:00 -0700</pubDate><guid>https://freizl.github.io/posts/interactive-with-aq-topic-in-java/</guid><description>import static org.junit.Assert.assertNotNull;
 import java.util.Calendar;
 import javax.jms.Message;
 import javax.jms.QueueConnection;
@@ -41,25 +42,30 @@ private static final String CONNECT_TYPE = &amp;ldquo;thin&amp;rdquo;;</descript
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 public class InterestingTests {
- @Test
+@Test
 public void TestConstructInterface() {
 TurnstileController controller = new TurnstileController() {
 private boolean lockState = false;
 private boolean unlockState = false;
- public void lock() {
+public void lock() {
 lockState = true;
 }
- public void unlock() {
+public void unlock() {
 unlockState = true;
 }
- public boolean isLockState() {
+public boolean isLockState() {
 return lockState;
 }
- public boolean isUnlockState() {
-return unlockState;</description></item><item><title>Something in Generic Programming</title><link>https://freizl.github.io/posts/something-in-generic-programming/</link><pubDate>Wed, 16 Jul 2008 06:33:00 -0700</pubDate><guid>https://freizl.github.io/posts/something-in-generic-programming/</guid><description>-- difference between raw type list and wildcard type list
+public boolean isUnlockState() {
+return unlockState;
+}
+};
+controller.lock();
+assertTrue(controller.isLockState());
+controller.unlock();</description></item><item><title>Something in Generic Programming</title><link>https://freizl.github.io/posts/something-in-generic-programming/</link><pubDate>Wed, 16 Jul 2008 06:33:00 -0700</pubDate><guid>https://freizl.github.io/posts/something-in-generic-programming/</guid><description>-- difference between raw type list and wildcard type list
 You can put any element into a collection with a raw type, easily corrupting the collections type invariant. you cant put any element(other than null) into a Collection. Attempting to do so will generate a compile-time error message.
 -- parametrized types are invariant.
-In other words, for any two distinct types Type1 and Type2, Listis either a subtype nor a supertype of List.</description></item><item><title>JSE5, New Language Features Introduce by Joshua Bloch</title><link>https://freizl.github.io/posts/jse5-new-language-features-introduce-by/</link><pubDate>Mon, 07 Jul 2008 20:16:00 -0700</pubDate><guid>https://freizl.github.io/posts/jse5-new-language-features-introduce-by/</guid><description>(For me), it&amp;rsquo;s a good overview introduce of JSE5 new feature.
+In other words, for any two distinct types Type1 and Type2, List is either a subtype nor a supertype of List.</description></item><item><title>JSE5, New Language Features Introduce by Joshua Bloch</title><link>https://freizl.github.io/posts/jse5-new-language-features-introduce-by/</link><pubDate>Mon, 07 Jul 2008 20:16:00 -0700</pubDate><guid>https://freizl.github.io/posts/jse5-new-language-features-introduce-by/</guid><description>(For me), it&amp;rsquo;s a good overview introduce of JSE5 new feature.
 http://java.sun.com/features/2003/05/bloch_qa.html
 Any other advance articles?</description></item><item><title>An Abstract Class when using DBUnit</title><link>https://freizl.github.io/posts/abstract-class-when-using-dbunit/</link><pubDate>Mon, 05 May 2008 01:32:00 -0700</pubDate><guid>https://freizl.github.io/posts/abstract-class-when-using-dbunit/</guid><description>http://sites.google.com/site/freizl/Home/java-code/sampledbunittest</description></item><item><title>Static Field/Method, Initialization Block Cont. (Java Disassemble)</title><link>https://freizl.github.io/posts/static-fieldmethod-initialization-block_20/</link><pubDate>Thu, 20 Mar 2008 06:08:00 -0700</pubDate><guid>https://freizl.github.io/posts/static-fieldmethod-initialization-block_20/</guid><description>Disassembles class files:
 javap -c BaseObject</description></item><item><title>Static Field/Method, Initialization Block Cont. (Java Disassemble)</title><link>https://freizl.github.io/posts/static-fieldmethod-initialization-block_3944/</link><pubDate>Thu, 20 Mar 2008 06:08:00 -0700</pubDate><guid>https://freizl.github.io/posts/static-fieldmethod-initialization-block_3944/</guid><description>Disassembles class files:
