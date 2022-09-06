@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Improve Space Usage</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Improve Space Usage</h1>
+</header><p>
+It is example from <a href="https://www.youtube.com/watch?v=nvgj0NV4IOQ">programming in haskell video lecture 12 by Eric M</a>.
+I just like to know whether GHC profile tool could help to figure out
+such problem.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">module</span> <span style="color: #c49619; font-style: italic;">Main</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+
+  sumWith1 v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
+  sumWith1 v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> sumWith1 (v<span style="color: #8d9fa1;">+</span>x) xs
+
+  sumWith2 v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
+  sumWith2 v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> (sumWith2 <span style="color: #8d9fa1;">$!</span> (v<span style="color: #8d9fa1;">+</span>x)) xs
+
+  test <span style="color: #8d9fa1;">=</span> sumWith2 <span style="color: #7a7ed2; font-weight: bold;">0</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span><span style="color: #7a7ed2; font-weight: bold;">20000000</span>]
+
+  main <span style="color: #8d9fa1;">=</span> print test
+</pre>
+</div>
+</div>
+</body>
+</html>

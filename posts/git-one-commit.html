@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Git One Commit</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Git One Commit</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#play-it">Play it</a>
+<ul>
+<li><a href="#new-two-files">new two files</a></li>
+<li><a href="#git-add">git-add</a></li>
+<li><a href="#no-objects-created-yet">no objects created yet</a></li>
+<li><a href="#git-commit">git-commit</a></li>
+<li><a href="#git-obj-list">git-obj-list</a></li>
+<li><a href="#what-are-they">what are they</a></li>
+</ul>
+</li>
+<li><a href="#further">Further</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-play-it" class="outline-2">
+<h2 id="play-it">Play it</h2>
+<div class="outline-text-2" id="text-play-it">
+</div>
+<div id="outline-container-new-two-files" class="outline-3">
+<h3 id="new-two-files">new two files</h3>
+<div class="outline-text-3" id="text-new-two-files">
+<pre class="example" id="org6170316">
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo "11111" &gt; 1.txt
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo "22222" &gt; 2.txt
+</pre>
+</div>
+</div>
+
+<div id="outline-container-git-add" class="outline-3">
+<h3 id="git-add">git-add</h3>
+<div class="outline-text-3" id="text-git-add">
+<pre class="example" id="orgdaf0884">
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add .
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
+  # On branch master
+  #
+  # Initial commit
+  #
+  # Changes to be committed:
+  #   (use "git rm --cached &lt;file&gt;..." to unstage)
+  #
+  #   new file:   1.txt
+  #   new file:   2.txt
+  #
+</pre>
+</div>
+</div>
+
+<div id="outline-container-no-objects-created-yet" class="outline-3">
+<h3 id="no-objects-created-yet">no objects created yet</h3>
+<div class="outline-text-3" id="text-no-objects-created-yet">
+<pre class="example" id="org5a9548c">
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
+</pre>
+</div>
+</div>
+
+<div id="outline-container-git-commit" class="outline-3">
+<h3 id="git-commit">git-commit</h3>
+<div class="outline-text-3" id="text-git-commit">
+<pre class="example" id="orgf2c4e90">
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci "first commit"
+  [master (root-commit) 8ef1919] first commit
+   2 files changed, 2 insertions(+), 0 deletions(-)
+   create mode 100644 1.txt
+   create mode 100644 2.txt
+</pre>
+</div>
+</div>
+
+<div id="outline-container-git-obj-list" class="outline-3">
+<h3 id="git-obj-list">git-obj-list</h3>
+<div class="outline-text-3" id="text-git-obj-list">
+<pre class="example" id="org57d6141">
+
+  haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
+  8ef1919e4ca33cf602488a27b5671a6b6acf754b
+  8ed6deeabbbb89cda775aafc10745ea40dcd8456
+  f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f 1.txt
+  0ac1ae0ae201d8db7ac29015a6ba7494db37d59c 2.txt
+</pre>
+</div>
+</div>
+
+<div id="outline-container-what-are-they" class="outline-3">
+<h3 id="what-are-they">what are they</h3>
+<div class="outline-text-3" id="text-what-are-they">
+<pre class="example" id="orga015b07">
+  ## | Blob objects
+  ~/github/haisheng-homepage/test$ git cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
+  11111
+  ~/github/haisheng-homepage/test$ git cat-file -p 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c
+  22222
+
+  ## | Commit objects
+  ~/github/haisheng-homepage/test$ git cat-file -p 8ef1919e4ca33cf602488a27b5671a6b6acf754b
+  tree 8ed6deeabbbb89cda775aafc10745ea40dcd8456
+  author Haisheng.W.WU &lt;freizl@gmail.com&gt; 1334230087 +0800
+  committer Haisheng.W.WU &lt;freizl@gmail.com&gt; 1334230087 +0800
+
+  first commit
+
+  ## | Tree objects
+  ~/github/haisheng-homepage/test$ git cat-file -p 8ed6deeabbbb89cda775aafc10745ea40dcd8456
+  100644 blob f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f    1.txt
+  100644 blob 0ac1ae0ae201d8db7ac29015a6ba7494db37d59c    2.txt
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-further" class="outline-2">
+<h2 id="further">Further</h2>
+<div class="outline-text-2" id="text-further">
+<ul class="org-ul">
+<li>[[][Git object model]]</li>
+<li>[[][Git internal in one image]]</li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Euler Problem 14</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Euler Problem 14</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#solution-one">Solution One</a></li>
+<li><a href="#solution-two">Solution Two</a></li>
+<li><a href="#other-solutions">Other solutions</a></li>
+<li><a href="#further">Further</a>
+<ul>
+<li><a href="#why-solution-2-make-great-differences"><b>Why solution 2 make great differences?</b></a></li>
+<li><a href="#more-about-parallel-programming-in-haskell">More about Parallel programming in Haskell?</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-solution-one" class="outline-2">
+<h2 id="solution-one">Solution One</h2>
+<div class="outline-text-2" id="text-solution-one">
+<p>
+I should say this solution only work while upper limit is under 100000.
+Otherwise it is really slow and I have no patient for the result. I
+wonder it would take minutes or even hours.
+</p>
+
+<p>
+So, problem solving failed.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">module</span> <span style="color: #c49619; font-style: italic;">Main</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+  <span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #c49619; font-style: italic;">Data.Word</span>
+
+  main <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> <span style="color: #c49619; font-style: italic;">()</span>
+  main <span style="color: #8d9fa1;">=</span> print <span style="color: #8d9fa1;">$</span> p14
+
+  p14 <span style="color: #8d9fa1;">=</span> maximum [ (startChain n <span style="color: #7a7ed2; font-weight: bold;">0</span>, n) <span style="color: #8d9fa1;">|</span> n <span style="color: #8d9fa1;">&lt;-</span> [<span style="color: #7a7ed2; font-weight: bold;">2</span><span style="color: #8d9fa1;">..</span><span style="color: #7a7ed2; font-weight: bold;">1000000</span>] ]
+
+  startChain <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+  startChain <span style="color: #7a7ed2; font-weight: bold;">1</span> count    <span style="color: #8d9fa1;">=</span> count <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
+  startChain n count    <span style="color: #8d9fa1;">=</span> startChain (intTransform n) (count<span style="color: #8d9fa1;">+</span><span style="color: #7a7ed2; font-weight: bold;">1</span>)
+
+  intTransform <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+  intTransform n
+    <span style="color: #8d9fa1;">|</span> even n         <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
+    <span style="color: #8d9fa1;">|</span> otherwise      <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">3</span> <span style="color: #8d9fa1;">*</span> n <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
+</pre>
+</div>
+
+<p>
+Compile as otherwise Stack space overflow :
+<code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-solution-two" class="outline-2">
+<h2 id="solution-two">Solution Two</h2>
+<div class="outline-text-2" id="text-solution-two">
+<p>
+I went for Haskell Wiki<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> for help by finding solution one there is
+similar to one of its solutions. The significate difference is it uses
+type <code>Word32</code> for <code>n</code> rather than <code>Int</code>. I picked this difference and
+make the following change and it worked out really cool.
+</p>
+
+<p>
+The result came under 1.5s at my local!
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">
+  startChain <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Word32</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+  startChain <span style="color: #7a7ed2; font-weight: bold;">1</span> count    <span style="color: #8d9fa1;">=</span> count <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
+  startChain n count    <span style="color: #8d9fa1;">=</span> startChain (intTransform n) (count<span style="color: #8d9fa1;">+</span><span style="color: #7a7ed2; font-weight: bold;">1</span>)
+
+  intTransform <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Word32</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Word32</span>
+  intTransform n
+    <span style="color: #8d9fa1;">|</span> even n         <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
+    <span style="color: #8d9fa1;">|</span> otherwise      <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">3</span> <span style="color: #8d9fa1;">*</span> n <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
+</pre>
+</div>
+
+<p>
+Compile as otherwise Stack space overflow :
+<code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code>
+</p>
+</div>
+</div>
+
+<div id="outline-container-other-solutions" class="outline-2">
+<h2 id="other-solutions">Other solutions</h2>
+<div class="outline-text-2" id="text-other-solutions">
+<p>
+Haskell Wiki<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> presents several solutions. One interested me is that
+levearages parallel programming <code>Control.Parallel</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-further" class="outline-2">
+<h2 id="further">Further</h2>
+<div class="outline-text-2" id="text-further">
+</div>
+<div id="outline-container-why-solution-2-make-great-differences" class="outline-3">
+<h3 id="why-solution-2-make-great-differences"><b>Why solution 2 make great differences?</b></h3>
+<div class="outline-text-3" id="text-why-solution-2-make-great-differences">
+<p>
+I asked question in haskell-beginer but still can not get clear
+understanding.
+</p>
+</div>
+</div>
+
+<div id="outline-container-more-about-parallel-programming-in-haskell" class="outline-3">
+<h3 id="more-about-parallel-programming-in-haskell">More about Parallel programming in Haskell?</h3>
+<div class="outline-text-3" id="text-more-about-parallel-programming-in-haskell">
+</div>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://www.haskell.org/haskellwiki/Euler_problems/11_to_20">Haskell
+Wiki Euler Problem</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://www.haskell.org/haskellwiki/Euler_problems/11_to_20">Haskell
+Wiki Euler Problem</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

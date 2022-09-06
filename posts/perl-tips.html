@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Perl Tips</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Perl Tips</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#basic">Basic</a></li>
+<li><a href="#loop">Loop</a></li>
+<li><a href="#sub">Sub</a></li>
+<li><a href="#data-structure">Data Structure</a>
+<ul>
+<li><a href="#aoa">AoA</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-basic" class="outline-2">
+<h2 id="basic">Basic</h2>
+<div class="outline-text-2" id="text-basic">
+<div class="org-src-container">
+<pre class="src src-perl">  <span style="color: #93a61a; font-weight: bold;">my</span> @<span style="color: #8d9fa1; text-decoration: underline;">myarray</span> = ();
+  push @<span style="color: #8d9fa1; text-decoration: underline;">myarray</span>,<span style="color: #93a61a;">"a"</span>;
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-perl">  <span style="color: #93a61a; font-weight: bold;">my</span> @<span style="color: #8d9fa1; text-decoration: underline;">keys</span> = qw<span style="color: #93a61a;">(a b c)</span>;
+  <span style="color: #93a61a; font-weight: bold;">my</span> @<span style="color: #8d9fa1; text-decoration: underline;">vals</span> = (<span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #7a7ed2; font-weight: bold;">2</span>, <span style="color: #7a7ed2; font-weight: bold;">3</span>);
+  <span style="color: #93a61a; font-weight: bold;">my</span> %<span style="color: #8d9fa1; text-decoration: underline;">hash</span>;
+  @<span style="color: #8d9fa1; text-decoration: underline;">hash</span>{@<span style="color: #8d9fa1; text-decoration: underline;">keys</span>} = @<span style="color: #8d9fa1; text-decoration: underline;">vals</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-loop" class="outline-2">
+<h2 id="loop">Loop</h2>
+<div class="outline-text-2" id="text-loop">
+<div class="org-src-container">
+<pre class="src src-perl">  <span style="color: #62787f; font-style: italic;"># loop elements in itemArray1 and itemArray2</span>
+  <span style="color: #93a61a; font-weight: bold;">foreach</span> <span style="color: #93a61a; font-weight: bold;">my</span> $<span style="color: #8d9fa1;">item</span> (@<span style="color: #8d9fa1; text-decoration: underline;">itemArray1</span>, @<span style="color: #8d9fa1; text-decoration: underline;">itemArray2</span>) {
+    ...
+  }
+
+  <span style="color: #93a61a; font-weight: bold;">while</span> ( <span style="color: #93a61a; font-weight: bold;">my</span> ($<span style="color: #8d9fa1;">key</span>, $<span style="color: #8d9fa1;">value</span>) = each(%<span style="color: #8d9fa1; text-decoration: underline;">hash</span>) ) {
+    print <span style="color: #93a61a;">"$key =&gt; $value\n"</span>;
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sub" class="outline-2">
+<h2 id="sub">Sub</h2>
+<div class="outline-text-2" id="text-sub">
+<div class="org-src-container">
+<pre class="src src-perl">  <span style="color: #93a61a; font-weight: bold;">sub</span> <span style="color: #3c98e0;">prepare_sth</span> {
+    <span style="color: #93a61a; font-weight: bold;">my</span> $<span style="color: #8d9fa1;">param</span> = shift;  <span style="color: #62787f; font-style: italic;"># means shift @_, @_ is param array</span>
+    <span style="color: #62787f; font-style: italic;"># my $param = $_;   # when could use $_ ??</span>
+  }
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-perl">  <span style="color: #93a61a; font-weight: bold;">sub</span> <span style="color: #3c98e0;">uniq</span> {
+    @<span style="color: #8d9fa1; text-decoration: underline;">list</span> = shift;
+    %<span style="color: #8d9fa1; text-decoration: underline;">seen</span> = ();
+    @<span style="color: #8d9fa1; text-decoration: underline;">uniqu</span> = grep { ! $<span style="color: #8d9fa1;">seen</span>{$<span style="color: #8d9fa1;">_</span>} ++ } @<span style="color: #8d9fa1; text-decoration: underline;">list</span>;
+  }
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-data-structure" class="outline-2">
+<h2 id="data-structure">Data Structure</h2>
+<div class="outline-text-2" id="text-data-structure">
+</div>
+<div id="outline-container-aoa" class="outline-3">
+<h3 id="aoa">AoA</h3>
+<div class="outline-text-3" id="text-aoa">
+<p>
+from book
+</p>
+
+<div class="org-src-container">
+<pre class="src src-perl">  <span style="color: #62787f; font-style: italic;">### Assign a list of array references to an array.</span>
+  @<span style="color: #8d9fa1; text-decoration: underline;">AoA</span> = (
+           [ <span style="color: #93a61a;">"fred"</span>, <span style="color: #93a61a;">"barney"</span> ],
+           [ <span style="color: #93a61a;">"george"</span>, <span style="color: #93a61a;">"jane"</span>, <span style="color: #93a61a;">"elroy"</span> ],
+           [ <span style="color: #93a61a;">"homer"</span>, <span style="color: #93a61a;">"marge"</span>, <span style="color: #93a61a;">"bart"</span> ],
+  );
+  print $<span style="color: #8d9fa1;">AoA</span>[<span style="color: #7a7ed2; font-weight: bold;">2</span>][<span style="color: #7a7ed2; font-weight: bold;">1</span>];   <span style="color: #62787f; font-style: italic;"># prints "marge"</span>
+
+  <span style="color: #62787f; font-style: italic;">### Create an reference to an array of array references.</span>
+  $<span style="color: #8d9fa1;">ref_to_AoA</span> = [
+      [ <span style="color: #93a61a;">"fred"</span>, <span style="color: #93a61a;">"barney"</span>, <span style="color: #93a61a;">"pebbles"</span>, <span style="color: #93a61a;">"bamm bamm"</span>, <span style="color: #93a61a;">"dino"</span>, ],
+      [ <span style="color: #93a61a;">"homer"</span>, <span style="color: #93a61a;">"bart"</span>, <span style="color: #93a61a;">"marge"</span>, <span style="color: #93a61a;">"maggie"</span>, ],
+      [ <span style="color: #93a61a;">"george"</span>, <span style="color: #93a61a;">"jane"</span>, <span style="color: #93a61a;">"elroy"</span>, <span style="color: #93a61a;">"judy"</span>, ],
+  ];
+
+  print $<span style="color: #8d9fa1;">ref_to_AoA</span>-&gt;[<span style="color: #7a7ed2; font-weight: bold;">2</span>][<span style="color: #7a7ed2; font-weight: bold;">3</span>];   <span style="color: #62787f; font-style: italic;"># prints "judy"</span>
+</pre>
+</div>
+
+<p>
+Remember that there is an implied -&gt; between every pair of adjacent
+braces or brackets. <b>(Simply saying, -&gt; indicates a reference which
+created via [])</b>.
+</p>
+
+<p>
+Therefore these two lines:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-perl">  $<span style="color: #8d9fa1;">AoA</span>[<span style="color: #7a7ed2; font-weight: bold;">2</span>][<span style="color: #7a7ed2; font-weight: bold;">3</span>]
+  $<span style="color: #8d9fa1;">ref_to_AoA</span>-&gt;[<span style="color: #7a7ed2; font-weight: bold;">2</span>][<span style="color: #7a7ed2; font-weight: bold;">3</span>]
+</pre>
+</div>
+
+<p>
+are equivalent to these two lines:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-perl">  $<span style="color: #8d9fa1;">AoA</span>[<span style="color: #7a7ed2; font-weight: bold;">2</span>]-&gt;[<span style="color: #7a7ed2; font-weight: bold;">3</span>]
+  $<span style="color: #8d9fa1;">ref_to_AoA</span>-&gt;[<span style="color: #7a7ed2; font-weight: bold;">2</span>]-&gt;[<span style="color: #7a7ed2; font-weight: bold;">3</span>]
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-references" class="outline-2">
+<h2 id="references">References</h2>
+<div class="outline-text-2" id="text-references">
+<ul class="org-ul">
+<li><a href="http://www.cs.mcgill.ca/~abatko/computers/programming/perl/howto/hash/">Perl
+Hash Howto</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deriving</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Deriving</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#deriving">Deriving</a></li>
+<li><a href="#further-study">Further study</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-deriving" class="outline-2">
+<h2 id="deriving">Deriving</h2>
+<div class="outline-text-2" id="text-deriving">
+<p>
+What the cool thing that Deriving does is actually <b>automaticlly
+implementing instance</b> for perticular type class.
+</p>
+
+<p>
+For instance, a <code>Person</code> derives <code>Eq</code>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Person</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Person</span>
+    { firstName <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">String</span>
+    , lastName  <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">String</span>
+    , age       <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span>
+    }
+    <span style="color: #93a61a; font-weight: bold;">deriving</span> <span style="color: #c49619; font-style: italic;">Eq</span>
+</pre>
+</div>
+
+<p>
+Then we are able to compare two Persons because Haskell make the type
+<code>Person</code> to be a instance of typeclass <code>Eq</code>.
+</p>
+
+<p>
+Take another example,
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Day</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Monday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Tuesday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Wednesday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Thursday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Friday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Saturday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Sunday</span>
+             <span style="color: #93a61a; font-weight: bold;">deriving</span> (<span style="color: #c49619; font-style: italic;">Bounded</span>, <span style="color: #c49619; font-style: italic;">Enum</span>)
+</pre>
+</div>
+
+<p>
+The <code>Bounded</code> typeclass defines things that have lowest possible value
+and highest possible value. The <code>Enum</code> typeclass defines things that
+have predecessors and successors.
+</p>
+
+<p>
+Let&rsquo;s read one of function in <code>Bounded</code> typeclass <code>minBound</code>, which just
+return something that is instance of <code>Bounded</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  minBound <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Bounded</span> a) <span style="color: #8d9fa1;">=&gt;</span> a
+</pre>
+</div>
+
+<p>
+Hence, if enforce its return type to be <code>Day</code>, we will get result
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  ghci<span style="color: #8d9fa1;">&gt;</span> minBound <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Day</span>
+  <span style="color: #c49619; font-style: italic;">Monday</span>
+</pre>
+</div>
+
+<p>
+Take a look at one function of <code>Enum</code> typeclass
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  succ <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Enum</span> a) <span style="color: #8d9fa1;">=&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> a
+</pre>
+</div>
+
+<p>
+We could easy guess the result of <code>succ Tuesday</code> will be Wednesday.
+</p>
+</div>
+</div>
+
+<div id="outline-container-further-study" class="outline-2">
+<h2 id="further-study">Further study</h2>
+<div class="outline-text-2" id="text-further-study">
+<ul class="org-ul">
+<li>How does the Deriving being implemented in Haskell?</li>
+</ul>
+
+<p>
+Thanks a guy point me I could go further by study
+<a href="http://hackage.haskell.org/package/derive">Data.derive</a> at the
+beginner mailing session.
+</p>
+</div>
+</div>
+
+<div id="outline-container-reference" class="outline-2">
+<h2 id="reference">Reference</h2>
+<div class="outline-text-2" id="text-reference">
+<ul class="org-ul">
+<li><a href="http://learnyouahaskell.com/making-our-own-types-and-typeclasses">Learn
+Your Haskell, Chapter 8</a></li>
+</ul>
+</div>
+</div>
+</div>
+</body>
+</html>

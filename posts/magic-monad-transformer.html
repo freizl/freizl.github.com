@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Magic Monad Transformer</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Magic Monad Transformer</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#monad-transformer">Monad-Transformer</a></li>
+<li><a href="#what-is-the-so-called-magic">What is the so-called &ldquo;Magic&rdquo;</a></li>
+<li><a href="#a-trivial-demo">A trivial demo</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-monad-transformer" class="outline-2">
+<h2 id="monad-transformer">Monad-Transformer</h2>
+<div class="outline-text-2" id="text-monad-transformer">
+<p>
+The code fragment below is from chapter 18 Monad Transform of &lt;Real
+World Haskell&gt;<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
+</p>
+
+<p>
+When the first time I read this example, I was confused with how it is
+possible to use <code>ask</code> of <code>MonadReader</code> (line 6) and <code>get</code> of
+<code>MonadState</code> (line 13) functions in the same <code>App</code> Monad content.
+</p>
+
+<p>
+The only reasonable explanation is that <code>App</code> is both <code>MonadReader</code> and
+<code>MonadState</code>. While looking at <code>App</code> type definition (line 1), seems it
+is not possible.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">type</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">ReaderT</span> <span style="color: #c49619; font-style: italic;">AppConfig</span> (<span style="color: #c49619; font-style: italic;">StateT</span> <span style="color: #c49619; font-style: italic;">AppState</span> <span style="color: #c49619; font-style: italic;">IO</span>)
+
+  constrainedCount <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">FilePath</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">App</span> [(<span style="color: #c49619; font-style: italic;">FilePath</span>, <span style="color: #c49619; font-style: italic;">Int</span>)]
+  constrainedCount curDepth path <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+    contents <span style="color: #8d9fa1;">&lt;-</span> liftIO <span style="color: #8d9fa1;">.</span> listDirectory <span style="color: #8d9fa1;">$</span> path
+    cfg <span style="color: #8d9fa1;">&lt;-</span> ask
+    rest <span style="color: #8d9fa1;">&lt;-</span> forM contents <span style="color: #8d9fa1;">$</span> <span style="color: #8d9fa1;">\</span>name <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+              <span style="color: #93a61a; font-weight: bold;">let</span> newPath <span style="color: #8d9fa1;">=</span> path <span style="color: #8d9fa1;">&lt;/&gt;</span> name
+              isDir <span style="color: #8d9fa1;">&lt;-</span> liftIO <span style="color: #8d9fa1;">$</span> doesDirectoryExist newPath
+              <span style="color: #93a61a; font-weight: bold;">if</span> isDir <span style="color: #8d9fa1;">&amp;&amp;</span> curDepth <span style="color: #8d9fa1;">&lt;</span> cfgMaxDepth cfg
+                <span style="color: #93a61a; font-weight: bold;">then</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+                  <span style="color: #93a61a; font-weight: bold;">let</span> newDepth <span style="color: #8d9fa1;">=</span> curDepth <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
+                  st <span style="color: #8d9fa1;">&lt;-</span> get
+                  when (stDeepestReached st <span style="color: #8d9fa1;">&lt;</span> newDepth) <span style="color: #8d9fa1;">$</span>
+                    put st { stDeepestReached <span style="color: #8d9fa1;">=</span> newDepth }
+                  constrainedCount newDepth newPath
+                <span style="color: #93a61a; font-weight: bold;">else</span> return <span style="color: #c49619; font-style: italic;">[]</span>
+    return <span style="color: #8d9fa1;">$</span> (path, length contents) <span style="color: #c49619; font-style: italic;">:</span> concat rest
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-what-is-the-so-called-magic" class="outline-2">
+<h2 id="what-is-the-so-called-magic">What is the so-called &ldquo;Magic&rdquo;</h2>
+<div class="outline-text-2" id="text-what-is-the-so-called-magic">
+<p>
+I turn to the source of package mtl<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> and finding following
+implementations.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">
+  <span style="color: #35a69c; font-style: italic;">-- | ReaderT</span>
+  <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">MonadReader</span> r (<span style="color: #c49619; font-style: italic;">ReaderT</span> r m) <span style="color: #93a61a; font-weight: bold;">where</span>
+      ask <span style="color: #8d9fa1;">=</span> ReaderT.ask
+      local <span style="color: #8d9fa1;">=</span> ReaderT.local
+
+  <span style="color: #35a69c; font-style: italic;">-- | StateT</span>
+  <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">MonadState</span> s (<span style="color: #c49619; font-style: italic;">Lazy.StateT</span> s m) <span style="color: #93a61a; font-weight: bold;">where</span>
+      get <span style="color: #8d9fa1;">=</span> Lazy.get
+      put <span style="color: #8d9fa1;">=</span> Lazy.put
+
+  <span style="color: #35a69c; font-style: italic;">-- | Combine ReaderT and StataT</span>
+  <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">MonadState</span> s m) <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">MonadState</span> s (<span style="color: #c49619; font-style: italic;">ReaderT</span> r m) <span style="color: #93a61a; font-weight: bold;">where</span>
+      get <span style="color: #8d9fa1;">=</span> lift get
+      put <span style="color: #8d9fa1;">=</span> lift <span style="color: #8d9fa1;">.</span> put
+</pre>
+</div>
+
+<p>
+If we do a substitution, will get
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">MonadReader</span> <span style="color: #c49619; font-style: italic;">AppConfig</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #93a61a; font-weight: bold;">where</span> <span style="color: #8d9fa1;">...</span>
+
+  <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">MonadState</span> <span style="color: #c49619; font-style: italic;">AppState</span> (<span style="color: #c49619; font-style: italic;">StateT</span> <span style="color: #c49619; font-style: italic;">AppState</span> <span style="color: #c49619; font-style: italic;">IO</span>)
+         <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">MonadState</span> <span style="color: #c49619; font-style: italic;">AppState</span> (<span style="color: #c49619; font-style: italic;">ReaderT</span> <span style="color: #c49619; font-style: italic;">AppConfig</span> (<span style="color: #c49619; font-style: italic;">StateT</span> <span style="color: #c49619; font-style: italic;">AppState</span> <span style="color: #c49619; font-style: italic;">IO</span>)) <span style="color: #93a61a; font-weight: bold;">where</span> <span style="color: #8d9fa1;">...</span>
+     <span style="color: #8d9fa1;">~&gt;</span> <span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">MonadState</span> <span style="color: #c49619; font-style: italic;">AppState</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #93a61a; font-weight: bold;">where</span> <span style="color: #8d9fa1;">...</span>
+</pre>
+</div>
+
+<p>
+Therefore <code>App</code> is both MonadReader and MonadState.
+</p>
+</div>
+</div>
+
+<div id="outline-container-a-trivial-demo" class="outline-2">
+<h2 id="a-trivial-demo">A trivial demo</h2>
+<div class="outline-text-2" id="text-a-trivial-demo">
+<p>
+I made a very trivial sample <sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> demostrating combine ReaderT and
+StateT.
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://book.realworldhaskell.org/read/monad-transformers.html">Chapter
+8 Monad Transformer</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://hackage.haskell.org/package/mtl-2.0.1.0">mtl-2.0.1.0 in
+hackage</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://github.com/freizl/dive-into-haskell/blob/master/codes/monad/hello-mtl.hs">A
+clear demo</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bayesian Network Exe01</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Bayesian Network Exe01</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#scenarios">Scenarios</a></li>
+<li><a href="#resolution">Resolution</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-introduction" class="outline-2">
+<h2 id="introduction">Introduction</h2>
+<div class="outline-text-2" id="text-introduction">
+<p>
+AI Course Bayesian network excerice 01 resolution using enumeration
+method.
+</p>
+
+<ul class="org-ul">
+<li>C 国家政策</li>
+<li>U 学校政策</li>
+<li>W 工作压力</li>
+<li>B 身体状况</li>
+<li>D 过劳死</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-scenarios" class="outline-2">
+<h2 id="scenarios">Scenarios</h2>
+<div class="outline-text-2" id="text-scenarios">
+<ul class="org-ul">
+<li>已知 :
+<a href="http://docs.google.com/fileview?id=0B4ERhObEn4HSOTRlMDQwMGEtZDI4OS00M2ExLWI1YTgtNzU1MzdjYjU2Mzlm&amp;authkey=CMWuqBQ&amp;hl=en">Exercise01</a></li>
+<li>求 : 当 学校政策＝＝ True 而且 工作压力 == True 时, 过劳死的概率.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-resolution" class="outline-2">
+<h2 id="resolution">Resolution</h2>
+<div class="outline-text-2" id="text-resolution">
+<ul class="org-ul">
+<li>Value T:0.95 means True case with probability 0.95</li>
+
+<li>Probability of C is omitted as it is not related. Even include C, the
+result should be same.</li>
+
+<li><p>
+Enumeration list
+</p>
+
+<p>
+INDEX <i>U</i> <i>W</i> <i>B</i> <i>D</i>
+</p>
+
+<hr>
+
+<pre class="example" id="org5cc5e03">
+     1    T:0.96    T:0.90    T:0.3    T:0.335
+     2    T:0.96    T:0.90    F:0.7    T:0.3
+     3    T:0.96    T:0.90    T:0.3    F:0.665
+     4    T:0.06    T:0.90    F:0.7    F:0.7
+</pre>
+
+<hr></li>
+
+<li>Probability calculation</li>
+</ul>
+
+<pre class="example" id="org38c2564">
+
+  P(D=T|U=T,W=T)
+    = ( P(1) + P(2) ) / ( P(1) + P(2 )+ ... + P(4) )
+    = (0.96*0.90*0.3*0.335 + 0.96*0.90*0.7*0.3 ) / (...)
+    = 0.3 * 1.035 / (0.3 * 1.035 + 0.3 * 0.665 + 0.7 * 0.7)
+    = 31.05%
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

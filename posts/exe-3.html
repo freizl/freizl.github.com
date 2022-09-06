@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yet another Haskell toturial - Exercise 3</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Yet another Haskell toturial - Exercise 3</h1>
+</header><p>
+The exercise asks writing a program that will repeatedly ask the user
+for numbers until she types in zero, at which point it will tell her the
+sum of all the numbers, the product of all the numbers, and, for each
+number, its factorial.
+</p>
+
+<p>
+In the solution, I practice a idea that Monad is lazy as well. In other
+words, here, could generate a list of Monads then print out to console.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  main <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+      xs <span style="color: #8d9fa1;">&lt;-</span> sgetline
+      mapM_ (<span style="color: #8d9fa1;">\</span>s <span style="color: #8d9fa1;">-</span>putStrLn s) (showSum xs <span style="color: #c49619; font-style: italic;">:</span> showProduct xs <span style="color: #c49619; font-style: italic;">:</span> (map showFactorial xs))
+    <span style="color: #93a61a; font-weight: bold;">where</span>
+      showSum xs <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a;">"The sum is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> sum) xs
+      showProduct xs <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a;">"The product is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> product) xs
+      showFactorial xs <span style="color: #8d9fa1;">=</span> (show x) <span style="color: #8d9fa1;">++</span> <span style="color: #93a61a;">" factorial is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> factorial) xs
+  <span style="color: #8d9fa1;">&gt;</span>
+  sgetline <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> [<span style="color: #c49619; font-style: italic;">Int</span>]
+  sgetline <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+      putStrLn <span style="color: #93a61a;">"Give me a number (or 0 to stop) :"</span>
+      x <span style="color: #8d9fa1;">&lt;-</span> getLine
+      <span style="color: #93a61a; font-weight: bold;">if</span> x <span style="color: #8d9fa1;">`elem`</span> [<span style="color: #93a61a;">""</span>, <span style="color: #93a61a;">"0"</span>] <span style="color: #93a61a; font-weight: bold;">then</span> <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">isStringEmpty??</span>
+        <span style="color: #93a61a; font-weight: bold;">do</span> return <span style="color: #c49619; font-style: italic;">[]</span>
+        <span style="color: #93a61a; font-weight: bold;">else</span>
+        <span style="color: #93a61a; font-weight: bold;">do</span> xs <span style="color: #8d9fa1;">&lt;-</span> sgetline
+           return ((read x)<span style="color: #c49619; font-style: italic;">:</span>xs)
+  <span style="color: #8d9fa1;">&gt;</span>
+  factorial n <span style="color: #8d9fa1;">=</span> product [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>n]
+</pre>
+</div>
+
+<p>
+Full code <a href="file:///codes/haskell/yaht-3.10.lhs">here</a>.
+</p>
+</div>
+</body>
+</html>

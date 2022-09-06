@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Max File Size</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Max File Size</h1>
+</header><p>
+While doing some refactoring work on solution from this guy<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>, I
+realized a pretty trivial thing about Manod method <code>&gt;&gt;=</code>.
+</p>
+
+<p>
+Take a look at its definition:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #c49619; font-style: italic;">Prelude</span><span style="color: #8d9fa1;">&gt;</span> <span style="color: #c49619; font-style: italic;">:</span>t (<span style="color: #8d9fa1;">&gt;&gt;=</span>)
+  (<span style="color: #8d9fa1;">&gt;&gt;=</span>) <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> m a <span style="color: #8d9fa1;">-&gt;</span> (a <span style="color: #8d9fa1;">-&gt;</span> m b) <span style="color: #8d9fa1;">-&gt;</span> m b
+</pre>
+</div>
+
+<p>
+Both <code>a</code> and <code>b</code> ought to be some Monadic type! In other words, all
+computation glued together by <code>&gt;&gt;=</code> have same Manodic type.
+</p>
+
+<p>
+It is really straightforward however I did not have that in mind.
+</p>
+
+<p>
+Since I did want to define a function take a <code>String</code> and return a list
+of <code>String</code> while its implementation has several computations that
+return IO type. Obviously the function failed to compiled. Therefore I
+changed it to return <code>IO [String]</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">FilePath is from package System.IO and it is synonyms of String</span>
+  getFilesInDir <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">FilePath</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">IO</span> [<span style="color: #c49619; font-style: italic;">FilePath</span>]
+  getFilesInDir inp <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+    isDir <span style="color: #8d9fa1;">&lt;-</span> doesDirectoryExist inp
+    files <span style="color: #8d9fa1;">&lt;-</span> <span style="color: #93a61a; font-weight: bold;">if</span> isDir <span style="color: #93a61a; font-weight: bold;">then</span>
+                (<span style="color: #93a61a; font-weight: bold;">do</span>
+                 names <span style="color: #8d9fa1;">&lt;-</span> getDirectoryContents inp
+                 forM [ inp <span style="color: #8d9fa1;">&lt;/&gt;</span> x <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)
+             <span style="color: #93a61a; font-weight: bold;">else</span> return [[inp]]
+    return <span style="color: #8d9fa1;">$</span> concat files
+</pre>
+</div>
+
+<p>
+PS:
+</p>
+
+<ul class="org-ul">
+<li>Full source code here<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> or hpaste<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> which is cool as give me
+several suggestions.</li>
+<li>I think hpaste using hlint to do code analysis and provide suggestions</li>
+<li>Actually it is possible to have multiple Monad in one <code>do</code> levarage
+Monad Transformers.</li>
+</ul>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://www.never-ending.me/blog/2011/06/16/276/">Never ending</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://github.com/freizl/dive-into-haskell/blob/master/io/MaxSizeFile.hs">MaxSizeFile.hs</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://hpaste.org/47969">hpaset</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

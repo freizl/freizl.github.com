@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Understand Foldr Operator</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Understand Foldr Operator</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#descrption-by-erik">Descrption by Erik</a></li>
+<li><a href="#definition-by-graham">Definition by Graham</a></li>
+<li><a href="#in-one-sentence">In one sentence</a></li>
+</ul>
+</div>
+</nav>
+<p>
+I can not quite remember the usage of foldr until I finish the video by
+Erik Meijer on Chapter 7<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
+</p>
+
+<div id="outline-container-descrption-by-erik" class="outline-2">
+<h2 id="descrption-by-erik">Descrption by Erik</h2>
+<div class="outline-text-2" id="text-descrption-by-erik">
+<p>
+Erik describe <code>foldr</code> in a very comprehensive way.
+</p>
+
+<p>
+Take refining the <code>length</code> function in terms of <code>foldr</code> as a example.
+<code>length</code> has a definition as
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #8d9fa1;">&gt;</span> length  <span style="color: #8d9fa1;">::</span> [a] <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+  <span style="color: #8d9fa1;">&gt;</span> length <span style="color: #c49619; font-style: italic;">[]</span>  <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">0</span>
+  <span style="color: #8d9fa1;">&gt;</span> length (x<span style="color: #c49619; font-style: italic;">:</span>xs)   <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #8d9fa1;">+</span> length xs
+</pre>
+</div>
+
+<p>
+and
+</p>
+
+<pre class="example" id="orge2a6222">
+    length [1,2,3]
+  = length (1:(2:(3:[])))
+  = 1 + (1 + (1 + 0))
+  = 3
+</pre>
+
+<p>
+By replace each (:) by <code>\ _ n -&gt; 1 + n</code> and [] by 0, we have:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #8d9fa1;">&gt;</span> length <span style="color: #8d9fa1;">=</span> foldr (<span style="color: #8d9fa1;">\</span> <span style="color: #93a61a; font-weight: bold;">_</span> n <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #8d9fa1;">+</span> n) <span style="color: #7a7ed2; font-weight: bold;">0</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-definition-by-graham" class="outline-2">
+<h2 id="definition-by-graham">Definition by Graham</h2>
+<div class="outline-text-2" id="text-definition-by-graham">
+<p>
+Having such knowledge inside, I find Graham&rsquo;s tutorial paper<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> about
+fold again. There is a concise decription of what fold is:
+</p>
+
+<blockquote>
+<p>
+The function <i>fold f v</i> processes a list of type <i>[a]</i> to give a value
+of type <i>b</i> by replacing the <i>nil</i> constructor [] at the end of the
+list by the value <i>v</i>, and each cons constructor (:) within the list
+by the function <i>f</i>.
+</p>
+</blockquote>
+
+<p>
+In Haskell, the <i>fold</i> operator can be defined as follows:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  fold  <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> b) <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> b
+  fold f v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
+  fold f v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> f x (fold f v xs)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-in-one-sentence" class="outline-2">
+<h2 id="in-one-sentence">In one sentence</h2>
+<div class="outline-text-2" id="text-in-one-sentence">
+<p>
+Thought it might not be that precisely.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  foldr <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> b) <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> b
+</pre>
+</div>
+
+<blockquote>
+<p>
+Pull element one by one from right side of the list and apply the
+callback
+</p>
+</blockquote>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  foldl <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> a) <span style="color: #8d9fa1;">-&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> [b] <span style="color: #8d9fa1;">-&gt;</span> a
+</pre>
+</div>
+
+<blockquote>
+<p>
+Basically, pull element one by one from left side of the list and
+apply the callback
+</p>
+</blockquote>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://www.cs.nott.ac.uk/~gmh/book.html">Programming in
+Haskell</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://www.cs.nott.ac.uk/~gmh/fold.pdf">Tutorial on the
+universality and expressions of fold</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

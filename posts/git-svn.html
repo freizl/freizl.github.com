@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Git Svn</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Git Svn</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#git-svn-initfetch">git svn init/fetch</a></li>
+<li><a href="#git-svn-clone">git svn clone</a></li>
+<li><a href="#git-svn-branch">git svn branch</a></li>
+<li><a href="#alternative-with-svn-merge">alternative with svn merge</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-git-svn-initfetch" class="outline-2">
+<h2 id="git-svn-initfetch">git svn init/fetch</h2>
+<div class="outline-text-2" id="text-git-svn-initfetch">
+<pre class="example" id="orgcaa2221">
+  git svn init [-s] URL
+  git svn fetch -r xxx|HEAD
+    a) it gets out 'all' branches/tags/trunk when no specific -r
+    b) by change some at branch, chdir to branches folder and play with git
+    c) if specify with -r, means "Just want to checkout that revision"
+                           then try git svn rebase to update to HEAD
+  git svn rebase
+</pre>
+</div>
+</div>
+
+<div id="outline-container-git-svn-clone" class="outline-2">
+<h2 id="git-svn-clone">git svn clone</h2>
+<div class="outline-text-2" id="text-git-svn-clone">
+<pre class="example" id="org2194ff6">
+  # if any problems with init/fetch, just clone and seems this is recommanded...
+  # seem should no targe name specified after URL
+  # verify with git branch -r should show all svn branches and tags
+  git svn clone [URL]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-git-svn-branch" class="outline-2">
+<h2 id="git-svn-branch">git svn branch</h2>
+<div class="outline-text-2" id="text-git-svn-branch">
+<pre class="example" id="org5526380">
+  # create svn branch
+  git svn branch [svn_branch_1]
+
+  # set up local branch to dcommit to svn branch
+  git branch [local_branch_name] remotes/svn_branch_name
+
+  # do change at git local branch and merge into master with
+  git merge --squash
+  git commit
+  git svn dcommit
+</pre>
+</div>
+</div>
+
+<div id="outline-container-alternative-with-svn-merge" class="outline-2">
+<h2 id="alternative-with-svn-merge">alternative with svn merge</h2>
+<div class="outline-text-2" id="text-alternative-with-svn-merge">
+<pre class="example" id="orgc9bcd2f">
+  svn mergeinfo ... :
+    git log master..branchx (diff commits that in branchx but master)
+    git branch [--no-merged|--merged]
+
+  svn merge --dry-run
+    git merge --no-commit --no-ff
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

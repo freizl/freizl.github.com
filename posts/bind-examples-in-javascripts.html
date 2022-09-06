@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bind Examples In Javascripts</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Bind Examples In Javascripts</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#defined-a-function">Defined a function</a></li>
+<li><a href="#run-it">Run it</a></li>
+<li><a href="#run-it-with-bind">Run it with bind</a>
+<ul>
+<li><a href="#less">Less</a></li>
+<li><a href="#more">More</a></li>
+</ul>
+</li>
+<li><a href="#run-with-bind-and-context">Run with bind and context</a></li>
+<li><a href="#diff-with-call-and-apply">Diff with call and apply</a></li>
+<li><a href="#further">Further</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-defined-a-function" class="outline-2">
+<h2 id="defined-a-function">Defined a function</h2>
+<div class="outline-text-2" id="text-defined-a-function">
+<pre class="example" id="org5a652c3">
+  var fn = function (x, y, z) {
+    console.log("The value: ", this.shangHai);
+    console.log("The sum is: ", x + y + z);
+  };
+</pre>
+</div>
+</div>
+
+<div id="outline-container-run-it" class="outline-2">
+<h2 id="run-it">Run it</h2>
+<div class="outline-text-2" id="text-run-it">
+<pre class="example" id="org5a0c026">
+  fn(1);
+</pre>
+
+<p>
+-&gt; Output
+</p>
+
+<pre class="example" id="orge93e4d5">
+  The value:  undefined
+  The sum is:  NaN
+</pre>
+
+<pre class="example" id="orgf55bf33">
+  fn(1, 2, 3);
+</pre>
+
+<p>
+-&gt; Output:
+</p>
+
+<pre class="example" id="org6480c96">
+  The value:  undefined
+  The sum is:  6
+</pre>
+</div>
+</div>
+
+<div id="outline-container-run-it-with-bind" class="outline-2">
+<h2 id="run-it-with-bind">Run it with bind</h2>
+<div class="outline-text-2" id="text-run-it-with-bind">
+</div>
+<div id="outline-container-less" class="outline-3">
+<h3 id="less">Less</h3>
+<div class="outline-text-3" id="text-less">
+<pre class="example" id="orge8b73da">
+  fn.bind(null, 1, 2, 3);
+</pre>
+
+<p>
+-&gt; Output:
+</p>
+
+<pre class="example" id="org48dc337">
+  function () { [native code] }
+</pre>
+
+<p>
+Hmm&#x2026;, seems bind return a function rather apply the function and
+return value.
+</p>
+
+<p>
+What will happen if invoke the new function?
+</p>
+
+<pre class="example" id="orgceef2ba">
+  fn.bind(null, 1, 2, 3)();
+</pre>
+
+<p>
+-&gt; Output:
+</p>
+
+<pre class="example" id="orgd5cb081">
+  The value:  undefined
+  The sum is:  6
+</pre>
+
+<p>
+That is what we want.
+</p>
+</div>
+</div>
+
+<div id="outline-container-more" class="outline-3">
+<h3 id="more">More</h3>
+<div class="outline-text-3" id="text-more">
+<p>
+What are results respectively of following expressions?
+</p>
+
+<ul class="org-ul">
+<li><code>fn.bind(null, 1)()</code></li>
+<li><code>fn.bind(null, 1)(2)</code></li>
+<li><code>fn.bind(null, 1, 2)()</code></li>
+<li><code>fn.bind(null, 1, 2)(3)</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)()</code></li>
+<li><code>fn.bind(null, 1).bind(null, 2)(3)</code></li>
+</ul>
+
+<p>
+Take one example
+</p>
+
+<pre class="example" id="org2221af8">
+  fn.bind(null, 1, 2)(3);
+</pre>
+
+<p>
+-&gt; Output:
+</p>
+
+<pre class="example" id="orgb315dd1">
+  The value:  undefined
+  The sum is:  6
+</pre>
+
+<p>
+How it produce result 6?<br>
+Because <code>bind</code> return is actually a partially applied function of=fn=.
+</p>
+
+<p>
+In JavaScripts words, the new function got return is a closure which
+holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the
+third parameter in order to fully apply function <code>fn</code>.
+</p>
+
+<p>
+The concept is named <i>Currying</i> and find more in <a href="#further">Further</a>
+section.
+</p>
+
+<p>
+<i>PS</i>: turns out that <code>bind</code> is not really doing Currying according to
+<a href="http://en.wikipedia.org/wiki/Currying">here</a> and
+<a href="http://www.uncarved.com/blog/not_currying.mrk">here</a>. It is Partially
+Function Application more than Currying thouht it can do Currying at
+some sense.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-run-with-bind-and-context" class="outline-2">
+<h2 id="run-with-bind-and-context">Run with bind and context</h2>
+<div class="outline-text-2" id="text-run-with-bind-and-context">
+<p>
+What I really mean context here is actually about <code>this</code> used in the
+function. Still now, <i>this.shangHai</i> always output <code>undefined</code> but we
+would like it to mean something.
+</p>
+
+<pre class="example" id="org5141e20">
+  fn.bind({ shangHai: "lovely" }, 1, 2, 3)();
+</pre>
+
+<p>
+-&gt; Output:
+</p>
+
+<pre class="example" id="org39c7d4a">
+  The value:  lovely
+  The sum is:  6
+</pre>
+
+<p>
+This time <code>this.shangHai</code> outputs &ldquo;lovely&rdquo; which obviously comes from
+the object that pass as first parameter of <code>bind</code>.
+</p>
+
+<p>
+Generally speaking,=this= will be the object that pass in as the first
+parameter of bind when the object is not null.
+</p>
+
+<p>
+Quiz: what <code>this</code> will be when passing null?
+</p>
+</div>
+</div>
+
+<div id="outline-container-diff-with-call-and-apply" class="outline-2">
+<h2 id="diff-with-call-and-apply">Diff with call and apply</h2>
+<div class="outline-text-2" id="text-diff-with-call-and-apply">
+<p>
+My understanding the key point is bind return a function.
+</p>
+
+<p>
+By contract, <code>call</code> and <code>apply</code> is all about providing another way for
+invoking a function.
+</p>
+</div>
+</div>
+
+<div id="outline-container-further" class="outline-2">
+<h2 id="further">Further</h2>
+<div class="outline-text-2" id="text-further">
+<ul class="org-ul">
+<li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>
+</ul>
+
+<pre class="example" id="orgad35bbf">
+
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

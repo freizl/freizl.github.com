@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>One Solution To Euler 12</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">One Solution To Euler 12</h1>
+</header><p>
+Nothing special but play haskell for fun.
+</p>
+
+<p>
+<code>Priming</code> is a simple module which can be found at <sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">module</span> <span style="color: #c49619; font-style: italic;">Main</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+
+  <span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #c49619; font-style: italic;">Data.List</span>
+  <span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #c49619; font-style: italic;">Primeing</span> (primeFactors)
+
+  main <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> <span style="color: #c49619; font-style: italic;">()</span>
+  main <span style="color: #8d9fa1;">=</span> print <span style="color: #8d9fa1;">$</span> p12 <span style="color: #7a7ed2; font-weight: bold;">500</span>
+
+  p12 <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+  p12 n <span style="color: #8d9fa1;">=</span> head <span style="color: #8d9fa1;">$</span> filter (factorLimit n) [ smartGaus x <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>]]
+
+  smartGaus <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+  smartGaus n <span style="color: #8d9fa1;">=</span> (<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">+</span>n)<span style="color: #8d9fa1;">*</span>n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
+
+  <span style="color: #62787f; font-style: italic;">{-</span><span style="color: #62787f; font-style: italic;">- |</span>
+<span style="color: #62787f; font-style: italic;">    Is factor count under the limit</span>
+<span style="color: #62787f; font-style: italic;">  -</span><span style="color: #62787f; font-style: italic;">-}</span>
+  factorLimit <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Bool</span>
+  factorLimit l n
+    <span style="color: #8d9fa1;">|</span> <span style="color: #7a7ed2; font-weight: bold;">2</span> <span style="color: #8d9fa1;">*</span> sqrtInt n <span style="color: #8d9fa1;">&lt;</span> l    <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">False</span>
+    <span style="color: #8d9fa1;">|</span> otherwise            <span style="color: #8d9fa1;">=</span> length (factors  n) <span style="color: #8d9fa1;">&gt;=</span> l
+
+
+  factors <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> [<span style="color: #c49619; font-style: italic;">Int</span>]
+  factors n <span style="color: #8d9fa1;">=</span> concat [ [x, n <span style="color: #8d9fa1;">`div`</span> x] <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>sqrtInt n], n <span style="color: #8d9fa1;">`mod`</span> x <span style="color: #8d9fa1;">==</span> <span style="color: #7a7ed2; font-weight: bold;">0</span> ]
+
+  sqrtInt <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+  sqrtInt <span style="color: #8d9fa1;">=</span> truncate <span style="color: #8d9fa1;">.</span> sqrt <span style="color: #8d9fa1;">.</span> fromIntegral
+</pre>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://github.com/freizl/dive-into-haskell/tree/master/prime">Priming
+module</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

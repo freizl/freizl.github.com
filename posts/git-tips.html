@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Git Tips</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Git Tips</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#fetch">fetch</a></li>
+<li><a href="#one-commit">one commit</a></li>
+<li><a href="#log">log</a></li>
+<li><a href="#miscs">miscs</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-fetch" class="outline-2">
+<h2 id="fetch">fetch</h2>
+<div class="outline-text-2" id="text-fetch">
+<pre class="example" id="orgf82eab3">
+  ### fetch origin "FROM" : "TO"
+  fetch = +refs/heads/master:refs/remotes/origin/master
+
+  git fetch origin master:refs/remotes/origin/mymaster
+  git fetch origin master:refs/remotes/origin/mymaster
+            topic:refs/remotes/origin/topic
+</pre>
+</div>
+</div>
+
+<div id="outline-container-one-commit" class="outline-2">
+<h2 id="one-commit">one commit</h2>
+<div class="outline-text-2" id="text-one-commit">
+<p>
+<a href="file:///docs/git_one_commit.pdf">What happened after one commit</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-log" class="outline-2">
+<h2 id="log">log</h2>
+<div class="outline-text-2" id="text-log">
+</div>
+</div>
+<div id="outline-container-miscs" class="outline-2">
+<h2 id="miscs">miscs</h2>
+<div class="outline-text-2" id="text-miscs">
+<pre class="example" id="org2a6d768">
+  git instaweb --httpd=lighttpd
+
+  ### anything need push
+  git remote show origin
+
+  ### init new repos
+  git clone --bare my_project my_project.git
+
+  git reset --hard 7e83
+
+  git checkout 82f5 [-b branch_name]  This takes you back in time, while preserving newer commits.
+  git checkout :/"my first brach"         Jump to the commit that starts with a given message.
+  git checkout master~5                   5th last saved state.(BRANCH_NAME~number)
+
+  git whatchanged
+  git cherry-pick
+
+  git rebase
+  git rebase -I HEAD~10   modify last 10 commits
+  git commit --amend
+
+  git filter-branch --tree-filter 'rm top/sececre/file' HEAD  remove file from all commit
+
+  git bundle
+
+  git branch -r
+
+  ###diff with remote branch,a.k. what are local change
+  git diff remotes/HEAD
+
+  git reflog
+</pre>
+</div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A Really Trivial Monad</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">A Really Trivial Monad</h1>
+</header><p>
+Generally some people saying that Monad is a computation that take a
+&rsquo;world&rsquo; as parameter and produce a result along with modified &rsquo;world&rsquo;.
+And this a manner that doing impure in a pure language.
+</p>
+
+<p>
+While thinking in terms of Parser, it means taking a String and produce
+a result along with the rest of the string which is not parsed<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
+Consequently, we think a monadic type in Haskell is just a function.
+</p>
+
+<p>
+It probably is at most of time but not have to be. For instance the
+<code>Maybe</code> type. The trial mentioned below is a little similar with
+<code>Maybe</code>.
+</p>
+
+<p>
+Actually I would to play with such idea:
+</p>
+
+<blockquote>
+<p>
+To add a count of operations performed to it
+</p>
+</blockquote>
+
+<p>
+Therefore the type is actually any value plus a count
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #8d9fa1;">&gt;</span> <span style="color: #93a61a; font-weight: bold;">newtype</span> <span style="color: #c49619; font-style: italic;">Sint</span> a <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Sint</span> (a, <span style="color: #c49619; font-style: italic;">Count</span>)
+</pre>
+</div>
+
+<p>
+In order to be a monad, it has to be a instance of <code>Monad</code> and the
+implementation of <code>&gt;&gt;=</code> is
+</p>
+
+<pre class="example" id="org676042c">
+  &gt; p &gt;&gt;= f = let (a, c1) = getSint p
+  &gt;               (b, c2) = getSint (f a)
+  &gt;               in Sint (b, c1+c2)
+</pre>
+
+<p>
+It means keep the result of the second computation and combined the
+count together. Find full code <a href="file:///codes/SideEffectInc.lhs"><code>here</code></a>
+</p>
+
+<p>
+Now, I realize that to implement a Monadic Type, two key points we need
+to do, which also turn to be simple.
+</p>
+
+<ul class="org-ul">
+<li>Define a type that carry along the &rsquo;side effect&rsquo;</li>
+<li>Implement Monad class, a.k.a the <code>&gt;&gt;=</code> and <code>return</code> function<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup></li>
+</ul>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://ecn.channel9.msdn.com/o9/ch9/1/1/2/4/0/5/C9LecturesMeijerC8_2MB_ch9.wmv">Functional
+parsers by Erik Meijer</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://channel9.msdn.com/shows/Going+Deep/Brian-Beckman-Dont-fear-the-Monads/">Brian
+Beckman: Don&rsquo;t fear the Monad</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

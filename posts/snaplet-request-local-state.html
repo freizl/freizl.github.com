@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Snaplet Request Local State</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Snaplet Request Local State</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#什么-snaplet">什么 Snaplet</a></li>
+<li><a href="#request-local-state">Request local state</a></li>
+<li><a href="#snaplet-oauth-0.0.0">Snaplet-oauth-0.0.0</a></li>
+<li><a href="#如何解决">如何解决</a></li>
+<li><a href="#还有什么问题">还有什么问题</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-什么-snaplet" class="outline-2">
+<h2 id="什么-snaplet">什么 Snaplet</h2>
+<div class="outline-text-2" id="text-什么-snaplet">
+<p>
+Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
+应用什么可组合化，开发者可以设计许多独立的功能模块，或者说小的应用模块，然后通过组合以组建一个大型的应用。
+</p>
+
+<p>
+详细资料请看这里<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>。
+</p>
+</div>
+</div>
+
+<div id="outline-container-request-local-state" class="outline-2">
+<h2 id="request-local-state">Request local state</h2>
+<div class="outline-text-2" id="text-request-local-state">
+<p>
+<b>Request Local State</b> 是 snaplet
+的一个设计目标<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>。初识时并没引起什么关注，也是不太理解具体含义。最近在写
+Snaplet-OAuth 的时候遇到问题，就是由于不知道这个东西的含义所造成的。
+</p>
+</div>
+</div>
+
+<div id="outline-container-snaplet-oauth-0.0.0" class="outline-2">
+<h2 id="snaplet-oauth-0.0.0">Snaplet-oauth-0.0.0</h2>
+<div class="outline-text-2" id="text-snaplet-oauth-0.0.0">
+<p>
+根据 Snaplet 的常规模式，定义一个 data type 用于保存相关信息，比如
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
+                      { getOauth     <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">OAuth2</span>
+                      , getCodeParam <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                      }
+
+  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">HasOauth</span> b <span style="color: #93a61a; font-weight: bold;">where</span>
+      oauthLens <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Lens</span> b (<span style="color: #c49619; font-style: italic;">Snaplet</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>)
+
+  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuth2</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuth2</span> { oauthClientId <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                       , oauthClientSecret <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                       , oauthOAuthorizeEndpoint <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                       , oauthAccessTokenEndpoint <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                       , oauthCallback <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                       , oauthAccessToken <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                       } <span style="color: #93a61a; font-weight: bold;">deriving</span> (<span style="color: #c49619; font-style: italic;">Show</span>, <span style="color: #c49619; font-style: italic;">Eq</span>)
+</pre>
+</div>
+
+<p>
+如果从 Monad State Trans 的角度去理解， =OAuthSnaplet=就是一个要成为
+State 的一个用户类型。 =HasOauth=可以理解为用户和其他 Snaplet
+组合的接口。
+</p>
+
+<p>
+如下代码就展示了如果将 OAuthSnaplet
+加入到一个新的应用程序。(其实就是另一个 Snaplet) 如果你已用过其他
+Snaplet，这看上去会很熟悉、常规。
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">App</span>
+      { _weibo   <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Snaplet</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
+      }
+
+  makeLens ''<span style="color: #c49619; font-style: italic;">App</span>
+
+  <span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">HasOauth</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+     oauthLens <span style="color: #8d9fa1;">=</span> weibo
+</pre>
+</div>
+
+<p>
+拿新浪微薄<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>举例，OAuth 的验证简单来说就是
+</p>
+
+<ol class="org-ol">
+<li>重定向到新浪微薄 OAuth 的验证页面，让用户授权</li>
+<li>授权后新浪微薄会调用我们的 App 指定的 Callback URL</li>
+<li>我们需要实现这个 Callback 已获取最终的 access token</li>
+</ol>
+
+<p>
+下面来看下这个 callback 的实现
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">
+  oauthCallbackHandler <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">HasOauth</span> b
+                       <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                       <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Handler</span> b b <span style="color: #c49619; font-style: italic;">()</span>
+  oauthCallbackHandler uri <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+      oauthSnaplet <span style="color: #8d9fa1;">&lt;-</span> getOauthSnaplet
+      codeParam    <span style="color: #8d9fa1;">&lt;-</span> decodedParam' (getCodeParam oauthSnaplet)
+      oauth        <span style="color: #8d9fa1;">&lt;-</span> getOauth oauthSnaplet
+      maybeToken   <span style="color: #8d9fa1;">&lt;-</span> liftIO <span style="color: #8d9fa1;">$</span> requestAccessToken oauth codeParam
+      <span style="color: #93a61a; font-weight: bold;">case</span> maybeToken <span style="color: #93a61a; font-weight: bold;">of</span>
+          <span style="color: #c49619; font-style: italic;">Just</span> token <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+               updateOAuthSnaplet (modify <span style="color: #8d9fa1;">$</span> modifyOAuthState token)
+               redirect <span style="color: #8d9fa1;">$</span> fromMaybe <span style="color: #93a61a;">"/"</span> uri
+          <span style="color: #93a61a; font-weight: bold;">_</span> <span style="color: #8d9fa1;">-&gt;</span> writeBS <span style="color: #93a61a;">"Error getting access token."</span>
+
+
+  modifyOAuthState <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">AccessToken</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
+  modifyOAuthState (<span style="color: #c49619; font-style: italic;">AccessToken</span> at) oa <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> { getOauth <span style="color: #8d9fa1;">=</span> newOA, getCodeParam <span style="color: #8d9fa1;">=</span> getCodeParam oa }
+                                         <span style="color: #93a61a; font-weight: bold;">where</span> newOA <span style="color: #8d9fa1;">=</span> originOA { oauthAccessToken <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Just</span> at }
+                                               originOA <span style="color: #8d9fa1;">=</span> getOauth oa
+
+  updateOAuthSnaplet <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">MonadSnaplet</span> m) <span style="color: #8d9fa1;">=&gt;</span> m b <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> a <span style="color: #8d9fa1;">-&gt;</span> m b <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> a
+  updateOAuthSnaplet <span style="color: #8d9fa1;">=</span> with' oauthLens
+</pre>
+</div>
+
+<p>
+这里主要关注的是第 11 行到 13 行，=Just token=表示成功获取了
+AccessToken，然后要
+</p>
+
+<ol class="org-ol">
+<li>将 OAuthSnpalet 里的 oauth 的 AccessToken 更新掉。</li>
+<li>然后将更新后 OAuthSnaplet 替代掉原来的</li>
+</ol>
+
+<p>
+这样一来 OAuthSnaplet 就有 AccessToken，在往后的 Handler 都可以拿到这个
+AcceeToken 来访问微薄资源。
+</p>
+
+<p>
+然后事实并不是这样子，在这个 oauthCallbackHandler 对 OAuthSnaplet
+的更新只限于这个 Handler。 <b>因为 snap 是多线程的且线程安全，每一次的
+request 都是对 snaplet 状态的一份新拷贝。</b> 而由于初始化 OauthSnaplet
+的时候是没有 AccessToken 的，这就意谓着所有的 Handler 默认读到的
+AccessToken 是空的。
+</p>
+</div>
+</div>
+
+<div id="outline-container-如何解决" class="outline-2">
+<h2 id="如何解决">如何解决</h2>
+<div class="outline-text-2" id="text-如何解决">
+<p>
+解决方案就是把=OAuthSnaplet=里的=oauth=变成一个共享变量，这样可以在多线程之间共享。
+</p>
+
+<p>
+一种实现方式就是用=MVar=<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>，这样 OAuthSnaplet 就成了这样子
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
+                      { getOauth     <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">MVar</span> <span style="color: #c49619; font-style: italic;">OAuth2</span>
+                      , getCodeParam <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                      }
+</pre>
+</div>
+
+<p>
+然后就很直观了，用=Control.Concurrent=库里提供的更新一个 MVar
+的方式来做更新和读取。 最后的实现可以参考这里<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup>，不在这里累赘。
+</p>
+</div>
+</div>
+
+<div id="outline-container-还有什么问题" class="outline-2">
+<h2 id="还有什么问题">还有什么问题</h2>
+<div class="outline-text-2" id="text-还有什么问题">
+<p>
+你可能已经发现，这样的实现方式，如何支持多用户，以及多个 OAuth Provider
+呢？
+我还没有答案，如果你知道怎么做，欢迎<a href="https://github.com/HaskellCNOrg/snaplet-oauth">send
+Pull Request</a>.
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://snapframework.com/docs/tutorials/snaplets-tutorial">Snaplets
+Tutorial</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://snapframework.com/docs/tutorials/snaplets-design">Snaplets-Design</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://open.weibo.com/wiki/%E6%8E%88%E6%9D%83%E6%9C%BA%E5%88%B6%E8%AF%B4%E6%98%8E">新浪微博授权机制说明</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://www.haskell.org/ghc/docs/7.0-latest/html/libraries/base-4.3.1.0/Control-Concurrent-MVar.html">MVar</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="https://github.com/HaskellCNOrg/snaplet-oauth">Snaplet-OAuth in
+Github</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Euler Problem 104</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Euler Problem 104</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#solutions">Solutions</a></li>
+<li><a href="#why-the-differences">Why the differences?</a></li>
+<li><a href="#profiling">Profiling</a></li>
+<li><a href="#further">Further</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-solutions" class="outline-2">
+<h2 id="solutions">Solutions</h2>
+<div class="outline-text-2" id="text-solutions">
+<p>
+There are two solutions below. One is written by me and another from
+haskell wiki.
+</p>
+
+<p>
+They look quite similar and I can not figure out why the wiki solution
+can solve problem but not mine. (Actually mine take more than 15
+minutes)
+</p>
+
+<ul class="org-ul">
+<li>My Solution</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  main <span style="color: #8d9fa1;">=</span> print <span style="color: #8d9fa1;">$</span> snd <span style="color: #8d9fa1;">$</span> head <span style="color: #8d9fa1;">$</span>
+         dropWhile (<span style="color: #8d9fa1;">\</span> (x,y) <span style="color: #8d9fa1;">-&gt;</span> (not <span style="color: #8d9fa1;">.</span> isLastNinePandigit <span style="color: #93a61a;">"123456789"</span>) x)
+                   (zip fibs [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>])
+
+  bothNinePandigit digits n <span style="color: #8d9fa1;">=</span>  isFirstNinePandigit digits n
+                               <span style="color: #8d9fa1;">&amp;&amp;</span> isLastNinePandigit digits n
+
+  isLastNinePandigit  digits <span style="color: #8d9fa1;">=</span> (<span style="color: #8d9fa1;">==</span> digits) <span style="color: #8d9fa1;">.</span> sort <span style="color: #8d9fa1;">.</span> lastDigits <span style="color: #7a7ed2; font-weight: bold;">9</span>
+  isFirstNinePandigit digits <span style="color: #8d9fa1;">=</span> (<span style="color: #8d9fa1;">==</span> digits) <span style="color: #8d9fa1;">.</span> sort <span style="color: #8d9fa1;">.</span> firstDigits <span style="color: #7a7ed2; font-weight: bold;">9</span>
+
+  firstDigits k n <span style="color: #8d9fa1;">=</span> take k (show n)
+  lastDigits  k n <span style="color: #8d9fa1;">=</span> show (n <span style="color: #8d9fa1;">`mod`</span> <span style="color: #7a7ed2; font-weight: bold;">10</span><span style="color: #8d9fa1;">^</span>k)
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Haskell Wiki solution<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-haskell">
+  fibs <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #c49619; font-style: italic;">:</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #c49619; font-style: italic;">:</span> zipWith (<span style="color: #8d9fa1;">+</span>) fibs (tail fibs)
+
+  isFibPan n <span style="color: #8d9fa1;">=</span>
+    <span style="color: #93a61a; font-weight: bold;">let</span> a <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`mod`</span> <span style="color: #7a7ed2; font-weight: bold;">1000000000</span>
+        b <span style="color: #8d9fa1;">=</span> sort (show a)
+        c <span style="color: #8d9fa1;">=</span> sort <span style="color: #8d9fa1;">$</span> take <span style="color: #7a7ed2; font-weight: bold;">9</span> <span style="color: #8d9fa1;">$</span> show n
+    <span style="color: #93a61a; font-weight: bold;">in</span>  b <span style="color: #8d9fa1;">==</span> <span style="color: #93a61a;">"123456789"</span> <span style="color: #8d9fa1;">&amp;&amp;</span> c <span style="color: #8d9fa1;">==</span> <span style="color: #93a61a;">"123456789"</span>
+
+  ex_104 <span style="color: #8d9fa1;">=</span> snd <span style="color: #8d9fa1;">$</span> head <span style="color: #8d9fa1;">$</span>
+           dropWhile (<span style="color: #8d9fa1;">\</span>(x,y) <span style="color: #8d9fa1;">-&gt;</span> (not <span style="color: #8d9fa1;">.</span> isFibPan) x) (zip fibs [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>])
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-why-the-differences" class="outline-2">
+<h2 id="why-the-differences">Why the differences?</h2>
+<div class="outline-text-2" id="text-why-the-differences">
+<p>
+The key point here is should test start nine digits first or test end
+nine digits.
+</p>
+
+<p>
+Two concerns here:
+</p>
+
+<ol class="org-ol">
+<li><code>show</code> function is (relatively) slow which used in test first 9
+digits function.</li>
+<li>quite few numbers are end in digits 1..9 in the first 329000 numbers</li>
+</ol>
+
+<p>
+Therefore test last 9 digits first make great performance improvement.
+</p>
+
+<p>
+<i>Thanks Brent<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> explanation this sneaky thing very comprehensively
+in haskell-beginner.</i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-profiling" class="outline-2">
+<h2 id="profiling">Profiling</h2>
+<div class="outline-text-2" id="text-profiling">
+<p>
+What help to identify is the GHC profiling tool.
+</p>
+
+<p>
+Several options used here are
+</p>
+
+<ul class="org-ul">
+<li><b>prof</b>: for basic time and allocation profiling</li>
+
+<li><b>auto-all</b>: auto insert cost centers on all top level functions. &ldquo;cost
+center&rdquo; is a location in the program like to collect statistics about
+and GHC will generate code to compute the cost of evalutating the
+expression at each location. e.g.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-haskell">    mean  s <span style="color: #8d9fa1;">=</span> <span style="color: #db5823; font-weight: bold;">{-# SCC "mean" #-}</span> sum  s <span style="color: #8d9fa1;">/</span> fromIntegral (length s)
+</pre>
+</div>
+
+<ul class="org-ul">
+<li><b>caf-all</b>: function with no parameters only computed once. CAF means
+constant applicative forms which used for calculate that once time
+evaluation.</li>
+
+<li><b>fforce-recomp</b>: force full recompilation.</li>
+</ul>
+
+<p>
+More details could go to chapter 25<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> of [Real World Haskell] and
+GHC user guider chapter 5<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #8d9fa1;">#</span> build with prof option on
+  ghc <span style="color: #62787f; font-style: italic;">--</span><span style="color: #62787f; font-style: italic;">make -O2 -prof -auto-all -rtsopts p104.hs</span>
+
+  <span style="color: #8d9fa1;">#</span> <span style="color: #93a61a; font-weight: bold;">then</span> run
+  <span style="color: #8d9fa1;">./</span>p104 <span style="color: #8d9fa1;">+</span><span style="color: #c49619; font-style: italic;">RTS</span> <span style="color: #8d9fa1;">-</span>p <span style="color: #8d9fa1;">-</span><span style="color: #c49619; font-style: italic;">RTS</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-further" class="outline-2">
+<h2 id="further">Further</h2>
+<div class="outline-text-2" id="text-further">
+<ol class="org-ol">
+<li>Chapter 25 in Real Work Haskell about profile</li>
+</ol>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://www.haskell.org/haskellwiki/Euler_problems/100_to_110">Haskell
+Wiki Euler Problem</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://comments.gmane.org/gmane.comp.lang.haskell.beginners/9175">Haskell
+Beginner 9175</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://book.realworldhaskell.org/read/profiling-and-optimization.html">Profiling
+and optimization</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4" role="doc-backlink">4</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://www.haskell.org/ghc/docs/latest/html/users_guide/profiling.html">GHC
+User Guider</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>

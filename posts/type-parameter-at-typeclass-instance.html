@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Type Parameter At Typeclass Instance</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Type Parameter At Typeclass Instance</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#a-newbie-concern">A newbie concern</a></li>
+<li><a href="#another-interesting-funtor">Another interesting Funtor</a></li>
+<li><a href="#further-reading">Further reading</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-a-newbie-concern" class="outline-2">
+<h2 id="a-newbie-concern">A newbie concern</h2>
+<div class="outline-text-2" id="text-a-newbie-concern">
+<p>
+A concern arise while I compare following two instances of <code>Maybe</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Eq</span> a <span style="color: #93a61a; font-weight: bold;">where</span>
+      (<span style="color: #8d9fa1;">==</span>) <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Bool</span>
+      (<span style="color: #8d9fa1;">/=</span>) <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Bool</span>
+
+  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Functor</span> f <span style="color: #93a61a; font-weight: bold;">where</span>
+      fmap <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b) <span style="color: #8d9fa1;">-&gt;</span> f a <span style="color: #8d9fa1;">-&gt;</span> f b
+
+  <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">Eq</span> a) <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">Eq</span> (<span style="color: #c49619; font-style: italic;">Maybe</span> a) <span style="color: #93a61a; font-weight: bold;">where</span>
+      <span style="color: #c49619; font-style: italic;">Just</span> x <span style="color: #8d9fa1;">==</span> <span style="color: #c49619; font-style: italic;">Just</span> y <span style="color: #8d9fa1;">=</span> x <span style="color: #8d9fa1;">==</span> y
+      <span style="color: #c49619; font-style: italic;">Nothing</span> <span style="color: #8d9fa1;">==</span> <span style="color: #c49619; font-style: italic;">Nothing</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">True</span>
+      <span style="color: #93a61a; font-weight: bold;">_</span> <span style="color: #8d9fa1;">==</span> <span style="color: #93a61a; font-weight: bold;">_</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">False</span>
+
+  <span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">Functor</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+      fmap f (<span style="color: #c49619; font-style: italic;">Just</span> x) <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Just</span> (f x)
+      fmap f <span style="color: #c49619; font-style: italic;">Nothing</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Nothing</span>
+</pre>
+</div>
+
+<p>
+It put <code>Maybe</code> as type parameter while instance <code>Functor</code> class. By
+contract, it is <code>Maybe a</code> while at <code>Eq</code> case.
+</p>
+
+<p>
+Why?
+</p>
+
+<p>
+A answer from Haskell beginner seems comprehensive but I did not
+understand completely. And I re-read chapters related to type from
+LYGH<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> and found several useful explanations.
+</p>
+
+<p>
+For instance <code>Maybe</code> of <code>Eq</code>, it reads
+</p>
+
+<blockquote>
+<p>
+the a has to be a concrete type but Maybe isn&rsquo;t a concrete type. It&rsquo;s
+a type constructor that takes one parameter and then produces a
+concrete type. It would also be tedious to write instance Eq (Maybe
+Int) where, instance Eq (Maybe Char) where, etc. for every type ever.
+So we could write it out like so: (Eq a) =&gt; Eq (Maybe a)
+</p>
+</blockquote>
+
+<p>
+For instance <code>Maybe</code> of <code>Functor</code>, it reads
+</p>
+
+<blockquote>
+<p>
+If we want to make a type constructor an instance of Functor, it has
+to have a kind of _ -&gt; _, which means that it has to take exactly one
+concrete type as a type parameter. For example, Maybe can be made an
+instance because it takes one type parameter to produce a concrete
+type, like Maybe Int or Maybe String. If a type constructor takes two
+parameters, like Either, we have to partially apply the type
+constructor until it only takes one type parameter. So we can&rsquo;t write
+instance Functor Either where, but we can write instance Functor
+(Either a) where and then if we imagine that fmap is only for Either
+a, it would have a type declaration of fmap :: (b -&gt; c) -&gt; Either a b
+-&gt; Either a c. As you can see, the Either a part is fixed, because
+Either a takes only one type parameter, whereas just Either takes two
+so fmap :: (b -&gt; c) -&gt; Either b -&gt; Either c wouldn&rsquo;t really make
+sense.
+</p>
+</blockquote>
+
+<p>
+My understanding comes:
+</p>
+
+<p>
+parameter <code>f a</code> of <code>fmap</code> should be concrete type, therefore <code>f</code> is a
+Type Constructor which takes one type parameter in order to construct
+concrete type. That is the reason the quote says <i>it has to have a kind
+of</i> <code>* -&gt; *</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-another-interesting-funtor" class="outline-2">
+<h2 id="another-interesting-funtor">Another interesting Funtor</h2>
+<div class="outline-text-2" id="text-another-interesting-funtor">
+<p>
+It is <code>(-&gt;) r</code> which was confusing at first glance. However, if we read
+it having Polish notation<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> in mind, it looks like less confusing.
+</p>
+
+<pre class="example" id="org6480044">
+  instance Functor ((-&gt;) r) where
+      fmap f g = (\x -&gt; f (g x))
+</pre>
+
+<p>
+Quiz: what does following expression produce?
+</p>
+
+<blockquote>
+<p>
+fmap (*3) (+100) 1
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-further-reading" class="outline-2">
+<h2 id="further-reading">Further reading</h2>
+<div class="outline-text-2" id="text-further-reading">
+<p>
+I got to read paper at type class topic<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> in order to have more
+knowledge.
+</p>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://learnyouahaskell.com">Learn Your Good Haskell</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://en.wikipedia.org/wiki/Polish_notation">Polish notation</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
+<a href="http://en.wikipedia.org/wiki/Type_class">Wikipedia Type Class</a>
+</p></div></div>
+
+
+</div>
+</div></div>
+</body>
+</html>
