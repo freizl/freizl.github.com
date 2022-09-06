@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dive into mercurial</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Dive into mercurial</h1>
+</header><p>
+IMHO <a href="http://mercurial.selenic.com/">Mercurial</a> is using the Tree
+structure idea to manipulate the so-called &rsquo;trunk/branches/tags&rsquo; which
+probably because of its <a href="http://selenic.com/mercurial/wiki/index.cgi/Presentations?action=AttachFile&amp;do=get&amp;target=ols-mercurial-paper.pdf">storage scheme</a> revlog.
+</p>
+
+<p>
+This tree has only one top (r0) and one end. In case this rule is being
+broken, merge comes in.
+</p>
+
+<p>
+The following graph show a common scenario that one person change
+something base on r2.<br>
+After he make the change, revision goes to 6.<br>
+In <a href="http://subversion.tigris.org/">Subversion</a>, if person do update
+base on r5, he will get the change which is at r6.<br>
+Therefore Subversion need create another folder branches/tags to track
+change by name.
+</p>
+
+<p>
+By contract, Mercurial will ask for merge because it predicates there
+are two headers r5 and r6 (broke the rules of that Tree).<br>
+After merge, new revision r7 created which has parent r5 and r6. (The
+storage schema revlog always doing append)<br>
+So the Tree has one end again.
+</p>
+
+<p>
+Doing the change (commit) truns to be extending the tree by appeding
+nodes start from one specific node.
+</p>
+
+<p>
+0 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5<br>
+------------&#x2013;&#x2014;&gt; 6
+</p>
+
+<p>
+My understanding of tag/branch in mercurial just give each node
+(revision) a name(alias).<br>
+While the branch tracks the change after being branched, tag does not do
+that.<br>
+Therefore we are able to check out any branches/tags without introducing
+extra folders.
+</p>
+
+<p>
+<b><i>Further reading including but not limit to storage scheme and
+examples.</i></b>
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2010-08-21 and published at 2022-09-06 Tue 10:08 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

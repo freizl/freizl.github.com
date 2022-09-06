@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NameCheck of XML Validation</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">NameCheck of XML Validation</h1>
+</header><p>
+The beautiful part is build up a array with size 2<sup>16</sup>, each value is
+8bits, each bit indicate something like whether current character could
+be start of name, valid name.<br>
+For instance, number 4 is at 0x34 (decimal 52), so flags[52] = 0x0b
+(00001100), those 8bits 0/1 are indication.
+</p>
+
+<p>
+<b><i>Chapter 5 of has the detail.</i></b>
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2009-09-01 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

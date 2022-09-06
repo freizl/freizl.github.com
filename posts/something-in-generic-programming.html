@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Something in Generic Programming</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Something in Generic Programming</h1>
+</header><p>
+&#x2013; difference between raw type list and wildcard type list<br>
+You can put any element into a collection with a raw type, easily
+corrupting the collections type invariant. you cant put any
+element(other than null) into a Collection&lt;?&gt;. Attempting to do so will
+generate a compile-time error message.
+</p>
+
+<p>
+&#x2013; parametrized types are invariant.<br>
+In other words, for any two distinct types Type1 and Type2, List is
+either a subtype nor a supertype of List.
+</p>
+
+<p>
+<a href="http://flooyd-appenginee.googlecode.com/svn/trunk/java/Item23.java">test
+class in java</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-07-16 and published at 2022-09-06 Tue 10:08 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

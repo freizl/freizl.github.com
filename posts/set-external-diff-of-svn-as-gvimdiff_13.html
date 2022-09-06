@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Set External Diff of SVN as gvimdiff (ubuntu)</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Set External Diff of SVN as gvimdiff (ubuntu)</h1>
+</header><p>
+<b>SVN Config:  /etc/subversion/config</b><br>
+  diff-cmd = /home/username/diffwrap.sh
+</p>
+
+<p>
+<b>diffwrap.sh (make sure it&rsquo;s executable.)</b><br>
+#!/bin/sh<br>
+</p>
+
+<p>
+DIFF=&ldquo;/usr/bin/gvimdiff&rdquo;<br>
+</p>
+
+<p>
+LEFT=\({6} RIGHT=\){7}<br>
+</p>
+
+<p>
+$DIFF $LEFT $RIGHT<br>
+</p>
+
+<p>
+were.<br>
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-05-13 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

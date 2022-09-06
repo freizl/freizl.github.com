@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple Sample of Regular Expression in Python</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Simple Sample of Regular Expression in Python</h1>
+</header><div class="org-src-container">
+<pre class="src src-python">
+<span style="color: #93a61a; font-weight: bold;">import</span> re
+
+<span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">read_file</span>():\\
+<span style="color: #8d9fa1;">file_name</span> = <span style="color: #93a61a;">'merge.log'</span>\\
+<span style="color: #3c98e0; font-style: italic;">file</span> = <span style="color: #3c98e0; font-style: italic;">open</span>(file_name, <span style="color: #93a61a;">'r'</span>)\\
+<span style="color: #8d9fa1;">file_content</span> = <span style="color: #3c98e0; font-style: italic;">file</span>.read()\\
+<span style="color: #8d9fa1;">patterns</span> =
+re.<span style="color: #3c98e0; font-style: italic;">compile</span>(r<span style="color: #93a61a;">'(r\d{5}\s\|\scn-cma)(.*(?!cn-cma).*)(r\d{5}\s\|\s(?!cn-cma))'</span>,
+re.DOTALL)\\
+<span style="color: #8d9fa1;">results</span> = patterns.search(file_content)\\
+<span style="color: #62787f; font-style: italic;">#</span><span style="color: #62787f; font-style: italic;">results = patterns.match(file_content)\\</span>
+<span style="color: #3c98e0; font-style: italic;">print</span> <span style="color: #3c98e0; font-style: italic;">dir</span>(results)\\
+<span style="color: #93a61a; font-weight: bold;">if</span> <span style="color: #8d9fa1;">results</span> :\\
+results = results.groups()\\
+<span style="color: #3c98e0; font-style: italic;">print</span> results[<span style="color: #7a7ed2; font-weight: bold;">0</span>]\\
+<span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">display</span>(x):\\
+<span style="color: #3c98e0; font-style: italic;">print</span><span style="color: #93a61a;">'$'</span> * <span style="color: #7a7ed2; font-weight: bold;">50</span>, <span style="color: #93a61a;">'\n'</span>, x\\
+<span style="color: #62787f; font-style: italic;">#</span><span style="color: #62787f; font-style: italic;">[ display(x) for x in results ]\\</span>
+<span style="color: #3c98e0; font-style: italic;">file</span>.close()
+</pre>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-07-11 and published at 2022-09-06 Tue 10:08 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

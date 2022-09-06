@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Limits of CSS Inheritance</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">The Limits of CSS Inheritance</h1>
+</header><p>
+Here are examples of times when inheritance doesn&rsquo;t strictly apply:
+</p>
+
+<ul class="org-ul">
+<li>As a general rule, properties that affect the placement of elements on
+the page, or the margins, background colors, and borders of elements
+aren&rsquo;t inherited.</li>
+
+<li>Web browsers use their own inherent styles to format various tags:
+headings are big and bold, links are blue, and so on. When you define
+a font-size for the text on a page and apply it to the <code>&lt;body&gt;</code> tag, headings still appear larger than paragraphs, and
+  <code>&lt;h1&gt;</code> tags are still larger than <code>&lt;h2&gt;</code> tags. It&rsquo;s the same when you apply a font color to the <code>&lt;body&gt;</code> the links on the page still appear in good old-fashioned, Web-browser blue.</li>
+
+<li>When styles conflict, the more specific style wins out. In other
+words, when you&rsquo;ve specifically applied CSS properties to an
+elementlike specifying the font-size for an unordered listand those
+properties conflict with any inherited propertieslike a font-size set
+for the <code>&lt;body&gt;</code> tag. the browser uses the font size applied to the <code>&lt;ul&gt;</code> tag.</li>
+</ul>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-01-13 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

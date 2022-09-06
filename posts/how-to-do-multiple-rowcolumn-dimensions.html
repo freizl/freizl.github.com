@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>How to do multiple row/column dimensions in OLAPDataGrid</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">How to do multiple row/column dimensions in OLAPDataGrid</h1>
+</header><p>
+A simple OLAPDataGrid sample <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/controls/OLAPDataGrid.html">here</a>.
+A good sample having multiple dimensions <a href="http://flexpearls.blogspot.com/2008/04/custom-aggregator-sample-for-flex-olap.html">here</a>.
+</p>
+
+<p>
+The key point is that OLAPSet could join each other.
+For instance,
+</p>
+
+<pre class="example" id="org632a9a7">
+var customerSet:OLAPSet = new OLAPSet;
+customerSet.addElements(cube.findDimension("CustomerDim").findAttribute("Customer").children);
+var quarterSet:OLAPSet = new OLAPSet;
+quarterSet.addElements(cube.findDimension("QuarterDim").findAttribute("Quarter").children);
+colQueryAxis.addSet(quarterSet.crossJoin(customerSet));
+
+</pre>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2011-02-13 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mirro the Wikipedia at your local</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Mirro the Wikipedia at your local</h1>
+</header><p>
+sudo apt-get update
+sudo apt-get install apache2 php5 libapache2-mod-php5 mysql-server
+mysql-client php5-mysql phpmyadmin
+mkdir ~/wiki/
+cd ~/wiki/
+wget
+<a href="http://download.wikimedia.org/mediawiki/1.10/mediawiki-1.10.0.tar.gz">http://download.wikimedia.org/mediawiki/1.10/mediawiki-1.10.0.tar.gz</a>
+sudo mkdir <i>var/www/w</i>
+sudo tar xzf mediawiki-1.10.0.tar.gz -C <i>var/www</i>
+cd <i>var/www/mediawiki-1.10.0</i>
+sudo chmod a+x config
+</p>
+
+<p>
+$ mysql
+mysql&gt; USE mysql;
+mysql&gt; UPDATE user SET Password=PASSWORD(&rsquo;new-password&rsquo;) WHERE
+user=&rsquo;root&rsquo;;
+mysql&gt; FLUSH PRIVILEGES;
+</p>
+
+<p>
+add user &rsquo;wikiuser&rsquo; and database &rsquo;wikidb&rsquo; and set privileges
+</p>
+
+<p>
+wget
+<a href="http://download.wikimedia.org/enwiki/20070402/enwiki-20070402-pages-articles.xml.bz2">http://download.wikimedia.org/enwiki/20070402/enwiki-20070402-pages-articles.xml.bz2</a>
+bunzip2 -k enwiki-20070402-pages-articles.xml.bz2
+wget <a href="http://modzer0.cs.uaf.edu/~dev2c/mwimport.sh">http://modzer0.cs.uaf.edu/~dev2c/mwimport.sh</a> (OR
+<a href="http://freizl.googlepages.com/mwimport.sh">http://freizl.googlepages.com/mwimport.sh</a>)
+chmod +x mwimport.sh
+</p>
+
+<p>
+increase Default<sub>Allowed</sub><sub>Packet</sub> for MySQL in MySQL configurate file
+cat enwiki-20070402-pages-articles.xml | ./mwimport.sh | mysql -f
+-uwikiuser -ppassword wikidb
+</p>
+
+<p>
+refreshLinks: php mediawiki/maintenance/refresheLinks.php (Not sure if
+it is necessary.)
+</p>
+
+<p>
+<a href="http://modzer0.cs.uaf.edu/%7Edev2c/wiki/How_to_mirror_Wikipedia">Detail
+Infor.</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-03-22 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

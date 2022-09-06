@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Several VIM commands learned today</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Several VIM commands learned today</h1>
+</header><p>
+Substitute words<br>
+:s/From/To/g<br>
+:%s/From/To/g<br>
+/g means substitute all happens in the line.<br>
+%s means means affect all lines in the file.
+</p>
+
+<p>
+Split window<br>
+:split<br>
+:split file-name -&gt;open a second window and starts editing the file<br>
+:vsplit -&gt; vertical splits<br>
+CTRL-W w -&gt; jump between windows<br>
+vim -o one.txt two.txt three.txt -&gt; open a window for each file
+</p>
+
+<p>
+CTRL-V : block visual mode<br>
+SHIFT-V : select a line<br>
+Y : copy a line<br>
+y : copy selected<br>
+P : insert parse<br>
+p : appending parse
+</p>
+
+<p>
+Tab pages<br>
+:tabedit file-name<br>
+gt, gT -&gt; navigate between tabs
+</p>
+
+<p>
+w, e, b W, E, B ^, $
+</p>
+
+<p>
+Move to a single character. A litter different between &rsquo;f&rsquo; and &rsquo;t&rsquo;.<br>
+fx, Fx, 3fx (&rsquo;f&rsquo; means &rsquo;find&rsquo;)<br>
+tx, Tx, 3tx (&rsquo;t&rsquo; means &rsquo;to&rsquo;)
+</p>
+
+<p>
+Match a parenthesis<br>
+%
+</p>
+
+<p>
+Move line<br>
+g, G, gg, H, M, L
+</p>
+
+<p>
+Simple search<br>
+/pattern<br>
+n,N -&gt; navigate between search results<br>
+:set hlsearch -&gt; highlight search results
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2007-09-05 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

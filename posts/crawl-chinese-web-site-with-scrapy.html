@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Crawl Chinese web site with Scrapy</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Crawl Chinese web site with Scrapy</h1>
+</header><p>
+The response return by Scrapy is a Python repr() object thus Chinese
+character &rsquo;display&rsquo; in Unicode.
+</p>
+
+<p>
+Quick fix is like this:
+  item[&rsquo;name&rsquo;][0].encode(&rsquo;utf-8&rsquo;)
+Though some characters are still display incorrectly.
+Find source code
+<a href="http://code.google.com/p/personal-study/source/browse/#svn/trunk/python-work/cncrk">here</a>.
+</p>
+
+<p>
+More about Unicode in Python:
+  <a href="http://evanjones.ca/python-utf8.html">http://evanjones.ca/python-utf8.html</a>
+  <a href="http://www.b-list.org/weblog/2007/nov/10/unicode/">http://www.b-list.org/weblog/2007/nov/10/unicode/</a>
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2009-09-26 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

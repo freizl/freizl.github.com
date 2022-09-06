@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mathematic Game</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Mathematic Game</h1>
+</header><pre class="example" id="org9858665">
+Array := {1,2,3,4,5,6,7,8,9,10}
+Get four numbers from the Array.
+For example: {1,3,5,8} or {1,1,3,8} or {2,2,2,2} ...
+So IMO there are 10*10*10*10 cases.
+Then do a calculate of the four numbers with the basic operators:
+ADD,MINUS,MULTIPLY,DIVIDE
+The operators can be duplicated.
+For example: {1,3,5,8}.
+We can calculate it like: 1*3*5*8 = 120
+                            or:  1*3*5/8 = 1.xxx
+                            or: (1+3)*5-8 = 12
+                            or: (1+3)*(5-8) = -12
+
+QUESTION:  Give a integer N(0&lt;N&lt;10001), count how many times when the
+calculated result is equaled to N.
+                  And show the equality.
+
+BTW, I think there might be two different answers.
+Considering the cases below, we could identify them as the same or the
+difference.
+((1+2)+3)*6 = 36
+((2+1)+3)*6 = 36
+
+</pre>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2007-06-09 and published at 2022-09-06 Tue 10:08 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

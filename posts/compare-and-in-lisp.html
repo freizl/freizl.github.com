@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Compare</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Compare</h1>
+</header><p>
+<b><b>quote &rsquo;</b></b>
+is syntactic sugar for QUOTE, which takes a single expression as its
+&ldquo;argument&rdquo; and simply returns it, unevaluated.
+(quote (+ 1 2))  <code>=</code> &rsquo;(+ 1 2)
+</p>
+
+<p>
+<b>#&rsquo;</b>
+is syntactic sugar for FUNCTION.
+(function foo)  <code>=</code>  #&rsquo;foo
+</p>
+
+<p>
+<b>backquote `</b>
+a backquoted expression is similar to a quoted expression except you can
+&ldquo;unquote&rdquo; particular subexpressions by preceding them with a comma,
+possibly followed by an at (@) sign.
+    [Basicly it&rsquo;s similar with quote &rsquo;, but can do more, like evaluate
+subexpressions by a comma]
+Without an at sign, the comma causes the value of the subexpression to
+be included as is.
+With an at sign, the value&#x2013;which must be a list&#x2013;is &ldquo;spliced&rdquo; into the
+enclosing list.
+</p>
+
+<p>
+//
+Backquote Syntax    Equivalent List-Building Code            Result
+`(a (+ 1 2) c)        (list &rsquo;a&rsquo;(+ 1 2) &rsquo;c)                    (a (+ 1 2)
+</p>
+<ol class="org-ol">
+<li></li>
+</ol>
+<p>
+`(a ,(+ 1 2) c)        (list &rsquo;a (+ 1 2) &rsquo;c)                    (a 3 c)
+`(a (list 1 2) c)    (list &rsquo;a&rsquo;(list 1 2) &rsquo;c)                (a (list
+1 2) c)
+`(a ,(list 1 2) c)    (list &rsquo;a (list 1 2) &rsquo;c)                    (a
+(1 2) c)
+`(a ,@(list 1 2) c)    (append (list &rsquo;a) (list 1 2) (list &rsquo;c))    (a 1 2
+</p>
+<ol class="org-ol">
+<li></li>
+</ol>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-08-14 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

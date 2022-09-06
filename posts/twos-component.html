@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Two's component</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Two&rsquo;s component</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org49005e1">1. Summary</a></li>
+<li><a href="#orgbd288bb">2. Example</a></li>
+<li><a href="#orgdbbb692">3. Reference</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org49005e1" class="outline-2">
+<h2 id="org49005e1"><span class="section-number-2">1.</span> Summary</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Two&rsquo;s component is one of the Signed number representations. Its
+principles is described as following. (refer to original at
+<a href="http://en.wikipedia.org/wiki/Two%27s_complement">http://en.wikipedia.org/wiki/Two%27s_complement</a> )
+</p>
+
+<p>
+The 2<sub>n</sub>_ possible values of n bits actually form a <a href="http://en.wikipedia.org/wiki/Ring_%28mathematics%29">ring</a> of <a href="http://en.wikipedia.org/wiki/Equivalence_class">equivalence classes</a>,
+namely the integers
+<a href="http://en.wikipedia.org/wiki/Modular_arithmetic">modulo</a> 2<sub>n</sub>_,
+<b>Z/(2<sub>n</sub>_)Z</b> . Each class represents a set {<i>j</i> + <i>k</i> 2<sub>n</sub>_ | <i>k</i> is an
+integer} for some integer <i>j</i>, 0 ≤ <i>j</i> ≤ 2 <i>n</i> − 1. There are 2<sub>n</sub>_ such
+sets, and addition and multiplication are
+<a href="http://en.wikipedia.org/wiki/Well-defined">well-defined</a> on them.
+</p>
+
+<p>
+If the classes are taken to represent the numbers 0 to 2<sub>n</sub>_ − 1, and
+overflow ignored, then these are the unsigned integers. But each of
+these numbers is equivalent to itself minus 2 <i>n</i>. So the classes could
+be understood to represent −2<sub>n</sub>_−1 to 2<sub>n</sub>_−1 − 1, by subtracting 2<sub>n</sub>_
+from half of them (specifically [2<sub>n</sub>_−1, 2 /n/−1]).
+</p>
+
+<p>
+For example, with eight bits, the unsigned bytes are 0 to 255.
+Subtracting 256 from the top half (128 to 255) yields the signed bytes
+−128 to 127.
+</p>
+
+<p>
+The relationship to two&rsquo;s complement is realized by noting that 256 =
+255 + 1, and (255 − <i>x</i>) is the <a href="http://en.wikipedia.org/wiki/Signed_number_representations">ones&rsquo; complement</a> of <i>x</i>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbd288bb" class="outline-2">
+<h2 id="orgbd288bb"><span class="section-number-2">2.</span> Example</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+−95 modulo 256 is equivalent to 161 since
+</p>
+
+<pre class="example" id="org2c84a9c">
+−95 + 256
+
+\= −95 + 255 + 1
+
+\= 255 − 95 + 1
+
+\= 160 + 1
+
+\= 161
+</pre>
+
+<p>
+And I have to say I can&rsquo;t understand the content well. The mathmatics
+concept is somehow complex to me. Why I got the idea to find out what&rsquo;s
+two&rsquo;s component is just because the Java puzzler below.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java">
+<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">JoyOfHex</span> { 
+  <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">main</span>(String\[\] args) { 
+    System.out.println( Long.toHexString(0x100000000L + 0xcafebabe)); 
+  } 
+}
+</pre>
+</div>
+
+<p>
+What&rsquo;s the result? Obviously it should print 1cafebabe. Right?
+Wrong.During the computation, is promoted to the long value
+0xffffffffcafebabeL.(I got missed here. Why?)So the result is:
+0x00000000cafebabeL. Fix this problem as simple as using a long hex
+literal to represent the right operand.
+Long.toHexString(0x100000000L + 0xcafebabe L));
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdbbb692" class="outline-2">
+<h2 id="orgdbbb692"><span class="section-number-2">3.</span> Reference</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Java™ Puzzlers: Traps, Pitfalls, and Corner Cases By Joshua Bloch, Neal Gafter</li>
+<li><a href="http://www.wikipedia.org/">www.wikipedia.org</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2007-08-14 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

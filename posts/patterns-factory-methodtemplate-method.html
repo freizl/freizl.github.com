@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Patterns: Factory method,Template method and Strategy</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Patterns: Factory method,Template method and Strategy</h1>
+</header><p>
+Basically, <b>Factory method</b> is a method that is defined in Parent class
+and is implemented in Child class, which usually is abstract method.
+</p>
+
+<p>
+By contract, <b>Template method</b> is a method that implements an
+&ldquo;algorithm&rdquo;. This implementation is usually defined in a &ldquo;Parent&rdquo; class
+and leveraging other methods including Factory methods. (See sample
+below)
+</p>
+
+<p>
+public abstract class PizzaStore {<br>
+        /**<br>
+         * #templateMethod(String type) is an Template Method.<br>
+         *
+</p>
+
+<div class="html" id="org234dc9a">
+<p>
+&lt;p&gt;
+</p>
+
+</div>
+
+<p>
+         * #factoryMethodOfInit() AND #factoryMethodOfCreate(String
+type) are both<br>
+         * Factory Method.<br>
+         */<br>
+        public Pizza templateMethod(String type) {
+</p>
+
+<p>
+                factoryMethodOfInit();
+</p>
+
+<p>
+                Pizza pizza = factoryMethodOfCreate(type);
+</p>
+
+<p>
+                System.out.println(&ldquo;&#x2014; Making a&rdquo; + pizza.getName() + ”
+&#x2014;“);<br>
+                pizza.prepare();<br>
+                pizza.bake();<br>
+                pizza.cut();<br>
+                pizza.box();<br>
+                return pizza;<br>
+        }
+</p>
+
+<p>
+        protected abstract void factoryMethodOfInit();<br>
+        protected abstract Pizza factoryMethodOfCreate(String type);<br>
+}
+</p>
+
+<p>
+Here is a definition:<br>
+<b>Factory Method：</b><br>
+   Define an interface for creating an object, but let subclasses decide
+which class to instantiate. Factory Method lets a class defer
+instantiation to subclasses.
+</p>
+
+<p>
+<b>Template Method：</b><br>
+   Define the skeleton of an algorithm in an operation, deferring some
+steps to subclasses. Template Method lets subclasses redefine certain
+steps of an algorithm without changing the algorithm&rsquo;s structure.<br>
+   (Here &ldquo;lets subclasses redefine certain steps&rdquo; could be done by
+leveraging Factory method)
+</p>
+
+<p>
+<b>Relationship</b>: Factory Methods are often called by template methods.
+</p>
+
+<p>
+Then the Strategy Pattern, Spring DI uses this pattern IMO somehow.
+</p>
+
+<p>
+Check the updated PizzaStore version below, londonPizzaCreator and
+nYorkPizzaCreator are &ldquo;Strategies&rdquo; of PizzaCreator.<br>
+Then PizzaStore can change strategies at runtime regardless
+implementation detail by injecting various strategies. (via method
+setPizzaCreator)
+</p>
+
+<p>
+public abstract class PizzaStore {
+</p>
+
+<p>
+        private PizzaCreator pizzaCreator;
+</p>
+
+<p>
+        public Pizza templateMethod(String type) {
+</p>
+
+<p>
+                factoryMethodOfInit();
+</p>
+
+<p>
+                Pizza pizza = pizzaCreator.createPizza(type);
+</p>
+
+<p>
+                System.out.println(&ldquo;&#x2014; Making a&rdquo; + pizza.getName() + ”
+&#x2014;“);<br>
+                pizza.prepare();<br>
+                pizza.bake();<br>
+                pizza.cut();<br>
+                pizza.box();<br>
+                return pizza;<br>
+        }<br>
+        protected abstract void factoryMethodOfInit();<br>
+        public void setPizzaCreator(PizzaCreator pizzaCreator) {<br>
+                this.pizzaCreator = pizzaCreator;<br>
+        }<br>
+}
+</p>
+
+<p>
+//
+</p>
+<hr>
+<p>
+&ldquo;Strategies&rdquo;
+</p>
+
+<p>
+public interface PizzaCreator {<br>
+        public Pizza createPizza(String type);<br>
+}
+</p>
+
+<p>
+public class londonPizzaCreator implements PizzaCreator {<br>
+        public Pizza createPizza(String type) {<br>
+                // TODO add creat detail<br>
+                return null;<br>
+        }<br>
+}
+</p>
+
+<p>
+public class nYorkPizzaCreator implements PizzaCreator {<br>
+        public Pizza createPizza(String type) {<br>
+                // TODO add creat detail<br>
+                return null;<br>
+        }<br>
+}
+</p>
+
+<p>
+<b>Strategy</b>:<br>
+  Define a family of algorithms, encapsulate each one, and make them
+interchangeable. Strategy lets the algorithm vary independently from
+clients that use it.
+</p>
+
+<p>
+<b>Related to Template Method:</b><br>
+  Template methods use inheritance to vary part of an algorithm.
+Strategies use delegation to vary the entire algorithm.
+</p>
+
+<p>
+<b>What&rsquo;s more?</b><br>
+Those patterns are actually in different category in the book by GoF,
+trying to understand the reason therefore to understand their diff more
+clearly.
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2009-09-01 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

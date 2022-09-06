@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Verify Binary Search result with duplicate target in the array</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Verify Binary Search result with duplicate target in the array</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org83054a3">1. Notes</a></li>
+<li><a href="#orgfb126d9">2. REFERENCE</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org83054a3" class="outline-2">
+<h2 id="org83054a3"><span class="section-number-2">1.</span> Notes</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Testing scenario: If <i>testArray</i> contains <i>target</i> at position <i>n</i>, then
+binarySearch <i>(testArray, target</i>) must return <i>n</i>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">assertTheory4</span>(<span style="color: #c49619; font-style: italic;">int</span>[] <span style="color: #8d9fa1;">testArray</span>, <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">target</span>, <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">returnValue</span>)
+{
+&#160; assertEquals(getTargetPosition(testArray, target), returnValue);
+}
+
+<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #3c98e0;">getTargetPosition</span>(<span style="color: #c49619; font-style: italic;">int</span>[] <span style="color: #8d9fa1;">testArray</span>, <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">target</span>) {
+&#160; <span style="color: #93a61a; font-weight: bold;">for</span> (<span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">i</span> = <span style="color: #7a7ed2; font-weight: bold;">0</span>; i &lt; testArray.<span style="color: #c49619; font-style: italic;">length</span>; i++)
+&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">if</span> (testArray[i] == target)
+&#160;&#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">return</span> i;
+&#160; <span style="color: #93a61a; font-weight: bold;">return</span> -<span style="color: #7a7ed2; font-weight: bold;">1</span>;
+}
+</pre>
+</div>
+
+<p>
+Array=[2, 11, 36, 66, 104, 108, 108, 108, 122, 155, 159, 161, 191]
+</p>
+
+<p>
+target=108
+</p>
+
+<p>
+Binary Search 108 will return 6 while getTargetPosition return 5.
+</p>
+
+<p>
+<b>Possible fix</b>
+</p>
+
+<p>
+Update the function getTargetPosition to return a int
+array, which contains all position of the value.
+Then assert this return int array must contain binary search result.*
+</p>
+
+<p>
+Any others?
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfb126d9" class="outline-2">
+<h2 id="orgfb126d9"><span class="section-number-2">2.</span> REFERENCE</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>SECTION 7.2 OF &lt;BEAUTIFUL CODE&gt;</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2009-09-03 and published at 2022-09-06 Tue 10:13 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Static Field/Method, Initialization Block (Java)</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Static Field/Method, Initialization Block (Java)</h1>
+</header><p>
+package com.foo;<br>
+import org.apache.commons.lang.builder.ReflectionToStringBuilder; public
+class BaseObject { <i>** a static field; all object of this class share
+this variable. *</i> private static long second = 0; private String name =
+“&ldquo;; { System.out.println(&rdquo;I am class block initialization.”); } static {
+System.out.println(&ldquo;I am static block initialization.&rdquo;); } public
+BaseObject() { super(); second++; System.out.println(&ldquo;I am
+constructor.&rdquo;); } public BaseObject(String name) { super();
+<a href="http://this.name/">this.name</a> = name; second++; } public String
+getName() { return name; } public void setName(String name) {
+<a href="http://this.name/">this.name</a> = name; } public static long
+getSecond() { return second; } public static void setSecond(long second)
+{ BaseObject.second = second; } () public String
+toString() { <i>/ jakarta lang toString utility return
+ReflectionToStringBuilder.toString(this); } public static void
+main(String[] args) { System.out.println(BaseObject.getSecond());
+BaseObject bo1 = new BaseObject(&ldquo;First One&rdquo;); BaseObject bo2 = new
+BaseObject(&ldquo;Seconde One&rdquo;); BaseObject bo3 = new BaseObject(&ldquo;Third One&rdquo;);
+System.out.println(bo1 + &ldquo;<span class="underline"><span class="underline">&ldquo; + BaseObject.getSecond());
+System.out.println(bo2 + &rdquo;</span></span>&rdquo; + BaseObject.getSecond());
+System.out.println(bo3 + &ldquo;__&rdquo; + BaseObject.getSecond()); } /</i> expected
+result: <i>* I am static block initialization. 0 I am class block
+initialization. I am class block initialization. I am class block
+initialization. com.foo.BaseObject@19821f[name=First One]_<sub>3</sub>
+com.foo.BaseObject@190d11[name=Seconde One]_<sub>3</sub>
+com.foo.BaseObject@a90653[name=Third One]_<sub>3</sub> *</i> }
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-03-19 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

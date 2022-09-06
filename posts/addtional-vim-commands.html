@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Addtional VIM commands</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Addtional VIM commands</h1>
+</header><p>
+:set number/nonumber =&gt; show/hidden the line number<br>
+/\&lt;the\&gt; =&gt; search the whole word &rsquo;the&rsquo;<br>
+:nohlsearch =&gt; un-highlight the search result temporaryly<br>
+:set hlsearch/nohlsearc =&gt; set highlight/not highlight the search result
+</p>
+
+<p>
+x stands for dl (delete character under the cursor)<br>
+X stands for dh (delete character left of the cursor)<br>
+D stands for d$ (delete to end of the line)<br>
+C stands for c$ (change to end of the line)<br>
+s stands for cl (change one character)<br>
+S stands for cc (change a whole line)
+</p>
+
+<ul class="org-ul">
+<li>. The &ldquo;.&rdquo; command is one of the most simple yet powerful commands in
+Vim. It repeats the last change. :: change case of the character under
+the cursor, and move the cursor to the next character. This is not an
+operator (unless &rsquo;tildeop&rsquo; is set), thus you can&rsquo;t use it with a
+motion command. It does works in Visual mode and changes case for all
+the selected text then.</li>
+</ul>
+
+<p>
+---------------------&#x2013;&#x2014; Start up settings for GUI Vim<br>
+” Windows size<br>
+set columns=110<br>
+set lines=40<br>
+&ldquo;Max mine Windows when open<br>
+au GUIEnter * simalt ~x<br>
+&rdquo; set scheme<br>
+color murphy<br>
+” set font<br>
+set guifont=courier<sub>new</sub>:h10<br>
+” Turn off useless toolbar<br>
+set guioptions-=T<br>
+” Turn off right-hand scroll-bar<br>
+set guioptions-=r<br>
+” Turn off menu bar<br>
+set guioptions-=M
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-01-08 and published at 2022-09-06 Tue 10:08 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

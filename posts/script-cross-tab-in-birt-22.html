@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Script Cross-tab in BIRT 2.2</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Script Cross-tab in BIRT 2.2</h1>
+</header><p>
+I failed to find out how to add column name for a &rsquo;dimension&rsquo; in
+cross-tab item of BIRT 2.2, so I have to use scripts to create a
+cross-table. The idea here is creating table columns before the create
+table event。<br>
+(You may notice that the top-left part of the cross-tab in BIRT 2.2 is
+blank and could not add any other report items into it. It&rsquo;s
+confused!??)
+</p>
+
+<pre class="example" id="org65583de">
+importPackage(Packages.org.eclipse.birt.report.model.api);  
+  
+// invode a java object to get all 'usTitles' datas from Database.  
+usTitleService = new Packages.com.boldtech.seed.util.ReportUsTitleUtil;  
+usTitles = usTitleService.getUsTitles();  
+  
+reportDesignHandle = reportContext.getReportRunnable().designHandle.getDesignHandle();  
+reportEngine = reportContext.getReportRunnable().reportEngine;  
+elementFactory = reportDesignHandle.getElementFactory();  
+  
+// a table in the report body  
+employeeTable = reportDesignHandle.getBody().getContents().get(0);  
+header = employeeTable.getHeader().get(0);  
+detail = employeeTable.getDetail().get(0);  
+footer = employeeTable.getFooter().get(0);  
+group = employeeTable.getGroups().get(0);  
+groupFooter = group.getFooter().get(0);  
+computedSet = employeeTable.getColumnBindings();  
+  
+usTitleSize = usTitles.size();  
+var startAddColumn = 2;  
+for(var i=0; i &lt; usTitleSize; i++){  
+//--- column title  
+var addedColumn = startAddColumn + i;  
+employeeTable.insertColumn(addedColumn,1);  
+cell = header.getCells().get(addedColumn);  
+cell.getWidth().setValue("10%");  
+label = elementFactory.newLabel(null);  
+cell.getContent().add(label);  
+label.setText(usTitles.get(i).getSysConfigName());  
+  
+//--- column value  
+// "employeeTitleResult" was created to keep metric values in the 'onFetch' event of table  
+cs1 = StructureFactory.createComputedColumn();  
+cs1.setName("Column_TitleCount_" + i);  
+cs1.setExpression("employeeTitleResult[row.__rownum][" + i + "].value");  
+cs1.setDataType("any");  
+computedSet.addItem( cs1 );  
+  
+cell = detail.getCells().get(addedColumn);  
+data = elementFactory.newDataItem(null);  
+data.setResultSetColumn("Column_TitleCount_" + i);  
+data.setName("ColumnValue_" + i);  
+data.setStyleName("cell-text-center-align");  
+cell.getContent().add(data);  
+  
+//--- summary at group footer cell  
+cs1 = StructureFactory.createComputedColumn();  
+cs1.setName("Group_TitleCount_" + i);  
+cs1.setAggregateFunction("SUM");  
+cs1.setExpression("row[\"Column_TitleCount_" + i + "\"]");  
+cs1.setFilterExpression("row[\"Column_TitleCount_" + i + "\"]&gt;=1");  
+cs1.setDataType("any");  
+cs1.setAggregateOn("ProjectGroup");  
+computedSet.addItem( cs1 );  
+  
+cell = groupFooter.getCells().get(addedColumn);  
+data = elementFactory.newDataItem( null );  
+data.setResultSetColumn("Group_TitleCount_"+i);  
+data.setName("GroupValue_" + i);  
+data.setStyleName("cell-text-center-align");  
+cell.getContent().add(data);  
+// group summary rule: do not display '0' value.  
+cs1 = StructureFactory.createMapRule();  
+cs1.setTestExpression("row[\"Group_TitleCount_" + i + "\"]");  
+cs1.setOperator("le");  
+cs1.setValue1("0");  
+data.getPropertyHandle("mapRules").addItem(cs1);  
+  
+//--- summary at footer cell  
+cs1 = StructureFactory.createComputedColumn();  
+cs1.setName("Grand_TitleCount_" + i);  
+cs1.setAggregateFunction("SUM");  
+cs1.setExpression("row[\"Group_TitleCount_" + i + "\"]");  
+cs1.setFilterExpression("row[\"Group_TitleCount_" + i + "\"]&gt;=1");  
+cs1.setDataType("any");  
+computedSet.addItem( cs1 );  
+  
+cell = footer.getCells().get(addedColumn);  
+data = elementFactory.newDataItem( null );  
+data.setResultSetColumn("Grand_TitleCount_" + i);  
+data.setName("GrandValue_" + i);  
+data.setStyleName("cell-text-center-align");  
+cell.getContent().add(data);  
+  
+// footer summary rule: do not display '0' value.  
+cs1 = StructureFactory.createMapRule();  
+cs1.setTestExpression("row[\"Grand_TitleCount_" + i + "\"]");  
+cs1.setOperator("le");  
+cs1.setValue1("0");  
+data.getPropertyHandle("mapRules").addItem(cs1);  
+}
+</pre>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2007-09-04 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

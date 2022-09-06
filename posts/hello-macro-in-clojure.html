@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hello-Macro in Clojure</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Hello-Macro in Clojure</h1>
+</header><p>
+If define the unless as function like this,<br>
+  (defn unless [expr form] (if expr nil form))
+</p>
+
+<p>
+Does that work?<br>
+(unless false (println &ldquo;this should print&rdquo;))<br>
+  =&gt; this should print<br>
+(unless true (println &ldquo;this should not print&rdquo;))<br>
+  =&gt; this should not print
+</p>
+
+<p>
+Obviously the answer is no.
+</p>
+
+<p>
+The reason is Clojure evaluates all the arguments before passing them to
+a function,<br>
+so the println is called before unless ever sees it.<br>
+So it seems Clojure is applicative order evaluation, but not normal
+order evaluation. (SICP exe. 1.5)
+</p>
+
+<p>
+Therefore Macro.
+</p>
+
+<p>
+(defmacro unless [expr form] (list &rsquo;if expr nil form))
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2009-08-19 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

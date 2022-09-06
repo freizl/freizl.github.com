@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Set External Diff of SVN as gvimdiff (Windows)</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Set External Diff of SVN as gvimdiff (Windows)</h1>
+</header><p>
+<b>svn config (usually in: c:\Document and
+Settings\Application\Subversion\config)</b><br>
+diff-cmd = c:/diffwrap.bat
+</p>
+
+<p>
+<b>c:/diffwrap.bat</b><br>
+() OFF<br>
+REM Configure your favorite diff program here.<br>
+SET DIFF=&ldquo;C:\Program Files\Vim\vim71\gvim.exe&rdquo;REM Subversion provides
+the paths we need as the sixth and seventh REM parameters.<br>
+SET LEFT=%6<br>
+SET RIGHT=%7<br>
+REM Call the diff command (change the following line to make sense for<br>
+REM your merge program).<br>
+%DIFF% -d %LEFT% %RIGHT%<br>
+REM Return an errorcode of 0 if no differences were detected, 1 if some
+were.<br>
+REM Any other errorcode will be treated as fatal.
+</p>
+
+<p>
+vim diff option<br>
+set diffopt+=iwhite<br>
+set diffopt+=horizontal
+</p>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2008-05-12 and published at 2022-09-06 Tue 10:08 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>
