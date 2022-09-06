@@ -22,7 +22,7 @@
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#sample">2. Sample</a></li>
+<li><a href="#org77ef562">2. Sample</a></li>
 <li><a href="#jquery.fn.init">3. JQuery.fn.init</a></li>
 </ul>
 </div>
@@ -38,7 +38,7 @@ concern comes to me again.
 </p>
 
 <p>
-Fourtunaly I think the answer at this<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> thread turns out to be a
+Fortunately I think the answer at this<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> thread turns out to be a
 quite clear explanation.
 </p>
 
@@ -50,7 +50,7 @@ Just three things according to that answer.
 <li>Creates a new object. Its type is <code>object</code>.</li>
 <li>Sets this new object&rsquo;s internal, inaccessible, <code>[[prototype]]</code>
 property to be the constructor function&rsquo;s external, accessible,
-<code>prototype</code> object. <i>Refer to line 11 at <a href="#sample">sample</a></i>.</li>
+<code>prototype</code> object. <i>Refer to line 11 at <a href="#org77ef562">sample</a></i>.</li>
 <li>Executes the constructor function, using the new object whenever
 <code>this</code> is mentioned.</li>
 </ol>
@@ -60,7 +60,7 @@ Regarding #2, we might have question like
 </p>
 
 <ol class="org-ol">
-<li>What is constuctor function&rsquo;s <code>prototype</code> object?</li>
+<li>What is constructor function&rsquo;s <code>prototype</code> object?</li>
 <li>What is the <code>[[prototype]]</code>?</li>
 </ol>
 
@@ -71,7 +71,7 @@ The answer are
 <ol class="org-ol">
 <li>Function&rsquo;s <code>prototype</code> property is automatically created which in
 turn has a constructor property pointing back to the function. <i>Refer
-to line 4 at <a href="#sample">sample</a></i></li>
+to line 4 at <a href="#org77ef562">sample</a></i></li>
 <li>Basically <code>[[prototype]]</code> is used for prototype chain. Find details
 at here<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> and Ecma-262<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>.</li>
 </ol>
@@ -79,19 +79,19 @@ at here<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a>
 <p>
 Therefore if we change the <code>prototype</code> property of the function before
 <code>new</code>, the <code>[[prototype]]</code> of instances afterwards is vary accordingly.
-<i>Refer to line 19 at <a href="#sample">sample</a></i>
+<i>Refer to line 19 at <a href="#org77ef562">sample</a></i>
 </p>
 </div>
 </div>
 
-<div id="outline-container-sample" class="outline-2">
-<h2 id="sample"><span class="section-number-2">2.</span> Sample</h2>
-<div class="outline-text-2" id="text-sample">
+<div id="outline-container-org77ef562" class="outline-2">
+<h2 id="org77ef562"><span class="section-number-2">2.</span> Sample</h2>
+<div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><b>tested at google chrome 18 and pay close attention to comments.</b></li>
 </ul>
 
-<pre class="example" id="org4cefd1a">
+<pre class="example" id="orgc275e38">
 <span class="linenr"> 1: </span>
 <span class="linenr"> 2: </span>  var fn1 = function () { this.name = "fn1"; }
 <span class="linenr"> 3: </span>
@@ -129,10 +129,10 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <h2 id="jquery.fn.init"><span class="section-number-2">3.</span> JQuery.fn.init</h2>
 <div class="outline-text-2" id="text-jquery.fn.init">
 <ul class="org-ul">
-<li><code>jQuery</code> is declarated as</li>
+<li><code>jQuery</code> is declared as</li>
 </ul>
 
-<pre class="example" id="org74a152e">
+<pre class="example" id="orgb6cbefb">
   var jQuery = function( selector, context ) {
           // The jQuery object is actually just the init constructor 'enhanced'
           return new jQuery.fn.init( selector, context, rootjQuery );
@@ -143,7 +143,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
 
-<pre class="example" id="org9c0254b">
+<pre class="example" id="org18d8052">
   jQuery.fn = {
       constructor: jQuery,
       init: function( selector, context, rootjQuery ) {
@@ -165,11 +165,11 @@ like <code>jQuery('div.navigator').addClass('nav')</code>.
 
 <p>
 Actually in order to use jQuery API like <code>addClass</code>, there must exists
-following something which of cource can be found at around line 322 of
+following something which of course can be found at around line 322 of
 jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>.
 </p>
 
-<pre class="example" id="org2bba71c">
+<pre class="example" id="org3479f3b">
   jQuery.fn.init.prototype = jQuery.fn;
 </pre>
 </div>
@@ -179,13 +179,11 @@ jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backli
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="http://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript">What
-is new keyword in JS</a>
+<a href="http://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript">What is new keyword in JS</a>
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="http://joost.zeekat.nl/constructors-considered-mildly-confusing.html">Constructors
-considered confusing</a>
+<a href="http://joost.zeekat.nl/constructors-considered-mildly-confusing.html">Constructors considered confusing</a>
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3" role="doc-backlink">3</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
@@ -203,7 +201,7 @@ considered confusing</a>
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-12 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2012-04-12 and published at 2022-09-05 Mon 22:48 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>

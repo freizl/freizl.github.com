@@ -11,6 +11,13 @@ blockquote {
     padding-left: 15px;
 }
 
+table {
+    margin-top: 10px;
+}
+table, td, th {
+  border: 1px solid;
+}
+
 footer {
     font-size: 0.9rem;
 }

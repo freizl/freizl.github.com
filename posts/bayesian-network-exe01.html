@@ -21,19 +21,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#scenarios">2. Scenarios</a></li>
-<li><a href="#resolution">3. Resolution</a></li>
+<li><a href="#org6f0e186">1. Introduction</a></li>
+<li><a href="#org5c36e9b">2. Scenarios</a></li>
+<li><a href="#orgf83426f">3. Resolution</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-introduction" class="outline-2">
-<h2 id="introduction"><span class="section-number-2">1.</span> Introduction</h2>
-<div class="outline-text-2" id="text-introduction">
+<div id="outline-container-org6f0e186" class="outline-2">
+<h2 id="org6f0e186"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-AI Course Bayesian network excerice 01 resolution using enumeration
-method.
+AI Course Bayesian network exercise 01 resolution using enumeration method.
 </p>
 
 <ul class="org-ul">
@@ -46,20 +45,28 @@ method.
 </div>
 </div>
 
-<div id="outline-container-scenarios" class="outline-2">
-<h2 id="scenarios"><span class="section-number-2">2.</span> Scenarios</h2>
-<div class="outline-text-2" id="text-scenarios">
+<div id="outline-container-org5c36e9b" class="outline-2">
+<h2 id="org5c36e9b"><span class="section-number-2">2.</span> Scenarios</h2>
+<div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li>已知 :
-<a href="http://docs.google.com/fileview?id=0B4ERhObEn4HSOTRlMDQwMGEtZDI4OS00M2ExLWI1YTgtNzU1MzdjYjU2Mzlm&amp;authkey=CMWuqBQ&amp;hl=en">Exercise01</a></li>
+<li><p>
+已知
+</p>
+
+
+<figure id="orga83b7bd">
+<img src="../imgs/bayesian-network-exe01.png" alt="bayesian-network-exe01.png" width="500px">
+
+</figure></li>
+
 <li>求 : 当 学校政策＝＝ True 而且 工作压力 == True 时, 过劳死的概率.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-resolution" class="outline-2">
-<h2 id="resolution"><span class="section-number-2">3.</span> Resolution</h2>
-<div class="outline-text-2" id="text-resolution">
+<div id="outline-container-orgf83426f" class="outline-2">
+<h2 id="orgf83426f"><span class="section-number-2">3.</span> Resolution</h2>
+<div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Value T:0.95 means True case with probability 0.95</li>
 
@@ -74,28 +81,25 @@ Enumeration list
 INDEX <i>U</i> <i>W</i> <i>B</i> <i>D</i>
 </p>
 
-<hr>
-
-<pre class="example" id="orga3c9644">
+<pre class="example" id="orgb3dbc55">
      1    T:0.96    T:0.90    T:0.3    T:0.335
      2    T:0.96    T:0.90    F:0.7    T:0.3
      3    T:0.96    T:0.90    T:0.3    F:0.665
      4    T:0.06    T:0.90    F:0.7    F:0.7
-</pre>
+</pre></li>
 
-<hr></li>
+<li><p>
+Probability calculation
+</p>
 
-<li>Probability calculation</li>
-</ul>
-
-<pre class="example" id="org9481416">
-
+<pre class="example" id="orgdfea5e0">
   P(D=T|U=T,W=T)
     = ( P(1) + P(2) ) / ( P(1) + P(2 )+ ... + P(4) )
     = (0.96*0.90*0.3*0.335 + 0.96*0.90*0.7*0.3 ) / (...)
     = 0.3 * 1.035 / (0.3 * 1.035 + 0.3 * 0.665 + 0.7 * 0.7)
     = 31.05%
-</pre>
+</pre></li>
+</ul>
 </div>
 </div>
 </div>
@@ -103,7 +107,7 @@ INDEX <i>U</i> <i>W</i> <i>B</i> <i>D</i>
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-06 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2012-04-06 and published at 2022-09-05 Mon 22:42 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>

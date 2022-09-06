@@ -21,22 +21,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#solution-one">1. Solution One</a></li>
+<li><a href="#orgdcf7c54">1. Solution One</a></li>
 <li><a href="#solution-two">2. Solution Two</a></li>
-<li><a href="#other-solutions">3. Other solutions</a></li>
-<li><a href="#further">4. Further</a>
+<li><a href="#org3b50866">3. Other solutions</a></li>
+<li><a href="#org5a13256">4. Further</a>
 <ul>
-<li><a href="#why-solution-2-make-great-differences">4.1. <b>Why solution 2 make great differences?</b></a></li>
-<li><a href="#more-about-parallel-programming-in-haskell">4.2. More about Parallel programming in Haskell?</a></li>
+<li><a href="#org0ffe398">4.1. Why solution 2 make great differences?</a></li>
+<li><a href="#org9ec533d">4.2. More about Parallel programming in Haskell?</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-solution-one" class="outline-2">
-<h2 id="solution-one"><span class="section-number-2">1.</span> Solution One</h2>
-<div class="outline-text-2" id="text-solution-one">
+<div id="outline-container-orgdcf7c54" class="outline-2">
+<h2 id="orgdcf7c54"><span class="section-number-2">1.</span> Solution One</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 I should say this solution only work while upper limit is under 100000.
 Otherwise it is really slow and I have no patient for the result. I
@@ -68,7 +68,10 @@ So, problem solving failed.
 </div>
 
 <p>
-Compile as otherwise Stack space overflow :
+Compile as otherwise Stack space overflow:
+</p>
+
+<p>
 <code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code>
 </p>
 </div>
@@ -102,39 +105,41 @@ The result came under 1.5s at my local!
 </div>
 
 <p>
-Compile as otherwise Stack space overflow :
+Compile as otherwise Stack space overflow:
+</p>
+
+<p>
 <code>ghc --make p14-1.hs -O2 -fforce-recomp -rtsopts</code>
 </p>
 </div>
 </div>
 
-<div id="outline-container-other-solutions" class="outline-2">
-<h2 id="other-solutions"><span class="section-number-2">3.</span> Other solutions</h2>
-<div class="outline-text-2" id="text-other-solutions">
+<div id="outline-container-org3b50866" class="outline-2">
+<h2 id="org3b50866"><span class="section-number-2">3.</span> Other solutions</h2>
+<div class="outline-text-2" id="text-3">
 <p>
-Haskell Wiki<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> presents several solutions. One interested me is that
-levearages parallel programming <code>Control.Parallel</code>.
+Haskell Wiki<sup><a id="fnr.1.100" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> presents several solutions. One interested me is that
+leverages parallel programming <code>Control.Parallel</code>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-further" class="outline-2">
-<h2 id="further"><span class="section-number-2">4.</span> Further</h2>
-<div class="outline-text-2" id="text-further">
+<div id="outline-container-org5a13256" class="outline-2">
+<h2 id="org5a13256"><span class="section-number-2">4.</span> Further</h2>
+<div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-why-solution-2-make-great-differences" class="outline-3">
-<h3 id="why-solution-2-make-great-differences"><span class="section-number-3">4.1.</span> <b>Why solution 2 make great differences?</b></h3>
-<div class="outline-text-3" id="text-why-solution-2-make-great-differences">
+<div id="outline-container-org0ffe398" class="outline-3">
+<h3 id="org0ffe398"><span class="section-number-3">4.1.</span> Why solution 2 make great differences?</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
-I asked question in haskell-beginer but still can not get clear
-understanding.
+I asked question in haskell-beginer but still can not get clear understanding.
 </p>
 </div>
 </div>
 
-<div id="outline-container-more-about-parallel-programming-in-haskell" class="outline-3">
-<h3 id="more-about-parallel-programming-in-haskell"><span class="section-number-3">4.2.</span> More about Parallel programming in Haskell?</h3>
-<div class="outline-text-3" id="text-more-about-parallel-programming-in-haskell">
+<div id="outline-container-org9ec533d" class="outline-3">
+<h3 id="org9ec533d"><span class="section-number-3">4.2.</span> More about Parallel programming in Haskell?</h3>
+<div class="outline-text-3" id="text-4-2">
 </div>
 </div>
 </div>
@@ -143,13 +148,7 @@ understanding.
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="http://www.haskell.org/haskellwiki/Euler_problems/11_to_20">Haskell
-Wiki Euler Problem</a>
-</p></div></div>
-
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="http://www.haskell.org/haskellwiki/Euler_problems/11_to_20">Haskell
-Wiki Euler Problem</a>
+<a href="http://www.haskell.org/haskellwiki/Euler_problems/11_to_20">Haskell Wiki Euler Problem</a>
 </p></div></div>
 
 
@@ -159,7 +158,7 @@ Wiki Euler Problem</a>
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-11-20 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2011-11-20 and published at 2022-09-05 Mon 22:56 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>

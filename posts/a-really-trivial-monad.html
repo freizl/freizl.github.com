@@ -59,7 +59,7 @@ In order to be a monad, it has to be a instance of <code>Monad</code> and the
 implementation of <code>&gt;&gt;=</code> is
 </p>
 
-<pre class="example" id="org72209cc">
+<pre class="example" id="orgb96288e">
   &gt; p &gt;&gt;= f = let (a, c1) = getSint p
   &gt;               (b, c2) = getSint (f a)
   &gt;               in Sint (b, c1+c2)
@@ -67,7 +67,7 @@ implementation of <code>&gt;&gt;=</code> is
 
 <p>
 It means keep the result of the second computation and combined the
-count together. Find full code <a href="file:///codes/SideEffectInc.lhs"><code>here</code></a>
+count together. Find full code <a href="https://freizl.github.io/codes/haskell/SideEffectInc.lhs"><code>here</code></a>.
 </p>
 
 <p>
@@ -84,13 +84,11 @@ to do, which also turn to be simple.
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="http://ecn.channel9.msdn.com/o9/ch9/1/1/2/4/0/5/C9LecturesMeijerC8_2MB_ch9.wmv">Functional
-parsers by Erik Meijer</a>
+<a href="http://ecn.channel9.msdn.com/o9/ch9/1/1/2/4/0/5/C9LecturesMeijerC8_2MB_ch9.wmv">Functional parsers by Erik Meijer</a>
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="http://channel9.msdn.com/shows/Going+Deep/Brian-Beckman-Dont-fear-the-Monads/">Brian
-Beckman: Don&rsquo;t fear the Monad</a>
+<a href="http://channel9.msdn.com/shows/Going+Deep/Brian-Beckman-Dont-fear-the-Monads/">Brian Beckman: Don&rsquo;t fear the Monad</a>
 </p></div></div>
 
 
@@ -100,7 +98,7 @@ Beckman: Don&rsquo;t fear the Monad</a>
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-05-29 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2011-05-29 and published at 2022-09-05 Mon 22:36 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>
