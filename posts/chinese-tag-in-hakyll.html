@@ -21,10 +21,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#问题">问题</a></li>
-<li><a href="#原因">原因</a></li>
-<li><a href="#一种解决办法">一种解决办法</a></li>
-<li><a href="#再一种解决办法">再一种解决办法</a></li>
+<li><a href="#问题">1. 问题</a></li>
+<li><a href="#原因">2. 原因</a></li>
+<li><a href="#一种解决办法">3. 一种解决办法</a></li>
+<li><a href="#再一种解决办法">4. 再一种解决办法</a></li>
 </ul>
 </div>
 </nav>
@@ -34,7 +34,7 @@ bug(未验证)。</b>
 </p>
 
 <div id="outline-container-问题" class="outline-2">
-<h2 id="问题">问题</h2>
+<h2 id="问题"><span class="section-number-2">1.</span> 问题</h2>
 <div class="outline-text-2" id="text-问题">
 <p>
 Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>会给每个标签单独生成一个 html，比如/foo.html/,
@@ -45,7 +45,7 @@ Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a><
 </div>
 
 <div id="outline-container-原因" class="outline-2">
-<h2 id="原因">原因</h2>
+<h2 id="原因"><span class="section-number-2">2.</span> 原因</h2>
 <div class="outline-text-2" id="text-原因">
 <p>
 造成问题是原因由于 Haskell 里写文件的方法。 如下所是，=writeFile=用 base
@@ -64,7 +64,7 @@ Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a><
 </div>
 
 <div id="outline-container-一种解决办法" class="outline-2">
-<h2 id="一种解决办法">一种解决办法</h2>
+<h2 id="一种解决办法"><span class="section-number-2">3.</span> 一种解决办法</h2>
 <div class="outline-text-2" id="text-一种解决办法">
 <p>
 最直接的方式就是用类库
@@ -88,7 +88,7 @@ utf8-string<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2
 </div>
 
 <div id="outline-container-再一种解决办法" class="outline-2">
-<h2 id="再一种解决办法">再一种解决办法</h2>
+<h2 id="再一种解决办法"><span class="section-number-2">4.</span> 再一种解决办法</h2>
 <div class="outline-text-2" id="text-再一种解决办法">
 <p>
 hakyll goole groups 有人帖了他的一个解决方案，也是用 utf8-string 先
@@ -122,5 +122,12 @@ fix</a>
 
 </div>
 </div></div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2012-04-26 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
 </body>
 </html>

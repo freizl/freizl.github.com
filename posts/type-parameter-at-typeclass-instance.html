@@ -21,15 +21,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#a-newbie-concern">A newbie concern</a></li>
-<li><a href="#another-interesting-funtor">Another interesting Funtor</a></li>
-<li><a href="#further-reading">Further reading</a></li>
+<li><a href="#a-newbie-concern">1. A newbie concern</a></li>
+<li><a href="#another-interesting-funtor">2. Another interesting Funtor</a></li>
+<li><a href="#further-reading">3. Further reading</a></li>
 </ul>
 </div>
 </nav>
 
 <div id="outline-container-a-newbie-concern" class="outline-2">
-<h2 id="a-newbie-concern">A newbie concern</h2>
+<h2 id="a-newbie-concern"><span class="section-number-2">1.</span> A newbie concern</h2>
 <div class="outline-text-2" id="text-a-newbie-concern">
 <p>
 A concern arise while I compare following two instances of <code>Maybe</code>.
@@ -120,14 +120,14 @@ of</i> <code>* -&gt; *</code>.
 </div>
 
 <div id="outline-container-another-interesting-funtor" class="outline-2">
-<h2 id="another-interesting-funtor">Another interesting Funtor</h2>
+<h2 id="another-interesting-funtor"><span class="section-number-2">2.</span> Another interesting Funtor</h2>
 <div class="outline-text-2" id="text-another-interesting-funtor">
 <p>
 It is <code>(-&gt;) r</code> which was confusing at first glance. However, if we read
 it having Polish notation<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> in mind, it looks like less confusing.
 </p>
 
-<pre class="example" id="org6480044">
+<pre class="example" id="org408f3a8">
   instance Functor ((-&gt;) r) where
       fmap f g = (\x -&gt; f (g x))
 </pre>
@@ -145,7 +145,7 @@ fmap (*3) (+100) 1
 </div>
 
 <div id="outline-container-further-reading" class="outline-2">
-<h2 id="further-reading">Further reading</h2>
+<h2 id="further-reading"><span class="section-number-2">3.</span> Further reading</h2>
 <div class="outline-text-2" id="text-further-reading">
 <p>
 I got to read paper at type class topic<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup> in order to have more
@@ -172,5 +172,12 @@ knowledge.
 
 </div>
 </div></div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2011-07-02 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
 </body>
 </html>

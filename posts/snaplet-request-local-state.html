@@ -21,18 +21,18 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#什么-snaplet">什么 Snaplet</a></li>
-<li><a href="#request-local-state">Request local state</a></li>
-<li><a href="#snaplet-oauth-0.0.0">Snaplet-oauth-0.0.0</a></li>
-<li><a href="#如何解决">如何解决</a></li>
-<li><a href="#还有什么问题">还有什么问题</a></li>
+<li><a href="#org398f699">1. 什么 Snaplet</a></li>
+<li><a href="#org0368138">2. Request local state</a></li>
+<li><a href="#org0791d72">3. Snaplet-oauth-0.0.0</a></li>
+<li><a href="#orgadca974">4. 如何解决</a></li>
+<li><a href="#orgec018d6">5. 还有什么问题</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-什么-snaplet" class="outline-2">
-<h2 id="什么-snaplet">什么 Snaplet</h2>
-<div class="outline-text-2" id="text-什么-snaplet">
+<div id="outline-container-org398f699" class="outline-2">
+<h2 id="org398f699"><span class="section-number-2">1.</span> 什么 Snaplet</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
 应用什么可组合化，开发者可以设计许多独立的功能模块，或者说小的应用模块，然后通过组合以组建一个大型的应用。
@@ -44,47 +44,46 @@ Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
 </div>
 </div>
 
-<div id="outline-container-request-local-state" class="outline-2">
-<h2 id="request-local-state">Request local state</h2>
-<div class="outline-text-2" id="text-request-local-state">
+<div id="outline-container-org0368138" class="outline-2">
+<h2 id="org0368138"><span class="section-number-2">2.</span> Request local state</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-<b>Request Local State</b> 是 snaplet
-的一个设计目标<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>。初识时并没引起什么关注，也是不太理解具体含义。最近在写
-Snaplet-OAuth 的时候遇到问题，就是由于不知道这个东西的含义所造成的。
+<b>Request Local State</b> 是 snaplet 的一个设计目标<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>。
+初识时并没引起什么关注，也是不太理解具体含义。
+最近在写 Snaplet-OAuth 的时候遇到问题，就是由于不知道这个东西的含义所造成的。
 </p>
 </div>
 </div>
 
-<div id="outline-container-snaplet-oauth-0.0.0" class="outline-2">
-<h2 id="snaplet-oauth-0.0.0">Snaplet-oauth-0.0.0</h2>
-<div class="outline-text-2" id="text-snaplet-oauth-0.0.0">
+<div id="outline-container-org0791d72" class="outline-2">
+<h2 id="org0791d72"><span class="section-number-2">3.</span> Snaplet-oauth-0.0.0</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 根据 Snaplet 的常规模式，定义一个 data type 用于保存相关信息，比如
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
-                      { getOauth     <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">OAuth2</span>
-                      , getCodeParam <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-                      }
+<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
+                    { getOauth     <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">OAuth2</span>
+                    , getCodeParam <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                    }
 
-  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">HasOauth</span> b <span style="color: #93a61a; font-weight: bold;">where</span>
-      oauthLens <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Lens</span> b (<span style="color: #c49619; font-style: italic;">Snaplet</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>)
+<span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">HasOauth</span> b wher   e
+  oauthLens <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Lens</span> b (<span style="color: #c49619; font-style: italic;">Snaplet</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>)
 
-  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuth2</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuth2</span> { oauthClientId <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-                       , oauthClientSecret <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-                       , oauthOAuthorizeEndpoint <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-                       , oauthAccessTokenEndpoint <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-                       , oauthCallback <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-                       , oauthAccessToken <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-                       } <span style="color: #93a61a; font-weight: bold;">deriving</span> (<span style="color: #c49619; font-style: italic;">Show</span>, <span style="color: #c49619; font-style: italic;">Eq</span>)
+<span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuth2</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuth2</span> { oauthClientId <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                     , oauthClientSecret <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                     , oauthOAuthorizeEndpoint <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                     , oauthAccessTokenEndpoint <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                     , oauthCallback <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                     , oauthAccessToken <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                     } <span style="color: #93a61a; font-weight: bold;">deriving</span> (<span style="color: #c49619; font-style: italic;">Show</span>, <span style="color: #c49619; font-style: italic;">Eq</span>)
 </pre>
 </div>
 
 <p>
-如果从 Monad State Trans 的角度去理解， =OAuthSnaplet=就是一个要成为
-State 的一个用户类型。 =HasOauth=可以理解为用户和其他 Snaplet
-组合的接口。
+如果从 Monad State Trans 的角度去理解， <code>OAuthSnaplet</code> 就是一个要成为
+State 的一个用户类型。 <code>HasOauth</code> 可以理解为用户和其他 Snaplet 组合的接口。
 </p>
 
 <p>
@@ -147,7 +146,7 @@ Snaplet，这看上去会很熟悉、常规。
 </div>
 
 <p>
-这里主要关注的是第 11 行到 13 行，=Just token=表示成功获取了
+这里主要关注的是第 11 行到 13 行， <code>Just token</code> 表示成功获取了
 AccessToken，然后要
 </p>
 
@@ -162,49 +161,49 @@ AcceeToken 来访问微薄资源。
 </p>
 
 <p>
-然后事实并不是这样子，在这个 oauthCallbackHandler 对 OAuthSnaplet
-的更新只限于这个 Handler。 <b>因为 snap 是多线程的且线程安全，每一次的
-request 都是对 snaplet 状态的一份新拷贝。</b> 而由于初始化 OauthSnaplet
-的时候是没有 AccessToken 的，这就意谓着所有的 Handler 默认读到的
-AccessToken 是空的。
+然后事实并不是这样子，在这个 oauthCallbackHandler 对 OAuthSnaplet 的更新只限于这个 Handler。
+</p>
+
+<p>
+<b>因为 snap 是多线程的且线程安全，每一次的 request 都是对 snaplet 状态的一份新拷贝。</b>
+而由于初始化 OauthSnaplet 的时候是没有 AccessToken 的，这就意谓着所有的 Handler 默认读到的 AccessToken 是空的。
 </p>
 </div>
 </div>
 
-<div id="outline-container-如何解决" class="outline-2">
-<h2 id="如何解决">如何解决</h2>
-<div class="outline-text-2" id="text-如何解决">
+<div id="outline-container-orgadca974" class="outline-2">
+<h2 id="orgadca974"><span class="section-number-2">4.</span> 如何解决</h2>
+<div class="outline-text-2" id="text-4">
 <p>
-解决方案就是把=OAuthSnaplet=里的=oauth=变成一个共享变量，这样可以在多线程之间共享。
+解决方案就是把 <code>OAuthSnaplet</code> 里的 <code>oauth</code> 变成一个共享变量，这样可以在多线程之间共享。
 </p>
 
 <p>
-一种实现方式就是用=MVar=<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>，这样 OAuthSnaplet 就成了这样子
+一种实现方式就是用 <code>MVar</code> <sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>，这样 <code>OAuthSnaplet</code> 就成了这样子
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
-                      { getOauth     <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">MVar</span> <span style="color: #c49619; font-style: italic;">OAuth2</span>
-                      , getCodeParam <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-                      }
+<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
+                    { getOauth     <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">MVar</span> <span style="color: #c49619; font-style: italic;">OAuth2</span>
+                    , getCodeParam <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+                    }
 </pre>
 </div>
 
 <p>
-然后就很直观了，用=Control.Concurrent=库里提供的更新一个 MVar
+然后就很直观了，用~Control.Concurrent~库里提供的更新一个 MVar
 的方式来做更新和读取。 最后的实现可以参考这里<sup><a id="fnr.5" class="footref" href="#fn.5" role="doc-backlink">5</a></sup>，不在这里累赘。
 </p>
 </div>
 </div>
 
-<div id="outline-container-还有什么问题" class="outline-2">
-<h2 id="还有什么问题">还有什么问题</h2>
-<div class="outline-text-2" id="text-还有什么问题">
+<div id="outline-container-orgec018d6" class="outline-2">
+<h2 id="orgec018d6"><span class="section-number-2">5.</span> 还有什么问题</h2>
+<div class="outline-text-2" id="text-5">
 <p>
 你可能已经发现，这样的实现方式，如何支持多用户，以及多个 OAuth Provider
 呢？
-我还没有答案，如果你知道怎么做，欢迎<a href="https://github.com/HaskellCNOrg/snaplet-oauth">send
-Pull Request</a>.
+我还没有答案，如果你知道怎么做，欢迎<a href="https://github.com/HaskellCNOrg/snaplet-oauth">send Pull Request</a>.
 </p>
 </div>
 </div>
@@ -213,8 +212,7 @@ Pull Request</a>.
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1" role="doc-backlink">1</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="http://snapframework.com/docs/tutorials/snaplets-tutorial">Snaplets
-Tutorial</a>
+<a href="http://snapframework.com/docs/tutorials/snaplets-tutorial">Snaplets Tutorial</a>
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2" role="doc-backlink">2</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
@@ -230,12 +228,18 @@ Tutorial</a>
 </p></div></div>
 
 <div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5" role="doc-backlink">5</a></sup> <div class="footpara" role="doc-footnote"><p class="footpara">
-<a href="https://github.com/HaskellCNOrg/snaplet-oauth">Snaplet-OAuth in
-Github</a>
+<a href="https://github.com/HaskellCNOrg/snaplet-oauth">Snaplet-OAuth in Github</a>
 </p></div></div>
 
 
 </div>
 </div></div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2012-05-24 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
 </body>
 </html>

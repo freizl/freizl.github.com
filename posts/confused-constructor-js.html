@@ -21,15 +21,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#sample">Sample</a></li>
-<li><a href="#jquery.fn.init">JQuery.fn.init</a></li>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#sample">2. Sample</a></li>
+<li><a href="#jquery.fn.init">3. JQuery.fn.init</a></li>
 </ul>
 </div>
 </nav>
 
 <div id="outline-container-introduction" class="outline-2">
-<h2 id="introduction">Introduction</h2>
+<h2 id="introduction"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-introduction">
 <p>
 I can not quite remember what happened when invoking <code>new</code> over a
@@ -85,13 +85,13 @@ Therefore if we change the <code>prototype</code> property of the function befor
 </div>
 
 <div id="outline-container-sample" class="outline-2">
-<h2 id="sample">Sample</h2>
+<h2 id="sample"><span class="section-number-2">2.</span> Sample</h2>
 <div class="outline-text-2" id="text-sample">
 <ul class="org-ul">
 <li><b>tested at google chrome 18 and pay close attention to comments.</b></li>
 </ul>
 
-<pre class="example" id="org5ed4035">
+<pre class="example" id="org4cefd1a">
 <span class="linenr"> 1: </span>
 <span class="linenr"> 2: </span>  var fn1 = function () { this.name = "fn1"; }
 <span class="linenr"> 3: </span>
@@ -126,13 +126,13 @@ Therefore if we change the <code>prototype</code> property of the function befor
 </div>
 
 <div id="outline-container-jquery.fn.init" class="outline-2">
-<h2 id="jquery.fn.init">JQuery.fn.init</h2>
+<h2 id="jquery.fn.init"><span class="section-number-2">3.</span> JQuery.fn.init</h2>
 <div class="outline-text-2" id="text-jquery.fn.init">
 <ul class="org-ul">
 <li><code>jQuery</code> is declarated as</li>
 </ul>
 
-<pre class="example" id="org5755c1c">
+<pre class="example" id="org74a152e">
   var jQuery = function( selector, context ) {
           // The jQuery object is actually just the init constructor 'enhanced'
           return new jQuery.fn.init( selector, context, rootjQuery );
@@ -143,7 +143,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
 
-<pre class="example" id="orge25b79c">
+<pre class="example" id="org9c0254b">
   jQuery.fn = {
       constructor: jQuery,
       init: function( selector, context, rootjQuery ) {
@@ -169,7 +169,7 @@ following something which of cource can be found at around line 322 of
 jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>.
 </p>
 
-<pre class="example" id="org2d6537e">
+<pre class="example" id="org2bba71c">
   jQuery.fn.init.prototype = jQuery.fn;
 </pre>
 </div>
@@ -199,5 +199,12 @@ considered confusing</a>
 
 </div>
 </div></div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2012-04-12 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
 </body>
 </html>

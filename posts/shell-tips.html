@@ -21,22 +21,22 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#quicklinks">Quicklinks</a></li>
-<li><a href="#reference">Reference</a></li>
-<li><a href="#sample-section-a">Sample Section A</a>
+<li><a href="#quicklinks">1. Quicklinks</a></li>
+<li><a href="#reference">2. Reference</a></li>
+<li><a href="#sample-section-a">3. Sample Section A</a>
 <ul>
-<li><a href="#grep">grep</a></li>
-<li><a href="#find">find</a></li>
-<li><a href="#awk">awk</a></li>
-<li><a href="#sed">sed</a></li>
-<li><a href="#cp">cp</a></li>
+<li><a href="#grep">3.1. grep</a></li>
+<li><a href="#find">3.2. find</a></li>
+<li><a href="#awk">3.3. awk</a></li>
+<li><a href="#sed">3.4. sed</a></li>
+<li><a href="#cp">3.5. cp</a></li>
 </ul>
 </li>
-<li><a href="#sample-section-b">Sample Section B</a>
+<li><a href="#sample-section-b">4. Sample Section B</a>
 <ul>
-<li><a href="#while">while</a></li>
-<li><a href="#for">for</a></li>
-<li><a href="#case">case</a></li>
+<li><a href="#while">4.1. while</a></li>
+<li><a href="#for">4.2. for</a></li>
+<li><a href="#case">4.3. case</a></li>
 </ul>
 </li>
 </ul>
@@ -44,7 +44,7 @@
 </nav>
 
 <div id="outline-container-quicklinks" class="outline-2">
-<h2 id="quicklinks">Quicklinks</h2>
+<h2 id="quicklinks"><span class="section-number-2">1.</span> Quicklinks</h2>
 <div class="outline-text-2" id="text-quicklinks">
 <ul class="org-ul">
 <li><a href="http://bash.cyberciti.biz/guide/What_is_a_Subshell%3F">What is a
@@ -58,7 +58,7 @@ Good Unix habits</a></li>
 </div>
 
 <div id="outline-container-reference" class="outline-2">
-<h2 id="reference">Reference</h2>
+<h2 id="reference"><span class="section-number-2">2.</span> Reference</h2>
 <div class="outline-text-2" id="text-reference">
 <ul class="org-ul">
 <li>() execute command in subshell</li>
@@ -69,13 +69,13 @@ final command in the list ends with a semicolon.</li>
 </div>
 
 <div id="outline-container-sample-section-a" class="outline-2">
-<h2 id="sample-section-a">Sample Section A</h2>
+<h2 id="sample-section-a"><span class="section-number-2">3.</span> Sample Section A</h2>
 <div class="outline-text-2" id="text-sample-section-a">
 </div>
 <div id="outline-container-grep" class="outline-3">
-<h3 id="grep">grep</h3>
+<h3 id="grep"><span class="section-number-3">3.1.</span> grep</h3>
 <div class="outline-text-3" id="text-grep">
-<pre class="example" id="org74a843d">
+<pre class="example" id="orgdbcdb86">
   grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
   ### count process and exclude grep itself
   ps aux | grep vpnc | grep -v grep -c
@@ -84,9 +84,9 @@ final command in the list ends with a semicolon.</li>
 </div>
 
 <div id="outline-container-find" class="outline-3">
-<h3 id="find">find</h3>
+<h3 id="find"><span class="section-number-3">3.2.</span> find</h3>
 <div class="outline-text-3" id="text-find">
-<pre class="example" id="orgeb3473c">
+<pre class="example" id="org7761fac">
   find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
   find $update_dir \( -name '*.java' \) \( -path '**/source/**' -o -path '**/test/**' -o -path '**/resource/**' \)
 </pre>
@@ -94,9 +94,9 @@ final command in the list ends with a semicolon.</li>
 </div>
 
 <div id="outline-container-awk" class="outline-3">
-<h3 id="awk">awk</h3>
+<h3 id="awk"><span class="section-number-3">3.3.</span> awk</h3>
 <div class="outline-text-3" id="text-awk">
-<pre class="example" id="org4c1885a">
+<pre class="example" id="org2787b01">
   ### list all time of each ping
   awk -F"=" '/time=/ {print substr($4,0,length($4)-3) }' &lt; ping.log
   ### passing shell parameter to awk scripts
@@ -108,9 +108,9 @@ final command in the list ends with a semicolon.</li>
 </div>
 
 <div id="outline-container-sed" class="outline-3">
-<h3 id="sed">sed</h3>
+<h3 id="sed"><span class="section-number-3">3.4.</span> sed</h3>
 <div class="outline-text-3" id="text-sed">
-<pre class="example" id="orgcde2891">
+<pre class="example" id="orgce4f423">
   ll | sed '/Stores\|Test\|^-\|^t/d' | wc
   smbclient -L \\\\hangzhou2\\twitters -U foobar | sed '/Hangzhou20/,$d'
   export BEA_IP=`/sbin/ifconfig eth0 | sed '/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g'`
@@ -119,9 +119,9 @@ final command in the list ends with a semicolon.</li>
 </div>
 
 <div id="outline-container-cp" class="outline-3">
-<h3 id="cp">cp</h3>
+<h3 id="cp"><span class="section-number-3">3.5.</span> cp</h3>
 <div class="outline-text-3" id="text-cp">
-<pre class="example" id="org76d2929">
+<pre class="example" id="orgdb9a300">
   cp filename{,.bak}
 </pre>
 </div>
@@ -129,13 +129,13 @@ final command in the list ends with a semicolon.</li>
 </div>
 
 <div id="outline-container-sample-section-b" class="outline-2">
-<h2 id="sample-section-b">Sample Section B</h2>
+<h2 id="sample-section-b"><span class="section-number-2">4.</span> Sample Section B</h2>
 <div class="outline-text-2" id="text-sample-section-b">
 </div>
 <div id="outline-container-while" class="outline-3">
-<h3 id="while">while</h3>
+<h3 id="while"><span class="section-number-3">4.1.</span> while</h3>
 <div class="outline-text-3" id="text-while">
-<pre class="example" id="org77887c4">
+<pre class="example" id="orgca7b5c0">
   while getopts ":ab:c" opt; do
       case $opt in
       a ) echo "I am a" ;;
@@ -151,15 +151,15 @@ final command in the list ends with a semicolon.</li>
 </div>
 
 <div id="outline-container-for" class="outline-3">
-<h3 id="for">for</h3>
+<h3 id="for"><span class="section-number-3">4.2.</span> for</h3>
 <div class="outline-text-3" id="text-for">
-<pre class="example" id="orgea046eb">
+<pre class="example" id="orgaf0f5a5">
   for s in $(echo $string | sed "s/;/ /g"); do
       echo $s
   done
 </pre>
 
-<pre class="example" id="org842a1a1">
+<pre class="example" id="orgb3e9b26">
   for (( i=1; i&lt;=$n; i++ )) do
      ls -1 "${file_pattern}" | sed 's#\(.*\)\(.xml\).bak#cp &amp; \1'"_$i"'\2#g'
   done
@@ -168,9 +168,9 @@ final command in the list ends with a semicolon.</li>
 </div>
 
 <div id="outline-container-case" class="outline-3">
-<h3 id="case">case</h3>
+<h3 id="case"><span class="section-number-3">4.3.</span> case</h3>
 <div class="outline-text-3" id="text-case">
-<pre class="example" id="orged0eb5e">
+<pre class="example" id="org8d25542">
   case $action in
       backup ) tar cfj "$backup_dir/$bakfile" * --exclude "jobs/*/workspace" ;;
       rest | restore ) tar xfj $backup_dir/$bakfile ;;
@@ -180,6 +180,13 @@ final command in the list ends with a semicolon.</li>
 </div>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2012-04-06 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
 </div>
 </body>
 </html>

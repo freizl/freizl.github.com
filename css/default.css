@@ -1,4 +1,16 @@
 body {
     font-size: 1.2rem;
     line-height: 1.5rem;
+    max-width: 60em;
+    margin: auto;
+}
+
+blockquote {
+    font-style: italic;
+    border-left: 2px solid;
+    padding-left: 15px;
+}
+
+footer {
+    font-size: 0.9rem;
 }

@@ -21,25 +21,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#defined-a-function">Defined a function</a></li>
-<li><a href="#run-it">Run it</a></li>
-<li><a href="#run-it-with-bind">Run it with bind</a>
+<li><a href="#defined-a-function">1. Defined a function</a></li>
+<li><a href="#run-it">2. Run it</a></li>
+<li><a href="#run-it-with-bind">3. Run it with bind</a>
 <ul>
-<li><a href="#less">Less</a></li>
-<li><a href="#more">More</a></li>
+<li><a href="#less">3.1. Less</a></li>
+<li><a href="#more">3.2. More</a></li>
 </ul>
 </li>
-<li><a href="#run-with-bind-and-context">Run with bind and context</a></li>
-<li><a href="#diff-with-call-and-apply">Diff with call and apply</a></li>
-<li><a href="#further">Further</a></li>
+<li><a href="#run-with-bind-and-context">4. Run with bind and context</a></li>
+<li><a href="#diff-with-call-and-apply">5. Diff with call and apply</a></li>
+<li><a href="#further">6. Further</a></li>
 </ul>
 </div>
 </nav>
 
 <div id="outline-container-defined-a-function" class="outline-2">
-<h2 id="defined-a-function">Defined a function</h2>
+<h2 id="defined-a-function"><span class="section-number-2">1.</span> Defined a function</h2>
 <div class="outline-text-2" id="text-defined-a-function">
-<pre class="example" id="org5a652c3">
+<pre class="example" id="orgc3f4363">
   var fn = function (x, y, z) {
     console.log("The value: ", this.shangHai);
     console.log("The sum is: ", x + y + z);
@@ -49,9 +49,9 @@
 </div>
 
 <div id="outline-container-run-it" class="outline-2">
-<h2 id="run-it">Run it</h2>
+<h2 id="run-it"><span class="section-number-2">2.</span> Run it</h2>
 <div class="outline-text-2" id="text-run-it">
-<pre class="example" id="org5a0c026">
+<pre class="example" id="org5ca41bd">
   fn(1);
 </pre>
 
@@ -59,12 +59,12 @@
 -&gt; Output
 </p>
 
-<pre class="example" id="orge93e4d5">
+<pre class="example" id="orgbd192b4">
   The value:  undefined
   The sum is:  NaN
 </pre>
 
-<pre class="example" id="orgf55bf33">
+<pre class="example" id="orgf837397">
   fn(1, 2, 3);
 </pre>
 
@@ -72,7 +72,7 @@
 -&gt; Output:
 </p>
 
-<pre class="example" id="org6480c96">
+<pre class="example" id="org9035fad">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -80,13 +80,13 @@
 </div>
 
 <div id="outline-container-run-it-with-bind" class="outline-2">
-<h2 id="run-it-with-bind">Run it with bind</h2>
+<h2 id="run-it-with-bind"><span class="section-number-2">3.</span> Run it with bind</h2>
 <div class="outline-text-2" id="text-run-it-with-bind">
 </div>
 <div id="outline-container-less" class="outline-3">
-<h3 id="less">Less</h3>
+<h3 id="less"><span class="section-number-3">3.1.</span> Less</h3>
 <div class="outline-text-3" id="text-less">
-<pre class="example" id="orge8b73da">
+<pre class="example" id="org627f1a1">
   fn.bind(null, 1, 2, 3);
 </pre>
 
@@ -94,7 +94,7 @@
 -&gt; Output:
 </p>
 
-<pre class="example" id="org48dc337">
+<pre class="example" id="org899d28b">
   function () { [native code] }
 </pre>
 
@@ -107,7 +107,7 @@ return value.
 What will happen if invoke the new function?
 </p>
 
-<pre class="example" id="orgceef2ba">
+<pre class="example" id="orgb8f5c8a">
   fn.bind(null, 1, 2, 3)();
 </pre>
 
@@ -115,7 +115,7 @@ What will happen if invoke the new function?
 -&gt; Output:
 </p>
 
-<pre class="example" id="orgd5cb081">
+<pre class="example" id="orgb5f41cc">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -127,7 +127,7 @@ That is what we want.
 </div>
 
 <div id="outline-container-more" class="outline-3">
-<h3 id="more">More</h3>
+<h3 id="more"><span class="section-number-3">3.2.</span> More</h3>
 <div class="outline-text-3" id="text-more">
 <p>
 What are results respectively of following expressions?
@@ -146,7 +146,7 @@ What are results respectively of following expressions?
 Take one example
 </p>
 
-<pre class="example" id="org2221af8">
+<pre class="example" id="org433baca">
   fn.bind(null, 1, 2)(3);
 </pre>
 
@@ -154,7 +154,7 @@ Take one example
 -&gt; Output:
 </p>
 
-<pre class="example" id="orgb315dd1">
+<pre class="example" id="org8da115a">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -187,7 +187,7 @@ some sense.
 </div>
 
 <div id="outline-container-run-with-bind-and-context" class="outline-2">
-<h2 id="run-with-bind-and-context">Run with bind and context</h2>
+<h2 id="run-with-bind-and-context"><span class="section-number-2">4.</span> Run with bind and context</h2>
 <div class="outline-text-2" id="text-run-with-bind-and-context">
 <p>
 What I really mean context here is actually about <code>this</code> used in the
@@ -195,7 +195,7 @@ function. Still now, <i>this.shangHai</i> always output <code>undefined</code> b
 would like it to mean something.
 </p>
 
-<pre class="example" id="org5141e20">
+<pre class="example" id="org5abb614">
   fn.bind({ shangHai: "lovely" }, 1, 2, 3)();
 </pre>
 
@@ -203,7 +203,7 @@ would like it to mean something.
 -&gt; Output:
 </p>
 
-<pre class="example" id="org39c7d4a">
+<pre class="example" id="orgfca212b">
   The value:  lovely
   The sum is:  6
 </pre>
@@ -225,7 +225,7 @@ Quiz: what <code>this</code> will be when passing null?
 </div>
 
 <div id="outline-container-diff-with-call-and-apply" class="outline-2">
-<h2 id="diff-with-call-and-apply">Diff with call and apply</h2>
+<h2 id="diff-with-call-and-apply"><span class="section-number-2">5.</span> Diff with call and apply</h2>
 <div class="outline-text-2" id="text-diff-with-call-and-apply">
 <p>
 My understanding the key point is bind return a function.
@@ -239,17 +239,24 @@ invoking a function.
 </div>
 
 <div id="outline-container-further" class="outline-2">
-<h2 id="further">Further</h2>
+<h2 id="further"><span class="section-number-2">6.</span> Further</h2>
 <div class="outline-text-2" id="text-further">
 <ul class="org-ul">
 <li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>
 </ul>
 
-<pre class="example" id="orgad35bbf">
+<pre class="example" id="orgcad9992">
 
 </pre>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2012-04-06 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
 </div>
 </body>
 </html>

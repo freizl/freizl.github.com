@@ -21,15 +21,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfb6de2c">How to understand the following computation result?</a></li>
-<li><a href="#org3df6d2c">Reason about</a></li>
+<li><a href="#org0746a88">1. How to understand the following computation result?</a></li>
+<li><a href="#org6262c44">2. Reason about</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgfb6de2c" class="outline-2">
-<h2 id="orgfb6de2c">How to understand the following computation result?</h2>
-<div class="outline-text-2" id="text-orgfb6de2c">
+<div id="outline-container-org0746a88" class="outline-2">
+<h2 id="org0746a88"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
+<div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #3c98e0;">mapM</span> id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
 </pre>
@@ -37,9 +37,9 @@
 </div>
 </div>
 
-<div id="outline-container-org3df6d2c" class="outline-2">
-<h2 id="org3df6d2c">Reason about</h2>
-<div class="outline-text-2" id="text-org3df6d2c">
+<div id="outline-container-org6262c44" class="outline-2">
+<h2 id="org6262c44"><span class="section-number-2">2.</span> Reason about</h2>
+<div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-haskell">  mapM     <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> m b) <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> m [b]
   id       <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> a
@@ -87,6 +87,13 @@ Hence the result could be understood in such way
 </div>
 </div>
 </div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2011-06-14 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
 </div>
 </body>
 </html>
