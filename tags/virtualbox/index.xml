@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VirtualBox on Corner case</title><link>https://freizl.github.io/tags/virtualbox/</link><description>Recent content in VirtualBox on Corner case</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Haisheng Wu</copyright><lastBuildDate>Thu, 17 Jul 2008 20:34:00 -0700</lastBuildDate><atom:link href="https://freizl.github.io/tags/virtualbox/index.xml" rel="self" type="application/rss+xml"/><item><title>My Network Config of (Sun)VirtualBox</title><link>https://freizl.github.io/posts/my-network-config-of-sunvirtualbox/</link><pubDate>Thu, 17 Jul 2008 20:34:00 -0700</pubDate><guid>https://freizl.github.io/posts/my-network-config-of-sunvirtualbox/</guid><description>Host: Windows XP
-Guest: ubuntu 8.04 Server
-VirtualBox Network Config:
-ubuntu network config:
-Why eth1 has address 169.254.4.130 ?
-Actually it depends.
-Start the VirtualBox with two network adapters and check all IP address in your host.
-You&amp;rsquo;ll see the IP address of the adapter for VirtualBox, then set the eth1 IP address accordingly.</description></item></channel></rss>
