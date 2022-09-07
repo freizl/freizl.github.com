@@ -39,7 +39,7 @@
 <div id="outline-container-org4a7a639" class="outline-2">
 <h2 id="org4a7a639"><span class="section-number-2">1.</span> Defined a function</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example" id="org10fad09">
+<pre class="example" id="org775b594">
   var fn = function (x, y, z) {
     console.log("The value: ", this.shangHai);
     console.log("The sum is: ", x + y + z);
@@ -51,7 +51,7 @@
 <div id="outline-container-org1f5464e" class="outline-2">
 <h2 id="org1f5464e"><span class="section-number-2">2.</span> Run it</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="org1ef01f1">
+<pre class="example" id="orge6b865b">
   fn(1);
 </pre>
 
@@ -59,12 +59,12 @@
 -&gt; Output
 </p>
 
-<pre class="example" id="org10b9130">
+<pre class="example" id="org36e9d43">
   The value:  undefined
   The sum is:  NaN
 </pre>
 
-<pre class="example" id="org019e3eb">
+<pre class="example" id="org415f2e4">
   fn(1, 2, 3);
 </pre>
 
@@ -72,7 +72,7 @@
 -&gt; Output:
 </p>
 
-<pre class="example" id="org1acf9ba">
+<pre class="example" id="org044a3e6">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -86,7 +86,7 @@
 <div id="outline-container-orgd63f6ee" class="outline-3">
 <h3 id="orgd63f6ee"><span class="section-number-3">3.1.</span> Less</h3>
 <div class="outline-text-3" id="text-3-1">
-<pre class="example" id="org459aa1d">
+<pre class="example" id="orgf189516">
   fn.bind(null, 1, 2, 3);
 </pre>
 
@@ -94,7 +94,7 @@
 -&gt; Output:
 </p>
 
-<pre class="example" id="org362e939">
+<pre class="example" id="org83bdf84">
   function () { [native code] }
 </pre>
 
@@ -107,7 +107,7 @@ return value.
 What will happen if invoke the new function?
 </p>
 
-<pre class="example" id="orgfac06bd">
+<pre class="example" id="org35eb20a">
   fn.bind(null, 1, 2, 3)();
 </pre>
 
@@ -115,7 +115,7 @@ What will happen if invoke the new function?
 -&gt; Output:
 </p>
 
-<pre class="example" id="org6d12425">
+<pre class="example" id="org0067326">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -146,7 +146,7 @@ What are results respectively of following expressions?
 Take one example
 </p>
 
-<pre class="example" id="org403d6e3">
+<pre class="example" id="org8f860b9">
   fn.bind(null, 1, 2)(3);
 </pre>
 
@@ -154,7 +154,7 @@ Take one example
 -&gt; Output:
 </p>
 
-<pre class="example" id="orga02dfb7">
+<pre class="example" id="org548bb71">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -192,7 +192,7 @@ function. Still now, <i>this.shangHai</i> always output <code>undefined</code> b
 would like it to mean something.
 </p>
 
-<pre class="example" id="org56fe664">
+<pre class="example" id="org2e1997f">
   fn.bind({ shangHai: "lovely" }, 1, 2, 3)();
 </pre>
 
@@ -200,7 +200,7 @@ would like it to mean something.
 -&gt; Output:
 </p>
 
-<pre class="example" id="org8647f9a">
+<pre class="example" id="org63ec26d">
   The value:  lovely
   The sum is:  6
 </pre>
@@ -248,7 +248,7 @@ invoking a function.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-06 and published at 2022-09-05 Mon 22:46 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2012-04-06 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>

@@ -91,7 +91,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><b>tested at google chrome 18 and pay close attention to comments.</b></li>
 </ul>
 
-<pre class="example" id="orgc275e38">
+<pre class="example" id="org338c091">
 <span class="linenr"> 1: </span>
 <span class="linenr"> 2: </span>  var fn1 = function () { this.name = "fn1"; }
 <span class="linenr"> 3: </span>
@@ -132,7 +132,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><code>jQuery</code> is declared as</li>
 </ul>
 
-<pre class="example" id="orgb6cbefb">
+<pre class="example" id="orge447e1d">
   var jQuery = function( selector, context ) {
           // The jQuery object is actually just the init constructor 'enhanced'
           return new jQuery.fn.init( selector, context, rootjQuery );
@@ -143,7 +143,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
 
-<pre class="example" id="org18d8052">
+<pre class="example" id="org6ed344f">
   jQuery.fn = {
       constructor: jQuery,
       init: function( selector, context, rootjQuery ) {
@@ -169,7 +169,7 @@ following something which of course can be found at around line 322 of
 jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>.
 </p>
 
-<pre class="example" id="org3479f3b">
+<pre class="example" id="org2b7f6b2">
   jQuery.fn.init.prototype = jQuery.fn;
 </pre>
 </div>
@@ -201,7 +201,7 @@ jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backli
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-12 and published at 2022-09-05 Mon 22:48 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2012-04-12 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>

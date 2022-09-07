@@ -29,66 +29,55 @@ and leveraging other methods including Factory methods. (See sample
 below)
 </p>
 
-<p>
-public abstract class PizzaStore {<br>
-        /**<br>
-         * #templateMethod(String type) is an Template Method.<br>
-         *
-</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">PizzaStore</span> {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #35a69c; font-style: italic;">/**</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #templateMethod(String type) is an Template Method.</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *</span>
 
-<div class="html" id="org234dc9a">
-<p>
-&lt;p&gt;
-</p>
+<span style="color: #35a69c; font-style: italic;">#+begin_html</span>
+<span style="color: #35a69c; font-style: italic;">  </span><span style="color: #3c98e0; font-weight: bold; font-style: italic;">&lt;p&gt;</span>
+<span style="color: #35a69c; font-style: italic;">#+end_html</span>
 
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #factoryMethodOfInit() AND #factoryMethodOfCreate(String</span>
+<span style="color: #35a69c; font-style: italic;">type) are both</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * Factory Method.</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">public</span> Pizza templateMethod(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">type</span>) {
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;factoryMethodOfInit();
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Pizza pizza = factoryMethodOfCreate(type);
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;System.out.println(<span style="color: #93a61a;">"--- Making a"</span> + pizza.getName() + &#8221;
+---&#8220;);
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.prepare();
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.bake();
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.cut();
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.box();
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">return</span> pizza;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
+
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #c49619; font-style: italic;">void</span> factoryMethodOfInit();
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> Pizza factoryMethodOfCreate(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">type</span>);
+}
+
+</pre>
 </div>
 
 <p>
-         * #factoryMethodOfInit() AND #factoryMethodOfCreate(String
-type) are both<br>
-         * Factory Method.<br>
-         */<br>
-        public Pizza templateMethod(String type) {
-</p>
-
-<p>
-                factoryMethodOfInit();
-</p>
-
-<p>
-                Pizza pizza = factoryMethodOfCreate(type);
-</p>
-
-<p>
-                System.out.println(&ldquo;&#x2014; Making a&rdquo; + pizza.getName() + ”
-&#x2014;“);<br>
-                pizza.prepare();<br>
-                pizza.bake();<br>
-                pizza.cut();<br>
-                pizza.box();<br>
-                return pizza;<br>
-        }
-</p>
-
-<p>
-        protected abstract void factoryMethodOfInit();<br>
-        protected abstract Pizza factoryMethodOfCreate(String type);<br>
-}
-</p>
-
-<p>
-Here is a definition:<br>
-<b>Factory Method：</b><br>
+Here is a definition:
+<b>Factory Method：</b>
    Define an interface for creating an object, but let subclasses decide
 which class to instantiate. Factory Method lets a class defer
 instantiation to subclasses.
 </p>
 
 <p>
-<b>Template Method：</b><br>
+<b>Template Method：</b>
    Define the skeleton of an algorithm in an operation, deferring some
 steps to subclasses. Template Method lets subclasses redefine certain
-steps of an algorithm without changing the algorithm&rsquo;s structure.<br>
+steps of an algorithm without changing the algorithm&rsquo;s structure.
    (Here &ldquo;lets subclasses redefine certain steps&rdquo; could be done by
 leveraging Factory method)
 </p>
@@ -103,7 +92,7 @@ Then the Strategy Pattern, Spring DI uses this pattern IMO somehow.
 
 <p>
 Check the updated PizzaStore version below, londonPizzaCreator and
-nYorkPizzaCreator are &ldquo;Strategies&rdquo; of PizzaCreator.<br>
+nYorkPizzaCreator are &ldquo;Strategies&rdquo; of PizzaCreator.
 Then PizzaStore can change strategies at runtime regardless
 implementation detail by injecting various strategies. (via method
 setPizzaCreator)
@@ -131,17 +120,17 @@ public abstract class PizzaStore {
 
 <p>
                 System.out.println(&ldquo;&#x2014; Making a&rdquo; + pizza.getName() + ”
-&#x2014;“);<br>
-                pizza.prepare();<br>
-                pizza.bake();<br>
-                pizza.cut();<br>
-                pizza.box();<br>
-                return pizza;<br>
-        }<br>
-        protected abstract void factoryMethodOfInit();<br>
-        public void setPizzaCreator(PizzaCreator pizzaCreator) {<br>
-                this.pizzaCreator = pizzaCreator;<br>
-        }<br>
+&#x2014;“);
+                pizza.prepare();
+                pizza.bake();
+                pizza.cut();
+                pizza.box();
+                return pizza;
+        }
+        protected abstract void factoryMethodOfInit();
+        public void setPizzaCreator(PizzaCreator pizzaCreator) {
+                this.pizzaCreator = pizzaCreator;
+        }
 }
 </p>
 
@@ -154,44 +143,44 @@ public abstract class PizzaStore {
 </p>
 
 <p>
-public interface PizzaCreator {<br>
-        public Pizza createPizza(String type);<br>
+public interface PizzaCreator {
+        public Pizza createPizza(String type);
 }
 </p>
 
 <p>
-public class londonPizzaCreator implements PizzaCreator {<br>
-        public Pizza createPizza(String type) {<br>
-                // TODO add creat detail<br>
-                return null;<br>
-        }<br>
+public class londonPizzaCreator implements PizzaCreator {
+        public Pizza createPizza(String type) {
+                // TODO add creat detail
+                return null;
+        }
 }
 </p>
 
 <p>
-public class nYorkPizzaCreator implements PizzaCreator {<br>
-        public Pizza createPizza(String type) {<br>
-                // TODO add creat detail<br>
-                return null;<br>
-        }<br>
+public class nYorkPizzaCreator implements PizzaCreator {
+        public Pizza createPizza(String type) {
+                // TODO add creat detail
+                return null;
+        }
 }
 </p>
 
 <p>
-<b>Strategy</b>:<br>
+<b>Strategy</b>:
   Define a family of algorithms, encapsulate each one, and make them
 interchangeable. Strategy lets the algorithm vary independently from
 clients that use it.
 </p>
 
 <p>
-<b>Related to Template Method:</b><br>
+<b>Related to Template Method:</b>
   Template methods use inheritance to vary part of an algorithm.
 Strategies use delegation to vary the entire algorithm.
 </p>
 
 <p>
-<b>What&rsquo;s more?</b><br>
+<b>What&rsquo;s more?</b>
 Those patterns are actually in different category in the book by GoF,
 trying to understand the reason therefore to understand their diff more
 clearly.
@@ -201,7 +190,7 @@ clearly.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2009-09-01 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2009-09-01 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>

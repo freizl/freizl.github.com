@@ -59,7 +59,7 @@ In order to be a monad, it has to be a instance of <code>Monad</code> and the
 implementation of <code>&gt;&gt;=</code> is
 </p>
 
-<pre class="example" id="orgb96288e">
+<pre class="example" id="org0742937">
   &gt; p &gt;&gt;= f = let (a, c1) = getSint p
   &gt;               (b, c2) = getSint (f a)
   &gt;               in Sint (b, c1+c2)
@@ -98,7 +98,7 @@ to do, which also turn to be simple.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-05-29 and published at 2022-09-05 Mon 22:36 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2011-05-29 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>

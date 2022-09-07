@@ -8,27 +8,6 @@
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -39,8 +18,11 @@
 <header>
 <h1 class="title">Multiple Firefox profile in single machine</h1>
 </header><p>
-Start Firefox ProfileManager from command line or windows-&gt;run<br>
-Firefox.exe &#x2013;profilemanager
+Start Firefox ProfileManager from command line or windows-&gt;run
+</p>
+
+<p>
+<code>Firefox.exe --profilemanager</code>
 </p>
 
 <p>
@@ -53,7 +35,7 @@ to properties of each shortcut.
 </p>
 
 <p>
-&ldquo;C:\Program Files\Mozilla Firefox 3 Beta 1\firefox.exe&rdquo; -P FF3-Beta1
+<code>"C:\Program Files\Mozilla Firefox 3 Beta 1\firefox.exe" -P FF3-Beta1</code>
 </p>
 
 <p>
@@ -61,15 +43,14 @@ TIPS: It seems the parameter P is case sensitive.
 </p>
 
 <p>
-<a href="http://lifehacker.com/software/firefox/geek-to-live--manage-multiple-firefox-profiles-231646.php">Here</a>
-is the details.
+<a href="http://lifehacker.com/software/firefox/geek-to-live--manage-multiple-firefox-profiles-231646.php">Here</a> is the details.
 </p>
 </div>
 <div id="postamble" class="status">
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2007-12-02 and published at 2022-09-06 Tue 10:09 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2007-12-02 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>

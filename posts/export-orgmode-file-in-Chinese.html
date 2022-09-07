@@ -42,7 +42,7 @@ First of all, install the following packages. (I already install the
 texlive package)
 </p>
 
-<pre class="example" id="org3c3a049">
+<pre class="example" id="org1b48432">
   apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex
 </pre>
 </div>
@@ -55,7 +55,7 @@ texlive package)
 Then in the org file, add the following latex options.
 </p>
 
-<pre class="example" id="orge54b681">
+<pre class="example" id="orgc9486ef">
   #+LaTeX_HEADER: \usepackage{CJK}
   #+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}
 </pre>
@@ -89,7 +89,7 @@ mail list point out in <a href="http://thread.gmane.org/gmane.emacs.orgmode/5191
 All I need to do is adding following option to the org document.
 </p>
 
-<pre class="example" id="orgbfeaf18">
+<pre class="example" id="org8769318">
 #+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}
 </pre>
@@ -98,7 +98,7 @@ All I need to do is adding following option to the org document.
 Also need to customize emacs latex to pdf process.
 </p>
 
-<pre class="example" id="org3c05b04">
+<pre class="example" id="org9e3087f">
 (setq org-latex-pdf-process
       '("xelatex -interaction nonstopmode -output-directory %o %f"
         "xelatex -interaction nonstopmode -output-directory %o %f"
@@ -120,13 +120,13 @@ Also need to customize emacs latex to pdf process.
 <li><p>
 This work in MacOS 10.15 in terms of chinese font.
 </p>
-<pre class="example" id="org64c38dc">
+<pre class="example" id="org28a6478">
 #+LATEX_HEADER: \setmainfont{STHeiti}
 </pre></li>
 <li><p>
 <code>ctex</code> package also works besides <code>xltxtra</code>
 </p>
-<pre class="example" id="org3669cbe">
+<pre class="example" id="org98ee8e4">
 #+LATEX_HEADER: \usepackage{ctex}
 </pre></li>
 
@@ -147,7 +147,7 @@ install <code>ctex</code>
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-06 and published at 2022-09-05 Mon 22:15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2012-04-06 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
 </footer>
 </div>
 </body>
