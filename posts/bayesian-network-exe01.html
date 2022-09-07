@@ -21,15 +21,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6f0e186">1. Introduction</a></li>
-<li><a href="#org5c36e9b">2. Scenarios</a></li>
-<li><a href="#orgf83426f">3. Resolution</a></li>
+<li><a href="#org7038a36">1. Introduction</a></li>
+<li><a href="#org7fb5553">2. Scenarios</a></li>
+<li><a href="#org6567a57">3. Resolution</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org6f0e186" class="outline-2">
-<h2 id="org6f0e186"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org7038a36" class="outline-2">
+<h2 id="org7038a36"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 AI Course Bayesian network exercise 01 resolution using enumeration method.
@@ -45,8 +45,8 @@ AI Course Bayesian network exercise 01 resolution using enumeration method.
 </div>
 </div>
 
-<div id="outline-container-org5c36e9b" class="outline-2">
-<h2 id="org5c36e9b"><span class="section-number-2">2.</span> Scenarios</h2>
+<div id="outline-container-org7fb5553" class="outline-2">
+<h2 id="org7fb5553"><span class="section-number-2">2.</span> Scenarios</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><p>
@@ -54,7 +54,7 @@ AI Course Bayesian network exercise 01 resolution using enumeration method.
 </p>
 
 
-<figure id="org6a1685c">
+<figure id="org4749e89">
 <img src="../imgs/bayesian-network-exe01.png" alt="bayesian-network-exe01.png" width="500px">
 
 </figure></li>
@@ -64,8 +64,8 @@ AI Course Bayesian network exercise 01 resolution using enumeration method.
 </div>
 </div>
 
-<div id="outline-container-orgf83426f" class="outline-2">
-<h2 id="orgf83426f"><span class="section-number-2">3.</span> Resolution</h2>
+<div id="outline-container-org6567a57" class="outline-2">
+<h2 id="org6567a57"><span class="section-number-2">3.</span> Resolution</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Value T:0.95 means True case with probability 0.95</li>
@@ -81,7 +81,7 @@ Enumeration list
 INDEX <i>U</i> <i>W</i> <i>B</i> <i>D</i>
 </p>
 
-<pre class="example" id="org743d189">
+<pre class="example" id="org717b347">
      1    T:0.96    T:0.90    T:0.3    T:0.335
      2    T:0.96    T:0.90    F:0.7    T:0.3
      3    T:0.96    T:0.90    T:0.3    F:0.665
@@ -92,7 +92,7 @@ INDEX <i>U</i> <i>W</i> <i>B</i> <i>D</i>
 Probability calculation
 </p>
 
-<pre class="example" id="org289a4bc">
+<pre class="example" id="org8b8d67f">
   P(D=T|U=T,W=T)
     = ( P(1) + P(2) ) / ( P(1) + P(2 )+ ... + P(4) )
     = (0.96*0.90*0.3*0.335 + 0.96*0.90*0.7*0.3 ) / (...)

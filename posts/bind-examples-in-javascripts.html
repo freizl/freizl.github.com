@@ -21,25 +21,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org4a7a639">1. Defined a function</a></li>
-<li><a href="#org1f5464e">2. Run it</a></li>
-<li><a href="#org1dba0e8">3. Run it with bind</a>
+<li><a href="#org7264dae">1. Defined a function</a></li>
+<li><a href="#org6c505b9">2. Run it</a></li>
+<li><a href="#org6f359ab">3. Run it with bind</a>
 <ul>
-<li><a href="#orgd63f6ee">3.1. Less</a></li>
+<li><a href="#org2800ba5">3.1. Less</a></li>
 <li><a href="#more">3.2. More</a></li>
 </ul>
 </li>
-<li><a href="#orgba6174a">4. Run with bind and context</a></li>
-<li><a href="#orgf60b497">5. Diff with call and apply</a></li>
-<li><a href="#orgc1ba635">6. Further</a></li>
+<li><a href="#org3e03daa">4. Run with bind and context</a></li>
+<li><a href="#orgf5d0afe">5. Diff with call and apply</a></li>
+<li><a href="#orga6e9c8b">6. Further</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org4a7a639" class="outline-2">
-<h2 id="org4a7a639"><span class="section-number-2">1.</span> Defined a function</h2>
+<div id="outline-container-org7264dae" class="outline-2">
+<h2 id="org7264dae"><span class="section-number-2">1.</span> Defined a function</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example" id="orgf0691b4">
+<pre class="example" id="orgd70ae6d">
   var fn = function (x, y, z) {
     console.log("The value: ", this.shangHai);
     console.log("The sum is: ", x + y + z);
@@ -48,10 +48,10 @@
 </div>
 </div>
 
-<div id="outline-container-org1f5464e" class="outline-2">
-<h2 id="org1f5464e"><span class="section-number-2">2.</span> Run it</h2>
+<div id="outline-container-org6c505b9" class="outline-2">
+<h2 id="org6c505b9"><span class="section-number-2">2.</span> Run it</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="org0054ab5">
+<pre class="example" id="org869ab38">
   fn(1);
 </pre>
 
@@ -59,12 +59,12 @@
 -&gt; Output
 </p>
 
-<pre class="example" id="org4d63c6e">
+<pre class="example" id="org584203a">
   The value:  undefined
   The sum is:  NaN
 </pre>
 
-<pre class="example" id="org5e9f439">
+<pre class="example" id="orga91eabe">
   fn(1, 2, 3);
 </pre>
 
@@ -72,21 +72,21 @@
 -&gt; Output:
 </p>
 
-<pre class="example" id="org76e0b68">
+<pre class="example" id="orgc6402a5">
   The value:  undefined
   The sum is:  6
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org1dba0e8" class="outline-2">
-<h2 id="org1dba0e8"><span class="section-number-2">3.</span> Run it with bind</h2>
+<div id="outline-container-org6f359ab" class="outline-2">
+<h2 id="org6f359ab"><span class="section-number-2">3.</span> Run it with bind</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgd63f6ee" class="outline-3">
-<h3 id="orgd63f6ee"><span class="section-number-3">3.1.</span> Less</h3>
+<div id="outline-container-org2800ba5" class="outline-3">
+<h3 id="org2800ba5"><span class="section-number-3">3.1.</span> Less</h3>
 <div class="outline-text-3" id="text-3-1">
-<pre class="example" id="orgc6e075a">
+<pre class="example" id="org325c31c">
   fn.bind(null, 1, 2, 3);
 </pre>
 
@@ -94,7 +94,7 @@
 -&gt; Output:
 </p>
 
-<pre class="example" id="org808aa20">
+<pre class="example" id="org332641c">
   function () { [native code] }
 </pre>
 
@@ -107,7 +107,7 @@ return value.
 What will happen if invoke the new function?
 </p>
 
-<pre class="example" id="org24b97ad">
+<pre class="example" id="org30a9f88">
   fn.bind(null, 1, 2, 3)();
 </pre>
 
@@ -115,7 +115,7 @@ What will happen if invoke the new function?
 -&gt; Output:
 </p>
 
-<pre class="example" id="orgc0cc1fc">
+<pre class="example" id="org4406e83">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -146,7 +146,7 @@ What are results respectively of following expressions?
 Take one example
 </p>
 
-<pre class="example" id="org514003e">
+<pre class="example" id="orgdbde335">
   fn.bind(null, 1, 2)(3);
 </pre>
 
@@ -154,7 +154,7 @@ Take one example
 -&gt; Output:
 </p>
 
-<pre class="example" id="org5f4c70d">
+<pre class="example" id="orgc5b2b68">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -171,7 +171,7 @@ third parameter in order to fully apply function <code>fn</code>.
 </p>
 
 <p>
-The concept is named <i>Currying</i> and find more in <a href="#orgc1ba635">Further</a> section.
+The concept is named <i>Currying</i> and find more in <a href="#orga6e9c8b">Further</a> section.
 </p>
 
 <p>
@@ -183,8 +183,8 @@ some sense.
 </div>
 </div>
 
-<div id="outline-container-orgba6174a" class="outline-2">
-<h2 id="orgba6174a"><span class="section-number-2">4.</span> Run with bind and context</h2>
+<div id="outline-container-org3e03daa" class="outline-2">
+<h2 id="org3e03daa"><span class="section-number-2">4.</span> Run with bind and context</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 What I really mean context here is actually about <code>this</code> used in the
@@ -192,7 +192,7 @@ function. Still now, <i>this.shangHai</i> always output <code>undefined</code> b
 would like it to mean something.
 </p>
 
-<pre class="example" id="org1268515">
+<pre class="example" id="org28553e7">
   fn.bind({ shangHai: "lovely" }, 1, 2, 3)();
 </pre>
 
@@ -200,7 +200,7 @@ would like it to mean something.
 -&gt; Output:
 </p>
 
-<pre class="example" id="org15f74aa">
+<pre class="example" id="org4c5f48a">
   The value:  lovely
   The sum is:  6
 </pre>
@@ -221,8 +221,8 @@ Quiz: what <code>this</code> will be when passing null?
 </div>
 </div>
 
-<div id="outline-container-orgf60b497" class="outline-2">
-<h2 id="orgf60b497"><span class="section-number-2">5.</span> Diff with call and apply</h2>
+<div id="outline-container-orgf5d0afe" class="outline-2">
+<h2 id="orgf5d0afe"><span class="section-number-2">5.</span> Diff with call and apply</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 My understanding the key point is bind return a function.
@@ -235,8 +235,8 @@ invoking a function.
 </div>
 </div>
 
-<div id="outline-container-orgc1ba635" class="outline-2">
-<h2 id="orgc1ba635"><span class="section-number-2">6.</span> Further</h2>
+<div id="outline-container-orga6e9c8b" class="outline-2">
+<h2 id="orga6e9c8b"><span class="section-number-2">6.</span> Further</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>

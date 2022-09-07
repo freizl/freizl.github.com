@@ -22,7 +22,7 @@
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#org77ef562">2. Sample</a></li>
+<li><a href="#org6cc9255">2. Sample</a></li>
 <li><a href="#jquery.fn.init">3. JQuery.fn.init</a></li>
 </ul>
 </div>
@@ -50,7 +50,7 @@ Just three things according to that answer.
 <li>Creates a new object. Its type is <code>object</code>.</li>
 <li>Sets this new object&rsquo;s internal, inaccessible, <code>[[prototype]]</code>
 property to be the constructor function&rsquo;s external, accessible,
-<code>prototype</code> object. <i>Refer to line 11 at <a href="#org77ef562">sample</a></i>.</li>
+<code>prototype</code> object. <i>Refer to line 11 at <a href="#org6cc9255">sample</a></i>.</li>
 <li>Executes the constructor function, using the new object whenever
 <code>this</code> is mentioned.</li>
 </ol>
@@ -71,7 +71,7 @@ The answer are
 <ol class="org-ol">
 <li>Function&rsquo;s <code>prototype</code> property is automatically created which in
 turn has a constructor property pointing back to the function. <i>Refer
-to line 4 at <a href="#org77ef562">sample</a></i></li>
+to line 4 at <a href="#org6cc9255">sample</a></i></li>
 <li>Basically <code>[[prototype]]</code> is used for prototype chain. Find details
 at here<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> and Ecma-262<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>.</li>
 </ol>
@@ -79,19 +79,19 @@ at here<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a>
 <p>
 Therefore if we change the <code>prototype</code> property of the function before
 <code>new</code>, the <code>[[prototype]]</code> of instances afterwards is vary accordingly.
-<i>Refer to line 19 at <a href="#org77ef562">sample</a></i>
+<i>Refer to line 19 at <a href="#org6cc9255">sample</a></i>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org77ef562" class="outline-2">
-<h2 id="org77ef562"><span class="section-number-2">2.</span> Sample</h2>
+<div id="outline-container-org6cc9255" class="outline-2">
+<h2 id="org6cc9255"><span class="section-number-2">2.</span> Sample</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><b>tested at google chrome 18 and pay close attention to comments.</b></li>
 </ul>
 
-<pre class="example" id="org82a0ef3">
+<pre class="example" id="org552c444">
 <span class="linenr"> 1: </span>
 <span class="linenr"> 2: </span>  var fn1 = function () { this.name = "fn1"; }
 <span class="linenr"> 3: </span>
@@ -132,7 +132,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><code>jQuery</code> is declared as</li>
 </ul>
 
-<pre class="example" id="org2bb1740">
+<pre class="example" id="orge0a15d6">
   var jQuery = function( selector, context ) {
           // The jQuery object is actually just the init constructor 'enhanced'
           return new jQuery.fn.init( selector, context, rootjQuery );
@@ -143,7 +143,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
 
-<pre class="example" id="org720015e">
+<pre class="example" id="orgdfdb94a">
   jQuery.fn = {
       constructor: jQuery,
       init: function( selector, context, rootjQuery ) {
@@ -169,7 +169,7 @@ following something which of course can be found at around line 322 of
 jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>.
 </p>
 
-<pre class="example" id="orgd7c1221">
+<pre class="example" id="org81b285c">
   jQuery.fn.init.prototype = jQuery.fn;
 </pre>
 </div>
