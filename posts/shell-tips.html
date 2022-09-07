@@ -72,7 +72,7 @@ final command in the list ends with a semicolon.</li>
 <div id="outline-container-grep" class="outline-3">
 <h3 id="grep"><span class="section-number-3">3.1.</span> grep</h3>
 <div class="outline-text-3" id="text-grep">
-<pre class="example" id="org352f500">
+<pre class="example" id="org9bd92bf">
   grep -Elr --include=*.xsd --exclude-dir={branches,tags} VendorDesc.xsd $DIRECTORY
   ### count process and exclude grep itself
   ps aux | grep vpnc | grep -v grep -c
@@ -83,7 +83,7 @@ final command in the list ends with a semicolon.</li>
 <div id="outline-container-find" class="outline-3">
 <h3 id="find"><span class="section-number-3">3.2.</span> find</h3>
 <div class="outline-text-3" id="text-find">
-<pre class="example" id="org167d43d">
+<pre class="example" id="org56795ab">
   find ${1} \( -name Consume*wsdl -o -name Produce*wsdl \) -path *trunk*
   find $update_dir \( -name '*.java' \) \( -path '**/source/**' -o -path '**/test/**' -o -path '**/resource/**' \)
 </pre>
@@ -93,7 +93,7 @@ final command in the list ends with a semicolon.</li>
 <div id="outline-container-awk" class="outline-3">
 <h3 id="awk"><span class="section-number-3">3.3.</span> awk</h3>
 <div class="outline-text-3" id="text-awk">
-<pre class="example" id="orgbf85191">
+<pre class="example" id="orgd671702">
   ### list all time of each ping
   awk -F"=" '/time=/ {print substr($4,0,length($4)-3) }' &lt; ping.log
   ### passing shell parameter to awk scripts
@@ -107,7 +107,7 @@ final command in the list ends with a semicolon.</li>
 <div id="outline-container-sed" class="outline-3">
 <h3 id="sed"><span class="section-number-3">3.4.</span> sed</h3>
 <div class="outline-text-3" id="text-sed">
-<pre class="example" id="org1af1511">
+<pre class="example" id="org68943a3">
   ll | sed '/Stores\|Test\|^-\|^t/d' | wc
   smbclient -L \\\\hangzhou2\\twitters -U foobar | sed '/Hangzhou20/,$d'
   export BEA_IP=`/sbin/ifconfig eth0 | sed '/inet addr/!d;s/.*addr:\([^ ]\+\).*/\1/g'`
@@ -118,7 +118,7 @@ final command in the list ends with a semicolon.</li>
 <div id="outline-container-cp" class="outline-3">
 <h3 id="cp"><span class="section-number-3">3.5.</span> cp</h3>
 <div class="outline-text-3" id="text-cp">
-<pre class="example" id="org1c14e47">
+<pre class="example" id="orgf133efa">
   cp filename{,.bak}
 </pre>
 </div>
@@ -132,7 +132,7 @@ final command in the list ends with a semicolon.</li>
 <div id="outline-container-while" class="outline-3">
 <h3 id="while"><span class="section-number-3">4.1.</span> while</h3>
 <div class="outline-text-3" id="text-while">
-<pre class="example" id="orgb2c9359">
+<pre class="example" id="orga911e1d">
   while getopts ":ab:c" opt; do
       case $opt in
       a ) echo "I am a" ;;
@@ -150,13 +150,13 @@ final command in the list ends with a semicolon.</li>
 <div id="outline-container-for" class="outline-3">
 <h3 id="for"><span class="section-number-3">4.2.</span> for</h3>
 <div class="outline-text-3" id="text-for">
-<pre class="example" id="org5f10c2c">
+<pre class="example" id="orgad65844">
   for s in $(echo $string | sed "s/;/ /g"); do
       echo $s
   done
 </pre>
 
-<pre class="example" id="org2cc9736">
+<pre class="example" id="org65ac27e">
   for (( i=1; i&lt;=$n; i++ )) do
      ls -1 "${file_pattern}" | sed 's#\(.*\)\(.xml\).bak#cp &amp; \1'"_$i"'\2#g'
   done
@@ -167,7 +167,7 @@ final command in the list ends with a semicolon.</li>
 <div id="outline-container-case" class="outline-3">
 <h3 id="case"><span class="section-number-3">4.3.</span> case</h3>
 <div class="outline-text-3" id="text-case">
-<pre class="example" id="orgedaf12c">
+<pre class="example" id="org71c2908">
   case $action in
       backup ) tar cfj "$backup_dir/$bakfile" * --exclude "jobs/*/workspace" ;;
       rest | restore ) tar xfj $backup_dir/$bakfile ;;

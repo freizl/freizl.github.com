@@ -42,7 +42,7 @@ First of all, install the following packages. (I already install the
 texlive package)
 </p>
 
-<pre class="example" id="org1b48432">
+<pre class="example" id="org6e62bf5">
   apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex
 </pre>
 </div>
@@ -55,7 +55,7 @@ texlive package)
 Then in the org file, add the following latex options.
 </p>
 
-<pre class="example" id="orgc9486ef">
+<pre class="example" id="orgecb8c79">
   #+LaTeX_HEADER: \usepackage{CJK}
   #+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}
 </pre>
@@ -89,7 +89,7 @@ mail list point out in <a href="http://thread.gmane.org/gmane.emacs.orgmode/5191
 All I need to do is adding following option to the org document.
 </p>
 
-<pre class="example" id="org8769318">
+<pre class="example" id="orgd9eae8a">
 #+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}
 </pre>
@@ -98,7 +98,7 @@ All I need to do is adding following option to the org document.
 Also need to customize emacs latex to pdf process.
 </p>
 
-<pre class="example" id="org9e3087f">
+<pre class="example" id="orgf4bef1c">
 (setq org-latex-pdf-process
       '("xelatex -interaction nonstopmode -output-directory %o %f"
         "xelatex -interaction nonstopmode -output-directory %o %f"
@@ -120,13 +120,13 @@ Also need to customize emacs latex to pdf process.
 <li><p>
 This work in MacOS 10.15 in terms of chinese font.
 </p>
-<pre class="example" id="org28a6478">
+<pre class="example" id="orgbf306cd">
 #+LATEX_HEADER: \setmainfont{STHeiti}
 </pre></li>
 <li><p>
 <code>ctex</code> package also works besides <code>xltxtra</code>
 </p>
-<pre class="example" id="org98ee8e4">
+<pre class="example" id="org7ae2a87">
 #+LATEX_HEADER: \usepackage{ctex}
 </pre></li>
 

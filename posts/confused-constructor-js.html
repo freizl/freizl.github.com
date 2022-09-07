@@ -91,7 +91,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><b>tested at google chrome 18 and pay close attention to comments.</b></li>
 </ul>
 
-<pre class="example" id="org338c091">
+<pre class="example" id="org82a0ef3">
 <span class="linenr"> 1: </span>
 <span class="linenr"> 2: </span>  var fn1 = function () { this.name = "fn1"; }
 <span class="linenr"> 3: </span>
@@ -132,7 +132,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><code>jQuery</code> is declared as</li>
 </ul>
 
-<pre class="example" id="orge447e1d">
+<pre class="example" id="org2bb1740">
   var jQuery = function( selector, context ) {
           // The jQuery object is actually just the init constructor 'enhanced'
           return new jQuery.fn.init( selector, context, rootjQuery );
@@ -143,7 +143,7 @@ Therefore if we change the <code>prototype</code> property of the function befor
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
 
-<pre class="example" id="org6ed344f">
+<pre class="example" id="org720015e">
   jQuery.fn = {
       constructor: jQuery,
       init: function( selector, context, rootjQuery ) {
@@ -169,7 +169,7 @@ following something which of course can be found at around line 322 of
 jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>.
 </p>
 
-<pre class="example" id="org2b7f6b2">
+<pre class="example" id="orgd7c1221">
   jQuery.fn.init.prototype = jQuery.fn;
 </pre>
 </div>
