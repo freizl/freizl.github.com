@@ -17,24 +17,43 @@
 </div><div id="content" class="content">
 <header>
 <h1 class="title">Basic Understanding of SELECT statement</h1>
-</header><pre class="example" id="org67e2acb">
-The syntax:
-  SELECT \[ DISTINCT | ALL \] { \* | &lt;select list&gt; }
-  FROM &lt;table reference&gt; \[ { , &lt;table reference&gt; } . . . \]
-  \[ WHERE &lt;search condition&gt; \]
-  \[ GROUP BY &lt;grouping specification&gt; \]
-  \[ HAVING &lt;search condition&gt; \]
-  \[ ORDER BY &lt;order condition&gt; \]
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd5e0fef">1. The syntax</a></li>
+<li><a href="#orgd4e6f01">2. The evaluation</a></li>
+</ul>
+</div>
+</nav>
 
-The evaluation:
-  ● FROM clause
-  ● WHERE clause (optional)
-  ● GROUP BY clause (optional)
-  ● HAVING clause (optional)
-  ● SELECT clause
-  ● ORDER BY clause (optional)
-
+<div id="outline-container-orgd5e0fef" class="outline-2">
+<h2 id="orgd5e0fef"><span class="section-number-2">1.</span> The syntax</h2>
+<div class="outline-text-2" id="text-1">
+<pre class="example" id="org24a5be2">
+SELECT [ DISTINCT | ALL ] { * | &lt;select list&gt; }
+FROM &lt;table reference&gt; [ { , &lt;table reference&gt; } . . . ]
+[ WHERE &lt;search condition&gt; ]
+[ GROUP BY &lt;grouping specification&gt; ]
+[ HAVING &lt;search condition&gt; ]
+[ ORDER BY &lt;order condition&gt; ]
 </pre>
+</div>
+</div>
+
+<div id="outline-container-orgd4e6f01" class="outline-2">
+<h2 id="orgd4e6f01"><span class="section-number-2">2.</span> The evaluation</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>FROM clause</li>
+<li>WHERE clause (optional)</li>
+<li>GROUP BY clause (optional)</li>
+<li>HAVING clause (optional)</li>
+<li>SELECT clause</li>
+<li>ORDER BY clause (optional)</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <hr/>

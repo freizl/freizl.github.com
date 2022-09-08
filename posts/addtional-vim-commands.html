@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Addtional VIM commands</title>
+<title>Additional VIM commands</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
@@ -16,50 +16,58 @@
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Addtional VIM commands</h1>
-</header><p>
-:set number/nonumber =&gt; show/hidden the line number<br>
-/\&lt;the\&gt; =&gt; search the whole word &rsquo;the&rsquo;<br>
-:nohlsearch =&gt; un-highlight the search result temporaryly<br>
-:set hlsearch/nohlsearc =&gt; set highlight/not highlight the search result
-</p>
-
-<p>
-x stands for dl (delete character under the cursor)<br>
-X stands for dh (delete character left of the cursor)<br>
-D stands for d$ (delete to end of the line)<br>
-C stands for c$ (change to end of the line)<br>
-s stands for cl (change one character)<br>
-S stands for cc (change a whole line)
-</p>
-
-<ul class="org-ul">
-<li>. The &ldquo;.&rdquo; command is one of the most simple yet powerful commands in
-Vim. It repeats the last change. :: change case of the character under
-the cursor, and move the cursor to the next character. This is not an
-operator (unless &rsquo;tildeop&rsquo; is set), thus you can&rsquo;t use it with a
-motion command. It does works in Visual mode and changes case for all
-the selected text then.</li>
+<h1 class="title">Additional VIM commands</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org8129323">1. Commands</a></li>
+<li><a href="#org0209e7c">2. Start up settings for GUI Vim</a></li>
 </ul>
+</div>
+</nav>
 
-<p>
----------------------&#x2013;&#x2014; Start up settings for GUI Vim<br>
-” Windows size<br>
-set columns=110<br>
-set lines=40<br>
-&ldquo;Max mine Windows when open<br>
-au GUIEnter * simalt ~x<br>
-&rdquo; set scheme<br>
-color murphy<br>
-” set font<br>
-set guifont=courier<sub>new</sub>:h10<br>
-” Turn off useless toolbar<br>
-set guioptions-=T<br>
-” Turn off right-hand scroll-bar<br>
-set guioptions-=r<br>
-” Turn off menu bar<br>
+<div id="outline-container-org8129323" class="outline-2">
+<h2 id="org8129323"><span class="section-number-2">1.</span> Commands</h2>
+<div class="outline-text-2" id="text-1">
+<dl class="org-dl">
+<dt><code>:set number/nonumber</code></dt><dd>show/hidden the line number</dd>
+<dt><code>/\&lt;the\&gt;</code></dt><dd>search the whole word &rsquo;the&rsquo;</dd>
+<dt><code>:nohlsearch</code></dt><dd>un-highlight the search result temporaryly</dd>
+<dt><code>:set hlsearch/nohlsearc</code></dt><dd>set highlight/not highlight the search result</dd>
+<dt>x</dt><dd>dl (delete character under the cursor)</dd>
+<dt>X</dt><dd>dh (delete character left of the cursor)</dd>
+<dt>D</dt><dd>d$ (delete to end of the line)</dd>
+<dt>C</dt><dd>c$ (change to end of the line)</dd>
+<dt>s</dt><dd>cl (change one character)</dd>
+<dt>S</dt><dd>cc (change a whole line)</dd>
+<dt><code>.</code></dt><dd>The &ldquo;.&rdquo; command is one of the most simple yet powerful commands in Vim. It repeats the last change. change case of the character under the cursor, and move the cursor to the next character. This is not an operator (unless &rsquo;tildeop&rsquo; is set), thus you can&rsquo;t use it with a motion command. It does works in Visual mode and changes case for all the selected text then.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org0209e7c" class="outline-2">
+<h2 id="org0209e7c"><span class="section-number-2">2.</span> Start up settings for GUI Vim</h2>
+<div class="outline-text-2" id="text-2">
+<pre class="example" id="org164bc8f">
+" Windows size
+set columns=110
+set lines=40
+"Max mine Windows when open
+au GUIEnter * simalt ~x
+" set scheme
+color murphy
+" set font
+set guifont=courier_new:h10
+" Turn off useless toolbar
+set guioptions-=T
+" Turn off right-hand scroll-bar
+set guioptions-=r
+" Turn off menu bar
 set guioptions-=M
-</p>
+</pre>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <hr/>
