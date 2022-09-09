@@ -21,20 +21,17 @@
 I just follow <a href="http://jorge.martincuervo.com/2006/10/15/jmeter-and-dwr/">this</a> article to test DWR request in JMeter.
 To tell the truth, I didn&rsquo;t get its content very well. I had no choice
 but read a second time and went through all comments.
-So I decided to give a try in my desktop. Eventually I worked it out and
-now I can test DWR request.
+So I decided to give a try in my desktop. Eventually I worked it out and now I can test DWR request.
 </p>
 
 <p>
 Two important and great thing the author dig out is how to get
 httpSessionId and scriptSessionId for a DWR request.
-Request for engine.js and use Regular Expression Extractor to get the
-scriptSessionId.
-But this regular expression is for DWR2.0. Follow the link at the last
-to see a regular expression for latest DWR.
+Request for engine.js and use Regular Expression Extractor to get the scriptSessionId.
+But this regular expression is for DWR2.0. Follow the link at the last to see a regular expression for latest DWR.
 </p>
 
-<pre class="example" id="orge2b35bb">
+<pre class="example" id="orgbf26679">
 dwr.engine._origScriptSessionId  = "(.*)";
 </pre>
 

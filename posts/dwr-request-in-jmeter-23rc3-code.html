@@ -8,27 +8,6 @@
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -39,30 +18,50 @@
 <header>
 <h1 class="title">DWR Request in JMeter 2.3RC3 [CODE]</h1>
 </header><p>
-Continuous to:<a href="http://freizl.blogspot.com/2007/08/jmeter-and-dwr.html">http://freizl.blogspot.com/2007/08/jmeter-and-dwr.html</a>
+Continuous to: <a href="jmeter-and-dwr.html">JMeter and DWR</a>.
 </p>
 
 <p>
-httprequest for engine.js=METHOD: get   PATH: /seed/dwr/engine.js=
+httprequest for engine.js
 </p>
+
+<pre class="example" id="orgd114248">
+METHOD: get
+PATH: /seed/dwr/engine.js
+</pre>
 
 <p>
 add a regular extractor for this
-request=NAME: SCRIPTSESSIONID   REGEX: dwr.engine.<sub>origScriptSessionId</sub> = &ldquo;(.*)&rdquo;; [work in DWR 2.x]   TEMPLATE: $1$=
 </p>
+
+<pre class="example" id="org6736e85">
+request=NAME: SCRIPTSESSIONID
+REGEX: dwr.engine._origScriptSessionId = "(.*)"; [work in DWR 2.x]
+TEMPLATE: $1$=
+</pre>
+
 
 <p>
 httprequest for a DWR request
 </p>
 
-<p>
-<code>METHOD: post   PATH: /seed/dwr/call/plaincall/authenticationService.login.dwr   VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CRLF}scriptSessionId=${SCRIPTSESSIONID}${CRLF}c0-scriptName=authenticationService${CRLF}c0-methodName=login${CRLF}c0-id=0${CRLF}c0-param0=string:${SEED}${CRLF}c0-param1=string:${PWD}${CRLF}batchId=0</code>
-</p>
+<pre class="example" id="org6012a0a">
+METHOD: post
+PATH: /seed/dwr/call/plaincall/authenticationService.login.dwr
+VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CRLF}scriptSessionId=${SCRIPTSESSIONID}${CRLF}c0-scriptName=authenticationService${CRLF}c0-methodName=login${CRLF}c0-id=0${CRLF}c0-param0=string:${SEED}${CRLF}c0-param1=string:${PWD}${CRLF}batchId=0
+</pre>
 
 <p>
 user
-variables=CRLF: ${_<sub>javaScript</sub>(&rsquo;\r\n&rsquo;)}   LOGINPAGE: \seed\login.html   SEED: seed   PWD: seed=
 </p>
+
+<pre class="example" id="org0dfe701">
+variables=CRLF: ${__javaScript('\r\n')}
+LOGINPAGE: \seed\login.html
+SEED: seed
+PWD: seed
+</pre>
+
 
 <p>
 <code>JSESSIONID</code> is available when a http cookie manager is added.

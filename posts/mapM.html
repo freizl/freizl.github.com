@@ -21,14 +21,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9c447b6">1. How to understand the following computation result?</a></li>
-<li><a href="#orgaa239f1">2. Reason about</a></li>
+<li><a href="#org77e211b">1. How to understand the following computation result?</a></li>
+<li><a href="#orgd93243b">2. Reason about</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org9c447b6" class="outline-2">
-<h2 id="org9c447b6"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
+<div id="outline-container-org77e211b" class="outline-2">
+<h2 id="org77e211b"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #3c98e0;">mapM</span> id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
@@ -37,8 +37,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgaa239f1" class="outline-2">
-<h2 id="orgaa239f1"><span class="section-number-2">2.</span> Reason about</h2>
+<div id="outline-container-orgd93243b" class="outline-2">
+<h2 id="orgd93243b"><span class="section-number-2">2.</span> Reason about</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-haskell">  mapM     <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> m b) <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> m [b]

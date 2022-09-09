@@ -17,23 +17,24 @@
 </div><div id="content" class="content">
 <header>
 <h1 class="title">HighLight Current Line in GVim 7</h1>
-</header><p>
-augroup vim7highlightCurrentLineInActiveWindow<br>
-  au WinEnter * if g:HighlightCurrentLine | setlocal cul | endif<br>
-  au WinLeave * if g:HighlightCurrentLine | setlocal nocul | endif<br>
-augroup end<br>
-function! s:ToggleHighlightCurrentLine()<br>
-  if !exists(&rsquo;g:HighlightCurrentLine&rsquo;) || g:HighlightCurrentLine==0<br>
-    setlocal cul<br>
-    let g:HighlightCurrentLine=1<br>
-  else<br>
-    setlocal nocul<br>
-    let g:HighlightCurrentLine=0<br>
-  endif<br>
-endfunction<br>
-command! ToggleHighlightCurrentLine :call ToggleHighlightCurrentLine()<br>
+</header><pre class="example" id="orgaeed999">
+augroup vim7highlightCurrentLineInActiveWindow
+  au WinEnter * if g:HighlightCurrentLine | setlocal cul | endif
+  au WinLeave * if g:HighlightCurrentLine | setlocal nocul | endif
+augroup end
+function! s:ToggleHighlightCurrentLine()
+  if !exists('g:HighlightCurrentLine') || g:HighlightCurrentLine==0
+    setlocal cul
+    let g:HighlightCurrentLine=1
+  else
+    setlocal nocul
+    let g:HighlightCurrentLine=0
+  endif
+endfunction
+command! ToggleHighlightCurrentLine :call ToggleHighlightCurrentLine()
 call ToggleHighlightCurrentLine()
-</p>
+</pre>
+
 
 <p>
 <b><a href="http://vim.wikia.com/wiki/VimTip769">More information.</a></b>

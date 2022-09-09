@@ -30,25 +30,25 @@ words, here, could generate a list of Monads then print out to console.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  main <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
-      xs <span style="color: #8d9fa1;">&lt;-</span> sgetline
-      mapM_ (<span style="color: #8d9fa1;">\</span>s <span style="color: #8d9fa1;">-</span>putStrLn s) (showSum xs <span style="color: #c49619; font-style: italic;">:</span> showProduct xs <span style="color: #c49619; font-style: italic;">:</span> (map showFactorial xs))
-    <span style="color: #93a61a; font-weight: bold;">where</span>
-      showSum xs <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a;">"The sum is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> sum) xs
-      showProduct xs <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a;">"The product is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> product) xs
-      showFactorial xs <span style="color: #8d9fa1;">=</span> (show x) <span style="color: #8d9fa1;">++</span> <span style="color: #93a61a;">" factorial is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> factorial) xs
-  <span style="color: #8d9fa1;">&gt;</span>
-  sgetline <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> [<span style="color: #c49619; font-style: italic;">Int</span>]
-  sgetline <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
-      putStrLn <span style="color: #93a61a;">"Give me a number (or 0 to stop) :"</span>
-      x <span style="color: #8d9fa1;">&lt;-</span> getLine
-      <span style="color: #93a61a; font-weight: bold;">if</span> x <span style="color: #8d9fa1;">`elem`</span> [<span style="color: #93a61a;">""</span>, <span style="color: #93a61a;">"0"</span>] <span style="color: #93a61a; font-weight: bold;">then</span> <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">isStringEmpty??</span>
-        <span style="color: #93a61a; font-weight: bold;">do</span> return <span style="color: #c49619; font-style: italic;">[]</span>
-        <span style="color: #93a61a; font-weight: bold;">else</span>
-        <span style="color: #93a61a; font-weight: bold;">do</span> xs <span style="color: #8d9fa1;">&lt;-</span> sgetline
-           return ((read x)<span style="color: #c49619; font-style: italic;">:</span>xs)
-  <span style="color: #8d9fa1;">&gt;</span>
-  factorial n <span style="color: #8d9fa1;">=</span> product [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>n]
+<pre class="src src-haskell"><span style="color: #3c98e0;">main</span> <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+   xs <span style="color: #8d9fa1;">&lt;-</span> sgetline
+   mapM_ (<span style="color: #8d9fa1;">\</span>s <span style="color: #8d9fa1;">-</span>putStrLn s) (showSum xs <span style="color: #c49619; font-style: italic;">:</span> showProduct xs <span style="color: #c49619; font-style: italic;">:</span> (map showFactorial xs))
+   <span style="color: #93a61a; font-weight: bold;">where</span>
+     showSum xs <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a;">"The sum is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> sum) xs
+     showProduct xs <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a;">"The product is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> product) xs
+     showFactorial xs <span style="color: #8d9fa1;">=</span> (show x) <span style="color: #8d9fa1;">++</span> <span style="color: #93a61a;">" factorial is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> factorial) xs
+
+<span style="color: #3c98e0;">sgetline</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> [<span style="color: #c49619; font-style: italic;">Int</span>]
+<span style="color: #3c98e0;">sgetline</span> <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+   putStrLn <span style="color: #93a61a;">"Give me a number (or 0 to stop) :"</span>
+   x <span style="color: #8d9fa1;">&lt;-</span> getLine
+   <span style="color: #93a61a; font-weight: bold;">if</span> x <span style="color: #8d9fa1;">`elem`</span> [<span style="color: #93a61a;">""</span>, <span style="color: #93a61a;">"0"</span>] <span style="color: #93a61a; font-weight: bold;">then</span> <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">isStringEmpty??</span>
+     <span style="color: #93a61a; font-weight: bold;">do</span> return <span style="color: #c49619; font-style: italic;">[]</span>
+     <span style="color: #93a61a; font-weight: bold;">else</span>
+     <span style="color: #93a61a; font-weight: bold;">do</span> xs <span style="color: #8d9fa1;">&lt;-</span> sgetline
+        return ((read x)<span style="color: #c49619; font-style: italic;">:</span>xs)
+
+<span style="color: #3c98e0;">factorial</span> n <span style="color: #8d9fa1;">=</span> product [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>n]
 </pre>
 </div>
 

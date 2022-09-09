@@ -43,8 +43,7 @@ Obviously the answer is no.
 
 <p>
 The reason is Clojure evaluates all the arguments before passing them to
-a function,
-so the println is called before unless ever sees it.
+a function, so the <code>println</code> is called before unless ever sees it.
 So it seems Clojure is applicative order evaluation, but not normal
 order evaluation. (SICP exe. 1.5)
 </p>

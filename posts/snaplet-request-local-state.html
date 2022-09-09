@@ -21,17 +21,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga6df0c8">1. 什么 Snaplet</a></li>
-<li><a href="#orga3be7cf">2. Request local state</a></li>
-<li><a href="#orgd09b3f0">3. Snaplet-oauth-0.0.0</a></li>
-<li><a href="#orgf1d804c">4. 如何解决</a></li>
-<li><a href="#org1c4a768">5. 还有什么问题</a></li>
+<li><a href="#org5bf12b0">1. 什么 Snaplet</a></li>
+<li><a href="#org33229d8">2. Request local state</a></li>
+<li><a href="#orge1c8df8">3. Snaplet-oauth-0.0.0</a></li>
+<li><a href="#orgd85c816">4. 如何解决</a></li>
+<li><a href="#orge642042">5. 还有什么问题</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orga6df0c8" class="outline-2">
-<h2 id="orga6df0c8"><span class="section-number-2">1.</span> 什么 Snaplet</h2>
+<div id="outline-container-org5bf12b0" class="outline-2">
+<h2 id="org5bf12b0"><span class="section-number-2">1.</span> 什么 Snaplet</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
@@ -44,8 +44,8 @@ Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
 </div>
 </div>
 
-<div id="outline-container-orga3be7cf" class="outline-2">
-<h2 id="orga3be7cf"><span class="section-number-2">2.</span> Request local state</h2>
+<div id="outline-container-org33229d8" class="outline-2">
+<h2 id="org33229d8"><span class="section-number-2">2.</span> Request local state</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>Request Local State</b> 是 snaplet 的一个设计目标<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>。
@@ -55,8 +55,8 @@ Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
 </div>
 </div>
 
-<div id="outline-container-orgd09b3f0" class="outline-2">
-<h2 id="orgd09b3f0"><span class="section-number-2">3.</span> Snaplet-oauth-0.0.0</h2>
+<div id="outline-container-orge1c8df8" class="outline-2">
+<h2 id="orge1c8df8"><span class="section-number-2">3.</span> Snaplet-oauth-0.0.0</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 根据 Snaplet 的常规模式，定义一个 data type 用于保存相关信息，比如
@@ -171,8 +171,8 @@ AcceeToken 来访问微薄资源。
 </div>
 </div>
 
-<div id="outline-container-orgf1d804c" class="outline-2">
-<h2 id="orgf1d804c"><span class="section-number-2">4.</span> 如何解决</h2>
+<div id="outline-container-orgd85c816" class="outline-2">
+<h2 id="orgd85c816"><span class="section-number-2">4.</span> 如何解决</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 解决方案就是把 <code>OAuthSnaplet</code> 里的 <code>oauth</code> 变成一个共享变量，这样可以在多线程之间共享。
@@ -197,8 +197,8 @@ AcceeToken 来访问微薄资源。
 </div>
 </div>
 
-<div id="outline-container-org1c4a768" class="outline-2">
-<h2 id="org1c4a768"><span class="section-number-2">5.</span> 还有什么问题</h2>
+<div id="outline-container-orge642042" class="outline-2">
+<h2 id="orge642042"><span class="section-number-2">5.</span> 还有什么问题</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 你可能已经发现，这样的实现方式，如何支持多用户，以及多个 OAuth Provider

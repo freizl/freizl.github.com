@@ -8,27 +8,6 @@
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="org-div-home-and-up">
@@ -39,24 +18,24 @@
 <header>
 <h1 class="title">Install Taglist Vim plugin</h1>
 </header><p>
-Home Page: <a href="http://vim-taglist.sourceforge.net/">http://vim-taglist.sourceforge.net/</a><br>
+Home Page: <a href="http://vim-taglist.sourceforge.net/">http://vim-taglist.sourceforge.net/</a>
 Installation: <a href="http://vim-taglist.sourceforge.net/installation.html">http://vim-taglist.sourceforge.net/installation.html</a>
 </p>
 
 <p>
-The _vimrc setting for taglist:<br>
-*filetype on<br>
-let Tlist<sub>Ctags</sub><sub>Cmd</sub> = &rsquo;C:\MyWorkplace\ctags57\ctags.exe&rsquo;<br>
-let Tlist<sub>Exit</sub><sub>OnlyWindow</sub> = 1<br>
-let Tlist<sub>Sort</sub><sub>Type</sub> = &ldquo;name&rdquo;<br>
-nnoremap :TlistToggle<br>
-” Shortcut for switch between split windows quickly<br>
-nnoremap H <br>
-nnoremap L <br>
+The _vimrc setting for taglist:
 </p>
-<p>
-*
-</p>
+
+<pre class="example" id="org67d7b24">
+ * filetype on
+let Tlist_Ctags_Cmd = 'C:\MyWorkplace\ctags57\ctags.exe'
+let Tlist_Exit_OnlyWindow = 1
+let Tlist_Sort_Type = "name"
+nnoremap :TlistToggle
+" Shortcut for switch between split windows quickly
+nnoremap H
+nnoremap L
+</pre>
 </div>
 <div id="postamble" class="status">
 <hr/>

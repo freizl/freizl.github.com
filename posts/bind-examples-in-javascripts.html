@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Bind Examples In Javascripts</title>
+<title>Bind Examples In Javascript</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
 <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
@@ -16,30 +16,30 @@
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
 <header>
-<h1 class="title">Bind Examples In Javascripts</h1>
+<h1 class="title">Bind Examples In Javascript</h1>
 </header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7264dae">1. Defined a function</a></li>
-<li><a href="#org6c505b9">2. Run it</a></li>
-<li><a href="#org6f359ab">3. Run it with bind</a>
+<li><a href="#org686875f">1. Defined a function</a></li>
+<li><a href="#org0c1e3c2">2. Run it</a></li>
+<li><a href="#orgdda8c31">3. Run it with bind</a>
 <ul>
-<li><a href="#org2800ba5">3.1. Less</a></li>
-<li><a href="#more">3.2. More</a></li>
+<li><a href="#orgccfa766">3.1. Less</a></li>
+<li><a href="#org16cdad9">3.2. More</a></li>
 </ul>
 </li>
-<li><a href="#org3e03daa">4. Run with bind and context</a></li>
-<li><a href="#orgf5d0afe">5. Diff with call and apply</a></li>
-<li><a href="#orga6e9c8b">6. Further</a></li>
+<li><a href="#org849e073">4. Run with bind and context</a></li>
+<li><a href="#org11786d7">5. Diff with call and apply</a></li>
+<li><a href="#orgb71bb5d">6. Further</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org7264dae" class="outline-2">
-<h2 id="org7264dae"><span class="section-number-2">1.</span> Defined a function</h2>
+<div id="outline-container-org686875f" class="outline-2">
+<h2 id="org686875f"><span class="section-number-2">1.</span> Defined a function</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example" id="orgd70ae6d">
+<pre class="example" id="orgfd60570">
   var fn = function (x, y, z) {
     console.log("The value: ", this.shangHai);
     console.log("The sum is: ", x + y + z);
@@ -48,53 +48,53 @@
 </div>
 </div>
 
-<div id="outline-container-org6c505b9" class="outline-2">
-<h2 id="org6c505b9"><span class="section-number-2">2.</span> Run it</h2>
+<div id="outline-container-org0c1e3c2" class="outline-2">
+<h2 id="org0c1e3c2"><span class="section-number-2">2.</span> Run it</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="org869ab38">
+<pre class="example" id="orga6680b9">
   fn(1);
 </pre>
 
 <p>
--&gt; Output
+Output
 </p>
 
-<pre class="example" id="org584203a">
+<pre class="example" id="orgc55e06f">
   The value:  undefined
   The sum is:  NaN
 </pre>
 
-<pre class="example" id="orga91eabe">
+<pre class="example" id="orgf53780a">
   fn(1, 2, 3);
 </pre>
 
 <p>
--&gt; Output:
+Output:
 </p>
 
-<pre class="example" id="orgc6402a5">
+<pre class="example" id="org1ac05db">
   The value:  undefined
   The sum is:  6
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org6f359ab" class="outline-2">
-<h2 id="org6f359ab"><span class="section-number-2">3.</span> Run it with bind</h2>
+<div id="outline-container-orgdda8c31" class="outline-2">
+<h2 id="orgdda8c31"><span class="section-number-2">3.</span> Run it with bind</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org2800ba5" class="outline-3">
-<h3 id="org2800ba5"><span class="section-number-3">3.1.</span> Less</h3>
+<div id="outline-container-orgccfa766" class="outline-3">
+<h3 id="orgccfa766"><span class="section-number-3">3.1.</span> Less</h3>
 <div class="outline-text-3" id="text-3-1">
-<pre class="example" id="org325c31c">
+<pre class="example" id="org392bb2a">
   fn.bind(null, 1, 2, 3);
 </pre>
 
 <p>
--&gt; Output:
+Output:
 </p>
 
-<pre class="example" id="org332641c">
+<pre class="example" id="orgf6566cd">
   function () { [native code] }
 </pre>
 
@@ -107,15 +107,15 @@ return value.
 What will happen if invoke the new function?
 </p>
 
-<pre class="example" id="org30a9f88">
+<pre class="example" id="org8153159">
   fn.bind(null, 1, 2, 3)();
 </pre>
 
 <p>
--&gt; Output:
+Output:
 </p>
 
-<pre class="example" id="org4406e83">
+<pre class="example" id="orgdeab962">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -126,9 +126,9 @@ That is what we want.
 </div>
 </div>
 
-<div id="outline-container-more" class="outline-3">
-<h3 id="more"><span class="section-number-3">3.2.</span> More</h3>
-<div class="outline-text-3" id="text-more">
+<div id="outline-container-org16cdad9" class="outline-3">
+<h3 id="org16cdad9"><span class="section-number-3">3.2.</span> More</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 What are results respectively of following expressions?
 </p>
@@ -146,32 +146,32 @@ What are results respectively of following expressions?
 Take one example
 </p>
 
-<pre class="example" id="orgdbde335">
+<pre class="example" id="org7c48ead">
   fn.bind(null, 1, 2)(3);
 </pre>
 
 <p>
--&gt; Output:
+Output:
 </p>
 
-<pre class="example" id="orgc5b2b68">
+<pre class="example" id="org8f04024">
   The value:  undefined
   The sum is:  6
 </pre>
 
 <p>
-How it produce result 6?<br>
+How it produce result 6?
 Because <code>bind</code> return is actually a partially applied function of <code>fn</code>.
 </p>
 
 <p>
-In JavaScripts words, the new function got return is a closure which
+In JavaScript words, the new function got return is a closure which
 holding 1st and 2nd parameters for function <code>fn</code> and ready to accept the
 third parameter in order to fully apply function <code>fn</code>.
 </p>
 
 <p>
-The concept is named <i>Currying</i> and find more in <a href="#orga6e9c8b">Further</a> section.
+The concept is named <i>Currying</i> and find more in <a href="#orgb71bb5d">Further</a> section.
 </p>
 
 <p>
@@ -183,8 +183,8 @@ some sense.
 </div>
 </div>
 
-<div id="outline-container-org3e03daa" class="outline-2">
-<h2 id="org3e03daa"><span class="section-number-2">4.</span> Run with bind and context</h2>
+<div id="outline-container-org849e073" class="outline-2">
+<h2 id="org849e073"><span class="section-number-2">4.</span> Run with bind and context</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 What I really mean context here is actually about <code>this</code> used in the
@@ -192,15 +192,15 @@ function. Still now, <i>this.shangHai</i> always output <code>undefined</code> b
 would like it to mean something.
 </p>
 
-<pre class="example" id="org28553e7">
-  fn.bind({ shangHai: "lovely" }, 1, 2, 3)();
+<pre class="example" id="org192fb6e">
+fn.bind({ shangHai: "lovely" }, 1, 2, 3)();
 </pre>
 
 <p>
--&gt; Output:
+Output:
 </p>
 
-<pre class="example" id="org4c5f48a">
+<pre class="example" id="org2a56083">
   The value:  lovely
   The sum is:  6
 </pre>
@@ -221,8 +221,8 @@ Quiz: what <code>this</code> will be when passing null?
 </div>
 </div>
 
-<div id="outline-container-orgf5d0afe" class="outline-2">
-<h2 id="orgf5d0afe"><span class="section-number-2">5.</span> Diff with call and apply</h2>
+<div id="outline-container-org11786d7" class="outline-2">
+<h2 id="org11786d7"><span class="section-number-2">5.</span> Diff with call and apply</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 My understanding the key point is bind return a function.
@@ -235,8 +235,8 @@ invoking a function.
 </div>
 </div>
 
-<div id="outline-container-orga6e9c8b" class="outline-2">
-<h2 id="orga6e9c8b"><span class="section-number-2">6.</span> Further</h2>
+<div id="outline-container-orgb71bb5d" class="outline-2">
+<h2 id="orgb71bb5d"><span class="section-number-2">6.</span> Further</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="http://en.wikipedia.org/wiki/Currying">Currying</a></li>

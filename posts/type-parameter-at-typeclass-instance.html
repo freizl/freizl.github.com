@@ -127,7 +127,7 @@ It is <code>(-&gt;) r</code> which was confusing at first glance. However, if we
 it having Polish notation<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> in mind, it looks like less confusing.
 </p>
 
-<pre class="example" id="orged68abe">
+<pre class="example" id="org3dd79c9">
   instance Functor ((-&gt;) r) where
       fmap f g = (\x -&gt; f (g x))
 </pre>

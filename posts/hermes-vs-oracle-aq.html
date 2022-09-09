@@ -21,19 +21,9 @@
 <li>Need a wrapped connect factory, <a href="http://sites.google.com/site/freizl/java-code/oracleaqfactory">see here</a>.
 And package it into a jar, like <b>oracleaq-factory.jar</b></li>
 
-<li>How to in Hermes:</li>
-</ol>
-<p>
-    
-</p>
+<li>How to in Hermes:
 <ol class="org-ol">
-<li>add a new provider including those jars: aqapi.jar, jms.jar,</li>
-</ol>
-<p>
-jta.jar, ojdbc.jar and <b>oracleaq-factory.jar</b>
-    
-</p>
-<ol class="org-ol">
+<li>add a new provider including those jars: aqapi.jar, jms.jar, jta.jar, ojdbc.jar and <b>oracleaq-factory.jar</b></li>
 <li><p>
 create a new session for AQ topic (EAB<sub>DEMO</sub><sub>QUEUE</sub> here):
 </p>
@@ -58,19 +48,12 @@ create a new session for AQ topic (EAB<sub>DEMO</sub><sub>QUEUE</sub> here):
 
 </pre>
 </div></li>
-</ol>
-<p>
-   
-</p>
+</ol></li>
 
-<ol class="org-ol">
 <li>Double click the topic under the session, EAB<sub>DEMO</sub><sub>QUEUE</sub> here, to</li>
 </ol>
 <p>
 connect to the topic.
-</p>
-
-<p>
    Hermes will create a new subscriber for this topic.
    And once there&rsquo;s message push into this topic, it will be display in
 the Hermes. (not consume, just browser).

@@ -59,7 +59,7 @@ In order to be a monad, it has to be a instance of <code>Monad</code> and the
 implementation of <code>&gt;&gt;=</code> is
 </p>
 
-<pre class="example" id="orgb2124b3">
+<pre class="example" id="orgc05eade">
   &gt; p &gt;&gt;= f = let (a, c1) = getSint p
   &gt;               (b, c2) = getSint (f a)
   &gt;               in Sint (b, c1+c2)
