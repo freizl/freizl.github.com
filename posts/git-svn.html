@@ -32,7 +32,7 @@
 <div id="outline-container-org1aa2ee5" class="outline-2">
 <h2 id="org1aa2ee5"><span class="section-number-2">1.</span> git svn init/fetch</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example" id="org8ce8443">
+<pre class="example" id="orgb04fd95">
   git svn init [-s] URL
   git svn fetch -r xxx|HEAD
     a) it gets out 'all' branches/tags/trunk when no specific -r
@@ -47,7 +47,7 @@
 <div id="outline-container-orgd16d9b7" class="outline-2">
 <h2 id="orgd16d9b7"><span class="section-number-2">2.</span> git svn clone</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="org07bc49a">
+<pre class="example" id="org25d3791">
   # if any problems with init/fetch, just clone and seems this is recommanded...
   # seem should no targe name specified after URL
   # verify with git branch -r should show all svn branches and tags
@@ -59,7 +59,7 @@
 <div id="outline-container-org735bb2d" class="outline-2">
 <h2 id="org735bb2d"><span class="section-number-2">3.</span> git svn branch</h2>
 <div class="outline-text-2" id="text-3">
-<pre class="example" id="org8999b33">
+<pre class="example" id="orgdbcb775">
   # create svn branch
   git svn branch [svn_branch_1]
 
@@ -77,7 +77,7 @@
 <div id="outline-container-org7f41267" class="outline-2">
 <h2 id="org7f41267"><span class="section-number-2">4.</span> alternative with svn merge</h2>
 <div class="outline-text-2" id="text-4">
-<pre class="example" id="orge48edef">
+<pre class="example" id="org531db78">
   svn mergeinfo ... :
     git log master..branchx (diff commits that in branchx but master)
     git branch [--no-merged|--merged]

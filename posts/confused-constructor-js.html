@@ -91,7 +91,7 @@ Refer to line 19 at <a href="#orgb4e165d">sample</a>.
 <li>Tested at google chrome 18 and pay close attention to comments.</li>
 </ul>
 
-<pre class="example" id="org3b28984">
+<pre class="example" id="org82d46bd">
 <span class="linenr"> 1: </span>
 <span class="linenr"> 2: </span>  var fn1 = function () { this.name = "fn1"; }
 <span class="linenr"> 3: </span>
@@ -132,7 +132,7 @@ Refer to line 19 at <a href="#orgb4e165d">sample</a>.
 <li><code>jQuery</code> is declared as</li>
 </ul>
 
-<pre class="example" id="orga8fc11b">
+<pre class="example" id="org71e6ff0">
   var jQuery = function( selector, context ) {
           // The jQuery object is actually just the init constructor 'enhanced'
           return new jQuery.fn.init( selector, context, rootjQuery );
@@ -143,7 +143,7 @@ Refer to line 19 at <a href="#orgb4e165d">sample</a>.
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
 
-<pre class="example" id="orgb20423d">
+<pre class="example" id="org336ec92">
   jQuery.fn = {
       constructor: jQuery,
       init: function( selector, context, rootjQuery ) {
@@ -169,7 +169,7 @@ following something which of course can be found at around line 322 of
 jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>.
 </p>
 
-<pre class="example" id="org24912f8">
+<pre class="example" id="org40e695f">
   jQuery.fn.init.prototype = jQuery.fn;
 </pre>
 </div>

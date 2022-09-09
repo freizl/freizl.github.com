@@ -43,7 +43,7 @@
 <div id="outline-container-org643f682" class="outline-3">
 <h3 id="org643f682"><span class="section-number-3">1.1.</span> new two files</h3>
 <div class="outline-text-3" id="text-1-1">
-<pre class="example" id="org87e9729">
+<pre class="example" id="orgb20966c">
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo "11111" &gt; 1.txt
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo "22222" &gt; 2.txt
 </pre>
@@ -53,7 +53,7 @@
 <div id="outline-container-orgf40f99a" class="outline-3">
 <h3 id="orgf40f99a"><span class="section-number-3">1.2.</span> git-add</h3>
 <div class="outline-text-3" id="text-1-2">
-<pre class="example" id="org7c007cb">
+<pre class="example" id="org8dababe">
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add .
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
   # On branch master
@@ -73,7 +73,7 @@
 <div id="outline-container-org39aef2a" class="outline-3">
 <h3 id="org39aef2a"><span class="section-number-3">1.3.</span> no objects created yet</h3>
 <div class="outline-text-3" id="text-1-3">
-<pre class="example" id="orgd4aaadc">
+<pre class="example" id="org62a4f2a">
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
 </pre>
 </div>
@@ -82,7 +82,7 @@
 <div id="outline-container-orgf238f57" class="outline-3">
 <h3 id="orgf238f57"><span class="section-number-3">1.4.</span> git-commit</h3>
 <div class="outline-text-3" id="text-1-4">
-<pre class="example" id="org7eb5b45">
+<pre class="example" id="orgcc9bf78">
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci "first commit"
   [master (root-commit) 8ef1919] first commit
    2 files changed, 2 insertions(+), 0 deletions(-)
@@ -95,7 +95,7 @@
 <div id="outline-container-org9994c07" class="outline-3">
 <h3 id="org9994c07"><span class="section-number-3">1.5.</span> git-obj-list</h3>
 <div class="outline-text-3" id="text-1-5">
-<pre class="example" id="org62b9aaf">
+<pre class="example" id="orgfa5df69">
 
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
   8ef1919e4ca33cf602488a27b5671a6b6acf754b
@@ -109,7 +109,7 @@
 <div id="outline-container-orgea62ab5" class="outline-3">
 <h3 id="orgea62ab5"><span class="section-number-3">1.6.</span> what are they</h3>
 <div class="outline-text-3" id="text-1-6">
-<pre class="example" id="org6234ee7">
+<pre class="example" id="org335f227">
   ## | Blob objects
   ~/github/haisheng-homepage/test$ git cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
   11111

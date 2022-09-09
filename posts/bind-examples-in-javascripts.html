@@ -39,7 +39,7 @@
 <div id="outline-container-org686875f" class="outline-2">
 <h2 id="org686875f"><span class="section-number-2">1.</span> Defined a function</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example" id="orgfd60570">
+<pre class="example" id="orgdc5aacb">
   var fn = function (x, y, z) {
     console.log("The value: ", this.shangHai);
     console.log("The sum is: ", x + y + z);
@@ -51,7 +51,7 @@
 <div id="outline-container-org0c1e3c2" class="outline-2">
 <h2 id="org0c1e3c2"><span class="section-number-2">2.</span> Run it</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="orga6680b9">
+<pre class="example" id="orgb8cb495">
   fn(1);
 </pre>
 
@@ -59,12 +59,12 @@
 Output
 </p>
 
-<pre class="example" id="orgc55e06f">
+<pre class="example" id="orgceaf176">
   The value:  undefined
   The sum is:  NaN
 </pre>
 
-<pre class="example" id="orgf53780a">
+<pre class="example" id="org239fe68">
   fn(1, 2, 3);
 </pre>
 
@@ -72,7 +72,7 @@ Output
 Output:
 </p>
 
-<pre class="example" id="org1ac05db">
+<pre class="example" id="org2d10199">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -86,7 +86,7 @@ Output:
 <div id="outline-container-orgccfa766" class="outline-3">
 <h3 id="orgccfa766"><span class="section-number-3">3.1.</span> Less</h3>
 <div class="outline-text-3" id="text-3-1">
-<pre class="example" id="org392bb2a">
+<pre class="example" id="org17fcc75">
   fn.bind(null, 1, 2, 3);
 </pre>
 
@@ -94,7 +94,7 @@ Output:
 Output:
 </p>
 
-<pre class="example" id="orgf6566cd">
+<pre class="example" id="orgcf72ef3">
   function () { [native code] }
 </pre>
 
@@ -107,7 +107,7 @@ return value.
 What will happen if invoke the new function?
 </p>
 
-<pre class="example" id="org8153159">
+<pre class="example" id="orga832b52">
   fn.bind(null, 1, 2, 3)();
 </pre>
 
@@ -115,7 +115,7 @@ What will happen if invoke the new function?
 Output:
 </p>
 
-<pre class="example" id="orgdeab962">
+<pre class="example" id="org2b1e8aa">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -146,7 +146,7 @@ What are results respectively of following expressions?
 Take one example
 </p>
 
-<pre class="example" id="org7c48ead">
+<pre class="example" id="org64c59df">
   fn.bind(null, 1, 2)(3);
 </pre>
 
@@ -154,7 +154,7 @@ Take one example
 Output:
 </p>
 
-<pre class="example" id="org8f04024">
+<pre class="example" id="orgf139362">
   The value:  undefined
   The sum is:  6
 </pre>
@@ -192,7 +192,7 @@ function. Still now, <i>this.shangHai</i> always output <code>undefined</code> b
 would like it to mean something.
 </p>
 
-<pre class="example" id="org192fb6e">
+<pre class="example" id="orgf0bbd8f">
 fn.bind({ shangHai: "lovely" }, 1, 2, 3)();
 </pre>
 
@@ -200,7 +200,7 @@ fn.bind({ shangHai: "lovely" }, 1, 2, 3)();
 Output:
 </p>
 
-<pre class="example" id="org2a56083">
+<pre class="example" id="orge05eac5">
   The value:  lovely
   The sum is:  6
 </pre>

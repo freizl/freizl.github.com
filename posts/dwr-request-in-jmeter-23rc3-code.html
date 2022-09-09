@@ -25,7 +25,7 @@ Continuous to: <a href="jmeter-and-dwr.html">JMeter and DWR</a>.
 httprequest for engine.js
 </p>
 
-<pre class="example" id="orgd114248">
+<pre class="example" id="orgb1ba418">
 METHOD: get
 PATH: /seed/dwr/engine.js
 </pre>
@@ -34,7 +34,7 @@ PATH: /seed/dwr/engine.js
 add a regular extractor for this
 </p>
 
-<pre class="example" id="org6736e85">
+<pre class="example" id="orgefa660d">
 request=NAME: SCRIPTSESSIONID
 REGEX: dwr.engine._origScriptSessionId = "(.*)"; [work in DWR 2.x]
 TEMPLATE: $1$=
@@ -45,7 +45,7 @@ TEMPLATE: $1$=
 httprequest for a DWR request
 </p>
 
-<pre class="example" id="org6012a0a">
+<pre class="example" id="org294de7f">
 METHOD: post
 PATH: /seed/dwr/call/plaincall/authenticationService.login.dwr
 VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CRLF}scriptSessionId=${SCRIPTSESSIONID}${CRLF}c0-scriptName=authenticationService${CRLF}c0-methodName=login${CRLF}c0-id=0${CRLF}c0-param0=string:${SEED}${CRLF}c0-param1=string:${PWD}${CRLF}batchId=0
@@ -55,7 +55,7 @@ VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CR
 user
 </p>
 
-<pre class="example" id="org0dfe701">
+<pre class="example" id="orgbcf4fe1">
 variables=CRLF: ${__javaScript('\r\n')}
 LOGINPAGE: \seed\login.html
 SEED: seed
