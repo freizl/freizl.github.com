@@ -6,7 +6,8 @@
 <title>Chinese Tag In Hakyll</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -21,10 +22,10 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb072177">1. 问题</a></li>
-<li><a href="#orgc2facdd">2. 原因</a></li>
-<li><a href="#org3214b12">3. 一种解决办法</a></li>
-<li><a href="#org283ede2">4. 再一种解决办法</a></li>
+<li><a href="#orgc0c9285">1. 问题</a></li>
+<li><a href="#org580381c">2. 原因</a></li>
+<li><a href="#org6dcc300">3. 一种解决办法</a></li>
+<li><a href="#org866b19c">4. 再一种解决办法</a></li>
 </ul>
 </div>
 </nav>
@@ -32,8 +33,8 @@
 <b>此问题发生在 GHC &lt; 7.2.x 的环境，据说 7.2.x 已经修正了造成此原因的 bug(未验证)。</b>
 </p>
 
-<div id="outline-container-orgb072177" class="outline-2">
-<h2 id="orgb072177"><span class="section-number-2">1.</span> 问题</h2>
+<div id="outline-container-orgc0c9285" class="outline-2">
+<h2 id="orgc0c9285"><span class="section-number-2">1.</span> 问题</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>会给每个标签单独生成一个 html，比如/foo.html/, 用来显示标签对应的所有文章。
@@ -42,36 +43,36 @@ Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a><
 </div>
 </div>
 
-<div id="outline-container-orgc2facdd" class="outline-2">
-<h2 id="orgc2facdd"><span class="section-number-2">2.</span> 原因</h2>
+<div id="outline-container-org580381c" class="outline-2">
+<h2 id="org580381c"><span class="section-number-2">2.</span> 原因</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 造成问题是原因由于 Haskell 里写文件的方法。 如下所是, <code>writeFile</code> 用base 库里的 <code>String</code> 类型表示文件名， 这就限制其只能表示 ASC-II 字符集。
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">type</span> <span style="color: #c49619; font-style: italic;">FilePath</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">String</span>
+<pre class="src src-haskell">  <span style="color: #F0DFAF; font-weight: bold;">type</span> <span style="color: #7CB8BB;">FilePath</span> <span style="color: #DFAF8F;">=</span> <span style="color: #7CB8BB;">String</span>
 
-  writeFile <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">FilePath</span>  <span style="color: #35a69c; font-style: italic;">-- ^ &#25991;&#20214;&#21517;</span>
-            <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">String</span>    <span style="color: #35a69c; font-style: italic;">-- ^ &#35201;&#20889;&#21040;&#25991;&#20214;&#30340;&#20869;&#23481;</span>
-            <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">IO</span> <span style="color: #c49619; font-style: italic;">()</span>
+  writeFile <span style="color: #DFAF8F;">::</span> <span style="color: #7CB8BB;">FilePath</span>  <span style="color: #9FC59F;">-- ^ &#25991;&#20214;&#21517;</span>
+            <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">String</span>    <span style="color: #9FC59F;">-- ^ &#35201;&#20889;&#21040;&#25991;&#20214;&#30340;&#20869;&#23481;</span>
+            <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">IO</span> <span style="color: #7CB8BB;">()</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3214b12" class="outline-2">
-<h2 id="org3214b12"><span class="section-number-2">3.</span> 一种解决办法</h2>
+<div id="outline-container-org6dcc300" class="outline-2">
+<h2 id="org6dcc300"><span class="section-number-2">3.</span> 一种解决办法</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 最直接的方式就是用类库 utf8-string<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>里的 <code>encodeString</code> 方法，现将文件名进行 encode 然后再调 <code>writeFile</code> 方法。比如
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #93a61a; font-weight: bold;">qualified</span> <span style="color: #c49619; font-style: italic;">Codec.Binary.UTF8.String</span> <span style="color: #93a61a; font-weight: bold;">as</span> <span style="color: #c49619; font-style: italic;">UTF8</span>
+<pre class="src src-haskell">  <span style="color: #F0DFAF; font-weight: bold;">import</span> <span style="color: #F0DFAF; font-weight: bold;">qualified</span> <span style="color: #7CB8BB;">Codec.Binary.UTF8.String</span> <span style="color: #F0DFAF; font-weight: bold;">as</span> <span style="color: #7CB8BB;">UTF8</span>
 
-  main <span style="color: #8d9fa1;">=</span> myWriteFile <span style="color: #93a61a;">"&#26032;&#22825;&#22320;.html"</span> <span style="color: #93a61a;">"test"</span>
-  myWriteFile <span style="color: #8d9fa1;">=</span> writeFile <span style="color: #8d9fa1;">.</span> UTF8.encodeString
+  main <span style="color: #DFAF8F;">=</span> myWriteFile <span style="color: #CC9393;">"&#26032;&#22825;&#22320;.html"</span> <span style="color: #CC9393;">"test"</span>
+  myWriteFile <span style="color: #DFAF8F;">=</span> writeFile <span style="color: #DFAF8F;">.</span> UTF8.encodeString
 </pre>
 </div>
 
@@ -81,8 +82,8 @@ Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a><
 </div>
 </div>
 
-<div id="outline-container-org283ede2" class="outline-2">
-<h2 id="org283ede2"><span class="section-number-2">4.</span> 再一种解决办法</h2>
+<div id="outline-container-org866b19c" class="outline-2">
+<h2 id="org866b19c"><span class="section-number-2">4.</span> 再一种解决办法</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 hakyll google groups 有人帖了他的一个解决方案，也是用 utf8-string 先 encode，但修改的地方不一样。详见此<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>。

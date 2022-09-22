@@ -6,7 +6,8 @@
 <title>Two's component</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -21,15 +22,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgccc8c46">1. Summary</a></li>
-<li><a href="#org99a9733">2. Example</a></li>
-<li><a href="#orge710705">3. Reference</a></li>
+<li><a href="#org983faba">1. Summary</a></li>
+<li><a href="#org3c3c000">2. Example</a></li>
+<li><a href="#org54de5c3">3. Reference</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgccc8c46" class="outline-2">
-<h2 id="orgccc8c46"><span class="section-number-2">1.</span> Summary</h2>
+<div id="outline-container-org983faba" class="outline-2">
+<h2 id="org983faba"><span class="section-number-2">1.</span> Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Two&rsquo;s component is one of the Signed number representations. Its
@@ -68,14 +69,14 @@ The relationship to two&rsquo;s complement is realized by noting that 256 =
 </div>
 </div>
 
-<div id="outline-container-org99a9733" class="outline-2">
-<h2 id="org99a9733"><span class="section-number-2">2.</span> Example</h2>
+<div id="outline-container-org3c3c000" class="outline-2">
+<h2 id="org3c3c000"><span class="section-number-2">2.</span> Example</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 −95 modulo 256 is equivalent to 161 since
 </p>
 
-<pre class="example" id="org238a7bb">
+<pre class="example" id="org7615f97">
 −95 + 256
 
 \= −95 + 255 + 1
@@ -95,8 +96,8 @@ two&rsquo;s component is just because the Java puzzler below.
 
 <div class="org-src-container">
 <pre class="src src-java">
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">JoyOfHex</span> { 
-  <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">main</span>(String\[\] args) { 
+<span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #F0DFAF; font-weight: bold;">class</span> <span style="color: #7CB8BB;">JoyOfHex</span> { 
+  <span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #F0DFAF; font-weight: bold;">static</span> <span style="color: #7CB8BB;">void</span> <span style="color: #93E0E3;">main</span>(String\[\] args) { 
     System.out.println( Long.toHexString(0x100000000L + 0xcafebabe)); 
   } 
 }
@@ -114,8 +115,8 @@ Long.toHexString(0x100000000L + 0xcafebabe L));
 </div>
 </div>
 
-<div id="outline-container-orge710705" class="outline-2">
-<h2 id="orge710705"><span class="section-number-2">3.</span> Reference</h2>
+<div id="outline-container-org54de5c3" class="outline-2">
+<h2 id="org54de5c3"><span class="section-number-2">3.</span> Reference</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Java™ Puzzlers: Traps, Pitfalls, and Corner Cases By Joshua Bloch, Neal Gafter</li>

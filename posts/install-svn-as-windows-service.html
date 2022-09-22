@@ -6,7 +6,8 @@
 <title>Install SVN as Windows Service</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -18,11 +19,11 @@
 <header>
 <h1 class="title">Install SVN as Windows Service</h1>
 </header><div class="org-src-container">
-<pre class="src src-sh">sc create svn <span style="color: #8d9fa1;">binpath</span>= <span style="color: #93a61a;">"\"C:\svn-win32-1.4.4\bin\svnserve.exe\&#8221;</span>
-<span style="color: #93a61a;">--service -r C:\Workspace\SVN\repos&#8221; displayname= "</span>Subversion Server<span style="color: #93a61a;">"</span>
-<span style="color: #93a61a;">depend= Tcpip start= auto</span>
+<pre class="src src-sh">sc create svn <span style="color: #DFAF8F;">binpath</span>= <span style="color: #CC9393;">"\"C:\svn-win32-1.4.4\bin\svnserve.exe\&#8221;</span>
+<span style="color: #CC9393;">--service -r C:\Workspace\SVN\repos&#8221; displayname= "</span>Subversion Server<span style="color: #CC9393;">"</span>
+<span style="color: #CC9393;">depend= Tcpip start= auto</span>
 
-<span style="color: #93a61a;">net start svn</span>
+<span style="color: #CC9393;">net start svn</span>
 </pre>
 </div>
 </div>

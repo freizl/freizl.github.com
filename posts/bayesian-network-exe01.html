@@ -6,7 +6,8 @@
 <title>Bayesian Network Exe01</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -21,15 +22,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org0eef1d3">1. Introduction</a></li>
-<li><a href="#orge4d6c7f">2. Scenarios</a></li>
-<li><a href="#orgd0f22f2">3. Resolution</a></li>
+<li><a href="#orgc27ed37">1. Introduction</a></li>
+<li><a href="#org578b6d9">2. Scenarios</a></li>
+<li><a href="#orgf895daf">3. Resolution</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org0eef1d3" class="outline-2">
-<h2 id="org0eef1d3"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-orgc27ed37" class="outline-2">
+<h2 id="orgc27ed37"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 AI Course Bayesian network exercise 01 resolution using enumeration method.
@@ -45,8 +46,8 @@ AI Course Bayesian network exercise 01 resolution using enumeration method.
 </div>
 </div>
 
-<div id="outline-container-orge4d6c7f" class="outline-2">
-<h2 id="orge4d6c7f"><span class="section-number-2">2.</span> Scenarios</h2>
+<div id="outline-container-org578b6d9" class="outline-2">
+<h2 id="org578b6d9"><span class="section-number-2">2.</span> Scenarios</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><p>
@@ -54,7 +55,7 @@ AI Course Bayesian network exercise 01 resolution using enumeration method.
 </p>
 
 
-<figure id="orga48f88e">
+<figure id="orgb278752">
 <img src="../imgs/bayesian-network-exe01.png" alt="bayesian-network-exe01.png" width="500px">
 
 </figure></li>
@@ -64,8 +65,8 @@ AI Course Bayesian network exercise 01 resolution using enumeration method.
 </div>
 </div>
 
-<div id="outline-container-orgd0f22f2" class="outline-2">
-<h2 id="orgd0f22f2"><span class="section-number-2">3.</span> Resolution</h2>
+<div id="outline-container-orgf895daf" class="outline-2">
+<h2 id="orgf895daf"><span class="section-number-2">3.</span> Resolution</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Value T:0.95 means True case with probability 0.95</li>
@@ -81,7 +82,7 @@ Enumeration list
 INDEX <i>U</i> <i>W</i> <i>B</i> <i>D</i>
 </p>
 
-<pre class="example" id="orgb3fd30b">
+<pre class="example" id="orgbf32e9f">
      1    T:0.96    T:0.90    T:0.3    T:0.335
      2    T:0.96    T:0.90    F:0.7    T:0.3
      3    T:0.96    T:0.90    T:0.3    F:0.665
@@ -92,7 +93,7 @@ INDEX <i>U</i> <i>W</i> <i>B</i> <i>D</i>
 Probability calculation
 </p>
 
-<pre class="example" id="org8478cb9">
+<pre class="example" id="org64eab51">
   P(D=T|U=T,W=T)
     = ( P(1) + P(2) ) / ( P(1) + P(2 )+ ... + P(4) )
     = (0.96*0.90*0.3*0.335 + 0.96*0.90*0.7*0.3 ) / (...)

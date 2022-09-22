@@ -6,7 +6,8 @@
 <title>Understand Foldr Operator</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -45,9 +46,9 @@ Take refining the <code>length</code> function in terms of <code>foldr</code> as
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #8d9fa1;">&gt;</span> length  <span style="color: #8d9fa1;">::</span> [a] <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
-  <span style="color: #8d9fa1;">&gt;</span> length <span style="color: #c49619; font-style: italic;">[]</span>  <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">0</span>
-  <span style="color: #8d9fa1;">&gt;</span> length (x<span style="color: #c49619; font-style: italic;">:</span>xs)   <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #8d9fa1;">+</span> length xs
+<pre class="src src-haskell">  <span style="color: #DFAF8F;">&gt;</span> length  <span style="color: #DFAF8F;">::</span> [a] <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">Int</span>
+  <span style="color: #DFAF8F;">&gt;</span> length <span style="color: #7CB8BB;">[]</span>  <span style="color: #DFAF8F;">=</span> <span style="color: #DCDCDC; font-weight: bold;">0</span>
+  <span style="color: #DFAF8F;">&gt;</span> length (x<span style="color: #7CB8BB;">:</span>xs)   <span style="color: #DFAF8F;">=</span> <span style="color: #DCDCDC; font-weight: bold;">1</span> <span style="color: #DFAF8F;">+</span> length xs
 </pre>
 </div>
 
@@ -55,7 +56,7 @@ Take refining the <code>length</code> function in terms of <code>foldr</code> as
 and
 </p>
 
-<pre class="example" id="orge16896e">
+<pre class="example" id="orge3e1daf">
     length [1,2,3]
   = length (1:(2:(3:[])))
   = 1 + (1 + (1 + 0))
@@ -67,7 +68,7 @@ By replace each (:) by <code>\ _ n -&gt; 1 + n</code> and [] by 0, we have:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #8d9fa1;">&gt;</span> length <span style="color: #8d9fa1;">=</span> foldr (<span style="color: #8d9fa1;">\</span> <span style="color: #93a61a; font-weight: bold;">_</span> n <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #8d9fa1;">+</span> n) <span style="color: #7a7ed2; font-weight: bold;">0</span>
+<pre class="src src-haskell">  <span style="color: #DFAF8F;">&gt;</span> length <span style="color: #DFAF8F;">=</span> foldr (<span style="color: #DFAF8F;">\</span> <span style="color: #F0DFAF; font-weight: bold;">_</span> n <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #DCDCDC; font-weight: bold;">1</span> <span style="color: #DFAF8F;">+</span> n) <span style="color: #DCDCDC; font-weight: bold;">0</span>
 </pre>
 </div>
 </div>
@@ -95,9 +96,9 @@ In Haskell, the <i>fold</i> operator can be defined as follows:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  fold  <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> b) <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> b
-  fold f v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
-  fold f v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> f x (fold f v xs)
+<pre class="src src-haskell">  fold  <span style="color: #DFAF8F;">::</span> (a <span style="color: #DFAF8F;">-&gt;</span> b <span style="color: #DFAF8F;">-&gt;</span> b) <span style="color: #DFAF8F;">-&gt;</span> b <span style="color: #DFAF8F;">-&gt;</span> [a] <span style="color: #DFAF8F;">-&gt;</span> b
+  fold f v <span style="color: #7CB8BB;">[]</span> <span style="color: #DFAF8F;">=</span> v
+  fold f v (x<span style="color: #7CB8BB;">:</span>xs) <span style="color: #DFAF8F;">=</span> f x (fold f v xs)
 </pre>
 </div>
 </div>
@@ -111,7 +112,7 @@ Thought it might not be that precisely.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  foldr <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> b) <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> b
+<pre class="src src-haskell">  foldr <span style="color: #DFAF8F;">::</span> (a <span style="color: #DFAF8F;">-&gt;</span> b <span style="color: #DFAF8F;">-&gt;</span> b) <span style="color: #DFAF8F;">-&gt;</span> b <span style="color: #DFAF8F;">-&gt;</span> [a] <span style="color: #DFAF8F;">-&gt;</span> b
 </pre>
 </div>
 
@@ -123,7 +124,7 @@ callback
 </blockquote>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  foldl <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> a) <span style="color: #8d9fa1;">-&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> [b] <span style="color: #8d9fa1;">-&gt;</span> a
+<pre class="src src-haskell">  foldl <span style="color: #DFAF8F;">::</span> (a <span style="color: #DFAF8F;">-&gt;</span> b <span style="color: #DFAF8F;">-&gt;</span> a) <span style="color: #DFAF8F;">-&gt;</span> a <span style="color: #DFAF8F;">-&gt;</span> [b] <span style="color: #DFAF8F;">-&gt;</span> a
 </pre>
 </div>
 

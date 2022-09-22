@@ -6,7 +6,8 @@
 <title>A Really Trivial Monad</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -50,7 +51,7 @@ Therefore the type is actually any value plus a count
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #8d9fa1;">&gt;</span> <span style="color: #93a61a; font-weight: bold;">newtype</span> <span style="color: #c49619; font-style: italic;">Sint</span> a <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Sint</span> (a, <span style="color: #c49619; font-style: italic;">Count</span>)
+<pre class="src src-haskell">  <span style="color: #DFAF8F;">&gt;</span> <span style="color: #F0DFAF; font-weight: bold;">newtype</span> <span style="color: #7CB8BB;">Sint</span> a <span style="color: #DFAF8F;">=</span> <span style="color: #7CB8BB;">Sint</span> (a, <span style="color: #7CB8BB;">Count</span>)
 </pre>
 </div>
 
@@ -59,7 +60,7 @@ In order to be a monad, it has to be a instance of <code>Monad</code> and the
 implementation of <code>&gt;&gt;=</code> is
 </p>
 
-<pre class="example" id="org2c0cc60">
+<pre class="example" id="orgea96a35">
   &gt; p &gt;&gt;= f = let (a, c1) = getSint p
   &gt;               (b, c2) = getSint (f a)
   &gt;               in Sint (b, c1+c2)

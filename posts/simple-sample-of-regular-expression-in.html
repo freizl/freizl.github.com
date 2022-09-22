@@ -6,7 +6,8 @@
 <title>Simple Sample of Regular Expression in Python</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -19,25 +20,25 @@
 <h1 class="title">Simple Sample of Regular Expression in Python</h1>
 </header><div class="org-src-container">
 <pre class="src src-python">
-<span style="color: #93a61a; font-weight: bold;">import</span> re
+<span style="color: #F0DFAF; font-weight: bold;">import</span> re
 
-<span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">read_file</span>():\\
-<span style="color: #8d9fa1;">file_name</span> = <span style="color: #93a61a;">'merge.log'</span>\\
-<span style="color: #3c98e0; font-style: italic;">file</span> = <span style="color: #3c98e0; font-style: italic;">open</span>(file_name, <span style="color: #93a61a;">'r'</span>)\\
-<span style="color: #8d9fa1;">file_content</span> = <span style="color: #3c98e0; font-style: italic;">file</span>.read()\\
-<span style="color: #8d9fa1;">patterns</span> =
-re.<span style="color: #3c98e0; font-style: italic;">compile</span>(r<span style="color: #93a61a;">'(r\d{5}\s\|\scn-cma)(.*(?!cn-cma).*)(r\d{5}\s\|\s(?!cn-cma))'</span>,
+<span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">read_file</span>():\\
+<span style="color: #DFAF8F;">file_name</span> = <span style="color: #CC9393;">'merge.log'</span>\\
+<span style="color: #DCDCDC; font-weight: bold;">file</span> = <span style="color: #DCDCDC; font-weight: bold;">open</span>(file_name, <span style="color: #CC9393;">'r'</span>)\\
+<span style="color: #DFAF8F;">file_content</span> = <span style="color: #DCDCDC; font-weight: bold;">file</span>.read()\\
+<span style="color: #DFAF8F;">patterns</span> =
+re.<span style="color: #DCDCDC; font-weight: bold;">compile</span>(r<span style="color: #CC9393;">'(r\d{5}\s\|\scn-cma)(.*(?!cn-cma).*)(r\d{5}\s\|\s(?!cn-cma))'</span>,
 re.DOTALL)\\
-<span style="color: #8d9fa1;">results</span> = patterns.search(file_content)\\
-<span style="color: #62787f; font-style: italic;">#</span><span style="color: #62787f; font-style: italic;">results = patterns.match(file_content)\\</span>
-<span style="color: #3c98e0; font-style: italic;">print</span> <span style="color: #3c98e0; font-style: italic;">dir</span>(results)\\
-<span style="color: #93a61a; font-weight: bold;">if</span> <span style="color: #8d9fa1;">results</span> :\\
+<span style="color: #DFAF8F;">results</span> = patterns.search(file_content)\\
+<span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">results = patterns.match(file_content)\\</span>
+<span style="color: #DCDCDC; font-weight: bold;">print</span> <span style="color: #DCDCDC; font-weight: bold;">dir</span>(results)\\
+<span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #DFAF8F;">results</span> :\\
 results = results.groups()\\
-<span style="color: #3c98e0; font-style: italic;">print</span> results[<span style="color: #7a7ed2; font-weight: bold;">0</span>]\\
-<span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">display</span>(x):\\
-<span style="color: #3c98e0; font-style: italic;">print</span><span style="color: #93a61a;">'$'</span> * <span style="color: #7a7ed2; font-weight: bold;">50</span>, <span style="color: #93a61a;">'\n'</span>, x\\
-<span style="color: #62787f; font-style: italic;">#</span><span style="color: #62787f; font-style: italic;">[ display(x) for x in results ]\\</span>
-<span style="color: #3c98e0; font-style: italic;">file</span>.close()
+<span style="color: #DCDCDC; font-weight: bold;">print</span> results[<span style="color: #DCDCDC; font-weight: bold;">0</span>]\\
+<span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">display</span>(x):\\
+<span style="color: #DCDCDC; font-weight: bold;">print</span><span style="color: #CC9393;">'$'</span> * <span style="color: #DCDCDC; font-weight: bold;">50</span>, <span style="color: #CC9393;">'\n'</span>, x\\
+<span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">[ display(x) for x in results ]\\</span>
+<span style="color: #DCDCDC; font-weight: bold;">file</span>.close()
 </pre>
 </div>
 </div>

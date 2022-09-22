@@ -6,7 +6,8 @@
 <title>Improve Space Usage</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -24,17 +25,17 @@ such problem.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">module</span> <span style="color: #c49619; font-style: italic;">Main</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+<pre class="src src-haskell">  <span style="color: #F0DFAF; font-weight: bold;">module</span> <span style="color: #7CB8BB;">Main</span> <span style="color: #F0DFAF; font-weight: bold;">where</span>
 
-  sumWith1 v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
-  sumWith1 v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> sumWith1 (v<span style="color: #8d9fa1;">+</span>x) xs
+  sumWith1 v <span style="color: #7CB8BB;">[]</span> <span style="color: #DFAF8F;">=</span> v
+  sumWith1 v (x<span style="color: #7CB8BB;">:</span>xs) <span style="color: #DFAF8F;">=</span> sumWith1 (v<span style="color: #DFAF8F;">+</span>x) xs
 
-  sumWith2 v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
-  sumWith2 v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> (sumWith2 <span style="color: #8d9fa1;">$!</span> (v<span style="color: #8d9fa1;">+</span>x)) xs
+  sumWith2 v <span style="color: #7CB8BB;">[]</span> <span style="color: #DFAF8F;">=</span> v
+  sumWith2 v (x<span style="color: #7CB8BB;">:</span>xs) <span style="color: #DFAF8F;">=</span> (sumWith2 <span style="color: #DFAF8F;">$!</span> (v<span style="color: #DFAF8F;">+</span>x)) xs
 
-  test <span style="color: #8d9fa1;">=</span> sumWith2 <span style="color: #7a7ed2; font-weight: bold;">0</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span><span style="color: #7a7ed2; font-weight: bold;">20000000</span>]
+  test <span style="color: #DFAF8F;">=</span> sumWith2 <span style="color: #DCDCDC; font-weight: bold;">0</span> [<span style="color: #DCDCDC; font-weight: bold;">1</span><span style="color: #DFAF8F;">..</span><span style="color: #DCDCDC; font-weight: bold;">20000000</span>]
 
-  main <span style="color: #8d9fa1;">=</span> print test
+  main <span style="color: #DFAF8F;">=</span> print test
 </pre>
 </div>
 </div>

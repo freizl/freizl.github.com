@@ -6,7 +6,8 @@
 <title>One Solution To Euler 12</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
 <body>
@@ -26,34 +27,34 @@ Nothing special but play haskell for fun.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">module</span> <span style="color: #c49619; font-style: italic;">Main</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+<pre class="src src-haskell">  <span style="color: #F0DFAF; font-weight: bold;">module</span> <span style="color: #7CB8BB;">Main</span> <span style="color: #F0DFAF; font-weight: bold;">where</span>
 
-  <span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #c49619; font-style: italic;">Data.List</span>
-  <span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #c49619; font-style: italic;">Primeing</span> (primeFactors)
+  <span style="color: #F0DFAF; font-weight: bold;">import</span> <span style="color: #7CB8BB;">Data.List</span>
+  <span style="color: #F0DFAF; font-weight: bold;">import</span> <span style="color: #7CB8BB;">Primeing</span> (primeFactors)
 
-  main <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> <span style="color: #c49619; font-style: italic;">()</span>
-  main <span style="color: #8d9fa1;">=</span> print <span style="color: #8d9fa1;">$</span> p12 <span style="color: #7a7ed2; font-weight: bold;">500</span>
+  main <span style="color: #DFAF8F;">::</span> <span style="color: #7CB8BB;">IO</span> <span style="color: #7CB8BB;">()</span>
+  main <span style="color: #DFAF8F;">=</span> print <span style="color: #DFAF8F;">$</span> p12 <span style="color: #DCDCDC; font-weight: bold;">500</span>
 
-  p12 <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
-  p12 n <span style="color: #8d9fa1;">=</span> head <span style="color: #8d9fa1;">$</span> filter (factorLimit n) [ smartGaus x <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>]]
+  p12 <span style="color: #DFAF8F;">::</span> <span style="color: #7CB8BB;">Int</span> <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">Int</span>
+  p12 n <span style="color: #DFAF8F;">=</span> head <span style="color: #DFAF8F;">$</span> filter (factorLimit n) [ smartGaus x <span style="color: #DFAF8F;">|</span> x <span style="color: #DFAF8F;">&lt;-</span> [<span style="color: #DCDCDC; font-weight: bold;">1</span><span style="color: #DFAF8F;">..</span>]]
 
-  smartGaus <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
-  smartGaus n <span style="color: #8d9fa1;">=</span> (<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">+</span>n)<span style="color: #8d9fa1;">*</span>n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
+  smartGaus <span style="color: #DFAF8F;">::</span> <span style="color: #7CB8BB;">Int</span> <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">Int</span>
+  smartGaus n <span style="color: #DFAF8F;">=</span> (<span style="color: #DCDCDC; font-weight: bold;">1</span><span style="color: #DFAF8F;">+</span>n)<span style="color: #DFAF8F;">*</span>n <span style="color: #DFAF8F;">`div`</span> <span style="color: #DCDCDC; font-weight: bold;">2</span>
 
-  <span style="color: #62787f; font-style: italic;">{-</span><span style="color: #62787f; font-style: italic;">- |</span>
-<span style="color: #62787f; font-style: italic;">    Is factor count under the limit</span>
-<span style="color: #62787f; font-style: italic;">  -</span><span style="color: #62787f; font-style: italic;">-}</span>
-  factorLimit <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Bool</span>
+  <span style="color: #5F7F5F;">{-</span><span style="color: #7F9F7F;">- |</span>
+<span style="color: #7F9F7F;">    Is factor count under the limit</span>
+<span style="color: #7F9F7F;">  -</span><span style="color: #5F7F5F;">-}</span>
+  factorLimit <span style="color: #DFAF8F;">::</span> <span style="color: #7CB8BB;">Int</span> <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">Int</span> <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">Bool</span>
   factorLimit l n
-    <span style="color: #8d9fa1;">|</span> <span style="color: #7a7ed2; font-weight: bold;">2</span> <span style="color: #8d9fa1;">*</span> sqrtInt n <span style="color: #8d9fa1;">&lt;</span> l    <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">False</span>
-    <span style="color: #8d9fa1;">|</span> otherwise            <span style="color: #8d9fa1;">=</span> length (factors  n) <span style="color: #8d9fa1;">&gt;=</span> l
+    <span style="color: #DFAF8F;">|</span> <span style="color: #DCDCDC; font-weight: bold;">2</span> <span style="color: #DFAF8F;">*</span> sqrtInt n <span style="color: #DFAF8F;">&lt;</span> l    <span style="color: #DFAF8F;">=</span> <span style="color: #7CB8BB;">False</span>
+    <span style="color: #DFAF8F;">|</span> otherwise            <span style="color: #DFAF8F;">=</span> length (factors  n) <span style="color: #DFAF8F;">&gt;=</span> l
 
 
-  factors <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> [<span style="color: #c49619; font-style: italic;">Int</span>]
-  factors n <span style="color: #8d9fa1;">=</span> concat [ [x, n <span style="color: #8d9fa1;">`div`</span> x] <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>sqrtInt n], n <span style="color: #8d9fa1;">`mod`</span> x <span style="color: #8d9fa1;">==</span> <span style="color: #7a7ed2; font-weight: bold;">0</span> ]
+  factors <span style="color: #DFAF8F;">::</span> <span style="color: #7CB8BB;">Int</span> <span style="color: #DFAF8F;">-&gt;</span> [<span style="color: #7CB8BB;">Int</span>]
+  factors n <span style="color: #DFAF8F;">=</span> concat [ [x, n <span style="color: #DFAF8F;">`div`</span> x] <span style="color: #DFAF8F;">|</span> x <span style="color: #DFAF8F;">&lt;-</span> [<span style="color: #DCDCDC; font-weight: bold;">1</span><span style="color: #DFAF8F;">..</span>sqrtInt n], n <span style="color: #DFAF8F;">`mod`</span> x <span style="color: #DFAF8F;">==</span> <span style="color: #DCDCDC; font-weight: bold;">0</span> ]
 
-  sqrtInt <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
-  sqrtInt <span style="color: #8d9fa1;">=</span> truncate <span style="color: #8d9fa1;">.</span> sqrt <span style="color: #8d9fa1;">.</span> fromIntegral
+  sqrtInt <span style="color: #DFAF8F;">::</span> <span style="color: #7CB8BB;">Int</span> <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">Int</span>
+  sqrtInt <span style="color: #DFAF8F;">=</span> truncate <span style="color: #DFAF8F;">.</span> sqrt <span style="color: #DFAF8F;">.</span> fromIntegral
 </pre>
 </div>
 <div id="footnotes">
