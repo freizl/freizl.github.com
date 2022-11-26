@@ -4,8 +4,8 @@
 }
 
 body {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
+    /* font-size: 1.2rem; */
+    /* line-height: 1.5rem; */
     max-width: 60em;
     margin: auto;
     font-family: var(--main-font-family);
