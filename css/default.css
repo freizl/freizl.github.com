@@ -43,6 +43,11 @@ h4 {
     margin-left: 1.2em;
 }
 
+a {
+    color: black;
+    text-decoration: underline var(--main-color);
+}
+
 a:hover {
     color: var(--main-color);
 }
@@ -54,10 +59,6 @@ footer {
 /* override org-default.css */
 #org-div-home-and-up {
     font-size: inherit;
-}
-a {
-    color: black;
-    text-decoration: none;
 }
 
 pre {
