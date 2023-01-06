@@ -6,7 +6,8 @@
 <title>Patterns: Factory method,Template method and Strategy</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
@@ -31,36 +32,36 @@ below)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #F0DFAF; font-weight: bold;">public</span> <span style="color: #F0DFAF; font-weight: bold;">abstract</span> <span style="color: #F0DFAF; font-weight: bold;">class</span> <span style="color: #7CB8BB;">PizzaStore</span> {
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #9FC59F;">/**</span>
-<span style="color: #9FC59F;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #templateMethod(String type) is an Template Method.</span>
-<span style="color: #9FC59F;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *</span>
+<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">PizzaStore</span> {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #35a69c; font-style: italic;">/**</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #templateMethod(String type) is an Template Method.</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *</span>
 
-<span style="color: #9FC59F;">#+begin_html</span>
-<span style="color: #9FC59F;">  </span><span style="color: #BFEBBF;">&lt;p&gt;</span>
-<span style="color: #9FC59F;">#+end_html</span>
+<span style="color: #35a69c; font-style: italic;">#+begin_html</span>
+<span style="color: #35a69c; font-style: italic;">  </span><span style="color: #3c98e0; font-weight: bold; font-style: italic;">&lt;p&gt;</span>
+<span style="color: #35a69c; font-style: italic;">#+end_html</span>
 
-<span style="color: #9FC59F;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #factoryMethodOfInit() AND #factoryMethodOfCreate(String</span>
-<span style="color: #9FC59F;">type) are both</span>
-<span style="color: #9FC59F;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * Factory Method.</span>
-<span style="color: #9FC59F;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */</span>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #F0DFAF; font-weight: bold;">public</span> Pizza templateMethod(<span style="color: #7CB8BB;">String</span> <span style="color: #DFAF8F;">type</span>) {
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #factoryMethodOfInit() AND #factoryMethodOfCreate(String</span>
+<span style="color: #35a69c; font-style: italic;">type) are both</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * Factory Method.</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">public</span> Pizza templateMethod(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">type</span>) {
 
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;factoryMethodOfInit();
 
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Pizza pizza = factoryMethodOfCreate(type);
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;System.out.println(<span style="color: #CC9393;">"--- Making a"</span> + pizza.getName() + &#8221;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;System.out.println(<span style="color: #93a61a;">"--- Making a"</span> + pizza.getName() + &#8221;
 ---&#8220;);
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.prepare();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.bake();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.cut();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.box();
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #F0DFAF; font-weight: bold;">return</span> pizza;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">return</span> pizza;
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #F0DFAF; font-weight: bold;">protected</span> <span style="color: #F0DFAF; font-weight: bold;">abstract</span> <span style="color: #7CB8BB;">void</span> factoryMethodOfInit();
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #F0DFAF; font-weight: bold;">protected</span> <span style="color: #F0DFAF; font-weight: bold;">abstract</span> Pizza factoryMethodOfCreate(<span style="color: #7CB8BB;">String</span> <span style="color: #DFAF8F;">type</span>);
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #c49619; font-style: italic;">void</span> factoryMethodOfInit();
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> Pizza factoryMethodOfCreate(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">type</span>);
 }
 
 </pre>

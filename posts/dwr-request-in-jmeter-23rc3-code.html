@@ -6,7 +6,8 @@
 <title>DWR Request in JMeter 2.3RC3 [CODE]</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
@@ -26,7 +27,7 @@ Continuous to: <a href="jmeter-and-dwr.html">JMeter and DWR</a>.
 httprequest for engine.js
 </p>
 
-<pre class="example" id="org7a967ce">
+<pre class="example" id="org262ecae">
 METHOD: get
 PATH: /seed/dwr/engine.js
 </pre>
@@ -35,7 +36,7 @@ PATH: /seed/dwr/engine.js
 add a regular extractor for this
 </p>
 
-<pre class="example" id="org8589afb">
+<pre class="example" id="orgaab9717">
 request=NAME: SCRIPTSESSIONID
 REGEX: dwr.engine._origScriptSessionId = "(.*)"; [work in DWR 2.x]
 TEMPLATE: $1$=
@@ -46,7 +47,7 @@ TEMPLATE: $1$=
 httprequest for a DWR request
 </p>
 
-<pre class="example" id="org0114cf2">
+<pre class="example" id="org3679245">
 METHOD: post
 PATH: /seed/dwr/call/plaincall/authenticationService.login.dwr
 VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CRLF}scriptSessionId=${SCRIPTSESSIONID}${CRLF}c0-scriptName=authenticationService${CRLF}c0-methodName=login${CRLF}c0-id=0${CRLF}c0-param0=string:${SEED}${CRLF}c0-param1=string:${PWD}${CRLF}batchId=0
@@ -56,7 +57,7 @@ VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CR
 user
 </p>
 
-<pre class="example" id="org155a71f">
+<pre class="example" id="org4a375c8">
 variables=CRLF: ${__javaScript('\r\n')}
 LOGINPAGE: \seed\login.html
 SEED: seed

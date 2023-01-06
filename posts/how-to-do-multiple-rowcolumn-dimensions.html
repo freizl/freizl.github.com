@@ -6,7 +6,8 @@
 <title>How to do multiple row/column dimensions in OLAPDataGrid</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
@@ -28,7 +29,7 @@ The key point is that OLAPSet could join each other.
 For instance,
 </p>
 
-<pre class="example" id="org524a6ac">
+<pre class="example" id="org25a1dea">
 var customerSet:OLAPSet = new OLAPSet;
 customerSet.addElements(cube.findDimension("CustomerDim").findAttribute("Customer").children);
 var quarterSet:OLAPSet = new OLAPSet;

@@ -6,7 +6,8 @@
 <title>Max File Size</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
@@ -28,8 +29,8 @@ Take a look at its definition:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #7CB8BB;">Prelude</span><span style="color: #DFAF8F;">&gt;</span> <span style="color: #7CB8BB;">:</span>t (<span style="color: #DFAF8F;">&gt;&gt;=</span>)
-  (<span style="color: #DFAF8F;">&gt;&gt;=</span>) <span style="color: #DFAF8F;">::</span> (<span style="color: #7CB8BB;">Monad</span> m) <span style="color: #DFAF8F;">=&gt;</span> m a <span style="color: #DFAF8F;">-&gt;</span> (a <span style="color: #DFAF8F;">-&gt;</span> m b) <span style="color: #DFAF8F;">-&gt;</span> m b
+<pre class="src src-haskell">  <span style="color: #c49619; font-style: italic;">Prelude</span><span style="color: #8d9fa1;">&gt;</span> <span style="color: #c49619; font-style: italic;">:</span>t (<span style="color: #8d9fa1;">&gt;&gt;=</span>)
+  (<span style="color: #8d9fa1;">&gt;&gt;=</span>) <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> m a <span style="color: #8d9fa1;">-&gt;</span> (a <span style="color: #8d9fa1;">-&gt;</span> m b) <span style="color: #8d9fa1;">-&gt;</span> m b
 </pre>
 </div>
 
@@ -50,16 +51,16 @@ changed it to return <code>IO [String]</code>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #5F7F5F;">-- </span><span style="color: #7F9F7F;">FilePath is from package System.IO and it is synonyms of String</span>
-  getFilesInDir <span style="color: #DFAF8F;">::</span> <span style="color: #7CB8BB;">FilePath</span> <span style="color: #DFAF8F;">-&gt;</span> <span style="color: #7CB8BB;">IO</span> [<span style="color: #7CB8BB;">FilePath</span>]
-  getFilesInDir inp <span style="color: #DFAF8F;">=</span> <span style="color: #F0DFAF; font-weight: bold;">do</span>
-    isDir <span style="color: #DFAF8F;">&lt;-</span> doesDirectoryExist inp
-    files <span style="color: #DFAF8F;">&lt;-</span> <span style="color: #F0DFAF; font-weight: bold;">if</span> isDir <span style="color: #F0DFAF; font-weight: bold;">then</span>
-                (<span style="color: #F0DFAF; font-weight: bold;">do</span>
-                 names <span style="color: #DFAF8F;">&lt;-</span> getDirectoryContents inp
-                 forM [ inp <span style="color: #DFAF8F;">&lt;/&gt;</span> x <span style="color: #DFAF8F;">|</span> x <span style="color: #DFAF8F;">&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)
-             <span style="color: #F0DFAF; font-weight: bold;">else</span> return [[inp]]
-    return <span style="color: #DFAF8F;">$</span> concat files
+<pre class="src src-haskell">  <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">FilePath is from package System.IO and it is synonyms of String</span>
+  getFilesInDir <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">FilePath</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">IO</span> [<span style="color: #c49619; font-style: italic;">FilePath</span>]
+  getFilesInDir inp <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+    isDir <span style="color: #8d9fa1;">&lt;-</span> doesDirectoryExist inp
+    files <span style="color: #8d9fa1;">&lt;-</span> <span style="color: #93a61a; font-weight: bold;">if</span> isDir <span style="color: #93a61a; font-weight: bold;">then</span>
+                (<span style="color: #93a61a; font-weight: bold;">do</span>
+                 names <span style="color: #8d9fa1;">&lt;-</span> getDirectoryContents inp
+                 forM [ inp <span style="color: #8d9fa1;">&lt;/&gt;</span> x <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)
+             <span style="color: #93a61a; font-weight: bold;">else</span> return [[inp]]
+    return <span style="color: #8d9fa1;">$</span> concat files
 </pre>
 </div>
 

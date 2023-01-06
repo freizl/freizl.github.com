@@ -6,7 +6,8 @@
 <title>Mirro the Wikipedia at your local</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
@@ -19,35 +20,35 @@
 <header>
 <h1 class="title">Mirro the Wikipedia at your local</h1>
 </header><div class="org-src-container">
-<pre class="src src-sh"><span style="color: #7CB8BB;">sudo</span> apt-get update
-<span style="color: #7CB8BB;">sudo</span> apt-get install apache2 php5 libapache2-mod-php5 mysql-server
+<pre class="src src-sh"><span style="color: #c49619; font-style: italic;">sudo</span> apt-get update
+<span style="color: #c49619; font-style: italic;">sudo</span> apt-get install apache2 php5 libapache2-mod-php5 mysql-server
 mysql-client php5-mysql phpmyadmin
-<span style="color: #7CB8BB;">mkdir</span> ~/wiki/
-<span style="color: #7CB8BB;">cd</span> ~/wiki/
+<span style="color: #c49619; font-style: italic;">mkdir</span> ~/wiki/
+<span style="color: #c49619; font-style: italic;">cd</span> ~/wiki/
 wget http://download.wikimedia.org/mediawiki/1.10/mediawiki-1.10.0.tar.gz
-<span style="color: #7CB8BB;">sudo</span> <span style="color: #7CB8BB;">mkdir</span> /var/www/w/
-<span style="color: #7CB8BB;">sudo</span> tar xzf mediawiki-1.10.0.tar.gz -C /var/www/
-<span style="color: #7CB8BB;">cd</span> /var/www/mediawiki-1.10.0/
-<span style="color: #7CB8BB;">sudo</span> <span style="color: #7CB8BB;">chmod</span> a+x config
+<span style="color: #c49619; font-style: italic;">sudo</span> <span style="color: #c49619; font-style: italic;">mkdir</span> /var/www/w/
+<span style="color: #c49619; font-style: italic;">sudo</span> tar xzf mediawiki-1.10.0.tar.gz -C /var/www/
+<span style="color: #c49619; font-style: italic;">cd</span> /var/www/mediawiki-1.10.0/
+<span style="color: #c49619; font-style: italic;">sudo</span> <span style="color: #c49619; font-style: italic;">chmod</span> a+x config
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-sh">$ mysql
 mysql&gt; USE mysql;
-mysql&gt; UPDATE user SET <span style="color: #DFAF8F;">Password</span>=PASSWORD<span style="color: #8CD0D3;">(</span><span style="color: #CC9393;">'new-password'</span><span style="color: #8CD0D3;">)</span> WHERE
-<span style="color: #DFAF8F;">user</span>=<span style="color: #CC9393;">'root'</span>;
+mysql&gt; UPDATE user SET <span style="color: #8d9fa1;">Password</span>=PASSWORD<span style="color: #3c98e0;">(</span><span style="color: #93a61a;">'new-password'</span><span style="color: #3c98e0;">)</span> WHERE
+<span style="color: #8d9fa1;">user</span>=<span style="color: #93a61a;">'root'</span>;
 mysql&gt; FLUSH PRIVILEGES;
-add user <span style="color: #CC9393;">'wikiuser'</span> and database <span style="color: #CC9393;">'wikidb'</span> and set privileges
+add user <span style="color: #93a61a;">'wikiuser'</span> and database <span style="color: #93a61a;">'wikidb'</span> and set privileges
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-sh">wget http://download.wikimedia.org/enwiki/20070402/enwiki-20070402-pages-articles.xml.bz2
 bunzip2 -k enwiki-20070402-pages-articles.xml.bz2
-wget http://modzer0.cs.uaf.edu/~dev2c/mwimport.sh <span style="color: #8CD0D3;">(</span>OR
-http://freizl.googlepages.com/mwimport.sh<span style="color: #8CD0D3;">)</span>
-<span style="color: #7CB8BB;">chmod</span> +x mwimport.sh
+wget http://modzer0.cs.uaf.edu/~dev2c/mwimport.sh <span style="color: #3c98e0;">(</span>OR
+http://freizl.googlepages.com/mwimport.sh<span style="color: #3c98e0;">)</span>
+<span style="color: #c49619; font-style: italic;">chmod</span> +x mwimport.sh
 </pre>
 </div>
 
@@ -56,7 +57,7 @@ increase Default<sub>Allowed</sub><sub>Packet</sub> for MySQL in MySQL config fi
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #7CB8BB;">cat</span> enwiki-20070402-pages-articles.xml | ./mwimport.sh | mysql -f -uwikiuser -ppassword wikidb
+<pre class="src src-sh"><span style="color: #c49619; font-style: italic;">cat</span> enwiki-20070402-pages-articles.xml | ./mwimport.sh | mysql -f -uwikiuser -ppassword wikidb
 </pre>
 </div>
 

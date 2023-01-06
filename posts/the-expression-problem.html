@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Expression Problem</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">The Expression Problem</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org615c652">1. Background</a></li>
+<li><a href="#orgb2c1ff3">2. Solution - Type Classes</a></li>
+<li><a href="#org2060056">3. Solution - Visitor pattern</a></li>
+<li><a href="#orgb26a9bd">4. Read paper &lt;Abstract Data type and OO&gt;</a></li>
+</ul>
+</div>
+</nav>
+
+<div id="outline-container-org615c652" class="outline-2">
+<h2 id="org615c652"><span class="section-number-2">1.</span> Background</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<i>read more if you&rsquo;re not familiar with the problem</i>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb2c1ff3" class="outline-2">
+<h2 id="orgb2c1ff3"><span class="section-number-2">2.</span> Solution - Type Classes</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I thought type classes solve the problem nicely. Here is the example in Haskell using type class
+</p>
+
+<p>
+After talked to Daniel (link to his home page), type class still has limitations. For instance
+</p>
+
+<p>
+I guess it is because Type Class doesn&rsquo;t really solve the problem directly but work around a bit.
+</p>
+
+<p>
+The original problem/ask is to extend a data type but with type class, that original (single) data type has been broken into multiple data types hence the limitation.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2060056" class="outline-2">
+<h2 id="org2060056"><span class="section-number-2">3.</span> Solution - Visitor pattern</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>TODO: try out Java solution myself</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">LangF</span> {
+  <span style="color: #93a61a; font-weight: bold;">interface</span> <span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; {
+    <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">R</span> <span style="color: #3c98e0;">forNum</span>(<span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">n</span>);
+  }
+  <span style="color: #93a61a; font-weight: bold;">interface</span> <span style="color: #c49619; font-style: italic;">Exp</span> {
+    <span style="color: #93a61a; font-weight: bold;">public</span> &lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #c49619; font-style: italic;">R</span> <span style="color: #3c98e0;">visit</span>(<span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #8d9fa1;">v</span>);
+  }
+  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Num</span> <span style="color: #93a61a; font-weight: bold;">implements</span> <span style="color: #c49619; font-style: italic;">Exp</span> {
+    <span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">final</span> <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">n_</span>;
+    <span style="color: #93a61a; font-weight: bold;">public</span> Num(<span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">n</span>) { n_ = n; }
+    <span style="color: #93a61a; font-weight: bold;">public</span> &lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #c49619; font-style: italic;">R</span> <span style="color: #3c98e0;">visit</span>(<span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #8d9fa1;">v</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> v.forNum(n_); }
+  }
+  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Eval</span> <span style="color: #93a61a; font-weight: bold;">implements</span> <span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">Integer</span>&gt; {
+    <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">Integer</span> <span style="color: #3c98e0;">forNum</span>(<span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">n</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> Integer.valueOf(n); }
+  }
+}
+
+<span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">LangF2</span> <span style="color: #93a61a; font-weight: bold;">extends</span> <span style="color: #c49619; font-style: italic;">LangF</span> {
+  <span style="color: #93a61a; font-weight: bold;">interface</span> <span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #93a61a; font-weight: bold;">extends</span> <span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; {
+    <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">R</span> <span style="color: #3c98e0;">forPlus</span>(<span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e1</span>, <span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e2</span>);
+  }
+
+  <span style="color: #93a61a; font-weight: bold;">interface</span> <span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #93a61a; font-weight: bold;">extends</span> <span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Exp</span> {
+    <span style="color: #93a61a; font-weight: bold;">public</span> &lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #c49619; font-style: italic;">R</span> <span style="color: #3c98e0;">visit</span>(<span style="color: #3c98e0; font-weight: bold;">LangF2</span>.<span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #8d9fa1;">v</span>);
+  }
+
+  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Plus</span> <span style="color: #93a61a; font-weight: bold;">implements</span> <span style="color: #3c98e0; font-weight: bold;">LangF2</span>.<span style="color: #c49619; font-style: italic;">Exp</span> {
+    <span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">final</span> <span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e1_</span>;
+    <span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">final</span> <span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e2_</span>;
+
+    <span style="color: #93a61a; font-weight: bold;">public</span> Plus(<span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e1</span>, <span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e2</span>) {
+      e1_ = e1;
+      e2_ = e2;
+    }
+    <span style="color: #93a61a; font-weight: bold;">public</span> &lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #c49619; font-style: italic;">R</span> <span style="color: #3c98e0;">visit</span>(<span style="color: #3c98e0; font-weight: bold;">LangF2</span>.<span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">R</span>&gt; <span style="color: #8d9fa1;">v</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> v.forPlus(e1_, e2_); }
+  }
+  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Eval</span> <span style="color: #93a61a; font-weight: bold;">extends</span> <span style="color: #3c98e0; font-weight: bold;">LangF</span>.<span style="color: #c49619; font-style: italic;">Eval</span> <span style="color: #93a61a; font-weight: bold;">implements</span> <span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">Integer</span>&gt; {
+    <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">Integer</span> <span style="color: #3c98e0;">forPlus</span>(<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e1</span>, <span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e2</span>) {
+      <span style="color: #93a61a; font-weight: bold;">return</span> Integer.valueOf(e1.visit(<span style="color: #93a61a; font-weight: bold;">this</span>).intValue() +
+                             e2.visit(<span style="color: #93a61a; font-weight: bold;">this</span>).intValue());
+    }
+  }
+  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Show</span> <span style="color: #93a61a; font-weight: bold;">implements</span> <span style="color: #c49619; font-style: italic;">Visitor</span>&lt;<span style="color: #c49619; font-style: italic;">String</span>&gt; {
+    <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">String</span> <span style="color: #3c98e0;">forNum</span>(<span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">n</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> Integer.toString(n); }
+    <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">String</span> <span style="color: #3c98e0;">forPlus</span>(<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e1</span>, <span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e2</span>) {
+      <span style="color: #93a61a; font-weight: bold;">return</span> <span style="color: #93a61a;">"("</span> + e1.visit(<span style="color: #93a61a; font-weight: bold;">this</span>) + <span style="color: #93a61a;">"+"</span> + e2.visit(<span style="color: #93a61a; font-weight: bold;">this</span>) + <span style="color: #93a61a;">")"</span>;
+    }
+  }
+}
+<span style="color: #93a61a; font-weight: bold;">final</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Lang</span> <span style="color: #93a61a; font-weight: bold;">extends</span> <span style="color: #c49619; font-style: italic;">LangF</span> {}
+<span style="color: #93a61a; font-weight: bold;">final</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Lang2</span> <span style="color: #93a61a; font-weight: bold;">extends</span> <span style="color: #c49619; font-style: italic;">LangF2</span> {}
+
+<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Main</span> {
+
+  <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">main</span>(<span style="color: #c49619; font-style: italic;">String</span>[] <span style="color: #8d9fa1;">args</span>) {
+    <span style="color: #c49619; font-style: italic;">Lang</span> <span style="color: #8d9fa1;">l</span> = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Lang</span>();
+    <span style="color: #3c98e0; font-weight: bold;">Lang</span>.<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e</span> = l.<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Num</span>(<span style="color: #7a7ed2; font-weight: bold;">42</span>);
+    System.out.println(<span style="color: #93a61a;">"eval: "</span> + e.visit(l.<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Eval</span>()));
+
+    <span style="color: #c49619; font-style: italic;">Lang2</span> <span style="color: #8d9fa1;">l2</span> = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Lang2</span>();
+    <span style="color: #3c98e0; font-weight: bold;">Lang2</span>.<span style="color: #c49619; font-style: italic;">Exp</span> <span style="color: #8d9fa1;">e2</span> = l2.<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Plus</span>(l2.<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Num</span>(<span style="color: #7a7ed2; font-weight: bold;">5</span>), l2.<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Num</span>(<span style="color: #7a7ed2; font-weight: bold;">37</span>));
+    System.out.println(<span style="color: #93a61a;">"eval: "</span> + e2.visit(l2.<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Eval</span>()));
+    System.out.println(<span style="color: #93a61a;">"show: "</span> + e2.visit(l2.<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Show</span>()));
+  }
+}
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">interface</span> <span style="color: #c49619; font-style: italic;">ExpAlgebra</span>&lt;<span style="color: #c49619; font-style: italic;">T</span>&gt; {
+  <span style="color: #c49619; font-style: italic;">T</span> <span style="color: #3c98e0;">Lit</span>(<span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">n</span>);
+  <span style="color: #c49619; font-style: italic;">T</span> <span style="color: #3c98e0;">Add</span>(<span style="color: #c49619; font-style: italic;">T</span> <span style="color: #8d9fa1;">left</span>, <span style="color: #c49619; font-style: italic;">T</span> <span style="color: #8d9fa1;">right</span>);
+}
+
+<span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">ExpFactory</span> <span style="color: #93a61a; font-weight: bold;">implements</span> <span style="color: #c49619; font-style: italic;">ExpAlgebra</span>&lt;<span style="color: #c49619; font-style: italic;">IEvalExp</span>&gt; {
+  <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">IEvalExp</span> <span style="color: #3c98e0;">Lit</span>(<span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">n</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Lit</span>(n); }
+
+  <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">IEvalExp</span> <span style="color: #3c98e0;">Add</span>(<span style="color: #c49619; font-style: italic;">IEvalExp</span> <span style="color: #8d9fa1;">left</span>, <span style="color: #c49619; font-style: italic;">IEvalExp</span> <span style="color: #8d9fa1;">right</span>) {
+    <span style="color: #93a61a; font-weight: bold;">return</span> <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">Add</span>(left, right);
+  }
+}
+
+<span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">ExampleTwo</span>&lt;<span style="color: #c49619; font-style: italic;">T</span>&gt; {
+  <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">T</span> <span style="color: #3c98e0;">AddOneToTwo</span>(<span style="color: #c49619; font-style: italic;">ExpAlgebra</span>&lt;<span style="color: #c49619; font-style: italic;">T</span>&gt; <span style="color: #8d9fa1;">ae</span>) {
+    <span style="color: #93a61a; font-weight: bold;">return</span> <span style="color: #3c98e0; font-weight: bold;">ae</span>.Add(<span style="color: #3c98e0; font-weight: bold;">ae</span>.Lit(<span style="color: #7a7ed2; font-weight: bold;">1</span>), <span style="color: #3c98e0; font-weight: bold;">ae</span>.Lit(<span style="color: #7a7ed2; font-weight: bold;">2</span>));
+  }
+}
+
+<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Main</span> {
+
+  <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">main</span>(<span style="color: #c49619; font-style: italic;">String</span>[] <span style="color: #8d9fa1;">args</span>) { System.out.println(<span style="color: #93a61a;">"show: "</span>); }
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb26a9bd" class="outline-2">
+<h2 id="orgb26a9bd"><span class="section-number-2">4.</span> Read paper &lt;Abstract Data type and OO&gt;</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2023-01-05 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+</footer>
+</div>
+</body>
+</html>

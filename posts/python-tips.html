@@ -6,7 +6,8 @@
 <title>Python Tips</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
@@ -35,8 +36,8 @@
 <h2 id="re"><span class="section-number-2">1.</span> re</h2>
 <div class="outline-text-2" id="text-re">
 <div class="org-src-container">
-<pre class="src src-python">  &gt;&gt;&gt; re.split(<span style="color: #CC9393;">"[^0-9]"</span>, <span style="color: #CC9393;">"12 34 + 2 *"</span>)
-  [<span style="color: #CC9393;">'12'</span>, <span style="color: #CC9393;">'34'</span>, <span style="color: #CC9393;">''</span>, <span style="color: #CC9393;">''</span>, <span style="color: #CC9393;">'2'</span>, <span style="color: #CC9393;">''</span>, <span style="color: #CC9393;">''</span>]
+<pre class="src src-python">  &gt;&gt;&gt; re.split(<span style="color: #93a61a;">"[^0-9]"</span>, <span style="color: #93a61a;">"12 34 + 2 *"</span>)
+  [<span style="color: #93a61a;">'12'</span>, <span style="color: #93a61a;">'34'</span>, <span style="color: #93a61a;">''</span>, <span style="color: #93a61a;">''</span>, <span style="color: #93a61a;">'2'</span>, <span style="color: #93a61a;">''</span>, <span style="color: #93a61a;">''</span>]
 </pre>
 </div>
 
@@ -50,10 +51,10 @@ Cant understand how &rsquo;&rsquo; being produced.
 <h2 id="list"><span class="section-number-2">2.</span> list</h2>
 <div class="outline-text-2" id="text-list">
 <div class="org-src-container">
-<pre class="src src-python">  <span style="color: #DCDCDC; font-weight: bold;">str</span>(<span style="color: #CC9393;">"abcdef"</span>)[::-<span style="color: #DCDCDC; font-weight: bold;">1</span>] ==&gt; <span style="color: #CC9393;">"fedcba"</span>
-  <span style="color: #DCDCDC; font-weight: bold;">reduce</span>(<span style="color: #F0DFAF; font-weight: bold;">lambda</span> x,y:y+x,<span style="color: #CC9393;">"abcdef"</span>) ==&gt; <span style="color: #CC9393;">"fedcba"</span>
-  <span style="color: #DCDCDC; font-weight: bold;">sorted</span>([<span style="color: #DCDCDC; font-weight: bold;">1</span>,<span style="color: #DCDCDC; font-weight: bold;">5</span>,<span style="color: #DCDCDC; font-weight: bold;">3</span>,<span style="color: #DCDCDC; font-weight: bold;">2</span>]) ==&gt; [<span style="color: #DCDCDC; font-weight: bold;">1</span>,<span style="color: #DCDCDC; font-weight: bold;">2</span>,<span style="color: #DCDCDC; font-weight: bold;">3</span>,<span style="color: #DCDCDC; font-weight: bold;">5</span>]
-  <span style="color: #DFAF8F;">a</span> = [<span style="color: #DCDCDC; font-weight: bold;">1</span>,<span style="color: #DCDCDC; font-weight: bold;">5</span>,<span style="color: #DCDCDC; font-weight: bold;">3</span>,<span style="color: #DCDCDC; font-weight: bold;">2</span>]; a.sort() ==&gt; a := [<span style="color: #DCDCDC; font-weight: bold;">1</span>,<span style="color: #DCDCDC; font-weight: bold;">2</span>,<span style="color: #DCDCDC; font-weight: bold;">3</span>,<span style="color: #DCDCDC; font-weight: bold;">5</span>]
+<pre class="src src-python">  <span style="color: #3c98e0; font-style: italic;">str</span>(<span style="color: #93a61a;">"abcdef"</span>)[::-<span style="color: #7a7ed2; font-weight: bold;">1</span>] ==&gt; <span style="color: #93a61a;">"fedcba"</span>
+  <span style="color: #3c98e0; font-style: italic;">reduce</span>(<span style="color: #93a61a; font-weight: bold;">lambda</span> x,y:y+x,<span style="color: #93a61a;">"abcdef"</span>) ==&gt; <span style="color: #93a61a;">"fedcba"</span>
+  <span style="color: #3c98e0; font-style: italic;">sorted</span>([<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">5</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>]) ==&gt; [<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>,<span style="color: #7a7ed2; font-weight: bold;">5</span>]
+  <span style="color: #8d9fa1;">a</span> = [<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">5</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>]; a.sort() ==&gt; a := [<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>,<span style="color: #7a7ed2; font-weight: bold;">5</span>]
 </pre>
 </div>
 </div>
@@ -63,17 +64,17 @@ Cant understand how &rsquo;&rsquo; being produced.
 <h2 id="dict"><span class="section-number-2">3.</span> dict</h2>
 <div class="outline-text-2" id="text-dict">
 <div class="org-src-container">
-<pre class="src src-python">  <span style="color: #5F7F5F;">### </span><span style="color: #7F9F7F;">demostrate loop a dict and list/dict parameter</span>
-  <span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">tst_dict</span>(*args, **kargs):
-      <span style="color: #F0DFAF; font-weight: bold;">for</span> k, v <span style="color: #F0DFAF; font-weight: bold;">in</span> <span style="color: #DCDCDC; font-weight: bold;">dict</span>(*args, **kargs).iteritems():
-          <span style="color: #DCDCDC; font-weight: bold;">print</span> k, v
+<pre class="src src-python">  <span style="color: #62787f; font-style: italic;">### </span><span style="color: #62787f; font-style: italic;">demostrate loop a dict and list/dict parameter</span>
+  <span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">tst_dict</span>(*args, **kargs):
+      <span style="color: #93a61a; font-weight: bold;">for</span> k, v <span style="color: #93a61a; font-weight: bold;">in</span> <span style="color: #3c98e0; font-style: italic;">dict</span>(*args, **kargs).iteritems():
+          <span style="color: #3c98e0; font-style: italic;">print</span> k, v
 
-  <span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">tst_dict2</span>():
-      <span style="color: #F0DFAF; font-weight: bold;">for</span> key <span style="color: #F0DFAF; font-weight: bold;">in</span> a_dict:
-          <span style="color: #DCDCDC; font-weight: bold;">print</span> key, a_dict[key]
+  <span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">tst_dict2</span>():
+      <span style="color: #93a61a; font-weight: bold;">for</span> key <span style="color: #93a61a; font-weight: bold;">in</span> a_dict:
+          <span style="color: #3c98e0; font-style: italic;">print</span> key, a_dict[key]
 
-  tst_dict(name=<span style="color: #CC9393;">'aa'</span>, place=<span style="color: #CC9393;">'bb'</span>)
-  tst_dict(<span style="color: #CC9393;">'aaa'</span>, <span style="color: #CC9393;">'bbb'</span>) <span style="color: #5F7F5F;"># </span><span style="color: #7F9F7F;">throw error</span>
+  tst_dict(name=<span style="color: #93a61a;">'aa'</span>, place=<span style="color: #93a61a;">'bb'</span>)
+  tst_dict(<span style="color: #93a61a;">'aaa'</span>, <span style="color: #93a61a;">'bbb'</span>) <span style="color: #62787f; font-style: italic;"># </span><span style="color: #62787f; font-style: italic;">throw error</span>
 </pre>
 </div>
 </div>
@@ -83,11 +84,11 @@ Cant understand how &rsquo;&rsquo; being produced.
 <h2 id="mise"><span class="section-number-2">4.</span> Mise</h2>
 <div class="outline-text-2" id="text-mise">
 <div class="org-src-container">
-<pre class="src src-python">  <span style="color: #DCDCDC; font-weight: bold;">range</span>(<span style="color: #DCDCDC; font-weight: bold;">4</span>) ==&gt; [<span style="color: #DCDCDC; font-weight: bold;">0</span>,<span style="color: #DCDCDC; font-weight: bold;">1</span>,<span style="color: #DCDCDC; font-weight: bold;">2</span>,<span style="color: #DCDCDC; font-weight: bold;">3</span>] <span style="color: #5F7F5F;">#</span><span style="color: #7F9F7F;">range start from 0 by default</span>
-  <span style="color: #CC9393;">'%s: %r'</span> % (something, other)
-  <span style="color: #CC9393;">'%(name)s is %(value)d'</span> % {
-      <span style="color: #CC9393;">'name'</span>: <span style="color: #CC9393;">'The answer'</span>,
-      <span style="color: #CC9393;">'value'</span>: <span style="color: #DCDCDC; font-weight: bold;">42</span>,
+<pre class="src src-python">  <span style="color: #3c98e0; font-style: italic;">range</span>(<span style="color: #7a7ed2; font-weight: bold;">4</span>) ==&gt; [<span style="color: #7a7ed2; font-weight: bold;">0</span>,<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>] <span style="color: #62787f; font-style: italic;">#</span><span style="color: #62787f; font-style: italic;">range start from 0 by default</span>
+  <span style="color: #93a61a;">'%s: %r'</span> % (something, other)
+  <span style="color: #93a61a;">'%(name)s is %(value)d'</span> % {
+      <span style="color: #93a61a;">'name'</span>: <span style="color: #93a61a;">'The answer'</span>,
+      <span style="color: #93a61a;">'value'</span>: <span style="color: #7a7ed2; font-weight: bold;">42</span>,
   }
 </pre>
 </div>

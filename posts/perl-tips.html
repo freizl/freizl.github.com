@@ -6,7 +6,8 @@
 <title>Perl Tips</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
@@ -39,16 +40,16 @@
 <h2 id="basic"><span class="section-number-2">1.</span> Basic</h2>
 <div class="outline-text-2" id="text-basic">
 <div class="org-src-container">
-<pre class="src src-perl">  <span style="color: #F0DFAF; font-weight: bold;">my</span> @<span style="color: #DFAF8F; text-decoration: underline;">myarray</span> = ();
-  push @<span style="color: #DFAF8F; text-decoration: underline;">myarray</span>,<span style="color: #CC9393;">"a"</span>;
+<pre class="src src-perl">  <span style="color: #93a61a; font-weight: bold;">my</span> @<span style="color: #8d9fa1; text-decoration: underline;">myarray</span> = ();
+  push @<span style="color: #8d9fa1; text-decoration: underline;">myarray</span>,<span style="color: #93a61a;">"a"</span>;
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-perl">  <span style="color: #F0DFAF; font-weight: bold;">my</span> @<span style="color: #DFAF8F; text-decoration: underline;">keys</span> = qw<span style="color: #CC9393;">(a b c)</span>;
-  <span style="color: #F0DFAF; font-weight: bold;">my</span> @<span style="color: #DFAF8F; text-decoration: underline;">vals</span> = (<span style="color: #DCDCDC; font-weight: bold;">1</span>, <span style="color: #DCDCDC; font-weight: bold;">2</span>, <span style="color: #DCDCDC; font-weight: bold;">3</span>);
-  <span style="color: #F0DFAF; font-weight: bold;">my</span> %<span style="color: #DFAF8F; text-decoration: underline;">hash</span>;
-  @<span style="color: #DFAF8F; text-decoration: underline;">hash</span>{@<span style="color: #DFAF8F; text-decoration: underline;">keys</span>} = @<span style="color: #DFAF8F; text-decoration: underline;">vals</span>;
+<pre class="src src-perl">  <span style="color: #93a61a; font-weight: bold;">my</span> @<span style="color: #8d9fa1; text-decoration: underline;">keys</span> = qw<span style="color: #93a61a;">(a b c)</span>;
+  <span style="color: #93a61a; font-weight: bold;">my</span> @<span style="color: #8d9fa1; text-decoration: underline;">vals</span> = (<span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #7a7ed2; font-weight: bold;">2</span>, <span style="color: #7a7ed2; font-weight: bold;">3</span>);
+  <span style="color: #93a61a; font-weight: bold;">my</span> %<span style="color: #8d9fa1; text-decoration: underline;">hash</span>;
+  @<span style="color: #8d9fa1; text-decoration: underline;">hash</span>{@<span style="color: #8d9fa1; text-decoration: underline;">keys</span>} = @<span style="color: #8d9fa1; text-decoration: underline;">vals</span>;
 </pre>
 </div>
 </div>
@@ -58,13 +59,13 @@
 <h2 id="loop"><span class="section-number-2">2.</span> Loop</h2>
 <div class="outline-text-2" id="text-loop">
 <div class="org-src-container">
-<pre class="src src-perl">  <span style="color: #7F9F7F;"># loop elements in itemArray1 and itemArray2</span>
-  <span style="color: #F0DFAF; font-weight: bold;">foreach</span> <span style="color: #F0DFAF; font-weight: bold;">my</span> $<span style="color: #DFAF8F;">item</span> (@<span style="color: #DFAF8F; text-decoration: underline;">itemArray1</span>, @<span style="color: #DFAF8F; text-decoration: underline;">itemArray2</span>) {
+<pre class="src src-perl">  <span style="color: #62787f; font-style: italic;"># loop elements in itemArray1 and itemArray2</span>
+  <span style="color: #93a61a; font-weight: bold;">foreach</span> <span style="color: #93a61a; font-weight: bold;">my</span> $<span style="color: #8d9fa1;">item</span> (@<span style="color: #8d9fa1; text-decoration: underline;">itemArray1</span>, @<span style="color: #8d9fa1; text-decoration: underline;">itemArray2</span>) {
     ...
   }
 
-  <span style="color: #F0DFAF; font-weight: bold;">while</span> ( <span style="color: #F0DFAF; font-weight: bold;">my</span> ($<span style="color: #DFAF8F;">key</span>, $<span style="color: #DFAF8F;">value</span>) = each(%<span style="color: #DFAF8F; text-decoration: underline;">hash</span>) ) {
-    print <span style="color: #CC9393;">"$key =&gt; $value\n"</span>;
+  <span style="color: #93a61a; font-weight: bold;">while</span> ( <span style="color: #93a61a; font-weight: bold;">my</span> ($<span style="color: #8d9fa1;">key</span>, $<span style="color: #8d9fa1;">value</span>) = each(%<span style="color: #8d9fa1; text-decoration: underline;">hash</span>) ) {
+    print <span style="color: #93a61a;">"$key =&gt; $value\n"</span>;
   }
 </pre>
 </div>
@@ -75,18 +76,18 @@
 <h2 id="sub"><span class="section-number-2">3.</span> Sub</h2>
 <div class="outline-text-2" id="text-sub">
 <div class="org-src-container">
-<pre class="src src-perl">  <span style="color: #F0DFAF; font-weight: bold;">sub</span> <span style="color: #93E0E3;">prepare_sth</span> {
-    <span style="color: #F0DFAF; font-weight: bold;">my</span> $<span style="color: #DFAF8F;">param</span> = shift;  <span style="color: #7F9F7F;"># means shift @_, @_ is param array</span>
-    <span style="color: #7F9F7F;"># my $param = $_;   # when could use $_ ??</span>
+<pre class="src src-perl">  <span style="color: #93a61a; font-weight: bold;">sub</span> <span style="color: #3c98e0;">prepare_sth</span> {
+    <span style="color: #93a61a; font-weight: bold;">my</span> $<span style="color: #8d9fa1;">param</span> = shift;  <span style="color: #62787f; font-style: italic;"># means shift @_, @_ is param array</span>
+    <span style="color: #62787f; font-style: italic;"># my $param = $_;   # when could use $_ ??</span>
   }
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-perl">  <span style="color: #F0DFAF; font-weight: bold;">sub</span> <span style="color: #93E0E3;">uniq</span> {
-    @<span style="color: #DFAF8F; text-decoration: underline;">list</span> = shift;
-    %<span style="color: #DFAF8F; text-decoration: underline;">seen</span> = ();
-    @<span style="color: #DFAF8F; text-decoration: underline;">uniqu</span> = grep { ! $<span style="color: #DFAF8F;">seen</span>{$<span style="color: #DFAF8F;">_</span>} ++ } @<span style="color: #DFAF8F; text-decoration: underline;">list</span>;
+<pre class="src src-perl">  <span style="color: #93a61a; font-weight: bold;">sub</span> <span style="color: #3c98e0;">uniq</span> {
+    @<span style="color: #8d9fa1; text-decoration: underline;">list</span> = shift;
+    %<span style="color: #8d9fa1; text-decoration: underline;">seen</span> = ();
+    @<span style="color: #8d9fa1; text-decoration: underline;">uniqu</span> = grep { ! $<span style="color: #8d9fa1;">seen</span>{$<span style="color: #8d9fa1;">_</span>} ++ } @<span style="color: #8d9fa1; text-decoration: underline;">list</span>;
   }
 </pre>
 </div>
@@ -105,22 +106,22 @@ from book
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl">  <span style="color: #7F9F7F;">### Assign a list of array references to an array.</span>
-  @<span style="color: #DFAF8F; text-decoration: underline;">AoA</span> = (
-           [ <span style="color: #CC9393;">"fred"</span>, <span style="color: #CC9393;">"barney"</span> ],
-           [ <span style="color: #CC9393;">"george"</span>, <span style="color: #CC9393;">"jane"</span>, <span style="color: #CC9393;">"elroy"</span> ],
-           [ <span style="color: #CC9393;">"homer"</span>, <span style="color: #CC9393;">"marge"</span>, <span style="color: #CC9393;">"bart"</span> ],
+<pre class="src src-perl">  <span style="color: #62787f; font-style: italic;">### Assign a list of array references to an array.</span>
+  @<span style="color: #8d9fa1; text-decoration: underline;">AoA</span> = (
+           [ <span style="color: #93a61a;">"fred"</span>, <span style="color: #93a61a;">"barney"</span> ],
+           [ <span style="color: #93a61a;">"george"</span>, <span style="color: #93a61a;">"jane"</span>, <span style="color: #93a61a;">"elroy"</span> ],
+           [ <span style="color: #93a61a;">"homer"</span>, <span style="color: #93a61a;">"marge"</span>, <span style="color: #93a61a;">"bart"</span> ],
   );
-  print $<span style="color: #DFAF8F;">AoA</span>[<span style="color: #DCDCDC; font-weight: bold;">2</span>][<span style="color: #DCDCDC; font-weight: bold;">1</span>];   <span style="color: #7F9F7F;"># prints "marge"</span>
+  print $<span style="color: #8d9fa1;">AoA</span>[<span style="color: #7a7ed2; font-weight: bold;">2</span>][<span style="color: #7a7ed2; font-weight: bold;">1</span>];   <span style="color: #62787f; font-style: italic;"># prints "marge"</span>
 
-  <span style="color: #7F9F7F;">### Create an reference to an array of array references.</span>
-  $<span style="color: #DFAF8F;">ref_to_AoA</span> = [
-      [ <span style="color: #CC9393;">"fred"</span>, <span style="color: #CC9393;">"barney"</span>, <span style="color: #CC9393;">"pebbles"</span>, <span style="color: #CC9393;">"bamm bamm"</span>, <span style="color: #CC9393;">"dino"</span>, ],
-      [ <span style="color: #CC9393;">"homer"</span>, <span style="color: #CC9393;">"bart"</span>, <span style="color: #CC9393;">"marge"</span>, <span style="color: #CC9393;">"maggie"</span>, ],
-      [ <span style="color: #CC9393;">"george"</span>, <span style="color: #CC9393;">"jane"</span>, <span style="color: #CC9393;">"elroy"</span>, <span style="color: #CC9393;">"judy"</span>, ],
+  <span style="color: #62787f; font-style: italic;">### Create an reference to an array of array references.</span>
+  $<span style="color: #8d9fa1;">ref_to_AoA</span> = [
+      [ <span style="color: #93a61a;">"fred"</span>, <span style="color: #93a61a;">"barney"</span>, <span style="color: #93a61a;">"pebbles"</span>, <span style="color: #93a61a;">"bamm bamm"</span>, <span style="color: #93a61a;">"dino"</span>, ],
+      [ <span style="color: #93a61a;">"homer"</span>, <span style="color: #93a61a;">"bart"</span>, <span style="color: #93a61a;">"marge"</span>, <span style="color: #93a61a;">"maggie"</span>, ],
+      [ <span style="color: #93a61a;">"george"</span>, <span style="color: #93a61a;">"jane"</span>, <span style="color: #93a61a;">"elroy"</span>, <span style="color: #93a61a;">"judy"</span>, ],
   ];
 
-  print $<span style="color: #DFAF8F;">ref_to_AoA</span>-&gt;[<span style="color: #DCDCDC; font-weight: bold;">2</span>][<span style="color: #DCDCDC; font-weight: bold;">3</span>];   <span style="color: #7F9F7F;"># prints "judy"</span>
+  print $<span style="color: #8d9fa1;">ref_to_AoA</span>-&gt;[<span style="color: #7a7ed2; font-weight: bold;">2</span>][<span style="color: #7a7ed2; font-weight: bold;">3</span>];   <span style="color: #62787f; font-style: italic;"># prints "judy"</span>
 </pre>
 </div>
 
@@ -135,8 +136,8 @@ Therefore these two lines:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl">  $<span style="color: #DFAF8F;">AoA</span>[<span style="color: #DCDCDC; font-weight: bold;">2</span>][<span style="color: #DCDCDC; font-weight: bold;">3</span>]
-  $<span style="color: #DFAF8F;">ref_to_AoA</span>-&gt;[<span style="color: #DCDCDC; font-weight: bold;">2</span>][<span style="color: #DCDCDC; font-weight: bold;">3</span>]
+<pre class="src src-perl">  $<span style="color: #8d9fa1;">AoA</span>[<span style="color: #7a7ed2; font-weight: bold;">2</span>][<span style="color: #7a7ed2; font-weight: bold;">3</span>]
+  $<span style="color: #8d9fa1;">ref_to_AoA</span>-&gt;[<span style="color: #7a7ed2; font-weight: bold;">2</span>][<span style="color: #7a7ed2; font-weight: bold;">3</span>]
 </pre>
 </div>
 
@@ -145,8 +146,8 @@ are equivalent to these two lines:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-perl">  $<span style="color: #DFAF8F;">AoA</span>[<span style="color: #DCDCDC; font-weight: bold;">2</span>]-&gt;[<span style="color: #DCDCDC; font-weight: bold;">3</span>]
-  $<span style="color: #DFAF8F;">ref_to_AoA</span>-&gt;[<span style="color: #DCDCDC; font-weight: bold;">2</span>]-&gt;[<span style="color: #DCDCDC; font-weight: bold;">3</span>]
+<pre class="src src-perl">  $<span style="color: #8d9fa1;">AoA</span>[<span style="color: #7a7ed2; font-weight: bold;">2</span>]-&gt;[<span style="color: #7a7ed2; font-weight: bold;">3</span>]
+  $<span style="color: #8d9fa1;">ref_to_AoA</span>-&gt;[<span style="color: #7a7ed2; font-weight: bold;">2</span>]-&gt;[<span style="color: #7a7ed2; font-weight: bold;">3</span>]
 </pre>
 </div>
 </div>

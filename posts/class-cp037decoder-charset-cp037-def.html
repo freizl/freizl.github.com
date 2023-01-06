@@ -6,7 +6,8 @@
 <title>Decode Characters in Python</title>
 <meta name="author" content="Haisheng Wu" />
 <meta name="generator" content="Org Mode" />
-<link rel="stylesheet" type="text/css" href="https://pvinis.github.io/iosevka-webfont/7.0.2/iosevka.css"/>
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
                            <link rel="stylesheet" type="text/css" href="/css/default.css"/>
 </head>
@@ -19,16 +20,16 @@
 <header>
 <h1 class="title">Decode Characters in Python</h1>
 </header><div class="org-src-container">
-<pre class="src src-python"><span style="color: #F0DFAF; font-weight: bold;">class</span> <span style="color: #7CB8BB;">CP037Decoder</span>:
-  _CHARSET_ = <span style="color: #CC9393;">'cp037'</span>
-  <span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">__init__</span>(<span style="color: #F0DFAF; font-weight: bold;">self</span>, message):
-    <span style="color: #F0DFAF; font-weight: bold;">self</span>.<span style="color: #DFAF8F;">decode_message</span> = <span style="color: #DCDCDC; font-weight: bold;">unicode</span>(message, <span style="color: #F0DFAF; font-weight: bold;">self</span>._CHARSET_)
+<pre class="src src-python"><span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">CP037Decoder</span>:
+  _CHARSET_ = <span style="color: #93a61a;">'cp037'</span>
+  <span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">__init__</span>(<span style="color: #93a61a; font-weight: bold;">self</span>, message):
+    <span style="color: #93a61a; font-weight: bold;">self</span>.<span style="color: #8d9fa1;">decode_message</span> = <span style="color: #3c98e0; font-style: italic;">unicode</span>(message, <span style="color: #93a61a; font-weight: bold;">self</span>._CHARSET_)
 
-  <span style="color: #F0DFAF; font-weight: bold;">def</span> <span style="color: #93E0E3;">show_in_utf8</span>(<span style="color: #F0DFAF; font-weight: bold;">self</span>):
-    <span style="color: #DCDCDC; font-weight: bold;">print</span> <span style="color: #F0DFAF; font-weight: bold;">self</span>.decode_message.encode(<span style="color: #CC9393;">'utf8'</span>)
+  <span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">show_in_utf8</span>(<span style="color: #93a61a; font-weight: bold;">self</span>):
+    <span style="color: #3c98e0; font-style: italic;">print</span> <span style="color: #93a61a; font-weight: bold;">self</span>.decode_message.encode(<span style="color: #93a61a;">'utf8'</span>)
 
-<span style="color: #F0DFAF; font-weight: bold;">if</span> <span style="color: #DCDCDC; font-weight: bold;">__name__</span> == <span style="color: #CC9393;">'__main__'</span>:
-  msg_file = <span style="color: #DCDCDC; font-weight: bold;">open</span>(sys.argv[<span style="color: #DCDCDC; font-weight: bold;">1</span>], <span style="color: #CC9393;">'r'</span>)
+<span style="color: #93a61a; font-weight: bold;">if</span> <span style="color: #3c98e0; font-style: italic;">__name__</span> == <span style="color: #93a61a;">'__main__'</span>:
+  msg_file = <span style="color: #3c98e0; font-style: italic;">open</span>(sys.argv[<span style="color: #7a7ed2; font-weight: bold;">1</span>], <span style="color: #93a61a;">'r'</span>)
   CP037Decoder(msg_file.read()).show_in_utf8()
   msg_file.close()
 
