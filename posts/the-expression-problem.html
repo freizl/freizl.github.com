@@ -25,8 +25,13 @@
 <ul>
 <li><a href="#org9b10186">1. Background</a></li>
 <li><a href="#orga47fd28">2. Solution - Type Classes</a></li>
-<li><a href="#org15c032a">3. Solution - Visitor pattern</a></li>
-<li><a href="#orge402067">4. Read paper &lt;Abstract Data type and OO&gt;</a></li>
+<li><a href="#org15c032a">3. Solution - Visitor pattern</a>
+<ul>
+<li><a href="#org883faea">3.1. Impl in TypeScript</a></li>
+<li><a href="#orgcfbad3d">3.2. Remarks</a></li>
+</ul>
+</li>
+<li><a href="#org477093b">4. Read paper On Understanding Data Abstraction</a></li>
 </ul>
 </div>
 </nav>
@@ -52,8 +57,43 @@ Read those references if you are not familiar yet (TODO: maybe add tl;dr; here)
 I thought type classes solve the problem nicely. Here is the example in Haskell using type class
 </p>
 
+<div class="org-src-container">
+<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Shape</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Square</span> <span style="color: #c49619; font-style: italic;">Float</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Circle</span> <span style="color: #c49619; font-style: italic;">Float</span>
+&#8203;
+<span style="color: #3c98e0;">area</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Shape</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Float</span>
+<span style="color: #3c98e0;">area</span> x <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">case</span> x <span style="color: #93a61a; font-weight: bold;">of</span>
+  <span style="color: #c49619; font-style: italic;">Square</span> side <span style="color: #8d9fa1;">-&gt;</span> (side <span style="color: #8d9fa1;">*</span> side)
+  <span style="color: #c49619; font-style: italic;">Circle</span> radius <span style="color: #8d9fa1;">-&gt;</span> (<span style="color: #7a7ed2; font-weight: bold;">3.14</span> <span style="color: #8d9fa1;">*</span> radius <span style="color: #8d9fa1;">*</span> radius)
+&#8203;
+</pre>
+</div>
+
 <p>
-After talked to Daniel (link to his home page), type class still has limitations. For instance
+&ldquo;Solution&rdquo; using Type Class
+</p>
+
+<div class="org-src-container">
+<pre class="src src-haskell">&#8203;
+<span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #c49619; font-style: italic;">Float</span>
+<span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #c49619; font-style: italic;">Float</span>
+&#8203;
+<span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Area</span> a <span style="color: #93a61a; font-weight: bold;">where</span>
+  area1 <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Float</span>
+&#8203;
+<span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">Area</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+  area1 (<span style="color: #c49619; font-style: italic;">Square1</span> side) <span style="color: #8d9fa1;">=</span> side <span style="color: #8d9fa1;">*</span> side
+&#8203;
+<span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">Area</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+  area1 (<span style="color: #c49619; font-style: italic;">Circle1</span> r) <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">3.14</span> <span style="color: #8d9fa1;">*</span> r <span style="color: #8d9fa1;">*</span> r
+</pre>
+</div>
+
+<p>
+Thanks to <a href="https://www.danielbrice.net/">Daniel</a>, he pointed me that type class still has limitations. For instance
+</p>
+
+<p>
+TODO: demo the limitation
 </p>
 
 <p>
@@ -63,12 +103,20 @@ I guess it is because Type Class doesn&rsquo;t really solve the problem directly
 <p>
 The original problem/ask is to extend a data type but with type class, that original (single) data type has been broken into multiple data types hence the limitation.
 </p>
+
+<p>
+I gave another thought when comparing the OO approach (easy data extension but not operation extension), operations are part of the Class (data type) hence it is never a question at table to talk about operations for data type interaction.
+</p>
 </div>
 </div>
 
 <div id="outline-container-org15c032a" class="outline-2">
 <h2 id="org15c032a"><span class="section-number-2">3.</span> Solution - Visitor pattern</h2>
 <div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org883faea" class="outline-3">
+<h3 id="org883faea"><span class="section-number-3">3.1.</span> Impl in TypeScript</h3>
+<div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><a href="https://www.typescriptlang.org/play?#code/PTAEF5K6d0BkCGA7A5gKHQS2QFwKYBOAZogMb6gBqWAzlrgPaEA8AKgHygDe6o-oYswByAVwC2ACmQAuUMgkAjIgEo5bdAF9seIqQqgAogA8ADjz4CAbnQbsOkq3Jr0mrTmtAbt6MgBtEWlpQMXFQLHFTP3xxfDxgk3NeAVBTQkYCMgIAE3k5BXFlQgBuS34yRmRaXEJRLOZpfKVVCxSU3AALOgA6ZAh5UpTtFJtXe0dnWzd7FVa2-kJ8XFFCPqtuoUJQyU6e5BVBgW0ff0CEq0Q-cMjo2PjqKeYWAqKuZIFN7dl5ZsJZ9-mi2WqwGZVAx0wIAgsBhMIQKFQACZMDgCCRyJQXAxmIj7KB8MYCMhssEsdNOHN+JsAAp+US0ST4ACMckSiIANPjEayzIjPN4Ubp0QY2fjCXESUYzJTQKM7JwJg9XDiZuotJhTkFQLT6dcojE4rgEryZWksBcCPiWVLTIjDvwzRbKPhuTa7WCKlUanU3IzrWzOS6ebb-mD2l1aN1mf1mfa2rtIy6Y+6hmC5bhxk4ldjCLiPOoZSkgSs1htmDqGQmo0zOVWXSowRDfAEtYYLn5EWKiZK25c9bdDaTHrnnr83mCaXSGczgxyubPPC8iIWBMWQczuumdhHZgBqLmbqbbugHRvq5tnUAAZQ6jAA7v2DfcySrqoQcKhxylPhJGj9Cqochvh+K4LEsJagAABgAJNwyCaJBcbDB85ZTn6s6Bq6bKeMBaCgaAa59BuW4JnuoAAOSgPulH7i6h6uMetCnqmPhQrC7HQPCaAAMyCmi+iYsO3F4gS3ZDsqI4UgCggiJUV5xLQ+DoTamELmqPionoGI2txXYSsatoyummaTBJwn5l454apU1SgOIiA4P0kizOAX4CJ6tnRuA8j4A+2wACx8nGHmMNE3R+IwqCSAARPg7YhL+gWeNFgZMvRDDSL5Rjts5KinpgKQebgXL9MgWUVplfm-gArConJlVVUjcQA7HlwU2aF+DhZFMVxX2FXVZyLXJZh6W4JV2WXIiuXMe5HVhRFUWxfFA1Da1cgpQeW4Ndet53jNpRglCO2MKYRCILgWCVKATBinQl14dkF2IDdACeZ0evNXWLb18UBXyG2pWNE29h2B2fVUnXdUttB7QlUhJYDVrAztN73uDPj2TgzlAA">Philip W sample in TypeScript</a></li>
 <li><a href="https://www.typescriptlang.org/play?#code/JYOwLgpgTgZghgYwgAgJIFEBucA26AeADsgN4BQyllE2OAFAJQBcyIArgLYBG0ZAvmTIIccAM6jkAGWBhkwDoRwQOEcBIy0CxclWSEoAe0gJIAE1Yt23aAG5BuhAZCiwUNiYNQ6IS5x5QGUgpdKjAAC2BRADoQZABeVjtdAWDqWkYgkKooCDA2KFjwyJikqgEU4TEJAEFTc3lFZVUwdSxcLSDUvShgbEhkJRgwFg12olLKfV64fp6AczDhtDa8cfsqR2dXdzBPOhwRla0AGmQoQ80iQJ0s5CLowdkEnAmQ+6j5xfiz15TdGlwGRuWRyeQKdwiDwgQyiAPogQA1BDip8wLD0gxfvxBJVxMgCHAFEoAPIgFDA5AuGbABDIWqmUkQaogUwAFQA7gZkECurpQflYmT2XS6t4IMLpGA6ABGBinIVSGR0ABMDExXQEui6VLANOQcNZYQgAGVONzrrzsrkBfj8ITGoyovTGcy2ZzGOjAerkticSI8QBZNg4XVyIlNNTLS7adaTHp9FCPC5jQivKYJs7ABZLUarVOx5CbFxuDxeA5RlOnc4VvMW27IqFDb4vS2Ud6o75QLFdOE8+v88HvR6e+HIABUDY+WcWI8YWJSAHoF-E4qu1+uN5utxvkMSuAArCAmOk4OYQLhQOCCUCQWCIFBaaqn8+XgA8rIAfJkqJLvL5rAELCsl09L7EBVZAcwyDARU-oSFoABiiC7FAACeYaNCokaPs+F5wK+uZaF+FK-j4rB+NAUGEUQ34gta4IKqR3plAWoEHNRhAQRxzAcbRIQDoK4oiqY+xVsxlB-FQQYhsAYEcVxRxXEwvEUny9GCcK0m6qJZzicg5TXuA0DwEgaAAAo9OAHQQPgkAsq00Z8VM4CMCwxagHMdiwVUyAWTecBcEokr6rZqimBIwUNEoWEtOZllgB05BdM5Up1rcAnIAABgAJCQ7wgHwmXzn6Pl+eAAVKPSGHRc06hlQlNFJbo6YzIm0I5vVWhpvGrWZtmIydWsXRFtspZgXFN4nGcA3xVoaVZEO7XNq8ujttOTw-BqBYpX26XqVluWLTCO0MHwyBIodkJTtmUQnYVWL-BifFqWChRXcOvaIpOqKznpBlCHBvnxRVEBacA1URrFqCDTGzU9f0SYTVZaxw9MszrTNk1DQ4TjFjsezltDs1EBBSMNYQ81vO9S3PCtoRXR2CRdltqMuZTL02jleXU8d8WMGdE6XSi623Xzp1FSzVCfc9VqvZOH1PROa03Z9xUA6V8VIaW6FRZD8FEE+Z54QRMPEV0pH-v4VEwzLlAZQq9Ug0x3a6Gxykw1xMM8TbqmyzaDvA4FTKijgYku1JwbaexHvTUTWMU+7xOw3tcsB-5QdgzpARq7i+v2koHIGO+Zu6DqerOmSrqF8XdBwBALA4Ubb6fuzfvgnXTqih3v6yqc3dKqqf2+rntr5xAho5OS2pgNStIrK5Vj+LbZz7QS4aF53DKVyyhdisK9VayhqEML9D1UGXtL1a57kgHMy8ZWvjQbxXTI7+6afgIfnjH6LN5zlti5lzbmASAzc0EIAuELGICAOJcYGCUFEHABg5h0EfiSMkI5DQmk4IwBgQg4EIKQSgtB49OSbxdG-Awe9bSEC-mhXBv08FFngRARByDUF2nXmESeUR55qjsMwwh7CSETwgKwq+-CgA">wikipedia example in TypeScript</a></li>
@@ -76,8 +124,23 @@ The original problem/ask is to extend a data type but with type class, that orig
 </div>
 </div>
 
-<div id="outline-container-orge402067" class="outline-2">
-<h2 id="orge402067"><span class="section-number-2">4.</span> Read paper &lt;Abstract Data type and OO&gt;</h2>
+<div id="outline-container-orgcfbad3d" class="outline-3">
+<h3 id="orgcfbad3d"><span class="section-number-3">3.2.</span> Remarks</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The solutions appear pretty much same as Type Class solution since the basic idea is same
+</p>
+
+<ul class="org-ul">
+<li>Break the single Data Type into multiple</li>
+<li>Use some sort of plumbing technique to glue those data type with operations</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org477093b" class="outline-2">
+<h2 id="org477093b"><span class="section-number-2">4.</span> Read paper <a href="https://www.cs.utexas.edu/~wcook/Drafts/2009/essay.pdf">On Understanding Data Abstraction</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
