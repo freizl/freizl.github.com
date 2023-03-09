@@ -58,12 +58,12 @@ I thought type classes solve the problem nicely. Here is the example in Haskell 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Shape</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Square</span> <span style="color: #c49619; font-style: italic;">Float</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Circle</span> <span style="color: #c49619; font-style: italic;">Float</span>
+<pre class="src src-haskell"><span style="color: #859900; font-weight: bold;">data</span> <span style="color: #b58900; font-style: italic;">Shape</span> <span style="color: #268bd2;">=</span> <span style="color: #b58900; font-style: italic;">Square</span> <span style="color: #b58900; font-style: italic;">Float</span> <span style="color: #268bd2;">|</span> <span style="color: #b58900; font-style: italic;">Circle</span> <span style="color: #b58900; font-style: italic;">Float</span>
 &#8203;
-<span style="color: #3c98e0;">area</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Shape</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Float</span>
-<span style="color: #3c98e0;">area</span> x <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">case</span> x <span style="color: #93a61a; font-weight: bold;">of</span>
-  <span style="color: #c49619; font-style: italic;">Square</span> side <span style="color: #8d9fa1;">-&gt;</span> (side <span style="color: #8d9fa1;">*</span> side)
-  <span style="color: #c49619; font-style: italic;">Circle</span> radius <span style="color: #8d9fa1;">-&gt;</span> (<span style="color: #7a7ed2; font-weight: bold;">3.14</span> <span style="color: #8d9fa1;">*</span> radius <span style="color: #8d9fa1;">*</span> radius)
+<span style="color: #b58900;">area</span> <span style="color: #268bd2;">::</span> <span style="color: #b58900; font-style: italic;">Shape</span> <span style="color: #268bd2;">-&gt;</span> <span style="color: #b58900; font-style: italic;">Float</span>
+<span style="color: #b58900;">area</span> x <span style="color: #268bd2;">=</span> <span style="color: #859900; font-weight: bold;">case</span> x <span style="color: #859900; font-weight: bold;">of</span>
+  <span style="color: #b58900; font-style: italic;">Square</span> side <span style="color: #268bd2;">-&gt;</span> (side <span style="color: #268bd2;">*</span> side)
+  <span style="color: #b58900; font-style: italic;">Circle</span> radius <span style="color: #268bd2;">-&gt;</span> (<span style="color: #6c71c4; font-weight: bold;">3.14</span> <span style="color: #268bd2;">*</span> radius <span style="color: #268bd2;">*</span> radius)
 &#8203;
 </pre>
 </div>
@@ -74,17 +74,17 @@ I thought type classes solve the problem nicely. Here is the example in Haskell 
 
 <div class="org-src-container">
 <pre class="src src-haskell">&#8203;
-<span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #c49619; font-style: italic;">Float</span>
-<span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #c49619; font-style: italic;">Float</span>
+<span style="color: #859900; font-weight: bold;">data</span> <span style="color: #b58900; font-style: italic;">Square1</span> <span style="color: #268bd2;">=</span> <span style="color: #b58900; font-style: italic;">Square1</span> <span style="color: #b58900; font-style: italic;">Float</span>
+<span style="color: #859900; font-weight: bold;">data</span> <span style="color: #b58900; font-style: italic;">Circle1</span> <span style="color: #268bd2;">=</span> <span style="color: #b58900; font-style: italic;">Circle1</span> <span style="color: #b58900; font-style: italic;">Float</span>
 &#8203;
-<span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Area</span> a <span style="color: #93a61a; font-weight: bold;">where</span>
-  area1 <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Float</span>
+<span style="color: #859900; font-weight: bold;">class</span> <span style="color: #b58900; font-style: italic;">Area</span> a <span style="color: #859900; font-weight: bold;">where</span>
+  area1 <span style="color: #268bd2;">::</span> a <span style="color: #268bd2;">-&gt;</span> <span style="color: #b58900; font-style: italic;">Float</span>
 &#8203;
-<span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">Area</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #93a61a; font-weight: bold;">where</span>
-  area1 (<span style="color: #c49619; font-style: italic;">Square1</span> side) <span style="color: #8d9fa1;">=</span> side <span style="color: #8d9fa1;">*</span> side
+<span style="color: #859900; font-weight: bold;">instance</span> <span style="color: #b58900; font-style: italic;">Area</span> <span style="color: #b58900; font-style: italic;">Square1</span> <span style="color: #859900; font-weight: bold;">where</span>
+  area1 (<span style="color: #b58900; font-style: italic;">Square1</span> side) <span style="color: #268bd2;">=</span> side <span style="color: #268bd2;">*</span> side
 &#8203;
-<span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">Area</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #93a61a; font-weight: bold;">where</span>
-  area1 (<span style="color: #c49619; font-style: italic;">Circle1</span> r) <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">3.14</span> <span style="color: #8d9fa1;">*</span> r <span style="color: #8d9fa1;">*</span> r
+<span style="color: #859900; font-weight: bold;">instance</span> <span style="color: #b58900; font-style: italic;">Area</span> <span style="color: #b58900; font-style: italic;">Circle1</span> <span style="color: #859900; font-weight: bold;">where</span>
+  area1 (<span style="color: #b58900; font-style: italic;">Circle1</span> r) <span style="color: #268bd2;">=</span> <span style="color: #6c71c4; font-weight: bold;">3.14</span> <span style="color: #268bd2;">*</span> r <span style="color: #268bd2;">*</span> r
 </pre>
 </div>
 
@@ -93,7 +93,7 @@ Thanks to <a href="https://www.danielbrice.net/">Daniel</a>, he pointed me that 
 </p>
 
 <p>
-TODO: demo the limitation
+<i>TODO: demo the limitation</i>
 </p>
 
 <p>
@@ -141,13 +141,18 @@ The solutions appear pretty much same as Type Class solution since the basic ide
 
 <div id="outline-container-org477093b" class="outline-2">
 <h2 id="org477093b"><span class="section-number-2">4.</span> Read paper <a href="https://www.cs.utexas.edu/~wcook/Drafts/2009/essay.pdf">On Understanding Data Abstraction</a></h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Read once but didn&rsquo;t follow well. Maybe worth re-read.</li>
+</ul>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2023-01-05 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2023-01-05 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
 </footer>
 </div>
 </body>
