@@ -30,24 +30,24 @@ And package it into a jar, like <b>oracleaq-factory.jar</b></li>
 create a new session for AQ topic (EAB<sub>DEMO</sub><sub>QUEUE</sub> here):
 </p>
 <div class="org-src-container">
-<pre class="src src-xml">&lt;?<span style="color: #93a61a; font-weight: bold;">xml</span> <span style="color: #35a69c; font-style: italic;">version="1.0" encoding="utf-8"</span>?&gt;
-&#160; &#160;&#160;&#160; &lt;<span style="color: #3c98e0;">factory</span> <span style="color: #8d9fa1;">classpathId</span>=<span style="color: #93a61a;">"OracleAQ"</span>&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">provider</span> <span style="color: #8d9fa1;">className</span>=<span style="color: #93a61a;">"com.freizl.OracleAQFactory"</span>&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">properties</span>&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">property</span> <span style="color: #8d9fa1;">name</span>=<span style="color: #93a61a;">"hostName"</span> <span style="color: #8d9fa1;">value</span>=<span style="color: #93a61a;">"vlinux"</span>/&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">property</span> <span style="color: #8d9fa1;">name</span>=<span style="color: #93a61a;">"password"</span> <span style="color: #8d9fa1;">value</span>=<span style="color: #93a61a;">"demoq"</span>/&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">property</span> <span style="color: #8d9fa1;">name</span>=<span style="color: #93a61a;">"sid"</span> <span style="color: #8d9fa1;">value</span>=<span style="color: #93a61a;">"XE"</span>/&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">property</span> <span style="color: #8d9fa1;">name</span>=<span style="color: #93a61a;">"userName"</span> <span style="color: #8d9fa1;">value</span>=<span style="color: #93a61a;">"demoq"</span>/&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/<span style="color: #3c98e0;">properties</span>&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/<span style="color: #3c98e0;">provider</span>&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">connection</span> <span style="color: #8d9fa1;">clientID</span>=<span style="color: #93a61a;">""</span> <span style="color: #8d9fa1;">connectionPerThread</span>=<span style="color: #93a61a;">"false"</span>&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">session</span> <span style="color: #8d9fa1;">audit</span>=<span style="color: #93a61a;">"false"</span> <span style="color: #8d9fa1;">checkSize</span>=<span style="color: #93a61a;">"false"</span> <span style="color: #8d9fa1;">checkSizePeriod</span>=<span style="color: #93a61a;">"0"</span> <span style="color: #8d9fa1;">id</span>=<span style="color: #93a61a;">" OralceAQ\_Local"</span> <span style="color: #8d9fa1;">reconnects</span>=<span style="color: #93a61a;">"0"</span> <span style="color: #8d9fa1;">transacted</span>=<span style="color: #93a61a;">"true"</span> <span style="color: #8d9fa1;">useConsumerForQueueBrowse</span>=<span style="color: #93a61a;">"false"</span>/&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/<span style="color: #3c98e0;">connection</span>&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">destination</span> <span style="color: #8d9fa1;">domain</span>=<span style="color: #93a61a;">"2"</span> <span style="color: #8d9fa1;">durable</span>=<span style="color: #93a61a;">"false"</span> <span style="color: #8d9fa1;">name</span>=<span style="color: #93a61a;">"EAB\_DEMO\_QUEUE"</span>/&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">extension</span> <span style="color: #8d9fa1;">className</span>=<span style="color: #93a61a;">"hermes.ext.DefaultHermesAdminFactory"</span>&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #3c98e0;">properties</span>/&gt;
-&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/<span style="color: #3c98e0;">extension</span>&gt;
-&#160;&#160;&#160; &lt;/<span style="color: #3c98e0;">factory</span>&gt;
+<pre class="src src-xml">&lt;?<span style="color: #ff79c6;">xml</span> <span style="color: #8995ba;">version="1.0" encoding="utf-8"</span>?&gt;
+&#160; &#160;&#160;&#160; &lt;<span style="color: #50fa7b;">factory</span> <span style="color: #ffc9e8;">classpathId</span>=<span style="color: #f1fa8c;">"OracleAQ"</span>&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">provider</span> <span style="color: #ffc9e8;">className</span>=<span style="color: #f1fa8c;">"com.freizl.OracleAQFactory"</span>&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">properties</span>&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">property</span> <span style="color: #ffc9e8;">name</span>=<span style="color: #f1fa8c;">"hostName"</span> <span style="color: #ffc9e8;">value</span>=<span style="color: #f1fa8c;">"vlinux"</span>/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">property</span> <span style="color: #ffc9e8;">name</span>=<span style="color: #f1fa8c;">"password"</span> <span style="color: #ffc9e8;">value</span>=<span style="color: #f1fa8c;">"demoq"</span>/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">property</span> <span style="color: #ffc9e8;">name</span>=<span style="color: #f1fa8c;">"sid"</span> <span style="color: #ffc9e8;">value</span>=<span style="color: #f1fa8c;">"XE"</span>/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">property</span> <span style="color: #ffc9e8;">name</span>=<span style="color: #f1fa8c;">"userName"</span> <span style="color: #ffc9e8;">value</span>=<span style="color: #f1fa8c;">"demoq"</span>/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/<span style="color: #50fa7b;">properties</span>&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/<span style="color: #50fa7b;">provider</span>&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">connection</span> <span style="color: #ffc9e8;">clientID</span>=<span style="color: #f1fa8c;">""</span> <span style="color: #ffc9e8;">connectionPerThread</span>=<span style="color: #f1fa8c;">"false"</span>&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">session</span> <span style="color: #ffc9e8;">audit</span>=<span style="color: #f1fa8c;">"false"</span> <span style="color: #ffc9e8;">checkSize</span>=<span style="color: #f1fa8c;">"false"</span> <span style="color: #ffc9e8;">checkSizePeriod</span>=<span style="color: #f1fa8c;">"0"</span> <span style="color: #ffc9e8;">id</span>=<span style="color: #f1fa8c;">" OralceAQ\_Local"</span> <span style="color: #ffc9e8;">reconnects</span>=<span style="color: #f1fa8c;">"0"</span> <span style="color: #ffc9e8;">transacted</span>=<span style="color: #f1fa8c;">"true"</span> <span style="color: #ffc9e8;">useConsumerForQueueBrowse</span>=<span style="color: #f1fa8c;">"false"</span>/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/<span style="color: #50fa7b;">connection</span>&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">destination</span> <span style="color: #ffc9e8;">domain</span>=<span style="color: #f1fa8c;">"2"</span> <span style="color: #ffc9e8;">durable</span>=<span style="color: #f1fa8c;">"false"</span> <span style="color: #ffc9e8;">name</span>=<span style="color: #f1fa8c;">"EAB\_DEMO\_QUEUE"</span>/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">extension</span> <span style="color: #ffc9e8;">className</span>=<span style="color: #f1fa8c;">"hermes.ext.DefaultHermesAdminFactory"</span>&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;<span style="color: #50fa7b;">properties</span>/&gt;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160; &lt;/<span style="color: #50fa7b;">extension</span>&gt;
+&#160;&#160;&#160; &lt;/<span style="color: #50fa7b;">factory</span>&gt;
 
 </pre>
 </div></li>
@@ -66,7 +66,7 @@ the Hermes. (not consume, just browser).
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-10-12 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2008-10-12 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
 </footer>
 </div>
 </body>

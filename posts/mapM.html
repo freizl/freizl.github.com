@@ -23,29 +23,29 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgfb31e22">1. How to understand the following computation result?</a></li>
-<li><a href="#org888e2eb">2. Reason about</a></li>
+<li><a href="#org3e458d0">1. How to understand the following computation result?</a></li>
+<li><a href="#org9a6f5d4">2. Reason about</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgfb31e22" class="outline-2">
-<h2 id="orgfb31e22"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
+<div id="outline-container-org3e458d0" class="outline-2">
+<h2 id="org3e458d0"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #3c98e0;">mapM</span> id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
+<pre class="src src-haskell"><span style="color: #bd93f9; font-weight: bold;">mapM</span> <span style="color: #ffc9e8;">id</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">Just</span> <span style="color: #8be9fd;">1</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #bd93f9;">Nothing</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #bd93f9;">Just</span> <span style="color: #8be9fd;">3</span><span style="color: #f8f8f2; background-color: #282a36;">]</span>
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org888e2eb" class="outline-2">
-<h2 id="org888e2eb"><span class="section-number-2">2.</span> Reason about</h2>
+<div id="outline-container-org9a6f5d4" class="outline-2">
+<h2 id="org9a6f5d4"><span class="section-number-2">2.</span> Reason about</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-haskell">  mapM     <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> m b) <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> m [b]
-  id       <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> a
-  sequence <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> [m a] <span style="color: #8d9fa1;">-&gt;</span> m [a]
+<pre class="src src-haskell">  <span style="color: #50fa7b;">mapM</span>     <span style="color: #ff79c6;">::</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">m</span> <span style="color: #bd93f9;">b</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">]</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">m</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">b</span><span style="color: #f8f8f2; background-color: #282a36;">]</span>
+  <span style="color: #bd93f9;">id</span>       <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">a</span>
+  <span style="color: #bd93f9;">sequence</span> <span style="color: #ff79c6;">::</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">Monad</span> <span style="color: #bd93f9;">m</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">=&gt;</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">m</span> <span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">]</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">m</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">]</span>
 </pre>
 </div>
 
@@ -54,9 +54,9 @@ Therefore,
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #8d9fa1;">&gt;</span> a <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">Int</span>
-  <span style="color: #8d9fa1;">&gt;</span> m <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Maybe</span>
-  <span style="color: #8d9fa1;">&gt;</span> b <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Int</span>
+<pre class="src src-haskell">  &gt; <span style="color: #bd93f9; font-weight: bold;">a</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">Maybe</span> <span style="color: #bd93f9;">Int</span>
+  <span style="color: #ff79c6;">&gt;</span> <span style="color: #bd93f9; font-weight: bold;">m</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">Maybe</span>
+  <span style="color: #ff79c6;">&gt;</span> <span style="color: #bd93f9; font-weight: bold;">b</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">Int</span>
 </pre>
 </div>
 
@@ -65,11 +65,11 @@ the <code>mapM</code> and sequence is implemented like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #3c98e0;">mapM</span> f xs <span style="color: #8d9fa1;">=</span> sequence (map f xs)
+<pre class="src src-haskell"><span style="color: #bd93f9; font-weight: bold;">mapM</span> <span style="color: #ffc9e8;">f</span><span style="color: #ffc9e8;"> </span><span style="color: #ffc9e8;">xs</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">sequence</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">map</span> <span style="color: #ffc9e8;">f</span> <span style="color: #ffc9e8;">xs</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
 
-<span style="color: #3c98e0;">sequence</span> (c<span style="color: #c49619; font-style: italic;">:</span>cs) <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span> x  <span style="color: #8d9fa1;">&lt;-</span> c
-                     xs <span style="color: #8d9fa1;">&lt;-</span> sequence cs
-                  return (x<span style="color: #c49619; font-style: italic;">:</span>xs)
+<span style="color: #bd93f9; font-weight: bold;">sequence</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ffc9e8;">c</span><span style="color: #ff79c6;">:</span><span style="color: #ffc9e8;">cs</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">do</span> <span style="color: #ffc9e8;">x</span>  <span style="color: #ff79c6;">&lt;-</span> <span style="color: #ffc9e8;">c</span>
+                     <span style="color: #ffc9e8;">xs</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #bd93f9; font-weight: bold;">sequence</span> <span style="color: #ffc9e8;">cs</span>
+                  <span style="color: #ffc9e8;">return</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd; font-style: italic;">x</span><span style="color: #ff79c6;">:</span><span style="color: #8be9fd; font-style: italic;">xs</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
 </pre>
 </div>
 
@@ -78,13 +78,13 @@ Hence the result could be understood in such way
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  mapM id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
-<span style="color: #8d9fa1;">=</span> sequence (map id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>])
-<span style="color: #8d9fa1;">=</span> sequence [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
-<span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span> { x <span style="color: #8d9fa1;">&lt;-</span> <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>; xs <span style="color: #8d9fa1;">&lt;-</span> sequence [<span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]; return (x<span style="color: #c49619; font-style: italic;">:</span>xs) }
-<span style="color: #8d9fa1;">=</span> <span style="color: #8d9fa1;">...</span>
-<span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #8d9fa1;">&gt;&gt;=</span> <span style="color: #8d9fa1;">\</span>x <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Nothing</span> <span style="color: #8d9fa1;">&gt;&gt;=</span> <span style="color: #8d9fa1;">\</span>y <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span> <span style="color: #8d9fa1;">&gt;&gt;=</span> <span style="color: #8d9fa1;">\</span>z <span style="color: #8d9fa1;">-&gt;</span> return (x<span style="color: #c49619; font-style: italic;">:</span>y<span style="color: #c49619; font-style: italic;">:</span>z)
-<span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Nothing</span>          <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">Because Nothing &gt;&gt;= ... produce Nothing</span>
+<pre class="src src-haskell">  <span style="color: #bd93f9; font-weight: bold;">mapM</span> <span style="color: #ffc9e8;">id</span><span style="color: #ffc9e8;"> </span><span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">Just</span><span style="color: #ffc9e8;"> </span><span style="color: #8be9fd;">1</span><span style="color: #f8f8f2; background-color: #282a36;">,</span><span style="color: #ffc9e8;"> </span><span style="color: #bd93f9;">Nothing</span><span style="color: #f8f8f2; background-color: #282a36;">,</span><span style="color: #ffc9e8;"> </span><span style="color: #bd93f9;">Just</span><span style="color: #ffc9e8;"> </span><span style="color: #8be9fd;">3</span><span style="color: #f8f8f2; background-color: #282a36;">]</span>
+<span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">sequence</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">map</span> <span style="color: #ffc9e8;">id</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">Just</span> <span style="color: #8be9fd;">1</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #bd93f9;">Nothing</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #bd93f9;">Just</span> <span style="color: #8be9fd;">3</span><span style="color: #f8f8f2; background-color: #282a36;">])</span>
+<span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">sequence</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">Just</span><span style="color: #ffc9e8;"> </span><span style="color: #8be9fd;">1</span><span style="color: #f8f8f2; background-color: #282a36;">,</span><span style="color: #ffc9e8;"> </span><span style="color: #bd93f9;">Nothing</span><span style="color: #f8f8f2; background-color: #282a36;">,</span><span style="color: #ffc9e8;"> </span><span style="color: #bd93f9;">Just</span><span style="color: #ffc9e8;"> </span><span style="color: #8be9fd;">3</span><span style="color: #f8f8f2; background-color: #282a36;">]</span>
+<span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">do</span> <span style="color: #f8f8f2; background-color: #282a36;">{</span> <span style="color: #ffc9e8;">x</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #bd93f9;">Just</span> <span style="color: #8be9fd;">1</span><span style="color: #f8f8f2; background-color: #282a36;">;</span> <span style="color: #ffc9e8;">xs</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #bd93f9; font-weight: bold;">sequence</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">Nothing</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #bd93f9;">Just</span> <span style="color: #8be9fd;">3</span><span style="color: #f8f8f2; background-color: #282a36;">]</span><span style="color: #f8f8f2; background-color: #282a36;">;</span> <span style="color: #bd93f9; font-weight: bold;">return</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd; font-style: italic;">x</span><span style="color: #ff79c6;">:</span><span style="color: #8be9fd; font-style: italic;">xs</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #f8f8f2; background-color: #282a36;">}</span>
+<span style="color: #ff79c6;">=</span> ...
+<span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">Just</span> <span style="color: #8be9fd;">1</span> <span style="color: #ff79c6;">&gt;&gt;=</span> <span style="color: #ff79c6;">\</span><span style="color: #ffc9e8;">x</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Nothing</span> <span style="color: #ff79c6;">&gt;&gt;=</span> <span style="color: #ff79c6;">\</span><span style="color: #ffc9e8;">y</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Just</span> <span style="color: #8be9fd;">3</span> <span style="color: #ff79c6;">&gt;&gt;=</span> <span style="color: #ff79c6;">\</span><span style="color: #ffc9e8;">z</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9; font-weight: bold;">return</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd; font-style: italic;">x</span><span style="color: #ff79c6;">:</span><span style="color: #8be9fd; font-style: italic;">y</span><span style="color: #ff79c6;">:</span><span style="color: #8be9fd; font-style: italic;">z</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
+<span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">Nothing</span>          <span style="color: #6272a4;">-- Because Nothing &gt;&gt;= ... produce Nothing</span>
 </pre>
 </div>
 </div>
@@ -94,7 +94,7 @@ Hence the result could be understood in such way
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-06-14 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2011-06-14 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
 </footer>
 </div>
 </body>

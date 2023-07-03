@@ -38,21 +38,21 @@ A concern arise while I compare following two instances of <code>Maybe</code>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Eq</span> a <span style="color: #93a61a; font-weight: bold;">where</span>
-      (<span style="color: #8d9fa1;">==</span>) <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Bool</span>
-      (<span style="color: #8d9fa1;">/=</span>) <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Bool</span>
+<pre class="src src-haskell">  <span style="color: #ff79c6;">class</span> <span style="color: #bd93f9;">Eq</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">where</span>
+      <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ff79c6;">==</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Bool</span>
+      <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ff79c6;">/=</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Bool</span>
 
-  <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Functor</span> f <span style="color: #93a61a; font-weight: bold;">where</span>
-      fmap <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b) <span style="color: #8d9fa1;">-&gt;</span> f a <span style="color: #8d9fa1;">-&gt;</span> f b
+  <span style="color: #ff79c6;">class</span> <span style="color: #bd93f9;">Functor</span> <span style="color: #bd93f9;">f</span> <span style="color: #ff79c6;">where</span>
+      <span style="color: #ffc9e8;">fmap</span> <span style="color: #ff79c6;">::</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">f</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">f</span> <span style="color: #bd93f9;">b</span>
 
-  <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">Eq</span> a) <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">Eq</span> (<span style="color: #c49619; font-style: italic;">Maybe</span> a) <span style="color: #93a61a; font-weight: bold;">where</span>
-      <span style="color: #c49619; font-style: italic;">Just</span> x <span style="color: #8d9fa1;">==</span> <span style="color: #c49619; font-style: italic;">Just</span> y <span style="color: #8d9fa1;">=</span> x <span style="color: #8d9fa1;">==</span> y
-      <span style="color: #c49619; font-style: italic;">Nothing</span> <span style="color: #8d9fa1;">==</span> <span style="color: #c49619; font-style: italic;">Nothing</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">True</span>
-      <span style="color: #93a61a; font-weight: bold;">_</span> <span style="color: #8d9fa1;">==</span> <span style="color: #93a61a; font-weight: bold;">_</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">False</span>
+  <span style="color: #bd93f9;">instance</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">Eq</span> <span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">=&gt;</span> <span style="color: #bd93f9;">Eq</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">Maybe</span> <span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #bd93f9;">where</span>
+      <span style="color: #bd93f9;">Just</span> <span style="color: #bd93f9;">x</span> <span style="color: #ff79c6;">==</span> <span style="color: #bd93f9;">Just</span> <span style="color: #bd93f9;">y</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">x</span> <span style="color: #ff79c6;">==</span> <span style="color: #bd93f9;">y</span>
+      <span style="color: #bd93f9;">Nothing</span> <span style="color: #ff79c6;">==</span> <span style="color: #bd93f9;">Nothing</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">True</span>
+      <span style="color: #bd93f9;">_</span> <span style="color: #ff79c6;">==</span> _ <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">False</span>
 
-  <span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">Functor</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #93a61a; font-weight: bold;">where</span>
-      fmap f (<span style="color: #c49619; font-style: italic;">Just</span> x) <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Just</span> (f x)
-      fmap f <span style="color: #c49619; font-style: italic;">Nothing</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Nothing</span>
+  <span style="color: #bd93f9;">instance</span> <span style="color: #bd93f9;">Functor</span> <span style="color: #bd93f9;">Maybe</span> <span style="color: #bd93f9;">where</span>
+      <span style="color: #bd93f9;">fmap</span> <span style="color: #bd93f9;">f</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">Just</span> <span style="color: #bd93f9;">x</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">Just</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">f</span> <span style="color: #bd93f9;">x</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
+      <span style="color: #bd93f9;">fmap</span> <span style="color: #bd93f9;">f</span> <span style="color: #bd93f9;">Nothing</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffb86c;">Nothing</span>
 </pre>
 </div>
 
@@ -129,7 +129,7 @@ It is <code>(-&gt;) r</code> which was confusing at first glance. However, if we
 it having Polish notation<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> in mind, it looks like less confusing.
 </p>
 
-<pre class="example" id="org2a3ee7f">
+<pre class="example" id="org619d6ab">
   instance Functor ((-&gt;) r) where
       fmap f g = (\x -&gt; f (g x))
 </pre>
@@ -178,7 +178,7 @@ knowledge.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-07-02 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2011-07-02 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
 </footer>
 </div>
 </body>

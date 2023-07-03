@@ -23,15 +23,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd43f25f">1. Summary</a></li>
-<li><a href="#org863d591">2. Example</a></li>
-<li><a href="#orgd1489c2">3. Reference</a></li>
+<li><a href="#orge9f0783">1. Summary</a></li>
+<li><a href="#org4c03143">2. Example</a></li>
+<li><a href="#org67055fe">3. Reference</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgd43f25f" class="outline-2">
-<h2 id="orgd43f25f"><span class="section-number-2">1.</span> Summary</h2>
+<div id="outline-container-orge9f0783" class="outline-2">
+<h2 id="orge9f0783"><span class="section-number-2">1.</span> Summary</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Two&rsquo;s component is one of the Signed number representations. Its
@@ -70,14 +70,14 @@ The relationship to two&rsquo;s complement is realized by noting that 256 =
 </div>
 </div>
 
-<div id="outline-container-org863d591" class="outline-2">
-<h2 id="org863d591"><span class="section-number-2">2.</span> Example</h2>
+<div id="outline-container-org4c03143" class="outline-2">
+<h2 id="org4c03143"><span class="section-number-2">2.</span> Example</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 −95 modulo 256 is equivalent to 161 since
 </p>
 
-<pre class="example" id="org800c93c">
+<pre class="example" id="orge2c6a69">
 −95 + 256
 
 \= −95 + 255 + 1
@@ -97,8 +97,8 @@ two&rsquo;s component is just because the Java puzzler below.
 
 <div class="org-src-container">
 <pre class="src src-java">
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">JoyOfHex</span> { 
-  <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">main</span>(String\[\] args) { 
+<span style="color: #ff79c6;">public</span> <span style="color: #ff79c6;">class</span> <span style="color: #bd93f9;">JoyOfHex</span> { 
+  <span style="color: #ff79c6;">public</span> <span style="color: #ff79c6;">static</span> <span style="color: #bd93f9;">void</span> <span style="color: #50fa7b;">main</span>(String\[\] args) { 
     System.out.println( Long.toHexString(0x100000000L + 0xcafebabe)); 
   } 
 }
@@ -116,8 +116,8 @@ Long.toHexString(0x100000000L + 0xcafebabe L));
 </div>
 </div>
 
-<div id="outline-container-orgd1489c2" class="outline-2">
-<h2 id="orgd1489c2"><span class="section-number-2">3.</span> Reference</h2>
+<div id="outline-container-org67055fe" class="outline-2">
+<h2 id="org67055fe"><span class="section-number-2">3.</span> Reference</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Java™ Puzzlers: Traps, Pitfalls, and Corner Cases By Joshua Bloch, Neal Gafter</li>
@@ -130,7 +130,7 @@ Long.toHexString(0x100000000L + 0xcafebabe L));
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2007-08-14 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2007-08-14 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
 </footer>
 </div>
 </body>

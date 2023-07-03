@@ -24,8 +24,8 @@ add following to a xwork.xml config file:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-xml">&lt;?<span style="color: #93a61a; font-weight: bold;">xml</span> <span style="color: #35a69c; font-style: italic;">version="1.0" encoding="utf-8"</span>?&gt;
-&lt;<span style="color: #3c98e0;">result-types</span>&gt; &lt;<span style="color: #3c98e0;">result-type</span> <span style="color: #8d9fa1;">name</span>=<span style="color: #93a61a;">"mydispatch"</span> <span style="color: #8d9fa1;">class</span>=<span style="color: #93a61a;">"com.company.portal.util.MyDispatch"</span> <span style="color: #8d9fa1;">default</span>=<span style="color: #93a61a;">"true"</span>/&gt; &lt;<span style="color: #3c98e0;">result-type</span> <span style="color: #8d9fa1;">name</span>=<span style="color: #93a61a;">"my2dispatch"</span> <span style="color: #8d9fa1;">class</span>=<span style="color: #93a61a;">"MyDispatch"</span> <span style="color: #8d9fa1;">default</span>=<span style="color: #93a61a;">"true"</span>/&gt;<span style="color: #62787f; font-style: italic;">&lt;!-- </span><span style="color: #62787f; font-style: italic;">spring wire bean</span><span style="color: #62787f; font-style: italic;"> --&gt;</span> &lt;/<span style="color: #3c98e0;">result-types</span>&gt;
+<pre class="src src-xml">&lt;?<span style="color: #ff79c6;">xml</span> <span style="color: #8995ba;">version="1.0" encoding="utf-8"</span>?&gt;
+&lt;<span style="color: #50fa7b;">result-types</span>&gt; &lt;<span style="color: #50fa7b;">result-type</span> <span style="color: #ffc9e8;">name</span>=<span style="color: #f1fa8c;">"mydispatch"</span> <span style="color: #ffc9e8;">class</span>=<span style="color: #f1fa8c;">"com.company.portal.util.MyDispatch"</span> <span style="color: #ffc9e8;">default</span>=<span style="color: #f1fa8c;">"true"</span>/&gt; &lt;<span style="color: #50fa7b;">result-type</span> <span style="color: #ffc9e8;">name</span>=<span style="color: #f1fa8c;">"my2dispatch"</span> <span style="color: #ffc9e8;">class</span>=<span style="color: #f1fa8c;">"MyDispatch"</span> <span style="color: #ffc9e8;">default</span>=<span style="color: #f1fa8c;">"true"</span>/&gt;<span style="color: #6272a4;">&lt;!-- </span><span style="color: #6272a4;">spring wire bean</span><span style="color: #6272a4;"> --&gt;</span> &lt;/<span style="color: #50fa7b;">result-types</span>&gt;
 </pre>
 </div>
 
@@ -34,8 +34,8 @@ use this custom type in the action:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-xml">&lt;?<span style="color: #93a61a; font-weight: bold;">xml</span> <span style="color: #35a69c; font-style: italic;">version="1.0" encoding="utf-8"</span>?&gt;
-&lt;<span style="color: #3c98e0;">action</span> <span style="color: #8d9fa1;">name</span>=<span style="color: #93a61a;">"mydispatch"</span> <span style="color: #8d9fa1;">class</span>=<span style="color: #93a61a;">"myPackage.barAction"</span>&gt; &lt;<span style="color: #3c98e0;">result</span>&gt;foo.jsp&lt;/<span style="color: #3c98e0;">result</span>&gt; &lt;/<span style="color: #3c98e0;">action</span>&gt;
+<pre class="src src-xml">&lt;?<span style="color: #ff79c6;">xml</span> <span style="color: #8995ba;">version="1.0" encoding="utf-8"</span>?&gt;
+&lt;<span style="color: #50fa7b;">action</span> <span style="color: #ffc9e8;">name</span>=<span style="color: #f1fa8c;">"mydispatch"</span> <span style="color: #ffc9e8;">class</span>=<span style="color: #f1fa8c;">"myPackage.barAction"</span>&gt; &lt;<span style="color: #50fa7b;">result</span>&gt;foo.jsp&lt;/<span style="color: #50fa7b;">result</span>&gt; &lt;/<span style="color: #50fa7b;">action</span>&gt;
 
 </pre>
 </div>
@@ -48,41 +48,41 @@ for the action. major methods in WebWorkSupport.java
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #35a69c; font-style: italic;">/** * Implementation of the execute method from the Result interface.</span>
-<span style="color: #35a69c; font-style: italic;">This will call * the abstract method {[cite/t:@link] #doExecute(String,</span>
-<span style="color: #35a69c; font-style: italic;">ActionInvocation)} after optionally evaluating the * location as an OGNL</span>
-<span style="color: #35a69c; font-style: italic;">evaluation. * * [cite/t:@param] invocation the execution state of the</span>
-<span style="color: #35a69c; font-style: italic;">action. * [cite/t:@throws] Exception if an error occurs while executing</span>
-<span style="color: #35a69c; font-style: italic;">the result. */</span>
+<pre class="src src-java"><span style="color: #8995ba;">/** * Implementation of the execute method from the Result interface.</span>
+<span style="color: #8995ba;">This will call * the abstract method {[cite/t:@link] #doExecute(String,</span>
+<span style="color: #8995ba;">ActionInvocation)} after optionally evaluating the * location as an OGNL</span>
+<span style="color: #8995ba;">evaluation. * * [cite/t:@param] invocation the execution state of the</span>
+<span style="color: #8995ba;">action. * [cite/t:@throws] Exception if an error occurs while executing</span>
+<span style="color: #8995ba;">the result. */</span>
 
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">execute</span>(<span style="color: #c49619; font-style: italic;">ActionInvocation</span> <span style="color: #8d9fa1;">invocation</span>) <span style="color: #93a61a; font-weight: bold;">throws</span> <span style="color: #c49619; font-style: italic;">Exception</span> {
+<span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">void</span> <span style="color: #50fa7b;">execute</span>(<span style="color: #bd93f9;">ActionInvocation</span> <span style="color: #ffc9e8;">invocation</span>) <span style="color: #ff79c6;">throws</span> <span style="color: #bd93f9;">Exception</span> {
     doExecute(conditionalParse(location, invocation), invocation);
 }
 
-<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #c49619; font-style: italic;">String</span> <span style="color: #3c98e0;">conditionalParse</span>(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">param</span>,
-<span style="color: #c49619; font-style: italic;">ActionInvocation</span> <span style="color: #8d9fa1;">invocation</span>) { <span style="color: #93a61a; font-weight: bold;">if</span> (parse &amp;&amp; param != <span style="color: #3c98e0; font-weight: bold;">null</span> &amp;&amp; invocation
-!= <span style="color: #3c98e0; font-weight: bold;">null</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> TextParseUtil.translateVariables(param,
-invocation.getStack(), <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #3c98e0; font-weight: bold;">TextParseUtil</span>.<span style="color: #c49619; font-style: italic;">ParsedValueEvaluator</span>() { <span style="color: #93a61a; font-weight: bold;">public</span>
-<span style="color: #c49619; font-style: italic;">Object</span> <span style="color: #3c98e0;">evaluate</span>(<span style="color: #c49619; font-style: italic;">Object</span> <span style="color: #8d9fa1;">parsedValue</span>) { <span style="color: #93a61a; font-weight: bold;">if</span> (encode) { <span style="color: #93a61a; font-weight: bold;">if</span> (parsedValue !=
-<span style="color: #3c98e0; font-weight: bold;">null</span>) { <span style="color: #93a61a; font-weight: bold;">try</span> { <span style="color: #62787f; font-style: italic;">// </span><span style="color: #62787f; font-style: italic;">use UTF-8 as this is the recommended encoding by W3C to</span>
-<span style="color: #62787f; font-style: italic;">// </span><span style="color: #62787f; font-style: italic;">avoid incompatibilities. return</span>
-URLEncoder.encode(parsedValue.toString(), <span style="color: #93a61a;">"UTF-8"</span>);
-}<span style="color: #93a61a; font-weight: bold;">catch</span>(<span style="color: #c49619; font-style: italic;">UnsupportedEncodingException</span> <span style="color: #8d9fa1;">e</span>) { _log.warn(<span style="color: #c49619;">"</span><span style="color: #93a61a;">error while trying</span>
-to encode [<span style="color: #93a61a;">"+parsedValue+"</span>]<span style="color: #c49619;">"</span><span style="color: #93a61a;">, e); } } } return parsedValue; } }); } else</span>
-{ <span style="color: #93a61a; font-weight: bold;">return</span> param; } }
+<span style="color: #ff79c6;">protected</span> <span style="color: #bd93f9;">String</span> <span style="color: #50fa7b;">conditionalParse</span>(<span style="color: #bd93f9;">String</span> <span style="color: #ffc9e8;">param</span>,
+<span style="color: #bd93f9;">ActionInvocation</span> <span style="color: #ffc9e8;">invocation</span>) { <span style="color: #ff79c6;">if</span> (parse &amp;&amp; param != <span style="color: #8be9fd;">null</span> &amp;&amp; invocation
+!= <span style="color: #8be9fd;">null</span>) { <span style="color: #ff79c6;">return</span> TextParseUtil.translateVariables(param,
+invocation.getStack(), <span style="color: #ff79c6;">new</span> <span style="color: #8be9fd;">TextParseUtil</span>.<span style="color: #bd93f9;">ParsedValueEvaluator</span>() { <span style="color: #ff79c6;">public</span>
+<span style="color: #bd93f9;">Object</span> <span style="color: #50fa7b;">evaluate</span>(<span style="color: #bd93f9;">Object</span> <span style="color: #ffc9e8;">parsedValue</span>) { <span style="color: #ff79c6;">if</span> (encode) { <span style="color: #ff79c6;">if</span> (parsedValue !=
+<span style="color: #8be9fd;">null</span>) { <span style="color: #ff79c6;">try</span> { <span style="color: #6272a4;">// </span><span style="color: #6272a4;">use UTF-8 as this is the recommended encoding by W3C to</span>
+<span style="color: #6272a4;">// </span><span style="color: #6272a4;">avoid incompatibilities. return</span>
+URLEncoder.encode(parsedValue.toString(), <span style="color: #f1fa8c;">"UTF-8"</span>);
+}<span style="color: #ff79c6;">catch</span>(<span style="color: #bd93f9;">UnsupportedEncodingException</span> <span style="color: #ffc9e8;">e</span>) { _log.warn(<span style="color: #f1fa8c;">"</span><span style="color: #f1fa8c;">error while trying</span>
+to encode [<span style="color: #f1fa8c;">"+parsedValue+"</span>]<span style="color: #f1fa8c;">"</span><span style="color: #f1fa8c;">, e); } } } return parsedValue; } }); } else</span>
+{ <span style="color: #ff79c6;">return</span> param; } }
 
-<span style="color: #35a69c; font-style: italic;">/**</span>
-<span style="color: #35a69c; font-style: italic;"> * Executes the result given a final location (jsp page, action, etc) and the action invocation</span>
-<span style="color: #35a69c; font-style: italic;"> * (the state in which the action was executed).</span>
-<span style="color: #35a69c; font-style: italic;"> * Subclasses must implement this class to handle</span>
-<span style="color: #35a69c; font-style: italic;"> * custom logic for result handling.</span>
-<span style="color: #35a69c; font-style: italic;"> *</span>
-<span style="color: #35a69c; font-style: italic;"> * [cite/t:@param] finalLocation the location (jsp page, action, etc) to go to.</span>
-<span style="color: #35a69c; font-style: italic;"> * [cite/t:@param] invocation the execution state of the action.</span>
-<span style="color: #35a69c; font-style: italic;"> * [cite/t:@throws] Exception if an error occurs while executing the result.</span>
-<span style="color: #35a69c; font-style: italic;">*/</span>
+<span style="color: #8995ba;">/**</span>
+<span style="color: #8995ba;"> * Executes the result given a final location (jsp page, action, etc) and the action invocation</span>
+<span style="color: #8995ba;"> * (the state in which the action was executed).</span>
+<span style="color: #8995ba;"> * Subclasses must implement this class to handle</span>
+<span style="color: #8995ba;"> * custom logic for result handling.</span>
+<span style="color: #8995ba;"> *</span>
+<span style="color: #8995ba;"> * [cite/t:@param] finalLocation the location (jsp page, action, etc) to go to.</span>
+<span style="color: #8995ba;"> * [cite/t:@param] invocation the execution state of the action.</span>
+<span style="color: #8995ba;"> * [cite/t:@throws] Exception if an error occurs while executing the result.</span>
+<span style="color: #8995ba;">*/</span>
 
-<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">doExecute</span>(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">finalLocation</span>, <span style="color: #c49619; font-style: italic;">ActionInvocation</span> <span style="color: #8d9fa1;">invocation</span>) <span style="color: #93a61a; font-weight: bold;">throws</span> <span style="color: #c49619; font-style: italic;">Exception</span>;
+<span style="color: #ff79c6;">protected</span> <span style="color: #ff79c6;">abstract</span> <span style="color: #bd93f9;">void</span> <span style="color: #50fa7b;">doExecute</span>(<span style="color: #bd93f9;">String</span> <span style="color: #ffc9e8;">finalLocation</span>, <span style="color: #bd93f9;">ActionInvocation</span> <span style="color: #ffc9e8;">invocation</span>) <span style="color: #ff79c6;">throws</span> <span style="color: #bd93f9;">Exception</span>;
 
 </pre>
 </div>
@@ -91,7 +91,7 @@ to encode [<span style="color: #93a61a;">"+parsedValue+"</span>]<span style="col
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-01-27 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2008-01-27 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
 </footer>
 </div>
 </body>

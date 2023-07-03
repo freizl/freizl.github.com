@@ -23,15 +23,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org07dc932">1. Introduction</a></li>
-<li><a href="#org582d2e6">2. Sample</a></li>
+<li><a href="#org3024d7c">1. Introduction</a></li>
+<li><a href="#org069e850">2. Sample</a></li>
 <li><a href="#jquery.fn.init">3. JQuery.fn.init</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-org07dc932" class="outline-2">
-<h2 id="org07dc932"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org3024d7c" class="outline-2">
+<h2 id="org3024d7c"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I can not quite remember what happened when invoking <code>new</code> over a
@@ -52,7 +52,7 @@ Just three things according to that answer.
 <li>Creates a new object. Its type is <code>object</code>.</li>
 <li>Sets this new object&rsquo;s internal, inaccessible, <code>[[prototype]]</code>
 property to be the constructor function&rsquo;s external, accessible,
-<code>prototype</code> object. Refer to line 11 at <a href="#org582d2e6">sample</a>.</li>
+<code>prototype</code> object. Refer to line 11 at <a href="#org069e850">sample</a>.</li>
 <li>Executes the constructor function, using the new object whenever
 <code>this</code> is mentioned.</li>
 </ol>
@@ -73,7 +73,7 @@ The answer are
 <ol class="org-ol">
 <li>Function&rsquo;s <code>prototype</code> property is automatically created which in
 turn has a constructor property pointing back to the function. Refer
-to line 4 at <a href="#org582d2e6">sample</a>.</li>
+to line 4 at <a href="#org069e850">sample</a>.</li>
 <li>Basically <code>[[prototype]]</code> is used for prototype chain. Find details
 at here<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup> and Ecma-262<sup><a id="fnr.3" class="footref" href="#fn.3" role="doc-backlink">3</a></sup>.</li>
 </ol>
@@ -81,19 +81,19 @@ at here<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a>
 <p>
 Therefore if we change the <code>prototype</code> property of the function before
 <code>new</code>, the <code>[[prototype]]</code> of instances afterwards is vary accordingly.
-Refer to line 19 at <a href="#org582d2e6">sample</a>.
+Refer to line 19 at <a href="#org069e850">sample</a>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org582d2e6" class="outline-2">
-<h2 id="org582d2e6"><span class="section-number-2">2.</span> Sample</h2>
+<div id="outline-container-org069e850" class="outline-2">
+<h2 id="org069e850"><span class="section-number-2">2.</span> Sample</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Tested at google chrome 18 and pay close attention to comments.</li>
 </ul>
 
-<pre class="example" id="org605fdf8">
+<pre class="example" id="orge16bec7">
 <span class="linenr"> 1: </span>
 <span class="linenr"> 2: </span>  var fn1 = function () { this.name = "fn1"; }
 <span class="linenr"> 3: </span>
@@ -134,7 +134,7 @@ Refer to line 19 at <a href="#org582d2e6">sample</a>.
 <li><code>jQuery</code> is declared as</li>
 </ul>
 
-<pre class="example" id="orgc22e435">
+<pre class="example" id="org5f234cd">
   var jQuery = function( selector, context ) {
           // The jQuery object is actually just the init constructor 'enhanced'
           return new jQuery.fn.init( selector, context, rootjQuery );
@@ -145,7 +145,7 @@ Refer to line 19 at <a href="#org582d2e6">sample</a>.
 <li><code>jQuery.fn</code> is just a object as</li>
 </ul>
 
-<pre class="example" id="org9ae04ab">
+<pre class="example" id="org7d8614d">
   jQuery.fn = {
       constructor: jQuery,
       init: function( selector, context, rootjQuery ) {
@@ -171,7 +171,7 @@ following something which of course can be found at around line 322 of
 jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>.
 </p>
 
-<pre class="example" id="org315a7ec">
+<pre class="example" id="orgc919404">
   jQuery.fn.init.prototype = jQuery.fn;
 </pre>
 </div>
@@ -203,7 +203,7 @@ jQuery.1.7.1.css<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backli
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-12 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2012-04-12 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
 </footer>
 </div>
 </body>

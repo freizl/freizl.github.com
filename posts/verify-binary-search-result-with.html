@@ -23,14 +23,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc2ce36d">1. Notes</a></li>
-<li><a href="#orgd522b47">2. REFERENCE</a></li>
+<li><a href="#orge669e5b">1. Notes</a></li>
+<li><a href="#org275e52c">2. REFERENCE</a></li>
 </ul>
 </div>
 </nav>
 
-<div id="outline-container-orgc2ce36d" class="outline-2">
-<h2 id="orgc2ce36d"><span class="section-number-2">1.</span> Notes</h2>
+<div id="outline-container-orge669e5b" class="outline-2">
+<h2 id="orge669e5b"><span class="section-number-2">1.</span> Notes</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Testing scenario: If <i>testArray</i> contains <i>target</i> at position <i>n</i>, then
@@ -38,16 +38,16 @@ binarySearch <i>(testArray, target</i>) must return <i>n</i>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">assertTheory4</span>(<span style="color: #c49619; font-style: italic;">int</span>[] <span style="color: #8d9fa1;">testArray</span>, <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">target</span>, <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">returnValue</span>)
+<pre class="src src-java"><span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">void</span> <span style="color: #50fa7b;">assertTheory4</span>(<span style="color: #bd93f9;">int</span>[] <span style="color: #ffc9e8;">testArray</span>, <span style="color: #bd93f9;">int</span> <span style="color: #ffc9e8;">target</span>, <span style="color: #bd93f9;">int</span> <span style="color: #ffc9e8;">returnValue</span>)
 {
 &#160; assertEquals(getTargetPosition(testArray, target), returnValue);
 }
 
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #3c98e0;">getTargetPosition</span>(<span style="color: #c49619; font-style: italic;">int</span>[] <span style="color: #8d9fa1;">testArray</span>, <span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">target</span>) {
-&#160; <span style="color: #93a61a; font-weight: bold;">for</span> (<span style="color: #c49619; font-style: italic;">int</span> <span style="color: #8d9fa1;">i</span> = <span style="color: #7a7ed2; font-weight: bold;">0</span>; i &lt; testArray.<span style="color: #c49619; font-style: italic;">length</span>; i++)
-&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">if</span> (testArray[i] == target)
-&#160;&#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">return</span> i;
-&#160; <span style="color: #93a61a; font-weight: bold;">return</span> -<span style="color: #7a7ed2; font-weight: bold;">1</span>;
+<span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">int</span> <span style="color: #50fa7b;">getTargetPosition</span>(<span style="color: #bd93f9;">int</span>[] <span style="color: #ffc9e8;">testArray</span>, <span style="color: #bd93f9;">int</span> <span style="color: #ffc9e8;">target</span>) {
+&#160; <span style="color: #ff79c6;">for</span> (<span style="color: #bd93f9;">int</span> <span style="color: #ffc9e8;">i</span> = <span style="color: #bd93f9; font-weight: bold;">0</span>; i &lt; testArray.<span style="color: #bd93f9;">length</span>; i++)
+&#160;&#160;&#160; <span style="color: #ff79c6;">if</span> (testArray[i] == target)
+&#160;&#160;&#160;&#160;&#160; <span style="color: #ff79c6;">return</span> i;
+&#160; <span style="color: #ff79c6;">return</span> -<span style="color: #bd93f9; font-weight: bold;">1</span>;
 }
 </pre>
 </div>
@@ -80,8 +80,8 @@ Any others?
 </div>
 </div>
 
-<div id="outline-container-orgd522b47" class="outline-2">
-<h2 id="orgd522b47"><span class="section-number-2">2.</span> REFERENCE</h2>
+<div id="outline-container-org275e52c" class="outline-2">
+<h2 id="org275e52c"><span class="section-number-2">2.</span> REFERENCE</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>SECTION 7.2 OF &lt;BEAUTIFUL CODE&gt;</li>
@@ -93,7 +93,7 @@ Any others?
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2009-09-03 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2009-09-03 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
 </footer>
 </div>
 </body>
