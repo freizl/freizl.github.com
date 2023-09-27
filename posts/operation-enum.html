@@ -28,43 +28,42 @@
 </ul>
 </div>
 </nav>
-
 <div id="outline-container-org9c92ed6" class="outline-2">
 <h2 id="org9c92ed6"><span class="section-number-2">1.</span> Example</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example" id="orge61ef0a">
-public enum Operation {  
- PLUS {  
-          double eval(double x, double y) { return x + y; }  
- },  
-      MINUS {  
- double eval(double x, double y) { return x - y; }  
-      },  
- TIMES {  
-          double eval(double x, double y) { return x \* y; }  
- },  
-      DIVIDED\_BY {  
- double eval(double x, double y) { return x / y; }  
-      };  
- // Perform the arithmetic operation represented by this constant  
-      abstract double eval(double x, double y);  
- public static void main(String args\[\]) {  
-          double x = 2.0;  
- double y = 4.0;  
-    
- for (Operation op : Operation.values())  
- System.out.println(x + " " + op + " " + y + " = " + op.eval(x, y));  
-      }  
-}  
-  
-The document says it is anticipated that the need for this will be rare and it it a bit tricky.  
-  **How people think it is tricky?**  
-  
-  
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #ff79c6;">public</span> <span style="color: #ff79c6;">enum</span> <span style="color: #bd93f9;">Operation</span> {
+    <span style="color: #ffc9e8;">PLUS</span> {
+        <span style="color: #bd93f9;">double</span> <span style="color: #50fa7b;">eval</span>(<span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">x</span>, <span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">y</span>) { <span style="color: #ff79c6;">return</span> x + y; }
+    },
+    MINUS {
+        <span style="color: #bd93f9;">double</span> <span style="color: #50fa7b;">eval</span>(<span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">x</span>, <span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">y</span>) { <span style="color: #ff79c6;">return</span> x - y; }
+    },
+    TIMES {
+        <span style="color: #bd93f9;">double</span> <span style="color: #50fa7b;">eval</span>(<span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">x</span>, <span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">y</span>) { <span style="color: #ff79c6;">return</span> x \* y; }
+    },
+    DIVIDED_BY {
+        <span style="color: #bd93f9;">double</span> <span style="color: #50fa7b;">eval</span>(<span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">x</span>, <span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">y</span>) { <span style="color: #ff79c6;">return</span> x / y; }
+    };
+
+    <span style="color: #6272a4;">// </span><span style="color: #6272a4;">Perform the arithmetic operation represented by this constant</span>
+    <span style="color: #ff79c6;">abstract</span> <span style="color: #bd93f9;">double</span> <span style="color: #50fa7b;">eval</span>(<span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">x</span>, <span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">y</span>);
+    <span style="color: #ff79c6;">public</span> <span style="color: #ff79c6;">static</span> <span style="color: #bd93f9;">void</span> <span style="color: #50fa7b;">main</span>(<span style="color: #bd93f9;">String</span> <span style="color: #ffc9e8;">args</span>[]) {
+       <span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">x</span> = <span style="color: #bd93f9; font-weight: bold;">2.0</span>;
+       <span style="color: #bd93f9;">double</span> <span style="color: #ffc9e8;">y</span> = <span style="color: #bd93f9; font-weight: bold;">4.0</span>;
+       <span style="color: #ff79c6;">for</span> (<span style="color: #bd93f9;">Operation</span> <span style="color: #ffc9e8;">op</span> : Operation.values())
+           System.out.println(x + <span style="color: #f1fa8c;">" "</span> + op + <span style="color: #f1fa8c;">" "</span> + y + <span style="color: #f1fa8c;">" = "</span> + op.eval(x, y));
+      }
+}
 </pre>
 </div>
-</div>
 
+<p>
+The document says it is anticipated that the need for this will be rare and it is a bit tricky.
+Why would people think it is tricky?
+</p>
+</div>
+</div>
 <div id="outline-container-org48bdf7e" class="outline-2">
 <h2 id="org48bdf7e"><span class="section-number-2">2.</span> Reference</h2>
 <div class="outline-text-2" id="text-2">
@@ -78,7 +77,7 @@ The document says it is anticipated that the need for this will be rare and it i
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2010-08-10 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2010-08-10 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.7)</div>
 </footer>
 </div>
 </body>
