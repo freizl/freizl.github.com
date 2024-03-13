@@ -1,0 +1,1726 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.2" width="210.00mm" height="297.00mm" viewBox="0.0000 -0.0000 119.5016 169.0094">
+<style type="text/css">
+<![CDATA[
+tspan { white-space: pre; }
+]]>
+</style>
+<g transform="translate(54.9366, 6.5736)">
+<text font-family="serif" font-weight="bold" font-size="3.4929" text-anchor="start" fill="currentColor">
+<tspan>茉莉花</tspan>
+</text>
+</g>
+<g transform="translate(105.0703, 10.0736)">
+<text font-family="serif" font-size="2.2000" text-anchor="start" fill="currentColor">
+<tspan>江蘇民歌</tspan>
+</text>
+</g>
+<g transform="translate(5.6906, 17.5462)">
+<rect x="88.2403" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 17.5462)">
+<rect x="56.6968" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 17.5462)">
+<rect x="32.6580" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(14.2264, 16.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(14.2264, 15.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(14.2264, 14.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(14.2264, 13.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(14.2264, 12.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="99.5346" y2="0"/>
+</g>
+<g transform="translate(113.6210, 14.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(92.5493, 14.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(68.2248, 14.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(44.1860, 14.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:10:2:3">
+<g transform="translate(22.9264, 17.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(15.0264, 15.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M266 -635h-6c-108 0 -195 88 -195 197c0 58 53 103 112 103c54 0 95 -47 95 -103c0 -52 -43 -95 -95 -95c-11 0 -21 2 -31 6c26 -39 68 -65 117 -65h4zM461 -203c68 24 113 90 113 164c0 90 -66 179 -173 190c19 -89 48 -242 60 -354zM74 28c0 -145 141 -247 264 -247
+c1 0 47 0 82 6c-7 64 -29 203 -63 364c-79 -8 -124 -61 -124 -119c0 -44 25 -91 81 -123c5 -5 7 -10 7 -15c0 -11 -10 -22 -22 -22c-15 0 -126 62 -126 187c0 88 58 174 160 197c-14 58 -29 117 -46 175c-107 -121 -213 -243 -213 -403zM250 553c-29 96 -52 170 -52 346
+c0 115 55 224 149 292c6 5 14 5 20 0c68 -80 133 -245 133 -358c0 -143 -86 -255 -180 -364c21 -68 39 -138 56 -207c2 0 7 1 13 1c155 0 256 -128 256 -261c0 -113 -74 -212 -180 -246c3 -35 5 -70 5 -105c0 -19 -1 -39 -2 -58c-7 -119 -88 -225 -202 -228l1 43
+c93 2 153 92 159 191c1 18 2 37 2 55c0 31 -1 61 -4 92c-5 -1 -44 -8 -89 -8c-193 0 -333 180 -333 374c0 177 131 306 248 441zM428 916c0 34 1 66 -20 129c-99 -48 -162 -149 -162 -259c0 -52 12 -115 36 -194c80 97 146 198 146 324z" fill="currentColor"/>
+</g>
+<g transform="translate(19.2264, 14.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M250 262c116 0 176 -106 176 -163c0 -40 -30 -72 -67 -72c-31 0 -75 25 -75 75c0 38 27 77 72 77c4 0 9 0 14 -1c-28 37 -72 59 -120 59c-106 0 -113 -73 -113 -186v-51v-51c0 -113 7 -187 113 -187c80 0 139 70 158 151c2 7 7 10 12 10c6 0 13 -4 13 -12
+c0 -22 -50 -174 -183 -174c-59 0 -250 19 -250 263c0 62 18 262 250 262z" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:46:4:5">
+<g transform="translate(22.9639, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(24.1656, 14.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:10:5:6">
+<g transform="translate(28.2591, 17.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:46:8:9">
+<g transform="translate(28.2967, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(29.4983, 14.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:10:7:8">
+<g transform="translate(33.5919, 16.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:46:12:13">
+<g transform="translate(33.6294, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(34.8311, 14.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(76.4393, 13.5462)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.2922 -0.3900 3.2922 0.0100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:10:9:10">
+<g transform="translate(38.6746, 17.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:46:16:17">
+<g transform="translate(38.7122, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(39.9138, 14.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:12:7:8">
+<g transform="translate(75.2651, 14.5462)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M0.7192 3.0450C1.6587 3.6894 3.2230 3.4451 3.9214 2.5450L3.9214 2.5450C3.2045 3.3265 1.6402 3.5708 0.7192 3.0450z"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:11:2:3">
+<g transform="translate(45.8936, 17.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:47:4:5">
+<g transform="translate(45.9311, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(47.1328, 14.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:11:5:6">
+<g transform="translate(51.2263, 16.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:47:10:11">
+<g transform="translate(51.2263, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3-4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(52.4655, 14.5462)">
+<rect x="-0.0650" y="-1.0037" width="0.1300" height="2.8176" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:11:9:10">
+<g transform="translate(54.4285, 16.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(55.6677, 14.5462)">
+<rect x="-0.0650" y="-1.1863" width="0.1300" height="2.5002" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:11:13:14">
+<g transform="translate(57.6307, 16.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:47:14:15">
+<g transform="translate(57.6682, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(58.8699, 14.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(52.4005, 13.5462)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.2922 -0.3900 3.2922 0.0100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:11:16:17">
+<g transform="translate(62.7134, 17.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:47:18:19">
+<g transform="translate(62.7510, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(63.9527, 14.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:11:7:8">
+<g transform="translate(51.2263, 14.5462)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M0.7192 3.0450C1.6587 3.6894 3.2230 3.4451 3.9214 2.5450L3.9214 2.5450C3.2045 3.3265 1.6402 3.5708 0.7192 3.0450z"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:12:2:3">
+<g transform="translate(69.9324, 17.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:48:4:5">
+<g transform="translate(69.9699, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(71.1716, 14.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:12:5:6">
+<g transform="translate(75.2651, 16.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:48:10:11">
+<g transform="translate(75.2651, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3-4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(76.5043, 14.5462)">
+<rect x="-0.0650" y="-1.0037" width="0.1300" height="2.8176" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:12:9:10">
+<g transform="translate(78.4673, 16.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(79.7065, 14.5462)">
+<rect x="-0.0650" y="-1.1863" width="0.1300" height="2.5002" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:12:13:14">
+<g transform="translate(81.6695, 16.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:48:14:15">
+<g transform="translate(81.7070, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(82.9087, 14.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:12:16:17">
+<g transform="translate(87.0022, 17.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:48:18:19">
+<g transform="translate(87.0398, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(88.2415, 14.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:13:2:3">
+<g transform="translate(94.2569, 17.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:49:4:5">
+<g transform="translate(94.2944, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(95.4961, 14.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:13:5:6">
+<g transform="translate(99.5896, 17.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:49:8:9">
+<g transform="translate(99.6272, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(100.8289, 14.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:13:7:8">
+<g transform="translate(105.1724, 15.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M314 65c0 23 -19 41 -42 41c-39 0 -204 -110 -231 -143c-7 -8 -10 -18 -10 -28c0 -23 19 -41 42 -41c39 0 203 110 230 143c7 8 11 18 11 28zM262 136c41 0 82 -14 82 -71c0 -26 -16 -112 -74 -151c-25 -17 -87 -50 -187 -50c-41 0 -83 14 -83 71c0 26 16 112 74 151
+c25 17 88 50 188 50z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:49:12:13">
+<g transform="translate(105.2465, 20.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(106.4847, 14.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.2410" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 29.5462)">
+<rect x="98.1132" y="-0.1000" width="2.0660" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 29.5462)">
+<rect x="91.9725" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 29.5462)">
+<rect x="65.1732" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 29.5462)">
+<rect x="59.0143" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 28.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 27.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 26.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 25.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 24.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(89.9035, 26.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(63.1043, 26.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(36.3275, 26.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(6.4906, 27.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M266 -635h-6c-108 0 -195 88 -195 197c0 58 53 103 112 103c54 0 95 -47 95 -103c0 -52 -43 -95 -95 -95c-11 0 -21 2 -31 6c26 -39 68 -65 117 -65h4zM461 -203c68 24 113 90 113 164c0 90 -66 179 -173 190c19 -89 48 -242 60 -354zM74 28c0 -145 141 -247 264 -247
+c1 0 47 0 82 6c-7 64 -29 203 -63 364c-79 -8 -124 -61 -124 -119c0 -44 25 -91 81 -123c5 -5 7 -10 7 -15c0 -11 -10 -22 -22 -22c-15 0 -126 62 -126 187c0 88 58 174 160 197c-14 58 -29 117 -46 175c-107 -121 -213 -243 -213 -403zM250 553c-29 96 -52 170 -52 346
+c0 115 55 224 149 292c6 5 14 5 20 0c68 -80 133 -245 133 -358c0 -143 -86 -255 -180 -364c21 -68 39 -138 56 -207c2 0 7 1 13 1c155 0 256 -128 256 -261c0 -113 -74 -212 -180 -246c3 -35 5 -70 5 -105c0 -19 -1 -39 -2 -58c-7 -119 -88 -225 -202 -228l1 43
+c93 2 153 92 159 191c1 18 2 37 2 55c0 31 -1 61 -4 92c-5 -1 -44 -8 -89 -8c-193 0 -333 180 -333 374c0 177 131 306 248 441zM428 916c0 34 1 66 -20 129c-99 -48 -162 -149 -162 -259c0 -52 12 -115 36 -194c80 97 146 198 146 324z" fill="currentColor"/>
+</g>
+<g transform="translate(4.8028, 23.4758)">
+<text font-family="serif" font-size="1.7459" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:16:2:3">
+<g transform="translate(11.4906, 28.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:51:4:5">
+<g transform="translate(11.5281, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(12.7298, 26.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:16:5:6">
+<g transform="translate(17.6495, 28.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:51:8:9">
+<g transform="translate(17.6871, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(18.8888, 26.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:16:7:8">
+<g transform="translate(23.8085, 28.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:51:12:13">
+<g transform="translate(23.8461, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(25.0477, 26.5462)">
+<rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:16:9:10">
+<g transform="translate(29.9675, 27.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:51:16:17">
+<g transform="translate(30.0050, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(31.2067, 26.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:17:2:3">
+<g transform="translate(38.2541, 27.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:52:4:5">
+<g transform="translate(38.2916, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(39.4933, 26.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:17:4:5">
+<g transform="translate(44.4130, 28.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:52:8:9">
+<g transform="translate(44.4506, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(45.6523, 26.5462)">
+<rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:17:6:7">
+<g transform="translate(50.5720, 28.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:52:12:13">
+<g transform="translate(50.6096, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(51.8112, 26.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:17:8:9">
+<g transform="translate(56.7310, 29.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:52:16:17">
+<g transform="translate(56.7685, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(57.9702, 26.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:18:2:3">
+<g transform="translate(65.0309, 29.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:53:4:5">
+<g transform="translate(65.0684, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(66.2701, 26.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:18:4:5">
+<g transform="translate(71.1898, 29.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:53:8:9">
+<g transform="translate(71.2274, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(72.4291, 26.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:18:6:7">
+<g transform="translate(77.3488, 29.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:53:12:13">
+<g transform="translate(77.3864, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(78.5880, 26.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:18:8:9">
+<g transform="translate(83.5078, 28.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:53:16:17">
+<g transform="translate(83.5453, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(84.7470, 26.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:19:2:3">
+<g transform="translate(91.8301, 29.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:54:4:5">
+<g transform="translate(91.8676, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(93.0693, 26.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:19:4:5">
+<g transform="translate(97.9891, 29.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:54:8:9">
+<g transform="translate(98.0266, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(99.2283, 26.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:19:6:7">
+<g transform="translate(104.1481, 29.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M314 65c0 23 -19 41 -42 41c-39 0 -204 -110 -231 -143c-7 -8 -10 -18 -10 -28c0 -23 19 -41 42 -41c39 0 203 110 230 143c7 8 11 18 11 28zM262 136c41 0 82 -14 82 -71c0 -26 -16 -112 -74 -151c-25 -17 -87 -50 -187 -50c-41 0 -83 14 -83 71c0 26 16 112 74 151
+c25 17 88 50 188 50z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:54:12:13">
+<g transform="translate(104.2222, 32.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(105.4604, 26.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.2410" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 41.5462)">
+<rect x="65.5334" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 41.5462)">
+<rect x="59.4840" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 40.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 39.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 38.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 37.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 36.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(113.6210, 38.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(89.9347, 38.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(63.6031, 38.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(37.2939, 38.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(11.1456, 38.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M0 0c0 31 25 56 56 56s56 -25 56 -56s-25 -56 -56 -56s-56 25 -56 56z" fill="currentColor"/>
+</g>
+<g transform="translate(11.1456, 39.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M0 0c0 31 25 56 56 56s56 -25 56 -56s-25 -56 -56 -56s-56 25 -56 56z" fill="currentColor"/>
+</g>
+<g transform="translate(10.6556, 38.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(9.7556, 38.5462)">
+<rect x="0.0000" y="-2.0000" width="0.6000" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(6.4906, 39.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M266 -635h-6c-108 0 -195 88 -195 197c0 58 53 103 112 103c54 0 95 -47 95 -103c0 -52 -43 -95 -95 -95c-11 0 -21 2 -31 6c26 -39 68 -65 117 -65h4zM461 -203c68 24 113 90 113 164c0 90 -66 179 -173 190c19 -89 48 -242 60 -354zM74 28c0 -145 141 -247 264 -247
+c1 0 47 0 82 6c-7 64 -29 203 -63 364c-79 -8 -124 -61 -124 -119c0 -44 25 -91 81 -123c5 -5 7 -10 7 -15c0 -11 -10 -22 -22 -22c-15 0 -126 62 -126 187c0 88 58 174 160 197c-14 58 -29 117 -46 175c-107 -121 -213 -243 -213 -403zM250 553c-29 96 -52 170 -52 346
+c0 115 55 224 149 292c6 5 14 5 20 0c68 -80 133 -245 133 -358c0 -143 -86 -255 -180 -364c21 -68 39 -138 56 -207c2 0 7 1 13 1c155 0 256 -128 256 -261c0 -113 -74 -212 -180 -246c3 -35 5 -70 5 -105c0 -19 -1 -39 -2 -58c-7 -119 -88 -225 -202 -228l1 43
+c93 2 153 92 159 191c1 18 2 37 2 55c0 31 -1 61 -4 92c-5 -1 -44 -8 -89 -8c-193 0 -333 180 -333 374c0 177 131 306 248 441zM428 916c0 34 1 66 -20 129c-99 -48 -162 -149 -162 -259c0 -52 12 -115 36 -194c80 97 146 198 146 324z" fill="currentColor"/>
+</g>
+<g transform="translate(4.8028, 35.4724)">
+<text font-family="serif" font-size="1.7459" text-anchor="start" fill="currentColor">
+<tspan>9</tspan>
+</text>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:22:2:3">
+<g transform="translate(12.8956, 40.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:56:4:5">
+<g transform="translate(12.9331, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(14.1348, 38.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:22:5:6">
+<g transform="translate(18.9449, 40.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:56:8:9">
+<g transform="translate(18.9824, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(20.1841, 38.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:22:7:8">
+<g transform="translate(24.9943, 40.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:56:12:13">
+<g transform="translate(25.0318, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(26.2335, 38.5462)">
+<rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:22:9:10">
+<g transform="translate(31.0436, 39.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:56:16:17">
+<g transform="translate(31.0811, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(32.2828, 38.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:23:2:3">
+<g transform="translate(39.1914, 39.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:57:4:5">
+<g transform="translate(39.2290, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(40.4307, 38.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:23:5:6">
+<g transform="translate(45.2408, 40.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:57:8:9">
+<g transform="translate(45.2783, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(46.4800, 38.5462)">
+<rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:23:7:8">
+<g transform="translate(51.2901, 40.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:57:12:13">
+<g transform="translate(51.3277, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(52.5293, 38.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:23:9:10">
+<g transform="translate(57.3395, 41.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:57:16:17">
+<g transform="translate(57.3770, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(58.5787, 38.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:24:2:3">
+<g transform="translate(65.5006, 41.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:58:4:5">
+<g transform="translate(65.5381, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(66.7398, 38.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:24:5:6">
+<g transform="translate(71.5500, 41.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:58:8:9">
+<g transform="translate(71.5875, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(72.7892, 38.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:24:7:8">
+<g transform="translate(77.5993, 41.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:58:12:13">
+<g transform="translate(77.6368, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(78.8385, 38.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:24:9:10">
+<g transform="translate(83.6486, 40.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:58:16:17">
+<g transform="translate(83.6862, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(84.8879, 38.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:25:2:3">
+<g transform="translate(91.8322, 40.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:59:4:5">
+<g transform="translate(91.8697, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(93.0714, 38.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:25:5:6">
+<g transform="translate(97.8816, 41.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:59:8:9">
+<g transform="translate(97.9191, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(99.1208, 38.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:25:7:8">
+<g transform="translate(103.9309, 41.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M314 65c0 23 -19 41 -42 41c-39 0 -204 -110 -231 -143c-7 -8 -10 -18 -10 -28c0 -23 19 -41 42 -41c39 0 203 110 230 143c7 8 11 18 11 28zM262 136c41 0 82 -14 82 -71c0 -26 -16 -112 -74 -151c-25 -17 -87 -50 -187 -50c-41 0 -83 14 -83 71c0 26 16 112 74 151
+c25 17 88 50 188 50z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:59:12:13">
+<g transform="translate(104.0050, 44.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(105.2432, 38.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.2410" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 53.5462)">
+<rect x="85.6534" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 53.5462)">
+<rect x="50.2909" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 53.5462)">
+<rect x="23.3159" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 52.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 51.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 50.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 49.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 48.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(113.6210, 50.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(89.7775, 50.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(62.5167, 50.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(35.5417, 50.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(6.4906, 51.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M266 -635h-6c-108 0 -195 88 -195 197c0 58 53 103 112 103c54 0 95 -47 95 -103c0 -52 -43 -95 -95 -95c-11 0 -21 2 -31 6c26 -39 68 -65 117 -65h4zM461 -203c68 24 113 90 113 164c0 90 -66 179 -173 190c19 -89 48 -242 60 -354zM74 28c0 -145 141 -247 264 -247
+c1 0 47 0 82 6c-7 64 -29 203 -63 364c-79 -8 -124 -61 -124 -119c0 -44 25 -91 81 -123c5 -5 7 -10 7 -15c0 -11 -10 -22 -22 -22c-15 0 -126 62 -126 187c0 88 58 174 160 197c-14 58 -29 117 -46 175c-107 -121 -213 -243 -213 -403zM250 553c-29 96 -52 170 -52 346
+c0 115 55 224 149 292c6 5 14 5 20 0c68 -80 133 -245 133 -358c0 -143 -86 -255 -180 -364c21 -68 39 -138 56 -207c2 0 7 1 13 1c155 0 256 -128 256 -261c0 -113 -74 -212 -180 -246c3 -35 5 -70 5 -105c0 -19 -1 -39 -2 -58c-7 -119 -88 -225 -202 -228l1 43
+c93 2 153 92 159 191c1 18 2 37 2 55c0 31 -1 61 -4 92c-5 -1 -44 -8 -89 -8c-193 0 -333 180 -333 374c0 177 131 306 248 441zM428 916c0 34 1 66 -20 129c-99 -48 -162 -149 -162 -259c0 -52 12 -115 36 -194c80 97 146 198 146 324z" fill="currentColor"/>
+</g>
+<g transform="translate(3.9151, 47.4758)">
+<text font-family="serif" font-size="1.7459" text-anchor="start" fill="currentColor">
+<tspan>13</tspan>
+</text>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:28:2:3">
+<g transform="translate(11.4906, 53.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:61:4:5">
+<g transform="translate(11.5281, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(12.7298, 50.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:28:5:6">
+<g transform="translate(17.5212, 53.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:61:8:9">
+<g transform="translate(17.5587, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(18.7604, 50.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:28:7:8">
+<g transform="translate(23.5518, 52.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:61:12:13">
+<g transform="translate(23.5894, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(24.7911, 50.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(71.6141, 49.5462)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.6210 -0.3900 3.6210 0.0100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:28:9:10">
+<g transform="translate(29.3325, 53.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:61:16:17">
+<g transform="translate(29.3700, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(30.5717, 50.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:30:7:8">
+<g transform="translate(70.4399, 50.5462)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M0.7131 3.0450C1.7151 3.7493 3.4769 3.4998 4.2440 2.5450L4.2440 2.5450C3.4601 3.3810 1.6983 3.6304 0.7131 3.0450z"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:29:2:3">
+<g transform="translate(37.4343, 53.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:62:4:5">
+<g transform="translate(37.4718, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(38.6735, 50.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:29:5:6">
+<g transform="translate(43.4649, 52.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:62:8:9">
+<g transform="translate(43.4649, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(44.7041, 50.5462)">
+<rect x="-0.0650" y="-1.0034" width="0.1300" height="2.8173" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:29:9:10">
+<g transform="translate(46.9959, 52.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(48.2351, 50.5462)">
+<rect x="-0.0650" y="-1.1866" width="0.1300" height="2.5005" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:29:13:14">
+<g transform="translate(50.5269, 52.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:62:12:13">
+<g transform="translate(50.5644, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(51.7661, 50.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(44.6391, 49.5462)">
+<polygon stroke-linejoin="round" stroke-linecap="round" stroke-width="0.0800" fill="currentColor" stroke="currentColor" points="3.6210 -0.3900 3.6210 0.0100 0.0400 0.2000 0.0400 -0.2000"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:29:16:17">
+<g transform="translate(56.3075, 53.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:62:16:17">
+<g transform="translate(56.3450, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(57.5467, 50.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:29:7:8">
+<g transform="translate(43.4649, 50.5462)">
+<path stroke-width="0.0800" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="currentColor" d="M0.7131 3.0450C1.7151 3.7493 3.4769 3.4998 4.2440 2.5450L4.2440 2.5450C3.4601 3.3810 1.6983 3.6304 0.7131 3.0450z"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:30:2:3">
+<g transform="translate(64.4093, 53.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:63:4:5">
+<g transform="translate(64.4468, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(65.6485, 50.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:30:5:6">
+<g transform="translate(70.4399, 52.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:63:8:9">
+<g transform="translate(70.4399, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(71.6791, 50.5462)">
+<rect x="-0.0650" y="-1.0034" width="0.1300" height="2.8173" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:30:9:10">
+<g transform="translate(73.9709, 52.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<g transform="translate(75.2101, 50.5462)">
+<rect x="-0.0650" y="-1.1866" width="0.1300" height="2.5005" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:30:13:14">
+<g transform="translate(77.5019, 52.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:63:12:13">
+<g transform="translate(77.5394, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(78.7411, 50.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:30:16:17">
+<g transform="translate(83.5325, 53.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:63:16:17">
+<g transform="translate(83.5701, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(84.7717, 50.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:31:2:3">
+<g transform="translate(91.6700, 53.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:64:4:5">
+<g transform="translate(91.7075, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(92.9092, 50.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:31:5:6">
+<g transform="translate(97.7007, 53.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:64:8:9">
+<g transform="translate(97.7382, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(98.9399, 50.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:31:7:8">
+<g transform="translate(103.9813, 51.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M314 65c0 23 -19 41 -42 41c-39 0 -204 -110 -231 -143c-7 -8 -10 -18 -10 -28c0 -23 19 -41 42 -41c39 0 203 110 230 143c7 8 11 18 11 28zM262 136c41 0 82 -14 82 -71c0 -26 -16 -112 -74 -151c-25 -17 -87 -50 -187 -50c-41 0 -83 14 -83 71c0 26 16 112 74 151
+c25 17 88 50 188 50z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:64:12:13">
+<g transform="translate(104.0554, 56.2602)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(105.2937, 50.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.2410" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 65.5462)">
+<rect x="101.7251" y="-0.1000" width="2.0660" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 65.5462)">
+<rect x="98.7788" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 65.5462)">
+<rect x="85.6027" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 65.5462)">
+<rect x="82.6381" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 65.5462)">
+<rect x="50.8550" y="-0.1000" width="2.0660" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 65.5462)">
+<rect x="47.9087" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 65.5462)">
+<rect x="34.7326" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 65.5462)">
+<rect x="31.7680" y="-0.1000" width="1.9563" height="0.2000" ry="0.1000" fill="currentColor"/>
+</g>
+<g transform="translate(5.6906, 64.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 63.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 62.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 61.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(5.6906, 60.5462)">
+<line stroke-linejoin="round" stroke-linecap="round" stroke-width="0.1000" stroke="currentColor" x1="0.0500" y1="0" x2="108.0705" y2="0"/>
+</g>
+<g transform="translate(111.9710, 62.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M0 0c0 31 25 56 56 56s56 -25 56 -56s-25 -56 -56 -56s-56 25 -56 56z" fill="currentColor"/>
+</g>
+<g transform="translate(111.9710, 63.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M0 0c0 31 25 56 56 56s56 -25 56 -56s-25 -56 -56 -56s-56 25 -56 56z" fill="currentColor"/>
+</g>
+<g transform="translate(113.2110, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.6000" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(112.7210, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(100.7497, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(87.5736, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(74.4199, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(61.2795, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(49.8796, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(36.7035, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(23.5498, 62.5462)">
+<rect x="0.0000" y="-2.0000" width="0.1900" height="4.0000" ry="0.0000" fill="currentColor"/>
+</g>
+<g transform="translate(6.4906, 63.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M266 -635h-6c-108 0 -195 88 -195 197c0 58 53 103 112 103c54 0 95 -47 95 -103c0 -52 -43 -95 -95 -95c-11 0 -21 2 -31 6c26 -39 68 -65 117 -65h4zM461 -203c68 24 113 90 113 164c0 90 -66 179 -173 190c19 -89 48 -242 60 -354zM74 28c0 -145 141 -247 264 -247
+c1 0 47 0 82 6c-7 64 -29 203 -63 364c-79 -8 -124 -61 -124 -119c0 -44 25 -91 81 -123c5 -5 7 -10 7 -15c0 -11 -10 -22 -22 -22c-15 0 -126 62 -126 187c0 88 58 174 160 197c-14 58 -29 117 -46 175c-107 -121 -213 -243 -213 -403zM250 553c-29 96 -52 170 -52 346
+c0 115 55 224 149 292c6 5 14 5 20 0c68 -80 133 -245 133 -358c0 -143 -86 -255 -180 -364c21 -68 39 -138 56 -207c2 0 7 1 13 1c155 0 256 -128 256 -261c0 -113 -74 -212 -180 -246c3 -35 5 -70 5 -105c0 -19 -1 -39 -2 -58c-7 -119 -88 -225 -202 -228l1 43
+c93 2 153 92 159 191c1 18 2 37 2 55c0 31 -1 61 -4 92c-5 -1 -44 -8 -89 -8c-193 0 -333 180 -333 374c0 177 131 306 248 441zM428 916c0 34 1 66 -20 129c-99 -48 -162 -149 -162 -259c0 -52 12 -115 36 -194c80 97 146 198 146 324z" fill="currentColor"/>
+</g>
+<g transform="translate(3.9151, 59.4724)">
+<text font-family="serif" font-size="1.7459" text-anchor="start" fill="currentColor">
+<tspan>17</tspan>
+</text>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:34:2:3">
+<g transform="translate(11.4906, 64.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:66:4:5">
+<g transform="translate(11.5281, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(12.7298, 62.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:34:5:6">
+<g transform="translate(14.4551, 64.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:66:8:9">
+<g transform="translate(14.4926, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(15.6943, 62.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:34:7:8">
+<g transform="translate(17.4197, 64.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:66:12:13">
+<g transform="translate(17.4572, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(18.6589, 62.5462)">
+<rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:34:9:10">
+<g transform="translate(20.3843, 63.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:66:16:17">
+<g transform="translate(20.4218, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(21.6235, 62.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:35:2:3">
+<g transform="translate(24.6309, 63.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:67:4:5">
+<g transform="translate(24.6685, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(25.8702, 62.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:35:4:5">
+<g transform="translate(27.5955, 64.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:67:10:11">
+<g transform="translate(26.6087, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3-4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(28.8347, 62.5462)">
+<rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:35:6:7">
+<g transform="translate(30.5601, 64.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:67:14:15">
+<g transform="translate(30.5976, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(31.7993, 62.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:35:8:9">
+<g transform="translate(33.5247, 65.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:67:18:19">
+<g transform="translate(33.5622, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(34.7639, 62.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:36:2:3">
+<g transform="translate(37.7846, 65.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:68:4:5">
+<g transform="translate(37.8222, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(39.0238, 62.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:36:4:5">
+<g transform="translate(40.7492, 65.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:68:10:11">
+<g transform="translate(39.7624, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3-4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(41.9884, 62.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:36:6:7">
+<g transform="translate(43.7138, 65.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:68:14:15">
+<g transform="translate(43.7513, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(44.9530, 62.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:36:8:9">
+<g transform="translate(46.6783, 64.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:68:18:19">
+<g transform="translate(46.7159, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(47.9175, 62.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:37:2:3">
+<g transform="translate(50.9607, 65.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:69:4:5">
+<g transform="translate(50.9983, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(52.1999, 62.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:37:5:6">
+<g transform="translate(53.9253, 65.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:69:8:9">
+<g transform="translate(53.9628, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(55.1645, 62.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:37:7:8">
+<g transform="translate(56.8899, 65.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M314 65c0 23 -19 41 -42 41c-39 0 -204 -110 -231 -143c-7 -8 -10 -18 -10 -28c0 -23 19 -41 42 -41c39 0 203 110 230 143c7 8 11 18 11 28zM262 136c41 0 82 -14 82 -71c0 -26 -16 -112 -74 -151c-25 -17 -87 -50 -187 -50c-41 0 -83 14 -83 71c0 26 16 112 74 151
+c25 17 88 50 188 50z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:69:12:13">
+<g transform="translate(56.9640, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(58.2022, 62.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.2410" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:39:2:3">
+<g transform="translate(62.3606, 64.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:71:4:5">
+<g transform="translate(62.3982, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(63.5998, 62.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:39:5:6">
+<g transform="translate(65.3252, 64.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:71:8:9">
+<g transform="translate(65.3627, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(66.5644, 62.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:39:7:8">
+<g transform="translate(68.2898, 64.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:71:12:13">
+<g transform="translate(68.3273, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(69.5290, 62.5462)">
+<rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:39:9:10">
+<g transform="translate(71.2543, 63.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:71:16:17">
+<g transform="translate(71.2919, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(72.4936, 62.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:40:2:3">
+<g transform="translate(75.5010, 63.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:72:4:5">
+<g transform="translate(75.5386, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>5</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(76.7402, 62.5462)">
+<rect x="-0.0650" y="-2.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:40:4:5">
+<g transform="translate(78.4656, 64.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:72:8:9">
+<g transform="translate(78.5031, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>4</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(79.7048, 62.5462)">
+<rect x="-0.0650" y="-2.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:40:6:7">
+<g transform="translate(81.4302, 64.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:72:12:13">
+<g transform="translate(81.4677, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(82.6694, 62.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:40:8:9">
+<g transform="translate(84.3947, 65.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:72:16:17">
+<g transform="translate(84.4323, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(85.6339, 62.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:41:2:3">
+<g transform="translate(88.6547, 65.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:73:4:5">
+<g transform="translate(88.6922, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(89.8939, 62.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:41:4:5">
+<g transform="translate(91.6193, 65.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:73:8:9">
+<g transform="translate(91.6568, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(92.8585, 62.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:41:6:7">
+<g transform="translate(94.5839, 65.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:73:12:13">
+<g transform="translate(94.6214, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(95.8231, 62.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:41:8:9">
+<g transform="translate(97.5484, 64.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:73:16:17">
+<g transform="translate(97.5859, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>3</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(98.7876, 62.5462)">
+<rect x="-0.0650" y="-1.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:42:2:3">
+<g transform="translate(101.8308, 65.0462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:74:4:5">
+<g transform="translate(101.8683, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>2</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(103.0700, 62.5462)">
+<rect x="-0.0650" y="-1.0000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:42:4:5">
+<g transform="translate(104.7954, 65.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M218 136c66 0 108 -36 108 -89c0 -89 -113 -183 -218 -183c-66 0 -108 36 -108 89c0 89 113 183 218 183z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:74:8:9">
+<g transform="translate(104.8329, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(106.0346, 62.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.3139" ry="0.0400" fill="currentColor"/>
+</g>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:42:6:7">
+<g transform="translate(107.7600, 65.5462)">
+<path transform="scale(0.0040, -0.0040)" d="M314 65c0 23 -19 41 -42 41c-39 0 -204 -110 -231 -143c-7 -8 -10 -18 -10 -28c0 -23 19 -41 42 -41c39 0 203 110 230 143c7 8 11 18 11 28zM262 136c41 0 82 -14 82 -71c0 -26 -16 -112 -74 -151c-25 -17 -87 -50 -187 -50c-41 0 -83 14 -83 71c0 26 16 112 74 151
+c25 17 88 50 188 50z" fill="currentColor"/>
+</g>
+</a>
+<a style="color:inherit;" xlink:href="textedit:///Users/hw/freizl/music-sheets/jasmine-flower.ly:74:12:13">
+<g transform="translate(107.8341, 68.2603)">
+<text font-family="serif" font-size="2.4697" text-anchor="start" fill="currentColor">
+<tspan>1</tspan>
+</text>
+</g>
+</a>
+<g transform="translate(109.0723, 62.5462)">
+<rect x="-0.0650" y="-0.5000" width="0.1300" height="3.2410" ry="0.0400" fill="currentColor"/>
+</g>
+<g transform="translate(34.5530, 165.1202)">
+<a xlink:href="https://lilypond.org/">
+<rect x="0.0000" y="-0.4748" width="50.3955" height="2.0024" fill="none" stroke="none" stroke-width="0.0"/>
+</a>
+</g>
+<g transform="translate(34.5530, 165.1202)">
+<text font-family="serif" font-size="2.2000" text-anchor="start" fill="currentColor">
+<tspan>Music engraving by LilyPond 2.24.3—www.lilypond.org</tspan>
+</text>
+</g>
+</svg>
