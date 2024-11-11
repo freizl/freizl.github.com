@@ -17,8 +17,9 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">How to do multiple row/column dimensions in OLAPDataGrid</h1>
-<p>
+</header><p>
 A simple OLAPDataGrid sample <a href="http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/mx/controls/OLAPDataGrid.html">here</a>.
 A good sample having multiple dimensions <a href="http://flexpearls.blogspot.com/2008/04/custom-aggregator-sample-for-flex-olap.html">here</a>.
 </p>
@@ -28,7 +29,7 @@ The key point is that OLAPSet could join each other.
 For instance,
 </p>
 
-<pre class="example" id="org531e962">
+<pre class="example" id="orgd5f573e">
 var customerSet:OLAPSet = new OLAPSet;
 customerSet.addElements(cube.findDimension("CustomerDim").findAttribute("Customer").children);
 var quarterSet:OLAPSet = new OLAPSet;

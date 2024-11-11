@@ -17,8 +17,9 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">Install SVN as Windows Service</h1>
-<div class="org-src-container">
+</header><div class="org-src-container">
 <pre class="src src-sh">sc create svn <span style="color: #8d9fa1;">binpath</span>= <span style="color: #93a61a;">"\"C:\svn-win32-1.4.4\bin\svnserve.exe\&#8221;</span>
 <span style="color: #93a61a;">--service -r C:\Workspace\SVN\repos&#8221; displayname= "</span>Subversion Server<span style="color: #93a61a;">"</span>
 <span style="color: #93a61a;">depend= Tcpip start= auto</span>

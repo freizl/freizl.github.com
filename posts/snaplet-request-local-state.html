@@ -17,21 +17,22 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">Snaplet Request Local State</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2f63d56">1. 什么 Snaplet</a></li>
-<li><a href="#org6d2f146">2. Request local state</a></li>
-<li><a href="#orga1646bf">3. Snaplet-oauth-0.0.0</a></li>
-<li><a href="#org2781b4f">4. 如何解决</a></li>
-<li><a href="#orgb92aab7">5. 还有什么问题</a></li>
+<li><a href="#org6697053">1. 什么 Snaplet</a></li>
+<li><a href="#orgc2a3d09">2. Request local state</a></li>
+<li><a href="#org6f501ef">3. Snaplet-oauth-0.0.0</a></li>
+<li><a href="#org09d3d6e">4. 如何解决</a></li>
+<li><a href="#orgd8dc854">5. 还有什么问题</a></li>
 </ul>
 </div>
-</div>
-<div id="outline-container-org2f63d56" class="outline-2">
-<h2 id="org2f63d56"><span class="section-number-2">1.</span> 什么 Snaplet</h2>
+</nav>
+<div id="outline-container-org6697053" class="outline-2">
+<h2 id="org6697053"><span class="section-number-2">1.</span> 什么 Snaplet</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
@@ -43,8 +44,8 @@ Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
 </p>
 </div>
 </div>
-<div id="outline-container-org6d2f146" class="outline-2">
-<h2 id="org6d2f146"><span class="section-number-2">2.</span> Request local state</h2>
+<div id="outline-container-orgc2a3d09" class="outline-2">
+<h2 id="orgc2a3d09"><span class="section-number-2">2.</span> Request local state</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>Request Local State</b> 是 snaplet 的一个设计目标<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>。
@@ -53,8 +54,8 @@ Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
 </p>
 </div>
 </div>
-<div id="outline-container-orga1646bf" class="outline-2">
-<h2 id="orga1646bf"><span class="section-number-2">3.</span> Snaplet-oauth-0.0.0</h2>
+<div id="outline-container-org6f501ef" class="outline-2">
+<h2 id="org6f501ef"><span class="section-number-2">3.</span> Snaplet-oauth-0.0.0</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 根据 Snaplet 的常规模式，定义一个 data type 用于保存相关信息，比如
@@ -168,8 +169,8 @@ AcceeToken 来访问微薄资源。
 </p>
 </div>
 </div>
-<div id="outline-container-org2781b4f" class="outline-2">
-<h2 id="org2781b4f"><span class="section-number-2">4.</span> 如何解决</h2>
+<div id="outline-container-org09d3d6e" class="outline-2">
+<h2 id="org09d3d6e"><span class="section-number-2">4.</span> 如何解决</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 解决方案就是把 <code>OAuthSnaplet</code> 里的 <code>oauth</code> 变成一个共享变量，这样可以在多线程之间共享。
@@ -193,8 +194,8 @@ AcceeToken 来访问微薄资源。
 </p>
 </div>
 </div>
-<div id="outline-container-orgb92aab7" class="outline-2">
-<h2 id="orgb92aab7"><span class="section-number-2">5.</span> 还有什么问题</h2>
+<div id="outline-container-orgd8dc854" class="outline-2">
+<h2 id="orgd8dc854"><span class="section-number-2">5.</span> 还有什么问题</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 你可能已经发现，这样的实现方式，如何支持多用户，以及多个 OAuth Provider

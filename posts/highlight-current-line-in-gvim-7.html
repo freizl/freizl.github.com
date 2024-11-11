@@ -17,8 +17,9 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">HighLight Current Line in GVim 7</h1>
-<pre class="example" id="org2d17083">
+</header><pre class="example" id="orgf017f41">
 augroup vim7highlightCurrentLineInActiveWindow
   au WinEnter * if g:HighlightCurrentLine | setlocal cul | endif
   au WinLeave * if g:HighlightCurrentLine | setlocal nocul | endif

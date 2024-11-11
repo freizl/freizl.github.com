@@ -17,18 +17,19 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">MapM</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd8c5339">1. How to understand the following computation result?</a></li>
-<li><a href="#org99afe76">2. Reason about</a></li>
+<li><a href="#orgb345709">1. How to understand the following computation result?</a></li>
+<li><a href="#org5d4765c">2. Reason about</a></li>
 </ul>
 </div>
-</div>
-<div id="outline-container-orgd8c5339" class="outline-2">
-<h2 id="orgd8c5339"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
+</nav>
+<div id="outline-container-orgb345709" class="outline-2">
+<h2 id="orgb345709"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
 <pre class="src src-haskell"><span style="color: #3c98e0;">mapM</span> id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
@@ -36,8 +37,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org99afe76" class="outline-2">
-<h2 id="org99afe76"><span class="section-number-2">2.</span> Reason about</h2>
+<div id="outline-container-org5d4765c" class="outline-2">
+<h2 id="org5d4765c"><span class="section-number-2">2.</span> Reason about</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <pre class="src src-haskell">&#9474; mapM     <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> m b) <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> m [b]

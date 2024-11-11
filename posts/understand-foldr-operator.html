@@ -17,8 +17,9 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">Understand Foldr Operator</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
@@ -27,7 +28,7 @@
 <li><a href="#in-one-sentence">3. In one sentence</a></li>
 </ul>
 </div>
-</div>
+</nav>
 <p>
 I can not quite remember the usage of foldr until I finish the video by
 Erik Meijer on Chapter 7<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
@@ -55,7 +56,7 @@ Take refining the <code>length</code> function in terms of <code>foldr</code> as
 and
 </p>
 
-<pre class="example" id="orgb629b5b">
+<pre class="example" id="org16cfca5">
     length [1,2,3]
   = length (1:(2:(3:[])))
   = 1 + (1 + (1 + 0))

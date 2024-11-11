@@ -17,25 +17,26 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">The Expression Problem</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf91b0a9">1. Background</a></li>
-<li><a href="#org52c696f">2. Solution - Type Classes</a></li>
-<li><a href="#org9987fec">3. Solution - Visitor pattern</a>
+<li><a href="#org3afbbf9">1. Background</a></li>
+<li><a href="#org0a1dd3e">2. Solution - Type Classes</a></li>
+<li><a href="#org691f282">3. Solution - Visitor pattern</a>
 <ul>
-<li><a href="#org4b1ead9">3.1. Impl in TypeScript</a></li>
-<li><a href="#org40e5b1b">3.2. Remarks</a></li>
+<li><a href="#org375de53">3.1. Impl in TypeScript</a></li>
+<li><a href="#org7c9f6bb">3.2. Remarks</a></li>
 </ul>
 </li>
-<li><a href="#org5575522">4. Read paper On Understanding Data Abstraction</a></li>
+<li><a href="#org18aadcc">4. Read paper On Understanding Data Abstraction</a></li>
 </ul>
 </div>
-</div>
-<div id="outline-container-orgf91b0a9" class="outline-2">
-<h2 id="orgf91b0a9"><span class="section-number-2">1.</span> Background</h2>
+</nav>
+<div id="outline-container-org3afbbf9" class="outline-2">
+<h2 id="org3afbbf9"><span class="section-number-2">1.</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Read those references if you are not familiar yet (TODO: maybe add tl;dr; here)
@@ -47,8 +48,8 @@ Read those references if you are not familiar yet (TODO: maybe add tl;dr; here)
 </ul>
 </div>
 </div>
-<div id="outline-container-org52c696f" class="outline-2">
-<h2 id="org52c696f"><span class="section-number-2">2.</span> Solution - Type Classes</h2>
+<div id="outline-container-org0a1dd3e" class="outline-2">
+<h2 id="org0a1dd3e"><span class="section-number-2">2.</span> Solution - Type Classes</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I thought type classes solve the problem nicely. Here is the example in Haskell using type class
@@ -106,12 +107,12 @@ I gave another thought when comparing the OO approach (easy data extension but n
 </p>
 </div>
 </div>
-<div id="outline-container-org9987fec" class="outline-2">
-<h2 id="org9987fec"><span class="section-number-2">3.</span> Solution - Visitor pattern</h2>
+<div id="outline-container-org691f282" class="outline-2">
+<h2 id="org691f282"><span class="section-number-2">3.</span> Solution - Visitor pattern</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org4b1ead9" class="outline-3">
-<h3 id="org4b1ead9"><span class="section-number-3">3.1.</span> Impl in TypeScript</h3>
+<div id="outline-container-org375de53" class="outline-3">
+<h3 id="org375de53"><span class="section-number-3">3.1.</span> Impl in TypeScript</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><a href="https://www.typescriptlang.org/play?#code/PTAEF5K6d0BkCGA7A5gKHQS2QFwKYBOAZogMb6gBqWAzlrgPaEA8AKgHygDe6o-oYswByAVwC2ACmQAuUMgkAjIgEo5bdAF9seIqQqgAogA8ADjz4CAbnQbsOkq3Jr0mrTmtAbt6MgBtEWlpQMXFQLHFTP3xxfDxgk3NeAVBTQkYCMgIAE3k5BXFlQgBuS34yRmRaXEJRLOZpfKVVCxSU3AALOgA6ZAh5UpTtFJtXe0dnWzd7FVa2-kJ8XFFCPqtuoUJQyU6e5BVBgW0ff0CEq0Q-cMjo2PjqKeYWAqKuZIFN7dl5ZsJZ9-mi2WqwGZVAx0wIAgsBhMIQKFQACZMDgCCRyJQXAxmIj7KB8MYCMhssEsdNOHN+JsAAp+US0ST4ACMckSiIANPjEayzIjPN4Ubp0QY2fjCXESUYzJTQKM7JwJg9XDiZuotJhTkFQLT6dcojE4rgEryZWksBcCPiWVLTIjDvwzRbKPhuTa7WCKlUanU3IzrWzOS6ebb-mD2l1aN1mf1mfa2rtIy6Y+6hmC5bhxk4ldjCLiPOoZSkgSs1htmDqGQmo0zOVWXSowRDfAEtYYLn5EWKiZK25c9bdDaTHrnnr83mCaXSGczgxyubPPC8iIWBMWQczuumdhHZgBqLmbqbbugHRvq5tnUAAZQ6jAA7v2DfcySrqoQcKhxylPhJGj9Cqochvh+K4LEsJagAABgAJNwyCaJBcbDB85ZTn6s6Bq6bKeMBaCgaAa59BuW4JnuoAAOSgPulH7i6h6uMetCnqmPhQrC7HQPCaAAMyCmi+iYsO3F4gS3ZDsqI4UgCggiJUV5xLQ+DoTamELmqPionoGI2txXYSsatoyummaTBJwn5l454apU1SgOIiA4P0kizOAX4CJ6tnRuA8j4A+2wACx8nGHmMNE3R+IwqCSAARPg7YhL+gWeNFgZMvRDDSL5Rjts5KinpgKQebgXL9MgWUVplfm-gArConJlVVUjcQA7HlwU2aF+DhZFMVxX2FXVZyLXJZh6W4JV2WXIiuXMe5HVhRFUWxfFA1Da1cgpQeW4Ndet53jNpRglCO2MKYRCILgWCVKATBinQl14dkF2IDdACeZ0evNXWLb18UBXyG2pWNE29h2B2fVUnXdUttB7QlUhJYDVrAztN73uDPj2TgzlAA">Philip W sample in TypeScript</a></li>
@@ -119,8 +120,8 @@ I gave another thought when comparing the OO approach (easy data extension but n
 </ul>
 </div>
 </div>
-<div id="outline-container-org40e5b1b" class="outline-3">
-<h3 id="org40e5b1b"><span class="section-number-3">3.2.</span> Remarks</h3>
+<div id="outline-container-org7c9f6bb" class="outline-3">
+<h3 id="org7c9f6bb"><span class="section-number-3">3.2.</span> Remarks</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 The solutions appear pretty much same as Type Class solution since the basic idea is same
@@ -133,8 +134,8 @@ The solutions appear pretty much same as Type Class solution since the basic ide
 </div>
 </div>
 </div>
-<div id="outline-container-org5575522" class="outline-2">
-<h2 id="org5575522"><span class="section-number-2">4.</span> Read paper <a href="https://www.cs.utexas.edu/~wcook/Drafts/2009/essay.pdf">On Understanding Data Abstraction</a></h2>
+<div id="outline-container-org18aadcc" class="outline-2">
+<h2 id="org18aadcc"><span class="section-number-2">4.</span> Read paper <a href="https://www.cs.utexas.edu/~wcook/Drafts/2009/essay.pdf">On Understanding Data Abstraction</a></h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Read once but didn&rsquo;t follow well. Maybe worth re-read.</li>

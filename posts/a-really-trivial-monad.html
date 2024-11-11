@@ -17,8 +17,9 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">A Really Trivial Monad</h1>
-<p>
+</header><p>
 Generally some people saying that Monad is a computation that take a
 &rsquo;world&rsquo; as parameter and produce a result along with modified &rsquo;world&rsquo;.
 And this a manner that doing impure in a pure language.
@@ -60,7 +61,7 @@ In order to be a monad, it has to be a instance of <code>Monad</code> and the
 implementation of <code>&gt;&gt;=</code> is
 </p>
 
-<pre class="example" id="org5566165">
+<pre class="example" id="orgb043b4e">
   &gt; p &gt;&gt;= f = let (a, c1) = getSint p
   &gt;               (b, c2) = getSint (f a)
   &gt;               in Sint (b, c1+c2)

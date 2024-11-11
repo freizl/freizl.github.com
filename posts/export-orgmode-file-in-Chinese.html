@@ -17,19 +17,20 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">Export Orgmode File In Chinese</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga2aa91b">1. Introduction</a></li>
-<li><a href="#org99937a2">2. First solution</a></li>
-<li><a href="#org70e4141">3. Second solution</a></li>
+<li><a href="#org07950fc">1. Introduction</a></li>
+<li><a href="#org46c80ba">2. First solution</a></li>
+<li><a href="#org3cd65ed">3. Second solution</a></li>
 </ul>
 </div>
-</div>
-<div id="outline-container-orga2aa91b" class="outline-2">
-<h2 id="orga2aa91b"><span class="section-number-2">1.</span> Introduction</h2>
+</nav>
+<div id="outline-container-org07950fc" class="outline-2">
+<h2 id="org07950fc"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 OrgMode is really cool and export context to latex then processed to PDF
@@ -42,19 +43,19 @@ First of all, install the following packages. (I already install the
 texlive package)
 </p>
 
-<pre class="example" id="org826d52d">
+<pre class="example" id="orge3b9be6">
   apt-get install latex-cjk-chinese latex-cjk-xcjk texlive-xetex
 </pre>
 </div>
 </div>
-<div id="outline-container-org99937a2" class="outline-2">
-<h2 id="org99937a2"><span class="section-number-2">2.</span> First solution</h2>
+<div id="outline-container-org46c80ba" class="outline-2">
+<h2 id="org46c80ba"><span class="section-number-2">2.</span> First solution</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Then in the org file, add the following latex options.
 </p>
 
-<pre class="example" id="org5b45917">
+<pre class="example" id="orgb63fa4f">
   #+LaTeX_HEADER: \usepackage{CJK}
   #+LaTeX_HEADER: \begin{CJK}{UTF8}{gbsn}
 </pre>
@@ -74,8 +75,8 @@ It all works out OK except the title which is Chinese characters are not display
 </p>
 </div>
 </div>
-<div id="outline-container-org70e4141" class="outline-2">
-<h2 id="org70e4141"><span class="section-number-2">3.</span> Second solution</h2>
+<div id="outline-container-org3cd65ed" class="outline-2">
+<h2 id="org3cd65ed"><span class="section-number-2">3.</span> Second solution</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Turns out <code>XeLaTex</code> has better support for UTF8. Actually I did
@@ -87,7 +88,7 @@ mail list point out in <a href="http://thread.gmane.org/gmane.emacs.orgmode/5191
 All I need to do is adding following option to the org document.
 </p>
 
-<pre class="example" id="orgb041100">
+<pre class="example" id="org85e29a5">
 #+LATEX_HEADER: \usepackage{xltxtra}
 #+LATEX_HEADER: \setmainfont{WenQuanYi Micro Hei}
 </pre>
@@ -96,7 +97,7 @@ All I need to do is adding following option to the org document.
 Also need to customize emacs latex to pdf process.
 </p>
 
-<pre class="example" id="orge5afca5">
+<pre class="example" id="orgcd39053">
 (setq org-latex-pdf-process
       '("xelatex -interaction nonstopmode -output-directory %o %f"
         "xelatex -interaction nonstopmode -output-directory %o %f"
@@ -118,13 +119,13 @@ Also need to customize emacs latex to pdf process.
 <li><p>
 This work in MacOS 10.15 in terms of chinese font.
 </p>
-<pre class="example" id="org74f3992">
+<pre class="example" id="orgd89c97e">
 #+LATEX_HEADER: \setmainfont{STHeiti}
 </pre></li>
 <li><p>
 <code>ctex</code> package also works besides <code>xltxtra</code>
 </p>
-<pre class="example" id="orgd802219">
+<pre class="example" id="orge79d3e4">
 #+LATEX_HEADER: \usepackage{ctex}
 </pre></li>
 

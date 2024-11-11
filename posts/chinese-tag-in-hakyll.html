@@ -17,23 +17,24 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
+<header>
 <h1 class="title">Chinese Tag In Hakyll</h1>
-<div id="table-of-contents" role="doc-toc">
+</header><nav id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org7afa54e">1. 问题</a></li>
-<li><a href="#orgeae78f8">2. 原因</a></li>
-<li><a href="#org79db3d1">3. 一种解决办法</a></li>
-<li><a href="#orgfa3008f">4. 再一种解决办法</a></li>
+<li><a href="#orgcd475f6">1. 问题</a></li>
+<li><a href="#org30edf99">2. 原因</a></li>
+<li><a href="#org6f635ce">3. 一种解决办法</a></li>
+<li><a href="#org0a61d62">4. 再一种解决办法</a></li>
 </ul>
 </div>
-</div>
+</nav>
 <p>
 <b>此问题发生在 GHC &lt; 7.2.x 的环境，据说 7.2.x 已经修正了造成此原因的 bug(未验证)。</b>
 </p>
-<div id="outline-container-org7afa54e" class="outline-2">
-<h2 id="org7afa54e"><span class="section-number-2">1.</span> 问题</h2>
+<div id="outline-container-orgcd475f6" class="outline-2">
+<h2 id="orgcd475f6"><span class="section-number-2">1.</span> 问题</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>会给每个标签单独生成一个 html，比如/foo.html/, 用来显示标签对应的所有文章。
@@ -41,8 +42,8 @@ Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a><
 </p>
 </div>
 </div>
-<div id="outline-container-orgeae78f8" class="outline-2">
-<h2 id="orgeae78f8"><span class="section-number-2">2.</span> 原因</h2>
+<div id="outline-container-org30edf99" class="outline-2">
+<h2 id="org30edf99"><span class="section-number-2">2.</span> 原因</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 造成问题是原因由于 Haskell 里写文件的方法。 如下所是, <code>writeFile</code> 用base 库里的 <code>String</code> 类型表示文件名， 这就限制其只能表示 ASC-II 字符集。
@@ -58,8 +59,8 @@ Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a><
 </div>
 </div>
 </div>
-<div id="outline-container-org79db3d1" class="outline-2">
-<h2 id="org79db3d1"><span class="section-number-2">3.</span> 一种解决办法</h2>
+<div id="outline-container-org6f635ce" class="outline-2">
+<h2 id="org6f635ce"><span class="section-number-2">3.</span> 一种解决办法</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 最直接的方式就是用类库 utf8-string<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>里的 <code>encodeString</code> 方法，现将文件名进行 encode 然后再调 <code>writeFile</code> 方法。比如
@@ -78,8 +79,8 @@ Hakyll<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a><
 </p>
 </div>
 </div>
-<div id="outline-container-orgfa3008f" class="outline-2">
-<h2 id="orgfa3008f"><span class="section-number-2">4.</span> 再一种解决办法</h2>
+<div id="outline-container-org0a61d62" class="outline-2">
+<h2 id="org0a61d62"><span class="section-number-2">4.</span> 再一种解决办法</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 hakyll google groups 有人帖了他的一个解决方案，也是用 utf8-string 先 encode，但修改的地方不一样。详见此<sup><a id="fnr.4" class="footref" href="#fn.4" role="doc-backlink">4</a></sup>。
