@@ -17,14 +17,13 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Install SVN as Windows Service</h1>
-</header><div class="org-src-container">
-<pre class="src src-sh">sc create svn <span style="color: #ffc9e8;">binpath</span>= <span style="color: #f1fa8c;">"\"C:\svn-win32-1.4.4\bin\svnserve.exe\&#8221;</span>
-<span style="color: #f1fa8c;">--service -r C:\Workspace\SVN\repos&#8221; displayname= "</span>Subversion Server<span style="color: #f1fa8c;">"</span>
-<span style="color: #f1fa8c;">depend= Tcpip start= auto</span>
+<div class="org-src-container">
+<pre class="src src-sh">sc create svn <span style="color: #8d9fa1;">binpath</span>= <span style="color: #93a61a;">"\"C:\svn-win32-1.4.4\bin\svnserve.exe\&#8221;</span>
+<span style="color: #93a61a;">--service -r C:\Workspace\SVN\repos&#8221; displayname= "</span>Subversion Server<span style="color: #93a61a;">"</span>
+<span style="color: #93a61a;">depend= Tcpip start= auto</span>
 
-<span style="color: #f1fa8c;">net start svn</span>
+<span style="color: #93a61a;">net start svn</span>
 </pre>
 </div>
 </div>
@@ -32,7 +31,7 @@
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-07-16 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2008-07-16 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

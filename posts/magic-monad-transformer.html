@@ -17,9 +17,8 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Magic Monad Transformer</h1>
-</header><nav id="table-of-contents" role="doc-toc">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
@@ -28,8 +27,7 @@
 <li><a href="#a-trivial-demo">3. A trivial demo</a></li>
 </ul>
 </div>
-</nav>
-
+</div>
 <div id="outline-container-monad-transformer" class="outline-2">
 <h2 id="monad-transformer"><span class="section-number-2">1.</span> Monad-Transformer</h2>
 <div class="outline-text-2" id="text-monad-transformer">
@@ -51,29 +49,28 @@ is not possible.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #ff79c6;">type</span> <span style="color: #bd93f9;">App</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">ReaderT</span> <span style="color: #bd93f9;">AppConfig</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">StateT</span> <span style="color: #bd93f9;">AppState</span> <span style="color: #bd93f9;">IO</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
-
-  <span style="color: #bd93f9;">constrainedCount</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">Int</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">FilePath</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">App</span> <span style="color: #f8f8f2; background-color: #282a36;">[(</span><span style="color: #bd93f9;">FilePath</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #bd93f9;">Int</span><span style="color: #f8f8f2; background-color: #282a36;">)]</span>
-  <span style="color: #bd93f9;">constrainedCount</span> <span style="color: #bd93f9;">curDepth</span> <span style="color: #bd93f9;">path</span> <span style="color: #ff79c6;">=</span> <span style="color: #ff79c6;">do</span>
-    <span style="color: #bd93f9;">contents</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #bd93f9;">liftIO</span> . <span style="color: #bd93f9;">listDirectory</span> $ <span style="color: #bd93f9;">path</span>
-    <span style="color: #bd93f9;">cfg</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #bd93f9;">ask</span>
-    <span style="color: #bd93f9;">rest</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #bd93f9;">forM</span> <span style="color: #bd93f9;">contents</span> $ <span style="color: #ff79c6;">\</span><span style="color: #bd93f9;">name</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #ff79c6;">do</span>
-              <span style="color: #ff79c6;">let</span> <span style="color: #bd93f9;">newPath</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">path</span> <span style="color: #ff79c6;">&lt;/&gt;</span> <span style="color: #bd93f9;">name</span>
-              <span style="color: #bd93f9;">isDir</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #bd93f9;">liftIO</span> <span style="color: #ff79c6;">$</span> <span style="color: #bd93f9;">doesDirectoryExist</span> <span style="color: #bd93f9;">newPath</span>
-              <span style="color: #bd93f9;">if</span> <span style="color: #bd93f9;">isDir</span> <span style="color: #ff79c6;">&amp;&amp;</span> <span style="color: #bd93f9;">curDepth</span> <span style="color: #ff79c6;">&lt;</span> <span style="color: #bd93f9;">cfgMaxDepth</span> <span style="color: #bd93f9;">cfg</span>
-                <span style="color: #bd93f9;">then</span> <span style="color: #bd93f9;">do</span>
-                  <span style="color: #bd93f9;">let</span> <span style="color: #bd93f9;">newDepth</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">curDepth</span> <span style="color: #ff79c6;">+</span> <span style="color: #8be9fd;">1</span>
-                  <span style="color: #bd93f9;">st</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #bd93f9;">get</span>
-                  <span style="color: #bd93f9;">when</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">stDeepestReached</span> <span style="color: #bd93f9;">st</span> <span style="color: #ff79c6;">&lt;</span> <span style="color: #bd93f9;">newDepth</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">$</span>
-                    <span style="color: #bd93f9;">put</span> <span style="color: #bd93f9;">st</span> <span style="color: #f8f8f2; background-color: #282a36;">{</span> <span style="color: #bd93f9;">stDeepestReached</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">newDepth</span> <span style="color: #f8f8f2; background-color: #282a36;">}</span>
-                  <span style="color: #bd93f9;">constrainedCount</span> <span style="color: #bd93f9;">newDepth</span> <span style="color: #bd93f9;">newPath</span>
-                <span style="color: #bd93f9; font-weight: bold;">else</span> <span style="color: #ffc9e8;">return</span> <span style="color: #f8f8f2; background-color: #282a36;">[]</span>
-    <span style="color: #ffc9e8;">return</span> <span style="color: #ff79c6;">$</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ffc9e8;">path</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #bd93f9; font-weight: bold;">length</span> <span style="color: #ffc9e8;">contents</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">:</span> <span style="color: #bd93f9; font-weight: bold;">concat</span> <span style="color: #ffc9e8;">rest</span>
+<pre class="src src-haskell">&#9474; <span style="color: #93a61a; font-weight: bold;">type</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">ReaderT</span> <span style="color: #c49619; font-style: italic;">AppConfig</span> (<span style="color: #c49619; font-style: italic;">StateT</span> <span style="color: #c49619; font-style: italic;">AppState</span> <span style="color: #c49619; font-style: italic;">IO</span>)
+&#9474;
+&#9474; constrainedCount <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">FilePath</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">App</span> [(<span style="color: #c49619; font-style: italic;">FilePath</span>, <span style="color: #c49619; font-style: italic;">Int</span>)]
+&#9474; constrainedCount curDepth path <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+&#9474;   contents <span style="color: #8d9fa1;">&lt;-</span> liftIO <span style="color: #8d9fa1;">.</span> listDirectory <span style="color: #8d9fa1;">$</span> path
+&#9474;   cfg <span style="color: #8d9fa1;">&lt;-</span> ask
+&#9474;   rest <span style="color: #8d9fa1;">&lt;-</span> forM contents <span style="color: #8d9fa1;">$</span> <span style="color: #8d9fa1;">\</span>name <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+&#9474;   &#9474;   &#9474;   &#9474; <span style="color: #93a61a; font-weight: bold;">let</span> newPath <span style="color: #8d9fa1;">=</span> path <span style="color: #8d9fa1;">&lt;/&gt;</span> name
+&#9474;   &#9474;   &#9474;   &#9474; isDir <span style="color: #8d9fa1;">&lt;-</span> liftIO <span style="color: #8d9fa1;">$</span> doesDirectoryExist newPath
+&#9474;   &#9474;   &#9474;   &#9474; <span style="color: #93a61a; font-weight: bold;">if</span> isDir <span style="color: #8d9fa1;">&amp;&amp;</span> curDepth <span style="color: #8d9fa1;">&lt;</span> cfgMaxDepth cfg
+&#9474;   &#9474;   &#9474;   &#9474;   <span style="color: #93a61a; font-weight: bold;">then</span> <span style="color: #93a61a; font-weight: bold;">do</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474; <span style="color: #93a61a; font-weight: bold;">let</span> newDepth <span style="color: #8d9fa1;">=</span> curDepth <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474; st <span style="color: #8d9fa1;">&lt;-</span> get
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474; when (stDeepestReached st <span style="color: #8d9fa1;">&lt;</span> newDepth) <span style="color: #8d9fa1;">$</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   put st { stDeepestReached <span style="color: #8d9fa1;">=</span> newDepth }
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474; constrainedCount newDepth newPath
+&#9474;   &#9474;   &#9474;   &#9474;   <span style="color: #93a61a; font-weight: bold;">else</span> return <span style="color: #c49619; font-style: italic;">[]</span>
+&#9474;   return <span style="color: #8d9fa1;">$</span> (path, length contents) <span style="color: #c49619; font-style: italic;">:</span> concat rest
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-what-is-the-so-called-magic" class="outline-2">
 <h2 id="what-is-the-so-called-magic"><span class="section-number-2">2.</span> What is the so-called &ldquo;Magic&rdquo;</h2>
 <div class="outline-text-2" id="text-what-is-the-so-called-magic">
@@ -83,21 +80,21 @@ implementations.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">
-  <span style="color: #6272a4;">-- | ReaderT</span>
-  <span style="color: #ff79c6;">instance</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">Monad</span> <span style="color: #bd93f9;">m</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">=&gt;</span> <span style="color: #bd93f9;">MonadReader</span> <span style="color: #bd93f9;">r</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">ReaderT</span> <span style="color: #bd93f9;">r</span> <span style="color: #bd93f9;">m</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">where</span>
-      <span style="color: #bd93f9; font-weight: bold;">ask</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffb86c;">ReaderT</span>.<span style="color: #ffc9e8;">ask</span>
-      <span style="color: #bd93f9; font-weight: bold;">local</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffb86c;">ReaderT</span>.<span style="color: #ffc9e8;">local</span>
-
-  <span style="color: #6272a4;">-- | StateT</span>
-  <span style="color: #ff79c6;">instance</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">Monad</span> <span style="color: #bd93f9;">m</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">=&gt;</span> <span style="color: #bd93f9;">MonadState</span> <span style="color: #bd93f9;">s</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ffb86c;">Lazy</span>.<span style="color: #bd93f9;">StateT</span> <span style="color: #bd93f9;">s</span> <span style="color: #bd93f9;">m</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">where</span>
-      <span style="color: #bd93f9; font-weight: bold;">get</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffb86c;">Lazy</span>.<span style="color: #ffc9e8;">get</span>
-      <span style="color: #bd93f9; font-weight: bold;">put</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffb86c;">Lazy</span>.<span style="color: #ffc9e8;">put</span>
-
-  <span style="color: #6272a4;">-- | Combine ReaderT and StataT</span>
-  <span style="color: #ff79c6;">instance</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">MonadState</span> <span style="color: #bd93f9;">s</span> <span style="color: #bd93f9;">m</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">=&gt;</span> <span style="color: #bd93f9;">MonadState</span> <span style="color: #bd93f9;">s</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">ReaderT</span> <span style="color: #bd93f9;">r</span> <span style="color: #bd93f9;">m</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">where</span>
-      <span style="color: #bd93f9; font-weight: bold;">get</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">lift</span> <span style="color: #ffc9e8;">get</span>
-      <span style="color: #bd93f9; font-weight: bold;">put</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd; font-style: italic;">lift</span> <span style="color: #ff79c6;">.</span> <span style="color: #bd93f9; font-weight: bold;">put</span>
+<pre class="src src-haskell">&#9474;
+&#9474; <span style="color: #35a69c; font-style: italic;">-- | ReaderT</span>
+&#9474; <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">MonadReader</span> r (<span style="color: #c49619; font-style: italic;">ReaderT</span> r m) <span style="color: #93a61a; font-weight: bold;">where</span>
+&#9474;   &#9474; ask <span style="color: #8d9fa1;">=</span> ReaderT.ask
+&#9474;   &#9474; local <span style="color: #8d9fa1;">=</span> ReaderT.local
+&#9474;   &#9474;
+&#9474; <span style="color: #35a69c; font-style: italic;">-- | StateT</span>
+&#9474; <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">MonadState</span> s (<span style="color: #c49619; font-style: italic;">Lazy.StateT</span> s m) <span style="color: #93a61a; font-weight: bold;">where</span>
+&#9474;   &#9474; get <span style="color: #8d9fa1;">=</span> Lazy.get
+&#9474;   &#9474; put <span style="color: #8d9fa1;">=</span> Lazy.put
+&#9474;   &#9474;
+&#9474; <span style="color: #35a69c; font-style: italic;">-- | Combine ReaderT and StataT</span>
+&#9474; <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">MonadState</span> s m) <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">MonadState</span> s (<span style="color: #c49619; font-style: italic;">ReaderT</span> r m) <span style="color: #93a61a; font-weight: bold;">where</span>
+&#9474;   &#9474; get <span style="color: #8d9fa1;">=</span> lift get
+&#9474;   &#9474; put <span style="color: #8d9fa1;">=</span> lift <span style="color: #8d9fa1;">.</span> put
 </pre>
 </div>
 
@@ -106,11 +103,11 @@ If we do a substitution, will get
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #ff79c6;">instance</span> <span style="color: #bd93f9;">MonadReader</span> <span style="color: #bd93f9;">AppConfig</span> <span style="color: #bd93f9;">App</span> <span style="color: #bd93f9;">where</span> <span style="color: #ff79c6;">...</span>
-
-  <span style="color: #bd93f9;">instance</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">MonadState</span> <span style="color: #bd93f9;">AppState</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">StateT</span> <span style="color: #bd93f9;">AppState</span> <span style="color: #bd93f9;">IO</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
-         <span style="color: #ff79c6;">=&gt;</span> <span style="color: #bd93f9;">MonadState</span> <span style="color: #bd93f9;">AppState</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">ReaderT</span> <span style="color: #bd93f9;">AppConfig</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">StateT</span> <span style="color: #bd93f9;">AppState</span> <span style="color: #bd93f9;">IO</span><span style="color: #f8f8f2; background-color: #282a36;">))</span> <span style="color: #bd93f9;">where</span> <span style="color: #ff79c6;">...</span>
-     ~&gt; <span style="color: #ff79c6;">instance</span> <span style="color: #bd93f9;">MonadState</span> <span style="color: #bd93f9;">AppState</span> <span style="color: #bd93f9;">App</span> <span style="color: #bd93f9;">where</span> <span style="color: #ff79c6;">...</span>
+<pre class="src src-haskell">&#9474; <span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">MonadReader</span> <span style="color: #c49619; font-style: italic;">AppConfig</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #93a61a; font-weight: bold;">where</span> <span style="color: #8d9fa1;">...</span>
+&#9474;
+&#9474; <span style="color: #93a61a; font-weight: bold;">instance</span> (<span style="color: #c49619; font-style: italic;">MonadState</span> <span style="color: #c49619; font-style: italic;">AppState</span> (<span style="color: #c49619; font-style: italic;">StateT</span> <span style="color: #c49619; font-style: italic;">AppState</span> <span style="color: #c49619; font-style: italic;">IO</span>)
+&#9474;   &#9474;    <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">MonadState</span> <span style="color: #c49619; font-style: italic;">AppState</span> (<span style="color: #c49619; font-style: italic;">ReaderT</span> <span style="color: #c49619; font-style: italic;">AppConfig</span> (<span style="color: #c49619; font-style: italic;">StateT</span> <span style="color: #c49619; font-style: italic;">AppState</span> <span style="color: #c49619; font-style: italic;">IO</span>)) <span style="color: #93a61a; font-weight: bold;">where</span> <span style="color: #8d9fa1;">...</span>
+&#9474;   &#9474;<span style="color: #8d9fa1;">~&gt;</span> <span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">MonadState</span> <span style="color: #c49619; font-style: italic;">AppState</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #93a61a; font-weight: bold;">where</span> <span style="color: #8d9fa1;">...</span>
 </pre>
 </div>
 
@@ -119,7 +116,6 @@ Therefore <code>App</code> is both MonadReader and MonadState.
 </p>
 </div>
 </div>
-
 <div id="outline-container-a-trivial-demo" class="outline-2">
 <h2 id="a-trivial-demo"><span class="section-number-2">3.</span> A trivial demo</h2>
 <div class="outline-text-2" id="text-a-trivial-demo">
@@ -152,7 +148,7 @@ StateT.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-07 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2012-04-07 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

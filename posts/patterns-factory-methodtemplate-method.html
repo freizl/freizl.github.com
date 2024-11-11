@@ -17,9 +17,8 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Patterns: Factory method,Template method and Strategy</h1>
-</header><p>
+<p>
 Basically, <b>Factory method</b> is a method that is defined in Parent class
 and is implemented in Child class, which usually is abstract method.
 </p>
@@ -32,36 +31,36 @@ below)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #ff79c6;">public</span> <span style="color: #ff79c6;">abstract</span> <span style="color: #ff79c6;">class</span> <span style="color: #bd93f9;">PizzaStore</span> {
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #8995ba;">/**</span>
-<span style="color: #8995ba;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #templateMethod(String type) is an Template Method.</span>
-<span style="color: #8995ba;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *</span>
+<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">PizzaStore</span> {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #35a69c; font-style: italic;">/**</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #templateMethod(String type) is an Template Method.</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *</span>
 
-<span style="color: #8995ba;">#+begin_html</span>
-<span style="color: #8995ba;">  </span><span style="color: #8be9fd;">&lt;p&gt;</span>
-<span style="color: #8995ba;">#+end_html</span>
+<span style="color: #35a69c; font-style: italic;">#+begin_html</span>
+&#9474;<span style="color: #35a69c; font-style: italic;"> </span><span style="color: #3c98e0; font-weight: bold; font-style: italic;">&lt;p&gt;</span>
+<span style="color: #35a69c; font-style: italic;">#+end_html</span>
 
-<span style="color: #8995ba;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #factoryMethodOfInit() AND #factoryMethodOfCreate(String</span>
-<span style="color: #8995ba;">type) are both</span>
-<span style="color: #8995ba;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * Factory Method.</span>
-<span style="color: #8995ba;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */</span>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #ff79c6;">public</span> Pizza templateMethod(<span style="color: #bd93f9;">String</span> <span style="color: #ffc9e8;">type</span>) {
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #factoryMethodOfInit() AND #factoryMethodOfCreate(String</span>
+<span style="color: #35a69c; font-style: italic;">type) are both</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * Factory Method.</span>
+<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">public</span> Pizza templateMethod(String type) {
 
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;factoryMethodOfInit();
 
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Pizza pizza = factoryMethodOfCreate(type);
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;System.out.println(<span style="color: #f1fa8c;">"--- Making a"</span> + pizza.getName() + &#8221;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;System.out.println(<span style="color: #93a61a;">"--- Making a"</span> + pizza.getName() + &#8221;
 ---&#8220;);
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.prepare();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.bake();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.cut();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.box();
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #ff79c6;">return</span> pizza;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">return</span> pizza;
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #ff79c6;">protected</span> <span style="color: #ff79c6;">abstract</span> <span style="color: #bd93f9;">void</span> factoryMethodOfInit();
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #ff79c6;">protected</span> <span style="color: #ff79c6;">abstract</span> Pizza factoryMethodOfCreate(<span style="color: #bd93f9;">String</span> <span style="color: #ffc9e8;">type</span>);
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #c49619; font-style: italic;">void</span> factoryMethodOfInit();
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> Pizza factoryMethodOfCreate(String type);
 }
 
 </pre>
@@ -192,7 +191,7 @@ clearly.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2009-09-01 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2009-09-01 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

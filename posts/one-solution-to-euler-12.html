@@ -17,9 +17,8 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">One Solution To Euler 12</h1>
-</header><p>
+<p>
 Nothing special but play haskell for fun.
 </p>
 
@@ -28,34 +27,34 @@ Nothing special but play haskell for fun.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #ff79c6;">module</span> <span style="color: #ffb86c;">Main</span> <span style="color: #ff79c6;">where</span>
-
-  <span style="color: #ff79c6;">import</span> <span style="color: #ffb86c;">Data</span><span style="color: #ff79c6;">.</span><span style="color: #ffb86c;">List</span>
-  <span style="color: #ff79c6;">import</span> <span style="color: #ffb86c;">Primeing</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ffc9e8;">primeFactors</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
-
-  <span style="color: #50fa7b;">main</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">IO</span> <span style="color: #f8f8f2; background-color: #282a36;">()</span>
-  <span style="color: #bd93f9; font-weight: bold;">main</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd; font-style: italic;">print</span> <span style="color: #ff79c6;">$</span> <span style="color: #bd93f9; font-weight: bold;">p12</span> <span style="color: #8be9fd;">500</span>
-
-  <span style="color: #50fa7b;">p12</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">Int</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Int</span>
-  <span style="color: #bd93f9; font-weight: bold;">p12</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd; font-style: italic;">head</span> <span style="color: #ff79c6;">$</span> <span style="color: #bd93f9; font-weight: bold;">filter</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">factorLimit</span> <span style="color: #ffc9e8;">n</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span> <span style="color: #bd93f9; font-weight: bold;">smartGaus</span> <span style="color: #ffc9e8;">x</span> <span style="color: #ff79c6;">|</span> <span style="color: #ffc9e8;">x</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #8be9fd;">1</span>..<span style="color: #f8f8f2; background-color: #282a36;">]]</span>
-
-  <span style="color: #50fa7b;">smartGaus</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">Int</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Int</span>
-  <span style="color: #bd93f9; font-weight: bold;">smartGaus</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd;">1</span><span style="color: #ff79c6;">+</span><span style="color: #8be9fd; font-style: italic;">n</span><span style="color: #f8f8f2; background-color: #282a36;">)</span><span style="color: #ff79c6;">*</span><span style="color: #8be9fd; font-style: italic;">n</span> <span style="color: #ff79c6;">`</span><span style="color: #ff79c6;">div</span><span style="color: #ff79c6;">`</span> <span style="color: #8be9fd;">2</span>
-
-  <span style="color: #6272a4;">{-- |</span>
-<span style="color: #6272a4;">    Is factor count under the limit</span>
-<span style="color: #6272a4;">  --}</span>
-  <span style="color: #50fa7b;">factorLimit</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">Int</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Int</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Bool</span>
-  <span style="color: #bd93f9; font-weight: bold;">factorLimit</span> <span style="color: #ffc9e8;">l</span><span style="color: #ffc9e8;"> </span><span style="color: #ffc9e8;">n</span>
-    <span style="color: #ff79c6;">|</span> <span style="color: #8be9fd;">2</span> <span style="color: #ff79c6;">*</span> <span style="color: #bd93f9; font-weight: bold;">sqrtInt</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">&lt;</span> <span style="color: #8be9fd; font-style: italic;">l</span>    <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">False</span>
-    <span style="color: #ff79c6;">|</span> <span style="color: #ffc9e8;">otherwise</span>            <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">length</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">factors</span>  <span style="color: #ffc9e8;">n</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">&gt;=</span> <span style="color: #8be9fd; font-style: italic;">l</span>
-
-
-  <span style="color: #50fa7b;">factors</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">Int</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">Int</span><span style="color: #f8f8f2; background-color: #282a36;">]</span>
-  <span style="color: #bd93f9; font-weight: bold;">factors</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">concat</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #ffc9e8;">x</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #8be9fd; font-style: italic;">n</span> <span style="color: #ff79c6;">`</span><span style="color: #ff79c6;">div</span><span style="color: #ff79c6;">`</span> <span style="color: #8be9fd; font-style: italic;">x</span><span style="color: #f8f8f2; background-color: #282a36;">]</span> <span style="color: #ff79c6;">|</span> <span style="color: #ffc9e8;">x</span> <span style="color: #ff79c6;">&lt;-</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #8be9fd;">1</span>..<span style="color: #bd93f9; font-weight: bold;">sqrtInt</span> <span style="color: #ffc9e8;">n</span><span style="color: #f8f8f2; background-color: #282a36;">]</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #8be9fd; font-style: italic;">n</span> <span style="color: #ff79c6;">`</span><span style="color: #ff79c6;">mod</span><span style="color: #ff79c6;">`</span> <span style="color: #8be9fd; font-style: italic;">x</span> <span style="color: #ff79c6;">==</span> <span style="color: #8be9fd;">0</span> <span style="color: #f8f8f2; background-color: #282a36;">]</span>
-
-  <span style="color: #50fa7b;">sqrtInt</span> <span style="color: #ff79c6;">::</span> <span style="color: #bd93f9;">Int</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Int</span>
-  <span style="color: #bd93f9; font-weight: bold;">sqrtInt</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd; font-style: italic;">truncate</span> <span style="color: #ff79c6;">.</span> <span style="color: #8be9fd; font-style: italic;">sqrt</span> <span style="color: #ff79c6;">.</span> <span style="color: #8be9fd; font-style: italic;">fromIntegral</span>
+<pre class="src src-haskell">&#9474; <span style="color: #93a61a; font-weight: bold;">module</span> <span style="color: #c49619; font-style: italic;">Main</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+&#9474;
+&#9474; <span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #c49619; font-style: italic;">Data.List</span>
+&#9474; <span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #c49619; font-style: italic;">Primeing</span> (primeFactors)
+&#9474;
+&#9474; main <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> <span style="color: #c49619; font-style: italic;">()</span>
+&#9474; main <span style="color: #8d9fa1;">=</span> print <span style="color: #8d9fa1;">$</span> p12 <span style="color: #7a7ed2; font-weight: bold;">500</span>
+&#9474;
+&#9474; p12 <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+&#9474; p12 n <span style="color: #8d9fa1;">=</span> head <span style="color: #8d9fa1;">$</span> filter (factorLimit n) [ smartGaus x <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>]]
+&#9474;
+&#9474; smartGaus <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+&#9474; smartGaus n <span style="color: #8d9fa1;">=</span> (<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">+</span>n)<span style="color: #8d9fa1;">*</span>n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
+&#9474;
+&#9474; <span style="color: #62787f; font-style: italic;">{-</span><span style="color: #62787f; font-style: italic;">- |</span>
+&#9474;<span style="color: #62787f; font-style: italic;">   Is factor count under the limit</span>
+&#9474;<span style="color: #62787f; font-style: italic;"> -</span><span style="color: #62787f; font-style: italic;">-}</span>
+&#9474; factorLimit <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Bool</span>
+&#9474; factorLimit l n
+&#9474;   <span style="color: #8d9fa1;">|</span> <span style="color: #7a7ed2; font-weight: bold;">2</span> <span style="color: #8d9fa1;">*</span> sqrtInt n <span style="color: #8d9fa1;">&lt;</span> l    <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">False</span>
+&#9474;   <span style="color: #8d9fa1;">|</span> otherwise            <span style="color: #8d9fa1;">=</span> length (factors  n) <span style="color: #8d9fa1;">&gt;=</span> l
+&#9474;
+&#9474;
+&#9474; factors <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> [<span style="color: #c49619; font-style: italic;">Int</span>]
+&#9474; factors n <span style="color: #8d9fa1;">=</span> concat [ [x, n <span style="color: #8d9fa1;">`div`</span> x] <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>sqrtInt n], n <span style="color: #8d9fa1;">`mod`</span> x <span style="color: #8d9fa1;">==</span> <span style="color: #7a7ed2; font-weight: bold;">0</span> ]
+&#9474;
+&#9474; sqrtInt <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+&#9474; sqrtInt <span style="color: #8d9fa1;">=</span> truncate <span style="color: #8d9fa1;">.</span> sqrt <span style="color: #8d9fa1;">.</span> fromIntegral
 </pre>
 </div>
 <div id="footnotes">
@@ -73,7 +72,7 @@ Nothing special but play haskell for fun.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-11-18 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2011-11-18 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

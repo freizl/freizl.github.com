@@ -17,38 +17,37 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Mirro the Wikipedia at your local</h1>
-</header><div class="org-src-container">
-<pre class="src src-sh"><span style="color: #bd93f9;">sudo</span> apt-get update
-<span style="color: #bd93f9;">sudo</span> apt-get install apache2 php5 libapache2-mod-php5 mysql-server
+<div class="org-src-container">
+<pre class="src src-sh"><span style="color: #c49619; font-style: italic;">sudo</span> apt-get update
+<span style="color: #c49619; font-style: italic;">sudo</span> apt-get install apache2 php5 libapache2-mod-php5 mysql-server
 mysql-client php5-mysql phpmyadmin
-<span style="color: #bd93f9;">mkdir</span> ~/wiki/
-<span style="color: #bd93f9;">cd</span> ~/wiki/
+<span style="color: #c49619; font-style: italic;">mkdir</span> ~/wiki/
+<span style="color: #c49619; font-style: italic;">cd</span> ~/wiki/
 wget http://download.wikimedia.org/mediawiki/1.10/mediawiki-1.10.0.tar.gz
-<span style="color: #bd93f9;">sudo</span> <span style="color: #bd93f9;">mkdir</span> /var/www/w/
-<span style="color: #bd93f9;">sudo</span> tar xzf mediawiki-1.10.0.tar.gz -C /var/www/
-<span style="color: #bd93f9;">cd</span> /var/www/mediawiki-1.10.0/
-<span style="color: #bd93f9;">sudo</span> <span style="color: #bd93f9;">chmod</span> a+x config
+<span style="color: #c49619; font-style: italic;">sudo</span> <span style="color: #c49619; font-style: italic;">mkdir</span> /var/www/w/
+<span style="color: #c49619; font-style: italic;">sudo</span> tar xzf mediawiki-1.10.0.tar.gz -C /var/www/
+<span style="color: #c49619; font-style: italic;">cd</span> /var/www/mediawiki-1.10.0/
+<span style="color: #c49619; font-style: italic;">sudo</span> <span style="color: #c49619; font-style: italic;">chmod</span> a+x config
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-sh">$ mysql
 mysql&gt; USE mysql;
-mysql&gt; UPDATE user SET <span style="color: #ffc9e8;">Password</span>=PASSWORD<span style="color: #61bfff;">(</span><span style="color: #f1fa8c;">'new-password'</span><span style="color: #61bfff;">)</span> WHERE
-<span style="color: #ffc9e8;">user</span>=<span style="color: #f1fa8c;">'root'</span>;
+mysql&gt; UPDATE user SET <span style="color: #8d9fa1;">Password</span>=PASSWORD<span style="color: #3c98e0;">(</span><span style="color: #93a61a;">'new-password'</span><span style="color: #3c98e0;">)</span> WHERE
+<span style="color: #8d9fa1;">user</span>=<span style="color: #93a61a;">'root'</span>;
 mysql&gt; FLUSH PRIVILEGES;
-add user <span style="color: #f1fa8c;">'wikiuser'</span> and database <span style="color: #f1fa8c;">'wikidb'</span> and set privileges
+add user <span style="color: #93a61a;">'wikiuser'</span> and database <span style="color: #93a61a;">'wikidb'</span> and set privileges
 </pre>
 </div>
 
 <div class="org-src-container">
 <pre class="src src-sh">wget http://download.wikimedia.org/enwiki/20070402/enwiki-20070402-pages-articles.xml.bz2
 bunzip2 -k enwiki-20070402-pages-articles.xml.bz2
-wget http://modzer0.cs.uaf.edu/~dev2c/mwimport.sh <span style="color: #61bfff;">(</span>OR
-http://freizl.googlepages.com/mwimport.sh<span style="color: #61bfff;">)</span>
-<span style="color: #bd93f9;">chmod</span> +x mwimport.sh
+wget http://modzer0.cs.uaf.edu/~dev2c/mwimport.sh <span style="color: #3c98e0;">(</span>OR
+http://freizl.googlepages.com/mwimport.sh<span style="color: #3c98e0;">)</span>
+<span style="color: #c49619; font-style: italic;">chmod</span> +x mwimport.sh
 </pre>
 </div>
 
@@ -57,7 +56,7 @@ increase Default<sub>Allowed</sub><sub>Packet</sub> for MySQL in MySQL config fi
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh"><span style="color: #bd93f9;">cat</span> enwiki-20070402-pages-articles.xml | ./mwimport.sh | mysql -f -uwikiuser -ppassword wikidb
+<pre class="src src-sh"><span style="color: #c49619; font-style: italic;">cat</span> enwiki-20070402-pages-articles.xml | ./mwimport.sh | mysql -f -uwikiuser -ppassword wikidb
 </pre>
 </div>
 
@@ -82,7 +81,7 @@ Not sure if it is necessary.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-03-22 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2008-03-22 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

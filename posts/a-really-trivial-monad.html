@@ -17,9 +17,8 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">A Really Trivial Monad</h1>
-</header><p>
+<p>
 Generally some people saying that Monad is a computation that take a
 &rsquo;world&rsquo; as parameter and produce a result along with modified &rsquo;world&rsquo;.
 And this a manner that doing impure in a pure language.
@@ -52,7 +51,7 @@ Therefore the type is actually any value plus a count
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  &gt; <span style="color: #ff79c6;">newtype</span> <span style="color: #bd93f9;">Sint</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9;">Sint</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">,</span> <span style="color: #bd93f9;">Count</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
+<pre class="src src-haskell">&#9474; <span style="color: #8d9fa1;">&gt;</span> <span style="color: #93a61a; font-weight: bold;">newtype</span> <span style="color: #c49619; font-style: italic;">Sint</span> a <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Sint</span> (a, <span style="color: #c49619; font-style: italic;">Count</span>)
 </pre>
 </div>
 
@@ -61,7 +60,7 @@ In order to be a monad, it has to be a instance of <code>Monad</code> and the
 implementation of <code>&gt;&gt;=</code> is
 </p>
 
-<pre class="example" id="org0da196e">
+<pre class="example" id="org5566165">
   &gt; p &gt;&gt;= f = let (a, c1) = getSint p
   &gt;               (b, c2) = getSint (f a)
   &gt;               in Sint (b, c1+c2)
@@ -100,7 +99,7 @@ to do, which also turn to be simple.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-05-29 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2011-05-29 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

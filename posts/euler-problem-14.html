@@ -17,27 +17,25 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Euler Problem 14</h1>
-</header><nav id="table-of-contents" role="doc-toc">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org922f7b4">1. Solution One</a></li>
-<li><a href="#orga1b6443">2. Solution Two</a></li>
-<li><a href="#org66042b3">3. Other solutions</a></li>
-<li><a href="#org5d61083">4. Further</a>
+<li><a href="#orgde02731">1. Solution One</a></li>
+<li><a href="#org780fafd">2. Solution Two</a></li>
+<li><a href="#orgc1c9cb7">3. Other solutions</a></li>
+<li><a href="#org02fa355">4. Further</a>
 <ul>
-<li><a href="#orgb6590f6">4.1. Why solution 2 make great differences?</a></li>
-<li><a href="#orgd9402fa">4.2. More about Parallel programming in Haskell?</a></li>
+<li><a href="#org9557938">4.1. Why solution 2 make great differences?</a></li>
+<li><a href="#orgacd0aa7">4.2. More about Parallel programming in Haskell?</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</nav>
-
-<div id="outline-container-org922f7b4" class="outline-2">
-<h2 id="org922f7b4"><span class="section-number-2">1.</span> Solution One</h2>
+</div>
+<div id="outline-container-orgde02731" class="outline-2">
+<h2 id="orgde02731"><span class="section-number-2">1.</span> Solution One</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I should say this solution only work while upper limit is under 100000.
@@ -64,8 +62,8 @@ So, problem solving failed.
 
 <span style="color: #3c98e0;">intTransform</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
 <span style="color: #3c98e0;">intTransform</span> n
-  <span style="color: #8d9fa1;">|</span> even n         <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
-  <span style="color: #8d9fa1;">|</span> otherwise      <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">3</span> <span style="color: #8d9fa1;">*</span> n <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
+&#9474; <span style="color: #8d9fa1;">|</span> even n         <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
+&#9474; <span style="color: #8d9fa1;">|</span> otherwise      <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">3</span> <span style="color: #8d9fa1;">*</span> n <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
 </pre>
 </div>
 
@@ -79,9 +77,8 @@ Compile as otherwise Stack space overflow:
 </div>
 </div>
 </div>
-
-<div id="outline-container-orga1b6443" class="outline-2">
-<h2 id="orga1b6443"><span class="section-number-2">2.</span> Solution Two</h2>
+<div id="outline-container-org780fafd" class="outline-2">
+<h2 id="org780fafd"><span class="section-number-2">2.</span> Solution Two</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I went for Haskell Wiki<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> for help by finding solution one there is
@@ -101,8 +98,8 @@ The result came under 1.5s at my local!
 
 <span style="color: #3c98e0;">intTransform</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Word32</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Word32</span>
 <span style="color: #3c98e0;">intTransform</span> n
-  <span style="color: #8d9fa1;">|</span> even n         <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
-  <span style="color: #8d9fa1;">|</span> otherwise      <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">3</span> <span style="color: #8d9fa1;">*</span> n <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
+&#9474; <span style="color: #8d9fa1;">|</span> even n         <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`div`</span> <span style="color: #7a7ed2; font-weight: bold;">2</span>
+&#9474; <span style="color: #8d9fa1;">|</span> otherwise      <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">3</span> <span style="color: #8d9fa1;">*</span> n <span style="color: #8d9fa1;">+</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>
 </pre>
 </div>
 
@@ -116,32 +113,29 @@ Compile as otherwise Stack space overflow:
 </div>
 </div>
 </div>
-
-<div id="outline-container-org66042b3" class="outline-2">
-<h2 id="org66042b3"><span class="section-number-2">3.</span> Other solutions</h2>
+<div id="outline-container-orgc1c9cb7" class="outline-2">
+<h2 id="orgc1c9cb7"><span class="section-number-2">3.</span> Other solutions</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Haskell Wiki<sup><a id="fnr.1.100" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> presents several solutions. One interested me is that
+Haskell Wiki<sup><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> presents several solutions. One interested me is that
 leverages parallel programming <code>Control.Parallel</code>.
 </p>
 </div>
 </div>
-
-<div id="outline-container-org5d61083" class="outline-2">
-<h2 id="org5d61083"><span class="section-number-2">4.</span> Further</h2>
+<div id="outline-container-org02fa355" class="outline-2">
+<h2 id="org02fa355"><span class="section-number-2">4.</span> Further</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgb6590f6" class="outline-3">
-<h3 id="orgb6590f6"><span class="section-number-3">4.1.</span> Why solution 2 make great differences?</h3>
+<div id="outline-container-org9557938" class="outline-3">
+<h3 id="org9557938"><span class="section-number-3">4.1.</span> Why solution 2 make great differences?</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 I asked question in haskell-beginer but still can not get clear understanding.
 </p>
 </div>
 </div>
-
-<div id="outline-container-orgd9402fa" class="outline-3">
-<h3 id="orgd9402fa"><span class="section-number-3">4.2.</span> More about Parallel programming in Haskell?</h3>
+<div id="outline-container-orgacd0aa7" class="outline-3">
+<h3 id="orgacd0aa7"><span class="section-number-3">4.2.</span> More about Parallel programming in Haskell?</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
 </div>
@@ -161,7 +155,7 @@ I asked question in haskell-beginer but still can not get clear understanding.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-11-20 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.1 (<a href="https://orgmode.org">Org</a> mode 9.6)</div>
+  <div class="generated">Created at 2011-11-20 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

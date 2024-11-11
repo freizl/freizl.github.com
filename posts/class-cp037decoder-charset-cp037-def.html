@@ -17,21 +17,20 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Decode Characters in Python</h1>
-</header><div class="org-src-container">
-<pre class="src src-python"><span style="color: #ff79c6;">class</span> <span style="color: #bd93f9;">CP037Decoder</span>:
-  _CHARSET_ = <span style="color: #f1fa8c;">'cp037'</span>
-  <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">__init__</span>(<span style="color: #ff79c6;">self</span>, message):
-    <span style="color: #ff79c6;">self</span>.<span style="color: #ffc9e8;">decode_message</span> = <span style="color: #ffb86c;">unicode</span>(message, <span style="color: #ff79c6;">self</span>._CHARSET_)
-
-  <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">show_in_utf8</span>(<span style="color: #ff79c6;">self</span>):
-    <span style="color: #ffb86c;">print</span> <span style="color: #ff79c6;">self</span>.decode_message.encode(<span style="color: #f1fa8c;">'utf8'</span>)
-
-<span style="color: #ff79c6;">if</span> <span style="color: #ffb86c;">__name__</span> == <span style="color: #f1fa8c;">'__main__'</span>:
-  msg_file = <span style="color: #ffb86c;">open</span>(sys.argv[<span style="color: #bd93f9; font-weight: bold;">1</span>], <span style="color: #f1fa8c;">'r'</span>)
-  CP037Decoder(msg_file.read()).show_in_utf8()
-  msg_file.close()
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">CP037Decoder</span>:
+&#9474; <span style="color: #8d9fa1;">_CHARSET_</span> = <span style="color: #93a61a;">'cp037'</span>
+&#9474; <span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">__init__</span>(<span style="color: #93a61a; font-weight: bold;">self</span>, message):
+&#9474;   <span style="color: #93a61a; font-weight: bold;">self</span>.<span style="color: #8d9fa1;">decode_message</span> = <span style="color: #3c98e0; font-style: italic;">unicode</span>(message, <span style="color: #93a61a; font-weight: bold;">self</span>._CHARSET_)
+&#9474;
+&#9474; <span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">show_in_utf8</span>(<span style="color: #93a61a; font-weight: bold;">self</span>):
+&#9474;   <span style="color: #3c98e0; font-style: italic;">print</span> <span style="color: #93a61a; font-weight: bold;">self</span>.decode_message.encode(<span style="color: #93a61a;">'utf8'</span>)
+&#9474;
+<span style="color: #93a61a; font-weight: bold;">if</span> <span style="color: #3c98e0; font-style: italic;">__name__</span> == <span style="color: #93a61a;">'__main__'</span>:
+&#9474; <span style="color: #8d9fa1;">msg_file</span> = <span style="color: #3c98e0; font-style: italic;">open</span>(sys.argv[<span style="color: #7a7ed2; font-weight: bold;">1</span>], <span style="color: #93a61a;">'r'</span>)
+&#9474; CP037Decoder(msg_file.read()).show_in_utf8()
+&#9474; msg_file.close()
 
 </pre>
 </div>
@@ -40,7 +39,7 @@
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-12-08 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2008-12-08 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

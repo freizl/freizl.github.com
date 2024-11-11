@@ -17,9 +17,8 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Understand Foldr Operator</h1>
-</header><nav id="table-of-contents" role="doc-toc">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
@@ -28,12 +27,11 @@
 <li><a href="#in-one-sentence">3. In one sentence</a></li>
 </ul>
 </div>
-</nav>
+</div>
 <p>
 I can not quite remember the usage of foldr until I finish the video by
 Erik Meijer on Chapter 7<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup>.
 </p>
-
 <div id="outline-container-descrption-by-erik" class="outline-2">
 <h2 id="descrption-by-erik"><span class="section-number-2">1.</span> Descrption by Erik</h2>
 <div class="outline-text-2" id="text-descrption-by-erik">
@@ -47,9 +45,9 @@ Take refining the <code>length</code> function in terms of <code>foldr</code> as
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  &gt; <span style="color: #ffc9e8;">length</span>  <span style="color: #ff79c6;">::</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">]</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">Int</span>
-  <span style="color: #ff79c6;">&gt;</span> <span style="color: #bd93f9;">length</span> <span style="color: #f8f8f2; background-color: #282a36;">[]</span>  <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">0</span>
-  <span style="color: #ff79c6;">&gt;</span> <span style="color: #bd93f9; font-weight: bold;">length</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd; font-style: italic;">x</span><span style="color: #ff79c6;">:</span><span style="color: #8be9fd; font-style: italic;">xs</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>   <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">1</span> <span style="color: #ff79c6;">+</span> <span style="color: #bd93f9; font-weight: bold;">length</span> <span style="color: #ffc9e8;">xs</span>
+<pre class="src src-haskell">&#9474; <span style="color: #8d9fa1;">&gt;</span> length  <span style="color: #8d9fa1;">::</span> [a] <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+&#9474; <span style="color: #8d9fa1;">&gt;</span> length <span style="color: #c49619; font-style: italic;">[]</span>  <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">0</span>
+&#9474; <span style="color: #8d9fa1;">&gt;</span> length (x<span style="color: #c49619; font-style: italic;">:</span>xs)   <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #8d9fa1;">+</span> length xs
 </pre>
 </div>
 
@@ -57,7 +55,7 @@ Take refining the <code>length</code> function in terms of <code>foldr</code> as
 and
 </p>
 
-<pre class="example" id="orgbbcc284">
+<pre class="example" id="orgb629b5b">
     length [1,2,3]
   = length (1:(2:(3:[])))
   = 1 + (1 + (1 + 0))
@@ -69,12 +67,11 @@ By replace each (:) by <code>\ _ n -&gt; 1 + n</code> and [] by 0, we have:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  &gt; <span style="color: #bd93f9; font-weight: bold;">length</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">foldr</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ff79c6;">\</span> <span style="color: #ff79c6;">_</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #8be9fd;">1</span> <span style="color: #ff79c6;">+</span> <span style="color: #8be9fd; font-style: italic;">n</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #8be9fd;">0</span>
+<pre class="src src-haskell">&#9474; <span style="color: #8d9fa1;">&gt;</span> length <span style="color: #8d9fa1;">=</span> foldr (<span style="color: #8d9fa1;">\</span> <span style="color: #93a61a; font-weight: bold;">_</span> n <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #8d9fa1;">+</span> n) <span style="color: #7a7ed2; font-weight: bold;">0</span>
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-definition-by-graham" class="outline-2">
 <h2 id="definition-by-graham"><span class="section-number-2">2.</span> Definition by Graham</h2>
 <div class="outline-text-2" id="text-definition-by-graham">
@@ -97,14 +94,13 @@ In Haskell, the <i>fold</i> operator can be defined as follows:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #ffc9e8;">fold</span>  <span style="color: #ff79c6;">::</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">]</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span>
-  <span style="color: #bd93f9;">fold</span> <span style="color: #bd93f9;">f</span> <span style="color: #bd93f9;">v</span> <span style="color: #f8f8f2; background-color: #282a36;">[]</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">v</span>
-  <span style="color: #ffc9e8;">fold</span> <span style="color: #ffc9e8;">f</span> <span style="color: #ffc9e8;">v</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd; font-style: italic;">x</span><span style="color: #ff79c6;">:</span><span style="color: #8be9fd; font-style: italic;">xs</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffc9e8;">f</span> <span style="color: #ffc9e8;">x</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">fold</span> <span style="color: #ffc9e8;">f</span> <span style="color: #ffc9e8;">v</span> <span style="color: #ffc9e8;">xs</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
+<pre class="src src-haskell">&#9474; fold  <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> b) <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> b
+&#9474; fold f v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
+&#9474; fold f v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> f x (fold f v xs)
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-in-one-sentence" class="outline-2">
 <h2 id="in-one-sentence"><span class="section-number-2">3.</span> In one sentence</h2>
 <div class="outline-text-2" id="text-in-one-sentence">
@@ -113,7 +109,7 @@ Thought it might not be that precisely.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #50fa7b;">foldr</span> <span style="color: #ff79c6;">::</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">]</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span>
+<pre class="src src-haskell">&#9474; foldr <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> b) <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> b
 </pre>
 </div>
 
@@ -125,7 +121,7 @@ callback
 </blockquote>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #50fa7b;">foldl</span> <span style="color: #ff79c6;">::</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">b</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">a</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">a</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #bd93f9;">b</span><span style="color: #f8f8f2; background-color: #282a36;">]</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #bd93f9;">a</span>
+<pre class="src src-haskell">&#9474; foldl <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> b <span style="color: #8d9fa1;">-&gt;</span> a) <span style="color: #8d9fa1;">-&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> [b] <span style="color: #8d9fa1;">-&gt;</span> a
 </pre>
 </div>
 
@@ -156,7 +152,7 @@ apply the callback
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-06-04 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2011-06-04 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

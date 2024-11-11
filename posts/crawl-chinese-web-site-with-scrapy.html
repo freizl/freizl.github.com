@@ -17,10 +17,9 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Crawl Chinese web site with Scrapy</h1>
-</header><p>
-The response return by Scrapy is a Python repr() object thus Chinese
+<p>
+The response return by Scrapy is a Python <code>repr()</code> object thus Chinese
 character &rsquo;display&rsquo; in Unicode.
 </p>
 
@@ -28,8 +27,9 @@ character &rsquo;display&rsquo; in Unicode.
 Quick fix is like this:
 </p>
 
+
 <div class="org-src-container">
-<pre class="src src-python">item[<span style="color: #f1fa8c;">'name'</span>][<span style="color: #bd93f9; font-weight: bold;">0</span>].encode(<span style="color: #f1fa8c;">'utf-8'</span>)
+<pre class="src src-python">item[<span style="color: #93a61a;">'name'</span>][<span style="color: #7a7ed2; font-weight: bold;">0</span>].encode(<span style="color: #93a61a;">'utf-8'</span>)
 </pre>
 </div>
 
@@ -41,15 +41,17 @@ Find source code <a href="http://code.google.com/p/personal-study/source/browse/
 
 <p>
 More about Unicode in Python:
-  - <a href="http://evanjones.ca/python-utf8.html">http://evanjones.ca/python-utf8.html</a>
-  - <a href="http://www.b-list.org/weblog/2007/nov/10/unicode/">http://www.b-list.org/weblog/2007/nov/10/unicode/</a>
 </p>
+<ul class="org-ul">
+<li><a href="http://evanjones.ca/python-utf8.html">http://evanjones.ca/python-utf8.html</a></li>
+<li><a href="http://www.b-list.org/weblog/2007/nov/10/unicode/">http://www.b-list.org/weblog/2007/nov/10/unicode/</a></li>
+</ul>
 </div>
 <div id="postamble" class="status">
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2009-09-26 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2009-09-26 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

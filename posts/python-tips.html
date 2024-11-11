@@ -17,9 +17,8 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Python Tips</h1>
-</header><nav id="table-of-contents" role="doc-toc">
+<div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
@@ -30,14 +29,13 @@
 <li><a href="#reference">5. Reference</a></li>
 </ul>
 </div>
-</nav>
-
+</div>
 <div id="outline-container-re" class="outline-2">
 <h2 id="re"><span class="section-number-2">1.</span> re</h2>
 <div class="outline-text-2" id="text-re">
 <div class="org-src-container">
-<pre class="src src-python">  &gt;&gt;&gt; re.split(<span style="color: #f1fa8c;">"[^0-9]"</span>, <span style="color: #f1fa8c;">"12 34 + 2 *"</span>)
-  [<span style="color: #f1fa8c;">'12'</span>, <span style="color: #f1fa8c;">'34'</span>, <span style="color: #f1fa8c;">''</span>, <span style="color: #f1fa8c;">''</span>, <span style="color: #f1fa8c;">'2'</span>, <span style="color: #f1fa8c;">''</span>, <span style="color: #f1fa8c;">''</span>]
+<pre class="src src-python">&#9474; &gt;&gt;&gt; re.split(<span style="color: #93a61a;">"[^0-9]"</span>, <span style="color: #93a61a;">"12 34 + 2 *"</span>)
+&#9474; [<span style="color: #93a61a;">'12'</span>, <span style="color: #93a61a;">'34'</span>, <span style="color: #93a61a;">''</span>, <span style="color: #93a61a;">''</span>, <span style="color: #93a61a;">'2'</span>, <span style="color: #93a61a;">''</span>, <span style="color: #93a61a;">''</span>]
 </pre>
 </div>
 
@@ -46,55 +44,51 @@ Cant understand how &rsquo;&rsquo; being produced.
 </p>
 </div>
 </div>
-
 <div id="outline-container-list" class="outline-2">
 <h2 id="list"><span class="section-number-2">2.</span> list</h2>
 <div class="outline-text-2" id="text-list">
 <div class="org-src-container">
-<pre class="src src-python">  <span style="color: #ffb86c;">str</span>(<span style="color: #f1fa8c;">"abcdef"</span>)[::-<span style="color: #bd93f9; font-weight: bold;">1</span>] ==&gt; <span style="color: #f1fa8c;">"fedcba"</span>
-  <span style="color: #ffb86c;">reduce</span>(<span style="color: #ff79c6;">lambda</span> x,y:y+x,<span style="color: #f1fa8c;">"abcdef"</span>) ==&gt; <span style="color: #f1fa8c;">"fedcba"</span>
-  <span style="color: #ffb86c;">sorted</span>([<span style="color: #bd93f9; font-weight: bold;">1</span>,<span style="color: #bd93f9; font-weight: bold;">5</span>,<span style="color: #bd93f9; font-weight: bold;">3</span>,<span style="color: #bd93f9; font-weight: bold;">2</span>]) ==&gt; [<span style="color: #bd93f9; font-weight: bold;">1</span>,<span style="color: #bd93f9; font-weight: bold;">2</span>,<span style="color: #bd93f9; font-weight: bold;">3</span>,<span style="color: #bd93f9; font-weight: bold;">5</span>]
-  <span style="color: #ffc9e8;">a</span> = [<span style="color: #bd93f9; font-weight: bold;">1</span>,<span style="color: #bd93f9; font-weight: bold;">5</span>,<span style="color: #bd93f9; font-weight: bold;">3</span>,<span style="color: #bd93f9; font-weight: bold;">2</span>]; a.sort() ==&gt; a := [<span style="color: #bd93f9; font-weight: bold;">1</span>,<span style="color: #bd93f9; font-weight: bold;">2</span>,<span style="color: #bd93f9; font-weight: bold;">3</span>,<span style="color: #bd93f9; font-weight: bold;">5</span>]
+<pre class="src src-python">&#9474; <span style="color: #3c98e0; font-style: italic;">str</span>(<span style="color: #93a61a;">"abcdef"</span>)[::-<span style="color: #7a7ed2; font-weight: bold;">1</span>] ==&gt; <span style="color: #93a61a;">"fedcba"</span>
+&#9474; <span style="color: #3c98e0; font-style: italic;">reduce</span>(<span style="color: #93a61a; font-weight: bold;">lambda</span> x,y:y+x,<span style="color: #93a61a;">"abcdef"</span>) ==&gt; <span style="color: #93a61a;">"fedcba"</span>
+&#9474; <span style="color: #3c98e0; font-style: italic;">sorted</span>([<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">5</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>]) ==&gt; [<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>,<span style="color: #7a7ed2; font-weight: bold;">5</span>]
+&#9474; <span style="color: #8d9fa1;">a</span> = [<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">5</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>]; a.sort() ==&gt; a := [<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>,<span style="color: #7a7ed2; font-weight: bold;">5</span>]
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-dict" class="outline-2">
 <h2 id="dict"><span class="section-number-2">3.</span> dict</h2>
 <div class="outline-text-2" id="text-dict">
 <div class="org-src-container">
-<pre class="src src-python">  <span style="color: #6272a4;">### </span><span style="color: #6272a4;">demostrate loop a dict and list/dict parameter</span>
-  <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">tst_dict</span>(*args, **kargs):
-      <span style="color: #ff79c6;">for</span> k, v <span style="color: #ff79c6;">in</span> <span style="color: #ffb86c;">dict</span>(*args, **kargs).iteritems():
-          <span style="color: #ffb86c;">print</span> k, v
-
-  <span style="color: #ff79c6;">def</span> <span style="color: #50fa7b;">tst_dict2</span>():
-      <span style="color: #ff79c6;">for</span> key <span style="color: #ff79c6;">in</span> a_dict:
-          <span style="color: #ffb86c;">print</span> key, a_dict[key]
-
-  tst_dict(name=<span style="color: #f1fa8c;">'aa'</span>, place=<span style="color: #f1fa8c;">'bb'</span>)
-  tst_dict(<span style="color: #f1fa8c;">'aaa'</span>, <span style="color: #f1fa8c;">'bbb'</span>) <span style="color: #6272a4;"># </span><span style="color: #6272a4;">throw error</span>
+<pre class="src src-python">&#9474; <span style="color: #62787f; font-style: italic;">### </span><span style="color: #62787f; font-style: italic;">demostrate loop a dict and list/dict parameter</span>
+&#9474; <span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">tst_dict</span>(*args, **kargs):
+&#9474;   &#9474; <span style="color: #93a61a; font-weight: bold;">for</span> k, v <span style="color: #93a61a; font-weight: bold;">in</span> <span style="color: #3c98e0; font-style: italic;">dict</span>(*args, **kargs).iteritems():
+&#9474;   &#9474;   &#9474; <span style="color: #3c98e0; font-style: italic;">print</span> k, v
+&#9474;   &#9474;   &#9474;
+&#9474; <span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">tst_dict2</span>():
+&#9474;   &#9474; <span style="color: #93a61a; font-weight: bold;">for</span> key <span style="color: #93a61a; font-weight: bold;">in</span> a_dict:
+&#9474;   &#9474;   &#9474; <span style="color: #3c98e0; font-style: italic;">print</span> key, a_dict[key]
+&#9474;   &#9474;   &#9474;
+&#9474; tst_dict(name=<span style="color: #93a61a;">'aa'</span>, place=<span style="color: #93a61a;">'bb'</span>)
+&#9474; tst_dict(<span style="color: #93a61a;">'aaa'</span>, <span style="color: #93a61a;">'bbb'</span>) <span style="color: #62787f; font-style: italic;"># </span><span style="color: #62787f; font-style: italic;">throw error</span>
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-mise" class="outline-2">
 <h2 id="mise"><span class="section-number-2">4.</span> Mise</h2>
 <div class="outline-text-2" id="text-mise">
 <div class="org-src-container">
-<pre class="src src-python">  <span style="color: #ffb86c;">range</span>(<span style="color: #bd93f9; font-weight: bold;">4</span>) ==&gt; [<span style="color: #bd93f9; font-weight: bold;">0</span>,<span style="color: #bd93f9; font-weight: bold;">1</span>,<span style="color: #bd93f9; font-weight: bold;">2</span>,<span style="color: #bd93f9; font-weight: bold;">3</span>] <span style="color: #6272a4;">#</span><span style="color: #6272a4;">range start from 0 by default</span>
-  <span style="color: #f1fa8c;">'%s: %r'</span> % (something, other)
-  <span style="color: #f1fa8c;">'%(name)s is %(value)d'</span> % {
-      <span style="color: #f1fa8c;">'name'</span>: <span style="color: #f1fa8c;">'The answer'</span>,
-      <span style="color: #f1fa8c;">'value'</span>: <span style="color: #bd93f9; font-weight: bold;">42</span>,
-  }
+<pre class="src src-python">&#9474; <span style="color: #3c98e0; font-style: italic;">range</span>(<span style="color: #7a7ed2; font-weight: bold;">4</span>) ==&gt; [<span style="color: #7a7ed2; font-weight: bold;">0</span>,<span style="color: #7a7ed2; font-weight: bold;">1</span>,<span style="color: #7a7ed2; font-weight: bold;">2</span>,<span style="color: #7a7ed2; font-weight: bold;">3</span>] <span style="color: #62787f; font-style: italic;">#</span><span style="color: #62787f; font-style: italic;">range start from 0 by default</span>
+&#9474; <span style="color: #93a61a;">'%s: %r'</span> % (something, other)
+&#9474; <span style="color: #93a61a;">'%(name)s is %(value)d'</span> % {
+&#9474;   &#9474; <span style="color: #93a61a;">'name'</span>: <span style="color: #93a61a;">'The answer'</span>,
+&#9474;   &#9474; <span style="color: #93a61a;">'value'</span>: <span style="color: #7a7ed2; font-weight: bold;">42</span>,
+&#9474; }
 </pre>
 </div>
 </div>
 </div>
-
 <div id="outline-container-reference" class="outline-2">
 <h2 id="reference"><span class="section-number-2">5.</span> Reference</h2>
 <div class="outline-text-2" id="text-reference">
@@ -108,7 +102,7 @@ Cant understand how &rsquo;&rsquo; being produced.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-06 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2012-04-06 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>

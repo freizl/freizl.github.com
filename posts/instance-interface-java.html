@@ -17,39 +17,38 @@
  |
  <a accesskey="H" href="/"> HOME </a>
 </div><div id="content" class="content">
-<header>
 <h1 class="title">Instance of an Interface (Java)</h1>
-</header><p>
+<p>
 <b>It looks like &ldquo;instance&rdquo; an Interface&#x2026;</b>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #ff79c6;">import</span> <span style="color: #ff79c6;">static</span> <span style="color: #8be9fd;">org</span>.<span style="color: #8be9fd;">junit</span>.Assert.<span style="color: #bd93f9;">assertTrue</span>;
+<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">junit</span>.Assert.<span style="color: #c49619; font-style: italic;">assertTrue</span>;
 
-<span style="color: #ff79c6;">import</span> <span style="color: #8be9fd;">org</span>.<span style="color: #8be9fd;">junit</span>.<span style="color: #bd93f9;">Test</span>;
+<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">junit</span>.<span style="color: #c49619; font-style: italic;">Test</span>;
 
-<span style="color: #ff79c6;">public</span> <span style="color: #ff79c6;">class</span> <span style="color: #bd93f9;">InterestingTests</span> {
+<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">InterestingTests</span> {
 
-&#160;&#160; &#160;[cite/t:<span style="color: #8be9fd;">@Test</span>]
-&#160;&#160; &#160;<span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">void</span> TestConstructInterface() {
-&#160;&#160; &#160;&#160;&#160;&#160; TurnstileController controller = <span style="color: #ff79c6;">new</span> <span style="color: #bd93f9;">TurnstileController</span>() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #ff79c6;">private</span> <span style="color: #bd93f9;">boolean</span> lockState = <span style="color: #8be9fd;">false</span>;
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #ff79c6;">private</span> <span style="color: #bd93f9;">boolean</span> unlockState = <span style="color: #8be9fd;">false</span>;
+&#160;&#160; &#160;[cite/t:<span style="color: #3c98e0; font-weight: bold;">@Test</span>]
+&#160;&#160; &#160;<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> TestConstructInterface() {
+&#160;&#160; &#160;&#160;&#160;&#160; TurnstileController controller = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">TurnstileController</span>() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #c49619; font-style: italic;">boolean</span> lockState = <span style="color: #3c98e0; font-weight: bold;">false</span>;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #c49619; font-style: italic;">boolean</span> unlockState = <span style="color: #3c98e0; font-weight: bold;">false</span>;
 
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">void</span> lock() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; lockState = <span style="color: #8be9fd;">true</span>;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> lock() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; lockState = <span style="color: #3c98e0; font-weight: bold;">true</span>;
 &#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; }
 
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">void</span> unlock() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; unlockState = <span style="color: #8be9fd;">true</span>;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> unlock() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; unlockState = <span style="color: #3c98e0; font-weight: bold;">true</span>;
 &#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; }
 
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">boolean</span> isLockState() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #ff79c6;">return</span> lockState;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">boolean</span> isLockState() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">return</span> lockState;
 &#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; }
 
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">boolean</span> isUnlockState() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #ff79c6;">return</span> unlockState;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">boolean</span> isUnlockState() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">return</span> unlockState;
 &#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; }
 &#160;&#160; &#160;&#160;&#160;&#160; };
 &#160;&#160; &#160;&#160;&#160;&#160; controller.lock();
@@ -58,11 +57,11 @@
 &#160;&#160; &#160;&#160;&#160;&#160; assertTrue(controller.isUnlockState());
 &#160;&#160; &#160;}
 
-&#160;&#160; &#160;<span style="color: #ff79c6;">private</span> <span style="color: #ff79c6;">interface</span> TurnstileController {
-&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">void</span> lock();
-&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">void</span> unlock();
-&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">boolean</span> isLockState();
-&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #ff79c6;">public</span> <span style="color: #bd93f9;">boolean</span> isUnlockState();
+&#160;&#160; &#160;<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">interface</span> TurnstileController {
+&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> lock();
+&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> unlock();
+&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">boolean</span> isLockState();
+&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">boolean</span> isUnlockState();
 &#160;&#160; &#160;};
 
 }
@@ -74,7 +73,7 @@
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-07-20 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2008-07-20 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>
