@@ -23,16 +23,15 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5609f8d">1. Solutions</a></li>
-<li><a href="#org54606b0">2. Why the differences?</a></li>
-<li><a href="#orgfc6f3b4">3. Profiling</a></li>
-<li><a href="#orgc5a09bf">4. Further</a></li>
+<li><a href="#org92324af">1. Solutions</a></li>
+<li><a href="#org7509c2c">2. Why the differences?</a></li>
+<li><a href="#org7758822">3. Profiling</a></li>
+<li><a href="#orgc06f488">4. Further</a></li>
 </ul>
 </div>
 </nav>
-
-<div id="outline-container-org5609f8d" class="outline-2">
-<h2 id="org5609f8d"><span class="section-number-2">1.</span> Solutions</h2>
+<div id="outline-container-org92324af" class="outline-2">
+<h2 id="org92324af"><span class="section-number-2">1.</span> Solutions</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 There are two solutions below. One is written by me and another from
@@ -50,18 +49,18 @@ minutes)
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  <span style="color: #bd93f9; font-weight: bold;">main</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd; font-style: italic;">print</span> <span style="color: #ff79c6;">$</span> <span style="color: #8be9fd; font-style: italic;">snd</span> <span style="color: #ff79c6;">$</span> <span style="color: #8be9fd; font-style: italic;">head</span> <span style="color: #ff79c6;">$</span>
-         <span style="color: #bd93f9; font-weight: bold;">dropWhile</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ff79c6;">\</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ffc9e8;">x</span><span style="color: #f8f8f2; background-color: #282a36;">,</span><span style="color: #ffc9e8;">y</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd; font-style: italic;">not</span> <span style="color: #ff79c6;">.</span> <span style="color: #bd93f9; font-weight: bold;">isLastNinePandigit</span> <span style="color: #f1fa8c;">"123456789"</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ffc9e8;">x</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
-                   <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">zip</span> <span style="color: #ffc9e8;">fibs</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #8be9fd;">1</span>..<span style="color: #f8f8f2; background-color: #282a36;">])</span>
-
-  <span style="color: #ffc9e8;">bothNinePandigit</span> <span style="color: #ffc9e8;">digits</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">=</span>  <span style="color: #ffc9e8;">isFirstNinePandigit</span> <span style="color: #ffc9e8;">digits</span> <span style="color: #ffc9e8;">n</span>
-                               <span style="color: #ff79c6;">&amp;&amp;</span> <span style="color: #bd93f9; font-weight: bold;">isLastNinePandigit</span> <span style="color: #ffc9e8;">digits</span> <span style="color: #ffc9e8;">n</span>
-
-  <span style="color: #ffc9e8;">isLastNinePandigit</span>  <span style="color: #ffc9e8;">digits</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ff79c6;">==</span> <span style="color: #ffc9e8;">digits</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">.</span> <span style="color: #8be9fd; font-style: italic;">sort</span> <span style="color: #ff79c6;">.</span> <span style="color: #bd93f9; font-weight: bold;">lastDigits</span> <span style="color: #8be9fd;">9</span>
-  <span style="color: #ffc9e8;">isFirstNinePandigit</span> <span style="color: #ffc9e8;">digits</span> <span style="color: #ff79c6;">=</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ff79c6;">==</span> <span style="color: #ffc9e8;">digits</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">.</span> <span style="color: #8be9fd; font-style: italic;">sort</span> <span style="color: #ff79c6;">.</span> <span style="color: #bd93f9; font-weight: bold;">firstDigits</span> <span style="color: #8be9fd;">9</span>
-
-  <span style="color: #ffc9e8;">firstDigits</span> <span style="color: #ffc9e8;">k</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffc9e8;">take</span> <span style="color: #ffc9e8;">k</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">show</span> <span style="color: #ffc9e8;">n</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
-  <span style="color: #ffc9e8;">lastDigits</span>  <span style="color: #ffc9e8;">k</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffc9e8;">show</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd; font-style: italic;">n</span> <span style="color: #ff79c6;">`</span><span style="color: #ff79c6;">mod</span><span style="color: #ff79c6;">`</span> <span style="color: #8be9fd;">10</span><span style="color: #ff79c6;">^</span><span style="color: #8be9fd; font-style: italic;">k</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
+<pre class="src src-haskell">&#9474; main <span style="color: #8d9fa1;">=</span> print <span style="color: #8d9fa1;">$</span> snd <span style="color: #8d9fa1;">$</span> head <span style="color: #8d9fa1;">$</span>
+&#9474;   &#9474;   &#9474;dropWhile (<span style="color: #8d9fa1;">\</span> (x,y) <span style="color: #8d9fa1;">-&gt;</span> (not <span style="color: #8d9fa1;">.</span> isLastNinePandigit <span style="color: #93a61a;">"123456789"</span>) x)
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;  (zip fibs [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>])
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;
+&#9474; bothNinePandigit digits n <span style="color: #8d9fa1;">=</span>  isFirstNinePandigit digits n
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  <span style="color: #8d9fa1;">&amp;&amp;</span> isLastNinePandigit digits n
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;
+&#9474; isLastNinePandigit  digits <span style="color: #8d9fa1;">=</span> (<span style="color: #8d9fa1;">==</span> digits) <span style="color: #8d9fa1;">.</span> sort <span style="color: #8d9fa1;">.</span> lastDigits <span style="color: #7a7ed2; font-weight: bold;">9</span>
+&#9474; isFirstNinePandigit digits <span style="color: #8d9fa1;">=</span> (<span style="color: #8d9fa1;">==</span> digits) <span style="color: #8d9fa1;">.</span> sort <span style="color: #8d9fa1;">.</span> firstDigits <span style="color: #7a7ed2; font-weight: bold;">9</span>
+&#9474;
+&#9474; firstDigits k n <span style="color: #8d9fa1;">=</span> take k (show n)
+&#9474; lastDigits  k n <span style="color: #8d9fa1;">=</span> show (n <span style="color: #8d9fa1;">`mod`</span> <span style="color: #7a7ed2; font-weight: bold;">10</span><span style="color: #8d9fa1;">^</span>k)
 </pre>
 </div>
 
@@ -70,24 +69,23 @@ minutes)
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-haskell">
-  <span style="color: #bd93f9; font-weight: bold;">fibs</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd;">1</span> <span style="color: #ff79c6;">:</span> <span style="color: #8be9fd;">1</span> <span style="color: #ff79c6;">:</span> <span style="color: #bd93f9; font-weight: bold;">zipWith</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ff79c6;">+</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ffc9e8;">fibs</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">tail</span> <span style="color: #ffc9e8;">fibs</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
-
-  <span style="color: #ffc9e8;">isFibPan</span> <span style="color: #ffc9e8;">n</span> <span style="color: #ff79c6;">=</span>
-    <span style="color: #ff79c6;">let</span> <span style="color: #bd93f9; font-weight: bold;">a</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd; font-style: italic;">n</span> <span style="color: #ff79c6;">`</span><span style="color: #ff79c6;">mod</span><span style="color: #ff79c6;">`</span> <span style="color: #8be9fd;">1000000000</span>
-        <span style="color: #bd93f9; font-weight: bold;">b</span> <span style="color: #ff79c6;">=</span> <span style="color: #bd93f9; font-weight: bold;">sort</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">show</span> <span style="color: #ffc9e8;">a</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
-        <span style="color: #bd93f9; font-weight: bold;">c</span> <span style="color: #ff79c6;">=</span> <span style="color: #8be9fd; font-style: italic;">sort</span> <span style="color: #ff79c6;">$</span> <span style="color: #bd93f9; font-weight: bold;">take</span> <span style="color: #8be9fd;">9</span> <span style="color: #ff79c6;">$</span> <span style="color: #bd93f9; font-weight: bold;">show</span> <span style="color: #ffc9e8;">n</span>
-    <span style="color: #ff79c6;">in</span>  <span style="color: #8be9fd; font-style: italic;">b</span> <span style="color: #ff79c6;">==</span> <span style="color: #f1fa8c;">"123456789"</span> <span style="color: #ff79c6;">&amp;&amp;</span> <span style="color: #8be9fd; font-style: italic;">c</span> <span style="color: #ff79c6;">==</span> <span style="color: #f1fa8c;">"123456789"</span>
-
-  <span style="color: #ffc9e8;">ex_104</span> <span style="color: #ff79c6;">=</span> <span style="color: #ffc9e8;">snd</span> <span style="color: #ff79c6;">$</span> <span style="color: #8be9fd; font-style: italic;">head</span> <span style="color: #ff79c6;">$</span>
-           <span style="color: #bd93f9; font-weight: bold;">dropWhile</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ff79c6;">\</span><span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #ffc9e8;">x</span><span style="color: #f8f8f2; background-color: #282a36;">,</span><span style="color: #ffc9e8;">y</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ff79c6;">-&gt;</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #8be9fd; font-style: italic;">not</span> <span style="color: #ff79c6;">.</span> <span style="color: #8be9fd; font-style: italic;">isFibPan</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #ffc9e8;">x</span><span style="color: #f8f8f2; background-color: #282a36;">)</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">zip</span> <span style="color: #ffc9e8;">fibs</span> <span style="color: #f8f8f2; background-color: #282a36;">[</span><span style="color: #8be9fd;">1</span>..<span style="color: #f8f8f2; background-color: #282a36;">])</span>
+<pre class="src src-haskell">&#9474;
+&#9474; fibs <span style="color: #8d9fa1;">=</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #c49619; font-style: italic;">:</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #c49619; font-style: italic;">:</span> zipWith (<span style="color: #8d9fa1;">+</span>) fibs (tail fibs)
+&#9474;
+&#9474; isFibPan n <span style="color: #8d9fa1;">=</span>
+&#9474;   <span style="color: #93a61a; font-weight: bold;">let</span> a <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`mod`</span> <span style="color: #7a7ed2; font-weight: bold;">1000000000</span>
+&#9474;   &#9474;   b <span style="color: #8d9fa1;">=</span> sort (show a)
+&#9474;   &#9474;   c <span style="color: #8d9fa1;">=</span> sort <span style="color: #8d9fa1;">$</span> take <span style="color: #7a7ed2; font-weight: bold;">9</span> <span style="color: #8d9fa1;">$</span> show n
+&#9474;   <span style="color: #93a61a; font-weight: bold;">in</span>  b <span style="color: #8d9fa1;">==</span> <span style="color: #93a61a;">"123456789"</span> <span style="color: #8d9fa1;">&amp;&amp;</span> c <span style="color: #8d9fa1;">==</span> <span style="color: #93a61a;">"123456789"</span>
+&#9474;
+&#9474; ex_104 <span style="color: #8d9fa1;">=</span> snd <span style="color: #8d9fa1;">$</span> head <span style="color: #8d9fa1;">$</span>
+&#9474;   &#9474;   &#9474;  dropWhile (<span style="color: #8d9fa1;">\</span>(x,y) <span style="color: #8d9fa1;">-&gt;</span> (not <span style="color: #8d9fa1;">.</span> isFibPan) x) (zip fibs [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>])
 </pre>
 </div>
 </div>
 </div>
-
-<div id="outline-container-org54606b0" class="outline-2">
-<h2 id="org54606b0"><span class="section-number-2">2.</span> Why the differences?</h2>
+<div id="outline-container-org7509c2c" class="outline-2">
+<h2 id="org7509c2c"><span class="section-number-2">2.</span> Why the differences?</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 The key point here is should test start nine digits first or test end
@@ -114,9 +112,8 @@ in haskell-beginner.</i>
 </p>
 </div>
 </div>
-
-<div id="outline-container-orgfc6f3b4" class="outline-2">
-<h2 id="orgfc6f3b4"><span class="section-number-2">3.</span> Profiling</h2>
+<div id="outline-container-org7758822" class="outline-2">
+<h2 id="org7758822"><span class="section-number-2">3.</span> Profiling</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 What help to identify is the GHC profiling tool.
@@ -136,7 +133,7 @@ expression at each location. e.g.</li>
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-haskell">    <span style="color: #bd93f9; font-weight: bold;">mean</span>  <span style="color: #ffc9e8;">s</span> <span style="color: #ff79c6;">=</span> <span style="color: #6272a4;">{-# SCC "mean" #-}</span> <span style="color: #bd93f9; font-weight: bold;">sum</span>  <span style="color: #ffc9e8;">s</span> <span style="color: #ff79c6;">/</span> <span style="color: #bd93f9; font-weight: bold;">fromIntegral</span> <span style="color: #f8f8f2; background-color: #282a36;">(</span><span style="color: #bd93f9; font-weight: bold;">length</span> <span style="color: #ffc9e8;">s</span><span style="color: #f8f8f2; background-color: #282a36;">)</span>
+<pre class="src src-haskell">&#9474;   mean  s <span style="color: #8d9fa1;">=</span> <span style="color: #db5823; font-weight: bold;">{-# SCC "mean" #-}</span> sum  s <span style="color: #8d9fa1;">/</span> fromIntegral (length s)
 </pre>
 </div>
 
@@ -154,18 +151,17 @@ GHC user guider chapter 5<sup><a id="fnr.4" class="footref" href="#fn.4" role="d
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">  # <span style="color: #bd93f9; font-weight: bold;">build</span> <span style="color: #ffc9e8;">with</span> <span style="color: #ffc9e8;">prof</span> <span style="color: #ffc9e8;">option</span> <span style="color: #ffc9e8;">on</span>
-  <span style="color: #ffc9e8;">ghc</span> <span style="color: #6272a4;">--make -O2 -prof -auto-all -rtsopts p104.hs</span>
-
-  # then run
-  <span style="color: #ff79c6;">./</span><span style="color: #8be9fd; font-style: italic;">p104</span> <span style="color: #ff79c6;">+</span><span style="color: #bd93f9;">RTS</span> <span style="color: #ff79c6;">-</span><span style="color: #8be9fd; font-style: italic;">p</span> <span style="color: #ff79c6;">-</span><span style="color: #bd93f9;">RTS</span>
+<pre class="src src-haskell">&#9474; <span style="color: #8d9fa1;">#</span> build with prof option on
+&#9474; ghc <span style="color: #62787f; font-style: italic;">--</span><span style="color: #62787f; font-style: italic;">make -O2 -prof -auto-all -rtsopts p104.hs</span>
+&#9474;
+&#9474; <span style="color: #8d9fa1;">#</span> <span style="color: #93a61a; font-weight: bold;">then</span> run
+&#9474; <span style="color: #8d9fa1;">./</span>p104 <span style="color: #8d9fa1;">+</span><span style="color: #c49619; font-style: italic;">RTS</span> <span style="color: #8d9fa1;">-</span>p <span style="color: #8d9fa1;">-</span><span style="color: #c49619; font-style: italic;">RTS</span>
 </pre>
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgc5a09bf" class="outline-2">
-<h2 id="orgc5a09bf"><span class="section-number-2">4.</span> Further</h2>
+<div id="outline-container-orgc06f488" class="outline-2">
+<h2 id="orgc06f488"><span class="section-number-2">4.</span> Further</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>Chapter 25 in Real Work Haskell about profile</li>
@@ -203,7 +199,7 @@ User Guider</a>
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-12-15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 28.2 (<a href="https://orgmode.org">Org</a> mode 9.6.1)</div>
+  <div class="generated">Created at 2011-12-15 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
 </footer>
 </div>
 </body>
