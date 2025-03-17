@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Tool Explored: Warp Terminal</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">AI Tool Explored: Warp Terminal</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org98d53be">1. Introduction</a></li>
+<li><a href="#orgfd2ed0c">2. Generating Changelog from GitHub Releases</a></li>
+<li><a href="#org3bb55bd">3. Changelog Generation: Second Attempt</a></li>
+<li><a href="#org960810d">4. Improving Documentation for Source Code</a></li>
+<li><a href="#org3edd963">5. Generating Terraform Script to Set Up Auth0 Tenant</a></li>
+<li><a href="#org8914160">6. Conclusion</a></li>
+</ul>
+</div>
+</nav>
+<div id="outline-container-org98d53be" class="outline-2">
+<h2 id="org98d53be"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I have been using <a href="https://warp.dev">warp</a> for awhile but mostly for basic tasks plus occasional work with its AI agent (basic Q/A). Last week I wanted to create a changelog file for my <a href="https://github.com/freizl/hoauth2">hoauth2</a> library. But I had already added release notes to GitHub for every release, so I didn&rsquo;t want to do the manual work of copying and pasting. This seemed like a perfect job for the Warp AI agent.
+</p>
+
+<p>
+And that&rsquo;s how this journey started.
+</p>
+</div>
+</div>
+<div id="outline-container-orgfd2ed0c" class="outline-2">
+<h2 id="orgfd2ed0c"><span class="section-number-2">2.</span> Generating Changelog from GitHub Releases</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<i>I didn&rsquo;t realize I should record this since I had no expectations at all</i>
+</p>
+
+<p>
+First, I tried out the GitHub CLI myself to list all release tags and view release notes in JSON format. Warp was smart enough to auto-complete the commands (one of the nice features of Warp). The command worked as expected.
+</p>
+
+<p>
+I had a quick thought about how I would do this manually:
+</p>
+<ul class="org-ul">
+<li>Dump all release notes (JSON) into one JSON file</li>
+<li>Process this JSON file to generate separate changelogs (markdown) for individual packages
+<ul class="org-ul">
+<li>In GitHub releases, I typically generate one note for all packages released together</li>
+</ul></li>
+</ul>
+
+<p>
+Then I started asking the agent to use those commands to dump all release notes into one JSON file. The agent began thinking and generated a shell script to loop through the results of <code>gh release list</code> and do something (I didn&rsquo;t bother to examine it initially), then ran it.
+</p>
+
+<p>
+Apparently, the script was incorrect since it was generating notes based on git commits rather than releases. I pointed this out, and the agent quickly fixed it. Then came the FUN part.
+</p>
+
+<p>
+After my confirmation, the agent tried to run the script but somehow it didn&rsquo;t work (according to what the agent told me). The agent discovered issues in the script by itself and tried to auto-correct it. After several unsuccessful attempts, the agent switched to Python, generating a script that it was more comfortable with and asked for my confirmation. I did a quick review, which looked fine, and gave the go-ahead. Voilà! All GitHub release notes were saved to a JSON file. The whole process took about 10 minutes.
+</p>
+
+<p>
+Next, I asked the agent to generate changelog markdown based on the previously created JSON file, giving very specific instructions:
+</p>
+
+<ul class="org-ul">
+<li>Each JSON object should be one section in markdown (h2)</li>
+<li>The release notes (<code>body</code> field) should be formatted nicely in bullet points</li>
+<li>Generate release notes per library (identifiable via the <code>name</code> field)</li>
+</ul>
+
+<p>
+This was fairly straightforward (requiring only 1 or 2 back-and-forth conversations). Two markdown files were generated. After reviewing them, I requested several improvements:
+</p>
+
+<ul class="org-ul">
+<li>Remove links and author information (these were in the GitHub release notes but I didn&rsquo;t want them in the changelog)</li>
+<li>Make the language describing dependency upgrades consistent (it varied in the GitHub release notes)</li>
+<li>Consolidate sections with subtitles (h3) into bullet points</li>
+</ul>
+
+<p>
+Again, this was handled efficiently, and here are the final results:
+</p>
+
+<ul class="org-ul">
+<li><a href="https://github.com/freizl/hoauth2/blob/0570099b136faa35f49eb4903e246f0957de5cc5/hoauth2/CHANGELOG.md">hoauth2 changelog</a></li>
+<li><a href="https://github.com/freizl/hoauth2/blob/0570099b136faa35f49eb4903e246f0957de5cc5/hoauth2-providers/CHANGELOG.md">hoauth2-provider changelog</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org3bb55bd" class="outline-2">
+<h2 id="org3bb55bd"><span class="section-number-2">3.</span> Changelog Generation: Second Attempt</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+I found the first experience incredibly fun! So I decided to record myself generating changelog from GitHub releases again.
+</p>
+
+<p>
+Here is the recording: <a href="https://youtu.be/PjYT5kUkOoU">https://youtu.be/PjYT5kUkOoU</a>
+</p>
+
+<ol class="org-ol">
+<li>I explicitly asked the agent to use the GitHub CLI to grab release notes.
+<ul class="org-ul">
+<li>I expected this to be trivial, but it took the agent a couple of tries to figure out how to use the CLI to fetch all releases</li>
+<li>The agent saved the release list into a separate JSON file instead of writing a script to loop through the results directly (as in my first experience)</li>
+<li>Nevertheless, it was still reasonably straightforward. The agent figured it out and dumped all release notes into one JSON file.</li>
+</ul></li>
+
+<li>Next, I provided a prompt to generate changelog markdown based on this JSON file
+<ul class="org-ul">
+<li>The agent tried VERY HARD to use jq script several times without success</li>
+<li>So I aborted that approach and asked it to use Python instead, which the agent got working quickly</li>
+<li>The markdown file had formatting issues like <code>* ## new changes</code>, probably stemming from my request for &ldquo;No sub-header (h3/h4)&rdquo;. My intention was to consolidate the text into bullet points, but my instructions may not have been clear enough</li>
+<li>I asked for adjustments to the markdown file. The agent began tweaking the Python script that generates the changelog from the JSON file and continued making refinements</li>
+<li>I became impatient (wishing the <i>Thinking</i> process was faster) so I asked the agent to modify the markdown file directly with a couple more prompts, and eventually the changelog files looked good</li>
+</ul></li>
+</ol>
+
+<p>
+To me, this second experience wasn&rsquo;t as smooth as the first one.
+</p>
+</div>
+</div>
+<div id="outline-container-org960810d" class="outline-2">
+<h2 id="org960810d"><span class="section-number-2">4.</span> Improving Documentation for Source Code</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Here is the recording: <a href="https://youtu.be/DNP9kWQGEPo?si=77RfsXlSHfb_6x8V">https://youtu.be/DNP9kWQGEPo?si=77RfsXlSHfb_6x8V</a>
+</p>
+
+<p>
+I was curious how much the agent could help improve the documentation (source code comments, generated docs).
+</p>
+
+<p>
+Even though I asked for improvements to both, the agent focused on the README file first. The <i>Thinking</i> process wasn&rsquo;t as fast as I&rsquo;d like, but after several conversations, the agent generated a decent README file.
+</p>
+
+<p>
+I asked the agent to commit these changes to a branch, which was a trivial task. Great!
+</p>
+
+<p>
+Then I requested improvements and typo fixes in the source code comments. Unsurprisingly, the agent found several typos and made some good suggestions for the code comments.
+</p>
+
+<p>
+The agent approached this task one file at a time, which was time-consuming. In a few instances, it generated module-level information that I found redundant (like license, author, etc.). Other than that, all good! Agent was able to commit changes and open PR.
+</p>
+
+<p>
+Well done!
+</p>
+</div>
+</div>
+<div id="outline-container-org3edd963" class="outline-2">
+<h2 id="org3edd963"><span class="section-number-2">5.</span> Generating Terraform Script to Set Up Auth0 Tenant</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Here is the recording: <a href="https://youtu.be/5NLoRB-eif8?si=WSOR2YLLcE2VcBw2">https://youtu.be/5NLoRB-eif8?si=WSOR2YLLcE2VcBw2</a>
+</p>
+
+<p>
+I started by asking the agent to generate an envrc file to run Terraform on an Auth0 tenant.
+After the envrc file was generated, the agent automatically began generating Terraform scripts to create resources (App), which pleasantly surprised me.
+</p>
+
+<p>
+While the agent was <i>Thinking</i>, I modified the envrc file by adding real client ID, secret, and domain values.
+But for some reason, the agent kept adding client ID and secret placeholders back to the envrc!
+Even though I explicitly requested OIDC configuration (no SAML!), the agent seemed to ignore this after thinking a few times!
+Additionally, the agent created <code>variables.tf</code> and <code>output.tf</code> files but still kept outputs and variables in <code>main.tf</code>.
+</p>
+
+<p>
+Eventually, I gave up and aborted the conversation.
+</p>
+
+<p>
+I started a new conversation by describing what I needed, and it worked with only a couple of hiccups.
+When I tried to run the Terraform script, it couldn&rsquo;t read the envrc file properly. I tried troubleshooting myself without success. Finally, the agent helped diagnose the issue. The envrc file generated initially had incorrect encoding, which the agent quickly fixed!
+</p>
+
+<p>
+The agent then found its own errors in the output of the secret and the token endpoint auth method. I wasn&rsquo;t sure of the correct approach (I thought it required another resource and asked the agent to add it, but it didn&rsquo;t seem to understand).
+So I asked to leave those parts out and got a working first version (after a few self-corrections).
+</p>
+
+<p>
+Then I asked again to fix the client secret and auth method using another resource, which worked this time!
+</p>
+
+<p>
+I feel this wasn&rsquo;t the greatest experience. Some of the back-and-forth and self-corrections could probably have been avoided from the start. It&rsquo;s hard to tell whether my prompts should have been more accurate or if the AI should have been smarter!
+</p>
+</div>
+</div>
+<div id="outline-container-org8914160" class="outline-2">
+<h2 id="org8914160"><span class="section-number-2">6.</span> Conclusion</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Overall, Warp Terminal&rsquo;s AI agent works great so far! It excels at generating and modifying file and <b>automating workflows</b>. While not perfect—sometimes requiring multiple attempts or clearer instructions—I think it significantly speeds up many routine tasks.
+</p>
+
+<p>
+The self-correction abilities is particularly noteworthy, though the thinking process occasionally feels slow during complex operations. The agent&rsquo;s ability to troubleshoot its own errors and switch approaches when needed (like moving from shell script to Python) was quite impressive.
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2025-03-16 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.22)</div>
+</footer>
+</div>
+</body>
+</html>
