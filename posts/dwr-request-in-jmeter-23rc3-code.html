@@ -27,7 +27,7 @@ Continuous to: <a href="jmeter-and-dwr.html">JMeter and DWR</a>.
 httprequest for engine.js
 </p>
 
-<pre class="example" id="org860df67">
+<pre class="example" id="org797aea7">
 METHOD: get
 PATH: /seed/dwr/engine.js
 </pre>
@@ -36,7 +36,7 @@ PATH: /seed/dwr/engine.js
 add a regular extractor for this
 </p>
 
-<pre class="example" id="orgc1da31e">
+<pre class="example" id="org11af0df">
 request=NAME: SCRIPTSESSIONID
 REGEX: dwr.engine._origScriptSessionId = "(.*)"; [work in DWR 2.x]
 TEMPLATE: $1$=
@@ -47,7 +47,7 @@ TEMPLATE: $1$=
 httprequest for a DWR request
 </p>
 
-<pre class="example" id="org40ca7da">
+<pre class="example" id="org29f81ca">
 METHOD: post
 PATH: /seed/dwr/call/plaincall/authenticationService.login.dwr
 VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CRLF}scriptSessionId=${SCRIPTSESSIONID}${CRLF}c0-scriptName=authenticationService${CRLF}c0-methodName=login${CRLF}c0-id=0${CRLF}c0-param0=string:${SEED}${CRLF}c0-param1=string:${PWD}${CRLF}batchId=0
@@ -57,7 +57,7 @@ VALUE: callCount=1${CRLF}page=${LOGINPAGE}${CRLF}httpSessionId=${JSESSIONID}${CR
 user
 </p>
 
-<pre class="example" id="orgfd95bd9">
+<pre class="example" id="orgd80c90f">
 variables=CRLF: ${__javaScript('\r\n')}
 LOGINPAGE: \seed\login.html
 SEED: seed
@@ -73,7 +73,7 @@ PWD: seed
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2007-09-04 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2007-09-04 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

@@ -29,8 +29,8 @@ Take a look at its definition:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">&#9474; <span style="color: #c49619; font-style: italic;">Prelude</span><span style="color: #8d9fa1;">&gt;</span> <span style="color: #c49619; font-style: italic;">:</span>t (<span style="color: #8d9fa1;">&gt;&gt;=</span>)
-&#9474; (<span style="color: #8d9fa1;">&gt;&gt;=</span>) <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> m a <span style="color: #8d9fa1;">-&gt;</span> (a <span style="color: #8d9fa1;">-&gt;</span> m b) <span style="color: #8d9fa1;">-&gt;</span> m b
+<pre class="src src-haskell">&#9474; <span style="color: #005f5f;">Prelude</span><span style="color: #005e8b;">&gt;</span> <span style="color: #005f5f;">:</span>t (<span style="color: #005e8b;">&gt;&gt;=</span>)
+&#9474; (<span style="color: #005e8b;">&gt;&gt;=</span>) <span style="color: #005e8b;">::</span> (<span style="color: #005f5f;">Monad</span> m) <span style="color: #005e8b;">=&gt;</span> m a <span style="color: #005e8b;">-&gt;</span> (a <span style="color: #005e8b;">-&gt;</span> m b) <span style="color: #005e8b;">-&gt;</span> m b
 </pre>
 </div>
 
@@ -51,16 +51,16 @@ changed it to return <code>IO [String]</code>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">&#9474; <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">FilePath is from package System.IO and it is synonyms of String</span>
-&#9474; getFilesInDir <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">FilePath</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">IO</span> [<span style="color: #c49619; font-style: italic;">FilePath</span>]
-&#9474; getFilesInDir inp <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
-&#9474;   isDir <span style="color: #8d9fa1;">&lt;-</span> doesDirectoryExist inp
-&#9474;   files <span style="color: #8d9fa1;">&lt;-</span> <span style="color: #93a61a; font-weight: bold;">if</span> isDir <span style="color: #93a61a; font-weight: bold;">then</span>
-&#9474;   &#9474;   &#9474;   &#9474;   (<span style="color: #93a61a; font-weight: bold;">do</span>
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;names <span style="color: #8d9fa1;">&lt;-</span> getDirectoryContents inp
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;forM [ inp <span style="color: #8d9fa1;">&lt;/&gt;</span> x <span style="color: #8d9fa1;">|</span> x <span style="color: #8d9fa1;">&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)
-&#9474;   &#9474;   &#9474;   &#9474;<span style="color: #93a61a; font-weight: bold;">else</span> return [[inp]]
-&#9474;   return <span style="color: #8d9fa1;">$</span> concat files
+<pre class="src src-haskell">&#9474; <span style="color: #595959;">-- </span><span style="color: #595959;">FilePath is from package System.IO and it is synonyms of String</span>
+&#9474; getFilesInDir <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">FilePath</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">IO</span> [<span style="color: #005f5f;">FilePath</span>]
+&#9474; getFilesInDir inp <span style="color: #005e8b;">=</span> <span style="color: #531ab6;">do</span>
+&#9474;   isDir <span style="color: #005e8b;">&lt;-</span> doesDirectoryExist inp
+&#9474;   files <span style="color: #005e8b;">&lt;-</span> <span style="color: #531ab6;">if</span> isDir <span style="color: #531ab6;">then</span>
+&#9474;   &#9474;   &#9474;   &#9474;   (<span style="color: #531ab6;">do</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;names <span style="color: #005e8b;">&lt;-</span> getDirectoryContents inp
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;forM [ inp <span style="color: #005e8b;">&lt;/&gt;</span> x <span style="color: #005e8b;">|</span> x <span style="color: #005e8b;">&lt;-</span> names, isNotSpecialDir x ] getFilesInDir)
+&#9474;   &#9474;   &#9474;   &#9474;<span style="color: #531ab6;">else</span> return [[inp]]
+&#9474;   return <span style="color: #005e8b;">$</span> concat files
 </pre>
 </div>
 
@@ -93,7 +93,7 @@ Monad Transformers.</li>
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-06-21 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2011-06-21 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

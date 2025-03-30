@@ -20,94 +20,94 @@
 <header>
 <h1 class="title">Interactive with AQ Topic in Java</h1>
 </header><div class="org-src-container">
-<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">junit</span>.Assert.<span style="color: #c49619; font-style: italic;">assertNotNull</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">java</span>.<span style="color: #3c98e0; font-weight: bold;">util</span>.<span style="color: #c49619; font-style: italic;">Calendar</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">javax</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">Message</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">javax</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">QueueConnection</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">javax</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">QueueConnectionFactory</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">javax</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">Topic</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">oracle</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">AQjmsAgent</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">oracle</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">AQjmsFactory</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">oracle</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">AQjmsSession</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">oracle</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">AQjmsTextMessage</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">oracle</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">AQjmsTopicPublisher</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">oracle</span>.<span style="color: #3c98e0; font-weight: bold;">jms</span>.<span style="color: #c49619; font-style: italic;">AQjmsTopicReceiver</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">junit</span>.<span style="color: #c49619; font-style: italic;">After</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">junit</span>.<span style="color: #c49619; font-style: italic;">Before</span>;\\
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">junit</span>.<span style="color: #c49619; font-style: italic;">Test</span>;
+<pre class="src src-java"><span style="color: #531ab6;">import</span> <span style="color: #531ab6;">static</span> <span style="color: #0000b0;">org</span>.<span style="color: #0000b0;">junit</span>.Assert.<span style="color: #005f5f;">assertNotNull</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">java</span>.<span style="color: #0000b0;">util</span>.<span style="color: #005f5f;">Calendar</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">javax</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">Message</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">javax</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">QueueConnection</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">javax</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">QueueConnectionFactory</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">javax</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">Topic</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">oracle</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">AQjmsAgent</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">oracle</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">AQjmsFactory</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">oracle</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">AQjmsSession</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">oracle</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">AQjmsTextMessage</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">oracle</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">AQjmsTopicPublisher</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">oracle</span>.<span style="color: #0000b0;">jms</span>.<span style="color: #005f5f;">AQjmsTopicReceiver</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">org</span>.<span style="color: #0000b0;">junit</span>.<span style="color: #005f5f;">After</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">org</span>.<span style="color: #0000b0;">junit</span>.<span style="color: #005f5f;">Before</span>;\\
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">org</span>.<span style="color: #0000b0;">junit</span>.<span style="color: #005f5f;">Test</span>;
 
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">TestOracleAQ</span> {
+<span style="color: #531ab6;">public</span> <span style="color: #531ab6;">class</span> <span style="color: #005f5f;">TestOracleAQ</span> {
 
-<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #93a61a; font-weight: bold;">final</span> <span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">AQ_TOPIC</span> = <span style="color: #93a61a;">"ESB_DEMO_QUEUE"</span>;\\
-<span style="color: #35a69c; font-style: italic;">/** AQ Server Connection */</span>\\
-<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #93a61a; font-weight: bold;">final</span> String HOST_NAME = <span style="color: #93a61a;">"VLINUX"</span>;\\
-<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #93a61a; font-weight: bold;">final</span> String SID = <span style="color: #93a61a;">"XE"</span>;\\
-<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #93a61a; font-weight: bold;">final</span> <span style="color: #c49619; font-style: italic;">int</span> CONNECT_PORT = <span style="color: #7a7ed2; font-weight: bold;">1521</span>;\\
-<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #93a61a; font-weight: bold;">final</span> String CONNECT_TYPE = <span style="color: #93a61a;">"thin"</span>;\\
-<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #93a61a; font-weight: bold;">final</span> String AQ_USER = <span style="color: #93a61a;">"DEMOQ"</span>;\\
-<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #93a61a; font-weight: bold;">final</span> String AQ_PASSWD = <span style="color: #93a61a;">"DEMOQ"</span>;
+<span style="color: #531ab6;">private</span> <span style="color: #531ab6;">static</span> <span style="color: #531ab6;">final</span> <span style="color: #005f5f;">String</span> <span style="color: #005e8b;">AQ_TOPIC</span> = <span style="color: #3548cf;">"ESB_DEMO_QUEUE"</span>;\\
+<span style="color: #2a5045;">/** AQ Server Connection */</span>\\
+<span style="color: #531ab6;">private</span> <span style="color: #531ab6;">static</span> <span style="color: #531ab6;">final</span> String HOST_NAME = <span style="color: #3548cf;">"VLINUX"</span>;\\
+<span style="color: #531ab6;">private</span> <span style="color: #531ab6;">static</span> <span style="color: #531ab6;">final</span> String SID = <span style="color: #3548cf;">"XE"</span>;\\
+<span style="color: #531ab6;">private</span> <span style="color: #531ab6;">static</span> <span style="color: #531ab6;">final</span> <span style="color: #005f5f;">int</span> CONNECT_PORT = <span style="color: #0000b0;">1521</span>;\\
+<span style="color: #531ab6;">private</span> <span style="color: #531ab6;">static</span> <span style="color: #531ab6;">final</span> String CONNECT_TYPE = <span style="color: #3548cf;">"thin"</span>;\\
+<span style="color: #531ab6;">private</span> <span style="color: #531ab6;">static</span> <span style="color: #531ab6;">final</span> String AQ_USER = <span style="color: #3548cf;">"DEMOQ"</span>;\\
+<span style="color: #531ab6;">private</span> <span style="color: #531ab6;">static</span> <span style="color: #531ab6;">final</span> String AQ_PASSWD = <span style="color: #3548cf;">"DEMOQ"</span>;
 
-<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #c49619; font-style: italic;">QueueConnectionFactory</span> <span style="color: #8d9fa1;">qcf</span> = <span style="color: #3c98e0; font-weight: bold;">null</span>;\\
-<span style="color: #93a61a; font-weight: bold;">private</span> AQjmsSession jmsSession = <span style="color: #3c98e0; font-weight: bold;">null</span>;\\
-<span style="color: #93a61a; font-weight: bold;">private</span> QueueConnection qc = <span style="color: #3c98e0; font-weight: bold;">null</span>;\\
-<span style="color: #93a61a; font-weight: bold;">private</span> Topic topic = <span style="color: #3c98e0; font-weight: bold;">null</span>;
+<span style="color: #531ab6;">private</span> <span style="color: #005f5f;">QueueConnectionFactory</span> <span style="color: #005e8b;">qcf</span> = <span style="color: #0000b0;">null</span>;\\
+<span style="color: #531ab6;">private</span> AQjmsSession jmsSession = <span style="color: #0000b0;">null</span>;\\
+<span style="color: #531ab6;">private</span> QueueConnection qc = <span style="color: #0000b0;">null</span>;\\
+<span style="color: #531ab6;">private</span> Topic topic = <span style="color: #0000b0;">null</span>;
 
-[cite/t:<span style="color: #3c98e0; font-weight: bold;">@Before</span>]\\
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> setUp() <span style="color: #93a61a; font-weight: bold;">throws</span> <span style="color: #c49619; font-style: italic;">Exception</span> {\\
+[cite/t:<span style="color: #0000b0;">@Before</span>]\\
+<span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> setUp() <span style="color: #531ab6;">throws</span> <span style="color: #005f5f;">Exception</span> {\\
 qcf = AQjmsFactory.getQueueConnectionFactory(HOST_NAME, SID,\\
 CONNECT_PORT, CONNECT_TYPE);\\
 qc = qcf.createQueueConnection(AQ_USER, AQ_PASSWD);\\
 qc.start();\\
-jmsSession = (<span style="color: #c49619; font-style: italic;">AQjmsSession</span>) qc.createQueueSession(<span style="color: #3c98e0; font-weight: bold;">true</span>, <span style="color: #7a7ed2; font-weight: bold;">0</span>);\\
-<span style="color: #62787f; font-style: italic;">/* </span><span style="color: #62787f; font-style: italic;">for single consumer AQ</span><span style="color: #62787f; font-style: italic;"> */</span>\\
-<span style="color: #62787f; font-style: italic;">// </span><span style="color: #62787f; font-style: italic;">q = ((AQjmsSession) qs).getQueue("DEMOQ", "ESB_DEMO_QUEUE");\\</span>
-<span style="color: #62787f; font-style: italic;">/* </span><span style="color: #62787f; font-style: italic;">for multiple consumer AQ</span><span style="color: #62787f; font-style: italic;"> */</span>\\
+jmsSession = (<span style="color: #005f5f;">AQjmsSession</span>) qc.createQueueSession(<span style="color: #0000b0;">true</span>, <span style="color: #0000b0;">0</span>);\\
+<span style="color: #595959;">/* </span><span style="color: #595959;">for single consumer AQ</span><span style="color: #595959;"> */</span>\\
+<span style="color: #595959;">// </span><span style="color: #595959;">q = ((AQjmsSession) qs).getQueue("DEMOQ", "ESB_DEMO_QUEUE");\\</span>
+<span style="color: #595959;">/* </span><span style="color: #595959;">for multiple consumer AQ</span><span style="color: #595959;"> */</span>\\
 topic = jmsSession.getTopic(AQ_USER, AQ_TOPIC);\\
 }
 
-[cite/t:<span style="color: #3c98e0; font-weight: bold;">@After</span>]\\
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> tearDown() <span style="color: #93a61a; font-weight: bold;">throws</span> <span style="color: #c49619; font-style: italic;">Exception</span> {\\
+[cite/t:<span style="color: #0000b0;">@After</span>]\\
+<span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> tearDown() <span style="color: #531ab6;">throws</span> <span style="color: #005f5f;">Exception</span> {\\
 jmsSession.close();\\
 qc.stop();\\
-qcf = <span style="color: #3c98e0; font-weight: bold;">null</span>;\\
+qcf = <span style="color: #0000b0;">null</span>;\\
 }
 
-[cite/t:<span style="color: #3c98e0; font-weight: bold;">@Test</span>]\\
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> testReceive() <span style="color: #93a61a; font-weight: bold;">throws</span> <span style="color: #c49619; font-style: italic;">Exception</span> {\\
-String subscriberId = <span style="color: #93a61a;">"RECIPIENT"</span>;\\
+[cite/t:<span style="color: #0000b0;">@Test</span>]\\
+<span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> testReceive() <span style="color: #531ab6;">throws</span> <span style="color: #005f5f;">Exception</span> {\\
+String subscriberId = <span style="color: #3548cf;">"RECIPIENT"</span>;\\
 AQjmsTopicReceiver receiver = jmsSession.createTopicReceiver(topic,\\
-subscriberId, <span style="color: #3c98e0; font-weight: bold;">null</span>);\\
-Message msg = receiver.receive(<span style="color: #7a7ed2; font-weight: bold;">200</span>);\\
+subscriberId, <span style="color: #0000b0;">null</span>);\\
+Message msg = receiver.receive(<span style="color: #0000b0;">200</span>);\\
 assertNotNull(msg);\\
-<span style="color: #62787f; font-style: italic;">/* </span><span style="color: #62787f; font-style: italic;">a AQjmsTextMessage Type</span><span style="color: #62787f; font-style: italic;"> */</span>\\
+<span style="color: #595959;">/* </span><span style="color: #595959;">a AQjmsTextMessage Type</span><span style="color: #595959;"> */</span>\\
 System.out.println(msg);\\
-AQjmsTextMessage jmsMsg = (<span style="color: #c49619; font-style: italic;">AQjmsTextMessage</span>) msg;\\
-<span style="color: #62787f; font-style: italic;">/* </span><span style="color: #62787f; font-style: italic;">User Data</span><span style="color: #62787f; font-style: italic;"> */</span>\\
+AQjmsTextMessage jmsMsg = (<span style="color: #005f5f;">AQjmsTextMessage</span>) msg;\\
+<span style="color: #595959;">/* </span><span style="color: #595959;">User Data</span><span style="color: #595959;"> */</span>\\
 System.out.println(jmsMsg.getText());\\
 }
 
-[cite/t:<span style="color: #3c98e0; font-weight: bold;">@Test</span>]\\
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> testProduceToSpecificSubscriber() <span style="color: #93a61a; font-weight: bold;">throws</span> <span style="color: #c49619; font-style: italic;">Exception</span> {\\
-AQjmsTopicPublisher publisher = (<span style="color: #c49619; font-style: italic;">AQjmsTopicPublisher</span>) jmsSession\\
+[cite/t:<span style="color: #0000b0;">@Test</span>]\\
+<span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> testProduceToSpecificSubscriber() <span style="color: #531ab6;">throws</span> <span style="color: #005f5f;">Exception</span> {\\
+AQjmsTopicPublisher publisher = (<span style="color: #005f5f;">AQjmsTopicPublisher</span>) jmsSession\\
 .createPublisher(topic);\\
-AQjmsTextMessage jmsMsg = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">AQjmsTextMessage</span>();\\
+AQjmsTextMessage jmsMsg = <span style="color: #531ab6;">new</span> <span style="color: #005f5f;">AQjmsTextMessage</span>();\\
 jmsMsg.setJMSTimestamp(Calendar.getInstance().getTime().getTime());\\
-jmsMsg.setText(<span style="color: #93a61a;">"I am a message from junit test to simon..."</span>\\
+jmsMsg.setText(<span style="color: #3548cf;">"I am a message from junit test to simon..."</span>\\
 + Calendar.getInstance().getTime());\\
-AQjmsAgent[] demoSimon = { <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">AQjmsAgent</span>() };\\
-String subscriberId = <span style="color: #93a61a;">"DEMOAQ_SIMON"</span>;\\
-demoSimon[<span style="color: #7a7ed2; font-weight: bold;">0</span>].setName(subscriberId);\\
+AQjmsAgent[] demoSimon = { <span style="color: #531ab6;">new</span> <span style="color: #005f5f;">AQjmsAgent</span>() };\\
+String subscriberId = <span style="color: #3548cf;">"DEMOAQ_SIMON"</span>;\\
+demoSimon[<span style="color: #0000b0;">0</span>].setName(subscriberId);\\
 publisher.publish(jmsMsg, demoSimon);\\
 jmsSession.commit();\\
 }
 
-[cite/t:<span style="color: #3c98e0; font-weight: bold;">@Test</span>]\\
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> testProduceToAllSubscriber() <span style="color: #93a61a; font-weight: bold;">throws</span> <span style="color: #c49619; font-style: italic;">Exception</span> {\\
-AQjmsTopicPublisher publisher = (<span style="color: #c49619; font-style: italic;">AQjmsTopicPublisher</span>) jmsSession\\
+[cite/t:<span style="color: #0000b0;">@Test</span>]\\
+<span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> testProduceToAllSubscriber() <span style="color: #531ab6;">throws</span> <span style="color: #005f5f;">Exception</span> {\\
+AQjmsTopicPublisher publisher = (<span style="color: #005f5f;">AQjmsTopicPublisher</span>) jmsSession\\
 .createPublisher(topic);\\
-AQjmsTextMessage jmsMsg = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">AQjmsTextMessage</span>();\\
+AQjmsTextMessage jmsMsg = <span style="color: #531ab6;">new</span> <span style="color: #005f5f;">AQjmsTextMessage</span>();\\
 jmsMsg.setJMSTimestamp(Calendar.getInstance().getTime().getTime());\\
-jmsMsg.setText(<span style="color: #93a61a;">"I am a message from junit test to all subscriber..."</span>\\
+jmsMsg.setText(<span style="color: #3548cf;">"I am a message from junit test to all subscriber..."</span>\\
 + Calendar.getInstance().getTime());\\
 publisher.publish(jmsMsg);\\
 jmsSession.commit();\\
@@ -122,7 +122,7 @@ jmsSession.commit();\\
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-09-21 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2008-09-21 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

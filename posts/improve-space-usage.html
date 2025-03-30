@@ -26,17 +26,17 @@ such problem.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">&#9474; <span style="color: #93a61a; font-weight: bold;">module</span> <span style="color: #c49619; font-style: italic;">Main</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+<pre class="src src-haskell">&#9474; <span style="color: #531ab6;">module</span> <span style="color: #005f5f;">Main</span> <span style="color: #531ab6;">where</span>
 &#9474;
-&#9474; sumWith1 v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
-&#9474; sumWith1 v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> sumWith1 (v<span style="color: #8d9fa1;">+</span>x) xs
+&#9474; sumWith1 v <span style="color: #005f5f;">[]</span> <span style="color: #005e8b;">=</span> v
+&#9474; sumWith1 v (x<span style="color: #005f5f;">:</span>xs) <span style="color: #005e8b;">=</span> sumWith1 (v<span style="color: #005e8b;">+</span>x) xs
 &#9474;
-&#9474; sumWith2 v <span style="color: #c49619; font-style: italic;">[]</span> <span style="color: #8d9fa1;">=</span> v
-&#9474; sumWith2 v (x<span style="color: #c49619; font-style: italic;">:</span>xs) <span style="color: #8d9fa1;">=</span> (sumWith2 <span style="color: #8d9fa1;">$!</span> (v<span style="color: #8d9fa1;">+</span>x)) xs
+&#9474; sumWith2 v <span style="color: #005f5f;">[]</span> <span style="color: #005e8b;">=</span> v
+&#9474; sumWith2 v (x<span style="color: #005f5f;">:</span>xs) <span style="color: #005e8b;">=</span> (sumWith2 <span style="color: #005e8b;">$!</span> (v<span style="color: #005e8b;">+</span>x)) xs
 &#9474;
-&#9474; test <span style="color: #8d9fa1;">=</span> sumWith2 <span style="color: #7a7ed2; font-weight: bold;">0</span> [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span><span style="color: #7a7ed2; font-weight: bold;">20000000</span>]
+&#9474; test <span style="color: #005e8b;">=</span> sumWith2 <span style="color: #0000b0;">0</span> [<span style="color: #0000b0;">1</span><span style="color: #005e8b;">..</span><span style="color: #0000b0;">20000000</span>]
 &#9474;
-&#9474; main <span style="color: #8d9fa1;">=</span> print test
+&#9474; main <span style="color: #005e8b;">=</span> print test
 </pre>
 </div>
 </div>
@@ -44,7 +44,7 @@ such problem.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-09-12 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2012-09-12 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

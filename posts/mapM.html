@@ -23,27 +23,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgb345709">1. How to understand the following computation result?</a></li>
-<li><a href="#org5d4765c">2. Reason about</a></li>
+<li><a href="#orgc1be171">1. How to understand the following computation result?</a></li>
+<li><a href="#org11d7826">2. Reason about</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orgb345709" class="outline-2">
-<h2 id="orgb345709"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
+<div id="outline-container-orgc1be171" class="outline-2">
+<h2 id="orgc1be171"><span class="section-number-2">1.</span> How to understand the following computation result?</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #3c98e0;">mapM</span> id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
+<pre class="src src-haskell"><span style="color: #721045;">mapM</span> id [<span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">1</span>, <span style="color: #005f5f;">Nothing</span>, <span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">3</span>]
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org5d4765c" class="outline-2">
-<h2 id="org5d4765c"><span class="section-number-2">2.</span> Reason about</h2>
+<div id="outline-container-org11d7826" class="outline-2">
+<h2 id="org11d7826"><span class="section-number-2">2.</span> Reason about</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
-<pre class="src src-haskell">&#9474; mapM     <span style="color: #8d9fa1;">::</span> (a <span style="color: #8d9fa1;">-&gt;</span> m b) <span style="color: #8d9fa1;">-&gt;</span> [a] <span style="color: #8d9fa1;">-&gt;</span> m [b]
-&#9474; id       <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> a
-&#9474; sequence <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Monad</span> m) <span style="color: #8d9fa1;">=&gt;</span> [m a] <span style="color: #8d9fa1;">-&gt;</span> m [a]
+<pre class="src src-haskell">&#9474; mapM     <span style="color: #005e8b;">::</span> (a <span style="color: #005e8b;">-&gt;</span> m b) <span style="color: #005e8b;">-&gt;</span> [a] <span style="color: #005e8b;">-&gt;</span> m [b]
+&#9474; id       <span style="color: #005e8b;">::</span> a <span style="color: #005e8b;">-&gt;</span> a
+&#9474; sequence <span style="color: #005e8b;">::</span> (<span style="color: #005f5f;">Monad</span> m) <span style="color: #005e8b;">=&gt;</span> [m a] <span style="color: #005e8b;">-&gt;</span> m [a]
 </pre>
 </div>
 
@@ -52,9 +52,9 @@ Therefore,
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">&#9474; <span style="color: #8d9fa1;">&gt;</span> a <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">Int</span>
-&#9474; <span style="color: #8d9fa1;">&gt;</span> m <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Maybe</span>
-&#9474; <span style="color: #8d9fa1;">&gt;</span> b <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Int</span>
+<pre class="src src-haskell">&#9474; <span style="color: #005e8b;">&gt;</span> a <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">Maybe</span> <span style="color: #005f5f;">Int</span>
+&#9474; <span style="color: #005e8b;">&gt;</span> m <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">Maybe</span>
+&#9474; <span style="color: #005e8b;">&gt;</span> b <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">Int</span>
 </pre>
 </div>
 
@@ -63,11 +63,11 @@ the <code>mapM</code> and sequence is implemented like this:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #3c98e0;">mapM</span> f xs <span style="color: #8d9fa1;">=</span> sequence (map f xs)
+<pre class="src src-haskell"><span style="color: #721045;">mapM</span> f xs <span style="color: #005e8b;">=</span> sequence (map f xs)
 
-<span style="color: #3c98e0;">sequence</span> (c<span style="color: #c49619; font-style: italic;">:</span>cs) <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span> x  <span style="color: #8d9fa1;">&lt;-</span> c
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;xs <span style="color: #8d9fa1;">&lt;-</span> sequence cs
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474; return (x<span style="color: #c49619; font-style: italic;">:</span>xs)
+<span style="color: #721045;">sequence</span> (c<span style="color: #005f5f;">:</span>cs) <span style="color: #005e8b;">=</span> <span style="color: #531ab6;">do</span> x  <span style="color: #005e8b;">&lt;-</span> c
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;xs <span style="color: #005e8b;">&lt;-</span> sequence cs
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474; return (x<span style="color: #005f5f;">:</span>xs)
 </pre>
 </div>
 
@@ -76,13 +76,13 @@ Hence the result could be understood in such way
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">&#9474; mapM id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
-<span style="color: #8d9fa1;">=</span> sequence (map id [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>])
-<span style="color: #8d9fa1;">=</span> sequence [<span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>, <span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]
-<span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span> { x <span style="color: #8d9fa1;">&lt;-</span> <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span>; xs <span style="color: #8d9fa1;">&lt;-</span> sequence [<span style="color: #c49619; font-style: italic;">Nothing</span>, <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span>]; return (x<span style="color: #c49619; font-style: italic;">:</span>xs) }
-<span style="color: #8d9fa1;">=</span> <span style="color: #8d9fa1;">...</span>
-<span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">1</span> <span style="color: #8d9fa1;">&gt;&gt;=</span> <span style="color: #8d9fa1;">\</span>x <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Nothing</span> <span style="color: #8d9fa1;">&gt;&gt;=</span> <span style="color: #8d9fa1;">\</span>y <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Just</span> <span style="color: #7a7ed2; font-weight: bold;">3</span> <span style="color: #8d9fa1;">&gt;&gt;=</span> <span style="color: #8d9fa1;">\</span>z <span style="color: #8d9fa1;">-&gt;</span> return (x<span style="color: #c49619; font-style: italic;">:</span>y<span style="color: #c49619; font-style: italic;">:</span>z)
-<span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Nothing</span>          <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">Because Nothing &gt;&gt;= ... produce Nothing</span>
+<pre class="src src-haskell">&#9474; mapM id [<span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">1</span>, <span style="color: #005f5f;">Nothing</span>, <span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">3</span>]
+<span style="color: #005e8b;">=</span> sequence (map id [<span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">1</span>, <span style="color: #005f5f;">Nothing</span>, <span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">3</span>])
+<span style="color: #005e8b;">=</span> sequence [<span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">1</span>, <span style="color: #005f5f;">Nothing</span>, <span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">3</span>]
+<span style="color: #005e8b;">=</span> <span style="color: #531ab6;">do</span> { x <span style="color: #005e8b;">&lt;-</span> <span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">1</span>; xs <span style="color: #005e8b;">&lt;-</span> sequence [<span style="color: #005f5f;">Nothing</span>, <span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">3</span>]; return (x<span style="color: #005f5f;">:</span>xs) }
+<span style="color: #005e8b;">=</span> <span style="color: #005e8b;">...</span>
+<span style="color: #005e8b;">=</span> <span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">1</span> <span style="color: #005e8b;">&gt;&gt;=</span> <span style="color: #005e8b;">\</span>x <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Nothing</span> <span style="color: #005e8b;">&gt;&gt;=</span> <span style="color: #005e8b;">\</span>y <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Just</span> <span style="color: #0000b0;">3</span> <span style="color: #005e8b;">&gt;&gt;=</span> <span style="color: #005e8b;">\</span>z <span style="color: #005e8b;">-&gt;</span> return (x<span style="color: #005f5f;">:</span>y<span style="color: #005f5f;">:</span>z)
+<span style="color: #005e8b;">=</span> <span style="color: #005f5f;">Nothing</span>          <span style="color: #595959;">-- </span><span style="color: #595959;">Because Nothing &gt;&gt;= ... produce Nothing</span>
 </pre>
 </div>
 </div>
@@ -92,7 +92,7 @@ Hence the result could be understood in such way
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-06-14 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2011-06-14 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

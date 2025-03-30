@@ -23,16 +23,16 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6697053">1. 什么 Snaplet</a></li>
-<li><a href="#orgc2a3d09">2. Request local state</a></li>
-<li><a href="#org6f501ef">3. Snaplet-oauth-0.0.0</a></li>
-<li><a href="#org09d3d6e">4. 如何解决</a></li>
-<li><a href="#orgd8dc854">5. 还有什么问题</a></li>
+<li><a href="#orgebdf59a">1. 什么 Snaplet</a></li>
+<li><a href="#orgbefdace">2. Request local state</a></li>
+<li><a href="#org8443c20">3. Snaplet-oauth-0.0.0</a></li>
+<li><a href="#org8fac3e9">4. 如何解决</a></li>
+<li><a href="#org216e859">5. 还有什么问题</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org6697053" class="outline-2">
-<h2 id="org6697053"><span class="section-number-2">1.</span> 什么 Snaplet</h2>
+<div id="outline-container-orgebdf59a" class="outline-2">
+<h2 id="orgebdf59a"><span class="section-number-2">1.</span> 什么 Snaplet</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
@@ -44,8 +44,8 @@ Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
 </p>
 </div>
 </div>
-<div id="outline-container-orgc2a3d09" class="outline-2">
-<h2 id="orgc2a3d09"><span class="section-number-2">2.</span> Request local state</h2>
+<div id="outline-container-orgbefdace" class="outline-2">
+<h2 id="orgbefdace"><span class="section-number-2">2.</span> Request local state</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 <b>Request Local State</b> 是 snaplet 的一个设计目标<sup><a id="fnr.2" class="footref" href="#fn.2" role="doc-backlink">2</a></sup>。
@@ -54,29 +54,29 @@ Snap 从 0.6 版本引入 Snaplet 这个设计，它使得 Web
 </p>
 </div>
 </div>
-<div id="outline-container-org6f501ef" class="outline-2">
-<h2 id="org6f501ef"><span class="section-number-2">3.</span> Snaplet-oauth-0.0.0</h2>
+<div id="outline-container-org8443c20" class="outline-2">
+<h2 id="org8443c20"><span class="section-number-2">3.</span> Snaplet-oauth-0.0.0</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 根据 Snaplet 的常规模式，定义一个 data type 用于保存相关信息，比如
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   { getOauth     <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">OAuth2</span>
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   , getCodeParam <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+<pre class="src src-haskell"><span style="color: #531ab6;">data</span> <span style="color: #005f5f;">OAuthSnaplet</span> <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">OAuthSnaplet</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   { getOauth     <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">OAuth2</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   , getCodeParam <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">BS.ByteString</span>
 &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   }
 &#9474;   &#9474;   &#9474;   &#9474;   &#9474;
-<span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">HasOauth</span> b wher   e
-&#9474; oauthLens <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Lens</span> b (<span style="color: #c49619; font-style: italic;">Snaplet</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>)
+<span style="color: #531ab6;">class</span> <span style="color: #005f5f;">HasOauth</span> b wher   e
+&#9474; oauthLens <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Lens</span> b (<span style="color: #005f5f;">Snaplet</span> <span style="color: #005f5f;">OAuthSnaplet</span>)
 &#9474;
-<span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuth2</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuth2</span> { oauthClientId <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-&#9474;                    , oauthClientSecret <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-&#9474;                    , oauthOAuthorizeEndpoint <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-&#9474;                    , oauthAccessTokenEndpoint <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-&#9474;                    , oauthCallback <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-&#9474;                    , oauthAccessToken <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-&#9474;                    } <span style="color: #93a61a; font-weight: bold;">deriving</span> (<span style="color: #c49619; font-style: italic;">Show</span>, <span style="color: #c49619; font-style: italic;">Eq</span>)
+<span style="color: #531ab6;">data</span> <span style="color: #005f5f;">OAuth2</span> <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">OAuth2</span> { oauthClientId <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">BS.ByteString</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;, oauthClientSecret <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">BS.ByteString</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;, oauthOAuthorizeEndpoint <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">BS.ByteString</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;, oauthAccessTokenEndpoint <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">BS.ByteString</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;, oauthCallback <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Maybe</span> <span style="color: #005f5f;">BS.ByteString</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;, oauthAccessToken <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Maybe</span> <span style="color: #005f5f;">BS.ByteString</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;} <span style="color: #531ab6;">deriving</span> (<span style="color: #005f5f;">Show</span>, <span style="color: #005f5f;">Eq</span>)
 </pre>
 </div>
 
@@ -92,14 +92,14 @@ Snaplet，这看上去会很熟悉、常规。
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">&#9474; <span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">App</span>
-&#9474;   &#9474; { _weibo   <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Snaplet</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
+<pre class="src src-haskell">&#9474; <span style="color: #531ab6;">data</span> <span style="color: #005f5f;">App</span> <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">App</span>
+&#9474;   &#9474; { _weibo   <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Snaplet</span> <span style="color: #005f5f;">OAuthSnaplet</span>
 &#9474;   &#9474; }
 &#9474;   &#9474;
-&#9474; makeLens ''<span style="color: #c49619; font-style: italic;">App</span>
+&#9474; makeLens ''<span style="color: #005f5f;">App</span>
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">HasOauth</span> <span style="color: #c49619; font-style: italic;">App</span> <span style="color: #93a61a; font-weight: bold;">where</span>
-&#9474;   &#9474;oauthLens <span style="color: #8d9fa1;">=</span> weibo
+&#9474; <span style="color: #531ab6;">instance</span> <span style="color: #005f5f;">HasOauth</span> <span style="color: #005f5f;">App</span> <span style="color: #531ab6;">where</span>
+&#9474;   &#9474;oauthLens <span style="color: #005e8b;">=</span> weibo
 </pre>
 </div>
 
@@ -119,28 +119,28 @@ Snaplet，这看上去会很熟悉、常规。
 
 <div class="org-src-container">
 <pre class="src src-haskell">&#9474;
-&#9474; oauthCallbackHandler <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">HasOauth</span> b
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  <span style="color: #8d9fa1;">=&gt;</span> <span style="color: #c49619; font-style: italic;">Maybe</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Handler</span> b b <span style="color: #c49619; font-style: italic;">()</span>
-&#9474; oauthCallbackHandler uri <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
-&#9474;   &#9474; oauthSnaplet <span style="color: #8d9fa1;">&lt;-</span> getOauthSnaplet
-&#9474;   &#9474; codeParam    <span style="color: #8d9fa1;">&lt;-</span> decodedParam' (getCodeParam oauthSnaplet)
-&#9474;   &#9474; oauth        <span style="color: #8d9fa1;">&lt;-</span> getOauth oauthSnaplet
-&#9474;   &#9474; maybeToken   <span style="color: #8d9fa1;">&lt;-</span> liftIO <span style="color: #8d9fa1;">$</span> requestAccessToken oauth codeParam
-&#9474;   &#9474; <span style="color: #93a61a; font-weight: bold;">case</span> maybeToken <span style="color: #93a61a; font-weight: bold;">of</span>
-&#9474;   &#9474;   &#9474; <span style="color: #c49619; font-style: italic;">Just</span> token <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #93a61a; font-weight: bold;">do</span>
-&#9474;   &#9474;   &#9474;   &#9474;  updateOAuthSnaplet (modify <span style="color: #8d9fa1;">$</span> modifyOAuthState token)
-&#9474;   &#9474;   &#9474;   &#9474;  redirect <span style="color: #8d9fa1;">$</span> fromMaybe <span style="color: #93a61a;">"/"</span> uri
-&#9474;   &#9474;   &#9474; <span style="color: #93a61a; font-weight: bold;">_</span> <span style="color: #8d9fa1;">-&gt;</span> writeBS <span style="color: #93a61a;">"Error getting access token."</span>
+&#9474; oauthCallbackHandler <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">HasOauth</span> b
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  <span style="color: #005e8b;">=&gt;</span> <span style="color: #005f5f;">Maybe</span> <span style="color: #005f5f;">BS.ByteString</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Handler</span> b b <span style="color: #005f5f;">()</span>
+&#9474; oauthCallbackHandler uri <span style="color: #005e8b;">=</span> <span style="color: #531ab6;">do</span>
+&#9474;   &#9474; oauthSnaplet <span style="color: #005e8b;">&lt;-</span> getOauthSnaplet
+&#9474;   &#9474; codeParam    <span style="color: #005e8b;">&lt;-</span> decodedParam' (getCodeParam oauthSnaplet)
+&#9474;   &#9474; oauth        <span style="color: #005e8b;">&lt;-</span> getOauth oauthSnaplet
+&#9474;   &#9474; maybeToken   <span style="color: #005e8b;">&lt;-</span> liftIO <span style="color: #005e8b;">$</span> requestAccessToken oauth codeParam
+&#9474;   &#9474; <span style="color: #531ab6;">case</span> maybeToken <span style="color: #531ab6;">of</span>
+&#9474;   &#9474;   &#9474; <span style="color: #005f5f;">Just</span> token <span style="color: #005e8b;">-&gt;</span> <span style="color: #531ab6;">do</span>
+&#9474;   &#9474;   &#9474;   &#9474;  updateOAuthSnaplet (modify <span style="color: #005e8b;">$</span> modifyOAuthState token)
+&#9474;   &#9474;   &#9474;   &#9474;  redirect <span style="color: #005e8b;">$</span> fromMaybe <span style="color: #3548cf;">"/"</span> uri
+&#9474;   &#9474;   &#9474; <span style="color: #531ab6;">_</span> <span style="color: #005e8b;">-&gt;</span> writeBS <span style="color: #3548cf;">"Error getting access token."</span>
 &#9474;   &#9474;   &#9474;
 &#9474;   &#9474;   &#9474;
-&#9474; modifyOAuthState <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">AccessToken</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
-&#9474; modifyOAuthState (<span style="color: #c49619; font-style: italic;">AccessToken</span> at) oa <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> { getOauth <span style="color: #8d9fa1;">=</span> newOA, getCodeParam <span style="color: #8d9fa1;">=</span> getCodeParam oa }
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;<span style="color: #93a61a; font-weight: bold;">where</span> newOA <span style="color: #8d9fa1;">=</span> originOA { oauthAccessToken <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Just</span> at }
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  originOA <span style="color: #8d9fa1;">=</span> getOauth oa
+&#9474; modifyOAuthState <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">AccessToken</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">OAuthSnaplet</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">OAuthSnaplet</span>
+&#9474; modifyOAuthState (<span style="color: #005f5f;">AccessToken</span> at) oa <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">OAuthSnaplet</span> { getOauth <span style="color: #005e8b;">=</span> newOA, getCodeParam <span style="color: #005e8b;">=</span> getCodeParam oa }
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;<span style="color: #531ab6;">where</span> newOA <span style="color: #005e8b;">=</span> originOA { oauthAccessToken <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">Just</span> at }
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  originOA <span style="color: #005e8b;">=</span> getOauth oa
 &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;
-&#9474; updateOAuthSnaplet <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">MonadSnaplet</span> m) <span style="color: #8d9fa1;">=&gt;</span> m b <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> a <span style="color: #8d9fa1;">-&gt;</span> m b <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> a
-&#9474; updateOAuthSnaplet <span style="color: #8d9fa1;">=</span> with' oauthLens
+&#9474; updateOAuthSnaplet <span style="color: #005e8b;">::</span> (<span style="color: #005f5f;">MonadSnaplet</span> m) <span style="color: #005e8b;">=&gt;</span> m b <span style="color: #005f5f;">OAuthSnaplet</span> a <span style="color: #005e8b;">-&gt;</span> m b <span style="color: #005f5f;">OAuthSnaplet</span> a
+&#9474; updateOAuthSnaplet <span style="color: #005e8b;">=</span> with' oauthLens
 </pre>
 </div>
 
@@ -169,8 +169,8 @@ AcceeToken 来访问微薄资源。
 </p>
 </div>
 </div>
-<div id="outline-container-org09d3d6e" class="outline-2">
-<h2 id="org09d3d6e"><span class="section-number-2">4.</span> 如何解决</h2>
+<div id="outline-container-org8fac3e9" class="outline-2">
+<h2 id="org8fac3e9"><span class="section-number-2">4.</span> 如何解决</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 解决方案就是把 <code>OAuthSnaplet</code> 里的 <code>oauth</code> 变成一个共享变量，这样可以在多线程之间共享。
@@ -181,9 +181,9 @@ AcceeToken 来访问微薄资源。
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">OAuthSnaplet</span>
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   { getOauth     <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">MVar</span> <span style="color: #c49619; font-style: italic;">OAuth2</span>
-&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   , getCodeParam <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">BS.ByteString</span>
+<pre class="src src-haskell"><span style="color: #531ab6;">data</span> <span style="color: #005f5f;">OAuthSnaplet</span> <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">OAuthSnaplet</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   { getOauth     <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">MVar</span> <span style="color: #005f5f;">OAuth2</span>
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   , getCodeParam <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">BS.ByteString</span>
 &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   }
 </pre>
 </div>
@@ -194,8 +194,8 @@ AcceeToken 来访问微薄资源。
 </p>
 </div>
 </div>
-<div id="outline-container-orgd8dc854" class="outline-2">
-<h2 id="orgd8dc854"><span class="section-number-2">5.</span> 还有什么问题</h2>
+<div id="outline-container-org216e859" class="outline-2">
+<h2 id="org216e859"><span class="section-number-2">5.</span> 还有什么问题</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 你可能已经发现，这样的实现方式，如何支持多用户，以及多个 OAuth Provider
@@ -235,7 +235,7 @@ AcceeToken 来访问微薄资源。
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-05-24 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2012-05-24 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

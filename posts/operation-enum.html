@@ -23,36 +23,36 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1e99c4b">1. Example</a></li>
-<li><a href="#org17c30a3">2. Reference</a></li>
+<li><a href="#orge2b8989">1. Example</a></li>
+<li><a href="#org4c2a3cb">2. Reference</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org1e99c4b" class="outline-2">
-<h2 id="org1e99c4b"><span class="section-number-2">1.</span> Example</h2>
+<div id="outline-container-orge2b8989" class="outline-2">
+<h2 id="orge2b8989"><span class="section-number-2">1.</span> Example</h2>
 <div class="outline-text-2" id="text-1">
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">enum</span> <span style="color: #c49619; font-style: italic;">Operation</span> {
-&#9474;   <span style="color: #8d9fa1;">PLUS</span> {
-&#9474;   &#9474;   <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #3c98e0;">eval</span>(<span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">x</span>, <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">y</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> x + y; }
+<pre class="src src-java"><span style="color: #531ab6;">public</span> <span style="color: #531ab6;">enum</span> <span style="color: #005f5f;">Operation</span> {
+&#9474;   <span style="color: #005e8b;">PLUS</span> {
+&#9474;   &#9474;   <span style="color: #005f5f;">double</span> <span style="color: #721045;">eval</span>(<span style="color: #005f5f;">double</span> <span style="color: #005e8b;">x</span>, <span style="color: #005f5f;">double</span> <span style="color: #005e8b;">y</span>) { <span style="color: #531ab6;">return</span> x + y; }
 &#9474;   },
 &#9474;   MINUS {
-&#9474;   &#9474;   <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #3c98e0;">eval</span>(<span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">x</span>, <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">y</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> x - y; }
+&#9474;   &#9474;   <span style="color: #005f5f;">double</span> <span style="color: #721045;">eval</span>(<span style="color: #005f5f;">double</span> <span style="color: #005e8b;">x</span>, <span style="color: #005f5f;">double</span> <span style="color: #005e8b;">y</span>) { <span style="color: #531ab6;">return</span> x - y; }
 &#9474;   },
 &#9474;   TIMES {
-&#9474;   &#9474;   <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #3c98e0;">eval</span>(<span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">x</span>, <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">y</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> x \* y; }
+&#9474;   &#9474;   <span style="color: #005f5f;">double</span> <span style="color: #721045;">eval</span>(<span style="color: #005f5f;">double</span> <span style="color: #005e8b;">x</span>, <span style="color: #005f5f;">double</span> <span style="color: #005e8b;">y</span>) { <span style="color: #531ab6;">return</span> x \* y; }
 &#9474;   },
 &#9474;   DIVIDED_BY {
-&#9474;   &#9474;   <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #3c98e0;">eval</span>(<span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">x</span>, <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">y</span>) { <span style="color: #93a61a; font-weight: bold;">return</span> x / y; }
+&#9474;   &#9474;   <span style="color: #005f5f;">double</span> <span style="color: #721045;">eval</span>(<span style="color: #005f5f;">double</span> <span style="color: #005e8b;">x</span>, <span style="color: #005f5f;">double</span> <span style="color: #005e8b;">y</span>) { <span style="color: #531ab6;">return</span> x / y; }
 &#9474;   };
 &#9474;
-&#9474;   <span style="color: #62787f; font-style: italic;">// </span><span style="color: #62787f; font-style: italic;">Perform the arithmetic operation represented by this constant</span>
-&#9474;   <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #3c98e0;">eval</span>(<span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">x</span>, <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">y</span>);
-&#9474;   <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">main</span>(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">args</span>[]) {
-&#9474;   &#9474;  <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">x</span> = <span style="color: #7a7ed2; font-weight: bold;">2.0</span>;
-&#9474;   &#9474;  <span style="color: #c49619; font-style: italic;">double</span> <span style="color: #8d9fa1;">y</span> = <span style="color: #7a7ed2; font-weight: bold;">4.0</span>;
-&#9474;   &#9474;  <span style="color: #93a61a; font-weight: bold;">for</span> (<span style="color: #c49619; font-style: italic;">Operation</span> <span style="color: #8d9fa1;">op</span> : Operation.values())
-&#9474;   &#9474;      System.out.println(x + <span style="color: #93a61a;">" "</span> + op + <span style="color: #93a61a;">" "</span> + y + <span style="color: #93a61a;">" = "</span> + op.eval(x, y));
+&#9474;   <span style="color: #595959;">// </span><span style="color: #595959;">Perform the arithmetic operation represented by this constant</span>
+&#9474;   <span style="color: #531ab6;">abstract</span> <span style="color: #005f5f;">double</span> <span style="color: #721045;">eval</span>(<span style="color: #005f5f;">double</span> <span style="color: #005e8b;">x</span>, <span style="color: #005f5f;">double</span> <span style="color: #005e8b;">y</span>);
+&#9474;   <span style="color: #531ab6;">public</span> <span style="color: #531ab6;">static</span> <span style="color: #005f5f;">void</span> <span style="color: #721045;">main</span>(<span style="color: #005f5f;">String</span> <span style="color: #005e8b;">args</span>[]) {
+&#9474;   &#9474;  <span style="color: #005f5f;">double</span> <span style="color: #005e8b;">x</span> = <span style="color: #0000b0;">2.0</span>;
+&#9474;   &#9474;  <span style="color: #005f5f;">double</span> <span style="color: #005e8b;">y</span> = <span style="color: #0000b0;">4.0</span>;
+&#9474;   &#9474;  <span style="color: #531ab6;">for</span> (<span style="color: #005f5f;">Operation</span> <span style="color: #005e8b;">op</span> : Operation.values())
+&#9474;   &#9474;   &#9474;  System.out.println(x + <span style="color: #3548cf;">" "</span> + op + <span style="color: #3548cf;">" "</span> + y + <span style="color: #3548cf;">" = "</span> + op.eval(x, y));
 &#9474;   &#9474; }
 }
 </pre>
@@ -64,8 +64,8 @@ Why would people think it is tricky?
 </p>
 </div>
 </div>
-<div id="outline-container-org17c30a3" class="outline-2">
-<h2 id="org17c30a3"><span class="section-number-2">2.</span> Reference</h2>
+<div id="outline-container-org4c2a3cb" class="outline-2">
+<h2 id="org4c2a3cb"><span class="section-number-2">2.</span> Reference</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><a href="file:///home/haisgwu/documentation/langspec/classes.html#8.9">Java Lang Spec</a></li>
@@ -77,7 +77,7 @@ Why would people think it is tricky?
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2010-08-10 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2010-08-10 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

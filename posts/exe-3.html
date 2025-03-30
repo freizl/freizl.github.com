@@ -32,25 +32,25 @@ words, here, could generate a list of Monads then print out to console.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #3c98e0;">main</span> <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
-&#9474;  xs <span style="color: #8d9fa1;">&lt;-</span> sgetline
-&#9474;  mapM_ (<span style="color: #8d9fa1;">\</span>s <span style="color: #8d9fa1;">-</span>putStrLn s) (showSum xs <span style="color: #c49619; font-style: italic;">:</span> showProduct xs <span style="color: #c49619; font-style: italic;">:</span> (map showFactorial xs))
-&#9474;  <span style="color: #93a61a; font-weight: bold;">where</span>
-&#9474;   &#9474;showSum xs <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a;">"The sum is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> sum) xs
-&#9474;   &#9474;showProduct xs <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a;">"The product is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> product) xs
-&#9474;   &#9474;showFactorial xs <span style="color: #8d9fa1;">=</span> (show x) <span style="color: #8d9fa1;">++</span> <span style="color: #93a61a;">" factorial is: "</span> <span style="color: #8d9fa1;">++</span> (show <span style="color: #8d9fa1;">.</span> factorial) xs
+<pre class="src src-haskell"><span style="color: #721045;">main</span> <span style="color: #005e8b;">=</span> <span style="color: #531ab6;">do</span>
+&#9474;  xs <span style="color: #005e8b;">&lt;-</span> sgetline
+&#9474;  mapM_ (<span style="color: #005e8b;">\</span>s <span style="color: #005e8b;">-</span>putStrLn s) (showSum xs <span style="color: #005f5f;">:</span> showProduct xs <span style="color: #005f5f;">:</span> (map showFactorial xs))
+&#9474;  <span style="color: #531ab6;">where</span>
+&#9474;   &#9474;showSum xs <span style="color: #005e8b;">=</span> <span style="color: #3548cf;">"The sum is: "</span> <span style="color: #005e8b;">++</span> (show <span style="color: #005e8b;">.</span> sum) xs
+&#9474;   &#9474;showProduct xs <span style="color: #005e8b;">=</span> <span style="color: #3548cf;">"The product is: "</span> <span style="color: #005e8b;">++</span> (show <span style="color: #005e8b;">.</span> product) xs
+&#9474;   &#9474;showFactorial xs <span style="color: #005e8b;">=</span> (show x) <span style="color: #005e8b;">++</span> <span style="color: #3548cf;">" factorial is: "</span> <span style="color: #005e8b;">++</span> (show <span style="color: #005e8b;">.</span> factorial) xs
 &#9474;   &#9474;
-<span style="color: #3c98e0;">sgetline</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> [<span style="color: #c49619; font-style: italic;">Int</span>]
-<span style="color: #3c98e0;">sgetline</span> <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">do</span>
-&#9474;  putStrLn <span style="color: #93a61a;">"Give me a number (or 0 to stop) :"</span>
-&#9474;  x <span style="color: #8d9fa1;">&lt;-</span> getLine
-&#9474;  <span style="color: #93a61a; font-weight: bold;">if</span> x <span style="color: #8d9fa1;">`elem`</span> [<span style="color: #93a61a;">""</span>, <span style="color: #93a61a;">"0"</span>] <span style="color: #93a61a; font-weight: bold;">then</span> <span style="color: #62787f; font-style: italic;">-- </span><span style="color: #62787f; font-style: italic;">isStringEmpty??</span>
-&#9474;   &#9474;<span style="color: #93a61a; font-weight: bold;">do</span> return <span style="color: #c49619; font-style: italic;">[]</span>
-&#9474;   &#9474;<span style="color: #93a61a; font-weight: bold;">else</span>
-&#9474;   &#9474;<span style="color: #93a61a; font-weight: bold;">do</span> xs <span style="color: #8d9fa1;">&lt;-</span> sgetline
-&#9474;   &#9474;   return ((read x)<span style="color: #c49619; font-style: italic;">:</span>xs)
+<span style="color: #721045;">sgetline</span> <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">IO</span> [<span style="color: #005f5f;">Int</span>]
+<span style="color: #721045;">sgetline</span> <span style="color: #005e8b;">=</span> <span style="color: #531ab6;">do</span>
+&#9474;  putStrLn <span style="color: #3548cf;">"Give me a number (or 0 to stop) :"</span>
+&#9474;  x <span style="color: #005e8b;">&lt;-</span> getLine
+&#9474;  <span style="color: #531ab6;">if</span> x <span style="color: #005e8b;">`elem`</span> [<span style="color: #3548cf;">""</span>, <span style="color: #3548cf;">"0"</span>] <span style="color: #531ab6;">then</span> <span style="color: #595959;">-- </span><span style="color: #595959;">isStringEmpty??</span>
+&#9474;   &#9474;<span style="color: #531ab6;">do</span> return <span style="color: #005f5f;">[]</span>
+&#9474;   &#9474;<span style="color: #531ab6;">else</span>
+&#9474;   &#9474;<span style="color: #531ab6;">do</span> xs <span style="color: #005e8b;">&lt;-</span> sgetline
+&#9474;   &#9474;   return ((read x)<span style="color: #005f5f;">:</span>xs)
 &#9474;   &#9474;
-<span style="color: #3c98e0;">factorial</span> n <span style="color: #8d9fa1;">=</span> product [<span style="color: #7a7ed2; font-weight: bold;">1</span><span style="color: #8d9fa1;">..</span>n]
+<span style="color: #721045;">factorial</span> n <span style="color: #005e8b;">=</span> product [<span style="color: #0000b0;">1</span><span style="color: #005e8b;">..</span>n]
 </pre>
 </div>
 
@@ -62,7 +62,7 @@ Full code <a href="https://freizl.github.io/codes/haskell/yaht-3.10.lhs">here</a
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-06-04 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2011-06-04 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

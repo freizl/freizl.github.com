@@ -23,14 +23,14 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orga9abcfa">1. Deriving</a></li>
-<li><a href="#org0aaccac">2. Further study</a></li>
-<li><a href="#orgcaa443c">3. Reference</a></li>
+<li><a href="#org0eeaa37">1. Deriving</a></li>
+<li><a href="#org001006a">2. Further study</a></li>
+<li><a href="#org06f1474">3. Reference</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orga9abcfa" class="outline-2">
-<h2 id="orga9abcfa"><span class="section-number-2">1.</span> Deriving</h2>
+<div id="outline-container-org0eeaa37" class="outline-2">
+<h2 id="org0eeaa37"><span class="section-number-2">1.</span> Deriving</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 What the cool thing that Deriving does is actually <b>automaticlly implementing instance</b> for particular type class.
@@ -41,12 +41,12 @@ For instance, a <code>Person</code> derives <code>Eq</code>
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Person</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Person</span>
-&#9474; { firstName <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">String</span>
-&#9474; , lastName  <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">String</span>
-&#9474; , age       <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span>
+<pre class="src src-haskell"><span style="color: #531ab6;">data</span> <span style="color: #005f5f;">Person</span> <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">Person</span>
+&#9474; { firstName <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">String</span>
+&#9474; , lastName  <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">String</span>
+&#9474; , age       <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Int</span>
 &#9474; }
-&#9474; <span style="color: #93a61a; font-weight: bold;">deriving</span> <span style="color: #c49619; font-style: italic;">Eq</span>
+&#9474; <span style="color: #531ab6;">deriving</span> <span style="color: #005f5f;">Eq</span>
 </pre>
 </div>
 
@@ -59,8 +59,8 @@ Take another example,
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Day</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Monday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Tuesday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Wednesday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Thursday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Friday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Saturday</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Sunday</span>
-&#9474;   &#9474;   &#9474;  <span style="color: #93a61a; font-weight: bold;">deriving</span> (<span style="color: #c49619; font-style: italic;">Bounded</span>, <span style="color: #c49619; font-style: italic;">Enum</span>)
+<pre class="src src-haskell"><span style="color: #531ab6;">data</span> <span style="color: #005f5f;">Day</span> <span style="color: #005e8b;">=</span> <span style="color: #005f5f;">Monday</span> <span style="color: #005e8b;">|</span> <span style="color: #005f5f;">Tuesday</span> <span style="color: #005e8b;">|</span> <span style="color: #005f5f;">Wednesday</span> <span style="color: #005e8b;">|</span> <span style="color: #005f5f;">Thursday</span> <span style="color: #005e8b;">|</span> <span style="color: #005f5f;">Friday</span> <span style="color: #005e8b;">|</span> <span style="color: #005f5f;">Saturday</span> <span style="color: #005e8b;">|</span> <span style="color: #005f5f;">Sunday</span>
+&#9474;   &#9474;   &#9474;  <span style="color: #531ab6;">deriving</span> (<span style="color: #005f5f;">Bounded</span>, <span style="color: #005f5f;">Enum</span>)
 </pre>
 </div>
 
@@ -76,7 +76,7 @@ return something that is instance of <code>Bounded</code>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #3c98e0;">minBound</span> <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Bounded</span> a) <span style="color: #8d9fa1;">=&gt;</span> a
+<pre class="src src-haskell"><span style="color: #721045;">minBound</span> <span style="color: #005e8b;">::</span> (<span style="color: #005f5f;">Bounded</span> a) <span style="color: #005e8b;">=&gt;</span> a
 </pre>
 </div>
 
@@ -85,8 +85,8 @@ Hence, if enforce its return type to be <code>Day</code>, we will get result
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">ghci<span style="color: #3c98e0;">&gt;</span> minBound <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Day</span>
-<span style="color: #c49619; font-style: italic;">Monday</span>
+<pre class="src src-haskell">ghci<span style="color: #721045;">&gt;</span> minBound <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Day</span>
+<span style="color: #005f5f;">Monday</span>
 </pre>
 </div>
 
@@ -95,7 +95,7 @@ Take a look at one function of <code>Enum</code> typeclass
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #3c98e0;">succ</span> <span style="color: #8d9fa1;">::</span> (<span style="color: #c49619; font-style: italic;">Enum</span> a) <span style="color: #8d9fa1;">=&gt;</span> a <span style="color: #8d9fa1;">-&gt;</span> a
+<pre class="src src-haskell"><span style="color: #721045;">succ</span> <span style="color: #005e8b;">::</span> (<span style="color: #005f5f;">Enum</span> a) <span style="color: #005e8b;">=&gt;</span> a <span style="color: #005e8b;">-&gt;</span> a
 </pre>
 </div>
 
@@ -104,8 +104,8 @@ We could easy guess the result of <code>succ Tuesday</code> will be Wednesday.
 </p>
 </div>
 </div>
-<div id="outline-container-org0aaccac" class="outline-2">
-<h2 id="org0aaccac"><span class="section-number-2">2.</span> Further study</h2>
+<div id="outline-container-org001006a" class="outline-2">
+<h2 id="org001006a"><span class="section-number-2">2.</span> Further study</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>How does the Deriving being implemented in Haskell?</li>
@@ -116,8 +116,8 @@ Thanks a guy point me I could go further by study <a href="http://hackage.haskel
 </p>
 </div>
 </div>
-<div id="outline-container-orgcaa443c" class="outline-2">
-<h2 id="orgcaa443c"><span class="section-number-2">3.</span> Reference</h2>
+<div id="outline-container-org06f1474" class="outline-2">
+<h2 id="org06f1474"><span class="section-number-2">3.</span> Reference</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><a href="http://learnyouahaskell.com/making-our-own-types-and-typeclasses">Learn Your Haskell, Chapter 8</a></li>
@@ -129,7 +129,7 @@ Thanks a guy point me I could go further by study <a href="http://hackage.haskel
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-06-14 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2011-06-14 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

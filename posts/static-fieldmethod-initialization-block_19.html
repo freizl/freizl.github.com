@@ -20,65 +20,65 @@
 <header>
 <h1 class="title">Static Field/Method, Initialization Block Cont. (After compile)</h1>
 </header><div class="org-src-container">
-<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">package</span> com.<span style="color: #3c98e0; font-weight: bold;">foo</span>;
+<pre class="src src-java"><span style="color: #531ab6;">package</span> com.<span style="color: #0000b0;">foo</span>;
 
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">java</span>.<span style="color: #3c98e0; font-weight: bold;">io</span>.<span style="color: #c49619; font-style: italic;">PrintStream</span>;
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">apache</span>.<span style="color: #3c98e0; font-weight: bold;">commons</span>.<span style="color: #3c98e0; font-weight: bold;">lang</span>.<span style="color: #3c98e0; font-weight: bold;">builder</span>.<span style="color: #c49619; font-style: italic;">ReflectionToStringBuilder</span>;
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">java</span>.<span style="color: #0000b0;">io</span>.<span style="color: #005f5f;">PrintStream</span>;
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">org</span>.<span style="color: #0000b0;">apache</span>.<span style="color: #0000b0;">commons</span>.<span style="color: #0000b0;">lang</span>.<span style="color: #0000b0;">builder</span>.<span style="color: #005f5f;">ReflectionToStringBuilder</span>;
 
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">BaseObject</span> {
+<span style="color: #531ab6;">public</span> <span style="color: #531ab6;">class</span> <span style="color: #005f5f;">BaseObject</span> {
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">long</span> <span style="color: #8d9fa1;">second</span> = 0L;
-&#9474; <span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">name</span>;
+&#9474; <span style="color: #531ab6;">private</span> <span style="color: #531ab6;">static</span> <span style="color: #005f5f;">long</span> <span style="color: #005e8b;">second</span> = 0L;
+&#9474; <span style="color: #531ab6;">private</span> <span style="color: #005f5f;">String</span> <span style="color: #005e8b;">name</span>;
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">public</span> BaseObject() {
-&#9474;   name = <span style="color: #93a61a;">""</span>;
-&#9474;   System.out.println(<span style="color: #93a61a;">"I am class block initialization."</span>);
+&#9474; <span style="color: #531ab6;">public</span> <span style="color: #721045;">BaseObject</span>() {
+&#9474;   name = <span style="color: #3548cf;">""</span>;
+&#9474;   System.out.println(<span style="color: #3548cf;">"I am class block initialization."</span>);
 &#9474;   second++;
-&#9474;   System.out.println(<span style="color: #93a61a;">"I am constructor."</span>);
+&#9474;   System.out.println(<span style="color: #3548cf;">"I am constructor."</span>);
 &#9474; }
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">public</span> BaseObject(String name) {
-&#9474;   [[http:<span style="color: #62787f; font-style: italic;">//</span><span style="color: #62787f; font-style: italic;">this.name/][this.name]] = "";</span>
-&#9474;   System.out.println(<span style="color: #93a61a;">"I am class block initialization."</span>);
-[[http:<span style="color: #62787f; font-style: italic;">//</span><span style="color: #62787f; font-style: italic;">this.name/][    this.name]] = name;</span>
+&#9474; <span style="color: #531ab6;">public</span> <span style="color: #721045;">BaseObject</span>(<span style="color: #005f5f;">String</span> <span style="color: #005e8b;">name</span>) {
+&#9474;   [[http:<span style="color: #595959;">//</span><span style="color: #595959;">this.name/][this.name]] = "";</span>
+&#9474;   System.out.println(<span style="color: #3548cf;">"I am class block initialization."</span>);
+[[http:<span style="color: #595959;">//</span><span style="color: #595959;">this.name/][    this.name]] = name;</span>
 &#9474;   second++;
 &#9474; }
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">String</span> <span style="color: #3c98e0;">getName</span>() { <span style="color: #93a61a; font-weight: bold;">return</span> name; }
+&#9474; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">String</span> <span style="color: #721045;">getName</span>() { <span style="color: #531ab6;">return</span> name; }
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">setName</span>(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">name</span>) {
-&#9474;   [[http:<span style="color: #62787f; font-style: italic;">//</span><span style="color: #62787f; font-style: italic;">this.name/][this.name]] = name;</span>
+&#9474; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> <span style="color: #721045;">setName</span>(<span style="color: #005f5f;">String</span> <span style="color: #005e8b;">name</span>) {
+&#9474;   [[http:<span style="color: #595959;">//</span><span style="color: #595959;">this.name/][this.name]] = name;</span>
 &#9474; }
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">long</span> <span style="color: #3c98e0;">getSecond</span>() { <span style="color: #93a61a; font-weight: bold;">return</span> second; }
+&#9474; <span style="color: #531ab6;">public</span> <span style="color: #531ab6;">static</span> <span style="color: #005f5f;">long</span> <span style="color: #721045;">getSecond</span>() { <span style="color: #531ab6;">return</span> second; }
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">setSecond</span>(<span style="color: #c49619; font-style: italic;">long</span> <span style="color: #8d9fa1;">second</span>) { second = second; }
+&#9474; <span style="color: #531ab6;">public</span> <span style="color: #531ab6;">static</span> <span style="color: #005f5f;">void</span> <span style="color: #721045;">setSecond</span>(<span style="color: #005f5f;">long</span> <span style="color: #005e8b;">second</span>) { second = second; }
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">String</span> <span style="color: #3c98e0;">toString</span>() { <span style="color: #93a61a; font-weight: bold;">return</span> ReflectionToStringBuilder.toString(<span style="color: #93a61a; font-weight: bold;">this</span>); }
+&#9474; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">String</span> <span style="color: #721045;">toString</span>() { <span style="color: #531ab6;">return</span> ReflectionToStringBuilder.toString(<span style="color: #531ab6;">this</span>); }
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #c49619; font-style: italic;">void</span> <span style="color: #3c98e0;">main</span>(<span style="color: #c49619; font-style: italic;">String</span> <span style="color: #8d9fa1;">args</span>[]) {
+&#9474; <span style="color: #531ab6;">public</span> <span style="color: #531ab6;">static</span> <span style="color: #005f5f;">void</span> <span style="color: #721045;">main</span>(<span style="color: #005f5f;">String</span> <span style="color: #005e8b;">args</span>[]) {
 &#9474;   System.out.println(getSecond());
-&#9474;   <span style="color: #c49619; font-style: italic;">BaseObject</span> <span style="color: #8d9fa1;">bo1</span> = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">BaseObject</span>(<span style="color: #93a61a;">"First One"</span>);
-&#9474;   <span style="color: #c49619; font-style: italic;">BaseObject</span> <span style="color: #8d9fa1;">bo2</span> = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">BaseObject</span>(<span style="color: #93a61a;">"Seconde One"</span>);
-&#9474;   <span style="color: #c49619; font-style: italic;">BaseObject</span> <span style="color: #8d9fa1;">bo3</span> = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">BaseObject</span>(<span style="color: #93a61a;">"Third One"</span>);
-&#9474;   System.out.println((<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">StringBuilder</span>())
-&#9474;   &#9474;                      .append(bo1)
-&#9474;   &#9474;                      .append(<span style="color: #93a61a;">"__"</span>)
-&#9474;   &#9474;                      .append(getSecond())
-&#9474;   &#9474;                      .toString());
-&#9474;   System.out.println((<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">StringBuilder</span>())
-&#9474;   &#9474;                      .append(bo2)
-&#9474;   &#9474;                      .append(<span style="color: #93a61a;">"__"</span>)
-&#9474;   &#9474;                      .append(getSecond())
-&#9474;   &#9474;                      .toString());
-&#9474;   System.out.println((<span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">StringBuilder</span>())
-&#9474;   &#9474;                      .append(bo3)
-&#9474;   &#9474;                      .append(<span style="color: #93a61a;">"__"</span>)
-&#9474;   &#9474;                      .append(getSecond())
-&#9474;   &#9474;                      .toString());
+&#9474;   <span style="color: #005f5f;">BaseObject</span> <span style="color: #005e8b;">bo1</span> = <span style="color: #531ab6;">new</span> <span style="color: #005f5f;">BaseObject</span>(<span style="color: #3548cf;">"First One"</span>);
+&#9474;   <span style="color: #005f5f;">BaseObject</span> <span style="color: #005e8b;">bo2</span> = <span style="color: #531ab6;">new</span> <span style="color: #005f5f;">BaseObject</span>(<span style="color: #3548cf;">"Seconde One"</span>);
+&#9474;   <span style="color: #005f5f;">BaseObject</span> <span style="color: #005e8b;">bo3</span> = <span style="color: #531ab6;">new</span> <span style="color: #005f5f;">BaseObject</span>(<span style="color: #3548cf;">"Third One"</span>);
+&#9474;   System.out.println((<span style="color: #531ab6;">new</span> <span style="color: #005f5f;">StringBuilder</span>())
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(bo1)
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(<span style="color: #3548cf;">"__"</span>)
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(getSecond())
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .toString());
+&#9474;   System.out.println((<span style="color: #531ab6;">new</span> <span style="color: #005f5f;">StringBuilder</span>())
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(bo2)
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(<span style="color: #3548cf;">"__"</span>)
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(getSecond())
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .toString());
+&#9474;   System.out.println((<span style="color: #531ab6;">new</span> <span style="color: #005f5f;">StringBuilder</span>())
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(bo3)
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(<span style="color: #3548cf;">"__"</span>)
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .append(getSecond())
+&#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;   &#9474;  .toString());
 &#9474; }
 &#9474;
-&#9474; <span style="color: #93a61a; font-weight: bold;">static</span> { System.out.println(<span style="color: #93a61a;">"I am static block initialization."</span>); }
+&#9474; <span style="color: #531ab6;">static</span> { System.out.println(<span style="color: #3548cf;">"I am static block initialization."</span>); }
 }
 </pre>
 </div>
@@ -87,7 +87,7 @@
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-03-19 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2008-03-19 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

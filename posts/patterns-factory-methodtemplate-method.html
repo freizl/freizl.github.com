@@ -32,36 +32,36 @@ below)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">PizzaStore</span> {
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #35a69c; font-style: italic;">/**</span>
-<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #templateMethod(String type) is an Template Method.</span>
-<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *</span>
+<pre class="src src-java"><span style="color: #531ab6;">public</span> <span style="color: #531ab6;">abstract</span> <span style="color: #531ab6;">class</span> <span style="color: #005f5f;">PizzaStore</span> {
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #2a5045;">/**</span>
+<span style="color: #2a5045;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #templateMethod(String type) is an Template Method.</span>
+<span style="color: #2a5045;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; *</span>
 
-<span style="color: #35a69c; font-style: italic;">#+begin_html</span>
-&#9474;<span style="color: #35a69c; font-style: italic;"> </span><span style="color: #3c98e0; font-weight: bold; font-style: italic;">&lt;p&gt;</span>
-<span style="color: #35a69c; font-style: italic;">#+end_html</span>
+<span style="color: #2a5045;">#+begin_html</span>
+&#9474;<span style="color: #2a5045;"> </span><span style="color: #7c318f;">&lt;p&gt;</span>
+<span style="color: #2a5045;">#+end_html</span>
 
-<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #factoryMethodOfInit() AND #factoryMethodOfCreate(String</span>
-<span style="color: #35a69c; font-style: italic;">type) are both</span>
-<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * Factory Method.</span>
-<span style="color: #35a69c; font-style: italic;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */</span>
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">public</span> Pizza templateMethod(String type) {
+<span style="color: #2a5045;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * #factoryMethodOfInit() AND #factoryMethodOfCreate(String</span>
+<span style="color: #2a5045;">type) are both</span>
+<span style="color: #2a5045;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; * Factory Method.</span>
+<span style="color: #2a5045;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; */</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #531ab6;">public</span> Pizza templateMethod(String type) {
 
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;factoryMethodOfInit();
 
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Pizza pizza = factoryMethodOfCreate(type);
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;System.out.println(<span style="color: #93a61a;">"--- Making a"</span> + pizza.getName() + &#8221;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;System.out.println(<span style="color: #3548cf;">"--- Making a"</span> + pizza.getName() + &#8221;
 ---&#8220;);
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.prepare();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.bake();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.cut();
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;pizza.box();
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">return</span> pizza;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #531ab6;">return</span> pizza;
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;}
 
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> <span style="color: #c49619; font-style: italic;">void</span> factoryMethodOfInit();
-&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #93a61a; font-weight: bold;">protected</span> <span style="color: #93a61a; font-weight: bold;">abstract</span> Pizza factoryMethodOfCreate(String type);
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #531ab6;">protected</span> <span style="color: #531ab6;">abstract</span> <span style="color: #005f5f;">void</span> factoryMethodOfInit();
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #531ab6;">protected</span> <span style="color: #531ab6;">abstract</span> Pizza factoryMethodOfCreate(String type);
 }
 
 </pre>
@@ -192,7 +192,7 @@ clearly.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2009-09-01 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2009-09-01 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

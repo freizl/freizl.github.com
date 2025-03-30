@@ -20,30 +20,30 @@
 <header>
 <h1 class="title">map, iterate function list, time in python</h1>
 </header><div class="org-src-container">
-<pre class="src src-python"><span style="color: #93a61a; font-weight: bold;">from</span> __future__ <span style="color: #93a61a; font-weight: bold;">import</span> division
+<pre class="src src-python"><span style="color: #531ab6;">from</span> __future__ <span style="color: #531ab6;">import</span> division
 
-<span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">prime1</span>(y):
-&#9474; <span style="color: #93a61a; font-weight: bold;">if</span> y &lt;= <span style="color: #7a7ed2; font-weight: bold;">1</span>:
-&#9474;   <span style="color: #3c98e0; font-style: italic;">print</span> y, <span style="color: #93a61a;">'not prime'</span>
-&#9474; <span style="color: #93a61a; font-weight: bold;">else</span>:
-&#9474;   <span style="color: #8d9fa1;">x</span> = y // <span style="color: #7a7ed2; font-weight: bold;">2</span>
-&#9474; <span style="color: #93a61a; font-weight: bold;">while</span> x &gt; <span style="color: #7a7ed2; font-weight: bold;">1</span>:
-&#9474;   <span style="color: #93a61a; font-weight: bold;">if</span> y % x == <span style="color: #7a7ed2; font-weight: bold;">0</span>:
-&#9474;   &#9474; <span style="color: #8d9fa1;">retValue</span> = y, <span style="color: #93a61a;">'has factor'</span>, x
-&#9474;   <span style="color: #93a61a; font-weight: bold;">break</span>
-&#9474;   &#9474; <span style="color: #8d9fa1;">x</span> -= <span style="color: #7a7ed2; font-weight: bold;">1</span>
-&#9474;   <span style="color: #93a61a; font-weight: bold;">else</span>:
-&#9474; <span style="color: #8d9fa1;">retValue</span> = y, <span style="color: #93a61a;">'is prime'</span>
+<span style="color: #531ab6;">def</span> <span style="color: #721045;">prime1</span>(y):
+&#9474; <span style="color: #531ab6;">if</span> y &lt;= <span style="color: #0000b0;">1</span>:
+&#9474;   <span style="color: #8f0075;">print</span> y, <span style="color: #3548cf;">'not prime'</span>
+&#9474; <span style="color: #531ab6;">else</span>:
+&#9474;   <span style="color: #005e8b;">x</span> = y // <span style="color: #0000b0;">2</span>
+&#9474; <span style="color: #531ab6;">while</span> x &gt; <span style="color: #0000b0;">1</span>:
+&#9474;   <span style="color: #531ab6;">if</span> y % x == <span style="color: #0000b0;">0</span>:
+&#9474;   &#9474; <span style="color: #005e8b;">retValue</span> = y, <span style="color: #3548cf;">'has factor'</span>, x
+&#9474;   <span style="color: #531ab6;">break</span>
+&#9474;   &#9474; <span style="color: #005e8b;">x</span> -= <span style="color: #0000b0;">1</span>
+&#9474;   <span style="color: #531ab6;">else</span>:
+&#9474; <span style="color: #005e8b;">retValue</span> = y, <span style="color: #3548cf;">'is prime'</span>
 &#9474;
-<span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">timer</span>(reps, func, \*args):
-&#9474; <span style="color: #93a61a; font-weight: bold;">import</span> time
-&#9474; <span style="color: #8d9fa1;">start</span> = time.clock()
-&#9474; <span style="color: #93a61a; font-weight: bold;">for</span> i <span style="color: #93a61a; font-weight: bold;">in</span> <span style="color: #3c98e0; font-style: italic;">xrange</span>(reps):
-&#9474;   <span style="color: #3c98e0; font-style: italic;">map</span>(func, args)
-&#9474; <span style="color: #93a61a; font-weight: bold;">return</span> time.clock() - start
+<span style="color: #531ab6;">def</span> <span style="color: #721045;">timer</span>(reps, func, \*args):
+&#9474; <span style="color: #531ab6;">import</span> time
+&#9474; <span style="color: #005e8b;">start</span> = time.clock()
+&#9474; <span style="color: #531ab6;">for</span> i <span style="color: #531ab6;">in</span> <span style="color: #8f0075;">xrange</span>(reps):
+&#9474;   <span style="color: #8f0075;">map</span>(func, args)
+&#9474; <span style="color: #531ab6;">return</span> time.clock() - start
 &#9474;
-<span style="color: #93a61a; font-weight: bold;">for</span> func <span style="color: #93a61a; font-weight: bold;">in</span> (prime1,):
-&#9474; <span style="color: #3c98e0; font-style: italic;">print</span> timer(<span style="color: #7a7ed2; font-weight: bold;">10000</span>, func, <span style="color: #7a7ed2; font-weight: bold;">12</span>,<span style="color: #7a7ed2; font-weight: bold;">15</span>,<span style="color: #7a7ed2; font-weight: bold;">18</span>,<span style="color: #7a7ed2; font-weight: bold;">20</span>,<span style="color: #7a7ed2; font-weight: bold;">22</span>,<span style="color: #7a7ed2; font-weight: bold;">30</span>)
+<span style="color: #531ab6;">for</span> func <span style="color: #531ab6;">in</span> (prime1,):
+&#9474; <span style="color: #8f0075;">print</span> timer(<span style="color: #0000b0;">10000</span>, func, <span style="color: #0000b0;">12</span>,<span style="color: #0000b0;">15</span>,<span style="color: #0000b0;">18</span>,<span style="color: #0000b0;">20</span>,<span style="color: #0000b0;">22</span>,<span style="color: #0000b0;">30</span>)
 </pre>
 </div>
 </div>
@@ -51,7 +51,7 @@
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-04-03 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2008-04-03 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

@@ -24,32 +24,32 @@
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #93a61a; font-weight: bold;">static</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">junit</span>.Assert.<span style="color: #c49619; font-style: italic;">assertTrue</span>;
+<pre class="src src-java"><span style="color: #531ab6;">import</span> <span style="color: #531ab6;">static</span> <span style="color: #0000b0;">org</span>.<span style="color: #0000b0;">junit</span>.Assert.<span style="color: #005f5f;">assertTrue</span>;
 
-<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #3c98e0; font-weight: bold;">org</span>.<span style="color: #3c98e0; font-weight: bold;">junit</span>.<span style="color: #c49619; font-style: italic;">Test</span>;
+<span style="color: #531ab6;">import</span> <span style="color: #0000b0;">org</span>.<span style="color: #0000b0;">junit</span>.<span style="color: #005f5f;">Test</span>;
 
-<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">InterestingTests</span> {
+<span style="color: #531ab6;">public</span> <span style="color: #531ab6;">class</span> <span style="color: #005f5f;">InterestingTests</span> {
 
-&#160;&#160; &#160;[cite/t:<span style="color: #3c98e0; font-weight: bold;">@Test</span>]
-&#160;&#160; &#160;<span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> TestConstructInterface() {
-&#160;&#160; &#160;&#160;&#160;&#160; TurnstileController controller = <span style="color: #93a61a; font-weight: bold;">new</span> <span style="color: #c49619; font-style: italic;">TurnstileController</span>() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #c49619; font-style: italic;">boolean</span> lockState = <span style="color: #3c98e0; font-weight: bold;">false</span>;
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #c49619; font-style: italic;">boolean</span> unlockState = <span style="color: #3c98e0; font-weight: bold;">false</span>;
+&#160;&#160; &#160;[cite/t:<span style="color: #0000b0;">@Test</span>]
+&#160;&#160; &#160;<span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> TestConstructInterface() {
+&#160;&#160; &#160;&#160;&#160;&#160; TurnstileController controller = <span style="color: #531ab6;">new</span> <span style="color: #005f5f;">TurnstileController</span>() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #531ab6;">private</span> <span style="color: #005f5f;">boolean</span> lockState = <span style="color: #0000b0;">false</span>;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #531ab6;">private</span> <span style="color: #005f5f;">boolean</span> unlockState = <span style="color: #0000b0;">false</span>;
 
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> lock() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; lockState = <span style="color: #3c98e0; font-weight: bold;">true</span>;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> lock() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; lockState = <span style="color: #0000b0;">true</span>;
 &#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; }
 
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> unlock() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; unlockState = <span style="color: #3c98e0; font-weight: bold;">true</span>;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> unlock() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; unlockState = <span style="color: #0000b0;">true</span>;
 &#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; }
 
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">boolean</span> isLockState() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">return</span> lockState;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">boolean</span> isLockState() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #531ab6;">return</span> lockState;
 &#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; }
 
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">boolean</span> isUnlockState() {
-&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">return</span> unlockState;
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">boolean</span> isUnlockState() {
+&#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; &#160;&#160;&#160; <span style="color: #531ab6;">return</span> unlockState;
 &#160;&#160; &#160;&#160;&#160;&#160; &#160;&#160;&#160; }
 &#160;&#160; &#160;&#160;&#160;&#160; };
 &#160;&#160; &#160;&#160;&#160;&#160; controller.lock();
@@ -58,11 +58,11 @@
 &#160;&#160; &#160;&#160;&#160;&#160; assertTrue(controller.isUnlockState());
 &#160;&#160; &#160;}
 
-&#160;&#160; &#160;<span style="color: #93a61a; font-weight: bold;">private</span> <span style="color: #93a61a; font-weight: bold;">interface</span> TurnstileController {
-&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> lock();
-&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">void</span> unlock();
-&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">boolean</span> isLockState();
-&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #93a61a; font-weight: bold;">public</span> <span style="color: #c49619; font-style: italic;">boolean</span> isUnlockState();
+&#160;&#160; &#160;<span style="color: #531ab6;">private</span> <span style="color: #531ab6;">interface</span> TurnstileController {
+&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> lock();
+&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">void</span> unlock();
+&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">boolean</span> isLockState();
+&#160;&#160; &#160;&#160;&#160;&#160; <span style="color: #531ab6;">public</span> <span style="color: #005f5f;">boolean</span> isUnlockState();
 &#160;&#160; &#160;};
 
 }
@@ -74,7 +74,7 @@
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-07-20 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2008-07-20 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>

@@ -21,25 +21,25 @@
 <h1 class="title">Simple Sample of Regular Expression in Python</h1>
 </header><div class="org-src-container">
 <pre class="src src-python">
-<span style="color: #93a61a; font-weight: bold;">import</span> re
+<span style="color: #531ab6;">import</span> re
 
-<span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">read_file</span>():\\
-<span style="color: #8d9fa1;">file_name</span> = <span style="color: #93a61a;">'merge.log'</span>\\
-<span style="color: #3c98e0; font-style: italic;">file</span> = <span style="color: #3c98e0; font-style: italic;">open</span>(file_name, <span style="color: #93a61a;">'r'</span>)\\
-<span style="color: #8d9fa1;">file_content</span> = <span style="color: #3c98e0; font-style: italic;">file</span>.read()\\
-<span style="color: #8d9fa1;">patterns</span> =
-re.<span style="color: #3c98e0; font-style: italic;">compile</span>(r<span style="color: #93a61a;">'(r\d{5}\s\|\scn-cma)(.*(?!cn-cma).*)(r\d{5}\s\|\s(?!cn-cma))'</span>,
+<span style="color: #531ab6;">def</span> <span style="color: #721045;">read_file</span>():\\
+<span style="color: #005e8b;">file_name</span> = <span style="color: #3548cf;">'merge.log'</span>\\
+<span style="color: #8f0075;">file</span> = <span style="color: #8f0075;">open</span>(file_name, <span style="color: #3548cf;">'r'</span>)\\
+<span style="color: #005e8b;">file_content</span> = <span style="color: #8f0075;">file</span>.read()\\
+<span style="color: #005e8b;">patterns</span> =
+re.<span style="color: #8f0075;">compile</span>(r<span style="color: #3548cf;">'(r\d{5}\s\|\scn-cma)(.*(?!cn-cma).*)(r\d{5}\s\|\s(?!cn-cma))'</span>,
 re.DOTALL)\\
-<span style="color: #8d9fa1;">results</span> = patterns.search(file_content)\\
-<span style="color: #62787f; font-style: italic;">#</span><span style="color: #62787f; font-style: italic;">results = patterns.match(file_content)\\</span>
-<span style="color: #3c98e0; font-style: italic;">print</span> <span style="color: #3c98e0; font-style: italic;">dir</span>(results)\\
-<span style="color: #93a61a; font-weight: bold;">if</span> results :\\
-<span style="color: #8d9fa1;">results</span> = results.groups()\\
-<span style="color: #3c98e0; font-style: italic;">print</span> results[<span style="color: #7a7ed2; font-weight: bold;">0</span>]\\
-<span style="color: #93a61a; font-weight: bold;">def</span> <span style="color: #3c98e0;">display</span>(x):\\
-<span style="color: #3c98e0; font-style: italic;">print</span><span style="color: #93a61a;">'$'</span> * <span style="color: #7a7ed2; font-weight: bold;">50</span>, <span style="color: #93a61a;">'</span><span style="color: #3c98e0; font-weight: bold;">\n</span><span style="color: #93a61a;">'</span>, x\\
-<span style="color: #62787f; font-style: italic;">#</span><span style="color: #62787f; font-style: italic;">[ display(x) for x in results ]\\</span>
-<span style="color: #3c98e0; font-style: italic;">file</span>.close()
+<span style="color: #005e8b;">results</span> = patterns.search(file_content)\\
+<span style="color: #595959;">#</span><span style="color: #595959;">results = patterns.match(file_content)\\</span>
+<span style="color: #8f0075;">print</span> <span style="color: #8f0075;">dir</span>(results)\\
+<span style="color: #531ab6;">if</span> results :\\
+<span style="color: #005e8b;">results</span> = results.groups()\\
+<span style="color: #8f0075;">print</span> results[<span style="color: #0000b0;">0</span>]\\
+<span style="color: #531ab6;">def</span> <span style="color: #721045;">display</span>(x):\\
+<span style="color: #8f0075;">print</span><span style="color: #3548cf;">'$'</span> * <span style="color: #0000b0;">50</span>, <span style="color: #3548cf;">'</span><span style="color: #0000b0;">\n</span><span style="color: #3548cf;">'</span>, x\\
+<span style="color: #595959;">#</span><span style="color: #595959;">[ display(x) for x in results ]\\</span>
+<span style="color: #8f0075;">file</span>.close()
 </pre>
 </div>
 </div>
@@ -47,7 +47,7 @@ re.DOTALL)\\
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2008-07-11 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 29.4 (<a href="https://orgmode.org">Org</a> mode 9.7.11)</div>
+  <div class="generated">Created at 2008-07-11 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
 </footer>
 </div>
 </body>
