@@ -23,37 +23,37 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org9a104d9">1. Play it</a>
+<li><a href="#org6faa1df">1. Play it</a>
 <ul>
-<li><a href="#org80f9aaa">1.1. new two files</a></li>
-<li><a href="#orgdbbb2d8">1.2. git-add</a></li>
-<li><a href="#orgbf54658">1.3. no objects created yet</a></li>
-<li><a href="#orgacf4503">1.4. git-commit</a></li>
-<li><a href="#org9b33df1">1.5. git-obj-list</a></li>
-<li><a href="#orgcfbbc39">1.6. what are they</a></li>
+<li><a href="#orgf867fee">1.1. new two files</a></li>
+<li><a href="#org7338935">1.2. git-add</a></li>
+<li><a href="#org9c233f1">1.3. no objects created yet</a></li>
+<li><a href="#orga4fcf73">1.4. git-commit</a></li>
+<li><a href="#org20aa89e">1.5. git-obj-list</a></li>
+<li><a href="#orgd57574d">1.6. what are they</a></li>
 </ul>
 </li>
-<li><a href="#org7b52316">2. Further</a></li>
+<li><a href="#orga51399e">2. Further</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org9a104d9" class="outline-2">
-<h2 id="org9a104d9"><span class="section-number-2">1.</span> Play it</h2>
+<div id="outline-container-org6faa1df" class="outline-2">
+<h2 id="org6faa1df"><span class="section-number-2">1.</span> Play it</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org80f9aaa" class="outline-3">
-<h3 id="org80f9aaa"><span class="section-number-3">1.1.</span> new two files</h3>
+<div id="outline-container-orgf867fee" class="outline-3">
+<h3 id="orgf867fee"><span class="section-number-3">1.1.</span> new two files</h3>
 <div class="outline-text-3" id="text-1-1">
-<pre class="example" id="org3f19421">
+<pre class="example" id="orgf66f763">
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo "11111" &gt; 1.txt
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ echo "22222" &gt; 2.txt
 </pre>
 </div>
 </div>
-<div id="outline-container-orgdbbb2d8" class="outline-3">
-<h3 id="orgdbbb2d8"><span class="section-number-3">1.2.</span> git-add</h3>
+<div id="outline-container-org7338935" class="outline-3">
+<h3 id="org7338935"><span class="section-number-3">1.2.</span> git-add</h3>
 <div class="outline-text-3" id="text-1-2">
-<pre class="example" id="org1c7cb88">
+<pre class="example" id="org17540f9">
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git add .
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git st
   # On branch master
@@ -69,18 +69,18 @@
 </pre>
 </div>
 </div>
-<div id="outline-container-orgbf54658" class="outline-3">
-<h3 id="orgbf54658"><span class="section-number-3">1.3.</span> no objects created yet</h3>
+<div id="outline-container-org9c233f1" class="outline-3">
+<h3 id="org9c233f1"><span class="section-number-3">1.3.</span> no objects created yet</h3>
 <div class="outline-text-3" id="text-1-3">
-<pre class="example" id="orgdadd71e">
+<pre class="example" id="org62e6cdf">
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
 </pre>
 </div>
 </div>
-<div id="outline-container-orgacf4503" class="outline-3">
-<h3 id="orgacf4503"><span class="section-number-3">1.4.</span> git-commit</h3>
+<div id="outline-container-orga4fcf73" class="outline-3">
+<h3 id="orga4fcf73"><span class="section-number-3">1.4.</span> git-commit</h3>
 <div class="outline-text-3" id="text-1-4">
-<pre class="example" id="orgd487d44">
+<pre class="example" id="org883f818">
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git ci "first commit"
   [master (root-commit) 8ef1919] first commit
    2 files changed, 2 insertions(+), 0 deletions(-)
@@ -89,10 +89,10 @@
 </pre>
 </div>
 </div>
-<div id="outline-container-org9b33df1" class="outline-3">
-<h3 id="org9b33df1"><span class="section-number-3">1.5.</span> git-obj-list</h3>
+<div id="outline-container-org20aa89e" class="outline-3">
+<h3 id="org20aa89e"><span class="section-number-3">1.5.</span> git-obj-list</h3>
 <div class="outline-text-3" id="text-1-5">
-<pre class="example" id="org7313cf6">
+<pre class="example" id="org319cc53">
 
   haiswu@haiswu-VirtualBox:~/github/haisheng-homepage/test$ git rev-list --objects --all
   8ef1919e4ca33cf602488a27b5671a6b6acf754b
@@ -102,10 +102,10 @@
 </pre>
 </div>
 </div>
-<div id="outline-container-orgcfbbc39" class="outline-3">
-<h3 id="orgcfbbc39"><span class="section-number-3">1.6.</span> what are they</h3>
+<div id="outline-container-orgd57574d" class="outline-3">
+<h3 id="orgd57574d"><span class="section-number-3">1.6.</span> what are they</h3>
 <div class="outline-text-3" id="text-1-6">
-<pre class="example" id="org929c9b6">
+<pre class="example" id="org2829025">
   ## | Blob objects
   ~/github/haisheng-homepage/test$ git cat-file -p f7c6dd0164fe0eb4fde767f9e731a6c8ade0b69f
   11111
@@ -128,8 +128,8 @@
 </div>
 </div>
 </div>
-<div id="outline-container-org7b52316" class="outline-2">
-<h2 id="org7b52316"><span class="section-number-2">2.</span> Further</h2>
+<div id="outline-container-orga51399e" class="outline-2">
+<h2 id="orga51399e"><span class="section-number-2">2.</span> Further</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><a href="https://shafiul.github.io/gitbook/1_the_git_object_model.html">Git object model</a></li>
