@@ -23,17 +23,17 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org191107f">1. git svn init/fetch</a></li>
-<li><a href="#orgbb80f94">2. git svn clone</a></li>
-<li><a href="#orgd443316">3. git svn branch</a></li>
-<li><a href="#orgfcfceec">4. alternative with svn merge</a></li>
+<li><a href="#orgf948a72">1. git svn init/fetch</a></li>
+<li><a href="#org6484032">2. git svn clone</a></li>
+<li><a href="#org063dd29">3. git svn branch</a></li>
+<li><a href="#orgcceaf0c">4. alternative with svn merge</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-org191107f" class="outline-2">
-<h2 id="org191107f"><span class="section-number-2">1.</span> git svn init/fetch</h2>
+<div id="outline-container-orgf948a72" class="outline-2">
+<h2 id="orgf948a72"><span class="section-number-2">1.</span> git svn init/fetch</h2>
 <div class="outline-text-2" id="text-1">
-<pre class="example" id="org680b84d">
+<pre class="example" id="orgdb0af3d">
   git svn init [-s] URL
   git svn fetch -r xxx|HEAD
     a) it gets out 'all' branches/tags/trunk when no specific -r
@@ -44,10 +44,10 @@
 </pre>
 </div>
 </div>
-<div id="outline-container-orgbb80f94" class="outline-2">
-<h2 id="orgbb80f94"><span class="section-number-2">2.</span> git svn clone</h2>
+<div id="outline-container-org6484032" class="outline-2">
+<h2 id="org6484032"><span class="section-number-2">2.</span> git svn clone</h2>
 <div class="outline-text-2" id="text-2">
-<pre class="example" id="org2c1e58e">
+<pre class="example" id="org89f2bf6">
   # if any problems with init/fetch, just clone and seems this is recommanded...
   # seem should no targe name specified after URL
   # verify with git branch -r should show all svn branches and tags
@@ -55,10 +55,10 @@
 </pre>
 </div>
 </div>
-<div id="outline-container-orgd443316" class="outline-2">
-<h2 id="orgd443316"><span class="section-number-2">3.</span> git svn branch</h2>
+<div id="outline-container-org063dd29" class="outline-2">
+<h2 id="org063dd29"><span class="section-number-2">3.</span> git svn branch</h2>
 <div class="outline-text-2" id="text-3">
-<pre class="example" id="org2ac98c3">
+<pre class="example" id="org87b0c87">
   # create svn branch
   git svn branch [svn_branch_1]
 
@@ -72,10 +72,10 @@
 </pre>
 </div>
 </div>
-<div id="outline-container-orgfcfceec" class="outline-2">
-<h2 id="orgfcfceec"><span class="section-number-2">4.</span> alternative with svn merge</h2>
+<div id="outline-container-orgcceaf0c" class="outline-2">
+<h2 id="orgcceaf0c"><span class="section-number-2">4.</span> alternative with svn merge</h2>
 <div class="outline-text-2" id="text-4">
-<pre class="example" id="org579a79d">
+<pre class="example" id="org48e803e">
   svn mergeinfo ... :
     git log master..branchx (diff commits that in branchx but master)
     git branch [--no-merged|--merged]
@@ -90,7 +90,7 @@
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2012-04-06 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
+  <div class="generated">Created at 2012-04-06 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.2 (<a href="https://orgmode.org">Org</a> mode 9.7.39)</div>
 </footer>
 </div>
 </body>

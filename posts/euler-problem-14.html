@@ -23,20 +23,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgdf610e7">1. Solution One</a></li>
-<li><a href="#org0463cc5">2. Solution Two</a></li>
-<li><a href="#org0dd14e2">3. Other solutions</a></li>
-<li><a href="#orgc0410e5">4. Further</a>
+<li><a href="#orgc8d7240">1. Solution One</a></li>
+<li><a href="#orgda1ec44">2. Solution Two</a></li>
+<li><a href="#org14ec6a0">3. Other solutions</a></li>
+<li><a href="#org6d478b3">4. Further</a>
 <ul>
-<li><a href="#org9d9339d">4.1. Why solution 2 make great differences?</a></li>
-<li><a href="#orge936ed3">4.2. More about Parallel programming in Haskell?</a></li>
+<li><a href="#orgdc36845">4.1. Why solution 2 make great differences?</a></li>
+<li><a href="#orgc6c8752">4.2. More about Parallel programming in Haskell?</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orgdf610e7" class="outline-2">
-<h2 id="orgdf610e7"><span class="section-number-2">1.</span> Solution One</h2>
+<div id="outline-container-orgc8d7240" class="outline-2">
+<h2 id="orgc8d7240"><span class="section-number-2">1.</span> Solution One</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 I should say this solution only work while upper limit is under 100000.
@@ -49,22 +49,22 @@ So, problem solving failed.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #531ab6;">module</span> <span style="color: #005f5f;">Main</span> <span style="color: #531ab6;">where</span>
-<span style="color: #531ab6;">import</span> <span style="color: #005f5f;">Data.Word</span>
+<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">module</span> <span style="color: #c49619; font-style: italic;">Main</span> <span style="color: #93a61a; font-weight: bold;">where</span>
+<span style="color: #93a61a; font-weight: bold;">import</span> <span style="color: #c49619; font-style: italic;">Data.Word</span>
 
-<span style="color: #721045;">main</span> <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">IO</span> <span style="color: #005f5f;">()</span>
-<span style="color: #721045;">main</span> <span style="color: #005e8b;">=</span> print <span style="color: #005e8b;">$</span> p14
+<span style="color: #3c98e0;">main</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">IO</span> <span style="color: #c49619; font-style: italic;">()</span>
+<span style="color: #3c98e0;">main</span> <span style="color: #8d9fa1;">=</span> print <span style="color: #8d9fa1;">$</span> p14
 
-<span style="color: #721045;">p14</span> <span style="color: #005e8b;">=</span> maximum [ (startChain n <span style="color: #0000b0;">0</span>, n) <span style="color: #005e8b;">|</span> n <span style="color: #005e8b;">&lt;-</span> [<span style="color: #0000b0;">2</span><span style="color: #005e8b;">..</span><span style="color: #0000b0;">1000000</span>] ]
+<span style="color: #3c98e0;">p14</span> <span style="color: #8d9fa1;">=</span> maximum [ (startChain n 0, n) <span style="color: #8d9fa1;">|</span> n <span style="color: #8d9fa1;">&lt;-</span> [2<span style="color: #8d9fa1;">..</span>1000000] ]
 
-<span style="color: #721045;">startChain</span> <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Int</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Int</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Int</span>
-<span style="color: #721045;">startChain</span> <span style="color: #0000b0;">1</span> count    <span style="color: #005e8b;">=</span> count <span style="color: #005e8b;">+</span> <span style="color: #0000b0;">1</span>
-<span style="color: #721045;">startChain</span> n count    <span style="color: #005e8b;">=</span> startChain (intTransform n) (count<span style="color: #005e8b;">+</span><span style="color: #0000b0;">1</span>)
+<span style="color: #3c98e0;">startChain</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+<span style="color: #3c98e0;">startChain</span> 1 count    <span style="color: #8d9fa1;">=</span> count <span style="color: #8d9fa1;">+</span> 1
+<span style="color: #3c98e0;">startChain</span> n count    <span style="color: #8d9fa1;">=</span> startChain (intTransform n) (count<span style="color: #8d9fa1;">+</span>1)
 
-<span style="color: #721045;">intTransform</span> <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Int</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Int</span>
-<span style="color: #721045;">intTransform</span> n
-&#9474; <span style="color: #005e8b;">|</span> even n         <span style="color: #005e8b;">=</span> n <span style="color: #005e8b;">`div`</span> <span style="color: #0000b0;">2</span>
-&#9474; <span style="color: #005e8b;">|</span> otherwise      <span style="color: #005e8b;">=</span> <span style="color: #0000b0;">3</span> <span style="color: #005e8b;">*</span> n <span style="color: #005e8b;">+</span> <span style="color: #0000b0;">1</span>
+<span style="color: #3c98e0;">intTransform</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+<span style="color: #3c98e0;">intTransform</span> n
+&#9474; <span style="color: #8d9fa1;">|</span> even n         <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`div`</span> 2
+&#9474; <span style="color: #8d9fa1;">|</span> otherwise      <span style="color: #8d9fa1;">=</span> 3 <span style="color: #8d9fa1;">*</span> n <span style="color: #8d9fa1;">+</span> 1
 </pre>
 </div>
 
@@ -78,8 +78,8 @@ Compile as otherwise Stack space overflow:
 </div>
 </div>
 </div>
-<div id="outline-container-org0463cc5" class="outline-2">
-<h2 id="org0463cc5"><span class="section-number-2">2.</span> Solution Two</h2>
+<div id="outline-container-orgda1ec44" class="outline-2">
+<h2 id="orgda1ec44"><span class="section-number-2">2.</span> Solution Two</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I went for Haskell Wiki<sup><a id="fnr.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> for help by finding solution one there is
@@ -93,14 +93,14 @@ The result came under 1.5s at my local!
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #721045;">startChain</span> <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Word32</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Int</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Int</span>
-<span style="color: #721045;">startChain</span> <span style="color: #0000b0;">1</span> count    <span style="color: #005e8b;">=</span> count <span style="color: #005e8b;">+</span> <span style="color: #0000b0;">1</span>
-<span style="color: #721045;">startChain</span> n count    <span style="color: #005e8b;">=</span> startChain (intTransform n) (count<span style="color: #005e8b;">+</span><span style="color: #0000b0;">1</span>)
+<pre class="src src-haskell"><span style="color: #3c98e0;">startChain</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Word32</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Int</span>
+<span style="color: #3c98e0;">startChain</span> 1 count    <span style="color: #8d9fa1;">=</span> count <span style="color: #8d9fa1;">+</span> 1
+<span style="color: #3c98e0;">startChain</span> n count    <span style="color: #8d9fa1;">=</span> startChain (intTransform n) (count<span style="color: #8d9fa1;">+</span>1)
 
-<span style="color: #721045;">intTransform</span> <span style="color: #005e8b;">::</span> <span style="color: #005f5f;">Word32</span> <span style="color: #005e8b;">-&gt;</span> <span style="color: #005f5f;">Word32</span>
-<span style="color: #721045;">intTransform</span> n
-&#9474; <span style="color: #005e8b;">|</span> even n         <span style="color: #005e8b;">=</span> n <span style="color: #005e8b;">`div`</span> <span style="color: #0000b0;">2</span>
-&#9474; <span style="color: #005e8b;">|</span> otherwise      <span style="color: #005e8b;">=</span> <span style="color: #0000b0;">3</span> <span style="color: #005e8b;">*</span> n <span style="color: #005e8b;">+</span> <span style="color: #0000b0;">1</span>
+<span style="color: #3c98e0;">intTransform</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Word32</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Word32</span>
+<span style="color: #3c98e0;">intTransform</span> n
+&#9474; <span style="color: #8d9fa1;">|</span> even n         <span style="color: #8d9fa1;">=</span> n <span style="color: #8d9fa1;">`div`</span> 2
+&#9474; <span style="color: #8d9fa1;">|</span> otherwise      <span style="color: #8d9fa1;">=</span> 3 <span style="color: #8d9fa1;">*</span> n <span style="color: #8d9fa1;">+</span> 1
 </pre>
 </div>
 
@@ -114,8 +114,8 @@ Compile as otherwise Stack space overflow:
 </div>
 </div>
 </div>
-<div id="outline-container-org0dd14e2" class="outline-2">
-<h2 id="org0dd14e2"><span class="section-number-2">3.</span> Other solutions</h2>
+<div id="outline-container-org14ec6a0" class="outline-2">
+<h2 id="org14ec6a0"><span class="section-number-2">3.</span> Other solutions</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Haskell Wiki<sup><a id="fnr.1.1" class="footref" href="#fn.1" role="doc-backlink">1</a></sup> presents several solutions. One interested me is that
@@ -123,20 +123,20 @@ leverages parallel programming <code>Control.Parallel</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgc0410e5" class="outline-2">
-<h2 id="orgc0410e5"><span class="section-number-2">4.</span> Further</h2>
+<div id="outline-container-org6d478b3" class="outline-2">
+<h2 id="org6d478b3"><span class="section-number-2">4.</span> Further</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org9d9339d" class="outline-3">
-<h3 id="org9d9339d"><span class="section-number-3">4.1.</span> Why solution 2 make great differences?</h3>
+<div id="outline-container-orgdc36845" class="outline-3">
+<h3 id="orgdc36845"><span class="section-number-3">4.1.</span> Why solution 2 make great differences?</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 I asked question in haskell-beginer but still can not get clear understanding.
 </p>
 </div>
 </div>
-<div id="outline-container-orge936ed3" class="outline-3">
-<h3 id="orge936ed3"><span class="section-number-3">4.2.</span> More about Parallel programming in Haskell?</h3>
+<div id="outline-container-orgc6c8752" class="outline-3">
+<h3 id="orgc6c8752"><span class="section-number-3">4.2.</span> More about Parallel programming in Haskell?</h3>
 <div class="outline-text-3" id="text-4-2">
 </div>
 </div>
@@ -156,7 +156,7 @@ I asked question in haskell-beginer but still can not get clear understanding.
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2011-11-20 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.1 (<a href="https://orgmode.org">Org</a> mode 9.7.26)</div>
+  <div class="generated">Created at 2011-11-20 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.2 (<a href="https://orgmode.org">Org</a> mode 9.7.39)</div>
 </footer>
 </div>
 </body>
