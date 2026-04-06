@@ -23,20 +23,20 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgff8aa77">1. Background</a></li>
-<li><a href="#org96ba583">2. Solution - Type Classes</a></li>
-<li><a href="#orgf3d2204">3. Solution - Visitor pattern</a>
+<li><a href="#orgcc5e984">1. Background</a></li>
+<li><a href="#org68e4dbf">2. Solution - Type Classes</a></li>
+<li><a href="#org3a792c5">3. Solution - Visitor pattern</a>
 <ul>
-<li><a href="#org0662cb5">3.1. Impl in TypeScript</a></li>
-<li><a href="#orgb200560">3.2. Remarks</a></li>
+<li><a href="#orgf323240">3.1. Impl in TypeScript</a></li>
+<li><a href="#org512142f">3.2. Remarks</a></li>
 </ul>
 </li>
-<li><a href="#org51dfb30">4. Read paper On Understanding Data Abstraction</a></li>
+<li><a href="#org4b5313b">4. Read paper On Understanding Data Abstraction</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orgff8aa77" class="outline-2">
-<h2 id="orgff8aa77"><span class="section-number-2">1.</span> Background</h2>
+<div id="outline-container-orgcc5e984" class="outline-2">
+<h2 id="orgcc5e984"><span class="section-number-2">1.</span> Background</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Read those references if you are not familiar yet (TODO: maybe add tl;dr; here)
@@ -48,22 +48,22 @@ Read those references if you are not familiar yet (TODO: maybe add tl;dr; here)
 </ul>
 </div>
 </div>
-<div id="outline-container-org96ba583" class="outline-2">
-<h2 id="org96ba583"><span class="section-number-2">2.</span> Solution - Type Classes</h2>
+<div id="outline-container-org68e4dbf" class="outline-2">
+<h2 id="org68e4dbf"><span class="section-number-2">2.</span> Solution - Type Classes</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I thought type classes solve the problem nicely. Here is the example in Haskell using type class
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell"><span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Shape</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Square</span> <span style="color: #c49619; font-style: italic;">Float</span> <span style="color: #8d9fa1;">|</span> <span style="color: #c49619; font-style: italic;">Circle</span> <span style="color: #c49619; font-style: italic;">Float</span>
+<pre class="src src-haskell"><code><span style="color: #b6a0ff;">data</span> <span style="color: #6ae4b9;">Shape</span> = <span style="color: #6ae4b9;">Square</span> <span style="color: #6ae4b9;">Float</span> | <span style="color: #6ae4b9;">Circle</span> <span style="color: #6ae4b9;">Float</span>
 &#8203;
-<span style="color: #3c98e0;">area</span> <span style="color: #8d9fa1;">::</span> <span style="color: #c49619; font-style: italic;">Shape</span> <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Float</span>
-<span style="color: #3c98e0;">area</span> x <span style="color: #8d9fa1;">=</span> <span style="color: #93a61a; font-weight: bold;">case</span> x <span style="color: #93a61a; font-weight: bold;">of</span>
-&#9474; <span style="color: #c49619; font-style: italic;">Square</span> side <span style="color: #8d9fa1;">-&gt;</span> (side <span style="color: #8d9fa1;">*</span> side)
-&#9474; <span style="color: #c49619; font-style: italic;">Circle</span> radius <span style="color: #8d9fa1;">-&gt;</span> (3.14 <span style="color: #8d9fa1;">*</span> radius <span style="color: #8d9fa1;">*</span> radius)
+<span style="color: #caa6df;">area</span> :: <span style="color: #6ae4b9;">Shape</span> -&gt; <span style="color: #00d3d0;">Float</span>
+<span style="color: #feacd0;">area</span> <span style="color: #00d3d0;">x</span> = <span style="color: #b6a0ff;">case</span> x <span style="color: #b6a0ff;">of</span>
+  <span style="color: #6ae4b9;">Square</span> side <span style="color: #9ac8e0;">-&gt;</span> (side * side)
+  <span style="color: #6ae4b9;">Circle</span> radius <span style="color: #9ac8e0;">-&gt;</span> (3.14 * radius * radius)
 &#8203;
-</pre>
+</code></pre>
 </div>
 
 <p>
@@ -71,24 +71,24 @@ I thought type classes solve the problem nicely. Here is the example in Haskell 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-haskell">&#8203;
-<span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #c49619; font-style: italic;">Float</span>
-<span style="color: #93a61a; font-weight: bold;">data</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #8d9fa1;">=</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #c49619; font-style: italic;">Float</span>
+<pre class="src src-haskell"><code>&#8203;
+<span style="color: #b6a0ff;">data</span> <span style="color: #6ae4b9;">Square1</span> = <span style="color: #6ae4b9;">Square1</span> <span style="color: #6ae4b9;">Float</span>
+<span style="color: #b6a0ff;">data</span> <span style="color: #6ae4b9;">Circle1</span> = <span style="color: #6ae4b9;">Circle1</span> <span style="color: #6ae4b9;">Float</span>
 &#8203;
-<span style="color: #93a61a; font-weight: bold;">class</span> <span style="color: #c49619; font-style: italic;">Area</span> a <span style="color: #93a61a; font-weight: bold;">where</span>
-&#9474; area1 <span style="color: #8d9fa1;">::</span> a <span style="color: #8d9fa1;">-&gt;</span> <span style="color: #c49619; font-style: italic;">Float</span>
+<span style="color: #b6a0ff;">class</span> Area <span style="color: #00d3d0;">a</span> <span style="color: #b6a0ff;">where</span>
+  <span style="color: #caa6df;">area1</span> :: <span style="color: #6ae4b9;">a</span> -&gt; <span style="color: #00d3d0;">Float</span>
 &#8203;
-<span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">Area</span> <span style="color: #c49619; font-style: italic;">Square1</span> <span style="color: #93a61a; font-weight: bold;">where</span>
-&#9474; area1 (<span style="color: #c49619; font-style: italic;">Square1</span> side) <span style="color: #8d9fa1;">=</span> side <span style="color: #8d9fa1;">*</span> side
+<span style="color: #b6a0ff;">instance</span> Area <span style="color: #6ae4b9;">Square1</span> <span style="color: #b6a0ff;">where</span>
+  <span style="color: #feacd0;">area1</span> (<span style="color: #6ae4b9;">Square1</span> <span style="color: #00d3d0;">side</span>) = side * side
 &#8203;
-<span style="color: #93a61a; font-weight: bold;">instance</span> <span style="color: #c49619; font-style: italic;">Area</span> <span style="color: #c49619; font-style: italic;">Circle1</span> <span style="color: #93a61a; font-weight: bold;">where</span>
-&#9474; area1 (<span style="color: #c49619; font-style: italic;">Circle1</span> r) <span style="color: #8d9fa1;">=</span> 3.14 <span style="color: #8d9fa1;">*</span> r <span style="color: #8d9fa1;">*</span> r
-</pre>
+<span style="color: #b6a0ff;">instance</span> Area <span style="color: #6ae4b9;">Circle1</span> <span style="color: #b6a0ff;">where</span>
+  <span style="color: #feacd0;">area1</span> (<span style="color: #6ae4b9;">Circle1</span> <span style="color: #00d3d0;">r</span>) = 3.14 * r * r
+</code></pre>
 </div>
 
 <p>
 Thanks to <a href="https://www.danielbrice.net/">Daniel</a>, he pointed me that type class still has limitations.
-Since the Type Class doesn&rsquo;t really solve the problem directly but work around a bit.
+Basically because the Type Class doesn&rsquo;t really solve the problem directly but work around a bit.
 </p>
 
 <p>
@@ -100,12 +100,12 @@ I gave another thought when comparing the OO approach (easy data extension but n
 </p>
 </div>
 </div>
-<div id="outline-container-orgf3d2204" class="outline-2">
-<h2 id="orgf3d2204"><span class="section-number-2">3.</span> Solution - Visitor pattern</h2>
+<div id="outline-container-org3a792c5" class="outline-2">
+<h2 id="org3a792c5"><span class="section-number-2">3.</span> Solution - Visitor pattern</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org0662cb5" class="outline-3">
-<h3 id="org0662cb5"><span class="section-number-3">3.1.</span> Impl in TypeScript</h3>
+<div id="outline-container-orgf323240" class="outline-3">
+<h3 id="orgf323240"><span class="section-number-3">3.1.</span> Impl in TypeScript</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><a href="https://www.typescriptlang.org/play?#code/PTAEF5K6d0BkCGA7A5gKHQS2QFwKYBOAZogMb6gBqWAzlrgPaEA8AKgHygDe6o-oYswByAVwC2ACmQAuUMgkAjIgEo5bdAF9seIqQqgAogA8ADjz4CAbnQbsOkq3Jr0mrTmtAbt6MgBtEWlpQMXFQLHFTP3xxfDxgk3NeAVBTQkYCMgIAE3k5BXFlQgBuS34yRmRaXEJRLOZpfKVVCxSU3AALOgA6ZAh5UpTtFJtXe0dnWzd7FVa2-kJ8XFFCPqtuoUJQyU6e5BVBgW0ff0CEq0Q-cMjo2PjqKeYWAqKuZIFN7dl5ZsJZ9-mi2WqwGZVAx0wIAgsBhMIQKFQACZMDgCCRyJQXAxmIj7KB8MYCMhssEsdNOHN+JsAAp+US0ST4ACMckSiIANPjEayzIjPN4Ubp0QY2fjCXESUYzJTQKM7JwJg9XDiZuotJhTkFQLT6dcojE4rgEryZWksBcCPiWVLTIjDvwzRbKPhuTa7WCKlUanU3IzrWzOS6ebb-mD2l1aN1mf1mfa2rtIy6Y+6hmC5bhxk4ldjCLiPOoZSkgSs1htmDqGQmo0zOVWXSowRDfAEtYYLn5EWKiZK25c9bdDaTHrnnr83mCaXSGczgxyubPPC8iIWBMWQczuumdhHZgBqLmbqbbugHRvq5tnUAAZQ6jAA7v2DfcySrqoQcKhxylPhJGj9Cqochvh+K4LEsJagAABgAJNwyCaJBcbDB85ZTn6s6Bq6bKeMBaCgaAa59BuW4JnuoAAOSgPulH7i6h6uMetCnqmPhQrC7HQPCaAAMyCmi+iYsO3F4gS3ZDsqI4UgCggiJUV5xLQ+DoTamELmqPionoGI2txXYSsatoyummaTBJwn5l454apU1SgOIiA4P0kizOAX4CJ6tnRuA8j4A+2wACx8nGHmMNE3R+IwqCSAARPg7YhL+gWeNFgZMvRDDSL5Rjts5KinpgKQebgXL9MgWUVplfm-gArConJlVVUjcQA7HlwU2aF+DhZFMVxX2FXVZyLXJZh6W4JV2WXIiuXMe5HVhRFUWxfFA1Da1cgpQeW4Ndet53jNpRglCO2MKYRCILgWCVKATBinQl14dkF2IDdACeZ0evNXWLb18UBXyG2pWNE29h2B2fVUnXdUttB7QlUhJYDVrAztN73uDPj2TgzlAA">Philip W sample in TypeScript</a></li>
@@ -113,8 +113,8 @@ I gave another thought when comparing the OO approach (easy data extension but n
 </ul>
 </div>
 </div>
-<div id="outline-container-orgb200560" class="outline-3">
-<h3 id="orgb200560"><span class="section-number-3">3.2.</span> Remarks</h3>
+<div id="outline-container-org512142f" class="outline-3">
+<h3 id="org512142f"><span class="section-number-3">3.2.</span> Remarks</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 The solutions appear pretty much same as Type Class solution since the basic idea is same
@@ -127,8 +127,8 @@ The solutions appear pretty much same as Type Class solution since the basic ide
 </div>
 </div>
 </div>
-<div id="outline-container-org51dfb30" class="outline-2">
-<h2 id="org51dfb30"><span class="section-number-2">4.</span> Read paper <a href="https://www.cs.utexas.edu/~wcook/Drafts/2009/essay.pdf">On Understanding Data Abstraction</a></h2>
+<div id="outline-container-org4b5313b" class="outline-2">
+<h2 id="org4b5313b"><span class="section-number-2">4.</span> Read paper <a href="https://www.cs.utexas.edu/~wcook/Drafts/2009/essay.pdf">On Understanding Data Abstraction</a></h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Read once but didn&rsquo;t follow well. Maybe worth re-read.</li>
@@ -140,7 +140,7 @@ The solutions appear pretty much same as Type Class solution since the basic ide
 <hr/>
 <footer>
   <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
-  <div class="generated">Created at 2023-01-05 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.2 (<a href="https://orgmode.org">Org</a> mode 9.7.39)</div>
+  <div class="generated">Created at 2023-01-05 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.2 (<a href="https://orgmode.org">Org</a> mode 9.8)</div>
 </footer>
 </div>
 </body>
