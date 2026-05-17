@@ -23,37 +23,37 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orge17673a">1. Core Idea</a></li>
-<li><a href="#orgbf0e15b">2. Two Directions Model</a></li>
-<li><a href="#orgae8690a">3. Why intro Works</a></li>
-<li><a href="#org32050bd">4. Categories of Reasoning</a>
+<li><a href="#org40ec450">1. Core Idea</a></li>
+<li><a href="#orge1e5301">2. Two Directions Model</a></li>
+<li><a href="#orgb8767e3">3. Why intro Works</a></li>
+<li><a href="#org394c196">4. Categories of Reasoning</a>
 <ul>
-<li><a href="#orgb75af59">4.1. 1. Logic (structure)</a></li>
-<li><a href="#org532b258">4.2. 2. Equality (rewriting)</a></li>
-<li><a href="#orgce5bc82">4.3. 3. Data / Structure</a></li>
-<li><a href="#orgf561e6d">4.4. 4. Computation / Simplification</a></li>
-<li><a href="#orgd2c4a14">4.5. 5. Quantifiers</a></li>
-<li><a href="#org09e02bf">4.6. 6. Classical reasoning</a></li>
-<li><a href="#orgba945bb">4.7. 7. Automation / search</a></li>
+<li><a href="#org08c3e26">4.1. 1. Logic (structure)</a></li>
+<li><a href="#org7ad25f6">4.2. 2. Equality (rewriting)</a></li>
+<li><a href="#org9aa17a0">4.3. 3. Data / Structure</a></li>
+<li><a href="#orgbc2247c">4.4. 4. Computation / Simplification</a></li>
+<li><a href="#orga49e8a1">4.5. 5. Quantifiers</a></li>
+<li><a href="#orgcf76353">4.6. 6. Classical reasoning</a></li>
+<li><a href="#org576f54c">4.7. 7. Automation / search</a></li>
 </ul>
 </li>
-<li><a href="#org665489e">5. Important Quiz Patterns</a>
+<li><a href="#orgcb2f4b9">5. Important Quiz Patterns</a>
 <ul>
-<li><a href="#org29606d3">5.1. Implication chaining</a></li>
-<li><a href="#org78e07bd">5.2. Negation</a></li>
-<li><a href="#org8e085c2">5.3. OR branching</a></li>
-<li><a href="#org0902a72">5.4. AND + OR decomposition</a></li>
-<li><a href="#org98cf208">5.5. Existential witness construction</a></li>
+<li><a href="#org3651c3e">5.1. Implication chaining</a></li>
+<li><a href="#org218b456">5.2. Negation</a></li>
+<li><a href="#org1c25501">5.3. OR branching</a></li>
+<li><a href="#org29b1984">5.4. AND + OR decomposition</a></li>
+<li><a href="#orgb5b3932">5.5. Existential witness construction</a></li>
 </ul>
 </li>
-<li><a href="#org6172ff1">6. Tactical Interpretation (Programming View)</a></li>
-<li><a href="#orgc1c3df6">7. Follow up</a></li>
-<li><a href="#org0e55abf">8. Appendix: My First Step Toward Understanding Tactic Proofs</a></li>
+<li><a href="#orgb19a3d3">6. Tactical Interpretation (Programming View)</a></li>
+<li><a href="#org7f8b024">7. Follow up</a></li>
+<li><a href="#org0d41282">8. Appendix: My First Step Toward Understanding Tactic Proofs</a></li>
 </ul>
 </div>
 </nav>
-<div id="outline-container-orge17673a" class="outline-2">
-<h2 id="orge17673a"><span class="section-number-2">1.</span> Core Idea</h2>
+<div id="outline-container-org40ec450" class="outline-2">
+<h2 id="org40ec450"><span class="section-number-2">1.</span> Core Idea</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>proposition = type</li>
@@ -79,8 +79,8 @@ Example:
 </div>
 </div>
 </div>
-<div id="outline-container-orgbf0e15b" class="outline-2">
-<h2 id="orgbf0e15b"><span class="section-number-2">2.</span> Two Directions Model</h2>
+<div id="outline-container-orge1e5301" class="outline-2">
+<h2 id="orge1e5301"><span class="section-number-2">2.</span> Two Directions Model</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Goal → BUILD. It is like the return type of a function, so I need to build a value of that type.</li>
@@ -135,9 +135,9 @@ With that mindset, choose tactics based on whether the structure appears in the 
 </tr>
 
 <tr>
-<td class="org-left"><code>\forall x, P x</code></td>
+<td class="org-left"><code>∀ x, P x</code></td>
 <td class="org-left">intro x</td>
-<td class="org-left">h t (<code>h : \forall x, P x</code>)</td>
+<td class="org-left">h t (<code>h : ∀ x, P x</code>)</td>
 </tr>
 
 <tr>
@@ -149,14 +149,14 @@ With that mindset, choose tactics based on whether the structure appears in the 
 </table>
 </div>
 </div>
-<div id="outline-container-orgae8690a" class="outline-2">
-<h2 id="orgae8690a"><span class="section-number-2">3.</span> Why intro Works</h2>
+<div id="outline-container-orgb8767e3" class="outline-2">
+<h2 id="orgb8767e3"><span class="section-number-2">3.</span> Why intro Works</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 When the goal is:
 </p>
 
-<pre class="example" id="org2bc2eae">
+<pre class="example" id="org093d5ca">
 ⊢ A -&gt; B
 </pre>
 
@@ -164,7 +164,7 @@ When the goal is:
 Lean is asking me to build a function:
 </p>
 
-<pre class="example" id="org3c27307">
+<pre class="example" id="org4c554ad">
 proof of A -&gt; proof of B
 </pre>
 
@@ -195,16 +195,16 @@ Tactic proof:
 </div>
 </div>
 </div>
-<div id="outline-container-org32050bd" class="outline-2">
-<h2 id="org32050bd"><span class="section-number-2">4.</span> Categories of Reasoning</h2>
+<div id="outline-container-org394c196" class="outline-2">
+<h2 id="org394c196"><span class="section-number-2">4.</span> Categories of Reasoning</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 These are not strict mathematical categories.
 They are recurring proof problem patterns.
 </p>
 </div>
-<div id="outline-container-orgb75af59" class="outline-3">
-<h3 id="orgb75af59"><span class="section-number-3">4.1.</span> 1. Logic (structure)</h3>
+<div id="outline-container-org08c3e26" class="outline-3">
+<h3 id="org08c3e26"><span class="section-number-3">4.1.</span> 1. Logic (structure)</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Forms: →, ∧, ∨, ¬</li>
@@ -263,8 +263,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-org532b258" class="outline-3">
-<h3 id="org532b258"><span class="section-number-3">4.2.</span> 2. Equality (rewriting)</h3>
+<div id="outline-container-org7ad25f6" class="outline-3">
+<h3 id="org7ad25f6"><span class="section-number-3">4.2.</span> 2. Equality (rewriting)</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Form: =</li>
@@ -288,8 +288,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-orgce5bc82" class="outline-3">
-<h3 id="orgce5bc82"><span class="section-number-3">4.3.</span> 3. Data / Structure</h3>
+<div id="outline-container-org9aa17a0" class="outline-3">
+<h3 id="org9aa17a0"><span class="section-number-3">4.3.</span> 3. Data / Structure</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Types: Nat, List, etc.</li>
@@ -322,8 +322,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-orgf561e6d" class="outline-3">
-<h3 id="orgf561e6d"><span class="section-number-3">4.4.</span> 4. Computation / Simplification</h3>
+<div id="outline-container-orgbc2247c" class="outline-3">
+<h3 id="orgbc2247c"><span class="section-number-3">4.4.</span> 4. Computation / Simplification</h3>
 <div class="outline-text-3" id="text-4-4">
 <ul class="org-ul">
 <li>Lean reduces expressions automatically</li>
@@ -347,8 +347,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-orgd2c4a14" class="outline-3">
-<h3 id="orgd2c4a14"><span class="section-number-3">4.5.</span> 5. Quantifiers</h3>
+<div id="outline-container-orga49e8a1" class="outline-3">
+<h3 id="orga49e8a1"><span class="section-number-3">4.5.</span> 5. Quantifiers</h3>
 <div class="outline-text-3" id="text-4-5">
 <ul class="org-ul">
 <li>Forms: ∀, ∃</li>
@@ -413,16 +413,16 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-org09e02bf" class="outline-3">
-<h3 id="org09e02bf"><span class="section-number-3">4.6.</span> 6. Classical reasoning</h3>
+<div id="outline-container-orgcf76353" class="outline-3">
+<h3 id="orgcf76353"><span class="section-number-3">4.6.</span> 6. Classical reasoning</h3>
 <div class="outline-text-3" id="text-4-6">
 <ul class="org-ul">
 <li>by<sub>cases</sub>, contradiction, etc.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgba945bb" class="outline-3">
-<h3 id="orgba945bb"><span class="section-number-3">4.7.</span> 7. Automation / search</h3>
+<div id="outline-container-org576f54c" class="outline-3">
+<h3 id="org576f54c"><span class="section-number-3">4.7.</span> 7. Automation / search</h3>
 <div class="outline-text-3" id="text-4-7">
 <ul class="org-ul">
 <li>simp, aesop, etc.</li>
@@ -430,12 +430,12 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-org665489e" class="outline-2">
-<h2 id="org665489e"><span class="section-number-2">5.</span> Important Quiz Patterns</h2>
+<div id="outline-container-orgcb2f4b9" class="outline-2">
+<h2 id="orgcb2f4b9"><span class="section-number-2">5.</span> Important Quiz Patterns</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org29606d3" class="outline-3">
-<h3 id="org29606d3"><span class="section-number-3">5.1.</span> Implication chaining</h3>
+<div id="outline-container-org3651c3e" class="outline-3">
+<h3 id="org3651c3e"><span class="section-number-3">5.1.</span> Implication chaining</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (P Q R : <span style="color: #6ae4b9;">Prop</span>) :
@@ -448,8 +448,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-org78e07bd" class="outline-3">
-<h3 id="org78e07bd"><span class="section-number-3">5.2.</span> Negation</h3>
+<div id="outline-container-org218b456" class="outline-3">
+<h3 id="org218b456"><span class="section-number-3">5.2.</span> Negation</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li><code>¬P</code> means <code>P -&gt; False</code></li>
@@ -466,8 +466,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-org8e085c2" class="outline-3">
-<h3 id="org8e085c2"><span class="section-number-3">5.3.</span> OR branching</h3>
+<div id="outline-container-org1c25501" class="outline-3">
+<h3 id="org1c25501"><span class="section-number-3">5.3.</span> OR branching</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (P Q R : <span style="color: #6ae4b9;">Prop</span>) :
@@ -484,8 +484,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-org0902a72" class="outline-3">
-<h3 id="org0902a72"><span class="section-number-3">5.4.</span> AND + OR decomposition</h3>
+<div id="outline-container-org29b1984" class="outline-3">
+<h3 id="org29b1984"><span class="section-number-3">5.4.</span> AND + OR decomposition</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
 <pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (P Q R : <span style="color: #6ae4b9;">Prop</span>) :
@@ -508,8 +508,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-org98cf208" class="outline-3">
-<h3 id="org98cf208"><span class="section-number-3">5.5.</span> Existential witness construction</h3>
+<div id="outline-container-orgb5b3932" class="outline-3">
+<h3 id="orgb5b3932"><span class="section-number-3">5.5.</span> Existential witness construction</h3>
 <div class="outline-text-3" id="text-5-5">
 <ul class="org-ul">
 <li>Equations often tell you the witness directly.</li>
@@ -525,8 +525,8 @@ Examples:
 </div>
 </div>
 </div>
-<div id="outline-container-org6172ff1" class="outline-2">
-<h2 id="org6172ff1"><span class="section-number-2">6.</span> Tactical Interpretation (Programming View)</h2>
+<div id="outline-container-orgb19a3d3" class="outline-2">
+<h2 id="orgb19a3d3"><span class="section-number-2">6.</span> Tactical Interpretation (Programming View)</h2>
 <div class="outline-text-2" id="text-6">
 <table>
 
@@ -631,8 +631,8 @@ Examples:
 </table>
 </div>
 </div>
-<div id="outline-container-orgc1c3df6" class="outline-2">
-<h2 id="orgc1c3df6"><span class="section-number-2">7.</span> Follow up</h2>
+<div id="outline-container-org7f8b024" class="outline-2">
+<h2 id="org7f8b024"><span class="section-number-2">7.</span> Follow up</h2>
 <div class="outline-text-2" id="text-7">
 <ol class="org-ol">
 <li>Study <code>Classical reasoning</code> and <code>Automation / search</code></li>
@@ -640,10 +640,10 @@ Examples:
 </ol>
 </div>
 </div>
-<div id="outline-container-org0e55abf" class="outline-2">
-<h2 id="org0e55abf"><span class="section-number-2">8.</span> Appendix: My First Step Toward Understanding Tactic Proofs</h2>
+<div id="outline-container-org0d41282" class="outline-2">
+<h2 id="org0d41282"><span class="section-number-2">8.</span> Appendix: My First Step Toward Understanding Tactic Proofs</h2>
 <div class="outline-text-2" id="text-8">
-<pre class="example" id="org1cd00ab">
+<pre class="example" id="org972181d">
 example (P Q R : Prop) :
   (P ∨ Q) ∧ (P → R) ∧ (Q → R) → R := by
   -- ?
