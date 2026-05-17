@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lean Proof Mental Model Part 1</title>
+<meta name="author" content="Haisheng Wu" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-term-ss08-17.0.2/iosevka-term-ss08.css"/>
+                           <link rel="stylesheet" type="text/css" href="https://js-fun.github.io/iosevka-webfont/iosevka-etoile-17.0.2/iosevka-etoile.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/org-default.css"/>
+                           <link rel="stylesheet" type="text/css" href="/css/default.css"/>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href="/"> UP </a>
+ |
+ <a accesskey="H" href="/"> HOME </a>
+</div><div id="content" class="content">
+<header>
+<h1 class="title">Lean Proof Mental Model Part 1</h1>
+</header><nav id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge17673a">1. Core Idea</a></li>
+<li><a href="#orgbf0e15b">2. Two Directions Model</a></li>
+<li><a href="#orgae8690a">3. Why intro Works</a></li>
+<li><a href="#org32050bd">4. Categories of Reasoning</a>
+<ul>
+<li><a href="#orgb75af59">4.1. 1. Logic (structure)</a></li>
+<li><a href="#org532b258">4.2. 2. Equality (rewriting)</a></li>
+<li><a href="#orgce5bc82">4.3. 3. Data / Structure</a></li>
+<li><a href="#orgf561e6d">4.4. 4. Computation / Simplification</a></li>
+<li><a href="#orgd2c4a14">4.5. 5. Quantifiers</a></li>
+<li><a href="#org09e02bf">4.6. 6. Classical reasoning</a></li>
+<li><a href="#orgba945bb">4.7. 7. Automation / search</a></li>
+</ul>
+</li>
+<li><a href="#org665489e">5. Important Quiz Patterns</a>
+<ul>
+<li><a href="#org29606d3">5.1. Implication chaining</a></li>
+<li><a href="#org78e07bd">5.2. Negation</a></li>
+<li><a href="#org8e085c2">5.3. OR branching</a></li>
+<li><a href="#org0902a72">5.4. AND + OR decomposition</a></li>
+<li><a href="#org98cf208">5.5. Existential witness construction</a></li>
+</ul>
+</li>
+<li><a href="#org6172ff1">6. Tactical Interpretation (Programming View)</a></li>
+<li><a href="#orgc1c3df6">7. Follow up</a></li>
+<li><a href="#org0e55abf">8. Appendix: My First Step Toward Understanding Tactic Proofs</a></li>
+</ul>
+</div>
+</nav>
+<div id="outline-container-orge17673a" class="outline-2">
+<h2 id="orge17673a"><span class="section-number-2">1.</span> Core Idea</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>proposition = type</li>
+<li>proof = value</li>
+<li>theorem proving = constructing a value of a type</li>
+<li>tactics = a guided way to construct the proof value step by step</li>
+</ul>
+
+<p>
+Example:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">term proof
+</span><span style="color: #b6a0ff;">example</span> (P : <span style="color: #6ae4b9;">Prop</span>) : P <span style="color: #00bcff;">-&gt;</span> P <span style="color: #00bcff;">:=</span>
+  <span style="color: #b6a0ff;">fun</span> h <span style="color: #00bcff;">=&gt;</span> h
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">tactic proof
+</span><span style="color: #b6a0ff;">example</span> (P : <span style="color: #6ae4b9;">Prop</span>) : P <span style="color: #00bcff;">-&gt;</span> P <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro h
+  exact h
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbf0e15b" class="outline-2">
+<h2 id="orgbf0e15b"><span class="section-number-2">2.</span> Two Directions Model</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Goal → BUILD. It is like the return type of a function, so I need to build a value of that type.</li>
+<li>Hypothesis → USE / OPEN. These are inputs I can assume are already available, so I can use them to build the goal.
+Even an &ldquo;input&rdquo; can appear inside the goal. For example, if the goal is <code>A -&gt; B</code>, then <code>intro hA</code> gives me <code>hA : A</code>.</li>
+</ul>
+
+<p>
+With that mindset, choose tactics based on whether the structure appears in the goal or in the hypotheses.
+</p>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Structure</th>
+<th scope="col" class="org-left">As Goal</th>
+<th scope="col" class="org-left">As Hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>A → B</code></td>
+<td class="org-left">intro</td>
+<td class="org-left">apply/use it</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>P ∧ Q</code></td>
+<td class="org-left">constructor</td>
+<td class="org-left">cases</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>P ∨ Q</code></td>
+<td class="org-left">left / right</td>
+<td class="org-left">cases</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>∃ x, P x</code></td>
+<td class="org-left">use</td>
+<td class="org-left">cases</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>\forall x, P x</code></td>
+<td class="org-left">intro x</td>
+<td class="org-left">h t (<code>h : \forall x, P x</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>a = b</code></td>
+<td class="org-left"><code>rw / rfl</code></td>
+<td class="org-left"><code>rw [h]</code> (<code>h: a=b</code>)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgae8690a" class="outline-2">
+<h2 id="orgae8690a"><span class="section-number-2">3.</span> Why intro Works</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+When the goal is:
+</p>
+
+<pre class="example" id="org2bc2eae">
+⊢ A -&gt; B
+</pre>
+
+<p>
+Lean is asking me to build a function:
+</p>
+
+<pre class="example" id="org3c27307">
+proof of A -&gt; proof of B
+</pre>
+
+<p>
+So <code>intro hA</code> means: suppose somebody gives me a proof of <code>A</code>.
+It does not assert <code>A</code> globally; it introduces a hypothetical parameter.
+</p>
+
+<p>
+Term proof:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (A B : <span style="color: #6ae4b9;">Prop</span>) (h : A <span style="color: #00bcff;">-&gt;</span> B) : A <span style="color: #00bcff;">-&gt;</span> B <span style="color: #00bcff;">:=</span>
+  <span style="color: #b6a0ff;">fun</span> hA <span style="color: #00bcff;">=&gt;</span> h hA
+</code></pre>
+</div>
+
+<p>
+Tactic proof:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (A B : <span style="color: #6ae4b9;">Prop</span>) (h : A <span style="color: #00bcff;">-&gt;</span> B) : A <span style="color: #00bcff;">-&gt;</span> B <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro hA
+  exact h hA
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org32050bd" class="outline-2">
+<h2 id="org32050bd"><span class="section-number-2">4.</span> Categories of Reasoning</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+These are not strict mathematical categories.
+They are recurring proof problem patterns.
+</p>
+</div>
+<div id="outline-container-orgb75af59" class="outline-3">
+<h3 id="orgb75af59"><span class="section-number-3">4.1.</span> 1. Logic (structure)</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Forms: →, ∧, ∨, ¬</li>
+<li>Goal: construct</li>
+<li>Hypothesis: open / decompose</li>
+</ul>
+
+<p>
+Examples:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8594; as goal: introduce input, then build output
+</span><span style="color: #b6a0ff;">example</span> (A B : <span style="color: #6ae4b9;">Prop</span>) (h : A <span style="color: #00bcff;">-&gt;</span> B) : A <span style="color: #00bcff;">-&gt;</span> B <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro ha
+  exact h ha
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8594; as hypothesis: apply/use it
+</span><span style="color: #b6a0ff;">example</span> (A B : <span style="color: #6ae4b9;">Prop</span>) (h : A <span style="color: #00bcff;">-&gt;</span> B) (ha : A) : B <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  exact h ha
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8743; as goal: build both sides
+</span><span style="color: #b6a0ff;">example</span> (A B : <span style="color: #6ae4b9;">Prop</span>) (ha : A) (hb : B) : A <span style="color: #00bcff;">&#8743;</span> B <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  constructor
+  &#183; exact ha
+  &#183; exact hb
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8743; as hypothesis: open/decompose it
+</span><span style="color: #b6a0ff;">example</span> (A B : <span style="color: #6ae4b9;">Prop</span>) (h : A <span style="color: #00bcff;">&#8743;</span> B) : A <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  <span style="color: #b6a0ff;">cases</span> h <span style="color: #b6a0ff;">with</span>
+  | intro ha hb <span style="color: #00bcff;">=&gt;</span> exact ha
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8744; as goal: choose left or right
+</span><span style="color: #b6a0ff;">example</span> (A B : <span style="color: #6ae4b9;">Prop</span>) (ha : A) : A <span style="color: #00bcff;">&#8744;</span> B <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  left
+  exact ha
+<span style="color: #b6a0ff;">example</span> (A B : <span style="color: #6ae4b9;">Prop</span>) (hb : B) : A <span style="color: #00bcff;">&#8744;</span> B <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  right
+  exact hb
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8744; as hypothesis: split into branches
+</span><span style="color: #b6a0ff;">example</span> (A B C : <span style="color: #6ae4b9;">Prop</span>) (h : A <span style="color: #00bcff;">&#8744;</span> B) (ha : A <span style="color: #00bcff;">-&gt;</span> C) (hb : B <span style="color: #00bcff;">-&gt;</span> C) : C <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  <span style="color: #b6a0ff;">cases</span> h <span style="color: #b6a0ff;">with</span>
+  | inl a <span style="color: #00bcff;">=&gt;</span> exact ha a
+  | inr b <span style="color: #00bcff;">=&gt;</span> exact hb b
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#172; as goal: assume the proposition, derive contradiction
+</span><span style="color: #b6a0ff;">example</span> (A : <span style="color: #6ae4b9;">Prop</span>) (h : A <span style="color: #00bcff;">-&gt;</span> False) : <span style="color: #00bcff;">&#172;</span> A <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro ha
+  exact h ha
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#172; as hypothesis: use it as A -&gt; False
+</span><span style="color: #b6a0ff;">example</span> (A : <span style="color: #6ae4b9;">Prop</span>) (hnot : <span style="color: #00bcff;">&#172;</span> A) (ha : A) : False <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  exact hnot ha
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org532b258" class="outline-3">
+<h3 id="org532b258"><span class="section-number-3">4.2.</span> 2. Equality (rewriting)</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>Form: =</li>
+<li>rw: rewrite using equality</li>
+<li>rfl: finish when both sides are identical</li>
+</ul>
+
+<p>
+Examples:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">= as goal: close when both sides reduce to the same expression
+</span><span style="color: #b6a0ff;">example</span> : <span style="color: #00bcff;">1</span> <span style="color: #00bcff;">+</span> <span style="color: #00bcff;">1</span> <span style="color: #00bcff;">=</span> <span style="color: #00bcff;">2</span> <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  rfl
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">= as hypothesis: rewrite with it
+</span><span style="color: #b6a0ff;">example</span> (a b : Nat) (h : a <span style="color: #00bcff;">=</span> b) : a <span style="color: #00bcff;">+</span> <span style="color: #00bcff;">1</span> <span style="color: #00bcff;">=</span> b <span style="color: #00bcff;">+</span> <span style="color: #00bcff;">1</span> <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  rw [h]
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgce5bc82" class="outline-3">
+<h3 id="orgce5bc82"><span class="section-number-3">4.3.</span> 3. Data / Structure</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>Types: Nat, List, etc.</li>
+<li>cases: split by structure</li>
+<li>induction: recursive reasoning</li>
+</ul>
+
+<p>
+Examples:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">cases on Nat: zero case and successor case
+</span><span style="color: #b6a0ff;">example</span> (n : Nat) : n <span style="color: #00bcff;">=</span> <span style="color: #00bcff;">0</span> <span style="color: #00bcff;">&#8744;</span> <span style="color: #00bcff;">&#8707;</span> m : Nat, n <span style="color: #00bcff;">=</span> m <span style="color: #00bcff;">+</span> <span style="color: #00bcff;">1</span> <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  <span style="color: #b6a0ff;">cases</span> n <span style="color: #b6a0ff;">with</span>
+  | zero <span style="color: #00bcff;">=&gt;</span>
+      left
+      rfl
+  | succ m <span style="color: #00bcff;">=&gt;</span>
+      right
+      exact &#10216;m, rfl&#10217;
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">induction on Nat: prove base case and recursive step
+</span><span style="color: #b6a0ff;">example</span> (n : Nat) : n <span style="color: #00bcff;">+</span> <span style="color: #00bcff;">0</span> <span style="color: #00bcff;">=</span> n <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  <span style="color: #b6a0ff;">induction</span> n <span style="color: #b6a0ff;">with</span>
+  | zero <span style="color: #00bcff;">=&gt;</span> rfl
+  | succ n ih <span style="color: #00bcff;">=&gt;</span>
+      simp
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf561e6d" class="outline-3">
+<h3 id="orgf561e6d"><span class="section-number-3">4.4.</span> 4. Computation / Simplification</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>Lean reduces expressions automatically</li>
+<li>Tools: rfl, simp</li>
+<li>Example: 1 + 1 = 2</li>
+</ul>
+
+<p>
+Examples:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">rfl works when computation makes both sides identical
+</span><span style="color: #b6a0ff;">example</span> : (<span style="color: #b6a0ff;">fun</span> x : Nat <span style="color: #00bcff;">=&gt;</span> x <span style="color: #00bcff;">+</span> <span style="color: #00bcff;">1</span>) <span style="color: #00bcff;">2</span> <span style="color: #00bcff;">=</span> <span style="color: #00bcff;">3</span> <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  rfl
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">simp proves goals by simplifying known definitions/rules
+</span><span style="color: #b6a0ff;">example</span> (xs : List Nat) : [] <span style="color: #00bcff;">++</span> xs <span style="color: #00bcff;">=</span> xs <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  simp
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd2c4a14" class="outline-3">
+<h3 id="orgd2c4a14"><span class="section-number-3">4.5.</span> 5. Quantifiers</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li>Forms: ∀, ∃</li>
+</ul>
+
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Form</th>
+<th scope="col" class="org-left">Goal Action</th>
+<th scope="col" class="org-left">Hypothesis Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">∀</td>
+<td class="org-left">intro</td>
+<td class="org-left">apply (h x)</td>
+</tr>
+
+<tr>
+<td class="org-left">∃</td>
+<td class="org-left">use</td>
+<td class="org-left">cases</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Examples:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8704; as goal: introduce an arbitrary x
+</span><span style="color: #b6a0ff;">example</span> : <span style="color: #00bcff;">&#8704;</span> n : Nat, n <span style="color: #00bcff;">=</span> n <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro n
+  rfl
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8704; as hypothesis: apply it to a concrete value
+</span><span style="color: #b6a0ff;">example</span> (P : Nat <span style="color: #00bcff;">-&gt;</span> <span style="color: #6ae4b9;">Prop</span>) (h : <span style="color: #00bcff;">&#8704;</span> n : Nat, P n) : P <span style="color: #00bcff;">3</span> <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  exact h <span style="color: #00bcff;">3</span>
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8707; as goal: provide a witness and prove the property
+</span><span style="color: #b6a0ff;">example</span> : <span style="color: #00bcff;">&#8707;</span> n : Nat, n <span style="color: #00bcff;">=</span> <span style="color: #00bcff;">3</span> <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  exact &#10216;<span style="color: #00bcff;">3</span>, rfl&#10217;
+
+<span style="color: #ff9f80;">-- </span><span style="color: #ff9f80;">&#8707; as hypothesis: open it into witness + proof
+</span><span style="color: #b6a0ff;">example</span> (P : Nat <span style="color: #00bcff;">-&gt;</span> <span style="color: #6ae4b9;">Prop</span>) (h : <span style="color: #00bcff;">&#8707;</span> n : Nat, P n) : <span style="color: #00bcff;">&#8707;</span> n : Nat, P n <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  <span style="color: #b6a0ff;">cases</span> h <span style="color: #b6a0ff;">with</span>
+  | intro n hn <span style="color: #00bcff;">=&gt;</span>
+      exact &#10216;n, hn&#10217;
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org09e02bf" class="outline-3">
+<h3 id="org09e02bf"><span class="section-number-3">4.6.</span> 6. Classical reasoning</h3>
+<div class="outline-text-3" id="text-4-6">
+<ul class="org-ul">
+<li>by<sub>cases</sub>, contradiction, etc.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgba945bb" class="outline-3">
+<h3 id="orgba945bb"><span class="section-number-3">4.7.</span> 7. Automation / search</h3>
+<div class="outline-text-3" id="text-4-7">
+<ul class="org-ul">
+<li>simp, aesop, etc.</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org665489e" class="outline-2">
+<h2 id="org665489e"><span class="section-number-2">5.</span> Important Quiz Patterns</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-org29606d3" class="outline-3">
+<h3 id="org29606d3"><span class="section-number-3">5.1.</span> Implication chaining</h3>
+<div class="outline-text-3" id="text-5-1">
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (P Q R : <span style="color: #6ae4b9;">Prop</span>) :
+    (P <span style="color: #00bcff;">-&gt;</span> Q) <span style="color: #00bcff;">-&gt;</span> (Q <span style="color: #00bcff;">-&gt;</span> R) <span style="color: #00bcff;">-&gt;</span> P <span style="color: #00bcff;">-&gt;</span> R <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro hpq
+  intro hqr
+  intro hp
+  exact hqr (hpq hp)
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org78e07bd" class="outline-3">
+<h3 id="org78e07bd"><span class="section-number-3">5.2.</span> Negation</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li><code>¬P</code> means <code>P -&gt; False</code></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (P Q : <span style="color: #6ae4b9;">Prop</span>) :
+    (P <span style="color: #00bcff;">-&gt;</span> Q) <span style="color: #00bcff;">-&gt;</span> <span style="color: #00bcff;">&#172;</span> Q <span style="color: #00bcff;">-&gt;</span> <span style="color: #00bcff;">&#172;</span> P <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro hpq
+  intro hnq
+  intro hp
+  exact hnq (hpq hp)
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org8e085c2" class="outline-3">
+<h3 id="org8e085c2"><span class="section-number-3">5.3.</span> OR branching</h3>
+<div class="outline-text-3" id="text-5-3">
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (P Q R : <span style="color: #6ae4b9;">Prop</span>) :
+    (P <span style="color: #00bcff;">-&gt;</span> R) <span style="color: #00bcff;">-&gt;</span> (Q <span style="color: #00bcff;">-&gt;</span> R) <span style="color: #00bcff;">-&gt;</span> (P <span style="color: #00bcff;">&#8744;</span> Q) <span style="color: #00bcff;">-&gt;</span> R <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro hpr
+  intro hqr
+  intro hpq
+  <span style="color: #b6a0ff;">cases</span> hpq <span style="color: #b6a0ff;">with</span>
+  | inl hp <span style="color: #00bcff;">=&gt;</span>
+      exact hpr hp
+  | inr hq <span style="color: #00bcff;">=&gt;</span>
+      exact hqr hq
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org0902a72" class="outline-3">
+<h3 id="org0902a72"><span class="section-number-3">5.4.</span> AND + OR decomposition</h3>
+<div class="outline-text-3" id="text-5-4">
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (P Q R : <span style="color: #6ae4b9;">Prop</span>) :
+    P <span style="color: #00bcff;">&#8743;</span> (Q <span style="color: #00bcff;">&#8744;</span> R) <span style="color: #00bcff;">-&gt;</span> (P <span style="color: #00bcff;">&#8743;</span> Q) <span style="color: #00bcff;">&#8744;</span> (P <span style="color: #00bcff;">&#8743;</span> R) <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  intro h
+  <span style="color: #b6a0ff;">cases</span> h <span style="color: #b6a0ff;">with</span>
+  | intro hp hqr <span style="color: #00bcff;">=&gt;</span>
+      <span style="color: #b6a0ff;">cases</span> hqr <span style="color: #b6a0ff;">with</span>
+      | inl hq <span style="color: #00bcff;">=&gt;</span>
+          left
+          constructor
+          &#183; exact hp
+          &#183; exact hq
+      | inr hr <span style="color: #00bcff;">=&gt;</span>
+          right
+          constructor
+          &#183; exact hp
+          &#183; exact hr
+</code></pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org98cf208" class="outline-3">
+<h3 id="org98cf208"><span class="section-number-3">5.5.</span> Existential witness construction</h3>
+<div class="outline-text-3" id="text-5-5">
+<ul class="org-ul">
+<li>Equations often tell you the witness directly.</li>
+<li>In Mathlib-oriented tactic style this is often written with <code>use</code>.</li>
+<li>In bare Lean, the explicit constructor form <code>⟨witness, proof⟩</code> verifies without extra imports.</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-lean4"><code><span style="color: #b6a0ff;">example</span> (x : Nat) : <span style="color: #00bcff;">&#8707;</span> y, y <span style="color: #00bcff;">=</span> x <span style="color: #00bcff;">+</span> <span style="color: #00bcff;">1</span> <span style="color: #00bcff;">:=</span> <span style="color: #b6a0ff;">by</span>
+  exact &#10216;x <span style="color: #00bcff;">+</span> <span style="color: #00bcff;">1</span>, rfl&#10217;
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org6172ff1" class="outline-2">
+<h2 id="org6172ff1"><span class="section-number-2">6.</span> Tactical Interpretation (Programming View)</h2>
+<div class="outline-text-2" id="text-6">
+<table>
+
+
+<colgroup>
+<col  class="org-left">
+
+<col  class="org-left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Tactic</th>
+<th scope="col" class="org-left">Programming Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">intro</td>
+<td class="org-left">function argument</td>
+</tr>
+
+<tr>
+<td class="org-left">intros</td>
+<td class="org-left">introduce multiple function arguments</td>
+</tr>
+
+<tr>
+<td class="org-left">cases</td>
+<td class="org-left">pattern match</td>
+</tr>
+
+<tr>
+<td class="org-left">induction</td>
+<td class="org-left">recursive pattern match</td>
+</tr>
+
+<tr>
+<td class="org-left">use</td>
+<td class="org-left">construct existential witness</td>
+</tr>
+
+<tr>
+<td class="org-left">constructor</td>
+<td class="org-left">build pair / struct fields</td>
+</tr>
+
+<tr>
+<td class="org-left">left/right</td>
+<td class="org-left">choose union branch</td>
+</tr>
+
+<tr>
+<td class="org-left">exact</td>
+<td class="org-left">return value</td>
+</tr>
+
+<tr>
+<td class="org-left">apply</td>
+<td class="org-left">call function backward from goal</td>
+</tr>
+
+<tr>
+<td class="org-left">have</td>
+<td class="org-left">local let-binding / intermediate value</td>
+</tr>
+
+<tr>
+<td class="org-left">specialize</td>
+<td class="org-left">call a universal hypothesis with arguments</td>
+</tr>
+
+<tr>
+<td class="org-left">rw</td>
+<td class="org-left">substitution</td>
+</tr>
+
+<tr>
+<td class="org-left">simp</td>
+<td class="org-left">simplify / normalize</td>
+</tr>
+
+<tr>
+<td class="org-left">rfl</td>
+<td class="org-left">trivial equality</td>
+</tr>
+
+<tr>
+<td class="org-left">assumption</td>
+<td class="org-left">return matching value from context</td>
+</tr>
+
+<tr>
+<td class="org-left">contradiction</td>
+<td class="org-left">close impossible branch</td>
+</tr>
+
+<tr>
+<td class="org-left">by<sub>cases</sub></td>
+<td class="org-left">branch on a proposition</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgc1c3df6" class="outline-2">
+<h2 id="orgc1c3df6"><span class="section-number-2">7.</span> Follow up</h2>
+<div class="outline-text-2" id="text-7">
+<ol class="org-ol">
+<li>Study <code>Classical reasoning</code> and <code>Automation / search</code></li>
+<li>Learn how much custom tactic code is useful in practice</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org0e55abf" class="outline-2">
+<h2 id="org0e55abf"><span class="section-number-2">8.</span> Appendix: My First Step Toward Understanding Tactic Proofs</h2>
+<div class="outline-text-2" id="text-8">
+<pre class="example" id="org1cd00ab">
+example (P Q R : Prop) :
+  (P ∨ Q) ∧ (P → R) ∧ (Q → R) → R := by
+  -- ?
+</pre>
+
+<blockquote>
+<p>
+I think I can now understand this kind of proof quiz.
+No matter which similar quiz I see, I can first read it as a mathematical description.
+The important part is understanding the concept; choosing the exact tactic is more like an implementation detail.
+</p>
+
+<p>
+For this specific quiz, we can use <code>cases</code> to open the hypothesis.
+That gives us sub-hypotheses to work with.
+For example, if one hypothesis has the shape <code>P ∨ Q</code>, we split it into two branches.
+In the first branch we get a proof of <code>P</code>, and in the second branch we get a proof of <code>Q</code>.
+Then we can apply the corresponding hypotheses, such as <code>P -&gt; R</code> or <code>Q -&gt; R</code>, to produce <code>R</code> in each branch.
+</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<hr/>
+<footer>
+  <div class="copyright">Copyright &copy; 2012-present Haisheng Wu</div>
+  <div class="generated">Created at 2026-05-16 with <a href="https://www.gnu.org/software/emacs/">Emacs</a> 30.2 (<a href="https://orgmode.org">Org</a> mode 9.8.4)</div>
+</footer>
+</div>
+</body>
+</html>
